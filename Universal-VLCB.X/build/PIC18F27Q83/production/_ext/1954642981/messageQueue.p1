@@ -1,18 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"56 ../../VLCBlib_PIC/messageQueue.c
-[; ;../../VLCBlib_PIC/messageQueue.c: 56: Qresult push(MessageQueue * q, Message * m) {
+"57 ../../VLCBlib_PIC/messageQueue.c
+[; ;../../VLCBlib_PIC/messageQueue.c: 57: Qresult push(MessageQueue * q, Message * m) {
 [c E22515 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
 [n E22515 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
-"97 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 97: typedef struct Message {
+"105 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 105: typedef struct Message {
 [s S3221 `uc 1 `E22515 1 `uc -> 7 `i ]
 [n S3221 Message len opc bytes ]
-"50 ../../VLCBlib_PIC/messageQueue.h
-[; ;../../VLCBlib_PIC/messageQueue.h: 50: typedef struct MessageQueue {
+"54 ../../VLCBlib_PIC/messageQueue.h
+[; ;../../VLCBlib_PIC/messageQueue.h: 54: typedef struct MessageQueue {
 [s S3228 `*S3221 1 `uc 1 `uc 1 `uc 1 ]
 [n S3228 MessageQueue messages readIndex writeIndex size ]
-"56 ../../VLCBlib_PIC/messageQueue.c
-[; ;../../VLCBlib_PIC/messageQueue.c: 56: Qresult push(MessageQueue * q, Message * m) {
+"57 ../../VLCBlib_PIC/messageQueue.c
+[; ;../../VLCBlib_PIC/messageQueue.c: 57: Qresult push(MessageQueue * q, Message * m) {
 [c E23036 0 1 .. ]
 [n E23036 Qresult QUEUE_FAIL QUEUE_SUCCESS  ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
@@ -3534,190 +3534,190 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"56 ../../VLCBlib_PIC/messageQueue.c
-[; ;../../VLCBlib_PIC/messageQueue.c: 56: Qresult push(MessageQueue * q, Message * m) {
+"57 ../../VLCBlib_PIC/messageQueue.c
+[; ;../../VLCBlib_PIC/messageQueue.c: 57: Qresult push(MessageQueue * q, Message * m) {
 [v _push `(E23036 ~T0 @X0 1 ef2`*S3228`*S3221 ]
 {
 [e :U _push ]
 [v _q `*S3228 ~T0 @X0 1 r1 ]
 [v _m `*S3221 ~T0 @X0 1 r2 ]
 [f ]
-"57
-[; ;../../VLCBlib_PIC/messageQueue.c: 57:     if (((q->writeIndex+1)&((q->size)-1)) == q->readIndex) return QUEUE_FAIL;
+"58
+[; ;../../VLCBlib_PIC/messageQueue.c: 58:     if (((q->writeIndex+1)&((q->size)-1)) == q->readIndex) return QUEUE_FAIL;
 [e $ ! == & + -> . *U _q 2 `i -> 1 `i - -> . *U _q 3 `i -> 1 `i -> . *U _q 1 `i 3230  ]
 [e ) . `E23036 0 ]
 [e $UE 3229  ]
 [e :U 3230 ]
-"58
-[; ;../../VLCBlib_PIC/messageQueue.c: 58:     (q->messages[q->writeIndex]).opc = m->opc;
-[e = . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 1 . *U _m 1 ]
 "59
-[; ;../../VLCBlib_PIC/messageQueue.c: 59:     (q->messages[q->writeIndex]).bytes[0] = m->bytes[0];
-[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/messageQueue.c: 59:     (q->messages[q->writeIndex]).opc = m->opc;
+[e = . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 1 . *U _m 1 ]
 "60
-[; ;../../VLCBlib_PIC/messageQueue.c: 60:     (q->messages[q->writeIndex]).bytes[1] = m->bytes[1];
-[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/messageQueue.c: 60:     (q->messages[q->writeIndex]).bytes[0] = m->bytes[0];
+[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
 "61
-[; ;../../VLCBlib_PIC/messageQueue.c: 61:     (q->messages[q->writeIndex]).bytes[2] = m->bytes[2];
-[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/messageQueue.c: 61:     (q->messages[q->writeIndex]).bytes[1] = m->bytes[1];
+[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
 "62
-[; ;../../VLCBlib_PIC/messageQueue.c: 62:     (q->messages[q->writeIndex]).bytes[3] = m->bytes[3];
-[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/messageQueue.c: 62:     (q->messages[q->writeIndex]).bytes[2] = m->bytes[2];
+[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
 "63
-[; ;../../VLCBlib_PIC/messageQueue.c: 63:     (q->messages[q->writeIndex]).bytes[4] = m->bytes[4];
-[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/messageQueue.c: 63:     (q->messages[q->writeIndex]).bytes[3] = m->bytes[3];
+[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
 "64
-[; ;../../VLCBlib_PIC/messageQueue.c: 64:     (q->messages[q->writeIndex]).bytes[5] = m->bytes[5];
-[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/messageQueue.c: 64:     (q->messages[q->writeIndex]).bytes[4] = m->bytes[4];
+[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
 "65
-[; ;../../VLCBlib_PIC/messageQueue.c: 65:     (q->messages[q->writeIndex]).bytes[6] = m->bytes[6];
-[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/messageQueue.c: 65:     (q->messages[q->writeIndex]).bytes[5] = m->bytes[5];
+[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
 "66
-[; ;../../VLCBlib_PIC/messageQueue.c: 66:     (q->messages[q->writeIndex]).len = m->len;
-[e = . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 0 . *U _m 0 ]
+[; ;../../VLCBlib_PIC/messageQueue.c: 66:     (q->messages[q->writeIndex]).bytes[6] = m->bytes[6];
+[e = *U + &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
 "67
-[; ;../../VLCBlib_PIC/messageQueue.c: 67:     q->writeIndex++;
+[; ;../../VLCBlib_PIC/messageQueue.c: 67:     (q->messages[q->writeIndex]).len = m->len;
+[e = . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 0 . *U _m 0 ]
+"68
+[; ;../../VLCBlib_PIC/messageQueue.c: 68:     q->writeIndex++;
 [e ++ . *U _q 2 -> -> 1 `i `uc ]
-"69
-[; ;../../VLCBlib_PIC/messageQueue.c: 69:     if (q->writeIndex >= q->size) q->writeIndex = 0;
+"70
+[; ;../../VLCBlib_PIC/messageQueue.c: 70:     if (q->writeIndex >= q->size) q->writeIndex = 0;
 [e $ ! >= -> . *U _q 2 `i -> . *U _q 3 `i 3231  ]
 [e = . *U _q 2 -> -> 0 `i `uc ]
 [e :U 3231 ]
-"70
-[; ;../../VLCBlib_PIC/messageQueue.c: 70:     return QUEUE_SUCCESS;
+"71
+[; ;../../VLCBlib_PIC/messageQueue.c: 71:     return QUEUE_SUCCESS;
 [e ) . `E23036 1 ]
 [e $UE 3229  ]
-"71
-[; ;../../VLCBlib_PIC/messageQueue.c: 71: }
+"72
+[; ;../../VLCBlib_PIC/messageQueue.c: 72: }
 [e :UE 3229 ]
 }
-"78
-[; ;../../VLCBlib_PIC/messageQueue.c: 78: Message * getNextWriteMessage(MessageQueue * q) {
+"79
+[; ;../../VLCBlib_PIC/messageQueue.c: 79: Message * getNextWriteMessage(MessageQueue * q) {
 [v _getNextWriteMessage `(*S3221 ~T0 @X0 1 ef1`*S3228 ]
 {
 [e :U _getNextWriteMessage ]
 [v _q `*S3228 ~T0 @X0 1 r1 ]
 [f ]
-"79
-[; ;../../VLCBlib_PIC/messageQueue.c: 79:     uint8_t wr;
-[v _wr `uc ~T0 @X0 1 a ]
 "80
-[; ;../../VLCBlib_PIC/messageQueue.c: 80:     if (((q->writeIndex+1)&((q->size)-1)) == q->readIndex) return ((void*)0);
+[; ;../../VLCBlib_PIC/messageQueue.c: 80:     uint8_t wr;
+[v _wr `uc ~T0 @X0 1 a ]
+"81
+[; ;../../VLCBlib_PIC/messageQueue.c: 81:     if (((q->writeIndex+1)&((q->size)-1)) == q->readIndex) return ((void*)0);
 [e $ ! == & + -> . *U _q 2 `i -> 1 `i - -> . *U _q 3 `i -> 1 `i -> . *U _q 1 `i 3233  ]
 [e ) -> -> -> 0 `i `*v `*S3221 ]
 [e $UE 3232  ]
 [e :U 3233 ]
-"81
-[; ;../../VLCBlib_PIC/messageQueue.c: 81:     wr = q->writeIndex;
-[e = _wr . *U _q 2 ]
 "82
-[; ;../../VLCBlib_PIC/messageQueue.c: 82:     q->writeIndex++;
-[e ++ . *U _q 2 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/messageQueue.c: 82:     wr = q->writeIndex;
+[e = _wr . *U _q 2 ]
 "83
-[; ;../../VLCBlib_PIC/messageQueue.c: 83:     if (q->writeIndex >= q->size) q->writeIndex = 0;
+[; ;../../VLCBlib_PIC/messageQueue.c: 83:     q->writeIndex++;
+[e ++ . *U _q 2 -> -> 1 `i `uc ]
+"84
+[; ;../../VLCBlib_PIC/messageQueue.c: 84:     if (q->writeIndex >= q->size) q->writeIndex = 0;
 [e $ ! >= -> . *U _q 2 `i -> . *U _q 3 `i 3234  ]
 [e = . *U _q 2 -> -> 0 `i `uc ]
 [e :U 3234 ]
-"84
-[; ;../../VLCBlib_PIC/messageQueue.c: 84:     return &(q->messages[wr]);
+"85
+[; ;../../VLCBlib_PIC/messageQueue.c: 85:     return &(q->messages[wr]);
 [e ) &U *U + . *U _q 0 * -> _wr `ux -> -> # *U . *U _q 0 `ui `ux ]
 [e $UE 3232  ]
-"85
-[; ;../../VLCBlib_PIC/messageQueue.c: 85: }
+"86
+[; ;../../VLCBlib_PIC/messageQueue.c: 86: }
 [e :UE 3232 ]
 }
-"94
-[; ;../../VLCBlib_PIC/messageQueue.c: 94: Message * pop(MessageQueue * q) {
+"95
+[; ;../../VLCBlib_PIC/messageQueue.c: 95: Message * pop(MessageQueue * q) {
 [v _pop `(*S3221 ~T0 @X0 1 ef1`*S3228 ]
 {
 [e :U _pop ]
 [v _q `*S3228 ~T0 @X0 1 r1 ]
 [f ]
-"95
-[; ;../../VLCBlib_PIC/messageQueue.c: 95:     Message * ret;
-[v _ret `*S3221 ~T0 @X0 1 a ]
 "96
-[; ;../../VLCBlib_PIC/messageQueue.c: 96:  if (q->writeIndex == q->readIndex) {
+[; ;../../VLCBlib_PIC/messageQueue.c: 96:     Message * ret;
+[v _ret `*S3221 ~T0 @X0 1 a ]
+"97
+[; ;../../VLCBlib_PIC/messageQueue.c: 97:  if (q->writeIndex == q->readIndex) {
 [e $ ! == -> . *U _q 2 `i -> . *U _q 1 `i 3236  ]
 {
-"97
-[; ;../../VLCBlib_PIC/messageQueue.c: 97:         return ((void*)0);
+"98
+[; ;../../VLCBlib_PIC/messageQueue.c: 98:         return ((void*)0);
 [e ) -> -> -> 0 `i `*v `*S3221 ]
 [e $UE 3235  ]
-"98
-[; ;../../VLCBlib_PIC/messageQueue.c: 98:     }
+"99
+[; ;../../VLCBlib_PIC/messageQueue.c: 99:     }
 }
 [e :U 3236 ]
-"99
-[; ;../../VLCBlib_PIC/messageQueue.c: 99:  ret = &(q->messages[q->readIndex++]);
-[e = _ret &U *U + . *U _q 0 * -> ++ . *U _q 1 -> -> 1 `i `uc `ux -> -> # *U . *U _q 0 `ui `ux ]
 "100
-[; ;../../VLCBlib_PIC/messageQueue.c: 100:  if (q->readIndex >= q->size) q->readIndex = 0;
+[; ;../../VLCBlib_PIC/messageQueue.c: 100:  ret = &(q->messages[q->readIndex++]);
+[e = _ret &U *U + . *U _q 0 * -> ++ . *U _q 1 -> -> 1 `i `uc `ux -> -> # *U . *U _q 0 `ui `ux ]
+"101
+[; ;../../VLCBlib_PIC/messageQueue.c: 101:  if (q->readIndex >= q->size) q->readIndex = 0;
 [e $ ! >= -> . *U _q 1 `i -> . *U _q 3 `i 3237  ]
 [e = . *U _q 1 -> -> 0 `i `uc ]
 [e :U 3237 ]
-"101
-[; ;../../VLCBlib_PIC/messageQueue.c: 101:  return ret;
+"102
+[; ;../../VLCBlib_PIC/messageQueue.c: 102:  return ret;
 [e ) _ret ]
 [e $UE 3235  ]
-"102
-[; ;../../VLCBlib_PIC/messageQueue.c: 102: }
+"103
+[; ;../../VLCBlib_PIC/messageQueue.c: 103: }
 [e :UE 3235 ]
 }
-"111
-[; ;../../VLCBlib_PIC/messageQueue.c: 111: Message * peek(MessageQueue * q, uint8_t index) {
+"112
+[; ;../../VLCBlib_PIC/messageQueue.c: 112: Message * peek(MessageQueue * q, uint8_t index) {
 [v _peek `(*S3221 ~T0 @X0 1 ef2`*S3228`uc ]
 {
 [e :U _peek ]
 [v _q `*S3228 ~T0 @X0 1 r1 ]
 [v _index `uc ~T0 @X0 1 r2 ]
 [f ]
-"112
-[; ;../../VLCBlib_PIC/messageQueue.c: 112:     if (q->readIndex == q->writeIndex) return ((void*)0);
+"113
+[; ;../../VLCBlib_PIC/messageQueue.c: 113:     if (q->readIndex == q->writeIndex) return ((void*)0);
 [e $ ! == -> . *U _q 1 `i -> . *U _q 2 `i 3239  ]
 [e ) -> -> -> 0 `i `*v `*S3221 ]
 [e $UE 3238  ]
 [e :U 3239 ]
-"113
-[; ;../../VLCBlib_PIC/messageQueue.c: 113:     index += q->readIndex;
+"114
+[; ;../../VLCBlib_PIC/messageQueue.c: 114:     index += q->readIndex;
 [e =+ _index -> . *U _q 1 `uc ]
-"115
-[; ;../../VLCBlib_PIC/messageQueue.c: 115:     if (index >= q->size) {
+"116
+[; ;../../VLCBlib_PIC/messageQueue.c: 116:     if (index >= q->size) {
 [e $ ! >= -> _index `i -> . *U _q 3 `i 3240  ]
 {
-"116
-[; ;../../VLCBlib_PIC/messageQueue.c: 116:         index -= q->size;
-[e =- _index -> . *U _q 3 `uc ]
 "117
-[; ;../../VLCBlib_PIC/messageQueue.c: 117:     }
+[; ;../../VLCBlib_PIC/messageQueue.c: 117:         index -= q->size;
+[e =- _index -> . *U _q 3 `uc ]
+"118
+[; ;../../VLCBlib_PIC/messageQueue.c: 118:     }
 }
 [e :U 3240 ]
-"118
-[; ;../../VLCBlib_PIC/messageQueue.c: 118:     if (index == q->writeIndex) return ((void*)0);
+"119
+[; ;../../VLCBlib_PIC/messageQueue.c: 119:     if (index == q->writeIndex) return ((void*)0);
 [e $ ! == -> _index `i -> . *U _q 2 `i 3241  ]
 [e ) -> -> -> 0 `i `*v `*S3221 ]
 [e $UE 3238  ]
 [e :U 3241 ]
-"119
-[; ;../../VLCBlib_PIC/messageQueue.c: 119:     return &(q->messages[index]);
+"120
+[; ;../../VLCBlib_PIC/messageQueue.c: 120:     return &(q->messages[index]);
 [e ) &U *U + . *U _q 0 * -> _index `ux -> -> # *U . *U _q 0 `ui `ux ]
 [e $UE 3238  ]
-"120
-[; ;../../VLCBlib_PIC/messageQueue.c: 120: }
+"121
+[; ;../../VLCBlib_PIC/messageQueue.c: 121: }
 [e :UE 3238 ]
 }
-"128
-[; ;../../VLCBlib_PIC/messageQueue.c: 128: uint8_t quantity(MessageQueue * q) {
+"129
+[; ;../../VLCBlib_PIC/messageQueue.c: 129: uint8_t quantity(MessageQueue * q) {
 [v _quantity `(uc ~T0 @X0 1 ef1`*S3228 ]
 {
 [e :U _quantity ]
 [v _q `*S3228 ~T0 @X0 1 r1 ]
 [f ]
-"129
-[; ;../../VLCBlib_PIC/messageQueue.c: 129:     return (q->writeIndex - q->readIndex) & (q->size -1);
+"130
+[; ;../../VLCBlib_PIC/messageQueue.c: 130:     return (q->writeIndex - q->readIndex) & (q->size -1);
 [e ) -> & - -> . *U _q 2 `i -> . *U _q 1 `i - -> . *U _q 3 `i -> 1 `i `uc ]
 [e $UE 3242  ]
-"130
-[; ;../../VLCBlib_PIC/messageQueue.c: 130: }
+"131
+[; ;../../VLCBlib_PIC/messageQueue.c: 131: }
 [e :UE 3242 ]
 }

@@ -53,10 +53,10 @@ extern int speed[NUM_IO];
 extern void startServos(void);
 extern void initServos(void);
 extern void pollServos(void);
+#if defined(_18F66K80_FAMILY_)
 extern void timer1DoneInterruptHandler(void);
-extern void timer2DoneInterruptHandler(void);
 extern void timer3DoneInterruptHandler(void);
-extern void timer4DoneInterruptHandler(void);
+#endif
 
 extern void setServoState(uint8_t io, Action action);
 extern void setBounceState(uint8_t io, Action action);
@@ -68,7 +68,7 @@ extern void startServoOutput(uint8_t io, Action action);
 extern void startBounceOutput(uint8_t io, Action action);
 extern void startMultiOutput(uint8_t io, Action action);
 
-extern uint8_t isNoServoPulses(void);
+extern Boolean isNoServoPulses(void);
 
 #define PIVOT                   234     // the value at which we switch from steps per poll to polls per step
 

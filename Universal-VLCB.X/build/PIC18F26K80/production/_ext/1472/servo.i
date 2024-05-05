@@ -1,4 +1,4 @@
-# 1 "../universalEvents.c"
+# 1 "../servo.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,32 +6,16 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../universalEvents.c" 2
-# 55 "../universalEvents.c"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 1 3
+# 1 "../servo.c" 2
+# 58 "../servo.c"
+# 1 "../module.h" 1
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 2 3
-# 19 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
-# 128 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
-# 138 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef int ptrdiff_t;
-# 174 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 210 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
-# 20 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 2 3
-# 55 "../universalEvents.c" 2
-
-
-# 1 "../../VLCBlib_PIC\\vlcb.h" 1
-# 37 "../../VLCBlib_PIC\\vlcb.h"
+# 1 "../../VLCBlib_PIC\\nv.h" 1
+# 42 "../../VLCBlib_PIC\\nv.h"
+# 1 "../../VLCBlib_PIC/vlcb.h" 1
+# 37 "../../VLCBlib_PIC/vlcb.h"
 # 1 "../../VLCB-defs\\vlcbdefs_enums.h" 1
 # 15 "../../VLCB-defs\\vlcbdefs_enums.h"
 typedef enum VlcbManufacturer
@@ -695,7 +679,7 @@ typedef enum VlcbCanHardware
   CAN_HW_SAM3X8E = 0x06,
   CAN_HW_PICO_PIO = 0x07,
 } VlcbCanHardware;
-# 37 "../../VLCBlib_PIC\\vlcb.h" 2
+# 37 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
 # 49 "../../VLCBlib_PIC/nvm.h"
@@ -712,11 +696,28 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
+
+
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\features.h" 1 3
 # 11 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int wchar_t;
+# 128 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned size_t;
+# 174 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __uint24 uint24_t;
 # 22 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
 
 int atoi (const char *);
@@ -20873,8 +20874,8 @@ extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 38 "../../VLCBlib_PIC\\vlcb.h" 2
-# 77 "../../VLCBlib_PIC\\vlcb.h"
+# 38 "../../VLCBlib_PIC/vlcb.h" 2
+# 77 "../../VLCBlib_PIC/vlcb.h"
 typedef enum Priority {
     pLOW=0,
     pNORMAL=1,
@@ -20928,7 +20929,7 @@ typedef enum {
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 140 "../../VLCBlib_PIC\\vlcb.h"
+# 140 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -20959,7 +20960,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 180 "../../VLCBlib_PIC\\vlcb.h"
+# 180 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -21002,17 +21003,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 230 "../../VLCBlib_PIC\\vlcb.h"
+# 230 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 240 "../../VLCBlib_PIC\\vlcb.h"
+# 240 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 251 "../../VLCBlib_PIC\\vlcb.h"
+# 251 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 263 "../../VLCBlib_PIC\\vlcb.h"
+# 263 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 276 "../../VLCBlib_PIC\\vlcb.h"
+# 276 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 289 "../../VLCBlib_PIC\\vlcb.h"
+# 289 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -21068,9 +21069,9 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 375 "../../VLCBlib_PIC\\vlcb.h"
+# 375 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 385 "../../VLCBlib_PIC\\vlcb.h"
+# 385 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
 
 
@@ -21098,18 +21099,11 @@ typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
 } Transport;
-# 420 "../../VLCBlib_PIC\\vlcb.h"
+# 420 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 433 "../../VLCBlib_PIC\\vlcb.h"
+# 433 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 57 "../universalEvents.c" 2
-
-
-# 1 "../module.h" 1
-
-
-
-# 1 "../../VLCBlib_PIC\\nv.h" 1
+# 42 "../../VLCBlib_PIC\\nv.h" 2
 # 86 "../../VLCBlib_PIC\\nv.h"
 extern const Service nvService;
 
@@ -21227,159 +21221,8 @@ extern void showStatus(StatusDisplay s);
 extern uint8_t APP_nvDefault(uint8_t index);
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
 extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue);
-# 59 "../universalEvents.c" 2
+# 58 "../servo.c" 2
 
-# 1 "../../VLCBlib_PIC\\event_producer.h" 1
-# 37 "../../VLCBlib_PIC\\event_producer.h"
-# 1 "../../VLCBlib_PIC/event_teach.h" 1
-# 98 "../../VLCBlib_PIC/event_teach.h"
-extern const Service eventTeachService;
-# 110 "../../VLCBlib_PIC/event_teach.h"
-extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
-
-extern Boolean validStart(uint8_t index);
-extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
-extern uint8_t getEVs(uint8_t tableIndex);
-extern uint8_t evs[20];
-extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
-extern uint16_t getNN(uint8_t tableIndex);
-extern uint16_t getEN(uint8_t tableIndex);
-extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
-extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, uint8_t forceOwnNN);
-
-extern void rebuildHashtable(void);
-extern uint8_t getHash(uint16_t nodeNumber, uint16_t eventNumber);
-
-extern void checkRemoveTableEntry(uint8_t tableIndex);
-
-
-
-
-
-typedef uint8_t Happening;
-
-
-
-
-
-
-
-typedef struct {
-    uint16_t NN;
-    uint16_t EN;
-} Event;
-
-
-
-
-
-typedef union
-{
-    struct
-    {
-        uint8_t eVsUsed:4;
-        uint8_t continued:1;
-        uint8_t continuation:1;
-        uint8_t forceOwnNN:1;
-        uint8_t freeEntry:1;
-    };
-    uint8_t asByte;
-} EventTableFlags;
-
-
-
-
-
-
-typedef struct {
-    EventTableFlags flags;
-    uint8_t next;
-    Event event;
-    uint8_t evs[10];
-} EventTable;
-# 37 "../../VLCBlib_PIC\\event_producer.h" 2
-# 76 "../../VLCBlib_PIC\\event_producer.h"
-extern const Service eventProducerService;
-
-
-extern uint8_t happening2Event[71 +1];
-
-
-
-
-
-
-extern Boolean sendProducedEvent(Happening h, EventState state);
-extern void deleteHappeningRange(Happening happening, uint8_t number);
-# 96 "../../VLCBlib_PIC\\event_producer.h"
-extern EventState APP_GetEventState(Happening h);
-# 60 "../universalEvents.c" 2
-
-# 1 "../../VLCBlib_PIC\\event_consumer.h" 1
-# 80 "../../VLCBlib_PIC\\event_consumer.h"
-extern const Service eventConsumerService;
-# 96 "../../VLCBlib_PIC\\event_consumer.h"
-typedef struct {
-
-    EventState state;
-    union {
-
-        uint8_t value;
-
-        uint8_t bytes[1];
-    } a;
-} ActionAndState;
-
-extern ActionAndState * popAction(void);
-extern Boolean pushAction(ActionAndState a);
-extern void deleteActionRange(uint8_t action, uint8_t number);
-
-
-
-
-
-
-extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
-# 61 "../universalEvents.c" 2
-
-# 1 "../../VLCBlib_PIC\\mns.h" 1
-# 111 "../../VLCBlib_PIC\\mns.h"
-extern const Service mnsService;
-# 126 "../../VLCBlib_PIC\\mns.h"
-extern Word nn;
-
-
-
-extern uint8_t mode_state;
-
-
-
-
-extern uint8_t mode_flags;
-
-
-
-
-extern DiagnosticVal mnsDiagnostics[6];
-
-extern void updateModuleErrorStatus(void);
-
-extern TickValue pbTimer;
-# 62 "../universalEvents.c" 2
-
-
-# 1 "../actionQueue.h" 1
-# 41 "../actionQueue.h"
-extern void actionQueueInit(void);
-extern Boolean pushTwoAction(ActionAndState a);
-extern ActionAndState * getTwoAction(void);
-extern void doneTwoAction(void);
-extern ActionAndState * popTwoAction(void);
-extern ActionAndState * peekTwoActionQueue(uint8_t index);
-extern void deleteTwoActionQueue(uint8_t index);
-extern void setExpeditedActions(void);
-extern void setNormalActions(void);
-# 64 "../universalEvents.c" 2
 
 # 1 "../universalNv.h" 1
 # 64 "../universalNv.h"
@@ -21451,9 +21294,77 @@ typedef struct {
 } ModuleNvDefs;
 
 extern void defaultNVs(uint8_t i, uint8_t type);
-# 65 "../universalEvents.c" 2
+# 60 "../servo.c" 2
 
 # 1 "../universalEvents.h" 1
+# 74 "../universalEvents.h"
+# 1 "../../VLCBlib_PIC\\event_teach.h" 1
+# 98 "../../VLCBlib_PIC\\event_teach.h"
+extern const Service eventTeachService;
+# 110 "../../VLCBlib_PIC\\event_teach.h"
+extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
+
+extern Boolean validStart(uint8_t index);
+extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
+extern uint8_t getEVs(uint8_t tableIndex);
+extern uint8_t evs[20];
+extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
+extern uint16_t getNN(uint8_t tableIndex);
+extern uint16_t getEN(uint8_t tableIndex);
+extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
+extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, uint8_t forceOwnNN);
+
+extern void rebuildHashtable(void);
+extern uint8_t getHash(uint16_t nodeNumber, uint16_t eventNumber);
+
+extern void checkRemoveTableEntry(uint8_t tableIndex);
+
+
+
+
+
+typedef uint8_t Happening;
+
+
+
+
+
+
+
+typedef struct {
+    uint16_t NN;
+    uint16_t EN;
+} Event;
+
+
+
+
+
+typedef union
+{
+    struct
+    {
+        uint8_t eVsUsed:4;
+        uint8_t continued:1;
+        uint8_t continuation:1;
+        uint8_t forceOwnNN:1;
+        uint8_t freeEntry:1;
+    };
+    uint8_t asByte;
+} EventTableFlags;
+
+
+
+
+
+
+typedef struct {
+    EventTableFlags flags;
+    uint8_t next;
+    Event event;
+    uint8_t evs[10];
+} EventTable;
+# 74 "../universalEvents.h" 2
 # 173 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
@@ -21466,10 +21377,98 @@ extern void processActions(void);
 extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
                                         Boolean can_send_on, Boolean can_send_off);
 extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-# 66 "../universalEvents.c" 2
+# 61 "../servo.c" 2
+
+# 1 "../config.h" 1
+# 47 "../config.h"
+typedef struct {
+    unsigned char pin;
+    char port;
+    unsigned char no;
+    unsigned char an;
+} Config;
+
+extern const Config configs[16];
+# 62 "../servo.c" 2
+
+
+
 
 # 1 "../universalEEPROM.h" 1
-# 67 "../universalEvents.c" 2
+# 66 "../servo.c" 2
+
+# 1 "../servo.h" 1
+# 38 "../servo.h"
+# 1 "../../VLCBlib_PIC\\event_consumer.h" 1
+# 80 "../../VLCBlib_PIC\\event_consumer.h"
+extern const Service eventConsumerService;
+# 96 "../../VLCBlib_PIC\\event_consumer.h"
+typedef struct {
+
+    EventState state;
+    union {
+
+        uint8_t value;
+
+        uint8_t bytes[1];
+    } a;
+} ActionAndState;
+
+extern ActionAndState * popAction(void);
+extern Boolean pushAction(ActionAndState a);
+extern void deleteActionRange(uint8_t action, uint8_t number);
+
+
+
+
+
+
+extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
+# 38 "../servo.h" 2
+
+
+typedef enum {
+    SS_OFF,
+    SS_STOPPED,
+    SS_MOVING,
+    SS_STARTING
+} ServoState;
+
+extern ServoState servoState[16];
+extern uint8_t currentPos[16];
+extern uint8_t targetPos[16];
+extern uint8_t stepsPerPollSpeed[16];
+extern int speed[16];
+
+extern void startServos(void);
+extern void initServos(void);
+extern void pollServos(void);
+
+extern void timer1DoneInterruptHandler(void);
+extern void timer3DoneInterruptHandler(void);
+
+
+extern void setServoState(uint8_t io, uint8_t action);
+extern void setBounceState(uint8_t io, uint8_t action);
+extern void setMultiState(uint8_t io, uint8_t action);
+
+extern void setServoPosition(uint8_t io, uint8_t pos);
+
+extern void startServoOutput(uint8_t io, uint8_t action);
+extern void startBounceOutput(uint8_t io, uint8_t action);
+extern void startMultiOutput(uint8_t io, uint8_t action);
+
+extern Boolean isNoServoPulses(void);
+# 67 "../servo.c" 2
+
+
+# 1 "../bounce.h" 1
+# 15 "../bounce.h"
+extern void initBounce(uint8_t io);
+extern Boolean bounceDown(uint8_t io);
+extern Boolean bounceUp(uint8_t io);
+# 69 "../servo.c" 2
+
 
 # 1 "../outputs.h" 1
 # 42 "../outputs.h"
@@ -21478,191 +21477,109 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
-# 68 "../universalEvents.c" 2
+# 71 "../servo.c" 2
+
+# 1 "../../VLCBlib_PIC\\event_producer.h" 1
+# 76 "../../VLCBlib_PIC\\event_producer.h"
+extern const Service eventProducerService;
 
 
-
-
-void clearEvents(uint8_t i);
-void doWait(uint16_t duration);
-Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off);
-Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-void doSOD(void);
-
-extern uint8_t outputState[16];
-extern uint8_t currentPos[16];
-
-static TickValue startWait;
-
-void universalEventsInit(void) {
-    startWait.val = 0;
-}
-
-
-
-
-void factoryResetGlobalEvents(void) {
-
-}
+extern uint8_t happening2Event[71 +1];
 
 
 
 
 
 
-
-void defaultEvents(uint8_t io, uint8_t type) {
-    uint16_t en = io+1;
-    clearEvents(io);
-
-
-    switch(type) {
-
-
-        case 3:
-             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
+extern Boolean sendProducedEvent(Happening h, EventState state);
+extern void deleteHappeningRange(Happening happening, uint8_t number);
+# 96 "../../VLCBlib_PIC\\event_producer.h"
+extern EventState APP_GetEventState(Happening h);
+# 72 "../servo.c" 2
+# 89 "../servo.c"
+void setupTimer1(uint8_t io);
+void setupTimer3(uint8_t io);
 
 
-        case 1:
-
-            addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
-
-
-            break;
-        case 0:
-
-            addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
-            break;
-
-        case 2:
-
-            addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-            addEvent(nn.word, 300+en, 0, ((8 + 4*(io))+1), TRUE);
-            addEvent(nn.word, 200+en, 0, ((8 + 4*(io))+2), TRUE);
-
-            addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
-            break;
+extern void setOutputPin(uint8_t io, Boolean state);
+extern TickValue lastServoStartTime;
 
 
-        case 4:
+#pragma udata servo_data
 
-            break;
-# 148 "../universalEvents.c"
-    }
-}
-# 163 "../universalEvents.c"
-uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
-    if ((evNum == 0) && (evVal != 0))
-    {
-# 178 "../universalEvents.c"
-    }
-    return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
-}
+ServoState servoState[16];
+uint8_t currentPos[16];
+uint8_t targetPos[16];
+uint8_t stepsPerPollSpeed[16];
+uint8_t pollsPerStepSpeed[16];
+uint8_t pollCount[16];
+int speed[16];
+uint8_t loopCount[16];
+# 117 "../servo.c"
+TickValue ticksWhenStopped[16];
 
+#pragma udata
 
+static uint8_t servoInBlock;
 
-
-
-
-
-void clearEvents(uint8_t io) {
-    deleteActionRange((8 + 5*(io)), 5);
-    deleteActionRange((8 + 5*(io)) | 0x80, 5);
-    deleteHappeningRange((8 + 4*(io)), 4);
-}
-
-
-
-
-
-
-void processActions(void) {
+void initServos(void) {
     uint8_t io;
+    for (io=0; io<16; io++) {
+
+        if (getNV((16 + 7*(io) + 1)) & 0x04) {
+
+            servoState[io] = SS_STOPPED;
+        } else {
+            servoState[io] = SS_OFF;
+        }
+        ticksWhenStopped[io].val = tickGet();
+        if (getNV((16 + 7*(io) + 1)) & 0x04) {
+            setOutputPosition(io, (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io), (uint8_t)getNV((16 + 7*(io) + 0)));
+        } else {
+            setOutputPosition(io, (uint8_t)getNV((16 + 7*(io) + 2)), (uint8_t)getNV((16 + 7*(io) + 0)));
+        }
+        stepsPerPollSpeed[io] = 0;
+    }
+
+
+
+    T1GCONbits.TMR1GE = 0;
+    T1CONbits.TMR1CS = 0;
+    T1CONbits.T1CKPS = 2;
+    T1CONbits.SOSCEN = 1;
+    T1CONbits.RD16 = 1;
+    PIE1bits.TMR1IE = 1;
+
+    T3GCONbits.TMR3GE = 0;
+    T3CONbits.TMR3CS = 0;
+    T3CONbits.T3CKPS = 2;
+    T3CONbits.SOSCEN = 1;
+    T3CONbits.RD16 = 1;
+    PIE2bits.TMR3IE = 1;
+# 175 "../servo.c"
+    servoInBlock = io -1;
+}
+
+
+
+
+
+void startServos(void) {
     uint8_t type;
-    ActionAndState * action = getTwoAction();
-    uint8_t ioAction;
-    uint8_t simultaneous;
-    uint8_t peekItem;
 
 
-    if (action->a.value == 0) {
-        doneTwoAction();
-        return;
+    servoInBlock++;
+    if (servoInBlock >= 8) {
+        servoInBlock = 0;
+        pollServos();
     }
-
-    if (action->a.value == 1) {
-
-        doSOD();
-        doneTwoAction();
-        return;
+    type = (uint8_t)getNV((16 + 7*(servoInBlock) + 0));
+    if ((type == 2) || (type == 3) || (type == 4)) {
+        if (servoState[servoInBlock] != SS_OFF) setupTimer1(servoInBlock);
     }
-    if (action->a.value == 2) {
-        doWait(5);
-        return;
-    }
-    if (action->a.value == 3) {
-        doWait(10);
-        return;
-    }
-    if (action->a.value == 4) {
-        doWait(20);
-        return;
-    }
-    if (action->a.value == 5) {
-        doWait(50);
-        return;
-    }
-    simultaneous = action->a.value & 0x80;
-    ioAction = action->a.value&0x7F;
-    if ((ioAction >= 8) && (ioAction < (8 + 5 * 16))) {
-
-
-        io = (((ioAction)-8)/5);
-        ioAction = (((ioAction)-8)%5);
-        type = (uint8_t)getNV((16 + 7*(io) + 0));
-
-
-        setOutputState(io, ioAction, type);
-        if (needsStarting(io, ioAction, type)) {
-            startOutput(io, ioAction, type);
-        }
-
-        peekItem = 1;
-        while (simultaneous) {
-            ActionAndState * nextAction;
-            uint8_t nextIo;
-            uint8_t nextType;
-
-            nextAction = peekTwoActionQueue(peekItem);
-
-            if (nextAction->a.value == 0) break;
-            simultaneous = nextAction->a.value & 0x80;
-            nextAction->a.value &= 0x7F;
-            nextIo = (((nextAction->a.value)-8)/5);
-            if (nextIo == io) {
-
-
-
-                break;
-            }
-            nextType = (uint8_t)getNV((16 + 7*(io) + 0));
-            setOutputState(nextIo, nextAction->a.value, nextType);
-            if (needsStarting(nextIo, nextAction->a.value, nextType)) {
-                startOutput(nextIo, nextAction->a.value, nextType);
-            }
-            if (completed(nextIo, nextAction, nextType)) {
-                deleteTwoActionQueue(peekItem);
-            }
-            peekItem++;
-        }
-
-        if (completed(io, action, type)) {
-            doneTwoAction();
-        }
-    } else {
-
-
-        doneTwoAction();
+    type = (uint8_t)getNV((16 + 7*(servoInBlock+8) + 0));
+    if ((type == 2) || (type == 3) || (type == 4)) {
+        if (servoState[servoInBlock+8] != SS_OFF) setupTimer3(servoInBlock+8);
     }
 }
 
@@ -21671,76 +21588,435 @@ void processActions(void) {
 
 
 
-void doWait(uint16_t duration) {
+void setupTimer1(uint8_t io) {
+    uint16_t ticks = 0xFFFF - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
+                (1400 + (uint16_t)36 * currentPos[io]) :
+                (3600 + (uint16_t)19 * currentPos[io]) );
 
-    if (startWait.val == 0) {
-        startWait.val = tickGet();
-        return;
-    } else {
+    TMR1 = - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
+                (1400 + 36 * currentPos[io]) :
+                (3600 + 19 * currentPos[io]) );
 
-        if (((tickGet() - startWait.val) > ((long)duration * (long)(62500/10)))) {
-            doneTwoAction();
-            startWait.val = 0;
-            return;
-        }
-    }
+
+
+
+
+    setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
+    T1CONbits.TMR1ON = 1;
 }
-# 319 "../universalEvents.c"
-Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
- EventState state_to_send = invert?!state:state;
- if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
-  return sendProducedEvent(happening, state_to_send);
- } else {
-  return TRUE;
- }
+void setupTimer3(uint8_t io) {
+    uint16_t ticks = 0xFFFF - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
+                (1400 + (uint16_t)36 * currentPos[io]) :
+                (3600 + (uint16_t)19 * currentPos[io]) );
+
+    TMR3 = - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
+                (1400 + 36 * currentPos[io]) :
+                (3600 + 19 * currentPos[io]) );
+
+
+
+
+
+    setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
+    T3CONbits.TMR3ON = 1;
 }
-# 335 "../universalEvents.c"
-Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
-    return sendProducedEvent(action, invert?!state:state);
+
+
+
+
+
+
+
+void timer1DoneInterruptHandler(void) {
+    T1CONbits.TMR1ON = 0;
+    setOutputPin(servoInBlock, (uint8_t)getNV((16 + 7*(servoInBlock) + 1)) & 0x20);
 }
-# 495 "../universalEvents.c"
-void doSOD(void) {
+
+void timer3DoneInterruptHandler(void) {
+    T3CONbits.TMR3ON = 0;
+    setOutputPin(servoInBlock+8, (uint8_t)getNV((16 + 7*(servoInBlock+8) + 1)) & 0x20);
+}
+# 294 "../servo.c"
+void pollServos(void) {
     uint8_t midway;
-    uint8_t state;
+    Boolean beforeMidway;
     uint8_t io;
+    uint8_t target;
 
-
-
-    for (io=0; io < 16; io++) {
-        uint8_t event_inverted = getNV((16 + 7*(io) + 1)) & 0x40;
-        switch(getNV((16 + 7*(io) + 0))) {
-            case 0:
-
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), outputState[io], event_inverted)) ;
-                break;
-            case 1:
-                state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state!=2, event_inverted));
-                break;
-
+    for (io=0; io<16; io++) {
+        switch (getNV((16 + 7*(io) + 0))) {
             case 2:
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 2)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
+                midway = ((uint8_t)getNV((16 + 7*(io) + 3)))/2 +
+                    ((uint8_t)getNV((16 + 7*(io) + 2)))/2;
+                beforeMidway=FALSE;
+                switch (servoState[io]) {
+                    case SS_STARTING:
+                        if (currentPos[io]==getNV((16 + 7*(io) + 2))) {
+                            sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+                        } else {
+                            sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        servoState[io] = SS_MOVING;
 
-                midway = (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2);
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] >= midway, event_inverted));
-                break;
+                    case SS_MOVING:
+                        if (targetPos[io] > currentPos[io]) {
+                            if (currentPos[io] < midway) {
+                                beforeMidway = TRUE;
+                            }
 
-            case 3:
-                state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state, event_inverted));
-                break;
+                            if (stepsPerPollSpeed[io]) {
+                                if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
+
+                                    currentPos[io] =255;
+                                } else {
+                                    currentPos[io] += stepsPerPollSpeed[io];
+                                }
+                            } else {
+                                pollCount[io]--;
+                                if (pollCount[io] == 0) {
+                                    currentPos[io]++;
+                                    pollCount[io] = pollsPerStepSpeed[io];
+                                }
+                            }
+
+                            if (currentPos[io] > targetPos[io]) {
+                                currentPos[io] = targetPos[io];
+                            }
+                            if ((currentPos[io] >= midway) && beforeMidway) {
 
 
-            case 4:
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] == getNV((16 + 7*(io) + 4)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 5)), event_inverted));
-                if (getNV((16 + 7*(io) + 2)) > 3) {
-                    while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+3), currentPos[io] == getNV((16 + 7*(io) + 6)), event_inverted));
+
+                                sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                        } else if (targetPos[io] < currentPos[io]) {
+                            if (currentPos[io] > midway) {
+                                beforeMidway = TRUE;
+                            }
+
+                            if (stepsPerPollSpeed[io]) {
+                                if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
+
+                                    currentPos[io] = 0;
+                                } else {
+                                    currentPos[io] -= stepsPerPollSpeed[io];
+                                }
+                            } else {
+                                pollCount[io]--;
+                                if (pollCount[io] == 0) {
+                                    currentPos[io]--;
+                                    pollCount[io] = pollsPerStepSpeed[io];
+                                }
+                            }
+
+                            if (currentPos[io] < targetPos[io]) {
+                                currentPos[io] = targetPos[io];
+                            }
+                            if ((currentPos[io] <= midway) && beforeMidway) {
+
+                                sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
+                            }
+                        }
+                        if (targetPos[io] == currentPos[io]) {
+                            servoState[io] = SS_STOPPED;
+                            ticksWhenStopped[io].val = tickGet();
+
+                            if (currentPos[io] == getNV((16 + 7*(io) + 2))) {
+                                sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            } else {
+                                sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                        }
+                        break;
+                    case SS_STOPPED:
+                    case SS_OFF:
+                        break;
                 }
                 break;
-# 545 "../universalEvents.c"
+            case 3:
+                switch (servoState[io]) {
+                    case SS_STARTING:
+                        initBounce(io);
+                        servoState[io] = SS_MOVING;
+                        loopCount[io] = 0;
+
+
+                    case SS_MOVING:
+                        loopCount[io]++;
+                        if (loopCount[io] >= 255) {
+                            servoState[io] = SS_STOPPED;
+                            ticksWhenStopped[io].val = tickGet();
+                            currentPos[io] = targetPos[io];
+                            sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                            break;
+                        }
+
+                        target = (uint8_t)getNV((16 + 7*(io) + 2));
+
+
+
+                        if (targetPos[io] == target) {
+                            if (bounceUp(io)) {
+                                servoState[io] = SS_STOPPED;
+                                ticksWhenStopped[io].val = tickGet();
+                                currentPos[io] = targetPos[io];
+                                sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                                writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                            }
+                        } else {
+                            if (bounceDown(io)) {
+                                servoState[io] = SS_STOPPED;
+                                ticksWhenStopped[io].val = tickGet();
+                                currentPos[io] = targetPos[io];
+                                sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+                                writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                            }
+                        }
+                        break;
+                    case SS_STOPPED:
+                    case SS_OFF:
+                        break;
+                }
+                break;
+            case 4:
+                switch (servoState[io]) {
+                    case SS_STARTING:
+                        if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
+                            sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
+                            sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
+                            sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
+                            sendProducedEvent(((8 + 4*(io))+3), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        servoState[io] = SS_MOVING;
+
+                    case SS_MOVING:
+                        if (targetPos[io] > currentPos[io]) {
+                            if (stepsPerPollSpeed[io]) {
+                                if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
+
+                                    currentPos[io] =255;
+                                } else {
+                                    currentPos[io] += stepsPerPollSpeed[io];
+                                }
+                            } else {
+                                pollCount[io]--;
+                                if (pollCount[io] == 0) {
+                                    currentPos[io]++;
+                                    pollCount[io] = pollsPerStepSpeed[io];
+                                }
+                            }
+                            if (currentPos[io] > targetPos[io]) {
+                                currentPos[io] = targetPos[io];
+                            }
+                        } else if (targetPos[io] < currentPos[io]) {
+
+                            if (stepsPerPollSpeed[io]) {
+                                if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
+
+                                    currentPos[io] = 0;
+                                } else {
+                                    currentPos[io] -= stepsPerPollSpeed[io];
+                                }
+                            } else {
+                                pollCount[io]--;
+                                if (pollCount[io] == 0) {
+                                    currentPos[io]--;
+                                    pollCount[io] = pollsPerStepSpeed[io];
+                                }
+                            }
+                            if (currentPos[io] < targetPos[io]) {
+                                currentPos[io] = targetPos[io];
+                            }
+                        }
+                        if (targetPos[io] == currentPos[io]) {
+                            servoState[io] = SS_STOPPED;
+                            ticksWhenStopped[io].val = tickGet();
+
+                            if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
+                                sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
+                                sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
+                                sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
+                                sendProducedEvent(((8 + 4*(io))+3), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                        }
+                        break;
+                    case SS_STOPPED:
+                    case SS_OFF:
+                        break;
+                }
+                break;
+        }
+        switch (servoState[io]) {
+            case SS_STARTING:
+            case SS_MOVING:
+                break;
+            case SS_STOPPED:
+
+
+                if (getNV((16 + 7*(io) + 1)) & 0x02) {
+                    if ((tickGet() - ticksWhenStopped[io].val) > 62500) {
+                        servoState[io] = SS_OFF;
+                    }
+                }
+                break;
+            case SS_OFF:
+
+
+
+                break;
         }
     }
+}
+# 548 "../servo.c"
+void startServoOutput(uint8_t io, uint8_t action) {
+    switch (action) {
+        case 2:
+            stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 5));
+            break;
+        case 1:
+            stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 4));
+            break;
+    }
+    if (stepsPerPollSpeed[io] > 234) {
+        stepsPerPollSpeed[io] -= 234;
+        pollsPerStepSpeed[io] = 0;
+    } else {
+        pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
+        pollCount[io] = 1;
+        stepsPerPollSpeed[io] = 0;
+    }
+    servoState[io] = SS_STARTING;
+}
+# 576 "../servo.c"
+void startBounceOutput(uint8_t io, uint8_t action) {
+    switch (action) {
+        case 2:
+            speed[io] = 0;
+            break;
+        case 1:
+            speed[io] = 12;
+            break;
+    }
+    servoState[io] = SS_STARTING;
+    loopCount[io] = 0;
+}
+
+
+
+
+
+
+void startMultiOutput(uint8_t io, uint8_t action) {
+
+    stepsPerPollSpeed[io] = (uint8_t)getNV(3);
+    if (stepsPerPollSpeed[io] > 234) {
+        stepsPerPollSpeed[io] -= 234;
+        pollsPerStepSpeed[io] = 0;
+    } else {
+        pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
+        pollCount[io] = 1;
+        stepsPerPollSpeed[io] = 0;
+    }
+    servoState[io] = SS_STARTING;
+}
+# 616 "../servo.c"
+void setServoState(uint8_t io, uint8_t action) {
+    switch (action) {
+        case 2:
+            if (getNV((16 + 7*(io) + 1)) & 0x01) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            } else {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+            }
+            break;
+        case 1:
+            if (getNV((16 + 7*(io) + 1)) & 0x01) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+            } else {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            }
+            break;
+    }
+}
+# 643 "../servo.c"
+void setBounceState(uint8_t io, uint8_t action) {
+    switch (action) {
+        case 2:
+            if (getNV((16 + 7*(io) + 1)) & 0x01) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+            } else {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            }
+            break;
+        case 1:
+            if (getNV((16 + 7*(io) + 1)) & 0x01) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            } else {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+            }
+            break;
+    }
+}
+
+
+
+
+
+
+void setMultiState(uint8_t io, uint8_t action) {
+    switch (action) {
+        case 0:
+            targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            break;
+        case 1:
+            targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 4));
+            break;
+        case 2:
+            if (getNV((16 + 7*(io) + 2)) >= 3) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 5));
+            }
+            break;
+        case 3:
+            if (getNV((16 + 7*(io) + 2)) >= 4) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 6));
+            }
+            break;
+    }
+}
+
+
+
+
+
+
+void setServoPosition(uint8_t io, uint8_t pos) {
+    targetPos[io] = pos;
+    currentPos[io] = pos;
+}
+
+
+
+
+
+
+
+Boolean isNoServoPulses(void){
+
+    if (T1CONbits.TMR1ON) return FALSE;
+    if (T3CONbits.TMR3ON) return FALSE;
+    return TRUE;
 }

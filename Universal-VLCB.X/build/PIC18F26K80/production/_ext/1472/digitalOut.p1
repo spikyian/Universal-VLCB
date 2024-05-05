@@ -3,8 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../digitalOut.c: 106:     Boolean pinState;
 [c E12700 0 1 .. ]
 [n E12700 Boolean FALSE TRUE  ]
-"106 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 106: extern int16_t getNV(uint8_t index);
+"110 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 110: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
 "76 ../digitalOut.c
 [; ;../digitalOut.c: 76: void setOutputPin(uint8_t io, Boolean state);
@@ -13,7 +13,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../digitalOut.c: 118:         writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)((eeprom_address_t)((0x3FF -8))-25)+io, state);
 [c E12209 0 1 .. ]
 [n E12209 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
-"160 ../../VLCBlib_PIC/nvm.h
+"169 ../../VLCBlib_PIC/nvm.h
 [v _writeNVM `(uc ~T0 @X0 0 ef3`E12209`um`uc ]
 "119 ../digitalOut.c
 [; ;../digitalOut.c: 119:         sendInvertedProducedEvent(((8 + 4*(io))+0), EVENT_ON,
@@ -22,8 +22,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "188 ../universalEvents.h
 [; ;../universalEvents.h: 188: extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
 [v _sendInvertedProducedEvent `(E12700 ~T0 @X0 0 ef5`uc`E12720`E12700`E12700`E12700 ]
-"85 ../../VLCBlib_PIC\event_producer.h
-[; ;../../VLCBlib_PIC\event_producer.h: 85: extern Boolean sendProducedEvent(Happening h, EventState state);
+"86 ../../VLCBlib_PIC\event_producer.h
+[; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
 [v _sendProducedEvent `(E12700 ~T0 @X0 0 ef2`uc`E12720 ]
 "30225 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 30225: extern volatile unsigned char LATA __attribute__((address(0xF89)));

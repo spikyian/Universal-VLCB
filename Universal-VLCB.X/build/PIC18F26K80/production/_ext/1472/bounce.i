@@ -1,4 +1,4 @@
-# 1 "../universalEvents.c"
+# 1 "../bounce.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,32 +6,16 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../universalEvents.c" 2
-# 55 "../universalEvents.c"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 1 3
+# 1 "../bounce.c" 2
+# 56 "../bounce.c"
+# 1 "../module.h" 1
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 2 3
-# 19 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
-# 128 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
-# 138 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef int ptrdiff_t;
-# 174 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 210 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
-# 20 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 2 3
-# 55 "../universalEvents.c" 2
-
-
-# 1 "../../VLCBlib_PIC\\vlcb.h" 1
-# 37 "../../VLCBlib_PIC\\vlcb.h"
+# 1 "../../VLCBlib_PIC\\nv.h" 1
+# 42 "../../VLCBlib_PIC\\nv.h"
+# 1 "../../VLCBlib_PIC/vlcb.h" 1
+# 37 "../../VLCBlib_PIC/vlcb.h"
 # 1 "../../VLCB-defs\\vlcbdefs_enums.h" 1
 # 15 "../../VLCB-defs\\vlcbdefs_enums.h"
 typedef enum VlcbManufacturer
@@ -695,7 +679,7 @@ typedef enum VlcbCanHardware
   CAN_HW_SAM3X8E = 0x06,
   CAN_HW_PICO_PIO = 0x07,
 } VlcbCanHardware;
-# 37 "../../VLCBlib_PIC\\vlcb.h" 2
+# 37 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
 # 49 "../../VLCBlib_PIC/nvm.h"
@@ -712,11 +696,28 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
+
+
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\features.h" 1 3
 # 11 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int wchar_t;
+# 128 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned size_t;
+# 174 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __uint24 uint24_t;
 # 22 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
 
 int atoi (const char *);
@@ -20873,8 +20874,8 @@ extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 38 "../../VLCBlib_PIC\\vlcb.h" 2
-# 77 "../../VLCBlib_PIC\\vlcb.h"
+# 38 "../../VLCBlib_PIC/vlcb.h" 2
+# 77 "../../VLCBlib_PIC/vlcb.h"
 typedef enum Priority {
     pLOW=0,
     pNORMAL=1,
@@ -20928,7 +20929,7 @@ typedef enum {
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 140 "../../VLCBlib_PIC\\vlcb.h"
+# 140 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -20959,7 +20960,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 180 "../../VLCBlib_PIC\\vlcb.h"
+# 180 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -21002,17 +21003,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 230 "../../VLCBlib_PIC\\vlcb.h"
+# 230 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 240 "../../VLCBlib_PIC\\vlcb.h"
+# 240 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 251 "../../VLCBlib_PIC\\vlcb.h"
+# 251 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 263 "../../VLCBlib_PIC\\vlcb.h"
+# 263 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 276 "../../VLCBlib_PIC\\vlcb.h"
+# 276 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 289 "../../VLCBlib_PIC\\vlcb.h"
+# 289 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -21068,9 +21069,9 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 375 "../../VLCBlib_PIC\\vlcb.h"
+# 375 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 385 "../../VLCBlib_PIC\\vlcb.h"
+# 385 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
 
 
@@ -21098,18 +21099,11 @@ typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
 } Transport;
-# 420 "../../VLCBlib_PIC\\vlcb.h"
+# 420 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 433 "../../VLCBlib_PIC\\vlcb.h"
+# 433 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 57 "../universalEvents.c" 2
-
-
-# 1 "../module.h" 1
-
-
-
-# 1 "../../VLCBlib_PIC\\nv.h" 1
+# 42 "../../VLCBlib_PIC\\nv.h" 2
 # 86 "../../VLCBlib_PIC\\nv.h"
 extern const Service nvService;
 
@@ -21227,159 +21221,9 @@ extern void showStatus(StatusDisplay s);
 extern uint8_t APP_nvDefault(uint8_t index);
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
 extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue);
-# 59 "../universalEvents.c" 2
-
-# 1 "../../VLCBlib_PIC\\event_producer.h" 1
-# 37 "../../VLCBlib_PIC\\event_producer.h"
-# 1 "../../VLCBlib_PIC/event_teach.h" 1
-# 98 "../../VLCBlib_PIC/event_teach.h"
-extern const Service eventTeachService;
-# 110 "../../VLCBlib_PIC/event_teach.h"
-extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
-
-extern Boolean validStart(uint8_t index);
-extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
-extern uint8_t getEVs(uint8_t tableIndex);
-extern uint8_t evs[20];
-extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
-extern uint16_t getNN(uint8_t tableIndex);
-extern uint16_t getEN(uint8_t tableIndex);
-extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
-extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, uint8_t forceOwnNN);
-
-extern void rebuildHashtable(void);
-extern uint8_t getHash(uint16_t nodeNumber, uint16_t eventNumber);
-
-extern void checkRemoveTableEntry(uint8_t tableIndex);
+# 56 "../bounce.c" 2
 
 
-
-
-
-typedef uint8_t Happening;
-
-
-
-
-
-
-
-typedef struct {
-    uint16_t NN;
-    uint16_t EN;
-} Event;
-
-
-
-
-
-typedef union
-{
-    struct
-    {
-        uint8_t eVsUsed:4;
-        uint8_t continued:1;
-        uint8_t continuation:1;
-        uint8_t forceOwnNN:1;
-        uint8_t freeEntry:1;
-    };
-    uint8_t asByte;
-} EventTableFlags;
-
-
-
-
-
-
-typedef struct {
-    EventTableFlags flags;
-    uint8_t next;
-    Event event;
-    uint8_t evs[10];
-} EventTable;
-# 37 "../../VLCBlib_PIC\\event_producer.h" 2
-# 76 "../../VLCBlib_PIC\\event_producer.h"
-extern const Service eventProducerService;
-
-
-extern uint8_t happening2Event[71 +1];
-
-
-
-
-
-
-extern Boolean sendProducedEvent(Happening h, EventState state);
-extern void deleteHappeningRange(Happening happening, uint8_t number);
-# 96 "../../VLCBlib_PIC\\event_producer.h"
-extern EventState APP_GetEventState(Happening h);
-# 60 "../universalEvents.c" 2
-
-# 1 "../../VLCBlib_PIC\\event_consumer.h" 1
-# 80 "../../VLCBlib_PIC\\event_consumer.h"
-extern const Service eventConsumerService;
-# 96 "../../VLCBlib_PIC\\event_consumer.h"
-typedef struct {
-
-    EventState state;
-    union {
-
-        uint8_t value;
-
-        uint8_t bytes[1];
-    } a;
-} ActionAndState;
-
-extern ActionAndState * popAction(void);
-extern Boolean pushAction(ActionAndState a);
-extern void deleteActionRange(uint8_t action, uint8_t number);
-
-
-
-
-
-
-extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
-# 61 "../universalEvents.c" 2
-
-# 1 "../../VLCBlib_PIC\\mns.h" 1
-# 111 "../../VLCBlib_PIC\\mns.h"
-extern const Service mnsService;
-# 126 "../../VLCBlib_PIC\\mns.h"
-extern Word nn;
-
-
-
-extern uint8_t mode_state;
-
-
-
-
-extern uint8_t mode_flags;
-
-
-
-
-extern DiagnosticVal mnsDiagnostics[6];
-
-extern void updateModuleErrorStatus(void);
-
-extern TickValue pbTimer;
-# 62 "../universalEvents.c" 2
-
-
-# 1 "../actionQueue.h" 1
-# 41 "../actionQueue.h"
-extern void actionQueueInit(void);
-extern Boolean pushTwoAction(ActionAndState a);
-extern ActionAndState * getTwoAction(void);
-extern void doneTwoAction(void);
-extern ActionAndState * popTwoAction(void);
-extern ActionAndState * peekTwoActionQueue(uint8_t index);
-extern void deleteTwoActionQueue(uint8_t index);
-extern void setExpeditedActions(void);
-extern void setNormalActions(void);
-# 64 "../universalEvents.c" 2
 
 # 1 "../universalNv.h" 1
 # 64 "../universalNv.h"
@@ -21451,296 +21295,191 @@ typedef struct {
 } ModuleNvDefs;
 
 extern void defaultNVs(uint8_t i, uint8_t type);
-# 65 "../universalEvents.c" 2
+# 59 "../bounce.c" 2
 
-# 1 "../universalEvents.h" 1
-# 173 "../universalEvents.h"
-extern void universalEventsInit(void);
-extern void factoryResetGlobalEvents(void);
-extern void defaultEvents(uint8_t i, uint8_t type);
-extern void clearEvents(uint8_t i);
-# 185 "../universalEvents.h"
-extern void processEvent(uint8_t eventIndex, uint8_t* message);
-extern void processActions(void);
+# 1 "../servo.h" 1
+# 38 "../servo.h"
+# 1 "../../VLCBlib_PIC\\event_consumer.h" 1
+# 80 "../../VLCBlib_PIC\\event_consumer.h"
+extern const Service eventConsumerService;
+# 96 "../../VLCBlib_PIC\\event_consumer.h"
+typedef struct {
 
-extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
-                                        Boolean can_send_on, Boolean can_send_off);
-extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-# 66 "../universalEvents.c" 2
+    EventState state;
+    union {
 
-# 1 "../universalEEPROM.h" 1
-# 67 "../universalEvents.c" 2
+        uint8_t value;
 
-# 1 "../outputs.h" 1
-# 42 "../outputs.h"
-extern Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type);
-extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
-extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
-extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
-extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
-# 68 "../universalEvents.c" 2
+        uint8_t bytes[1];
+    } a;
+} ActionAndState;
+
+extern ActionAndState * popAction(void);
+extern Boolean pushAction(ActionAndState a);
+extern void deleteActionRange(uint8_t action, uint8_t number);
 
 
 
 
-void clearEvents(uint8_t i);
-void doWait(uint16_t duration);
-Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off);
-Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-void doSOD(void);
 
-extern uint8_t outputState[16];
+
+extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
+# 38 "../servo.h" 2
+
+
+typedef enum {
+    SS_OFF,
+    SS_STOPPED,
+    SS_MOVING,
+    SS_STARTING
+} ServoState;
+
+extern ServoState servoState[16];
 extern uint8_t currentPos[16];
+extern uint8_t targetPos[16];
+extern uint8_t stepsPerPollSpeed[16];
+extern int speed[16];
 
-static TickValue startWait;
+extern void startServos(void);
+extern void initServos(void);
+extern void pollServos(void);
 
-void universalEventsInit(void) {
-    startWait.val = 0;
+extern void timer1DoneInterruptHandler(void);
+extern void timer3DoneInterruptHandler(void);
+
+
+extern void setServoState(uint8_t io, uint8_t action);
+extern void setBounceState(uint8_t io, uint8_t action);
+extern void setMultiState(uint8_t io, uint8_t action);
+
+extern void setServoPosition(uint8_t io, uint8_t pos);
+
+extern void startServoOutput(uint8_t io, uint8_t action);
+extern void startBounceOutput(uint8_t io, uint8_t action);
+extern void startMultiOutput(uint8_t io, uint8_t action);
+
+extern Boolean isNoServoPulses(void);
+# 60 "../bounce.c" 2
+
+
+extern ServoState servoState[16];
+extern uint8_t currentPos[16];
+extern uint8_t targetPos[16];
+extern int speed[16];
+# 75 "../bounce.c"
+typedef enum {
+    STATE_FIRST_PULL,
+    STATE_PAUSE,
+    STATE_SECOND_PULL,
+    STATE_DONE
+} BounceState;
+BounceState bounceState[16];
+
+
+
+
+
+
+
+void initBounce(uint8_t io) {
+    bounceState[io] = STATE_FIRST_PULL;
+    speed[io] = 0;
 }
+# 103 "../bounce.c"
+Boolean bounceDown(uint8_t io) {
+
+    if ((currentPos[io]>targetPos[io]+3) || (currentPos[io]<targetPos[io]-3) || (speed[io]>3) || (speed[io]<-3)) {
+        Boolean reversed = ((uint8_t)getNV((16 + 7*(io) + 3)) > (uint8_t)getNV((16 + 7*(io) + 2)));
+        int tmp;
+
+        if (! reversed) {
 
 
+            if (currentPos[io] < (uint8_t)getNV((16 + 7*(io) + 3)) + speed[io]/30) {
 
 
-void factoryResetGlobalEvents(void) {
+                speed[io] = (-speed[io]*getNV((16 + 7*(io) + 4)))/100;
 
-}
-
-
-
-
-
-
-
-void defaultEvents(uint8_t io, uint8_t type) {
-    uint16_t en = io+1;
-    clearEvents(io);
+                tmp = (uint8_t)getNV((16 + 7*(io) + 3)) -
+                    (currentPos[io] - (uint8_t)getNV((16 + 7*(io) + 3))) -
+                    (speed[io]/30);
+                currentPos[io] = (uint8_t)tmp;
+            } else {
 
 
-    switch(type) {
-
-
-        case 3:
-             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-
-
-        case 1:
-
-            addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
-
-
-            break;
-        case 0:
-
-            addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
-            break;
-
-        case 2:
-
-            addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-            addEvent(nn.word, 300+en, 0, ((8 + 4*(io))+1), TRUE);
-            addEvent(nn.word, 200+en, 0, ((8 + 4*(io))+2), TRUE);
-
-            addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
-            break;
-
-
-        case 4:
-
-            break;
-# 148 "../universalEvents.c"
-    }
-}
-# 163 "../universalEvents.c"
-uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
-    if ((evNum == 0) && (evVal != 0))
-    {
-# 178 "../universalEvents.c"
-    }
-    return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
-}
-
-
-
-
-
-
-
-void clearEvents(uint8_t io) {
-    deleteActionRange((8 + 5*(io)), 5);
-    deleteActionRange((8 + 5*(io)) | 0x80, 5);
-    deleteHappeningRange((8 + 4*(io)), 4);
-}
-
-
-
-
-
-
-void processActions(void) {
-    uint8_t io;
-    uint8_t type;
-    ActionAndState * action = getTwoAction();
-    uint8_t ioAction;
-    uint8_t simultaneous;
-    uint8_t peekItem;
-
-
-    if (action->a.value == 0) {
-        doneTwoAction();
-        return;
-    }
-
-    if (action->a.value == 1) {
-
-        doSOD();
-        doneTwoAction();
-        return;
-    }
-    if (action->a.value == 2) {
-        doWait(5);
-        return;
-    }
-    if (action->a.value == 3) {
-        doWait(10);
-        return;
-    }
-    if (action->a.value == 4) {
-        doWait(20);
-        return;
-    }
-    if (action->a.value == 5) {
-        doWait(50);
-        return;
-    }
-    simultaneous = action->a.value & 0x80;
-    ioAction = action->a.value&0x7F;
-    if ((ioAction >= 8) && (ioAction < (8 + 5 * 16))) {
-
-
-        io = (((ioAction)-8)/5);
-        ioAction = (((ioAction)-8)%5);
-        type = (uint8_t)getNV((16 + 7*(io) + 0));
-
-
-        setOutputState(io, ioAction, type);
-        if (needsStarting(io, ioAction, type)) {
-            startOutput(io, ioAction, type);
-        }
-
-        peekItem = 1;
-        while (simultaneous) {
-            ActionAndState * nextAction;
-            uint8_t nextIo;
-            uint8_t nextType;
-
-            nextAction = peekTwoActionQueue(peekItem);
-
-            if (nextAction->a.value == 0) break;
-            simultaneous = nextAction->a.value & 0x80;
-            nextAction->a.value &= 0x7F;
-            nextIo = (((nextAction->a.value)-8)/5);
-            if (nextIo == io) {
-
-
-
-                break;
+                speed[io] += 3;
+                currentPos[io] -= ((speed[io]/30)+1);
             }
-            nextType = (uint8_t)getNV((16 + 7*(io) + 0));
-            setOutputState(nextIo, nextAction->a.value, nextType);
-            if (needsStarting(nextIo, nextAction->a.value, nextType)) {
-                startOutput(nextIo, nextAction->a.value, nextType);
+        } else {
+
+
+            if (currentPos[io] > (uint8_t)getNV((16 + 7*(io) + 3)) - speed[io]/30) {
+
+
+                speed[io] = (-speed[io]*getNV((16 + 7*(io) + 4)))/100;
+
+                tmp = (uint8_t)getNV((16 + 7*(io) + 3)) +
+                    ((uint8_t)getNV((16 + 7*(io) + 3)) - currentPos[io]) +
+                    (speed[io]/30);
+                currentPos[io] = (uint8_t)tmp;
+            } else {
+
+
+                speed[io] += 3;
+                currentPos[io] += ((speed[io]/30)+1);
             }
-            if (completed(nextIo, nextAction, nextType)) {
-                deleteTwoActionQueue(peekItem);
-            }
-            peekItem++;
         }
 
-        if (completed(io, action, type)) {
-            doneTwoAction();
-        }
-    } else {
-
-
-        doneTwoAction();
+        return FALSE;
     }
+    return TRUE;
 }
-
-
-
-
-
-
-void doWait(uint16_t duration) {
-
-    if (startWait.val == 0) {
-        startWait.val = tickGet();
-        return;
-    } else {
-
-        if (((tickGet() - startWait.val) > ((long)duration * (long)(62500/10)))) {
-            doneTwoAction();
-            startWait.val = 0;
-            return;
-        }
-    }
-}
-# 319 "../universalEvents.c"
-Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
- EventState state_to_send = invert?!state:state;
- if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
-  return sendProducedEvent(happening, state_to_send);
- } else {
-  return TRUE;
- }
-}
-# 335 "../universalEvents.c"
-Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
-    return sendProducedEvent(action, invert?!state:state);
-}
-# 495 "../universalEvents.c"
-void doSOD(void) {
+# 161 "../bounce.c"
+Boolean bounceUp(uint8_t io) {
+    Boolean reversed = ((uint8_t)getNV((16 + 7*(io) + 3)) > (uint8_t)getNV((16 + 7*(io) + 2)));
     uint8_t midway;
-    uint8_t state;
-    uint8_t io;
+    switch(bounceState[io]) {
+    case STATE_FIRST_PULL:
 
-
-
-    for (io=0; io < 16; io++) {
-        uint8_t event_inverted = getNV((16 + 7*(io) + 1)) & 0x40;
-        switch(getNV((16 + 7*(io) + 0))) {
-            case 0:
-
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), outputState[io], event_inverted)) ;
-                break;
-            case 1:
-                state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state!=2, event_inverted));
-                break;
-
-            case 2:
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 2)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
-
-                midway = (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2);
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] >= midway, event_inverted));
-                break;
-
-            case 3:
-                state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state, event_inverted));
-                break;
-
-
-            case 4:
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] == getNV((16 + 7*(io) + 4)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 5)), event_inverted));
-                if (getNV((16 + 7*(io) + 2)) > 3) {
-                    while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+3), currentPos[io] == getNV((16 + 7*(io) + 6)), event_inverted));
-                }
-                break;
-# 545 "../universalEvents.c"
+        midway = ((uint8_t)getNV((16 + 7*(io) + 3)))/2 +
+                    ((uint8_t)getNV((16 + 7*(io) + 2)))/2;
+        if (reversed) {
+            currentPos[io] -= (uint8_t)getNV((16 + 7*(io) + 5));
+            if (currentPos[io] <= midway) {
+                bounceState[io] = STATE_PAUSE;
+                speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
+            }
+        } else {
+            currentPos[io] += (uint8_t)getNV((16 + 7*(io) + 5));
+            if (currentPos[io] >= midway) {
+                bounceState[io] = STATE_PAUSE;
+                speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
+            }
         }
+        break;
+    case STATE_PAUSE:
+
+        if (speed[io] == 0) bounceState[io] = STATE_SECOND_PULL;
+        speed[io]--;
+        break;
+    case STATE_SECOND_PULL:
+
+        if (reversed) {
+            currentPos[io] -= (uint8_t)getNV((16 + 7*(io) + 5));
+            if (currentPos[io]<=targetPos[io]-3) {
+                bounceState[io] = STATE_DONE;
+                return TRUE;
+            }
+        } else {
+            currentPos[io] += (uint8_t)getNV((16 + 7*(io) + 5));
+            if (currentPos[io]>=targetPos[io]-3) {
+                bounceState[io] = STATE_DONE;
+                return TRUE;
+            }
+        }
+        break;
+    case STATE_DONE:
+            break;
     }
+    return FALSE;
 }

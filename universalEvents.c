@@ -106,7 +106,7 @@ void defaultEvents(uint8_t io, uint8_t type) {
         
 #ifdef BOUNCE
         case TYPE_BOUNCE:
-             addEvent(nn, 100+en, 0, HAPPENING_IO_OUTPUT(io), TRUE);
+             addEvent(nn.word, 100+en, 0, HAPPENING_IO_OUTPUT(io), TRUE);
             // fall through
 #endif 
         case TYPE_OUTPUT:    
@@ -515,7 +515,7 @@ void doSOD(void) {
                 while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_SERVO_START(io), currentPos[io] == getNV(NV_IO_SERVO_START_POS(io)), event_inverted));
                 while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_SERVO_END(io), currentPos[io] == getNV(NV_IO_SERVO_END_POS(io)), event_inverted));
                 // send the last mid
-                midway = getNV(NV_IO_SERVO_END_POS(io))/2 + getNV(NV_IO_SERVO_START_POS(io))/2;
+                midway = (uint8_t)(getNV(NV_IO_SERVO_END_POS(io))/2 + getNV(NV_IO_SERVO_START_POS(io))/2);
                 while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_SERVO_MID(io), currentPos[io] >= midway, event_inverted));
                 break;
 #ifdef BOUNCE

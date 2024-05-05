@@ -40,6 +40,9 @@
 #include "module.h"
 #include "universalNv.h"
 #include "universalEEPROM.h"
+#ifdef SERVO
+#include "universalEvents.h"
+#endif
 #include "nvm.h"
 
 #include "servo.h"
@@ -236,7 +239,7 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
                             (oldValue & FLAG_SERVO_EXTENDED_TRAVEL) == 0) {
                         // The extended travel has just been set
                         // adjust current position to midway point so that the servo doesn't move much
-                        setServoPosition(io, getNV(NV_IO_SERVO_END_POS(io))/2 + getNV(NV_IO_SERVO_START_POS(io))/2);
+                        setServoPosition(io, (uint8_t)(getNV(NV_IO_SERVO_END_POS(io))/2 + getNV(NV_IO_SERVO_START_POS(io))/2));
                     }
                 }
                 break;
@@ -250,11 +253,11 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
                     setBounceState(io, ACTION_IO_2);
                     startBounceOutput(io, ACTION_IO_2);
                 } else if (index == NV_IO_FLAGS(io)) {
-                    if (((value && FLAG_SERVO_EXTENDED_TRAVEL) == FLAG_SERVO_EXTENDED_TRAVEL) &&
-                            (oldValue && FLAG_SERVO_EXTENDED_TRAVEL) == 0) {
+                    if (((value & FLAG_SERVO_EXTENDED_TRAVEL) == FLAG_SERVO_EXTENDED_TRAVEL) &&
+                            (oldValue & FLAG_SERVO_EXTENDED_TRAVEL) == 0) {
                         // The extended travel has just been set
                         // adjust current position to midway point so that the servo doesn't move much
-                        currentPos[io] = getNV(NV_IO_SERVO_END_POS(io))/2 + getNV(NV_IO_SERVO_START_POS(io))/2;
+                        currentPos[io] = (uint8_t)(getNV(NV_IO_SERVO_END_POS(io))/2 + getNV(NV_IO_SERVO_START_POS(io))/2);
                     }
                 }
                 break;
@@ -274,11 +277,11 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
                     setMultiState(io, ACTION_IO_4);
                     startMultiOutput(io, ACTION_IO_4);
                 } else if (index == NV_IO_FLAGS(io)) {
-                    if (((value && FLAG_SERVO_EXTENDED_TRAVEL) == FLAG_SERVO_EXTENDED_TRAVEL) &&
-                            ((oldValue && FLAG_SERVO_EXTENDED_TRAVEL) == 0)) {
+                    if (((value & FLAG_SERVO_EXTENDED_TRAVEL) == FLAG_SERVO_EXTENDED_TRAVEL) &&
+                            ((oldValue & FLAG_SERVO_EXTENDED_TRAVEL) == 0)) {
                         // The extended travel has just been set
                         // adjust current position to midway point so that the servo doesn't move much
-                        currentPos[io] = getNV(NV_IO_SERVO_END_POS(io))/2 + getNV(NV_IO_SERVO_START_POS(io))/2;
+                        currentPos[io] = (uint8_t)(getNV(NV_IO_SERVO_END_POS(io))/2 + getNV(NV_IO_SERVO_START_POS(io))/2);
                     }
                 }
                 break;

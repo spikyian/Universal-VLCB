@@ -1,38 +1,62 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"50 ../universalNv.c
-[; ;../universalNv.c: 50: extern void setType(uint8_t i, uint8_t type);
+"53 ../universalNv.c
+[; ;../universalNv.c: 53: extern void setType(uint8_t i, uint8_t type);
 [v _setType `(v ~T0 @X0 0 ef2`uc`uc ]
-"179 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 179: extern void setTimedResponseDelay(uint8_t delay);
+"192 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 192: extern void setTimedResponseDelay(uint8_t delay);
 [v _setTimedResponseDelay `(v ~T0 @X0 0 ef1`uc ]
 "58959 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 58959: extern volatile unsigned char WPUA __attribute__((address(0x401)));
 [v _WPUA `Vuc ~T0 @X0 0 e@1025 ]
 "47 ../config.h
 [; ;../config.h: 47: typedef struct {
-[s S3243 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S3243 . pin port no an ]
+[s S3247 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S3247 . pin port no an ]
 "54
 [; ;../config.h: 54: extern const Config configs[16];
-[v _configs `CS3243 ~T0 @X0 -> 0 `x e ]
+[v _configs `CS3247 ~T0 @X0 -> 0 `x e ]
 "59455 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 59455: extern volatile unsigned char WPUB __attribute__((address(0x409)));
 [v _WPUB `Vuc ~T0 @X0 0 e@1033 ]
 "59951
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 59951: extern volatile unsigned char WPUC __attribute__((address(0x411)));
 [v _WPUC `Vuc ~T0 @X0 0 e@1041 ]
-"106 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 106: extern int16_t getNV(uint8_t index);
+"61 ../servo.h
+[; ;../servo.h: 61: extern void setServoState(uint8_t io, uint8_t action);
+[v _setServoState `(v ~T0 @X0 0 ef2`uc`uc ]
+"67
+[; ;../servo.h: 67: extern void startServoOutput(uint8_t io, uint8_t action);
+[v _startServoOutput `(v ~T0 @X0 0 ef2`uc`uc ]
+"65
+[; ;../servo.h: 65: extern void setServoPosition(uint8_t io, uint8_t pos);
+[v _setServoPosition `(v ~T0 @X0 0 ef2`uc`uc ]
+"110 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 110: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
-"295 ../universalNv.c
-[; ;../universalNv.c: 295: NvValidation APP_nvValidate(uint8_t index, uint8_t value) {
+"62 ../servo.h
+[; ;../servo.h: 62: extern void setBounceState(uint8_t io, uint8_t action);
+[v _setBounceState `(v ~T0 @X0 0 ef2`uc`uc ]
+"68
+[; ;../servo.h: 68: extern void startBounceOutput(uint8_t io, uint8_t action);
+[v _startBounceOutput `(v ~T0 @X0 0 ef2`uc`uc ]
+"48
+[; ;../servo.h: 48: extern uint8_t currentPos[16];
+[v _currentPos `uc ~T0 @X0 -> 0 `x e ]
+"63
+[; ;../servo.h: 63: extern void setMultiState(uint8_t io, uint8_t action);
+[v _setMultiState `(v ~T0 @X0 0 ef2`uc`uc ]
+"69
+[; ;../servo.h: 69: extern void startMultiOutput(uint8_t io, uint8_t action);
+[v _startMultiOutput `(v ~T0 @X0 0 ef2`uc`uc ]
+"298 ../universalNv.c
+[; ;../universalNv.c: 298: NvValidation APP_nvValidate(uint8_t index, uint8_t value) {
 [c E23031 0 1 .. ]
 [n E23031 NvValidation INVALID VALID  ]
-"107 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 107: extern void saveNV(uint8_t index, uint8_t value);
+"111 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 111: extern void saveNV(uint8_t index, uint8_t value);
 [v _saveNV `(v ~T0 @X0 0 ef2`uc`uc ]
-"109
-[; ;../../VLCBlib_PIC\nv.h: 109: extern void loadNvCache(void);
+"116
+[; ;../../VLCBlib_PIC\nv.h: 116: extern void loadNvCache(void);
 [v _loadNvCache `(v ~T0 @X0 0 ef ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");
@@ -3553,10 +3577,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-[v F23244 `Cuc ~T0 @X0 -> 7 `i t ]
-"55 ../universalNv.c
-[; ;../universalNv.c: 55: static const uint8_t channelDefaultNVs[11][7] = {
-[v _channelDefaultNVs `F23244 ~T0 @X0 -> 11 `i s ]
+[v F23320 `Cuc ~T0 @X0 -> 7 `i t ]
+"58 ../universalNv.c
+[; ;../universalNv.c: 58: static const uint8_t channelDefaultNVs[11][7] = {
+[v _channelDefaultNVs `F23320 ~T0 @X0 -> 11 `i s ]
 [i _channelDefaultNVs
 :U ..
 :U ..
@@ -3660,105 +3684,105 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"72
-[; ;../universalNv.c: 72: uint8_t APP_nvDefault(uint8_t index) {
+"75
+[; ;../universalNv.c: 75: uint8_t APP_nvDefault(uint8_t index) {
 [v _APP_nvDefault `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _APP_nvDefault ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"73
-[; ;../universalNv.c: 73:     if (index < 16) {
-[e $ ! < -> _index `i -> 16 `i 3246  ]
-{
-"75
-[; ;../universalNv.c: 75:         switch(index) {
-[e $U 3248  ]
-{
 "76
-[; ;../universalNv.c: 76:             case 1:
-[e :U 3249 ]
-"77
-[; ;../universalNv.c: 77:                 return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 3245  ]
+[; ;../universalNv.c: 76:     if (index < 16) {
+[e $ ! < -> _index `i -> 16 `i 3250  ]
+{
 "78
-[; ;../universalNv.c: 78:             case 2:
-[e :U 3250 ]
+[; ;../universalNv.c: 78:         switch(index) {
+[e $U 3252  ]
+{
 "79
-[; ;../universalNv.c: 79:                 return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 3245  ]
-"80
-[; ;../universalNv.c: 80:             case 3:
-[e :U 3251 ]
-"81
-[; ;../universalNv.c: 81:                 return 234;
-[e ) -> -> 234 `i `uc ]
-[e $UE 3245  ]
-"82
-[; ;../universalNv.c: 82:             case 4:
-[e :U 3252 ]
-"83
-[; ;../universalNv.c: 83:                 return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 3245  ]
-"84
-[; ;../universalNv.c: 84:             case 5:
+[; ;../universalNv.c: 79:             case 1:
 [e :U 3253 ]
-"85
-[; ;../universalNv.c: 85:                 return 5;
-[e ) -> -> 5 `i `uc ]
-[e $UE 3245  ]
-"86
-[; ;../universalNv.c: 86:             case 6:
-[e :U 3254 ]
-"87
-[; ;../universalNv.c: 87:             case 7:
-[e :U 3255 ]
-"88
-[; ;../universalNv.c: 88:             case 8:
-[e :U 3256 ]
-"89
-[; ;../universalNv.c: 89:                 return 0xFF;
-[e ) -> -> 255 `i `uc ]
-[e $UE 3245  ]
-"90
-[; ;../universalNv.c: 90:             default:
-[e :U 3257 ]
-"91
-[; ;../universalNv.c: 91:                 return 0;
+"80
+[; ;../universalNv.c: 80:                 return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 3245  ]
+[e $UE 3249  ]
+"81
+[; ;../universalNv.c: 81:             case 2:
+[e :U 3254 ]
+"82
+[; ;../universalNv.c: 82:                 return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 3249  ]
+"83
+[; ;../universalNv.c: 83:             case 3:
+[e :U 3255 ]
+"84
+[; ;../universalNv.c: 84:                 return 234;
+[e ) -> -> 234 `i `uc ]
+[e $UE 3249  ]
+"85
+[; ;../universalNv.c: 85:             case 4:
+[e :U 3256 ]
+"86
+[; ;../universalNv.c: 86:                 return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 3249  ]
+"87
+[; ;../universalNv.c: 87:             case 5:
+[e :U 3257 ]
+"88
+[; ;../universalNv.c: 88:                 return 5;
+[e ) -> -> 5 `i `uc ]
+[e $UE 3249  ]
+"89
+[; ;../universalNv.c: 89:             case 6:
+[e :U 3258 ]
+"90
+[; ;../universalNv.c: 90:             case 7:
+[e :U 3259 ]
+"91
+[; ;../universalNv.c: 91:             case 8:
+[e :U 3260 ]
 "92
-[; ;../universalNv.c: 92:         }
-}
-[e $U 3247  ]
-[e :U 3248 ]
-[e [\ _index , $ -> 1 `i 3249
- , $ -> 2 `i 3250
- , $ -> 3 `i 3251
- , $ -> 4 `i 3252
- , $ -> 5 `i 3253
- , $ -> 6 `i 3254
- , $ -> 7 `i 3255
- , $ -> 8 `i 3256
- 3257 ]
-[e :U 3247 ]
+[; ;../universalNv.c: 92:                 return 0xFF;
+[e ) -> -> 255 `i `uc ]
+[e $UE 3249  ]
 "93
-[; ;../universalNv.c: 93:     }
-}
-[e :U 3246 ]
+[; ;../universalNv.c: 93:             default:
+[e :U 3261 ]
+"94
+[; ;../universalNv.c: 94:                 return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 3249  ]
 "95
-[; ;../universalNv.c: 95:     return channelDefaultNVs[(((uint8_t)((index-16)/7)) < 8) ? 0 : 0][(index-16) % 7];
-[e ) *U + &U *U + &U _channelDefaultNVs * -> -> ? < -> -> / - -> _index `i -> 16 `i -> 7 `i `uc `i -> 8 `i : -> 0 `i -> 0 `i `ui `ux -> * -> # *U &U *U &U _channelDefaultNVs `ui -> -> 7 `i `ui `ux * -> -> % - -> _index `i -> 16 `i -> 7 `i `ui `ux -> -> # *U &U *U + &U _channelDefaultNVs * -> -> ? < -> -> / - -> _index `i -> 16 `i -> 7 `i `uc `i -> 8 `i : -> 0 `i -> 0 `i `ui `ux -> * -> # *U &U *U &U _channelDefaultNVs `ui -> -> 7 `i `ui `ux `ui `ux ]
-[e $UE 3245  ]
-"96
-[; ;../universalNv.c: 96: }
-[e :UE 3245 ]
+[; ;../universalNv.c: 95:         }
 }
-"101
-[; ;../universalNv.c: 101: void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
+[e $U 3251  ]
+[e :U 3252 ]
+[e [\ _index , $ -> 1 `i 3253
+ , $ -> 2 `i 3254
+ , $ -> 3 `i 3255
+ , $ -> 4 `i 3256
+ , $ -> 5 `i 3257
+ , $ -> 6 `i 3258
+ , $ -> 7 `i 3259
+ , $ -> 8 `i 3260
+ 3261 ]
+[e :U 3251 ]
+"96
+[; ;../universalNv.c: 96:     }
+}
+[e :U 3250 ]
+"98
+[; ;../universalNv.c: 98:     return channelDefaultNVs[(((uint8_t)((index-16)/7)) < 8) ? 0 : 0][(index-16) % 7];
+[e ) *U + &U *U + &U _channelDefaultNVs * -> -> ? < -> -> / - -> _index `i -> 16 `i -> 7 `i `uc `i -> 8 `i : -> 0 `i -> 0 `i `ui `ux -> * -> # *U &U *U &U _channelDefaultNVs `ui -> -> 7 `i `ui `ux * -> -> % - -> _index `i -> 16 `i -> 7 `i `ui `ux -> -> # *U &U *U + &U _channelDefaultNVs * -> -> ? < -> -> / - -> _index `i -> 16 `i -> 7 `i `uc `i -> 8 `i : -> 0 `i -> 0 `i `ui `ux -> * -> # *U &U *U &U _channelDefaultNVs `ui -> -> 7 `i `ui `ux `ui `ux ]
+[e $UE 3249  ]
+"99
+[; ;../universalNv.c: 99: }
+[e :UE 3249 ]
+}
+"104
+[; ;../universalNv.c: 104: void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
 [v _APP_nvValueChanged `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _APP_nvValueChanged ]
@@ -3766,457 +3790,674 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _value `uc ~T0 @X0 1 r2 ]
 [v _oldValue `uc ~T0 @X0 1 r3 ]
 [f ]
-"102
-[; ;../universalNv.c: 102:     uint8_t nv;
-[v _nv `uc ~T0 @X0 1 a ]
-"103
-[; ;../universalNv.c: 103:     uint8_t io;
-[v _io `uc ~T0 @X0 1 a ]
 "105
-[; ;../universalNv.c: 105:     if ((((index-16) % 7) == 0)) {
-[e $ ! == % - -> _index `i -> 16 `i -> 7 `i -> 0 `i 3259  ]
-{
-"107
-[; ;../universalNv.c: 107:         io = index-16;
-[e = _io -> - -> _index `i -> 16 `i `uc ]
+[; ;../universalNv.c: 105:     uint8_t nv;
+[v _nv `uc ~T0 @X0 1 a ]
+"106
+[; ;../universalNv.c: 106:     uint8_t io;
+[v _io `uc ~T0 @X0 1 a ]
 "108
-[; ;../universalNv.c: 108:         io /= 7;
-[e =/ _io -> 7 `i ]
-"109
-[; ;../universalNv.c: 109:         if (oldValue != value) {
-[e $ ! != -> _oldValue `i -> _value `i 3260  ]
+[; ;../universalNv.c: 108:     if ((((index-16) % 7) == 0)) {
+[e $ ! == % - -> _index `i -> 16 `i -> 7 `i -> 0 `i 3263  ]
 {
 "110
-[; ;../universalNv.c: 110:             setType(io, value);
-[e ( _setType (2 , _io _value ]
+[; ;../universalNv.c: 110:         io = index-16;
+[e = _io -> - -> _index `i -> 16 `i `uc ]
 "111
-[; ;../universalNv.c: 111:         }
-}
-[e :U 3260 ]
+[; ;../universalNv.c: 111:         io /= 7;
+[e =/ _io -> 7 `i ]
 "112
-[; ;../universalNv.c: 112:     }
-}
-[e :U 3259 ]
-"113
-[; ;../universalNv.c: 113:     if (index == 5) {
-[e $ ! == -> _index `i -> 5 `i 3261  ]
+[; ;../universalNv.c: 112:         if (oldValue != value) {
+[e $ ! != -> _oldValue `i -> _value `i 3264  ]
 {
+"113
+[; ;../universalNv.c: 113:             setType(io, value);
+[e ( _setType (2 , _io _value ]
 "114
-[; ;../universalNv.c: 114:         setTimedResponseDelay(value);
-[e ( _setTimedResponseDelay (1 _value ]
+[; ;../universalNv.c: 114:         }
+}
+[e :U 3264 ]
 "115
 [; ;../universalNv.c: 115:     }
 }
-[e :U 3261 ]
-"123
-[; ;../universalNv.c: 123:     if (index == 6) {
-[e $ ! == -> _index `i -> 6 `i 3262  ]
+[e :U 3263 ]
+"116
+[; ;../universalNv.c: 116:     if (index == 5) {
+[e $ ! == -> _index `i -> 5 `i 3265  ]
 {
-"124
-[; ;../universalNv.c: 124:         for (io=0; io<8; io++) {
+"117
+[; ;../universalNv.c: 117:         setTimedResponseDelay(value);
+[e ( _setTimedResponseDelay (1 _value ]
+"118
+[; ;../universalNv.c: 118:     }
+}
+[e :U 3265 ]
+"126
+[; ;../universalNv.c: 126:     if (index == 6) {
+[e $ ! == -> _index `i -> 6 `i 3266  ]
+{
+"127
+[; ;../universalNv.c: 127:         for (io=0; io<8; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 8 `i 3263  ]
-[e $U 3264  ]
-[e :U 3263 ]
-{
-"125
-[; ;../universalNv.c: 125:             switch (configs[io].port) {
-[e $U 3267  ]
-{
-"126
-[; ;../universalNv.c: 126:             case 'A':
-[e :U 3268 ]
-"127
-[; ;../universalNv.c: 127:                 if (value && (1 << io % 8))
-[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3269  ]
-"128
-[; ;../universalNv.c: 128:                     WPUA |= 1<<(configs[io].no);
-[e =| _WPUA -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e $U 3270  ]
-"129
-[; ;../universalNv.c: 129:                 else
-[e :U 3269 ]
-"130
-[; ;../universalNv.c: 130:                     WPUA &= ~(1<<(configs[io].no));
-[e =& _WPUA -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e :U 3270 ]
-"131
-[; ;../universalNv.c: 131:                 break;
-[e $U 3266  ]
-"132
-[; ;../universalNv.c: 132:             case 'B':
-[e :U 3271 ]
-"133
-[; ;../universalNv.c: 133:                 if (value && (1 << io % 8))
-[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3272  ]
-"134
-[; ;../universalNv.c: 134:                     WPUB |= 1<<(configs[io].no);
-[e =| _WPUB -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e $U 3273  ]
-"135
-[; ;../universalNv.c: 135:                 else
-[e :U 3272 ]
-"136
-[; ;../universalNv.c: 136:                     WPUB &= ~(1<<(configs[io].no));
-[e =& _WPUB -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e :U 3273 ]
-"137
-[; ;../universalNv.c: 137:                 break;
-[e $U 3266  ]
-"138
-[; ;../universalNv.c: 138:             case 'C':
-[e :U 3274 ]
-"139
-[; ;../universalNv.c: 139:                 if (value && (1 << io % 8))
-[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3275  ]
-"140
-[; ;../universalNv.c: 140:                     WPUC |= 1<<(configs[io].no);
-[e =| _WPUC -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e $U 3276  ]
-"141
-[; ;../universalNv.c: 141:                 else
-[e :U 3275 ]
-"142
-[; ;../universalNv.c: 142:                     WPUC &= ~(1<<(configs[io].no));
-[e =& _WPUC -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e :U 3276 ]
-"143
-[; ;../universalNv.c: 143:                 break;
-[e $U 3266  ]
-"144
-[; ;../universalNv.c: 144:             }
-}
-[e $U 3266  ]
+[e $ < -> _io `i -> 8 `i 3267  ]
+[e $U 3268  ]
 [e :U 3267 ]
-[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 3268
- , $ -> -> 66 `ui `i 3271
- , $ -> -> 67 `ui `i 3274
- 3266 ]
-[e :U 3266 ]
+{
+"128
+[; ;../universalNv.c: 128:             switch (configs[io].port) {
+[e $U 3271  ]
+{
+"129
+[; ;../universalNv.c: 129:             case 'A':
+[e :U 3272 ]
+"130
+[; ;../universalNv.c: 130:                 if (value && (1 << io % 8))
+[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3273  ]
+"131
+[; ;../universalNv.c: 131:                     WPUA |= 1<<(configs[io].no);
+[e =| _WPUA -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e $U 3274  ]
+"132
+[; ;../universalNv.c: 132:                 else
+[e :U 3273 ]
+"133
+[; ;../universalNv.c: 133:                     WPUA &= ~(1<<(configs[io].no));
+[e =& _WPUA -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e :U 3274 ]
+"134
+[; ;../universalNv.c: 134:                 break;
+[e $U 3270  ]
+"135
+[; ;../universalNv.c: 135:             case 'B':
+[e :U 3275 ]
+"136
+[; ;../universalNv.c: 136:                 if (value && (1 << io % 8))
+[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3276  ]
+"137
+[; ;../universalNv.c: 137:                     WPUB |= 1<<(configs[io].no);
+[e =| _WPUB -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e $U 3277  ]
+"138
+[; ;../universalNv.c: 138:                 else
+[e :U 3276 ]
+"139
+[; ;../universalNv.c: 139:                     WPUB &= ~(1<<(configs[io].no));
+[e =& _WPUB -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e :U 3277 ]
+"140
+[; ;../universalNv.c: 140:                 break;
+[e $U 3270  ]
+"141
+[; ;../universalNv.c: 141:             case 'C':
+[e :U 3278 ]
+"142
+[; ;../universalNv.c: 142:                 if (value && (1 << io % 8))
+[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3279  ]
+"143
+[; ;../universalNv.c: 143:                     WPUC |= 1<<(configs[io].no);
+[e =| _WPUC -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e $U 3280  ]
+"144
+[; ;../universalNv.c: 144:                 else
+[e :U 3279 ]
 "145
-[; ;../universalNv.c: 145:         }
+[; ;../universalNv.c: 145:                     WPUC &= ~(1<<(configs[io].no));
+[e =& _WPUC -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e :U 3280 ]
+"146
+[; ;../universalNv.c: 146:                 break;
+[e $U 3270  ]
+"147
+[; ;../universalNv.c: 147:             }
+}
+[e $U 3270  ]
+[e :U 3271 ]
+[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 3272
+ , $ -> -> 66 `ui `i 3275
+ , $ -> -> 67 `ui `i 3278
+ 3270 ]
+[e :U 3270 ]
+"148
+[; ;../universalNv.c: 148:         }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 8 `i 3263  ]
-[e :U 3264 ]
+[e $ < -> _io `i -> 8 `i 3267  ]
+[e :U 3268 ]
 }
-"146
-[; ;../universalNv.c: 146:     }
+"149
+[; ;../universalNv.c: 149:     }
 }
-[e :U 3262 ]
-"147
-[; ;../universalNv.c: 147:     if (index == 7) {
-[e $ ! == -> _index `i -> 7 `i 3277  ]
+[e :U 3266 ]
+"150
+[; ;../universalNv.c: 150:     if (index == 7) {
+[e $ ! == -> _index `i -> 7 `i 3281  ]
 {
-"148
-[; ;../universalNv.c: 148:         for (io=8; io<16; io++) {
+"151
+[; ;../universalNv.c: 151:         for (io=8; io<16; io++) {
 {
 [e = _io -> -> 8 `i `uc ]
-[e $ < -> _io `i -> 16 `i 3278  ]
-[e $U 3279  ]
-[e :U 3278 ]
-{
-"149
-[; ;../universalNv.c: 149:             switch (configs[io].port) {
-[e $U 3282  ]
-{
-"150
-[; ;../universalNv.c: 150:             case 'A':
-[e :U 3283 ]
-"151
-[; ;../universalNv.c: 151:                 if (value && (1 << io % 8))
-[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3284  ]
-"152
-[; ;../universalNv.c: 152:                     WPUA |= 1<<(configs[io].no);
-[e =| _WPUA -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e $U 3285  ]
-"153
-[; ;../universalNv.c: 153:                 else
-[e :U 3284 ]
-"154
-[; ;../universalNv.c: 154:                     WPUA &= ~(1<<(configs[io].no));
-[e =& _WPUA -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e :U 3285 ]
-"155
-[; ;../universalNv.c: 155:                 break;
-[e $U 3281  ]
-"156
-[; ;../universalNv.c: 156:             case 'B':
-[e :U 3286 ]
-"157
-[; ;../universalNv.c: 157:                 if (value && (1 << io % 8))
-[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3287  ]
-"158
-[; ;../universalNv.c: 158:                     WPUB |= 1<<(configs[io].no);
-[e =| _WPUB -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e $U 3288  ]
-"159
-[; ;../universalNv.c: 159:                 else
-[e :U 3287 ]
-"160
-[; ;../universalNv.c: 160:                     WPUB &= ~(1<<(configs[io].no));
-[e =& _WPUB -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e :U 3288 ]
-"161
-[; ;../universalNv.c: 161:                 break;
-[e $U 3281  ]
-"162
-[; ;../universalNv.c: 162:             case 'C':
-[e :U 3289 ]
-"163
-[; ;../universalNv.c: 163:                 if (value && (1 << io % 8))
-[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3290  ]
-"164
-[; ;../universalNv.c: 164:                     WPUC |= 1<<(configs[io].no);
-[e =| _WPUC -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e $U 3291  ]
-"165
-[; ;../universalNv.c: 165:                 else
-[e :U 3290 ]
-"166
-[; ;../universalNv.c: 166:                     WPUC &= ~(1<<(configs[io].no));
-[e =& _WPUC -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e :U 3291 ]
-"167
-[; ;../universalNv.c: 167:                 break;
-[e $U 3281  ]
-"168
-[; ;../universalNv.c: 168:             }
-}
-[e $U 3281  ]
+[e $ < -> _io `i -> 16 `i 3282  ]
+[e $U 3283  ]
 [e :U 3282 ]
-[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 3283
- , $ -> -> 66 `ui `i 3286
- , $ -> -> 67 `ui `i 3289
- 3281 ]
-[e :U 3281 ]
+{
+"152
+[; ;../universalNv.c: 152:             switch (configs[io].port) {
+[e $U 3286  ]
+{
+"153
+[; ;../universalNv.c: 153:             case 'A':
+[e :U 3287 ]
+"154
+[; ;../universalNv.c: 154:                 if (value && (1 << io % 8))
+[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3288  ]
+"155
+[; ;../universalNv.c: 155:                     WPUA |= 1<<(configs[io].no);
+[e =| _WPUA -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e $U 3289  ]
+"156
+[; ;../universalNv.c: 156:                 else
+[e :U 3288 ]
+"157
+[; ;../universalNv.c: 157:                     WPUA &= ~(1<<(configs[io].no));
+[e =& _WPUA -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e :U 3289 ]
+"158
+[; ;../universalNv.c: 158:                 break;
+[e $U 3285  ]
+"159
+[; ;../universalNv.c: 159:             case 'B':
+[e :U 3290 ]
+"160
+[; ;../universalNv.c: 160:                 if (value && (1 << io % 8))
+[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3291  ]
+"161
+[; ;../universalNv.c: 161:                     WPUB |= 1<<(configs[io].no);
+[e =| _WPUB -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e $U 3292  ]
+"162
+[; ;../universalNv.c: 162:                 else
+[e :U 3291 ]
+"163
+[; ;../universalNv.c: 163:                     WPUB &= ~(1<<(configs[io].no));
+[e =& _WPUB -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e :U 3292 ]
+"164
+[; ;../universalNv.c: 164:                 break;
+[e $U 3285  ]
+"165
+[; ;../universalNv.c: 165:             case 'C':
+[e :U 3293 ]
+"166
+[; ;../universalNv.c: 166:                 if (value && (1 << io % 8))
+[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3294  ]
+"167
+[; ;../universalNv.c: 167:                     WPUC |= 1<<(configs[io].no);
+[e =| _WPUC -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e $U 3295  ]
+"168
+[; ;../universalNv.c: 168:                 else
+[e :U 3294 ]
 "169
-[; ;../universalNv.c: 169:         }
+[; ;../universalNv.c: 169:                     WPUC &= ~(1<<(configs[io].no));
+[e =& _WPUC -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e :U 3295 ]
+"170
+[; ;../universalNv.c: 170:                 break;
+[e $U 3285  ]
+"171
+[; ;../universalNv.c: 171:             }
+}
+[e $U 3285  ]
+[e :U 3286 ]
+[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 3287
+ , $ -> -> 66 `ui `i 3290
+ , $ -> -> 67 `ui `i 3293
+ 3285 ]
+[e :U 3285 ]
+"172
+[; ;../universalNv.c: 172:         }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 3278  ]
-[e :U 3279 ]
+[e $ < -> _io `i -> 16 `i 3282  ]
+[e :U 3283 ]
 }
-"170
-[; ;../universalNv.c: 170:     }
+"173
+[; ;../universalNv.c: 173:     }
 }
-[e :U 3277 ]
-"171
-[; ;../universalNv.c: 171:     if (index == 8) {
-[e $ ! == -> _index `i -> 8 `i 3292  ]
+[e :U 3281 ]
+"174
+[; ;../universalNv.c: 174:     if (index == 8) {
+[e $ ! == -> _index `i -> 8 `i 3296  ]
 {
-"172
-[; ;../universalNv.c: 172:         for (io=16; io<24; io++) {
+"175
+[; ;../universalNv.c: 175:         for (io=16; io<24; io++) {
 {
 [e = _io -> -> 16 `i `uc ]
-[e $ < -> _io `i -> 24 `i 3293  ]
-[e $U 3294  ]
-[e :U 3293 ]
-{
-"173
-[; ;../universalNv.c: 173:             switch (configs[io].port) {
-[e $U 3297  ]
-{
-"174
-[; ;../universalNv.c: 174:             case 'A':
-[e :U 3298 ]
-"175
-[; ;../universalNv.c: 175:                 if (value && (1 << io % 8))
-[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3299  ]
-"176
-[; ;../universalNv.c: 176:                     WPUA |= 1<<(configs[io].no);
-[e =| _WPUA -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e $U 3300  ]
-"177
-[; ;../universalNv.c: 177:                 else
-[e :U 3299 ]
-"178
-[; ;../universalNv.c: 178:                     WPUA &= ~(1<<(configs[io].no));
-[e =& _WPUA -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e :U 3300 ]
-"179
-[; ;../universalNv.c: 179:                 break;
-[e $U 3296  ]
-"180
-[; ;../universalNv.c: 180:             case 'B':
-[e :U 3301 ]
-"181
-[; ;../universalNv.c: 181:                 if (value && (1 << io % 8))
-[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3302  ]
-"182
-[; ;../universalNv.c: 182:                     WPUB |= 1<<(configs[io].no);
-[e =| _WPUB -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e $U 3303  ]
-"183
-[; ;../universalNv.c: 183:                 else
-[e :U 3302 ]
-"184
-[; ;../universalNv.c: 184:                     WPUB &= ~(1<<(configs[io].no));
-[e =& _WPUB -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e :U 3303 ]
-"185
-[; ;../universalNv.c: 185:                 break;
-[e $U 3296  ]
-"186
-[; ;../universalNv.c: 186:             case 'C':
-[e :U 3304 ]
-"187
-[; ;../universalNv.c: 187:                 if (value && (1 << io % 8))
-[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3305  ]
-"188
-[; ;../universalNv.c: 188:                     WPUC |= 1<<(configs[io].no);
-[e =| _WPUC -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e $U 3306  ]
-"189
-[; ;../universalNv.c: 189:                 else
-[e :U 3305 ]
-"190
-[; ;../universalNv.c: 190:                     WPUC &= ~(1<<(configs[io].no));
-[e =& _WPUC -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-[e :U 3306 ]
-"191
-[; ;../universalNv.c: 191:                 break;
-[e $U 3296  ]
-"206
-[; ;../universalNv.c: 206:             }
-}
-[e $U 3296  ]
+[e $ < -> _io `i -> 24 `i 3297  ]
+[e $U 3298  ]
 [e :U 3297 ]
-[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 3298
- , $ -> -> 66 `ui `i 3301
- , $ -> -> 67 `ui `i 3304
- 3296 ]
-[e :U 3296 ]
-"207
-[; ;../universalNv.c: 207:         }
+{
+"176
+[; ;../universalNv.c: 176:             switch (configs[io].port) {
+[e $U 3301  ]
+{
+"177
+[; ;../universalNv.c: 177:             case 'A':
+[e :U 3302 ]
+"178
+[; ;../universalNv.c: 178:                 if (value && (1 << io % 8))
+[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3303  ]
+"179
+[; ;../universalNv.c: 179:                     WPUA |= 1<<(configs[io].no);
+[e =| _WPUA -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e $U 3304  ]
+"180
+[; ;../universalNv.c: 180:                 else
+[e :U 3303 ]
+"181
+[; ;../universalNv.c: 181:                     WPUA &= ~(1<<(configs[io].no));
+[e =& _WPUA -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e :U 3304 ]
+"182
+[; ;../universalNv.c: 182:                 break;
+[e $U 3300  ]
+"183
+[; ;../universalNv.c: 183:             case 'B':
+[e :U 3305 ]
+"184
+[; ;../universalNv.c: 184:                 if (value && (1 << io % 8))
+[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3306  ]
+"185
+[; ;../universalNv.c: 185:                     WPUB |= 1<<(configs[io].no);
+[e =| _WPUB -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e $U 3307  ]
+"186
+[; ;../universalNv.c: 186:                 else
+[e :U 3306 ]
+"187
+[; ;../universalNv.c: 187:                     WPUB &= ~(1<<(configs[io].no));
+[e =& _WPUB -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e :U 3307 ]
+"188
+[; ;../universalNv.c: 188:                 break;
+[e $U 3300  ]
+"189
+[; ;../universalNv.c: 189:             case 'C':
+[e :U 3308 ]
+"190
+[; ;../universalNv.c: 190:                 if (value && (1 << io % 8))
+[e $ ! && != -> _value `i -> 0 `i != << -> 1 `i % -> _io `i -> 8 `i -> 0 `i 3309  ]
+"191
+[; ;../universalNv.c: 191:                     WPUC |= 1<<(configs[io].no);
+[e =| _WPUC -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e $U 3310  ]
+"192
+[; ;../universalNv.c: 192:                 else
+[e :U 3309 ]
+"193
+[; ;../universalNv.c: 193:                     WPUC &= ~(1<<(configs[io].no));
+[e =& _WPUC -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
+[e :U 3310 ]
+"194
+[; ;../universalNv.c: 194:                 break;
+[e $U 3300  ]
+"209
+[; ;../universalNv.c: 209:             }
+}
+[e $U 3300  ]
+[e :U 3301 ]
+[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 3302
+ , $ -> -> 66 `ui `i 3305
+ , $ -> -> 67 `ui `i 3308
+ 3300 ]
+[e :U 3300 ]
+"210
+[; ;../universalNv.c: 210:         }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 24 `i 3293  ]
-[e :U 3294 ]
+[e $ < -> _io `i -> 24 `i 3297  ]
+[e :U 3298 ]
 }
-"208
-[; ;../universalNv.c: 208:     }
-}
-[e :U 3292 ]
 "211
-[; ;../universalNv.c: 211:     if (index >= 16) {
-[e $ ! >= -> _index `i -> 16 `i 3307  ]
-{
-"212
-[; ;../universalNv.c: 212:         io = ((uint8_t)((index-16)/7));
-[e = _io -> / - -> _index `i -> 16 `i -> 7 `i `uc ]
-"213
-[; ;../universalNv.c: 213:         nv = ((uint8_t)((index-16) % 7));
-[e = _nv -> % - -> _index `i -> 16 `i -> 7 `i `uc ]
+[; ;../universalNv.c: 211:     }
+}
+[e :U 3296 ]
 "214
-[; ;../universalNv.c: 214:         switch(getNV((16 + 7*(io) + 0))) {
-[e $U 3309  ]
+[; ;../universalNv.c: 214:     if (index >= 16) {
+[e $ ! >= -> _index `i -> 16 `i 3311  ]
 {
+"215
+[; ;../universalNv.c: 215:         io = ((uint8_t)((index-16)/7));
+[e = _io -> / - -> _index `i -> 16 `i -> 7 `i `uc ]
+"216
+[; ;../universalNv.c: 216:         nv = ((uint8_t)((index-16) % 7));
+[e = _nv -> % - -> _index `i -> 16 `i -> 7 `i `uc ]
+"217
+[; ;../universalNv.c: 217:         switch(getNV((16 + 7*(io) + 0))) {
+[e $U 3313  ]
+{
+"229
+[; ;../universalNv.c: 229:             case 2:
+[e :U 3314 ]
+"231
+[; ;../universalNv.c: 231:                 if (index == (16 + 7*(io) + 2)) {
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i 3315  ]
+{
+"232
+[; ;../universalNv.c: 232:                     setServoState(io, 2);
+[e ( _setServoState (2 , _io -> -> 2 `i `uc ]
+"233
+[; ;../universalNv.c: 233:                     startServoOutput(io, 2);
+[e ( _startServoOutput (2 , _io -> -> 2 `i `uc ]
+"234
+[; ;../universalNv.c: 234:                 } else if (index == (16 + 7*(io) + 3)) {
+}
+[e $U 3316  ]
+[e :U 3315 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i 3317  ]
+{
+"235
+[; ;../universalNv.c: 235:                     setServoState(io, 1);
+[e ( _setServoState (2 , _io -> -> 1 `i `uc ]
+"236
+[; ;../universalNv.c: 236:                     startServoOutput(io, 1);
+[e ( _startServoOutput (2 , _io -> -> 1 `i `uc ]
+"237
+[; ;../universalNv.c: 237:                 } else if (index == (16 + 7*(io) + 1)) {
+}
+[e $U 3318  ]
+[e :U 3317 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i 3319  ]
+{
+"238
+[; ;../universalNv.c: 238:                     if (((value & 0x80) == 0x80) &&
+[e $ ! && == & -> _value `i -> 128 `i -> 128 `i == & -> _oldValue `i -> 128 `i -> 0 `i 3320  ]
+"239
+[; ;../universalNv.c: 239:                             (oldValue & 0x80) == 0) {
+{
+"242
+[; ;../universalNv.c: 242:                         setServoPosition(io, (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2));
+[e ( _setServoPosition (2 , _io -> + / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i -> 2 `i / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 2 `i `uc ]
+"243
+[; ;../universalNv.c: 243:                     }
+}
+[e :U 3320 ]
+"244
+[; ;../universalNv.c: 244:                 }
+}
+[e :U 3319 ]
+[e :U 3318 ]
+[e :U 3316 ]
+"245
+[; ;../universalNv.c: 245:                 break;
+[e $U 3312  ]
+"248
+[; ;../universalNv.c: 248:             case 3:
+[e :U 3321 ]
+"249
+[; ;../universalNv.c: 249:                 if (index == (16 + 7*(io) + 3)) {
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i 3322  ]
+{
+"250
+[; ;../universalNv.c: 250:                     setBounceState(io, 2);
+[e ( _setBounceState (2 , _io -> -> 2 `i `uc ]
+"251
+[; ;../universalNv.c: 251:                     startBounceOutput(io, 2);
+[e ( _startBounceOutput (2 , _io -> -> 2 `i `uc ]
+"252
+[; ;../universalNv.c: 252:                 } else if (index == (16 + 7*(io) + 2)) {
+}
+[e $U 3323  ]
+[e :U 3322 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i 3324  ]
+{
+"253
+[; ;../universalNv.c: 253:                     setBounceState(io, 1);
+[e ( _setBounceState (2 , _io -> -> 1 `i `uc ]
+"254
+[; ;../universalNv.c: 254:                     startBounceOutput(io, 1);
+[e ( _startBounceOutput (2 , _io -> -> 1 `i `uc ]
+"255
+[; ;../universalNv.c: 255:                 } else if (index == (16 + 7*(io) + 1)) {
+}
+[e $U 3325  ]
+[e :U 3324 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i 3326  ]
+{
+"256
+[; ;../universalNv.c: 256:                     if (((value & 0x80) == 0x80) &&
+[e $ ! && == & -> _value `i -> 128 `i -> 128 `i == & -> _oldValue `i -> 128 `i -> 0 `i 3327  ]
+"257
+[; ;../universalNv.c: 257:                             (oldValue & 0x80) == 0) {
+{
+"260
+[; ;../universalNv.c: 260:                         currentPos[io] = (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2);
+[e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> + / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i -> 2 `i / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 2 `i `uc ]
+"261
+[; ;../universalNv.c: 261:                     }
+}
+[e :U 3327 ]
+"262
+[; ;../universalNv.c: 262:                 }
+}
+[e :U 3326 ]
+[e :U 3325 ]
+[e :U 3323 ]
+"263
+[; ;../universalNv.c: 263:                 break;
+[e $U 3312  ]
+"266
+[; ;../universalNv.c: 266:             case 4:
+[e :U 3328 ]
+"267
+[; ;../universalNv.c: 267:                 if (index == (16 + 7*(io) + 3)) {
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i 3329  ]
+{
+"268
+[; ;../universalNv.c: 268:                     setMultiState(io, 0);
+[e ( _setMultiState (2 , _io -> -> 0 `i `uc ]
+"269
+[; ;../universalNv.c: 269:                     startMultiOutput(io, 0);
+[e ( _startMultiOutput (2 , _io -> -> 0 `i `uc ]
+"270
+[; ;../universalNv.c: 270:                 } else if (index == (16 + 7*(io) + 4)) {
+}
+[e $U 3330  ]
+[e :U 3329 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i 3331  ]
+{
+"271
+[; ;../universalNv.c: 271:                     setMultiState(io, 1);
+[e ( _setMultiState (2 , _io -> -> 1 `i `uc ]
+"272
+[; ;../universalNv.c: 272:                     startMultiOutput(io, 1);
+[e ( _startMultiOutput (2 , _io -> -> 1 `i `uc ]
+"273
+[; ;../universalNv.c: 273:                 } else if (index == (16 + 7*(io) + 5)) {
+}
+[e $U 3332  ]
+[e :U 3331 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i 3333  ]
+{
+"274
+[; ;../universalNv.c: 274:                     setMultiState(io, 2);
+[e ( _setMultiState (2 , _io -> -> 2 `i `uc ]
+"275
+[; ;../universalNv.c: 275:                     startMultiOutput(io, 2);
+[e ( _startMultiOutput (2 , _io -> -> 2 `i `uc ]
+"276
+[; ;../universalNv.c: 276:                 } else if (index == (16 + 7*(io) + 6)) {
+}
+[e $U 3334  ]
+[e :U 3333 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i 3335  ]
+{
+"277
+[; ;../universalNv.c: 277:                     setMultiState(io, 3);
+[e ( _setMultiState (2 , _io -> -> 3 `i `uc ]
+"278
+[; ;../universalNv.c: 278:                     startMultiOutput(io, 3);
+[e ( _startMultiOutput (2 , _io -> -> 3 `i `uc ]
+"279
+[; ;../universalNv.c: 279:                 } else if (index == (16 + 7*(io) + 1)) {
+}
+[e $U 3336  ]
+[e :U 3335 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i 3337  ]
+{
+"280
+[; ;../universalNv.c: 280:                     if (((value & 0x80) == 0x80) &&
+[e $ ! && == & -> _value `i -> 128 `i -> 128 `i == & -> _oldValue `i -> 128 `i -> 0 `i 3338  ]
+"281
+[; ;../universalNv.c: 281:                             ((oldValue & 0x80) == 0)) {
+{
+"284
+[; ;../universalNv.c: 284:                         currentPos[io] = (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2);
+[e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> + / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i -> 2 `i / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 2 `i `uc ]
+"285
+[; ;../universalNv.c: 285:                     }
+}
+[e :U 3338 ]
 "286
-[; ;../universalNv.c: 286:         }
+[; ;../universalNv.c: 286:                 }
 }
-[e $U 3308  ]
-[e :U 3309 ]
-[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i 3308 ]
-[e :U 3308 ]
+[e :U 3337 ]
+[e :U 3336 ]
+[e :U 3334 ]
+[e :U 3332 ]
+[e :U 3330 ]
 "287
-[; ;../universalNv.c: 287:     }
+[; ;../universalNv.c: 287:                 break;
+[e $U 3312  ]
+"289
+[; ;../universalNv.c: 289:         }
 }
-[e :U 3307 ]
-"288
-[; ;../universalNv.c: 288: }
-[e :UE 3258 ]
+[e $U 3312  ]
+[e :U 3313 ]
+[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 2 `i 3314
+ , $ -> 3 `i 3321
+ , $ -> 4 `i 3328
+ 3312 ]
+[e :U 3312 ]
+"290
+[; ;../universalNv.c: 290:     }
 }
-"295
-[; ;../universalNv.c: 295: NvValidation APP_nvValidate(uint8_t index, uint8_t value) {
+[e :U 3311 ]
+"291
+[; ;../universalNv.c: 291: }
+[e :UE 3262 ]
+}
+"298
+[; ;../universalNv.c: 298: NvValidation APP_nvValidate(uint8_t index, uint8_t value) {
 [v _APP_nvValidate `(E23031 ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _APP_nvValidate ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [v _value `uc ~T0 @X0 1 r2 ]
 [f ]
-"296
-[; ;../universalNv.c: 296:     uint8_t io;
+"299
+[; ;../universalNv.c: 299:     uint8_t io;
 [v _io `uc ~T0 @X0 1 a ]
-"297
-[; ;../universalNv.c: 297:     if ((index >= 16) && (((index-16) % 7) == 0)) {
-[e $ ! && >= -> _index `i -> 16 `i == % - -> _index `i -> 16 `i -> 7 `i -> 0 `i 3311  ]
+"300
+[; ;../universalNv.c: 300:     if ((index >= 16) && (((index-16) % 7) == 0)) {
+[e $ ! && >= -> _index `i -> 16 `i == % - -> _index `i -> 16 `i -> 7 `i -> 0 `i 3340  ]
 {
-"298
-[; ;../universalNv.c: 298:         switch (value) {
-[e $U 3313  ]
+"301
+[; ;../universalNv.c: 301:         switch (value) {
+[e $U 3342  ]
 {
+"310
+[; ;../universalNv.c: 310:             case 4:
+[e :U 3343 ]
+"311
+[; ;../universalNv.c: 311:                 break;
+[e $U 3341  ]
+"314
+[; ;../universalNv.c: 314:             case 3:
+[e :U 3344 ]
+"315
+[; ;../universalNv.c: 315:                 break;
+[e $U 3341  ]
 "318
-[; ;../universalNv.c: 318:             case 1:
-[e :U 3314 ]
+[; ;../universalNv.c: 318:             case 2:
+[e :U 3345 ]
 "319
-[; ;../universalNv.c: 319:             case 0:
-[e :U 3315 ]
-"320
-[; ;../universalNv.c: 320:                 break;
-[e $U 3312  ]
+[; ;../universalNv.c: 319:                 break;
+[e $U 3341  ]
 "321
-[; ;../universalNv.c: 321:             default:
-[e :U 3316 ]
+[; ;../universalNv.c: 321:             case 1:
+[e :U 3346 ]
 "322
-[; ;../universalNv.c: 322:                 return INVALID;
-[e ) . `E23031 0 ]
-[e $UE 3310  ]
+[; ;../universalNv.c: 322:             case 0:
+[e :U 3347 ]
 "323
-[; ;../universalNv.c: 323:         }
-}
-[e $U 3312  ]
-[e :U 3313 ]
-[e [\ _value , $ -> 1 `i 3314
- , $ -> 0 `i 3315
- 3316 ]
-[e :U 3312 ]
+[; ;../universalNv.c: 323:                 break;
+[e $U 3341  ]
 "324
-[; ;../universalNv.c: 324:     }
-}
-[e :U 3311 ]
+[; ;../universalNv.c: 324:             default:
+[e :U 3348 ]
 "325
-[; ;../universalNv.c: 325:     return VALID;
-[e ) . `E23031 1 ]
-[e $UE 3310  ]
+[; ;../universalNv.c: 325:                 return INVALID;
+[e ) . `E23031 0 ]
+[e $UE 3339  ]
 "326
-[; ;../universalNv.c: 326: }
-[e :UE 3310 ]
+[; ;../universalNv.c: 326:         }
 }
-"333
-[; ;../universalNv.c: 333: void defaultNVs(uint8_t io, uint8_t type) {
+[e $U 3341  ]
+[e :U 3342 ]
+[e [\ _value , $ -> 4 `i 3343
+ , $ -> 3 `i 3344
+ , $ -> 2 `i 3345
+ , $ -> 1 `i 3346
+ , $ -> 0 `i 3347
+ 3348 ]
+[e :U 3341 ]
+"327
+[; ;../universalNv.c: 327:     }
+}
+[e :U 3340 ]
+"328
+[; ;../universalNv.c: 328:     return VALID;
+[e ) . `E23031 1 ]
+[e $UE 3339  ]
+"329
+[; ;../universalNv.c: 329: }
+[e :UE 3339 ]
+}
+"336
+[; ;../universalNv.c: 336: void defaultNVs(uint8_t io, uint8_t type) {
 [v _defaultNVs `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _defaultNVs ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _type `uc ~T0 @X0 1 r2 ]
 [f ]
-"334
-[; ;../universalNv.c: 334:     uint8_t i;
+"337
+[; ;../universalNv.c: 337:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"336
-[; ;../universalNv.c: 336:     for (i=1; i<7; i++) {
+"339
+[; ;../universalNv.c: 339:     for (i=1; i<7; i++) {
 {
 [e = _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 7 `i 3318  ]
-[e $U 3319  ]
-[e :U 3318 ]
+[e $ < -> _i `i -> 7 `i 3350  ]
+[e $U 3351  ]
+[e :U 3350 ]
 {
-"337
-[; ;../universalNv.c: 337:         saveNV((16 + 7*(io) + 0)+i , channelDefaultNVs[type][i]);
+"340
+[; ;../universalNv.c: 340:         saveNV((16 + 7*(io) + 0)+i , channelDefaultNVs[type][i]);
 [e ( _saveNV (2 , -> + + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i -> _i `i `uc *U + &U *U + &U _channelDefaultNVs * -> _type `ux -> * -> # *U &U *U &U _channelDefaultNVs `ui -> -> 7 `i `ui `ux * -> _i `ux -> -> # *U &U *U + &U _channelDefaultNVs * -> _type `ux -> * -> # *U &U *U &U _channelDefaultNVs `ui -> -> 7 `i `ui `ux `ui `ux ]
-"338
-[; ;../universalNv.c: 338:     }
+"341
+[; ;../universalNv.c: 341:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 7 `i 3318  ]
-[e :U 3319 ]
+[e $ < -> _i `i -> 7 `i 3350  ]
+[e :U 3351 ]
 }
-"339
-[; ;../universalNv.c: 339:     loadNvCache();
+"342
+[; ;../universalNv.c: 342:     loadNvCache();
 [e ( _loadNvCache ..  ]
-"340
-[; ;../universalNv.c: 340: }
-[e :UE 3317 ]
+"343
+[; ;../universalNv.c: 343: }
+[e :UE 3349 ]
 }

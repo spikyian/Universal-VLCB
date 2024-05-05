@@ -153,7 +153,7 @@ void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type) {
 #ifdef SERVO
         case TYPE_SERVO:
             setServoPosition(io, pos);
-            setOutputPin(io, (NV->io[io].flags & FLAG_OUTPUT_ACTION_INVERTED));
+            setOutputPin(io, getNV(NV_IO_FLAGS(io) & FLAG_OUTPUT_ACTION_INVERTED)?TRUE:FALSE);
             return;
 #endif
 
@@ -188,7 +188,7 @@ Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
                 //servoState[io] = OFF;
                 return FALSE;
             }
-            return (servoState[io] != MOVING);
+            return (servoState[io] != SS_MOVING);
 #endif
     }
     return TRUE;
@@ -214,7 +214,7 @@ Boolean completed(uint8_t io, ActionAndState * action, uint8_t type) {
 #ifdef MULTI
         case TYPE_MULTI:
 #endif
-            return (targetPos[io] == currentPos[io]) && ((servoState[io] == STOPPED) || (servoState[io] == OFF));
+            return (targetPos[io] == currentPos[io]) && ((servoState[io] == SS_STOPPED) || (servoState[io] == SS_OFF));
 #endif
     }
     return TRUE;

@@ -6,23 +6,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "66
 [; ;../inputs.c: 66: Boolean readInput(uint8_t io);
 [v _readInput `(E22874 ~T0 @X0 0 ef1`uc ]
-"106 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 106: extern int16_t getNV(uint8_t index);
+"110 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 110: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
 "85 ../inputs.c
 [; ;../inputs.c: 85:             outputState[io] = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
 [c E22383 0 1 .. ]
 [n E22383 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
-"151 ../../VLCBlib_PIC/nvm.h
+"160 ../../VLCBlib_PIC/nvm.h
 [v _readNVM `(s ~T0 @X0 0 ef2`E22383`um ]
-"160
+"169
 [v _writeNVM `(uc ~T0 @X0 0 ef3`E22383`um`uc ]
 "140 ../inputs.c
 [; ;../inputs.c: 140:                                 sendProducedEvent(((8 + 4*(io))+0), EVENT_OFF);
 [c E22894 0 1 .. ]
 [n E22894 . EVENT_OFF EVENT_ON  ]
-"85 ../../VLCBlib_PIC\event_producer.h
-[; ;../../VLCBlib_PIC\event_producer.h: 85: extern Boolean sendProducedEvent(Happening h, EventState state);
+"86 ../../VLCBlib_PIC\event_producer.h
+[; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
 [v _sendProducedEvent `(E22874 ~T0 @X0 0 ef2`uc`E22894 ]
 "2651 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [v _PORTA `Vuc ~T0 @X0 0 e@1230 ]

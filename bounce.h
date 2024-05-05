@@ -12,9 +12,9 @@
 extern "C" {
 #endif
 
-extern void initBounce(unsigned char io);
-extern BOOL bounceDown(unsigned char io);
-extern BOOL bounceUp(unsigned char io);
+extern void initBounce(uint8_t io);
+extern Boolean bounceDown(uint8_t io);
+extern Boolean bounceUp(uint8_t io);
 /**
  * Indicates how fast the virtual signal operator pulls the signal on.
  */

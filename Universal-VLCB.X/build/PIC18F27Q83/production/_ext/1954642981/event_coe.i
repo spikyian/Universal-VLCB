@@ -38341,11 +38341,14 @@ typedef enum VlcbCanHardware
 # 37 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
-# 64 "../../VLCBlib_PIC/nvm.h"
+# 68 "../../VLCBlib_PIC/nvm.h"
 typedef enum {
     EEPROM_NVM_TYPE,
     FLASH_NVM_TYPE
 } NVMtype;
+
+
+
 
 typedef enum ValidTime {
     BAD_TIME=0,
@@ -38374,7 +38377,7 @@ typedef uint8_t eeprom_data_t;
 
 
 typedef uint24_t eeprom_address_t;
-# 138 "../../VLCBlib_PIC/nvm.h"
+# 147 "../../VLCBlib_PIC/nvm.h"
 extern void flushFlashBlock(void);
 
 
@@ -38389,7 +38392,7 @@ extern void initRomOps(void);
 
 
 extern int16_t readNVM(NVMtype type, uint24_t index);
-# 160 "../../VLCBlib_PIC/nvm.h"
+# 169 "../../VLCBlib_PIC/nvm.h"
 extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 
@@ -38398,7 +38401,7 @@ extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 38 "../../VLCBlib_PIC/vlcb.h" 2
-# 75 "../../VLCBlib_PIC/vlcb.h"
+# 77 "../../VLCBlib_PIC/vlcb.h"
 typedef enum Priority {
     pLOW=0,
     pNORMAL=1,
@@ -38406,10 +38409,16 @@ typedef enum Priority {
     pHIGH=3,
 } Priority;
 
+
+
+
 typedef enum Boolean {
     FALSE,
     TRUE
 } Boolean;
+
+
+
 
 typedef enum Result {
     RESULT_FAIL,
@@ -38440,11 +38449,13 @@ typedef union Word {
 
 
 
+
+
 typedef enum {
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 130 "../../VLCBlib_PIC/vlcb.h"
+# 140 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -38453,6 +38464,9 @@ typedef union DiagnosticVal {
         uint8_t hi;
     } asBytes;
 } DiagnosticVal;
+
+
+
 
 typedef enum Processed {
     NOT_PROCESSED=0,
@@ -38472,7 +38486,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 167 "../../VLCBlib_PIC/vlcb.h"
+# 180 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -38515,17 +38529,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 217 "../../VLCBlib_PIC/vlcb.h"
+# 230 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 227 "../../VLCBlib_PIC/vlcb.h"
+# 240 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 238 "../../VLCBlib_PIC/vlcb.h"
+# 251 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 250 "../../VLCBlib_PIC/vlcb.h"
-void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
 # 263 "../../VLCBlib_PIC/vlcb.h"
-void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
 # 276 "../../VLCBlib_PIC/vlcb.h"
+void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+# 289 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -38545,6 +38559,9 @@ typedef struct Service {
 
 
 extern const Service * const services[];
+
+
+
 
 typedef enum ServicePresent {
     NOT_PRESENT=0,
@@ -38578,15 +38595,21 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 359 "../../VLCBlib_PIC/vlcb.h"
+# 375 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 369 "../../VLCBlib_PIC/vlcb.h"
+# 385 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
+
+
+
 
 typedef enum MessageReceived {
     NOT_RECEIVED=0,
     RECEIVED=1
 } MessageReceived;
+
+
+
 
 typedef enum SendResult {
     SEND_FAILED=0,
@@ -38601,25 +38624,18 @@ typedef enum SendResult {
 typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
-
 } Transport;
-
-
-
-
-
-
-
+# 420 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 411 "../../VLCBlib_PIC/vlcb.h"
+# 433 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 43 "../../VLCBlib_PIC/event_coe.c" 2
 
 # 1 "../../VLCBlib_PIC/event_coe.h" 1
-# 58 "../../VLCBlib_PIC/event_coe.h"
+# 59 "../../VLCBlib_PIC/event_coe.h"
 extern const Service eventCoeService;
 # 44 "../../VLCBlib_PIC/event_coe.c" 2
-# 62 "../../VLCBlib_PIC/event_coe.c"
+# 64 "../../VLCBlib_PIC/event_coe.c"
 const Service eventCoeService = {
     SERVICE_ID_CONSUME_OWN_EVENTS,
     1,

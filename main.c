@@ -343,7 +343,7 @@ void loop(void) {
 #ifdef SERVO
     if (tickTimeSince(lastServoStartTime) > 5*HALF_MILLI_SECOND) {
         startServos();  // call every 2.5ms
-        lastServoStartTime.Val = tickGet();
+        lastServoStartTime.val = tickGet();
     }
 #endif
     if (started) {
@@ -372,7 +372,7 @@ void loop(void) {
  */
 ValidTime APP_isSuitableTimeToWriteFlash(void){
 #ifdef SERVO
-    return isNoServoPulses();
+    return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
 #else
     return GOOD_TIME;
 #endif

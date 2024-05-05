@@ -64,6 +64,8 @@
         <itemPath>../universalEvents.c</itemPath>
         <itemPath>../universalNv.c</itemPath>
         <itemPath>../outputs.c</itemPath>
+        <itemPath>../servo.c</itemPath>
+        <itemPath>../bounce.c</itemPath>
       </logicalFolder>
       <logicalFolder name="VLCBlib_PIC" displayName="VLCBlib_PIC" projectFiles="true">
         <itemPath>../../VLCBlib_PIC/boot.c</itemPath>
@@ -147,6 +149,8 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
+      <item path="../../VLCBlib_PIC/can18_ecan.c" ex="true" overriding="false">
+      </item>
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
@@ -448,7 +452,7 @@
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros" value=""/>
-        <property key="disable-optimizations" value="true"/>
+        <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
                   value="..\;..\..\VLCB-defs;..\..\VLCBlib_PIC"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
@@ -463,7 +467,7 @@
         <property key="optimization-debug" value="false"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
-        <property key="optimization-level" value="-O0"/>
+        <property key="optimization-level" value="-O1"/>
         <property key="optimization-speed" value="false"/>
         <property key="optimization-stable-enable" value="false"/>
         <property key="preprocess-assembler" value="true"/>

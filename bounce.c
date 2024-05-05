@@ -52,15 +52,16 @@
  *
  * Created on 1 June 2017, 13:14
  */
-#include "devincs.h"
+
 #include "module.h"
 #ifdef BOUNCE
-#include "GenericTypeDefs.h"
+
+#include "universalNv.h"
 #include "servo.h"
 
 extern ServoState  servoState[NUM_IO];
-extern unsigned char currentPos[NUM_IO];
-extern unsigned char targetPos[NUM_IO];
+extern uint8_t currentPos[NUM_IO];
+extern uint8_t targetPos[NUM_IO];
 extern int speed[NUM_IO];
 
 #define SPEED_FACTOR    30
@@ -85,10 +86,7 @@ BounceState bounceState[NUM_IO];
  * BOUNCE_COEFF is the amount of velocity preserved after a bounce. Units are percent.
  */
 
-
-
-
-void initBounce(unsigned char io) {
+void initBounce(uint8_t io) {
     bounceState[io] = STATE_FIRST_PULL;
     speed[io] = 0;
 }
@@ -102,24 +100,24 @@ void initBounce(unsigned char io) {
  * 
  * @return true if finished moving
  */
-BOOL bounceDown(unsigned char io) {
+Boolean bounceDown(uint8_t io) {
     // check if we still need to move the signal
     if ((currentPos[io]>targetPos[io]+BOUNDS) || (currentPos[io]<targetPos[io]-BOUNDS) || (speed[io]>BOUNDS) || (speed[io]<-BOUNDS)) {
-        BOOL reversed = (NV->io[io].nv_io.nv_bounce.bounce_lower_pos > NV->io[io].nv_io.nv_bounce.bounce_upper_pos);
+        Boolean reversed = ((uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io)) > (uint8_t)getNV(NV_IO_BOUNCE_UPPER_POS(io)));
         int tmp;
         // move position
         if (! reversed) {
             
             // check for bounce at bottom
-            if (currentPos[io] < NV->io[io].nv_io.nv_bounce.bounce_lower_pos + speed[io]/SPEED_FACTOR) {
+            if (currentPos[io] < (uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io)) + speed[io]/SPEED_FACTOR) {
                 // bounce
                 // calculate new speed
-                speed[io] = (-speed[io]*NV->io[io].nv_io.nv_bounce.bounce_coeff)/100;
+                speed[io] = (-speed[io]*getNV(NV_IO_BOUNCE_COEFF(io)))/100;
                 // calculate new position
-                tmp = NV->io[io].nv_io.nv_bounce.bounce_lower_pos -
-                    (currentPos[io] - NV->io[io].nv_io.nv_bounce.bounce_lower_pos) -
+                tmp = (uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io)) -
+                    (currentPos[io] - (uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io))) -
                     (speed[io]/SPEED_FACTOR);
-                currentPos[io] = tmp;
+                currentPos[io] = (uint8_t)tmp;
             } else {
                 // no bounce
                 // calculate new speed
@@ -129,15 +127,15 @@ BOOL bounceDown(unsigned char io) {
         } else {
             // Reversed i.e. upper is less than lower
             // check for bounce at bottom
-            if (currentPos[io] > NV->io[io].nv_io.nv_bounce.bounce_lower_pos - speed[io]/SPEED_FACTOR) {
+            if (currentPos[io] > (uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io)) - speed[io]/SPEED_FACTOR) {
                 // bounce
                 // calculate new speed
-                speed[io] = (-speed[io]*NV->io[io].nv_io.nv_bounce.bounce_coeff)/100;
+                speed[io] = (-speed[io]*getNV(NV_IO_BOUNCE_COEFF(io)))/100;
                 // calculate new position
-                tmp = NV->io[io].nv_io.nv_bounce.bounce_lower_pos +
-                    (NV->io[io].nv_io.nv_bounce.bounce_lower_pos - currentPos[io]) +
+                tmp = (uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io)) +
+                    ((uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io)) - currentPos[io]) +
                     (speed[io]/SPEED_FACTOR);
-                currentPos[io] = tmp;
+                currentPos[io] = (uint8_t)tmp;
             } else {
                 // no bounce
                 // calculate new speed
@@ -160,26 +158,25 @@ BOOL bounceDown(unsigned char io) {
  * 
  * @return true if finished moving
  */
-
-BOOL bounceUp(unsigned char io) {
-    BOOL reversed = (NV->io[io].nv_io.nv_bounce.bounce_lower_pos > NV->io[io].nv_io.nv_bounce.bounce_upper_pos);
-    BYTE midway;
+Boolean bounceUp(uint8_t io) {
+    Boolean reversed = ((uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io)) > (uint8_t)getNV(NV_IO_BOUNCE_UPPER_POS(io)));
+    uint8_t midway;
     switch(bounceState[io]) {
     case STATE_FIRST_PULL:
         // first just move to the targetPos[io]
-        midway = (NV->io[io].nv_io.nv_servo.servo_end_pos)/2 + 
-                    (NV->io[io].nv_io.nv_servo.servo_start_pos)/2;
+        midway = ((uint8_t)getNV(NV_IO_SERVO_END_POS(io)))/2 + 
+                    ((uint8_t)getNV(NV_IO_SERVO_START_POS(io)))/2;
         if (reversed) {
-            currentPos[io] -= NV->io[io].nv_io.nv_bounce.bounce_pull_speed;
+            currentPos[io] -= (uint8_t)getNV(NV_IO_BOUNCE_PULL_SPEED(io));
             if (currentPos[io] <= midway) {
                 bounceState[io] = STATE_PAUSE;
-                speed[io] = NV->io[io].nv_io.nv_bounce.bounce_pull_pause;
+                speed[io] = (uint8_t)getNV(NV_IO_BOUNCE_PULL_PAUSE(io));
             }
         } else {
-            currentPos[io] += NV->io[io].nv_io.nv_bounce.bounce_pull_speed;
+            currentPos[io] += (uint8_t)getNV(NV_IO_BOUNCE_PULL_SPEED(io));
             if (currentPos[io] >= midway) {
                 bounceState[io] = STATE_PAUSE;
-                speed[io] = NV->io[io].nv_io.nv_bounce.bounce_pull_pause;
+                speed[io] = (uint8_t)getNV(NV_IO_BOUNCE_PULL_PAUSE(io));
             }
         }
         break;
@@ -191,19 +188,21 @@ BOOL bounceUp(unsigned char io) {
     case STATE_SECOND_PULL:
         // first just move to the targetPos[io]
         if (reversed) {
-            currentPos[io] -= NV->io[io].nv_io.nv_bounce.bounce_pull_speed;
+            currentPos[io] -= (uint8_t)getNV(NV_IO_BOUNCE_PULL_SPEED(io));
             if (currentPos[io]<=targetPos[io]-BOUNDS) {
                 bounceState[io] = STATE_DONE;
                 return TRUE;
             }
         } else {
-            currentPos[io] += NV->io[io].nv_io.nv_bounce.bounce_pull_speed;
+            currentPos[io] += (uint8_t)getNV(NV_IO_BOUNCE_PULL_SPEED(io));
             if (currentPos[io]>=targetPos[io]-BOUNDS) {
                 bounceState[io] = STATE_DONE;
                 return TRUE;
             }
         }
         break;
+    case STATE_DONE:
+            break;
     }
     return FALSE;
 }

@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"67 ../../VLCBlib_PIC/timedResponse.c
-[; ;../../VLCBlib_PIC/timedResponse.c: 67: static TimedResponseResult (*timedResponseCallback)(uint8_t type, uint8_t serviceIndex, uint8_t step);
+"68 ../../VLCBlib_PIC/timedResponse.c
+[; ;../../VLCBlib_PIC/timedResponse.c: 68: static TimedResponseResult (*timedResponseCallback)(uint8_t type, uint8_t serviceIndex, uint8_t step);
 [c E23106 0 1 2 .. ]
 [n E23106 . TIMED_RESPONSE_RESULT_FINISHED TIMED_RESPONSE_RESULT_RETRY TIMED_RESPONSE_RESULT_NEXT  ]
 [v F23135 `(E23106 ~T0 @X0 0 tf3`uc`uc`uc ]
@@ -3526,32 +3526,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"63 ../../VLCBlib_PIC/timedResponse.c
-[; ;../../VLCBlib_PIC/timedResponse.c: 63: static uint8_t timedResponseServiceIndex;
+"64 ../../VLCBlib_PIC/timedResponse.c
+[; ;../../VLCBlib_PIC/timedResponse.c: 64: static uint8_t timedResponseServiceIndex;
 [v _timedResponseServiceIndex `uc ~T0 @X0 1 s ]
-"64
-[; ;../../VLCBlib_PIC/timedResponse.c: 64: static uint8_t timedResponseAllServicesFlag;
-[v _timedResponseAllServicesFlag `uc ~T0 @X0 1 s ]
 "65
-[; ;../../VLCBlib_PIC/timedResponse.c: 65: static uint8_t timedResponseType;
-[v _timedResponseType `uc ~T0 @X0 1 s ]
+[; ;../../VLCBlib_PIC/timedResponse.c: 65: static uint8_t timedResponseAllServicesFlag;
+[v _timedResponseAllServicesFlag `uc ~T0 @X0 1 s ]
 "66
-[; ;../../VLCBlib_PIC/timedResponse.c: 66: static uint8_t timedResponseStep;
-[v _timedResponseStep `uc ~T0 @X0 1 s ]
+[; ;../../VLCBlib_PIC/timedResponse.c: 66: static uint8_t timedResponseType;
+[v _timedResponseType `uc ~T0 @X0 1 s ]
 "67
-[; ;../../VLCBlib_PIC/timedResponse.c: 67: static TimedResponseResult (*timedResponseCallback)(uint8_t type, uint8_t serviceIndex, uint8_t step);
+[; ;../../VLCBlib_PIC/timedResponse.c: 67: static uint8_t timedResponseStep;
+[v _timedResponseStep `uc ~T0 @X0 1 s ]
+"68
+[; ;../../VLCBlib_PIC/timedResponse.c: 68: static TimedResponseResult (*timedResponseCallback)(uint8_t type, uint8_t serviceIndex, uint8_t step);
 [v _timedResponseCallback `*F23135 ~T0 @X0 1 s ]
-"73
-[; ;../../VLCBlib_PIC/timedResponse.c: 73: void initTimedResponse(void) {
+"74
+[; ;../../VLCBlib_PIC/timedResponse.c: 74: void initTimedResponse(void) {
 [v _initTimedResponse `(v ~T0 @X0 1 ef ]
 {
 [e :U _initTimedResponse ]
 [f ]
-"74
-[; ;../../VLCBlib_PIC/timedResponse.c: 74:     timedResponseType = 0xFF;
-[e = _timedResponseType -> -> 255 `i `uc ]
 "75
-[; ;../../VLCBlib_PIC/timedResponse.c: 75: }
+[; ;../../VLCBlib_PIC/timedResponse.c: 75:     timedResponseType = 0xFF;
+[e = _timedResponseType -> -> 255 `i `uc ]
+"76
+[; ;../../VLCBlib_PIC/timedResponse.c: 76: }
 [e :UE 3231 ]
 }
 "85

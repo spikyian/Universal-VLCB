@@ -5,7 +5,7 @@
 #include "statusLeds.h"
 
 //
-// General MERGLCB stuff
+// VLCB Service options first
 //
 // The data version stored at NV#0
 #define APP_NVM_VERSION 1
@@ -154,5 +154,26 @@ extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue
 #define APP_writeLED2(state)   (LATBbits.LATB6=state)   // YELLOW true is on 
 #define APP_pbPressed()        (!(PORTAbits.RA2))       // where the push button is connected. True when pressed
 
+/******************************************************************************
+* Now the Universal options
+*******************************************************************************/
+/*********************** MODULE OPTIONS **************************/
+    
+// Whether to support AREQ and ASRQ commands
+#define AREQ_SUPPORT
+
+// Whether to enable servos
+#define SERVO
+
+// Whether to enable BOUNCE
+#define BOUNCE
+
+// Whether to enable MULTI and ANALOGUE inputs
+#define MULTI
+//#define ANALOGUE
+
+
+// enable this for additional validation checks
+//#define SAFETY
 
 #endif

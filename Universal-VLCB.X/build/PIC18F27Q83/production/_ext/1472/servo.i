@@ -1,4 +1,4 @@
-# 1 "../outputs.c"
+# 1 "../servo.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../outputs.c" 2
-# 40 "../outputs.c"
+# 1 "../servo.c" 2
+# 58 "../servo.c"
 # 1 "../module.h" 1
 
 
@@ -38753,25 +38753,7 @@ extern void showStatus(StatusDisplay s);
 extern uint8_t APP_nvDefault(uint8_t index);
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
 extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue);
-# 40 "../outputs.c" 2
-
-
-# 1 "../config.h" 1
-# 47 "../config.h"
-typedef struct {
-    unsigned char pin;
-    char port;
-    unsigned char no;
-    unsigned char an;
-} Config;
-
-extern const Config configs[16];
-# 42 "../outputs.c" 2
-
-
-
-# 1 "../universalEEPROM.h" 1
-# 45 "../outputs.c" 2
+# 58 "../servo.c" 2
 
 
 # 1 "../universalNv.h" 1
@@ -38844,7 +38826,7 @@ typedef struct {
 } ModuleNvDefs;
 
 extern void defaultNVs(uint8_t i, uint8_t type);
-# 47 "../outputs.c" 2
+# 60 "../servo.c" 2
 
 # 1 "../universalEvents.h" 1
 # 74 "../universalEvents.h"
@@ -38927,7 +38909,25 @@ extern void processActions(void);
 extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
                                         Boolean can_send_on, Boolean can_send_off);
 extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-# 48 "../outputs.c" 2
+# 61 "../servo.c" 2
+
+# 1 "../config.h" 1
+# 47 "../config.h"
+typedef struct {
+    unsigned char pin;
+    char port;
+    unsigned char no;
+    unsigned char an;
+} Config;
+
+extern const Config configs[16];
+# 62 "../servo.c" 2
+
+
+
+
+# 1 "../universalEEPROM.h" 1
+# 66 "../servo.c" 2
 
 # 1 "../servo.h" 1
 # 38 "../servo.h"
@@ -38991,16 +38991,16 @@ extern void startBounceOutput(uint8_t io, uint8_t action);
 extern void startMultiOutput(uint8_t io, uint8_t action);
 
 extern Boolean isNoServoPulses(void);
-# 49 "../outputs.c" 2
+# 67 "../servo.c" 2
 
-# 1 "../digitalOut.h" 1
-# 16 "../digitalOut.h"
-extern void initOutputs(void);
-extern void processOutputs(void);
-extern void startDigitalOutput(uint8_t io, uint8_t state);
-extern void setDigitalOutput(uint8_t io, uint8_t state);
-extern void setOutputPin(uint8_t io, Boolean state);
-# 50 "../outputs.c" 2
+
+# 1 "../bounce.h" 1
+# 15 "../bounce.h"
+extern void initBounce(uint8_t io);
+extern Boolean bounceDown(uint8_t io);
+extern Boolean bounceUp(uint8_t io);
+# 69 "../servo.c" 2
+
 
 # 1 "../outputs.h" 1
 # 42 "../outputs.h"
@@ -39009,153 +39009,555 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
-# 51 "../outputs.c" 2
+# 71 "../servo.c" 2
+
+# 1 "../../VLCBlib_PIC\\event_producer.h" 1
+# 76 "../../VLCBlib_PIC\\event_producer.h"
+extern const Service eventProducerService;
+
+
+extern uint8_t happening2Event[71 +1];
 
 
 
 
 
 
-extern void setOuputPin(uint8_t io, Boolean state);
-
-extern uint8_t pulseDelays[16];
-# 69 "../outputs.c"
-void startOutput(uint8_t io, uint8_t act, uint8_t type) {
-    switch(type) {
-        case 0:
-
-            return;
-        case 1:
-            startDigitalOutput(io, act);
-            return;
-
-        case 3:
-            startBounceOutput(io, act);
-            return;
+extern Boolean sendProducedEvent(Happening h, EventState state);
+extern void deleteHappeningRange(Happening happening, uint8_t number);
+# 96 "../../VLCBlib_PIC\\event_producer.h"
+extern EventState APP_GetEventState(Happening h);
+# 72 "../servo.c" 2
+# 89 "../servo.c"
+void setupTimer1(uint8_t io);
+void setupTimer3(uint8_t io);
 
 
-        case 2:
-            startServoOutput(io, act);
-            return;
+extern void setOutputPin(uint8_t io, Boolean state);
+extern TickValue lastServoStartTime;
 
 
-        case 4:
-            startMultiOutput(io, act);
-            return;
+#pragma udata servo_data
 
+ServoState servoState[16];
+uint8_t currentPos[16];
+uint8_t targetPos[16];
+uint8_t stepsPerPollSpeed[16];
+uint8_t pollsPerStepSpeed[16];
+uint8_t pollCount[16];
+int speed[16];
+uint8_t loopCount[16];
+# 117 "../servo.c"
+TickValue ticksWhenStopped[16];
+
+#pragma udata
+
+static uint8_t servoInBlock;
+
+void initServos(void) {
+    uint8_t io;
+    for (io=0; io<16; io++) {
+
+        if (getNV((16 + 7*(io) + 1)) & 0x04) {
+
+            servoState[io] = SS_STOPPED;
+        } else {
+            servoState[io] = SS_OFF;
+        }
+        ticksWhenStopped[io].val = tickGet();
+        if (getNV((16 + 7*(io) + 1)) & 0x04) {
+            setOutputPosition(io, (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io), (uint8_t)getNV((16 + 7*(io) + 0)));
+        } else {
+            setOutputPosition(io, (uint8_t)getNV((16 + 7*(io) + 2)), (uint8_t)getNV((16 + 7*(io) + 0)));
+        }
+        stepsPerPollSpeed[io] = 0;
     }
-}
-# 102 "../outputs.c"
-void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
-    switch(type) {
-        case 0:
-        case 5:
-        case 6:
+# 159 "../servo.c"
+    T1GCONbits.GE = 0;
+    T1CLKbits.CS = 1;
+    T1CONbits.CKPS = 2;
+    T1CONbits.RD16 = 1;
+    TMR1 = 0;
+    PIR3bits.TMR1IF = 0;
+    PIE3bits.TMR1IE = 1;
 
-            return;
-        case 1:
+    T3GCONbits.GE = 0;
+    T3CLKbits.CS = 1;
+    T3CONbits.CKPS = 2;
+    T3CONbits.RD16 = 1;
+    TMR3 = 0;
+    PIR5bits.TMR3IF = 0;
+    PIE5bits.TMR3IE = 1;
 
-            return;
-
-        case 3:
-            setBounceState(io, act);
-            return;
-
-
-        case 2:
-            setServoState(io, act);
-            return;
-
-
-        case 4:
-            setMultiState(io, act);
-            return;
-
-    }
-}
-# 137 "../outputs.c"
-void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type) {
-    switch(type) {
-        case 0:
-        case 5:
-        case 6:
-
-            return;
-        case 1:
-            setDigitalOutput(io, pos);
-            return;
-
-        case 3:
-
-
-        case 4:
-
-
-        case 2:
-            setServoPosition(io, pos);
-            setOutputPin(io, getNV((16 + 7*(io) + 1) & 0x20)?TRUE:FALSE);
-            return;
-
-
-    }
+    servoInBlock = io -1;
 }
 
 
 
 
 
-Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
-    switch(type) {
-        case 0:
-
-            return FALSE;
-        case 1:
+void startServos(void) {
+    uint8_t type;
 
 
+    servoInBlock++;
+    if (servoInBlock >= 8) {
+        servoInBlock = 0;
+        pollServos();
+    }
+    type = (uint8_t)getNV((16 + 7*(servoInBlock) + 0));
+    if ((type == 2) || (type == 3) || (type == 4)) {
+        if (servoState[servoInBlock] != SS_OFF) setupTimer1(servoInBlock);
+    }
+    type = (uint8_t)getNV((16 + 7*(servoInBlock+8) + 0));
+    if ((type == 2) || (type == 3) || (type == 4)) {
+        if (servoState[servoInBlock+8] != SS_OFF) setupTimer3(servoInBlock+8);
+    }
+}
 
 
-            return (pulseDelays[io] == 0);
 
+
+
+
+void setupTimer1(uint8_t io) {
+    uint16_t ticks = 0xFFFF - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
+                (1400 + (uint16_t)36 * currentPos[io]) :
+                (3600 + (uint16_t)19 * currentPos[io]) );
+
+    TMR1 = - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
+                (1400 + 36 * currentPos[io]) :
+                (3600 + 19 * currentPos[io]) );
+
+
+
+
+
+    setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
+    T1CONbits.TMR1ON = 1;
+}
+void setupTimer3(uint8_t io) {
+    uint16_t ticks = 0xFFFF - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
+                (1400 + (uint16_t)36 * currentPos[io]) :
+                (3600 + (uint16_t)19 * currentPos[io]) );
+
+    TMR3 = - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
+                (1400 + 36 * currentPos[io]) :
+                (3600 + 19 * currentPos[io]) );
+
+
+
+
+
+    setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
+    T3CONbits.TMR3ON = 1;
+}
+# 259 "../servo.c"
+void __attribute__((picinterrupt(("irq(TMR1), base(0x900)")))) TMR1_ISR(void)
+{
+
+
+    if(PIR3bits.TMR1IF) {
+
+        PIR3bits.TMR1IF = 0;
+        T1CONbits.TMR1ON = 0;
+        setOutputPin(servoInBlock, (uint8_t)getNV((16 + 7*(servoInBlock) + 1)) & 0x20);
+    }
+    return;
+}
+void __attribute__((picinterrupt(("irq(TMR3), base(0x900)")))) TMR3_ISR(void)
+{
+
+
+    if(PIR5bits.TMR3IF) {
+
+        PIR5bits.TMR3IF = 0;
+        T3CONbits.TMR3ON = 0;
+        setOutputPin(servoInBlock, (uint8_t)getNV((16 + 7*(servoInBlock) + 1)) & 0x20);
+    }
+    return;
+}
+# 294 "../servo.c"
+void pollServos(void) {
+    uint8_t midway;
+    Boolean beforeMidway;
+    uint8_t io;
+    uint8_t target;
+
+    for (io=0; io<16; io++) {
+        switch (getNV((16 + 7*(io) + 0))) {
+            case 2:
+                midway = ((uint8_t)getNV((16 + 7*(io) + 3)))/2 +
+                    ((uint8_t)getNV((16 + 7*(io) + 2)))/2;
+                beforeMidway=FALSE;
+                switch (servoState[io]) {
+                    case SS_STARTING:
+                        if (currentPos[io]==getNV((16 + 7*(io) + 2))) {
+                            sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+                        } else {
+                            sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        servoState[io] = SS_MOVING;
+
+                    case SS_MOVING:
+                        if (targetPos[io] > currentPos[io]) {
+                            if (currentPos[io] < midway) {
+                                beforeMidway = TRUE;
+                            }
+
+                            if (stepsPerPollSpeed[io]) {
+                                if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
+
+                                    currentPos[io] =255;
+                                } else {
+                                    currentPos[io] += stepsPerPollSpeed[io];
+                                }
+                            } else {
+                                pollCount[io]--;
+                                if (pollCount[io] == 0) {
+                                    currentPos[io]++;
+                                    pollCount[io] = pollsPerStepSpeed[io];
+                                }
+                            }
+
+                            if (currentPos[io] > targetPos[io]) {
+                                currentPos[io] = targetPos[io];
+                            }
+                            if ((currentPos[io] >= midway) && beforeMidway) {
+
+
+
+                                sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                        } else if (targetPos[io] < currentPos[io]) {
+                            if (currentPos[io] > midway) {
+                                beforeMidway = TRUE;
+                            }
+
+                            if (stepsPerPollSpeed[io]) {
+                                if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
+
+                                    currentPos[io] = 0;
+                                } else {
+                                    currentPos[io] -= stepsPerPollSpeed[io];
+                                }
+                            } else {
+                                pollCount[io]--;
+                                if (pollCount[io] == 0) {
+                                    currentPos[io]--;
+                                    pollCount[io] = pollsPerStepSpeed[io];
+                                }
+                            }
+
+                            if (currentPos[io] < targetPos[io]) {
+                                currentPos[io] = targetPos[io];
+                            }
+                            if ((currentPos[io] <= midway) && beforeMidway) {
+
+                                sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
+                            }
+                        }
+                        if (targetPos[io] == currentPos[io]) {
+                            servoState[io] = SS_STOPPED;
+                            ticksWhenStopped[io].val = tickGet();
+
+                            if (currentPos[io] == getNV((16 + 7*(io) + 2))) {
+                                sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            } else {
+                                sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                        }
+                        break;
+                    case SS_STOPPED:
+                    case SS_OFF:
+                        break;
+                }
+                break;
+            case 3:
+                switch (servoState[io]) {
+                    case SS_STARTING:
+                        initBounce(io);
+                        servoState[io] = SS_MOVING;
+                        loopCount[io] = 0;
+
+
+                    case SS_MOVING:
+                        loopCount[io]++;
+                        if (loopCount[io] >= 255) {
+                            servoState[io] = SS_STOPPED;
+                            ticksWhenStopped[io].val = tickGet();
+                            currentPos[io] = targetPos[io];
+                            sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                            break;
+                        }
+
+                        target = (uint8_t)getNV((16 + 7*(io) + 2));
+
+
+
+                        if (targetPos[io] == target) {
+                            if (bounceUp(io)) {
+                                servoState[io] = SS_STOPPED;
+                                ticksWhenStopped[io].val = tickGet();
+                                currentPos[io] = targetPos[io];
+                                sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                                writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                            }
+                        } else {
+                            if (bounceDown(io)) {
+                                servoState[io] = SS_STOPPED;
+                                ticksWhenStopped[io].val = tickGet();
+                                currentPos[io] = targetPos[io];
+                                sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+                                writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                            }
+                        }
+                        break;
+                    case SS_STOPPED:
+                    case SS_OFF:
+                        break;
+                }
+                break;
+            case 4:
+                switch (servoState[io]) {
+                    case SS_STARTING:
+                        if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
+                            sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
+                            sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
+                            sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
+                            sendProducedEvent(((8 + 4*(io))+3), getNV((16 + 7*(io) + 1)) & 0x40);
+                        }
+                        servoState[io] = SS_MOVING;
+
+                    case SS_MOVING:
+                        if (targetPos[io] > currentPos[io]) {
+                            if (stepsPerPollSpeed[io]) {
+                                if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
+
+                                    currentPos[io] =255;
+                                } else {
+                                    currentPos[io] += stepsPerPollSpeed[io];
+                                }
+                            } else {
+                                pollCount[io]--;
+                                if (pollCount[io] == 0) {
+                                    currentPos[io]++;
+                                    pollCount[io] = pollsPerStepSpeed[io];
+                                }
+                            }
+                            if (currentPos[io] > targetPos[io]) {
+                                currentPos[io] = targetPos[io];
+                            }
+                        } else if (targetPos[io] < currentPos[io]) {
+
+                            if (stepsPerPollSpeed[io]) {
+                                if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
+
+                                    currentPos[io] = 0;
+                                } else {
+                                    currentPos[io] -= stepsPerPollSpeed[io];
+                                }
+                            } else {
+                                pollCount[io]--;
+                                if (pollCount[io] == 0) {
+                                    currentPos[io]--;
+                                    pollCount[io] = pollsPerStepSpeed[io];
+                                }
+                            }
+                            if (currentPos[io] < targetPos[io]) {
+                                currentPos[io] = targetPos[io];
+                            }
+                        }
+                        if (targetPos[io] == currentPos[io]) {
+                            servoState[io] = SS_STOPPED;
+                            ticksWhenStopped[io].val = tickGet();
+
+                            if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
+                                sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
+                                sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
+                                sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
+                                sendProducedEvent(((8 + 4*(io))+3), !(getNV((16 + 7*(io) + 1)) & 0x40));
+                            }
+                            writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+                        }
+                        break;
+                    case SS_STOPPED:
+                    case SS_OFF:
+                        break;
+                }
+                break;
+        }
+        switch (servoState[io]) {
+            case SS_STARTING:
+            case SS_MOVING:
+                break;
+            case SS_STOPPED:
+
+
+                if (getNV((16 + 7*(io) + 1)) & 0x02) {
+                    if ((tickGet() - ticksWhenStopped[io].val) > 62500) {
+                        servoState[io] = SS_OFF;
+                    }
+                }
+                break;
+            case SS_OFF:
+
+
+
+                break;
+        }
+    }
+}
+# 548 "../servo.c"
+void startServoOutput(uint8_t io, uint8_t action) {
+    switch (action) {
         case 2:
+            stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 5));
+            break;
+        case 1:
+            stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 4));
+            break;
+    }
+    if (stepsPerPollSpeed[io] > 234) {
+        stepsPerPollSpeed[io] -= 234;
+        pollsPerStepSpeed[io] = 0;
+    } else {
+        pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
+        pollCount[io] = 1;
+        stepsPerPollSpeed[io] = 0;
+    }
+    servoState[io] = SS_STARTING;
+}
+# 576 "../servo.c"
+void startBounceOutput(uint8_t io, uint8_t action) {
+    switch (action) {
+        case 2:
+            speed[io] = 0;
+            break;
+        case 1:
+            speed[io] = 12;
+            break;
+    }
+    servoState[io] = SS_STARTING;
+    loopCount[io] = 0;
+}
 
 
-        case 3:
 
 
-        case 4:
 
-            if (targetPos[io] == currentPos[io]) {
 
-                return FALSE;
+void startMultiOutput(uint8_t io, uint8_t action) {
+
+    stepsPerPollSpeed[io] = (uint8_t)getNV(3);
+    if (stepsPerPollSpeed[io] > 234) {
+        stepsPerPollSpeed[io] -= 234;
+        pollsPerStepSpeed[io] = 0;
+    } else {
+        pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
+        pollCount[io] = 1;
+        stepsPerPollSpeed[io] = 0;
+    }
+    servoState[io] = SS_STARTING;
+}
+# 616 "../servo.c"
+void setServoState(uint8_t io, uint8_t action) {
+    switch (action) {
+        case 2:
+            if (getNV((16 + 7*(io) + 1)) & 0x01) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            } else {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
             }
-            return (servoState[io] != SS_MOVING);
-
+            break;
+        case 1:
+            if (getNV((16 + 7*(io) + 1)) & 0x01) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+            } else {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            }
+            break;
     }
-    return TRUE;
+}
+# 643 "../servo.c"
+void setBounceState(uint8_t io, uint8_t action) {
+    switch (action) {
+        case 2:
+            if (getNV((16 + 7*(io) + 1)) & 0x01) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+            } else {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            }
+            break;
+        case 1:
+            if (getNV((16 + 7*(io) + 1)) & 0x01) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            } else {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+            }
+            break;
+    }
 }
 
 
 
 
 
-Boolean completed(uint8_t io, ActionAndState * action, uint8_t type) {
-    switch(type) {
+
+void setMultiState(uint8_t io, uint8_t action) {
+    switch (action) {
         case 0:
-
-            return TRUE;
+            targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+            break;
         case 1:
-
-            return pulseDelays[io] == 1;
-
+            targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 4));
+            break;
         case 2:
-
+            if (getNV((16 + 7*(io) + 2)) >= 3) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 5));
+            }
+            break;
         case 3:
-
-
-        case 4:
-
-            return (targetPos[io] == currentPos[io]) && ((servoState[io] == SS_STOPPED) || (servoState[io] == SS_OFF));
-
+            if (getNV((16 + 7*(io) + 2)) >= 4) {
+                targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 6));
+            }
+            break;
     }
+}
+
+
+
+
+
+
+void setServoPosition(uint8_t io, uint8_t pos) {
+    targetPos[io] = pos;
+    currentPos[io] = pos;
+}
+
+
+
+
+
+
+
+Boolean isNoServoPulses(void){
+
+    if (T1CONbits.TMR1ON) return FALSE;
+    if (T3CONbits.TMR3ON) return FALSE;
     return TRUE;
 }

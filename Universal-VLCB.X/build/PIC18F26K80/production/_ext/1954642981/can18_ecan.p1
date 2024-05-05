@@ -1,16 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [v F12975 `(v ~T0 @X0 0 tf ]
 [v F12977 `(v ~T0 @X0 0 tf ]
-"102 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 102: const Service canService = {
+"103 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 103: const Service canService = {
 [c E12509 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
 [n E12509 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
-"97 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 97: typedef struct Message {
+"105 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 105: typedef struct Message {
 [s S1527 `uc 1 `E12509 1 `uc -> 7 `i ]
 [n S1527 Message len opc bytes ]
-"102 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 102: const Service canService = {
+"103 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 103: const Service canService = {
 [c E12899 0 1 .. ]
 [n E12899 Processed NOT_PROCESSED PROCESSED  ]
 [v F12979 `(E12899 ~T0 @X0 0 tf1`*S1527 ]
@@ -18,85 +18,85 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F12984 `(v ~T0 @X0 0 tf ]
 [v F12986 `(v ~T0 @X0 0 tf ]
 [v F12988 `(uc ~T0 @X0 0 tf1`uc ]
-"133 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 133:     struct {
+"143 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 143:     struct {
 [s S1531 `uc 1 `uc 1 ]
 [n S1531 . lo hi ]
-"130
-[; ;../../VLCBlib_PIC/vlcb.h: 130: typedef union DiagnosticVal {
+"140
+[; ;../../VLCBlib_PIC/vlcb.h: 140: typedef union DiagnosticVal {
 [u S1530 `us 1 `s 1 `S1531 1 ]
 [n S1530 DiagnosticVal asUint asInt asBytes ]
 [v F12991 `(*S1530 ~T0 @X0 0 tf1`uc ]
-"276
-[; ;../../VLCBlib_PIC/vlcb.h: 276: typedef struct Service {
+"289
+[; ;../../VLCBlib_PIC/vlcb.h: 289: typedef struct Service {
 [s S1532 `uc 1 `uc 1 `*F12975 1 `*F12977 1 `*F12979 1 `*F12982 1 `*F12984 1 `*F12986 1 `*F12988 1 `*F12991 1 ]
 [n S1532 Service serviceNo version factoryReset powerUp processMessage poll highIsr lowIsr getESDdata getDiagnostic ]
-"102 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 102: const Service canService = {
+"103 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 103: const Service canService = {
 [c E12716 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
 [n E12716 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
-"84
-[; ;../../VLCBlib_PIC/can18_ecan.c: 84: static void canFactoryReset(void);
-[v _canFactoryReset `(v ~T0 @X0 0 sf ]
 "85
-[; ;../../VLCBlib_PIC/can18_ecan.c: 85: static void canPowerUp(void);
+[; ;../../VLCBlib_PIC/can18_ecan.c: 85: static void canFactoryReset(void);
+[v _canFactoryReset `(v ~T0 @X0 0 sf ]
+"86
+[; ;../../VLCBlib_PIC/can18_ecan.c: 86: static void canPowerUp(void);
 [v _canPowerUp `(v ~T0 @X0 0 sf ]
-"87
-[; ;../../VLCBlib_PIC/can18_ecan.c: 87: static Processed canProcessMessage(Message * m);
+"88
+[; ;../../VLCBlib_PIC/can18_ecan.c: 88: static Processed canProcessMessage(Message * m);
 [v _canProcessMessage `(E12899 ~T0 @X0 0 sf1`*S1527 ]
 [v F13154 `(v ~T0 @X0 0 tf ]
-"88
-[; ;../../VLCBlib_PIC/can18_ecan.c: 88: static void canIsr(void);
-[v _canIsr `(v ~T0 @X0 0 sf ]
 "89
-[; ;../../VLCBlib_PIC/can18_ecan.c: 89: static uint8_t canEsdData(uint8_t id);
-[v _canEsdData `(uc ~T0 @X0 0 sf1`uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 89: static void canIsr(void);
+[v _canIsr `(v ~T0 @X0 0 sf ]
 "90
-[; ;../../VLCBlib_PIC/can18_ecan.c: 90: static DiagnosticVal * canGetDiagnostic(uint8_t index);
+[; ;../../VLCBlib_PIC/can18_ecan.c: 90: static uint8_t canEsdData(uint8_t id);
+[v _canEsdData `(uc ~T0 @X0 0 sf1`uc ]
+"91
+[; ;../../VLCBlib_PIC/can18_ecan.c: 91: static DiagnosticVal * canGetDiagnostic(uint8_t index);
 [v _canGetDiagnostic `(*S1530 ~T0 @X0 0 sf1`uc ]
-"125
-[; ;../../VLCBlib_PIC/can18_ecan.c: 125: const Transport canTransport = {
+"126
+[; ;../../VLCBlib_PIC/can18_ecan.c: 126: const Transport canTransport = {
 [c E13014 0 1 .. ]
 [n E13014 SendResult SEND_FAILED SEND_OK  ]
 [v F13020 `(E13014 ~T0 @X0 0 tf1`*S1527 ]
 [c E13010 0 1 .. ]
 [n E13010 MessageReceived NOT_RECEIVED RECEIVED  ]
 [v F13023 `(E13010 ~T0 @X0 0 tf1`*S1527 ]
-"386 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 386: typedef struct Transport {
+"408 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 408: typedef struct Transport {
 [s S1533 `*F13020 1 `*F13023 1 ]
 [n S1533 Transport sendMessage receiveMessage ]
-"116 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 116: static SendResult canSendMessage(Message * mp);
+"117 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 117: static SendResult canSendMessage(Message * mp);
 [v _canSendMessage `(E13014 ~T0 @X0 0 sf1`*S1527 ]
-"117
-[; ;../../VLCBlib_PIC/can18_ecan.c: 117: static MessageReceived canReceiveMessage(Message * m);
+"118
+[; ;../../VLCBlib_PIC/can18_ecan.c: 118: static MessageReceived canReceiveMessage(Message * m);
 [v _canReceiveMessage `(E13010 ~T0 @X0 0 sf1`*S1527 ]
-"202 ../../VLCBlib_PIC/ticktime.h
-[; ;../../VLCBlib_PIC/ticktime.h: 202:     {
+"216 ../../VLCBlib_PIC/ticktime.h
+[; ;../../VLCBlib_PIC/ticktime.h: 216:     {
 [s S1535 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1535 TickBytes b0 b1 b2 b3 ]
-"210
-[; ;../../VLCBlib_PIC/ticktime.h: 210:     {
+"225
+[; ;../../VLCBlib_PIC/ticktime.h: 225:     {
 [s S1536 `us 1 `us 1 ]
 [n S1536 TickWords w0 w1 ]
-"199
-[; ;../../VLCBlib_PIC/ticktime.h: 199: {
+"211
+[; ;../../VLCBlib_PIC/ticktime.h: 211: typedef union _TickValue {
 [u S1534 `ul 1 `S1535 1 `uc -> 4 `i `S1536 1 ]
 [n S1534 _TickValue val byte v word ]
-"50 ../../VLCBlib_PIC/messageQueue.h
-[; ;../../VLCBlib_PIC/messageQueue.h: 50: typedef struct MessageQueue {
+"54 ../../VLCBlib_PIC/messageQueue.h
+[; ;../../VLCBlib_PIC/messageQueue.h: 54: typedef struct MessageQueue {
 [s S1537 `*S1527 1 `uc 1 `uc 1 `uc 1 ]
 [n S1537 MessageQueue messages readIndex writeIndex size ]
-"190 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 190:     writeNVM(EEPROM_NVM_TYPE, 0x3FE, canId);
+"191 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 191:     writeNVM(EEPROM_NVM_TYPE, 0x3FE, canId);
 [c E12839 0 1 .. ]
 [n E12839 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
-"160 ../../VLCBlib_PIC/nvm.h
-[; ;../../VLCBlib_PIC/nvm.h: 160: extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
+"169 ../../VLCBlib_PIC/nvm.h
+[; ;../../VLCBlib_PIC/nvm.h: 169: extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 [v _writeNVM `(uc ~T0 @X0 0 ef3`E12839`um`uc ]
-"151
-[; ;../../VLCBlib_PIC/nvm.h: 151: extern int16_t readNVM(NVMtype type, uint24_t index);
+"160
+[; ;../../VLCBlib_PIC/nvm.h: 160: extern int16_t readNVM(NVMtype type, uint24_t index);
 [v _readNVM `(s ~T0 @X0 0 ef2`E12839`um ]
 "29563 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 29563: extern volatile unsigned char IPR5 __attribute__((address(0xF78)));
@@ -339,8 +339,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20245
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 20245: extern volatile unsigned char TXB2SIDL __attribute__((address(0xF02)));
 [v _TXB2SIDL `Vuc ~T0 @X0 0 e@3842 ]
-"228 ../../VLCBlib_PIC/ticktime.h
-[; ;../../VLCBlib_PIC/ticktime.h: 228: uint32_t tickGet(void);
+"244 ../../VLCBlib_PIC/ticktime.h
+[; ;../../VLCBlib_PIC/ticktime.h: 244: uint32_t tickGet(void);
 [v _tickGet `(ul ~T0 @X0 0 ef ]
 "29403 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 29403:     struct {
@@ -357,22 +357,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29420
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 29420: extern volatile PIE5bits_t PIE5bits __attribute__((address(0xF76)));
 [v _PIE5bits `VS1110 ~T0 @X0 0 e@3958 ]
-"107 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 107:     struct {
+"115 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 115:     struct {
 [s S1529 `uc 1 `uc 1 ]
 [n S1529 . lo hi ]
-"106
-[; ;../../VLCBlib_PIC/vlcb.h: 106: typedef union Word {
+"114
+[; ;../../VLCBlib_PIC/vlcb.h: 114: typedef union Word {
 [u S1528 `S1529 1 `us 1 ]
 [n S1528 Word bytes word ]
-"125 ../../VLCBlib_PIC/mns.h
-[; ;../../VLCBlib_PIC/mns.h: 125: extern Word nn;
+"126 ../../VLCBlib_PIC/mns.h
+[; ;../../VLCBlib_PIC/mns.h: 126: extern Word nn;
 [v _nn `S1528 ~T0 @X0 0 e ]
-"227 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 227: void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
+"240 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 240: void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
 [v _sendMessage5 `(v ~T0 @X0 0 ef6`E12509`uc`uc`uc`uc`uc ]
-"378 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 378:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
+"379 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 379:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
 [c E12678 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
 [n E12678 VlcbCmdErrs CMDERR_INV_CMD CMDERR_NOT_LRN CMDERR_NOT_SETUP CMDERR_TOO_MANY_EVENTS CMDERR_NO_EV CMDERR_INV_EV_IDX CMDERR_INVALID_EVENT CMDERR_INV_EN_IDX CMDERR_INV_PARAM_IDX CMDERR_INV_NV_IDX CMDERR_INV_EV_VALUE CMDERR_INV_NV_VALUE CMDERR_LRN_OTHER  ]
 "29486 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
@@ -390,31 +390,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29503
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 29503: extern volatile PIR5bits_t PIR5bits __attribute__((address(0xF77)));
 [v _PIR5bits `VS1113 ~T0 @X0 0 e@3959 ]
-"166 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 166: static void canFillRxFifo(void);
+"167 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 167: static void canFillRxFifo(void);
 [v _canFillRxFifo `(v ~T0 @X0 0 sf ]
-"92
-[; ;../../VLCBlib_PIC/can18_ecan.c: 92: static void canTxError(void);
-[v _canTxError `(v ~T0 @X0 0 sf ]
 "93
-[; ;../../VLCBlib_PIC/can18_ecan.c: 93: static void checkTxFifo(void);
-[v _checkTxFifo `(v ~T0 @X0 0 sf ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 93: static void canTxError(void);
+[v _canTxError `(v ~T0 @X0 0 sf ]
 "94
-[; ;../../VLCBlib_PIC/can18_ecan.c: 94: static void checkCANTimeout(void);
+[; ;../../VLCBlib_PIC/can18_ecan.c: 94: static void checkTxFifo(void);
+[v _checkTxFifo `(v ~T0 @X0 0 sf ]
+"95
+[; ;../../VLCBlib_PIC/can18_ecan.c: 95: static void checkCANTimeout(void);
 [v _checkCANTimeout `(v ~T0 @X0 0 sf ]
-"414
-[; ;../../VLCBlib_PIC/can18_ecan.c: 414:             return CAN_HW_PIC_ECAN;
+"415
+[; ;../../VLCBlib_PIC/can18_ecan.c: 415:             return CAN_HW_PIC_ECAN;
 [c E12828 0 1 2 3 4 5 6 6 7 .. ]
 [n E12828 VlcbCanHardware CAN_HW_NOT_SPECIFIED CAN_HW_PIC_ECAN CAN_HW_PIC_CAN_2_0 CAN_HW_PIC_CAN_FD CAN_HW_MCP2515 CAN_HW_MCP2518 CAN_HW_ESP32_TWAI CAN_HW_SAM3X8E CAN_HW_PICO_PIO  ]
-"63 ../../VLCBlib_PIC/messageQueue.h
-[; ;../../VLCBlib_PIC/messageQueue.h: 63: uint8_t quantity(MessageQueue * q);
+"74 ../../VLCBlib_PIC/messageQueue.h
+[; ;../../VLCBlib_PIC/messageQueue.h: 74: uint8_t quantity(MessageQueue * q);
 [v _quantity `(uc ~T0 @X0 0 ef1`*S1537 ]
-"454 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 454:             TXB0SIDH = canPri[priorities[mp->opc]] | ((canId & 0x78) >> 3);
+"455 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 455:             TXB0SIDH = canPri[priorities[mp->opc]] | ((canId & 0x78) >> 3);
 [c E12861 0 1 2 3 .. ]
 [n E12861 Priority pLOW pNORMAL pABOVE pHIGH  ]
-"156 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 156: extern const Priority priorities[256];
+"169 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 169: extern const Priority priorities[256];
 [v _priorities `CE12861 ~T0 @X0 -> 0 `x e ]
 "23545 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 23545: extern volatile unsigned char TXB0D0 __attribute__((address(0xF26)));
@@ -440,38 +440,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24035
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 24035: extern volatile unsigned char TXB0D7 __attribute__((address(0xF2D)));
 [v _TXB0D7 `Vuc ~T0 @X0 0 e@3885 ]
-"471 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 471:             if (isEvent(mp->opc)) {
+"472 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 472:             if (isEvent(mp->opc)) {
 [c E12867 0 1 .. ]
 [n E12867 Boolean FALSE TRUE  ]
-"173 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 173: extern Boolean isEvent(uint8_t opc);
+"186 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 186: extern Boolean isEvent(uint8_t opc);
 [v _isEvent `(E12867 ~T0 @X0 0 ef1`uc ]
-"472 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 472:                 if (have(SERVICE_ID_CONSUME_OWN_EVENTS)) {
+"473 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 473:                 if (have(SERVICE_ID_CONSUME_OWN_EVENTS)) {
 [c E12997 0 1 .. ]
 [n E12997 ServicePresent NOT_PRESENT PRESENT  ]
-"313 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 313: extern ServicePresent have(uint8_t id);
+"329 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 329: extern ServicePresent have(uint8_t id);
 [v _have `(E12997 ~T0 @X0 0 ef1`uc ]
-"66 ../../VLCBlib_PIC/messageQueue.h
-[; ;../../VLCBlib_PIC/messageQueue.h: 66: extern Message * getNextWriteMessage(MessageQueue * q);
+"98 ../../VLCBlib_PIC/messageQueue.h
+[; ;../../VLCBlib_PIC/messageQueue.h: 98: extern Message * getNextWriteMessage(MessageQueue * q);
 [v _getNextWriteMessage `(*S1527 ~T0 @X0 0 ef1`*S1537 ]
-"141 ../../VLCBlib_PIC/mns.h
-[; ;../../VLCBlib_PIC/mns.h: 141: extern void updateModuleErrorStatus(void);
+"142 ../../VLCBlib_PIC/mns.h
+[; ;../../VLCBlib_PIC/mns.h: 142: extern void updateModuleErrorStatus(void);
 [v _updateModuleErrorStatus `(v ~T0 @X0 0 ef ]
-"497 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 497:     if (push(&txQueue, mp) == QUEUE_FAIL) {
+"498 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 498:     if (push(&txQueue, mp) == QUEUE_FAIL) {
 [c E13123 0 1 .. ]
 [n E13123 Qresult QUEUE_FAIL QUEUE_SUCCESS  ]
-"64 ../../VLCBlib_PIC/messageQueue.h
-[; ;../../VLCBlib_PIC/messageQueue.h: 64: Qresult push(MessageQueue * q, Message * m);
+"82 ../../VLCBlib_PIC/messageQueue.h
+[; ;../../VLCBlib_PIC/messageQueue.h: 82: Qresult push(MessageQueue * q, Message * m);
 [v _push `(E13123 ~T0 @X0 0 ef2`*S1537`*S1527 ]
-"164 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 164: static void processEnumeration(void);
+"165 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 165: static void processEnumeration(void);
 [v _processEnumeration `(v ~T0 @X0 0 sf ]
-"65 ../../VLCBlib_PIC/messageQueue.h
-[; ;../../VLCBlib_PIC/messageQueue.h: 65: Message * pop(MessageQueue * q);
+"90 ../../VLCBlib_PIC/messageQueue.h
+[; ;../../VLCBlib_PIC/messageQueue.h: 90: Message * pop(MessageQueue * q);
 [v _pop `(*S1527 ~T0 @X0 0 ef1`*S1537 ]
 "27 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\string.h
 [; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\string.h: 27: void *memcpy (void *restrict, const void *restrict, size_t);
@@ -499,18 +499,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29195
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 29195: extern volatile COMSTATbits_t COMSTATbits __attribute__((address(0xF71)));
 [v _COMSTATbits `VS1096 ~T0 @X0 0 e@3953 ]
-"162 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 162: static uint8_t * getBufferPointer(uint8_t b);
+"163 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 163: static uint8_t * getBufferPointer(uint8_t b);
 [v _getBufferPointer `(*uc ~T0 @X0 0 sf1`uc ]
-"165
-[; ;../../VLCBlib_PIC/can18_ecan.c: 165: static MessageReceived handleSelfEnumeration(uint8_t * p);
+"166
+[; ;../../VLCBlib_PIC/can18_ecan.c: 166: static MessageReceived handleSelfEnumeration(uint8_t * p);
 [v _handleSelfEnumeration `(E13010 ~T0 @X0 0 sf1`*uc ]
-"829
-[; ;../../VLCBlib_PIC/can18_ecan.c: 829:                     setNewCanId(canId);
+"830
+[; ;../../VLCBlib_PIC/can18_ecan.c: 830:                     setNewCanId(canId);
 [c E13106 0 1 .. ]
 [n E13106 CanidResult CANID_FAIL CANID_OK  ]
-"161
-[; ;../../VLCBlib_PIC/can18_ecan.c: 161: static CanidResult setNewCanId(uint8_t newCanId);
+"162
+[; ;../../VLCBlib_PIC/can18_ecan.c: 162: static CanidResult setNewCanId(uint8_t newCanId);
 [v _setNewCanId `(E13106 ~T0 @X0 0 sf1`uc ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 54: __asm("RXERRCNT equ 0E41h");
@@ -1886,8 +1886,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37211
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 37211: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"102 ../../VLCBlib_PIC/can18_ecan.c
-[; ;../../VLCBlib_PIC/can18_ecan.c: 102: const Service canService = {
+"103 ../../VLCBlib_PIC/can18_ecan.c
+[; ;../../VLCBlib_PIC/can18_ecan.c: 103: const Service canService = {
 [v _canService `CS1532 ~T0 @X0 1 e ]
 [i _canService
 :U ..
@@ -1905,8 +1905,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"125
-[; ;../../VLCBlib_PIC/can18_ecan.c: 125: const Transport canTransport = {
+"126
+[; ;../../VLCBlib_PIC/can18_ecan.c: 126: const Transport canTransport = {
 [v _canTransport `CS1533 ~T0 @X0 1 e ]
 [i _canTransport
 :U ..
@@ -1916,44 +1916,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"133
-[; ;../../VLCBlib_PIC/can18_ecan.c: 133: static uint8_t canId;
+"134
+[; ;../../VLCBlib_PIC/can18_ecan.c: 134: static uint8_t canId;
 [v _canId `uc ~T0 @X0 1 s ]
-"137
-[; ;../../VLCBlib_PIC/can18_ecan.c: 137: static DiagnosticVal canDiagnostics[16];
+"138
+[; ;../../VLCBlib_PIC/can18_ecan.c: 138: static DiagnosticVal canDiagnostics[16];
 [v _canDiagnostics `S1530 ~T0 @X0 -> 16 `i s ]
-"140
-[; ;../../VLCBlib_PIC/can18_ecan.c: 140: static TickValue canTransmitTimeout;
-[v _canTransmitTimeout `S1534 ~T0 @X0 1 s ]
 "141
-[; ;../../VLCBlib_PIC/can18_ecan.c: 141: static uint8_t canTransmitFailed;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 141: static TickValue canTransmitTimeout;
+[v _canTransmitTimeout `S1534 ~T0 @X0 1 s ]
+"142
+[; ;../../VLCBlib_PIC/can18_ecan.c: 142: static uint8_t canTransmitFailed;
 [v _canTransmitFailed `uc ~T0 @X0 1 s ]
-"145
-[; ;../../VLCBlib_PIC/can18_ecan.c: 145: static Message rxBuffers[32];
-[v _rxBuffers `S1527 ~T0 @X0 -> 32 `i s ]
 "146
-[; ;../../VLCBlib_PIC/can18_ecan.c: 146: static MessageQueue rxQueue;
-[v _rxQueue `S1537 ~T0 @X0 1 s ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 146: static Message rxBuffers[32];
+[v _rxBuffers `S1527 ~T0 @X0 -> 32 `i s ]
 "147
-[; ;../../VLCBlib_PIC/can18_ecan.c: 147: static Message txBuffers[8];
-[v _txBuffers `S1527 ~T0 @X0 -> 8 `i s ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 147: static MessageQueue rxQueue;
+[v _rxQueue `S1537 ~T0 @X0 1 s ]
 "148
-[; ;../../VLCBlib_PIC/can18_ecan.c: 148: static MessageQueue txQueue;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 148: static Message txBuffers[8];
+[v _txBuffers `S1527 ~T0 @X0 -> 8 `i s ]
+"149
+[; ;../../VLCBlib_PIC/can18_ecan.c: 149: static MessageQueue txQueue;
 [v _txQueue `S1537 ~T0 @X0 1 s ]
-"154
-[; ;../../VLCBlib_PIC/can18_ecan.c: 154: static TickValue enumerationStartTime;
-[v _enumerationStartTime `S1534 ~T0 @X0 1 s ]
 "155
-[; ;../../VLCBlib_PIC/can18_ecan.c: 155: static uint8_t enumerationRequired;
-[v _enumerationRequired `uc ~T0 @X0 1 s ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 155: static TickValue enumerationStartTime;
+[v _enumerationStartTime `S1534 ~T0 @X0 1 s ]
 "156
-[; ;../../VLCBlib_PIC/can18_ecan.c: 156: static uint8_t enumerationInProgress;
-[v _enumerationInProgress `uc ~T0 @X0 1 s ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 156: static uint8_t enumerationRequired;
+[v _enumerationRequired `uc ~T0 @X0 1 s ]
 "157
-[; ;../../VLCBlib_PIC/can18_ecan.c: 157: static uint8_t enumerationResults[(0x7F/8)+1];
+[; ;../../VLCBlib_PIC/can18_ecan.c: 157: static uint8_t enumerationInProgress;
+[v _enumerationInProgress `uc ~T0 @X0 1 s ]
+"158
+[; ;../../VLCBlib_PIC/can18_ecan.c: 158: static uint8_t enumerationResults[(0x7F/8)+1];
 [v _enumerationResults `uc ~T0 @X0 -> 16 `i s ]
-"173
-[; ;../../VLCBlib_PIC/can18_ecan.c: 173: static const uint8_t canPri[] = {
+"174
+[; ;../../VLCBlib_PIC/can18_ecan.c: 174: static const uint8_t canPri[] = {
 [v _canPri `Cuc ~T0 @X0 -> 5 `i s ]
 [i _canPri
 :U ..
@@ -1964,374 +1964,374 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"188
-[; ;../../VLCBlib_PIC/can18_ecan.c: 188: static void canFactoryReset(void) {
+"189
+[; ;../../VLCBlib_PIC/can18_ecan.c: 189: static void canFactoryReset(void) {
 [v _canFactoryReset `(v ~T0 @X0 1 sf ]
 {
 [e :U _canFactoryReset ]
 [f ]
-"189
-[; ;../../VLCBlib_PIC/can18_ecan.c: 189:     canId = 0;
-[e = _canId -> -> 0 `i `uc ]
 "190
-[; ;../../VLCBlib_PIC/can18_ecan.c: 190:     writeNVM(EEPROM_NVM_TYPE, 0x3FE, canId);
-[e ( _writeNVM (3 , , . `E12839 0 -> -> -> 1022 `i `m `um _canId ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 190:     canId = 0;
+[e = _canId -> -> 0 `i `uc ]
 "191
-[; ;../../VLCBlib_PIC/can18_ecan.c: 191: }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 191:     writeNVM(EEPROM_NVM_TYPE, 0x3FE, canId);
+[e ( _writeNVM (3 , , . `E12839 0 -> -> -> 1022 `i `m `um _canId ]
+"192
+[; ;../../VLCBlib_PIC/can18_ecan.c: 192: }
 [e :UE 1538 ]
 }
-"201
-[; ;../../VLCBlib_PIC/can18_ecan.c: 201: static void canPowerUp(void) {
+"202
+[; ;../../VLCBlib_PIC/can18_ecan.c: 202: static void canPowerUp(void) {
 [v _canPowerUp `(v ~T0 @X0 1 sf ]
 {
 [e :U _canPowerUp ]
 [f ]
-"202
-[; ;../../VLCBlib_PIC/can18_ecan.c: 202:     int temp;
+"203
+[; ;../../VLCBlib_PIC/can18_ecan.c: 203:     int temp;
 [v _temp `i ~T0 @X0 1 a ]
-"205
-[; ;../../VLCBlib_PIC/can18_ecan.c: 205:     rxQueue.readIndex = 0;
-[e = . _rxQueue 1 -> -> 0 `i `uc ]
 "206
-[; ;../../VLCBlib_PIC/can18_ecan.c: 206:     rxQueue.writeIndex = 0;
-[e = . _rxQueue 2 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 206:     rxQueue.readIndex = 0;
+[e = . _rxQueue 1 -> -> 0 `i `uc ]
 "207
-[; ;../../VLCBlib_PIC/can18_ecan.c: 207:     rxQueue.messages = rxBuffers;
-[e = . _rxQueue 0 &U _rxBuffers ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 207:     rxQueue.writeIndex = 0;
+[e = . _rxQueue 2 -> -> 0 `i `uc ]
 "208
-[; ;../../VLCBlib_PIC/can18_ecan.c: 208:     rxQueue.size = 32;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 208:     rxQueue.messages = rxBuffers;
+[e = . _rxQueue 0 &U _rxBuffers ]
+"209
+[; ;../../VLCBlib_PIC/can18_ecan.c: 209:     rxQueue.size = 32;
 [e = . _rxQueue 3 -> -> 32 `i `uc ]
-"210
-[; ;../../VLCBlib_PIC/can18_ecan.c: 210:     txQueue.readIndex = 0;
-[e = . _txQueue 1 -> -> 0 `i `uc ]
 "211
-[; ;../../VLCBlib_PIC/can18_ecan.c: 211:     txQueue.writeIndex = 0;
-[e = . _txQueue 2 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 211:     txQueue.readIndex = 0;
+[e = . _txQueue 1 -> -> 0 `i `uc ]
 "212
-[; ;../../VLCBlib_PIC/can18_ecan.c: 212:     txQueue.messages = txBuffers;
-[e = . _txQueue 0 &U _txBuffers ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 212:     txQueue.writeIndex = 0;
+[e = . _txQueue 2 -> -> 0 `i `uc ]
 "213
-[; ;../../VLCBlib_PIC/can18_ecan.c: 213:     txQueue.size = 8;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 213:     txQueue.messages = txBuffers;
+[e = . _txQueue 0 &U _txBuffers ]
+"214
+[; ;../../VLCBlib_PIC/can18_ecan.c: 214:     txQueue.size = 8;
 [e = . _txQueue 3 -> -> 8 `i `uc ]
-"217
-[; ;../../VLCBlib_PIC/can18_ecan.c: 217:     temp = readNVM(EEPROM_NVM_TYPE, 0x3FE);
-[e = _temp -> ( _readNVM (2 , . `E12839 0 -> -> -> 1022 `i `m `um `i ]
 "218
-[; ;../../VLCBlib_PIC/can18_ecan.c: 218:     if (temp < 0) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 218:     temp = readNVM(EEPROM_NVM_TYPE, 0x3FE);
+[e = _temp -> ( _readNVM (2 , . `E12839 0 -> -> -> 1022 `i `m `um `i ]
+"219
+[; ;../../VLCBlib_PIC/can18_ecan.c: 219:     if (temp < 0) {
 [e $ ! < _temp -> 0 `i 1540  ]
 {
-"220
-[; ;../../VLCBlib_PIC/can18_ecan.c: 220:         canId = 0;
-[e = _canId -> -> 0 `i `uc ]
 "221
-[; ;../../VLCBlib_PIC/can18_ecan.c: 221:     } else {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 221:         canId = 0;
+[e = _canId -> -> 0 `i `uc ]
+"222
+[; ;../../VLCBlib_PIC/can18_ecan.c: 222:     } else {
 }
 [e $U 1541  ]
 [e :U 1540 ]
 {
-"222
-[; ;../../VLCBlib_PIC/can18_ecan.c: 222:         canId = (uint8_t)temp;
-[e = _canId -> _temp `uc ]
 "223
-[; ;../../VLCBlib_PIC/can18_ecan.c: 223:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 223:         canId = (uint8_t)temp;
+[e = _canId -> _temp `uc ]
+"224
+[; ;../../VLCBlib_PIC/can18_ecan.c: 224:     }
 }
 [e :U 1541 ]
-"225
-[; ;../../VLCBlib_PIC/can18_ecan.c: 225:     for (temp=0; temp<16; temp++) {
+"226
+[; ;../../VLCBlib_PIC/can18_ecan.c: 226:     for (temp=0; temp<16; temp++) {
 {
 [e = _temp -> 0 `i ]
 [e $ < _temp -> 16 `i 1542  ]
 [e $U 1543  ]
 [e :U 1542 ]
 {
-"226
-[; ;../../VLCBlib_PIC/can18_ecan.c: 226:         canDiagnostics[temp].asInt = 0;
-[e = . *U + &U _canDiagnostics * -> -> _temp `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 1 -> -> 0 `i `s ]
 "227
-[; ;../../VLCBlib_PIC/can18_ecan.c: 227:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 227:         canDiagnostics[temp].asInt = 0;
+[e = . *U + &U _canDiagnostics * -> -> _temp `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 1 -> -> 0 `i `s ]
+"228
+[; ;../../VLCBlib_PIC/can18_ecan.c: 228:     }
 }
 [e ++ _temp -> 1 `i ]
 [e $ < _temp -> 16 `i 1542  ]
 [e :U 1543 ]
 }
-"229
-[; ;../../VLCBlib_PIC/can18_ecan.c: 229:     canTransmitFailed=0;
-[e = _canTransmitFailed -> -> 0 `i `uc ]
 "230
-[; ;../../VLCBlib_PIC/can18_ecan.c: 230:     IPR5 = 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 230:     canTransmitFailed=0;
+[e = _canTransmitFailed -> -> 0 `i `uc ]
+"231
+[; ;../../VLCBlib_PIC/can18_ecan.c: 231:     IPR5 = 0;
 [e = _IPR5 -> -> 0 `i `uc ]
-"233
-[; ;../../VLCBlib_PIC/can18_ecan.c: 233:     CANCON = 0b10000000;
+"234
+[; ;../../VLCBlib_PIC/can18_ecan.c: 234:     CANCON = 0b10000000;
 [e = _CANCON -> -> 128 `i `uc ]
-"235
-[; ;../../VLCBlib_PIC/can18_ecan.c: 235:     while (CANSTATbits.OPMODE2 == 0);
+"236
+[; ;../../VLCBlib_PIC/can18_ecan.c: 236:     while (CANSTATbits.OPMODE2 == 0);
 [e $U 1545  ]
 [e :U 1546 ]
 [e :U 1545 ]
 [e $ == -> . . _CANSTATbits 1 7 `i -> 0 `i 1546  ]
 [e :U 1547 ]
-"237
-[; ;../../VLCBlib_PIC/can18_ecan.c: 237:     ECANCON = 0b10110000;
-[e = _ECANCON -> -> 176 `i `uc ]
 "238
-[; ;../../VLCBlib_PIC/can18_ecan.c: 238:     BSEL0 = 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 238:     ECANCON = 0b10110000;
+[e = _ECANCON -> -> 176 `i `uc ]
+"239
+[; ;../../VLCBlib_PIC/can18_ecan.c: 239:     BSEL0 = 0;
 [e = _BSEL0 -> -> 0 `i `uc ]
-"262
-[; ;../../VLCBlib_PIC/can18_ecan.c: 262:       BRGCON1 = 0b00001111;
+"263
+[; ;../../VLCBlib_PIC/can18_ecan.c: 263:       BRGCON1 = 0b00001111;
 [e = _BRGCON1 -> -> 15 `i `uc ]
-"265
-[; ;../../VLCBlib_PIC/can18_ecan.c: 265:     BRGCON2 = 0b10011110;
-[e = _BRGCON2 -> -> 158 `i `uc ]
 "266
-[; ;../../VLCBlib_PIC/can18_ecan.c: 266:     BRGCON3 = 0b00000011;
-[e = _BRGCON3 -> -> 3 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 266:     BRGCON2 = 0b10011110;
+[e = _BRGCON2 -> -> 158 `i `uc ]
 "267
-[; ;../../VLCBlib_PIC/can18_ecan.c: 267:     CIOCON = 0b00100000;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 267:     BRGCON3 = 0b00000011;
+[e = _BRGCON3 -> -> 3 `i `uc ]
+"268
+[; ;../../VLCBlib_PIC/can18_ecan.c: 268:     CIOCON = 0b00100000;
 [e = _CIOCON -> -> 32 `i `uc ]
-"270
-[; ;../../VLCBlib_PIC/can18_ecan.c: 270:     RXM0SIDH = 0;
-[e = _RXM0SIDH -> -> 0 `i `uc ]
 "271
-[; ;../../VLCBlib_PIC/can18_ecan.c: 271:     RXM0SIDL = 0x08;
-[e = _RXM0SIDL -> -> 8 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 271:     RXM0SIDH = 0;
+[e = _RXM0SIDH -> -> 0 `i `uc ]
 "272
-[; ;../../VLCBlib_PIC/can18_ecan.c: 272:     RXM0EIDH = 0;
-[e = _RXM0EIDH -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 272:     RXM0SIDL = 0x08;
+[e = _RXM0SIDL -> -> 8 `i `uc ]
 "273
-[; ;../../VLCBlib_PIC/can18_ecan.c: 273:     RXM0EIDL = 0;
-[e = _RXM0EIDL -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 273:     RXM0EIDH = 0;
+[e = _RXM0EIDH -> -> 0 `i `uc ]
 "274
-[; ;../../VLCBlib_PIC/can18_ecan.c: 274:     RXM1SIDH = 0;
-[e = _RXM1SIDH -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 274:     RXM0EIDL = 0;
+[e = _RXM0EIDL -> -> 0 `i `uc ]
 "275
-[; ;../../VLCBlib_PIC/can18_ecan.c: 275:     RXM1SIDL = 0x08;
-[e = _RXM1SIDL -> -> 8 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 275:     RXM1SIDH = 0;
+[e = _RXM1SIDH -> -> 0 `i `uc ]
 "276
-[; ;../../VLCBlib_PIC/can18_ecan.c: 276:     RXM1EIDH = 0;
-[e = _RXM1EIDH -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 276:     RXM1SIDL = 0x08;
+[e = _RXM1SIDL -> -> 8 `i `uc ]
 "277
-[; ;../../VLCBlib_PIC/can18_ecan.c: 277:     RXM1EIDL = 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 277:     RXM1EIDH = 0;
+[e = _RXM1EIDH -> -> 0 `i `uc ]
+"278
+[; ;../../VLCBlib_PIC/can18_ecan.c: 278:     RXM1EIDL = 0;
 [e = _RXM1EIDL -> -> 0 `i `uc ]
-"280
-[; ;../../VLCBlib_PIC/can18_ecan.c: 280:     RXF0SIDL = 0x80;
+"281
+[; ;../../VLCBlib_PIC/can18_ecan.c: 281:     RXF0SIDL = 0x80;
 [e = _RXF0SIDL -> -> 128 `i `uc ]
-"283
-[; ;../../VLCBlib_PIC/can18_ecan.c: 283:     RXFBCON0 = 0;
-[e = _RXFBCON0 -> -> 0 `i `uc ]
 "284
-[; ;../../VLCBlib_PIC/can18_ecan.c: 284:     RXFBCON1 = 0;
-[e = _RXFBCON1 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 284:     RXFBCON0 = 0;
+[e = _RXFBCON0 -> -> 0 `i `uc ]
 "285
-[; ;../../VLCBlib_PIC/can18_ecan.c: 285:     RXFBCON2 = 0;
-[e = _RXFBCON2 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 285:     RXFBCON1 = 0;
+[e = _RXFBCON1 -> -> 0 `i `uc ]
 "286
-[; ;../../VLCBlib_PIC/can18_ecan.c: 286:     RXFBCON3 = 0;
-[e = _RXFBCON3 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 286:     RXFBCON2 = 0;
+[e = _RXFBCON2 -> -> 0 `i `uc ]
 "287
-[; ;../../VLCBlib_PIC/can18_ecan.c: 287:     RXFBCON4 = 0;
-[e = _RXFBCON4 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 287:     RXFBCON3 = 0;
+[e = _RXFBCON3 -> -> 0 `i `uc ]
 "288
-[; ;../../VLCBlib_PIC/can18_ecan.c: 288:     RXFBCON5 = 0;
-[e = _RXFBCON5 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 288:     RXFBCON4 = 0;
+[e = _RXFBCON4 -> -> 0 `i `uc ]
 "289
-[; ;../../VLCBlib_PIC/can18_ecan.c: 289:     RXFBCON6 = 0;
-[e = _RXFBCON6 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 289:     RXFBCON5 = 0;
+[e = _RXFBCON5 -> -> 0 `i `uc ]
 "290
-[; ;../../VLCBlib_PIC/can18_ecan.c: 290:     RXFBCON7 = 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 290:     RXFBCON6 = 0;
+[e = _RXFBCON6 -> -> 0 `i `uc ]
+"291
+[; ;../../VLCBlib_PIC/can18_ecan.c: 291:     RXFBCON7 = 0;
 [e = _RXFBCON7 -> -> 0 `i `uc ]
-"293
-[; ;../../VLCBlib_PIC/can18_ecan.c: 293:     MSEL0 = 0;
-[e = _MSEL0 -> -> 0 `i `uc ]
 "294
-[; ;../../VLCBlib_PIC/can18_ecan.c: 294:     MSEL1 = 0;
-[e = _MSEL1 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 294:     MSEL0 = 0;
+[e = _MSEL0 -> -> 0 `i `uc ]
 "295
-[; ;../../VLCBlib_PIC/can18_ecan.c: 295:     MSEL2 = 0;
-[e = _MSEL2 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 295:     MSEL1 = 0;
+[e = _MSEL1 -> -> 0 `i `uc ]
 "296
-[; ;../../VLCBlib_PIC/can18_ecan.c: 296:     MSEL3 = 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 296:     MSEL2 = 0;
+[e = _MSEL2 -> -> 0 `i `uc ]
+"297
+[; ;../../VLCBlib_PIC/can18_ecan.c: 297:     MSEL3 = 0;
 [e = _MSEL3 -> -> 0 `i `uc ]
-"302
-[; ;../../VLCBlib_PIC/can18_ecan.c: 302:     RXB0CON = 0x20;
-[e = _RXB0CON -> -> 32 `i `uc ]
 "303
-[; ;../../VLCBlib_PIC/can18_ecan.c: 303:     RXB1CON = 0x20;
-[e = _RXB1CON -> -> 32 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 303:     RXB0CON = 0x20;
+[e = _RXB0CON -> -> 32 `i `uc ]
 "304
-[; ;../../VLCBlib_PIC/can18_ecan.c: 304:     B0CON = 0;
-[e = _B0CON -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 304:     RXB1CON = 0x20;
+[e = _RXB1CON -> -> 32 `i `uc ]
 "305
-[; ;../../VLCBlib_PIC/can18_ecan.c: 305:     B1CON = 0;
-[e = _B1CON -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 305:     B0CON = 0;
+[e = _B0CON -> -> 0 `i `uc ]
 "306
-[; ;../../VLCBlib_PIC/can18_ecan.c: 306:     B2CON = 0;
-[e = _B2CON -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 306:     B1CON = 0;
+[e = _B1CON -> -> 0 `i `uc ]
 "307
-[; ;../../VLCBlib_PIC/can18_ecan.c: 307:     B3CON = 0;
-[e = _B3CON -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 307:     B2CON = 0;
+[e = _B2CON -> -> 0 `i `uc ]
 "308
-[; ;../../VLCBlib_PIC/can18_ecan.c: 308:     B4CON = 0;
-[e = _B4CON -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 308:     B3CON = 0;
+[e = _B3CON -> -> 0 `i `uc ]
 "309
-[; ;../../VLCBlib_PIC/can18_ecan.c: 309:     B5CON = 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 309:     B4CON = 0;
+[e = _B4CON -> -> 0 `i `uc ]
+"310
+[; ;../../VLCBlib_PIC/can18_ecan.c: 310:     B5CON = 0;
 [e = _B5CON -> -> 0 `i `uc ]
-"311
-[; ;../../VLCBlib_PIC/can18_ecan.c: 311:     BIE0 = 0;
-[e = _BIE0 -> -> 0 `i `uc ]
 "312
-[; ;../../VLCBlib_PIC/can18_ecan.c: 312:     TXBIEbits.TXB0IE = 1;
-[e = . . _TXBIEbits 0 1 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 312:     BIE0 = 0;
+[e = _BIE0 -> -> 0 `i `uc ]
 "313
-[; ;../../VLCBlib_PIC/can18_ecan.c: 313:     TXBIEbits.TXB1IE = 0;
-[e = . . _TXBIEbits 0 2 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 313:     TXBIEbits.TXB0IE = 1;
+[e = . . _TXBIEbits 0 1 -> -> 1 `i `uc ]
 "314
-[; ;../../VLCBlib_PIC/can18_ecan.c: 314:     TXBIEbits.TXB2IE = 0;
-[e = . . _TXBIEbits 0 3 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 314:     TXBIEbits.TXB1IE = 0;
+[e = . . _TXBIEbits 0 2 -> -> 0 `i `uc ]
 "315
-[; ;../../VLCBlib_PIC/can18_ecan.c: 315:     CANCON = 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 315:     TXBIEbits.TXB2IE = 0;
+[e = . . _TXBIEbits 0 3 -> -> 0 `i `uc ]
+"316
+[; ;../../VLCBlib_PIC/can18_ecan.c: 316:     CANCON = 0;
 [e = _CANCON -> -> 0 `i `uc ]
-"319
-[; ;../../VLCBlib_PIC/can18_ecan.c: 319:     TXB0CON = 0;
-[e = _TXB0CON -> -> 0 `i `uc ]
 "320
-[; ;../../VLCBlib_PIC/can18_ecan.c: 320:     TXB0CONbits.TXPRI0 = 0;
-[e = . . _TXB0CONbits 1 0 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 320:     TXB0CON = 0;
+[e = _TXB0CON -> -> 0 `i `uc ]
 "321
-[; ;../../VLCBlib_PIC/can18_ecan.c: 321:     TXB0CONbits.TXPRI1 = 0;
-[e = . . _TXB0CONbits 1 1 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 321:     TXB0CONbits.TXPRI0 = 0;
+[e = . . _TXB0CONbits 1 0 -> -> 0 `i `uc ]
 "322
-[; ;../../VLCBlib_PIC/can18_ecan.c: 322:     TXB0DLC = 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 322:     TXB0CONbits.TXPRI1 = 0;
+[e = . . _TXB0CONbits 1 1 -> -> 0 `i `uc ]
+"323
+[; ;../../VLCBlib_PIC/can18_ecan.c: 323:     TXB0DLC = 0;
 [e = _TXB0DLC -> -> 0 `i `uc ]
-"324
-[; ;../../VLCBlib_PIC/can18_ecan.c: 324:     TXB0SIDH = 0;
-[e = _TXB0SIDH -> -> 0 `i `uc ]
 "325
-[; ;../../VLCBlib_PIC/can18_ecan.c: 325:     TXB0SIDL = 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 325:     TXB0SIDH = 0;
+[e = _TXB0SIDH -> -> 0 `i `uc ]
+"326
+[; ;../../VLCBlib_PIC/can18_ecan.c: 326:     TXB0SIDL = 0;
 [e = _TXB0SIDL -> -> 0 `i `uc ]
-"329
-[; ;../../VLCBlib_PIC/can18_ecan.c: 329:     TXB1CON = 0;
-[e = _TXB1CON -> -> 0 `i `uc ]
 "330
-[; ;../../VLCBlib_PIC/can18_ecan.c: 330:     TXB1CONbits.TXPRI0 = 0;
-[e = . . _TXB1CONbits 1 0 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 330:     TXB1CON = 0;
+[e = _TXB1CON -> -> 0 `i `uc ]
 "331
-[; ;../../VLCBlib_PIC/can18_ecan.c: 331:     TXB1CONbits.TXPRI1 = 1;
-[e = . . _TXB1CONbits 1 1 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 331:     TXB1CONbits.TXPRI0 = 0;
+[e = . . _TXB1CONbits 1 0 -> -> 0 `i `uc ]
 "332
-[; ;../../VLCBlib_PIC/can18_ecan.c: 332:     TXB1DLC = 0x40;
-[e = _TXB1DLC -> -> 64 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 332:     TXB1CONbits.TXPRI1 = 1;
+[e = . . _TXB1CONbits 1 1 -> -> 1 `i `uc ]
 "333
-[; ;../../VLCBlib_PIC/can18_ecan.c: 333:     TXB1SIDH = canPri[4] | ((canId & 0x78) >> 3);
-[e = _TXB1SIDH -> | -> *U + &U _canPri * -> -> -> 4 `i `ui `ux -> -> # *U &U _canPri `ui `ux `i >> & -> _canId `i -> 120 `i -> 3 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 333:     TXB1DLC = 0x40;
+[e = _TXB1DLC -> -> 64 `i `uc ]
 "334
-[; ;../../VLCBlib_PIC/can18_ecan.c: 334:     TXB1SIDL = TXB0SIDL;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 334:     TXB1SIDH = canPri[4] | ((canId & 0x78) >> 3);
+[e = _TXB1SIDH -> | -> *U + &U _canPri * -> -> -> 4 `i `ui `ux -> -> # *U &U _canPri `ui `ux `i >> & -> _canId `i -> 120 `i -> 3 `i `uc ]
+"335
+[; ;../../VLCBlib_PIC/can18_ecan.c: 335:     TXB1SIDL = TXB0SIDL;
 [e = _TXB1SIDL _TXB0SIDL ]
-"338
-[; ;../../VLCBlib_PIC/can18_ecan.c: 338:     TXB2CON = 0;
-[e = _TXB2CON -> -> 0 `i `uc ]
 "339
-[; ;../../VLCBlib_PIC/can18_ecan.c: 339:     TXB2CONbits.TXPRI0 = 1;
-[e = . . _TXB2CONbits 1 0 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 339:     TXB2CON = 0;
+[e = _TXB2CON -> -> 0 `i `uc ]
 "340
-[; ;../../VLCBlib_PIC/can18_ecan.c: 340:     TXB2CONbits.TXPRI1 = 1;
-[e = . . _TXB2CONbits 1 1 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 340:     TXB2CONbits.TXPRI0 = 1;
+[e = . . _TXB2CONbits 1 0 -> -> 1 `i `uc ]
 "341
-[; ;../../VLCBlib_PIC/can18_ecan.c: 341:     TXB2DLC = 0;
-[e = _TXB2DLC -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 341:     TXB2CONbits.TXPRI1 = 1;
+[e = . . _TXB2CONbits 1 1 -> -> 1 `i `uc ]
 "342
-[; ;../../VLCBlib_PIC/can18_ecan.c: 342:     TXB2SIDH = canPri[4] | ((canId & 0x78) >> 3);
-[e = _TXB2SIDH -> | -> *U + &U _canPri * -> -> -> 4 `i `ui `ux -> -> # *U &U _canPri `ui `ux `i >> & -> _canId `i -> 120 `i -> 3 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 342:     TXB2DLC = 0;
+[e = _TXB2DLC -> -> 0 `i `uc ]
 "343
-[; ;../../VLCBlib_PIC/can18_ecan.c: 343:     TXB2SIDL = TXB0SIDL;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 343:     TXB2SIDH = canPri[4] | ((canId & 0x78) >> 3);
+[e = _TXB2SIDH -> | -> *U + &U _canPri * -> -> -> 4 `i `ui `ux -> -> # *U &U _canPri `ui `ux `i >> & -> _canId `i -> 120 `i -> 3 `i `uc ]
+"344
+[; ;../../VLCBlib_PIC/can18_ecan.c: 344:     TXB2SIDL = TXB0SIDL;
 [e = _TXB2SIDL _TXB0SIDL ]
-"347
-[; ;../../VLCBlib_PIC/can18_ecan.c: 347:     enumerationRequired = enumerationInProgress = 0;
-[e = _enumerationRequired = _enumerationInProgress -> -> 0 `i `uc ]
 "348
-[; ;../../VLCBlib_PIC/can18_ecan.c: 348:     enumerationStartTime.val = tickGet();
+[; ;../../VLCBlib_PIC/can18_ecan.c: 348:     enumerationRequired = enumerationInProgress = 0;
+[e = _enumerationRequired = _enumerationInProgress -> -> 0 `i `uc ]
+"349
+[; ;../../VLCBlib_PIC/can18_ecan.c: 349:     enumerationStartTime.val = tickGet();
 [e = . _enumerationStartTime 0 ( _tickGet ..  ]
-"351
-[; ;../../VLCBlib_PIC/can18_ecan.c: 351:     canTransmitTimeout.val = enumerationStartTime.val;
+"352
+[; ;../../VLCBlib_PIC/can18_ecan.c: 352:     canTransmitTimeout.val = enumerationStartTime.val;
 [e = . _canTransmitTimeout 0 . _enumerationStartTime 0 ]
-"353
-[; ;../../VLCBlib_PIC/can18_ecan.c: 353:     PIE5bits.FIFOWMIE = 1;
-[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
 "354
-[; ;../../VLCBlib_PIC/can18_ecan.c: 354:     PIE5bits.TXBnIE = 1;
-[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 354:     PIE5bits.FIFOWMIE = 1;
+[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
 "355
-[; ;../../VLCBlib_PIC/can18_ecan.c: 355:     PIE5bits.ERRIE = 1;
-[e = . . _PIE5bits 0 5 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 355:     PIE5bits.TXBnIE = 1;
+[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
 "356
-[; ;../../VLCBlib_PIC/can18_ecan.c: 356: }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 356:     PIE5bits.ERRIE = 1;
+[e = . . _PIE5bits 0 5 -> -> 1 `i `uc ]
+"357
+[; ;../../VLCBlib_PIC/can18_ecan.c: 357: }
 [e :UE 1539 ]
 }
-"365
-[; ;../../VLCBlib_PIC/can18_ecan.c: 365: static Processed canProcessMessage(Message * m) {
+"366
+[; ;../../VLCBlib_PIC/can18_ecan.c: 366: static Processed canProcessMessage(Message * m) {
 [v _canProcessMessage `(E12899 ~T0 @X0 1 sf1`*S1527 ]
 {
 [e :U _canProcessMessage ]
 [v _m `*S1527 ~T0 @X0 1 r1 ]
 [f ]
-"367
-[; ;../../VLCBlib_PIC/can18_ecan.c: 367:     if (m->len < 3) return NOT_PROCESSED;
+"368
+[; ;../../VLCBlib_PIC/can18_ecan.c: 368:     if (m->len < 3) return NOT_PROCESSED;
 [e $ ! < -> . *U _m 0 `i -> 3 `i 1549  ]
 [e ) . `E12899 0 ]
 [e $UE 1548  ]
 [e :U 1549 ]
-"368
-[; ;../../VLCBlib_PIC/can18_ecan.c: 368:     if (m->bytes[0] != nn.bytes.hi) return NOT_PROCESSED;
+"369
+[; ;../../VLCBlib_PIC/can18_ecan.c: 369:     if (m->bytes[0] != nn.bytes.hi) return NOT_PROCESSED;
 [e $ ! != -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . . _nn 0 1 `i 1550  ]
 [e ) . `E12899 0 ]
 [e $UE 1548  ]
 [e :U 1550 ]
-"369
-[; ;../../VLCBlib_PIC/can18_ecan.c: 369:     if (m->bytes[1] != nn.bytes.lo) return NOT_PROCESSED;
+"370
+[; ;../../VLCBlib_PIC/can18_ecan.c: 370:     if (m->bytes[1] != nn.bytes.lo) return NOT_PROCESSED;
 [e $ ! != -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . . _nn 0 0 `i 1551  ]
 [e ) . `E12899 0 ]
 [e $UE 1548  ]
 [e :U 1551 ]
-"372
-[; ;../../VLCBlib_PIC/can18_ecan.c: 372:     switch (m->opc) {
+"373
+[; ;../../VLCBlib_PIC/can18_ecan.c: 373:     switch (m->opc) {
 [e $U 1553  ]
 {
-"373
-[; ;../../VLCBlib_PIC/can18_ecan.c: 373:         case OPC_ENUM:
+"374
+[; ;../../VLCBlib_PIC/can18_ecan.c: 374:         case OPC_ENUM:
 [e :U 1554 ]
-"375
-[; ;../../VLCBlib_PIC/can18_ecan.c: 375:             return PROCESSED;
+"376
+[; ;../../VLCBlib_PIC/can18_ecan.c: 376:             return PROCESSED;
 [e ) . `E12899 1 ]
 [e $UE 1548  ]
-"376
-[; ;../../VLCBlib_PIC/can18_ecan.c: 376:         case OPC_CANID:
-[e :U 1555 ]
 "377
-[; ;../../VLCBlib_PIC/can18_ecan.c: 377:             if (m->len < 4) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 377:         case OPC_CANID:
+[e :U 1555 ]
+"378
+[; ;../../VLCBlib_PIC/can18_ecan.c: 378:             if (m->len < 4) {
 [e $ ! < -> . *U _m 0 `i -> 4 `i 1556  ]
 {
-"378
-[; ;../../VLCBlib_PIC/can18_ecan.c: 378:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
-[e ( _sendMessage5 (4 , , , , , . `E12509 89 . . _nn 0 1 . . _nn 0 0 -> . `E12509 54 `uc -> . `E12716 1 `uc -> . `E12678 0 `uc ]
 "379
-[; ;../../VLCBlib_PIC/can18_ecan.c: 379:                 return PROCESSED;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 379:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
+[e ( _sendMessage5 (4 , , , , , . `E12509 89 . . _nn 0 1 . . _nn 0 0 -> . `E12509 54 `uc -> . `E12716 1 `uc -> . `E12678 0 `uc ]
+"380
+[; ;../../VLCBlib_PIC/can18_ecan.c: 380:                 return PROCESSED;
 [e ) . `E12899 1 ]
 [e $UE 1548  ]
-"380
-[; ;../../VLCBlib_PIC/can18_ecan.c: 380:             }
+"381
+[; ;../../VLCBlib_PIC/can18_ecan.c: 381:             }
 }
 [e :U 1556 ]
-"382
-[; ;../../VLCBlib_PIC/can18_ecan.c: 382:             return PROCESSED;
+"383
+[; ;../../VLCBlib_PIC/can18_ecan.c: 383:             return PROCESSED;
 [e ) . `E12899 1 ]
 [e $UE 1548  ]
-"383
-[; ;../../VLCBlib_PIC/can18_ecan.c: 383:         default:
-[e :U 1557 ]
 "384
-[; ;../../VLCBlib_PIC/can18_ecan.c: 384:             break;
-[e $U 1552  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 384:         default:
+[e :U 1557 ]
 "385
-[; ;../../VLCBlib_PIC/can18_ecan.c: 385:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 385:             break;
+[e $U 1552  ]
+"386
+[; ;../../VLCBlib_PIC/can18_ecan.c: 386:     }
 }
 [e $U 1552  ]
 [e :U 1553 ]
@@ -2339,546 +2339,546 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E12509 58 `ui 1555
  1557 ]
 [e :U 1552 ]
-"386
-[; ;../../VLCBlib_PIC/can18_ecan.c: 386:     return NOT_PROCESSED;
+"387
+[; ;../../VLCBlib_PIC/can18_ecan.c: 387:     return NOT_PROCESSED;
 [e ) . `E12899 0 ]
 [e $UE 1548  ]
-"387
-[; ;../../VLCBlib_PIC/can18_ecan.c: 387: }
+"388
+[; ;../../VLCBlib_PIC/can18_ecan.c: 388: }
 [e :UE 1548 ]
 }
-"392
-[; ;../../VLCBlib_PIC/can18_ecan.c: 392: static void canIsr(void) {
+"393
+[; ;../../VLCBlib_PIC/can18_ecan.c: 393: static void canIsr(void) {
 [v _canIsr `(v ~T0 @X0 1 sf ]
 {
 [e :U _canIsr ]
 [f ]
-"394
-[; ;../../VLCBlib_PIC/can18_ecan.c: 394:     if (PIR5bits.FIFOWMIF) {
+"395
+[; ;../../VLCBlib_PIC/can18_ecan.c: 395:     if (PIR5bits.FIFOWMIF) {
 [e $ ! != -> . . _PIR5bits 1 0 `i -> 0 `i 1559  ]
 {
-"395
-[; ;../../VLCBlib_PIC/can18_ecan.c: 395:         canFillRxFifo();
-[e ( _canFillRxFifo ..  ]
 "396
-[; ;../../VLCBlib_PIC/can18_ecan.c: 396:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 396:         canFillRxFifo();
+[e ( _canFillRxFifo ..  ]
+"397
+[; ;../../VLCBlib_PIC/can18_ecan.c: 397:     }
 }
 [e :U 1559 ]
-"397
-[; ;../../VLCBlib_PIC/can18_ecan.c: 397:     if (PIR5bits.ERRIF) {
+"398
+[; ;../../VLCBlib_PIC/can18_ecan.c: 398:     if (PIR5bits.ERRIF) {
 [e $ ! != -> . . _PIR5bits 0 5 `i -> 0 `i 1560  ]
 {
-"398
-[; ;../../VLCBlib_PIC/can18_ecan.c: 398:         canTxError();
-[e ( _canTxError ..  ]
 "399
-[; ;../../VLCBlib_PIC/can18_ecan.c: 399:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 399:         canTxError();
+[e ( _canTxError ..  ]
+"400
+[; ;../../VLCBlib_PIC/can18_ecan.c: 400:     }
 }
 [e :U 1560 ]
-"400
-[; ;../../VLCBlib_PIC/can18_ecan.c: 400:     if (PIR5bits.TXBnIF) {
+"401
+[; ;../../VLCBlib_PIC/can18_ecan.c: 401:     if (PIR5bits.TXBnIF) {
 [e $ ! != -> . . _PIR5bits 1 3 `i -> 0 `i 1561  ]
 {
-"401
-[; ;../../VLCBlib_PIC/can18_ecan.c: 401:         checkTxFifo();
-[e ( _checkTxFifo ..  ]
 "402
-[; ;../../VLCBlib_PIC/can18_ecan.c: 402:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 402:         checkTxFifo();
+[e ( _checkTxFifo ..  ]
+"403
+[; ;../../VLCBlib_PIC/can18_ecan.c: 403:     }
 }
 [e :U 1561 ]
-"403
-[; ;../../VLCBlib_PIC/can18_ecan.c: 403:     checkCANTimeout();
-[e ( _checkCANTimeout ..  ]
 "404
-[; ;../../VLCBlib_PIC/can18_ecan.c: 404: }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 404:     checkCANTimeout();
+[e ( _checkCANTimeout ..  ]
+"405
+[; ;../../VLCBlib_PIC/can18_ecan.c: 405: }
 [e :UE 1558 ]
 }
-"411
-[; ;../../VLCBlib_PIC/can18_ecan.c: 411: uint8_t canEsdData(uint8_t id) {
+"412
+[; ;../../VLCBlib_PIC/can18_ecan.c: 412: uint8_t canEsdData(uint8_t id) {
 [v _canEsdData `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _canEsdData ]
 [v _id `uc ~T0 @X0 1 r1 ]
 [f ]
-"412
-[; ;../../VLCBlib_PIC/can18_ecan.c: 412:     switch(id) {
+"413
+[; ;../../VLCBlib_PIC/can18_ecan.c: 413:     switch(id) {
 [e $U 1564  ]
 {
-"413
-[; ;../../VLCBlib_PIC/can18_ecan.c: 413:         case 0:
-[e :U 1565 ]
 "414
-[; ;../../VLCBlib_PIC/can18_ecan.c: 414:             return CAN_HW_PIC_ECAN;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 414:         case 0:
+[e :U 1565 ]
+"415
+[; ;../../VLCBlib_PIC/can18_ecan.c: 415:             return CAN_HW_PIC_ECAN;
 [e ) -> . `E12828 1 `uc ]
 [e $UE 1562  ]
-"415
-[; ;../../VLCBlib_PIC/can18_ecan.c: 415:         default:
-[e :U 1566 ]
 "416
-[; ;../../VLCBlib_PIC/can18_ecan.c: 416:             return 0;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 416:         default:
+[e :U 1566 ]
+"417
+[; ;../../VLCBlib_PIC/can18_ecan.c: 417:             return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 1562  ]
-"417
-[; ;../../VLCBlib_PIC/can18_ecan.c: 417:     }
+"418
+[; ;../../VLCBlib_PIC/can18_ecan.c: 418:     }
 }
 [e $U 1563  ]
 [e :U 1564 ]
 [e [\ _id , $ -> 0 `i 1565
  1566 ]
 [e :U 1563 ]
-"418
-[; ;../../VLCBlib_PIC/can18_ecan.c: 418: }
+"419
+[; ;../../VLCBlib_PIC/can18_ecan.c: 419: }
 [e :UE 1562 ]
 }
-"425
-[; ;../../VLCBlib_PIC/can18_ecan.c: 425: static DiagnosticVal * canGetDiagnostic(uint8_t index) {
+"426
+[; ;../../VLCBlib_PIC/can18_ecan.c: 426: static DiagnosticVal * canGetDiagnostic(uint8_t index) {
 [v _canGetDiagnostic `(*S1530 ~T0 @X0 1 sf1`uc ]
 {
 [e :U _canGetDiagnostic ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"426
-[; ;../../VLCBlib_PIC/can18_ecan.c: 426:     if ((index<1) || (index>16)) {
+"427
+[; ;../../VLCBlib_PIC/can18_ecan.c: 427:     if ((index<1) || (index>16)) {
 [e $ ! || < -> _index `i -> 1 `i > -> _index `i -> 16 `i 1568  ]
 {
-"427
-[; ;../../VLCBlib_PIC/can18_ecan.c: 427:         return ((void*)0);
+"428
+[; ;../../VLCBlib_PIC/can18_ecan.c: 428:         return ((void*)0);
 [e ) -> -> -> 0 `i `*v `*S1530 ]
 [e $UE 1567  ]
-"428
-[; ;../../VLCBlib_PIC/can18_ecan.c: 428:     }
+"429
+[; ;../../VLCBlib_PIC/can18_ecan.c: 429:     }
 }
 [e :U 1568 ]
-"429
-[; ;../../VLCBlib_PIC/can18_ecan.c: 429:     return &(canDiagnostics[index-1]);
+"430
+[; ;../../VLCBlib_PIC/can18_ecan.c: 430:     return &(canDiagnostics[index-1]);
 [e ) &U *U + &U _canDiagnostics * -> -> - -> _index `i -> 1 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux ]
 [e $UE 1567  ]
-"430
-[; ;../../VLCBlib_PIC/can18_ecan.c: 430: }
+"431
+[; ;../../VLCBlib_PIC/can18_ecan.c: 431: }
 [e :UE 1567 ]
 }
-"440
-[; ;../../VLCBlib_PIC/can18_ecan.c: 440: static SendResult canSendMessage(Message * mp) {
+"441
+[; ;../../VLCBlib_PIC/can18_ecan.c: 441: static SendResult canSendMessage(Message * mp) {
 [v _canSendMessage `(E13014 ~T0 @X0 1 sf1`*S1527 ]
 {
 [e :U _canSendMessage ]
 [v _mp `*S1527 ~T0 @X0 1 r1 ]
 [f ]
-"442
-[; ;../../VLCBlib_PIC/can18_ecan.c: 442:     Message * m;
+"443
+[; ;../../VLCBlib_PIC/can18_ecan.c: 443:     Message * m;
 [v _m `*S1527 ~T0 @X0 1 a ]
-"445
-[; ;../../VLCBlib_PIC/can18_ecan.c: 445:     PIE5bits.TXBnIE = 0;
-[e = . . _PIE5bits 1 3 -> -> 0 `i `uc ]
 "446
-[; ;../../VLCBlib_PIC/can18_ecan.c: 446:     if (quantity(&txQueue) == 0) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 446:     PIE5bits.TXBnIE = 0;
+[e = . . _PIE5bits 1 3 -> -> 0 `i `uc ]
+"447
+[; ;../../VLCBlib_PIC/can18_ecan.c: 447:     if (quantity(&txQueue) == 0) {
 [e $ ! == -> ( _quantity (1 &U _txQueue `i -> 0 `i 1570  ]
 {
-"448
-[; ;../../VLCBlib_PIC/can18_ecan.c: 448:         if (TXB0CONbits.TXREQ == 0) {
+"449
+[; ;../../VLCBlib_PIC/can18_ecan.c: 449:         if (TXB0CONbits.TXREQ == 0) {
 [e $ ! == -> . . _TXB0CONbits 0 2 `i -> 0 `i 1571  ]
 {
-"450
-[; ;../../VLCBlib_PIC/can18_ecan.c: 450:             PIE5bits.TXBnIE = 1;
+"451
+[; ;../../VLCBlib_PIC/can18_ecan.c: 451:             PIE5bits.TXBnIE = 1;
 [e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
-"452
-[; ;../../VLCBlib_PIC/can18_ecan.c: 452:             if (mp->len >8) mp->len = 8;
+"453
+[; ;../../VLCBlib_PIC/can18_ecan.c: 453:             if (mp->len >8) mp->len = 8;
 [e $ ! > -> . *U _mp 0 `i -> 8 `i 1572  ]
 [e = . *U _mp 0 -> -> 8 `i `uc ]
 [e :U 1572 ]
-"454
-[; ;../../VLCBlib_PIC/can18_ecan.c: 454:             TXB0SIDH = canPri[priorities[mp->opc]] | ((canId & 0x78) >> 3);
-[e = _TXB0SIDH -> | -> *U + &U _canPri * -> *U + &U _priorities * -> . *U _mp 1 `ux -> -> # *U &U _priorities `ui `ux `ux -> -> # *U &U _canPri `ui `ux `i >> & -> _canId `i -> 120 `i -> 3 `i `uc ]
 "455
-[; ;../../VLCBlib_PIC/can18_ecan.c: 455:             TXB0SIDL = (uint8_t)((canId & 0x07) << 5);
-[e = _TXB0SIDL -> << & -> _canId `i -> 7 `i -> 5 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 455:             TXB0SIDH = canPri[priorities[mp->opc]] | ((canId & 0x78) >> 3);
+[e = _TXB0SIDH -> | -> *U + &U _canPri * -> *U + &U _priorities * -> . *U _mp 1 `ux -> -> # *U &U _priorities `ui `ux `ux -> -> # *U &U _canPri `ui `ux `i >> & -> _canId `i -> 120 `i -> 3 `i `uc ]
 "456
-[; ;../../VLCBlib_PIC/can18_ecan.c: 456:             TXB0D0 = mp->opc;
-[e = _TXB0D0 -> . *U _mp 1 `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 456:             TXB0SIDL = (uint8_t)((canId & 0x07) << 5);
+[e = _TXB0SIDL -> << & -> _canId `i -> 7 `i -> 5 `i `uc ]
 "457
-[; ;../../VLCBlib_PIC/can18_ecan.c: 457:             TXB0D1 = mp->bytes[0];
-[e = _TXB0D1 *U + &U . *U _mp 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 457:             TXB0D0 = mp->opc;
+[e = _TXB0D0 -> . *U _mp 1 `uc ]
 "458
-[; ;../../VLCBlib_PIC/can18_ecan.c: 458:             TXB0D2 = mp->bytes[1];
-[e = _TXB0D2 *U + &U . *U _mp 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 458:             TXB0D1 = mp->bytes[0];
+[e = _TXB0D1 *U + &U . *U _mp 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "459
-[; ;../../VLCBlib_PIC/can18_ecan.c: 459:             TXB0D3 = mp->bytes[2];
-[e = _TXB0D3 *U + &U . *U _mp 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 459:             TXB0D2 = mp->bytes[1];
+[e = _TXB0D2 *U + &U . *U _mp 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "460
-[; ;../../VLCBlib_PIC/can18_ecan.c: 460:             TXB0D4 = mp->bytes[3];
-[e = _TXB0D4 *U + &U . *U _mp 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 460:             TXB0D3 = mp->bytes[2];
+[e = _TXB0D3 *U + &U . *U _mp 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "461
-[; ;../../VLCBlib_PIC/can18_ecan.c: 461:             TXB0D5 = mp->bytes[4];
-[e = _TXB0D5 *U + &U . *U _mp 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 461:             TXB0D4 = mp->bytes[3];
+[e = _TXB0D4 *U + &U . *U _mp 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "462
-[; ;../../VLCBlib_PIC/can18_ecan.c: 462:             TXB0D6 = mp->bytes[5];
-[e = _TXB0D6 *U + &U . *U _mp 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 462:             TXB0D5 = mp->bytes[4];
+[e = _TXB0D5 *U + &U . *U _mp 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "463
-[; ;../../VLCBlib_PIC/can18_ecan.c: 463:             TXB0D7 = mp->bytes[6];
-[e = _TXB0D7 *U + &U . *U _mp 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 463:             TXB0D6 = mp->bytes[5];
+[e = _TXB0D6 *U + &U . *U _mp 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "464
-[; ;../../VLCBlib_PIC/can18_ecan.c: 464:             TXB0DLC = mp->len & 0x0F;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 464:             TXB0D7 = mp->bytes[6];
+[e = _TXB0D7 *U + &U . *U _mp 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+"465
+[; ;../../VLCBlib_PIC/can18_ecan.c: 465:             TXB0DLC = mp->len & 0x0F;
 [e = _TXB0DLC -> & -> . *U _mp 0 `i -> 15 `i `uc ]
-"466
-[; ;../../VLCBlib_PIC/can18_ecan.c: 466:             TXB0CONbits.TXREQ = 1;
-[e = . . _TXB0CONbits 0 2 -> -> 1 `i `uc ]
 "467
-[; ;../../VLCBlib_PIC/can18_ecan.c: 467:             canDiagnostics[0x05].asUint++;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 467:             TXB0CONbits.TXREQ = 1;
+[e = . . _TXB0CONbits 0 2 -> -> 1 `i `uc ]
+"468
+[; ;../../VLCBlib_PIC/can18_ecan.c: 468:             canDiagnostics[0x05].asUint++;
 [e ++ . *U + &U _canDiagnostics * -> -> -> 5 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"471
-[; ;../../VLCBlib_PIC/can18_ecan.c: 471:             if (isEvent(mp->opc)) {
+"472
+[; ;../../VLCBlib_PIC/can18_ecan.c: 472:             if (isEvent(mp->opc)) {
 [e $ ! != -> ( _isEvent (1 -> . *U _mp 1 `uc `ui -> -> 0 `i `ui 1573  ]
 {
-"472
-[; ;../../VLCBlib_PIC/can18_ecan.c: 472:                 if (have(SERVICE_ID_CONSUME_OWN_EVENTS)) {
+"473
+[; ;../../VLCBlib_PIC/can18_ecan.c: 473:                 if (have(SERVICE_ID_CONSUME_OWN_EVENTS)) {
 [e $ ! != -> ( _have (1 -> . `E12716 8 `uc `ui -> -> 0 `i `ui 1574  ]
 {
-"474
-[; ;../../VLCBlib_PIC/can18_ecan.c: 474:                     m = getNextWriteMessage(&rxQueue);
-[e = _m ( _getNextWriteMessage (1 &U _rxQueue ]
 "475
-[; ;../../VLCBlib_PIC/can18_ecan.c: 475:                     if (m == ((void*)0)) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 475:                     m = getNextWriteMessage(&rxQueue);
+[e = _m ( _getNextWriteMessage (1 &U _rxQueue ]
+"476
+[; ;../../VLCBlib_PIC/can18_ecan.c: 476:                     if (m == ((void*)0)) {
 [e $ ! == _m -> -> -> 0 `i `*v `*S1527 1575  ]
 {
-"476
-[; ;../../VLCBlib_PIC/can18_ecan.c: 476:                         canDiagnostics[0x07].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 7 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "477
-[; ;../../VLCBlib_PIC/can18_ecan.c: 477:                         updateModuleErrorStatus();
-[e ( _updateModuleErrorStatus ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 477:                         canDiagnostics[0x07].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 7 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "478
-[; ;../../VLCBlib_PIC/can18_ecan.c: 478:                     } else {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 478:                         updateModuleErrorStatus();
+[e ( _updateModuleErrorStatus ..  ]
+"479
+[; ;../../VLCBlib_PIC/can18_ecan.c: 479:                     } else {
 }
 [e $U 1576  ]
 [e :U 1575 ]
 {
-"480
-[; ;../../VLCBlib_PIC/can18_ecan.c: 480:                         m->opc = mp->opc;
-[e = . *U _m 1 . *U _mp 1 ]
 "481
-[; ;../../VLCBlib_PIC/can18_ecan.c: 481:                         m->len = mp->len;
-[e = . *U _m 0 . *U _mp 0 ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 481:                         m->opc = mp->opc;
+[e = . *U _m 1 . *U _mp 1 ]
 "482
-[; ;../../VLCBlib_PIC/can18_ecan.c: 482:                         m->bytes[0] = mp->bytes[0];
-[e = *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 482:                         m->len = mp->len;
+[e = . *U _m 0 . *U _mp 0 ]
 "483
-[; ;../../VLCBlib_PIC/can18_ecan.c: 483:                         m->bytes[1] = mp->bytes[1];
-[e = *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 483:                         m->bytes[0] = mp->bytes[0];
+[e = *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "484
-[; ;../../VLCBlib_PIC/can18_ecan.c: 484:                         m->bytes[2] = mp->bytes[2];
-[e = *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 484:                         m->bytes[1] = mp->bytes[1];
+[e = *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "485
-[; ;../../VLCBlib_PIC/can18_ecan.c: 485:                         m->bytes[3] = mp->bytes[3];
-[e = *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 485:                         m->bytes[2] = mp->bytes[2];
+[e = *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "486
-[; ;../../VLCBlib_PIC/can18_ecan.c: 486:                         m->bytes[4] = mp->bytes[4];
-[e = *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 486:                         m->bytes[3] = mp->bytes[3];
+[e = *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "487
-[; ;../../VLCBlib_PIC/can18_ecan.c: 487:                         m->bytes[5] = mp->bytes[5];
-[e = *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 487:                         m->bytes[4] = mp->bytes[4];
+[e = *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "488
-[; ;../../VLCBlib_PIC/can18_ecan.c: 488:                         m->bytes[6] = mp->bytes[6];
-[e = *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 488:                         m->bytes[5] = mp->bytes[5];
+[e = *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "489
-[; ;../../VLCBlib_PIC/can18_ecan.c: 489:                     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 489:                         m->bytes[6] = mp->bytes[6];
+[e = *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+"490
+[; ;../../VLCBlib_PIC/can18_ecan.c: 490:                     }
 }
 [e :U 1576 ]
-"490
-[; ;../../VLCBlib_PIC/can18_ecan.c: 490:                 }
+"491
+[; ;../../VLCBlib_PIC/can18_ecan.c: 491:                 }
 }
 [e :U 1574 ]
-"491
-[; ;../../VLCBlib_PIC/can18_ecan.c: 491:             }
+"492
+[; ;../../VLCBlib_PIC/can18_ecan.c: 492:             }
 }
 [e :U 1573 ]
-"493
-[; ;../../VLCBlib_PIC/can18_ecan.c: 493:             return SEND_OK;
+"494
+[; ;../../VLCBlib_PIC/can18_ecan.c: 494:             return SEND_OK;
 [e ) . `E13014 1 ]
 [e $UE 1569  ]
-"494
-[; ;../../VLCBlib_PIC/can18_ecan.c: 494:         }
+"495
+[; ;../../VLCBlib_PIC/can18_ecan.c: 495:         }
 }
 [e :U 1571 ]
-"495
-[; ;../../VLCBlib_PIC/can18_ecan.c: 495:     }
+"496
+[; ;../../VLCBlib_PIC/can18_ecan.c: 496:     }
 }
 [e :U 1570 ]
-"497
-[; ;../../VLCBlib_PIC/can18_ecan.c: 497:     if (push(&txQueue, mp) == QUEUE_FAIL) {
+"498
+[; ;../../VLCBlib_PIC/can18_ecan.c: 498:     if (push(&txQueue, mp) == QUEUE_FAIL) {
 [e $ ! == -> ( _push (2 , &U _txQueue _mp `ui -> . `E13123 0 `ui 1577  ]
 {
-"498
-[; ;../../VLCBlib_PIC/can18_ecan.c: 498:         canDiagnostics[0x04].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 4 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "499
-[; ;../../VLCBlib_PIC/can18_ecan.c: 499:         updateModuleErrorStatus();
-[e ( _updateModuleErrorStatus ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 499:         canDiagnostics[0x04].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 4 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "500
-[; ;../../VLCBlib_PIC/can18_ecan.c: 500:         PIE5bits.TXBnIE = 1;
-[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 500:         updateModuleErrorStatus();
+[e ( _updateModuleErrorStatus ..  ]
 "501
-[; ;../../VLCBlib_PIC/can18_ecan.c: 501:         return SEND_FAILED;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 501:         PIE5bits.TXBnIE = 1;
+[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
+"502
+[; ;../../VLCBlib_PIC/can18_ecan.c: 502:         return SEND_FAILED;
 [e ) . `E13014 0 ]
 [e $UE 1569  ]
-"502
-[; ;../../VLCBlib_PIC/can18_ecan.c: 502:     }
+"503
+[; ;../../VLCBlib_PIC/can18_ecan.c: 503:     }
 }
 [e :U 1577 ]
-"503
-[; ;../../VLCBlib_PIC/can18_ecan.c: 503:     PIE5bits.TXBnIE = 1;
-[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
 "504
-[; ;../../VLCBlib_PIC/can18_ecan.c: 504:     return SEND_OK;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 504:     PIE5bits.TXBnIE = 1;
+[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
+"505
+[; ;../../VLCBlib_PIC/can18_ecan.c: 505:     return SEND_OK;
 [e ) . `E13014 1 ]
 [e $UE 1569  ]
-"505
-[; ;../../VLCBlib_PIC/can18_ecan.c: 505: }
+"506
+[; ;../../VLCBlib_PIC/can18_ecan.c: 506: }
 [e :UE 1569 ]
 }
-"516
-[; ;../../VLCBlib_PIC/can18_ecan.c: 516: static MessageReceived canReceiveMessage(Message * m){
+"517
+[; ;../../VLCBlib_PIC/can18_ecan.c: 517: static MessageReceived canReceiveMessage(Message * m){
 [v _canReceiveMessage `(E13010 ~T0 @X0 1 sf1`*S1527 ]
 {
 [e :U _canReceiveMessage ]
 [v _m `*S1527 ~T0 @X0 1 r1 ]
 [f ]
-"517
-[; ;../../VLCBlib_PIC/can18_ecan.c: 517:     Message * mp;
-[v _mp `*S1527 ~T0 @X0 1 a ]
 "518
-[; ;../../VLCBlib_PIC/can18_ecan.c: 518:     uint8_t * p;
-[v _p `*uc ~T0 @X0 1 a ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 518:     Message * mp;
+[v _mp `*S1527 ~T0 @X0 1 a ]
 "519
-[; ;../../VLCBlib_PIC/can18_ecan.c: 519:     MessageReceived messageAvailable;
-[v _messageAvailable `E13010 ~T0 @X0 1 a ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 519:     uint8_t * p;
+[v _p `*uc ~T0 @X0 1 a ]
 "520
-[; ;../../VLCBlib_PIC/can18_ecan.c: 520:     uint8_t incomingCanId;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 520:     MessageReceived messageAvailable;
+[v _messageAvailable `E13010 ~T0 @X0 1 a ]
+"521
+[; ;../../VLCBlib_PIC/can18_ecan.c: 521:     uint8_t incomingCanId;
 [v _incomingCanId `uc ~T0 @X0 1 a ]
-"522
-[; ;../../VLCBlib_PIC/can18_ecan.c: 522:     PIE5bits.FIFOWMIE = 0;
-[e = . . _PIE5bits 1 0 -> -> 0 `i `uc ]
 "523
-[; ;../../VLCBlib_PIC/can18_ecan.c: 523:     processEnumeration();
+[; ;../../VLCBlib_PIC/can18_ecan.c: 523:     PIE5bits.FIFOWMIE = 0;
+[e = . . _PIE5bits 1 0 -> -> 0 `i `uc ]
+"524
+[; ;../../VLCBlib_PIC/can18_ecan.c: 524:     processEnumeration();
 [e ( _processEnumeration ..  ]
-"526
-[; ;../../VLCBlib_PIC/can18_ecan.c: 526:     mp = pop(&rxQueue);
-[e = _mp ( _pop (1 &U _rxQueue ]
 "527
-[; ;../../VLCBlib_PIC/can18_ecan.c: 527:     if (mp != ((void*)0)) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 527:     mp = pop(&rxQueue);
+[e = _mp ( _pop (1 &U _rxQueue ]
+"528
+[; ;../../VLCBlib_PIC/can18_ecan.c: 528:     if (mp != ((void*)0)) {
 [e $ ! != _mp -> -> -> 0 `i `*v `*S1527 1579  ]
 {
-"528
-[; ;../../VLCBlib_PIC/can18_ecan.c: 528:         memcpy(m, mp, sizeof(Message));
-[e ( _memcpy (3 , , -> _m `*v -> _mp `*Cv -> # `S1527 `ui ]
 "529
-[; ;../../VLCBlib_PIC/can18_ecan.c: 529:         PIE5bits.FIFOWMIE = 1;
-[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 529:         memcpy(m, mp, sizeof(Message));
+[e ( _memcpy (3 , , -> _m `*v -> _mp `*Cv -> # `S1527 `ui ]
 "530
-[; ;../../VLCBlib_PIC/can18_ecan.c: 530:         return RECEIVED;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 530:         PIE5bits.FIFOWMIE = 1;
+[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
+"531
+[; ;../../VLCBlib_PIC/can18_ecan.c: 531:         return RECEIVED;
 [e ) . `E13010 1 ]
 [e $UE 1578  ]
-"531
-[; ;../../VLCBlib_PIC/can18_ecan.c: 531:     } else {
+"532
+[; ;../../VLCBlib_PIC/can18_ecan.c: 532:     } else {
 }
 [e $U 1580  ]
 [e :U 1579 ]
 {
-"532
-[; ;../../VLCBlib_PIC/can18_ecan.c: 532:         if (COMSTATbits.NOT_FIFOEMPTY) {
+"533
+[; ;../../VLCBlib_PIC/can18_ecan.c: 533:         if (COMSTATbits.NOT_FIFOEMPTY) {
 [e $ ! != -> . . _COMSTATbits 1 1 `i -> 0 `i 1581  ]
 {
-"533
-[; ;../../VLCBlib_PIC/can18_ecan.c: 533:             p = getBufferPointer(CANCON & 0x07);
-[e = _p ( _getBufferPointer (1 -> & -> _CANCON `i -> 7 `i `uc ]
 "534
-[; ;../../VLCBlib_PIC/can18_ecan.c: 534:             if (p == ((void*)0)) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 534:             p = getBufferPointer(CANCON & 0x07);
+[e = _p ( _getBufferPointer (1 -> & -> _CANCON `i -> 7 `i `uc ]
+"535
+[; ;../../VLCBlib_PIC/can18_ecan.c: 535:             if (p == ((void*)0)) {
 [e $ ! == _p -> -> -> 0 `i `*v `*uc 1582  ]
 {
-"536
-[; ;../../VLCBlib_PIC/can18_ecan.c: 536:                 PIE5bits.FIFOWMIE = 1;
-[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
 "537
-[; ;../../VLCBlib_PIC/can18_ecan.c: 537:                 return NOT_RECEIVED;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 537:                 PIE5bits.FIFOWMIE = 1;
+[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
+"538
+[; ;../../VLCBlib_PIC/can18_ecan.c: 538:                 return NOT_RECEIVED;
 [e ) . `E13010 0 ]
 [e $UE 1578  ]
-"538
-[; ;../../VLCBlib_PIC/can18_ecan.c: 538:             }
+"539
+[; ;../../VLCBlib_PIC/can18_ecan.c: 539:             }
 }
 [e :U 1582 ]
-"539
-[; ;../../VLCBlib_PIC/can18_ecan.c: 539:             PIR5bits.RXBnIF = 0;
-[e = . . _PIR5bits 1 1 -> -> 0 `i `uc ]
 "540
-[; ;../../VLCBlib_PIC/can18_ecan.c: 540:             if (handleSelfEnumeration(p) == RECEIVED) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 540:             PIR5bits.RXBnIF = 0;
+[e = . . _PIR5bits 1 1 -> -> 0 `i `uc ]
+"541
+[; ;../../VLCBlib_PIC/can18_ecan.c: 541:             if (handleSelfEnumeration(p) == RECEIVED) {
 [e $ ! == -> ( _handleSelfEnumeration (1 _p `ui -> . `E13010 1 `ui 1583  ]
 {
-"545
-[; ;../../VLCBlib_PIC/can18_ecan.c: 545:                     m->opc = p[6];
-[e = . *U _m 1 -> *U + _p * -> -> 6 `i `x -> -> # *U _p `i `x `E12509 ]
 "546
-[; ;../../VLCBlib_PIC/can18_ecan.c: 546:                     m->len = p[5] & 0xF;
-[e = . *U _m 0 -> & -> *U + _p * -> -> 5 `i `x -> -> # *U _p `i `x `i -> 15 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 546:                     m->opc = p[6];
+[e = . *U _m 1 -> *U + _p * -> -> 6 `i `x -> -> # *U _p `i `x `E12509 ]
 "547
-[; ;../../VLCBlib_PIC/can18_ecan.c: 547:                     if (m->len > 8) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 547:                     m->len = p[5] & 0xF;
+[e = . *U _m 0 -> & -> *U + _p * -> -> 5 `i `x -> -> # *U _p `i `x `i -> 15 `i `uc ]
+"548
+[; ;../../VLCBlib_PIC/can18_ecan.c: 548:                     if (m->len > 8) {
 [e $ ! > -> . *U _m 0 `i -> 8 `i 1584  ]
 {
-"548
-[; ;../../VLCBlib_PIC/can18_ecan.c: 548:                         m->len = 8;
-[e = . *U _m 0 -> -> 8 `i `uc ]
 "549
-[; ;../../VLCBlib_PIC/can18_ecan.c: 549:                     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 549:                         m->len = 8;
+[e = . *U _m 0 -> -> 8 `i `uc ]
+"550
+[; ;../../VLCBlib_PIC/can18_ecan.c: 550:                     }
 }
 [e :U 1584 ]
-"550
-[; ;../../VLCBlib_PIC/can18_ecan.c: 550:                     m->bytes[0] = p[7];
-[e = *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 7 `i `x -> -> # *U _p `i `x ]
 "551
-[; ;../../VLCBlib_PIC/can18_ecan.c: 551:                     m->bytes[1] = p[8];
-[e = *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 8 `i `x -> -> # *U _p `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 551:                     m->bytes[0] = p[7];
+[e = *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 7 `i `x -> -> # *U _p `i `x ]
 "552
-[; ;../../VLCBlib_PIC/can18_ecan.c: 552:                     m->bytes[2] = p[9];
-[e = *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 9 `i `x -> -> # *U _p `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 552:                     m->bytes[1] = p[8];
+[e = *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 8 `i `x -> -> # *U _p `i `x ]
 "553
-[; ;../../VLCBlib_PIC/can18_ecan.c: 553:                     m->bytes[3] = p[10];
-[e = *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 10 `i `x -> -> # *U _p `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 553:                     m->bytes[2] = p[9];
+[e = *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 9 `i `x -> -> # *U _p `i `x ]
 "554
-[; ;../../VLCBlib_PIC/can18_ecan.c: 554:                     m->bytes[4] = p[11];
-[e = *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 11 `i `x -> -> # *U _p `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 554:                     m->bytes[3] = p[10];
+[e = *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 10 `i `x -> -> # *U _p `i `x ]
 "555
-[; ;../../VLCBlib_PIC/can18_ecan.c: 555:                     m->bytes[5] = p[12];
-[e = *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 12 `i `x -> -> # *U _p `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 555:                     m->bytes[4] = p[11];
+[e = *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 11 `i `x -> -> # *U _p `i `x ]
 "556
-[; ;../../VLCBlib_PIC/can18_ecan.c: 556:                     m->bytes[6] = p[13];
-[e = *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 13 `i `x -> -> # *U _p `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 556:                     m->bytes[5] = p[12];
+[e = *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 12 `i `x -> -> # *U _p `i `x ]
 "557
-[; ;../../VLCBlib_PIC/can18_ecan.c: 557:                     messageAvailable = RECEIVED;
-[e = _messageAvailable . `E13010 1 ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 557:                     m->bytes[6] = p[13];
+[e = *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _p * -> -> 13 `i `x -> -> # *U _p `i `x ]
 "558
-[; ;../../VLCBlib_PIC/can18_ecan.c: 558:             }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 558:                     messageAvailable = RECEIVED;
+[e = _messageAvailable . `E13010 1 ]
+"559
+[; ;../../VLCBlib_PIC/can18_ecan.c: 559:             }
 }
 [e :U 1583 ]
-"560
-[; ;../../VLCBlib_PIC/can18_ecan.c: 560:             if (PIR5bits.IRXIF) {
+"561
+[; ;../../VLCBlib_PIC/can18_ecan.c: 561:             if (PIR5bits.IRXIF) {
 [e $ ! != -> . . _PIR5bits 0 7 `i -> 0 `i 1585  ]
 {
-"561
-[; ;../../VLCBlib_PIC/can18_ecan.c: 561:                 PIR5bits.IRXIF = 0;
-[e = . . _PIR5bits 0 7 -> -> 0 `i `uc ]
 "562
-[; ;../../VLCBlib_PIC/can18_ecan.c: 562:             }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 562:                 PIR5bits.IRXIF = 0;
+[e = . . _PIR5bits 0 7 -> -> 0 `i `uc ]
+"563
+[; ;../../VLCBlib_PIC/can18_ecan.c: 563:             }
 }
 [e :U 1585 ]
-"564
-[; ;../../VLCBlib_PIC/can18_ecan.c: 564:             p[0] &= 0x7f;
-[e =& *U + _p * -> -> 0 `i `x -> -> # *U _p `i `x -> -> 127 `i `uc ]
 "565
-[; ;../../VLCBlib_PIC/can18_ecan.c: 565:             PIE5bits.FIFOWMIE = 1;
-[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 565:             p[0] &= 0x7f;
+[e =& *U + _p * -> -> 0 `i `x -> -> # *U _p `i `x -> -> 127 `i `uc ]
 "566
-[; ;../../VLCBlib_PIC/can18_ecan.c: 566:             return messageAvailable;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 566:             PIE5bits.FIFOWMIE = 1;
+[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
+"567
+[; ;../../VLCBlib_PIC/can18_ecan.c: 567:             return messageAvailable;
 [e ) _messageAvailable ]
 [e $UE 1578  ]
-"567
-[; ;../../VLCBlib_PIC/can18_ecan.c: 567:         } else {
+"568
+[; ;../../VLCBlib_PIC/can18_ecan.c: 568:         } else {
 }
 [e $U 1586  ]
 [e :U 1581 ]
 {
-"569
-[; ;../../VLCBlib_PIC/can18_ecan.c: 569:             PIE5bits.FIFOWMIE = 1;
-[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
 "570
-[; ;../../VLCBlib_PIC/can18_ecan.c: 570:             return NOT_RECEIVED;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 570:             PIE5bits.FIFOWMIE = 1;
+[e = . . _PIE5bits 1 0 -> -> 1 `i `uc ]
+"571
+[; ;../../VLCBlib_PIC/can18_ecan.c: 571:             return NOT_RECEIVED;
 [e ) . `E13010 0 ]
 [e $UE 1578  ]
-"571
-[; ;../../VLCBlib_PIC/can18_ecan.c: 571:         }
+"572
+[; ;../../VLCBlib_PIC/can18_ecan.c: 572:         }
 }
 [e :U 1586 ]
-"572
-[; ;../../VLCBlib_PIC/can18_ecan.c: 572:     }
+"573
+[; ;../../VLCBlib_PIC/can18_ecan.c: 573:     }
 }
 [e :U 1580 ]
-"573
-[; ;../../VLCBlib_PIC/can18_ecan.c: 573: }
+"574
+[; ;../../VLCBlib_PIC/can18_ecan.c: 574: }
 [e :UE 1578 ]
 }
-"578
-[; ;../../VLCBlib_PIC/can18_ecan.c: 578: static uint8_t * getBufferPointer(uint8_t b) {
+"579
+[; ;../../VLCBlib_PIC/can18_ecan.c: 579: static uint8_t * getBufferPointer(uint8_t b) {
 [v _getBufferPointer `(*uc ~T0 @X0 1 sf1`uc ]
 {
 [e :U _getBufferPointer ]
 [v _b `uc ~T0 @X0 1 r1 ]
 [f ]
-"579
-[; ;../../VLCBlib_PIC/can18_ecan.c: 579:     switch (b) {
+"580
+[; ;../../VLCBlib_PIC/can18_ecan.c: 580:     switch (b) {
 [e $U 1589  ]
 {
-"580
-[; ;../../VLCBlib_PIC/can18_ecan.c: 580:         case 0:
-[e :U 1590 ]
 "581
-[; ;../../VLCBlib_PIC/can18_ecan.c: 581:             return (uint8_t*) & RXB0CON;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 581:         case 0:
+[e :U 1590 ]
+"582
+[; ;../../VLCBlib_PIC/can18_ecan.c: 582:             return (uint8_t*) & RXB0CON;
 [e ) -> &U _RXB0CON `*uc ]
 [e $UE 1587  ]
-"582
-[; ;../../VLCBlib_PIC/can18_ecan.c: 582:         case 1:
-[e :U 1591 ]
 "583
-[; ;../../VLCBlib_PIC/can18_ecan.c: 583:             return (uint8_t*) & RXB1CON;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 583:         case 1:
+[e :U 1591 ]
+"584
+[; ;../../VLCBlib_PIC/can18_ecan.c: 584:             return (uint8_t*) & RXB1CON;
 [e ) -> &U _RXB1CON `*uc ]
 [e $UE 1587  ]
-"584
-[; ;../../VLCBlib_PIC/can18_ecan.c: 584:         case 2:
-[e :U 1592 ]
 "585
-[; ;../../VLCBlib_PIC/can18_ecan.c: 585:             return (uint8_t*) & B0CON;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 585:         case 2:
+[e :U 1592 ]
+"586
+[; ;../../VLCBlib_PIC/can18_ecan.c: 586:             return (uint8_t*) & B0CON;
 [e ) -> &U _B0CON `*uc ]
 [e $UE 1587  ]
-"586
-[; ;../../VLCBlib_PIC/can18_ecan.c: 586:         case 3:
-[e :U 1593 ]
 "587
-[; ;../../VLCBlib_PIC/can18_ecan.c: 587:             return (uint8_t*) & B1CON;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 587:         case 3:
+[e :U 1593 ]
+"588
+[; ;../../VLCBlib_PIC/can18_ecan.c: 588:             return (uint8_t*) & B1CON;
 [e ) -> &U _B1CON `*uc ]
 [e $UE 1587  ]
-"588
-[; ;../../VLCBlib_PIC/can18_ecan.c: 588:         case 4:
-[e :U 1594 ]
 "589
-[; ;../../VLCBlib_PIC/can18_ecan.c: 589:             return (uint8_t*) & B2CON;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 589:         case 4:
+[e :U 1594 ]
+"590
+[; ;../../VLCBlib_PIC/can18_ecan.c: 590:             return (uint8_t*) & B2CON;
 [e ) -> &U _B2CON `*uc ]
 [e $UE 1587  ]
-"590
-[; ;../../VLCBlib_PIC/can18_ecan.c: 590:         case 5:
-[e :U 1595 ]
 "591
-[; ;../../VLCBlib_PIC/can18_ecan.c: 591:             return (uint8_t*) & B3CON;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 591:         case 5:
+[e :U 1595 ]
+"592
+[; ;../../VLCBlib_PIC/can18_ecan.c: 592:             return (uint8_t*) & B3CON;
 [e ) -> &U _B3CON `*uc ]
 [e $UE 1587  ]
-"592
-[; ;../../VLCBlib_PIC/can18_ecan.c: 592:         case 6:
-[e :U 1596 ]
 "593
-[; ;../../VLCBlib_PIC/can18_ecan.c: 593:             return (uint8_t*) & B4CON;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 593:         case 6:
+[e :U 1596 ]
+"594
+[; ;../../VLCBlib_PIC/can18_ecan.c: 594:             return (uint8_t*) & B4CON;
 [e ) -> &U _B4CON `*uc ]
 [e $UE 1587  ]
-"594
-[; ;../../VLCBlib_PIC/can18_ecan.c: 594:         case 7:
-[e :U 1597 ]
 "595
-[; ;../../VLCBlib_PIC/can18_ecan.c: 595:             return (uint8_t*) & B5CON;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 595:         case 7:
+[e :U 1597 ]
+"596
+[; ;../../VLCBlib_PIC/can18_ecan.c: 596:             return (uint8_t*) & B5CON;
 [e ) -> &U _B5CON `*uc ]
 [e $UE 1587  ]
-"596
-[; ;../../VLCBlib_PIC/can18_ecan.c: 596:         default:
-[e :U 1598 ]
 "597
-[; ;../../VLCBlib_PIC/can18_ecan.c: 597:             return ((void*)0);
+[; ;../../VLCBlib_PIC/can18_ecan.c: 597:         default:
+[e :U 1598 ]
+"598
+[; ;../../VLCBlib_PIC/can18_ecan.c: 598:             return ((void*)0);
 [e ) -> -> -> 0 `i `*v `*uc ]
 [e $UE 1587  ]
-"598
-[; ;../../VLCBlib_PIC/can18_ecan.c: 598:     }
+"599
+[; ;../../VLCBlib_PIC/can18_ecan.c: 599:     }
 }
 [e $U 1588  ]
 [e :U 1589 ]
@@ -2892,721 +2892,721 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 7 `i 1597
  1598 ]
 [e :U 1588 ]
-"599
-[; ;../../VLCBlib_PIC/can18_ecan.c: 599: }
+"600
+[; ;../../VLCBlib_PIC/can18_ecan.c: 600: }
 [e :UE 1587 ]
 }
-"606
-[; ;../../VLCBlib_PIC/can18_ecan.c: 606: static void checkTxFifo( void ) {
+"607
+[; ;../../VLCBlib_PIC/can18_ecan.c: 607: static void checkTxFifo( void ) {
 [v _checkTxFifo `(v ~T0 @X0 1 sf ]
 {
 [e :U _checkTxFifo ]
 [f ]
-"607
-[; ;../../VLCBlib_PIC/can18_ecan.c: 607:     Message * mp;
+"608
+[; ;../../VLCBlib_PIC/can18_ecan.c: 608:     Message * mp;
 [v _mp `*S1527 ~T0 @X0 1 a ]
-"609
-[; ;../../VLCBlib_PIC/can18_ecan.c: 609:     Message * m;
+"610
+[; ;../../VLCBlib_PIC/can18_ecan.c: 610:     Message * m;
 [v _m `*S1527 ~T0 @X0 1 a ]
-"612
-[; ;../../VLCBlib_PIC/can18_ecan.c: 612:     PIR5bits.TXBnIF = 0;
-[e = . . _PIR5bits 1 3 -> -> 0 `i `uc ]
 "613
-[; ;../../VLCBlib_PIC/can18_ecan.c: 613:     if (!TXB0CONbits.TXREQ) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 613:     PIR5bits.TXBnIF = 0;
+[e = . . _PIR5bits 1 3 -> -> 0 `i `uc ]
+"614
+[; ;../../VLCBlib_PIC/can18_ecan.c: 614:     if (!TXB0CONbits.TXREQ) {
 [e $ ! ! != -> . . _TXB0CONbits 0 2 `i -> 0 `i 1600  ]
 {
-"614
-[; ;../../VLCBlib_PIC/can18_ecan.c: 614:         mp = pop(&txQueue);
-[e = _mp ( _pop (1 &U _txQueue ]
 "615
-[; ;../../VLCBlib_PIC/can18_ecan.c: 615:         if (mp != ((void*)0)) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 615:         mp = pop(&txQueue);
+[e = _mp ( _pop (1 &U _txQueue ]
+"616
+[; ;../../VLCBlib_PIC/can18_ecan.c: 616:         if (mp != ((void*)0)) {
 [e $ ! != _mp -> -> -> 0 `i `*v `*S1527 1601  ]
 {
-"617
-[; ;../../VLCBlib_PIC/can18_ecan.c: 617:             TXB0SIDH = canPri[priorities[mp->opc]] | ((canId & 0x78) >> 3);
-[e = _TXB0SIDH -> | -> *U + &U _canPri * -> *U + &U _priorities * -> . *U _mp 1 `ux -> -> # *U &U _priorities `ui `ux `ux -> -> # *U &U _canPri `ui `ux `i >> & -> _canId `i -> 120 `i -> 3 `i `uc ]
 "618
-[; ;../../VLCBlib_PIC/can18_ecan.c: 618:             TXB0SIDL = (uint8_t)((canId & 0x07) << 5);
-[e = _TXB0SIDL -> << & -> _canId `i -> 7 `i -> 5 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 618:             TXB0SIDH = canPri[priorities[mp->opc]] | ((canId & 0x78) >> 3);
+[e = _TXB0SIDH -> | -> *U + &U _canPri * -> *U + &U _priorities * -> . *U _mp 1 `ux -> -> # *U &U _priorities `ui `ux `ux -> -> # *U &U _canPri `ui `ux `i >> & -> _canId `i -> 120 `i -> 3 `i `uc ]
 "619
-[; ;../../VLCBlib_PIC/can18_ecan.c: 619:             TXB0D0 = mp->opc;
-[e = _TXB0D0 -> . *U _mp 1 `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 619:             TXB0SIDL = (uint8_t)((canId & 0x07) << 5);
+[e = _TXB0SIDL -> << & -> _canId `i -> 7 `i -> 5 `i `uc ]
 "620
-[; ;../../VLCBlib_PIC/can18_ecan.c: 620:             TXB0D1 = mp->bytes[0];
-[e = _TXB0D1 *U + &U . *U _mp 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 620:             TXB0D0 = mp->opc;
+[e = _TXB0D0 -> . *U _mp 1 `uc ]
 "621
-[; ;../../VLCBlib_PIC/can18_ecan.c: 621:             TXB0D2 = mp->bytes[1];
-[e = _TXB0D2 *U + &U . *U _mp 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 621:             TXB0D1 = mp->bytes[0];
+[e = _TXB0D1 *U + &U . *U _mp 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "622
-[; ;../../VLCBlib_PIC/can18_ecan.c: 622:             TXB0D3 = mp->bytes[2];
-[e = _TXB0D3 *U + &U . *U _mp 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 622:             TXB0D2 = mp->bytes[1];
+[e = _TXB0D2 *U + &U . *U _mp 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "623
-[; ;../../VLCBlib_PIC/can18_ecan.c: 623:             TXB0D4 = mp->bytes[3];
-[e = _TXB0D4 *U + &U . *U _mp 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 623:             TXB0D3 = mp->bytes[2];
+[e = _TXB0D3 *U + &U . *U _mp 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "624
-[; ;../../VLCBlib_PIC/can18_ecan.c: 624:             TXB0D5 = mp->bytes[4];
-[e = _TXB0D5 *U + &U . *U _mp 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 624:             TXB0D4 = mp->bytes[3];
+[e = _TXB0D4 *U + &U . *U _mp 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "625
-[; ;../../VLCBlib_PIC/can18_ecan.c: 625:             TXB0D6 = mp->bytes[5];
-[e = _TXB0D6 *U + &U . *U _mp 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 625:             TXB0D5 = mp->bytes[4];
+[e = _TXB0D5 *U + &U . *U _mp 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "626
-[; ;../../VLCBlib_PIC/can18_ecan.c: 626:             TXB0D7 = mp->bytes[6];
-[e = _TXB0D7 *U + &U . *U _mp 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 626:             TXB0D6 = mp->bytes[5];
+[e = _TXB0D6 *U + &U . *U _mp 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "627
-[; ;../../VLCBlib_PIC/can18_ecan.c: 627:             TXB0DLC = mp->len;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 627:             TXB0D7 = mp->bytes[6];
+[e = _TXB0D7 *U + &U . *U _mp 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+"628
+[; ;../../VLCBlib_PIC/can18_ecan.c: 628:             TXB0DLC = mp->len;
 [e = _TXB0DLC . *U _mp 0 ]
-"629
-[; ;../../VLCBlib_PIC/can18_ecan.c: 629:             canTransmitTimeout.val = tickGet();
-[e = . _canTransmitTimeout 0 ( _tickGet ..  ]
 "630
-[; ;../../VLCBlib_PIC/can18_ecan.c: 630:             canTransmitFailed = 0;
-[e = _canTransmitFailed -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 630:             canTransmitTimeout.val = tickGet();
+[e = . _canTransmitTimeout 0 ( _tickGet ..  ]
 "631
-[; ;../../VLCBlib_PIC/can18_ecan.c: 631:             TXB0CONbits.TXREQ = 1;
-[e = . . _TXB0CONbits 0 2 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 631:             canTransmitFailed = 0;
+[e = _canTransmitFailed -> -> 0 `i `uc ]
 "632
-[; ;../../VLCBlib_PIC/can18_ecan.c: 632:             PIE5bits.TXBnIE = 1;
-[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 632:             TXB0CONbits.TXREQ = 1;
+[e = . . _TXB0CONbits 0 2 -> -> 1 `i `uc ]
 "633
-[; ;../../VLCBlib_PIC/can18_ecan.c: 633:             canDiagnostics[0x05].asUint++;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 633:             PIE5bits.TXBnIE = 1;
+[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
+"634
+[; ;../../VLCBlib_PIC/can18_ecan.c: 634:             canDiagnostics[0x05].asUint++;
 [e ++ . *U + &U _canDiagnostics * -> -> -> 5 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"636
-[; ;../../VLCBlib_PIC/can18_ecan.c: 636:             if (isEvent(mp->opc)) {
+"637
+[; ;../../VLCBlib_PIC/can18_ecan.c: 637:             if (isEvent(mp->opc)) {
 [e $ ! != -> ( _isEvent (1 -> . *U _mp 1 `uc `ui -> -> 0 `i `ui 1602  ]
 {
-"638
-[; ;../../VLCBlib_PIC/can18_ecan.c: 638:                 m = getNextWriteMessage(&rxQueue);
-[e = _m ( _getNextWriteMessage (1 &U _rxQueue ]
 "639
-[; ;../../VLCBlib_PIC/can18_ecan.c: 639:                 if (m == ((void*)0)) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 639:                 m = getNextWriteMessage(&rxQueue);
+[e = _m ( _getNextWriteMessage (1 &U _rxQueue ]
+"640
+[; ;../../VLCBlib_PIC/can18_ecan.c: 640:                 if (m == ((void*)0)) {
 [e $ ! == _m -> -> -> 0 `i `*v `*S1527 1603  ]
 {
-"640
-[; ;../../VLCBlib_PIC/can18_ecan.c: 640:                     canDiagnostics[0x07].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 7 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "641
-[; ;../../VLCBlib_PIC/can18_ecan.c: 641:                     updateModuleErrorStatus();
-[e ( _updateModuleErrorStatus ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 641:                     canDiagnostics[0x07].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 7 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "642
-[; ;../../VLCBlib_PIC/can18_ecan.c: 642:                 } else {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 642:                     updateModuleErrorStatus();
+[e ( _updateModuleErrorStatus ..  ]
+"643
+[; ;../../VLCBlib_PIC/can18_ecan.c: 643:                 } else {
 }
 [e $U 1604  ]
 [e :U 1603 ]
 {
-"644
-[; ;../../VLCBlib_PIC/can18_ecan.c: 644:                     m->opc = mp->opc;
-[e = . *U _m 1 . *U _mp 1 ]
 "645
-[; ;../../VLCBlib_PIC/can18_ecan.c: 645:                     m->len = mp->len;
-[e = . *U _m 0 . *U _mp 0 ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 645:                     m->opc = mp->opc;
+[e = . *U _m 1 . *U _mp 1 ]
 "646
-[; ;../../VLCBlib_PIC/can18_ecan.c: 646:                     m->bytes[0] = mp->bytes[0];
-[e = *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 646:                     m->len = mp->len;
+[e = . *U _m 0 . *U _mp 0 ]
 "647
-[; ;../../VLCBlib_PIC/can18_ecan.c: 647:                     m->bytes[1] = mp->bytes[1];
-[e = *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 647:                     m->bytes[0] = mp->bytes[0];
+[e = *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "648
-[; ;../../VLCBlib_PIC/can18_ecan.c: 648:                     m->bytes[2] = mp->bytes[2];
-[e = *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 648:                     m->bytes[1] = mp->bytes[1];
+[e = *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "649
-[; ;../../VLCBlib_PIC/can18_ecan.c: 649:                     m->bytes[3] = mp->bytes[3];
-[e = *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 649:                     m->bytes[2] = mp->bytes[2];
+[e = *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "650
-[; ;../../VLCBlib_PIC/can18_ecan.c: 650:                     m->bytes[4] = mp->bytes[4];
-[e = *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 650:                     m->bytes[3] = mp->bytes[3];
+[e = *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "651
-[; ;../../VLCBlib_PIC/can18_ecan.c: 651:                     m->bytes[5] = mp->bytes[5];
-[e = *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 651:                     m->bytes[4] = mp->bytes[4];
+[e = *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "652
-[; ;../../VLCBlib_PIC/can18_ecan.c: 652:                     m->bytes[6] = mp->bytes[6];
-[e = *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 652:                     m->bytes[5] = mp->bytes[5];
+[e = *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
 "653
-[; ;../../VLCBlib_PIC/can18_ecan.c: 653:                 }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 653:                     m->bytes[6] = mp->bytes[6];
+[e = *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _mp 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _mp 2 `ui `ux ]
+"654
+[; ;../../VLCBlib_PIC/can18_ecan.c: 654:                 }
 }
 [e :U 1604 ]
-"654
-[; ;../../VLCBlib_PIC/can18_ecan.c: 654:             }
+"655
+[; ;../../VLCBlib_PIC/can18_ecan.c: 655:             }
 }
 [e :U 1602 ]
-"656
-[; ;../../VLCBlib_PIC/can18_ecan.c: 656:         } else {
+"657
+[; ;../../VLCBlib_PIC/can18_ecan.c: 657:         } else {
 }
 [e $U 1605  ]
 [e :U 1601 ]
 {
-"658
-[; ;../../VLCBlib_PIC/can18_ecan.c: 658:             canTransmitTimeout.val = 0;
-[e = . _canTransmitTimeout 0 -> -> -> 0 `i `l `ul ]
 "659
-[; ;../../VLCBlib_PIC/can18_ecan.c: 659:             TXB0CON = 0;
-[e = _TXB0CON -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 659:             canTransmitTimeout.val = 0;
+[e = . _canTransmitTimeout 0 -> -> -> 0 `i `l `ul ]
 "660
-[; ;../../VLCBlib_PIC/can18_ecan.c: 660:             PIR5bits.TXBnIF = 0;
-[e = . . _PIR5bits 1 3 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 660:             TXB0CON = 0;
+[e = _TXB0CON -> -> 0 `i `uc ]
 "661
-[; ;../../VLCBlib_PIC/can18_ecan.c: 661:             PIE5bits.TXBnIE = 0;
-[e = . . _PIE5bits 1 3 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 661:             PIR5bits.TXBnIF = 0;
+[e = . . _PIR5bits 1 3 -> -> 0 `i `uc ]
 "662
-[; ;../../VLCBlib_PIC/can18_ecan.c: 662:         }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 662:             PIE5bits.TXBnIE = 0;
+[e = . . _PIE5bits 1 3 -> -> 0 `i `uc ]
+"663
+[; ;../../VLCBlib_PIC/can18_ecan.c: 663:         }
 }
 [e :U 1605 ]
-"663
-[; ;../../VLCBlib_PIC/can18_ecan.c: 663:     } else {
+"664
+[; ;../../VLCBlib_PIC/can18_ecan.c: 664:     } else {
 }
 [e $U 1606  ]
 [e :U 1600 ]
 {
-"665
-[; ;../../VLCBlib_PIC/can18_ecan.c: 665:         PIR5bits.TXBnIF = 0;
-[e = . . _PIR5bits 1 3 -> -> 0 `i `uc ]
 "666
-[; ;../../VLCBlib_PIC/can18_ecan.c: 666:         PIE5bits.TXBnIE = 1;
-[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 666:         PIR5bits.TXBnIF = 0;
+[e = . . _PIR5bits 1 3 -> -> 0 `i `uc ]
 "667
-[; ;../../VLCBlib_PIC/can18_ecan.c: 667:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 667:         PIE5bits.TXBnIE = 1;
+[e = . . _PIE5bits 1 3 -> -> 1 `i `uc ]
+"668
+[; ;../../VLCBlib_PIC/can18_ecan.c: 668:     }
 }
 [e :U 1606 ]
-"668
-[; ;../../VLCBlib_PIC/can18_ecan.c: 668: }
+"669
+[; ;../../VLCBlib_PIC/can18_ecan.c: 669: }
 [e :UE 1599 ]
 }
-"675
-[; ;../../VLCBlib_PIC/can18_ecan.c: 675: static void checkCANTimeout(void) {
+"676
+[; ;../../VLCBlib_PIC/can18_ecan.c: 676: static void checkCANTimeout(void) {
 [v _checkCANTimeout `(v ~T0 @X0 1 sf ]
 {
 [e :U _checkCANTimeout ]
 [f ]
-"676
-[; ;../../VLCBlib_PIC/can18_ecan.c: 676:     if (canTransmitTimeout.val != 0) {
+"677
+[; ;../../VLCBlib_PIC/can18_ecan.c: 677:     if (canTransmitTimeout.val != 0) {
 [e $ ! != . _canTransmitTimeout 0 -> -> -> 0 `i `l `ul 1608  ]
 {
-"677
-[; ;../../VLCBlib_PIC/can18_ecan.c: 677:         if ((tickGet() - canTransmitTimeout.val) > 62500) {
+"678
+[; ;../../VLCBlib_PIC/can18_ecan.c: 678:         if ((tickGet() - canTransmitTimeout.val) > 62500) {
 [e $ ! > - ( _tickGet ..  . _canTransmitTimeout 0 -> -> 62500 `l `ul 1609  ]
 {
-"678
-[; ;../../VLCBlib_PIC/can18_ecan.c: 678:             canTransmitFailed = 1;
-[e = _canTransmitFailed -> -> 1 `i `uc ]
 "679
-[; ;../../VLCBlib_PIC/can18_ecan.c: 679:             TXB0CONbits.TXREQ = 0;
-[e = . . _TXB0CONbits 0 2 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 679:             canTransmitFailed = 1;
+[e = _canTransmitFailed -> -> 1 `i `uc ]
 "680
-[; ;../../VLCBlib_PIC/can18_ecan.c: 680:             checkTxFifo();
-[e ( _checkTxFifo ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 680:             TXB0CONbits.TXREQ = 0;
+[e = . . _TXB0CONbits 0 2 -> -> 0 `i `uc ]
 "681
-[; ;../../VLCBlib_PIC/can18_ecan.c: 681:             canDiagnostics[0x01].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 681:             checkTxFifo();
+[e ( _checkTxFifo ..  ]
 "682
-[; ;../../VLCBlib_PIC/can18_ecan.c: 682:             updateModuleErrorStatus();
-[e ( _updateModuleErrorStatus ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 682:             canDiagnostics[0x01].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "683
-[; ;../../VLCBlib_PIC/can18_ecan.c: 683:         }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 683:             updateModuleErrorStatus();
+[e ( _updateModuleErrorStatus ..  ]
+"684
+[; ;../../VLCBlib_PIC/can18_ecan.c: 684:         }
 }
 [e :U 1609 ]
-"684
-[; ;../../VLCBlib_PIC/can18_ecan.c: 684:     }
+"685
+[; ;../../VLCBlib_PIC/can18_ecan.c: 685:     }
 }
 [e :U 1608 ]
-"685
-[; ;../../VLCBlib_PIC/can18_ecan.c: 685: }
+"686
+[; ;../../VLCBlib_PIC/can18_ecan.c: 686: }
 [e :UE 1607 ]
 }
-"692
-[; ;../../VLCBlib_PIC/can18_ecan.c: 692: static void canTxError(void) {
+"693
+[; ;../../VLCBlib_PIC/can18_ecan.c: 693: static void canTxError(void) {
 [v _canTxError `(v ~T0 @X0 1 sf ]
 {
 [e :U _canTxError ]
 [f ]
-"693
-[; ;../../VLCBlib_PIC/can18_ecan.c: 693:     if (TXB0CONbits.TXLARB) {
+"694
+[; ;../../VLCBlib_PIC/can18_ecan.c: 694:     if (TXB0CONbits.TXLARB) {
 [e $ ! != -> . . _TXB0CONbits 0 4 `i -> 0 `i 1611  ]
 {
-"694
-[; ;../../VLCBlib_PIC/can18_ecan.c: 694:         canTransmitFailed = 1;
-[e = _canTransmitFailed -> -> 1 `i `uc ]
 "695
-[; ;../../VLCBlib_PIC/can18_ecan.c: 695:         canTransmitTimeout.val = 0;
-[e = . _canTransmitTimeout 0 -> -> -> 0 `i `l `ul ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 695:         canTransmitFailed = 1;
+[e = _canTransmitFailed -> -> 1 `i `uc ]
 "696
-[; ;../../VLCBlib_PIC/can18_ecan.c: 696:         TXB0CONbits.TXREQ = 0;
-[e = . . _TXB0CONbits 0 2 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 696:         canTransmitTimeout.val = 0;
+[e = . _canTransmitTimeout 0 -> -> -> 0 `i `l `ul ]
 "697
-[; ;../../VLCBlib_PIC/can18_ecan.c: 697:         canDiagnostics[0x0B].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 11 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 697:         TXB0CONbits.TXREQ = 0;
+[e = . . _TXB0CONbits 0 2 -> -> 0 `i `uc ]
 "698
-[; ;../../VLCBlib_PIC/can18_ecan.c: 698:         updateModuleErrorStatus();
-[e ( _updateModuleErrorStatus ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 698:         canDiagnostics[0x0B].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 11 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "699
-[; ;../../VLCBlib_PIC/can18_ecan.c: 699:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 699:         updateModuleErrorStatus();
+[e ( _updateModuleErrorStatus ..  ]
+"700
+[; ;../../VLCBlib_PIC/can18_ecan.c: 700:     }
 }
 [e :U 1611 ]
-"700
-[; ;../../VLCBlib_PIC/can18_ecan.c: 700:     if (TXB0CONbits.TXERR) {
+"701
+[; ;../../VLCBlib_PIC/can18_ecan.c: 701:     if (TXB0CONbits.TXERR) {
 [e $ ! != -> . . _TXB0CONbits 0 3 `i -> 0 `i 1612  ]
 {
-"701
-[; ;../../VLCBlib_PIC/can18_ecan.c: 701:         canTransmitFailed = 1;
-[e = _canTransmitFailed -> -> 1 `i `uc ]
 "702
-[; ;../../VLCBlib_PIC/can18_ecan.c: 702:         canTransmitTimeout.val = 0;
-[e = . _canTransmitTimeout 0 -> -> -> 0 `i `l `ul ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 702:         canTransmitFailed = 1;
+[e = _canTransmitFailed -> -> 1 `i `uc ]
 "703
-[; ;../../VLCBlib_PIC/can18_ecan.c: 703:         TXB0CONbits.TXREQ = 0;
-[e = . . _TXB0CONbits 0 2 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 703:         canTransmitTimeout.val = 0;
+[e = . _canTransmitTimeout 0 -> -> -> 0 `i `l `ul ]
 "704
-[; ;../../VLCBlib_PIC/can18_ecan.c: 704:         canDiagnostics[0x01].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 704:         TXB0CONbits.TXREQ = 0;
+[e = . . _TXB0CONbits 0 2 -> -> 0 `i `uc ]
 "705
-[; ;../../VLCBlib_PIC/can18_ecan.c: 705:         updateModuleErrorStatus();
-[e ( _updateModuleErrorStatus ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 705:         canDiagnostics[0x01].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "706
-[; ;../../VLCBlib_PIC/can18_ecan.c: 706:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 706:         updateModuleErrorStatus();
+[e ( _updateModuleErrorStatus ..  ]
+"707
+[; ;../../VLCBlib_PIC/can18_ecan.c: 707:     }
 }
 [e :U 1612 ]
-"707
-[; ;../../VLCBlib_PIC/can18_ecan.c: 707:     if (canTransmitFailed) {
+"708
+[; ;../../VLCBlib_PIC/can18_ecan.c: 708:     if (canTransmitFailed) {
 [e $ ! != -> _canTransmitFailed `i -> 0 `i 1613  ]
 {
-"708
-[; ;../../VLCBlib_PIC/can18_ecan.c: 708:         checkTxFifo();
-[e ( _checkTxFifo ..  ]
 "709
-[; ;../../VLCBlib_PIC/can18_ecan.c: 709:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 709:         checkTxFifo();
+[e ( _checkTxFifo ..  ]
+"710
+[; ;../../VLCBlib_PIC/can18_ecan.c: 710:     }
 }
 [e :U 1613 ]
-"710
-[; ;../../VLCBlib_PIC/can18_ecan.c: 710:     PIR5bits.ERRIF = 0;
-[e = . . _PIR5bits 0 5 -> -> 0 `i `uc ]
 "711
-[; ;../../VLCBlib_PIC/can18_ecan.c: 711: }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 711:     PIR5bits.ERRIF = 0;
+[e = . . _PIR5bits 0 5 -> -> 0 `i `uc ]
+"712
+[; ;../../VLCBlib_PIC/can18_ecan.c: 712: }
 [e :UE 1610 ]
 }
-"719
-[; ;../../VLCBlib_PIC/can18_ecan.c: 719: static MessageReceived handleSelfEnumeration(uint8_t * p) {
+"720
+[; ;../../VLCBlib_PIC/can18_ecan.c: 720: static MessageReceived handleSelfEnumeration(uint8_t * p) {
 [v _handleSelfEnumeration `(E13010 ~T0 @X0 1 sf1`*uc ]
 {
 [e :U _handleSelfEnumeration ]
 [v _p `*uc ~T0 @X0 1 r1 ]
 [f ]
-"720
-[; ;../../VLCBlib_PIC/can18_ecan.c: 720:     uint8_t incomingCanId;
+"721
+[; ;../../VLCBlib_PIC/can18_ecan.c: 721:     uint8_t incomingCanId;
 [v _incomingCanId `uc ~T0 @X0 1 a ]
-"722
-[; ;../../VLCBlib_PIC/can18_ecan.c: 722:     canDiagnostics[0x08].asUint++;
+"723
+[; ;../../VLCBlib_PIC/can18_ecan.c: 723:     canDiagnostics[0x08].asUint++;
 [e ++ . *U + &U _canDiagnostics * -> -> -> 8 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"724
-[; ;../../VLCBlib_PIC/can18_ecan.c: 724:     if (enumerationInProgress) {
+"725
+[; ;../../VLCBlib_PIC/can18_ecan.c: 725:     if (enumerationInProgress) {
 [e $ ! != -> _enumerationInProgress `i -> 0 `i 1615  ]
 {
-"725
-[; ;../../VLCBlib_PIC/can18_ecan.c: 725:         ( enumerationResults[incomingCanId>>3] |= ( 1<<(incomingCanId & 0x07) ) );
-[e =| *U + &U _enumerationResults * -> -> >> -> _incomingCanId `i -> 3 `i `ui `ux -> -> # *U &U _enumerationResults `ui `ux -> << -> 1 `i & -> _incomingCanId `i -> 7 `i `uc ]
 "726
-[; ;../../VLCBlib_PIC/can18_ecan.c: 726:     } else {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 726:         ( enumerationResults[incomingCanId>>3] |= ( 1<<(incomingCanId & 0x07) ) );
+[e =| *U + &U _enumerationResults * -> -> >> -> _incomingCanId `i -> 3 `i `ui `ux -> -> # *U &U _enumerationResults `ui `ux -> << -> 1 `i & -> _incomingCanId `i -> 7 `i `uc ]
+"727
+[; ;../../VLCBlib_PIC/can18_ecan.c: 727:     } else {
 }
 [e $U 1616  ]
 [e :U 1615 ]
 {
-"727
-[; ;../../VLCBlib_PIC/can18_ecan.c: 727:         incomingCanId = (p[1] << 3) + (p[2] >> 5) & 0x7f;
-[e = _incomingCanId -> & + << -> *U + _p * -> -> 1 `i `x -> -> # *U _p `i `x `i -> 3 `i >> -> *U + _p * -> -> 2 `i `x -> -> # *U _p `i `x `i -> 5 `i -> 127 `i `uc ]
 "728
-[; ;../../VLCBlib_PIC/can18_ecan.c: 728:         if (!enumerationRequired && (incomingCanId == canId)) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 728:         incomingCanId = (p[1] << 3) + (p[2] >> 5) & 0x7f;
+[e = _incomingCanId -> & + << -> *U + _p * -> -> 1 `i `x -> -> # *U _p `i `x `i -> 3 `i >> -> *U + _p * -> -> 2 `i `x -> -> # *U _p `i `x `i -> 5 `i -> 127 `i `uc ]
+"729
+[; ;../../VLCBlib_PIC/can18_ecan.c: 729:         if (!enumerationRequired && (incomingCanId == canId)) {
 [e $ ! && ! != -> _enumerationRequired `i -> 0 `i == -> _incomingCanId `i -> _canId `i 1617  ]
 {
-"731
-[; ;../../VLCBlib_PIC/can18_ecan.c: 731:             enumerationRequired = 1;
-[e = _enumerationRequired -> -> 1 `i `uc ]
 "732
-[; ;../../VLCBlib_PIC/can18_ecan.c: 732:             canDiagnostics[0x0D].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 13 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 732:             enumerationRequired = 1;
+[e = _enumerationRequired -> -> 1 `i `uc ]
 "733
-[; ;../../VLCBlib_PIC/can18_ecan.c: 733:             enumerationStartTime.val = tickGet();
-[e = . _enumerationStartTime 0 ( _tickGet ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 733:             canDiagnostics[0x0D].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 13 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "734
-[; ;../../VLCBlib_PIC/can18_ecan.c: 734:         }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 734:             enumerationStartTime.val = tickGet();
+[e = . _enumerationStartTime 0 ( _tickGet ..  ]
+"735
+[; ;../../VLCBlib_PIC/can18_ecan.c: 735:         }
 }
 [e :U 1617 ]
-"735
-[; ;../../VLCBlib_PIC/can18_ecan.c: 735:     }
+"736
+[; ;../../VLCBlib_PIC/can18_ecan.c: 736:     }
 }
 [e :U 1616 ]
-"738
-[; ;../../VLCBlib_PIC/can18_ecan.c: 738:     if (p[5] & 0x40 ) {
+"739
+[; ;../../VLCBlib_PIC/can18_ecan.c: 739:     if (p[5] & 0x40 ) {
 [e $ ! != & -> *U + _p * -> -> 5 `i `x -> -> # *U _p `i `x `i -> 64 `i -> 0 `i 1618  ]
 {
-"740
-[; ;../../VLCBlib_PIC/can18_ecan.c: 740:         TXB2CONbits.TXREQ = 1;
-[e = . . _TXB2CONbits 0 2 -> -> 1 `i `uc ]
 "741
-[; ;../../VLCBlib_PIC/can18_ecan.c: 741:         enumerationStartTime.val = tickGet();
-[e = . _enumerationStartTime 0 ( _tickGet ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 741:         TXB2CONbits.TXREQ = 1;
+[e = . . _TXB2CONbits 0 2 -> -> 1 `i `uc ]
 "742
-[; ;../../VLCBlib_PIC/can18_ecan.c: 742:         return NOT_RECEIVED;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 742:         enumerationStartTime.val = tickGet();
+[e = . _enumerationStartTime 0 ( _tickGet ..  ]
+"743
+[; ;../../VLCBlib_PIC/can18_ecan.c: 743:         return NOT_RECEIVED;
 [e ) . `E13010 0 ]
 [e $UE 1614  ]
-"743
-[; ;../../VLCBlib_PIC/can18_ecan.c: 743:     }
+"744
+[; ;../../VLCBlib_PIC/can18_ecan.c: 744:     }
 }
 [e :U 1618 ]
-"744
-[; ;../../VLCBlib_PIC/can18_ecan.c: 744:     return (p[5] & 0x0F) ? RECEIVED:NOT_RECEIVED;
+"745
+[; ;../../VLCBlib_PIC/can18_ecan.c: 745:     return (p[5] & 0x0F) ? RECEIVED:NOT_RECEIVED;
 [e ) -> ? != & -> *U + _p * -> -> 5 `i `x -> -> # *U _p `i `x `i -> 15 `i -> 0 `i : . `E13010 1 . `E13010 0 `E13010 ]
 [e $UE 1614  ]
-"745
-[; ;../../VLCBlib_PIC/can18_ecan.c: 745: }
+"746
+[; ;../../VLCBlib_PIC/can18_ecan.c: 746: }
 [e :UE 1614 ]
 }
-"751
-[; ;../../VLCBlib_PIC/can18_ecan.c: 751: static void canFillRxFifo(void) {
+"752
+[; ;../../VLCBlib_PIC/can18_ecan.c: 752: static void canFillRxFifo(void) {
 [v _canFillRxFifo `(v ~T0 @X0 1 sf ]
 {
 [e :U _canFillRxFifo ]
 [f ]
-"752
-[; ;../../VLCBlib_PIC/can18_ecan.c: 752:     uint8_t *ptr;
-[v _ptr `*uc ~T0 @X0 1 a ]
 "753
-[; ;../../VLCBlib_PIC/can18_ecan.c: 753:     uint8_t hiIndex;
-[v _hiIndex `uc ~T0 @X0 1 a ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 753:     uint8_t *ptr;
+[v _ptr `*uc ~T0 @X0 1 a ]
 "754
-[; ;../../VLCBlib_PIC/can18_ecan.c: 754:     Message * m;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 754:     uint8_t hiIndex;
+[v _hiIndex `uc ~T0 @X0 1 a ]
+"755
+[; ;../../VLCBlib_PIC/can18_ecan.c: 755:     Message * m;
 [v _m `*S1527 ~T0 @X0 1 a ]
-"756
-[; ;../../VLCBlib_PIC/can18_ecan.c: 756:     while (COMSTATbits.NOT_FIFOEMPTY) {
+"757
+[; ;../../VLCBlib_PIC/can18_ecan.c: 757:     while (COMSTATbits.NOT_FIFOEMPTY) {
 [e $U 1620  ]
 [e :U 1621 ]
 {
-"757
-[; ;../../VLCBlib_PIC/can18_ecan.c: 757:         ptr = getBufferPointer(CANCON & 0x07U);
-[e = _ptr ( _getBufferPointer (1 -> & -> _CANCON `ui -> 7 `ui `uc ]
 "758
-[; ;../../VLCBlib_PIC/can18_ecan.c: 758:         PIR5bits.RXBnIF = 0;
-[e = . . _PIR5bits 1 1 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 758:         ptr = getBufferPointer(CANCON & 0x07U);
+[e = _ptr ( _getBufferPointer (1 -> & -> _CANCON `ui -> 7 `ui `uc ]
 "759
-[; ;../../VLCBlib_PIC/can18_ecan.c: 759:         if (COMSTATbits.RXB1OVFL) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 759:         PIR5bits.RXBnIF = 0;
+[e = . . _PIR5bits 1 1 -> -> 0 `i `uc ]
+"760
+[; ;../../VLCBlib_PIC/can18_ecan.c: 760:         if (COMSTATbits.RXB1OVFL) {
 [e $ ! != -> . . _COMSTATbits 0 6 `i -> 0 `i 1623  ]
 {
-"760
-[; ;../../VLCBlib_PIC/can18_ecan.c: 760:             COMSTATbits.RXB1OVFL = 0;
-[e = . . _COMSTATbits 0 6 -> -> 0 `i `uc ]
 "761
-[; ;../../VLCBlib_PIC/can18_ecan.c: 761:         }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 761:             COMSTATbits.RXB1OVFL = 0;
+[e = . . _COMSTATbits 0 6 -> -> 0 `i `uc ]
+"762
+[; ;../../VLCBlib_PIC/can18_ecan.c: 762:         }
 }
 [e :U 1623 ]
-"763
-[; ;../../VLCBlib_PIC/can18_ecan.c: 763:         if (handleSelfEnumeration(ptr) == RECEIVED) {
+"764
+[; ;../../VLCBlib_PIC/can18_ecan.c: 764:         if (handleSelfEnumeration(ptr) == RECEIVED) {
 [e $ ! == -> ( _handleSelfEnumeration (1 _ptr `ui -> . `E13010 1 `ui 1624  ]
 {
-"765
-[; ;../../VLCBlib_PIC/can18_ecan.c: 765:             m = getNextWriteMessage(&rxQueue);
-[e = _m ( _getNextWriteMessage (1 &U _rxQueue ]
 "766
-[; ;../../VLCBlib_PIC/can18_ecan.c: 766:             if (m == ((void*)0)) {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 766:             m = getNextWriteMessage(&rxQueue);
+[e = _m ( _getNextWriteMessage (1 &U _rxQueue ]
+"767
+[; ;../../VLCBlib_PIC/can18_ecan.c: 767:             if (m == ((void*)0)) {
 [e $ ! == _m -> -> -> 0 `i `*v `*S1527 1625  ]
 {
-"767
-[; ;../../VLCBlib_PIC/can18_ecan.c: 767:                 canDiagnostics[0x07].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 7 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "768
-[; ;../../VLCBlib_PIC/can18_ecan.c: 768:                 updateModuleErrorStatus();
+[; ;../../VLCBlib_PIC/can18_ecan.c: 768:                 canDiagnostics[0x07].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 7 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+"769
+[; ;../../VLCBlib_PIC/can18_ecan.c: 769:                 updateModuleErrorStatus();
 [e ( _updateModuleErrorStatus ..  ]
-"770
-[; ;../../VLCBlib_PIC/can18_ecan.c: 770:                 if (PIR5bits.IRXIF) {
+"771
+[; ;../../VLCBlib_PIC/can18_ecan.c: 771:                 if (PIR5bits.IRXIF) {
 [e $ ! != -> . . _PIR5bits 0 7 `i -> 0 `i 1626  ]
 {
-"771
-[; ;../../VLCBlib_PIC/can18_ecan.c: 771:                     PIR5bits.IRXIF = 0;
-[e = . . _PIR5bits 0 7 -> -> 0 `i `uc ]
 "772
-[; ;../../VLCBlib_PIC/can18_ecan.c: 772:                 }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 772:                     PIR5bits.IRXIF = 0;
+[e = . . _PIR5bits 0 7 -> -> 0 `i `uc ]
+"773
+[; ;../../VLCBlib_PIC/can18_ecan.c: 773:                 }
 }
 [e :U 1626 ]
-"773
-[; ;../../VLCBlib_PIC/can18_ecan.c: 773:                 return;
-[e $UE 1619  ]
 "774
-[; ;../../VLCBlib_PIC/can18_ecan.c: 774:             } else {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 774:                 return;
+[e $UE 1619  ]
+"775
+[; ;../../VLCBlib_PIC/can18_ecan.c: 775:             } else {
 }
 [e $U 1627  ]
 [e :U 1625 ]
 {
-"776
-[; ;../../VLCBlib_PIC/can18_ecan.c: 776:                 m->opc = ptr[6];
-[e = . *U _m 1 -> *U + _ptr * -> -> 6 `i `x -> -> # *U _ptr `i `x `E12509 ]
 "777
-[; ;../../VLCBlib_PIC/can18_ecan.c: 777:                 m->bytes[0] = ptr[7];
-[e = *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 7 `i `x -> -> # *U _ptr `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 777:                 m->opc = ptr[6];
+[e = . *U _m 1 -> *U + _ptr * -> -> 6 `i `x -> -> # *U _ptr `i `x `E12509 ]
 "778
-[; ;../../VLCBlib_PIC/can18_ecan.c: 778:                 m->bytes[1] = ptr[8];
-[e = *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 8 `i `x -> -> # *U _ptr `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 778:                 m->bytes[0] = ptr[7];
+[e = *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 7 `i `x -> -> # *U _ptr `i `x ]
 "779
-[; ;../../VLCBlib_PIC/can18_ecan.c: 779:                 m->bytes[2] = ptr[9];
-[e = *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 9 `i `x -> -> # *U _ptr `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 779:                 m->bytes[1] = ptr[8];
+[e = *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 8 `i `x -> -> # *U _ptr `i `x ]
 "780
-[; ;../../VLCBlib_PIC/can18_ecan.c: 780:                 m->bytes[3] = ptr[10];
-[e = *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 10 `i `x -> -> # *U _ptr `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 780:                 m->bytes[2] = ptr[9];
+[e = *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 9 `i `x -> -> # *U _ptr `i `x ]
 "781
-[; ;../../VLCBlib_PIC/can18_ecan.c: 781:                 m->bytes[4] = ptr[11];
-[e = *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 11 `i `x -> -> # *U _ptr `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 781:                 m->bytes[3] = ptr[10];
+[e = *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 10 `i `x -> -> # *U _ptr `i `x ]
 "782
-[; ;../../VLCBlib_PIC/can18_ecan.c: 782:                 m->bytes[5] = ptr[12];
-[e = *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 12 `i `x -> -> # *U _ptr `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 782:                 m->bytes[4] = ptr[11];
+[e = *U + &U . *U _m 2 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 11 `i `x -> -> # *U _ptr `i `x ]
 "783
-[; ;../../VLCBlib_PIC/can18_ecan.c: 783:                 m->bytes[6] = ptr[13];
-[e = *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 13 `i `x -> -> # *U _ptr `i `x ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 783:                 m->bytes[5] = ptr[12];
+[e = *U + &U . *U _m 2 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 12 `i `x -> -> # *U _ptr `i `x ]
 "784
-[; ;../../VLCBlib_PIC/can18_ecan.c: 784:                 m->len = ptr[5]&0xF;
-[e = . *U _m 0 -> & -> *U + _ptr * -> -> 5 `i `x -> -> # *U _ptr `i `x `i -> 15 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 784:                 m->bytes[6] = ptr[13];
+[e = *U + &U . *U _m 2 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + _ptr * -> -> 13 `i `x -> -> # *U _ptr `i `x ]
 "785
-[; ;../../VLCBlib_PIC/can18_ecan.c: 785:             }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 785:                 m->len = ptr[5]&0xF;
+[e = . *U _m 0 -> & -> *U + _ptr * -> -> 5 `i `x -> -> # *U _ptr `i `x `i -> 15 `i `uc ]
+"786
+[; ;../../VLCBlib_PIC/can18_ecan.c: 786:             }
 }
 [e :U 1627 ]
-"786
-[; ;../../VLCBlib_PIC/can18_ecan.c: 786:         }
+"787
+[; ;../../VLCBlib_PIC/can18_ecan.c: 787:         }
 }
 [e :U 1624 ]
-"788
-[; ;../../VLCBlib_PIC/can18_ecan.c: 788:         if (PIR5bits.IRXIF) {
+"789
+[; ;../../VLCBlib_PIC/can18_ecan.c: 789:         if (PIR5bits.IRXIF) {
 [e $ ! != -> . . _PIR5bits 0 7 `i -> 0 `i 1628  ]
 {
-"789
-[; ;../../VLCBlib_PIC/can18_ecan.c: 789:             PIR5bits.IRXIF = 0;
-[e = . . _PIR5bits 0 7 -> -> 0 `i `uc ]
 "790
-[; ;../../VLCBlib_PIC/can18_ecan.c: 790:         }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 790:             PIR5bits.IRXIF = 0;
+[e = . . _PIR5bits 0 7 -> -> 0 `i `uc ]
+"791
+[; ;../../VLCBlib_PIC/can18_ecan.c: 791:         }
 }
 [e :U 1628 ]
-"792
-[; ;../../VLCBlib_PIC/can18_ecan.c: 792:         ptr[0] &= 0x7f;
-[e =& *U + _ptr * -> -> 0 `i `x -> -> # *U _ptr `i `x -> -> 127 `i `uc ]
 "793
-[; ;../../VLCBlib_PIC/can18_ecan.c: 793:         PIR5bits.FIFOWMIF = 0;
-[e = . . _PIR5bits 1 0 -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 793:         ptr[0] &= 0x7f;
+[e =& *U + _ptr * -> -> 0 `i `x -> -> # *U _ptr `i `x -> -> 127 `i `uc ]
 "794
-[; ;../../VLCBlib_PIC/can18_ecan.c: 794:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 794:         PIR5bits.FIFOWMIF = 0;
+[e = . . _PIR5bits 1 0 -> -> 0 `i `uc ]
+"795
+[; ;../../VLCBlib_PIC/can18_ecan.c: 795:     }
 }
 [e :U 1620 ]
-"756
-[; ;../../VLCBlib_PIC/can18_ecan.c: 756:     while (COMSTATbits.NOT_FIFOEMPTY) {
+"757
+[; ;../../VLCBlib_PIC/can18_ecan.c: 757:     while (COMSTATbits.NOT_FIFOEMPTY) {
 [e $ != -> . . _COMSTATbits 1 1 `i -> 0 `i 1621  ]
 [e :U 1622 ]
-"795
-[; ;../../VLCBlib_PIC/can18_ecan.c: 795: }
+"796
+[; ;../../VLCBlib_PIC/can18_ecan.c: 796: }
 [e :UE 1619 ]
 }
-"801
-[; ;../../VLCBlib_PIC/can18_ecan.c: 801: static void processEnumeration(void) {
+"802
+[; ;../../VLCBlib_PIC/can18_ecan.c: 802: static void processEnumeration(void) {
 [v _processEnumeration `(v ~T0 @X0 1 sf ]
 {
 [e :U _processEnumeration ]
 [f ]
-"802
-[; ;../../VLCBlib_PIC/can18_ecan.c: 802:     uint8_t i, newCanId, enumResult;
+"803
+[; ;../../VLCBlib_PIC/can18_ecan.c: 803:     uint8_t i, newCanId, enumResult;
 [v _i `uc ~T0 @X0 1 a ]
 [v _newCanId `uc ~T0 @X0 1 a ]
 [v _enumResult `uc ~T0 @X0 1 a ]
-"804
-[; ;../../VLCBlib_PIC/can18_ecan.c: 804:     if (enumerationRequired && ((tickGet() - enumerationStartTime.val) > 2 * (62500/10) )) {
+"805
+[; ;../../VLCBlib_PIC/can18_ecan.c: 805:     if (enumerationRequired && ((tickGet() - enumerationStartTime.val) > 2 * (62500/10) )) {
 [e $ ! && != -> _enumerationRequired `i -> 0 `i > - ( _tickGet ..  . _enumerationStartTime 0 -> * -> -> 2 `i `l / -> 62500 `l -> -> 10 `i `l `ul 1630  ]
 {
-"805
-[; ;../../VLCBlib_PIC/can18_ecan.c: 805:         for (i=1; i< (0x7F/8)+1; i++) {
+"806
+[; ;../../VLCBlib_PIC/can18_ecan.c: 806:         for (i=1; i< (0x7F/8)+1; i++) {
 {
 [e = _i -> -> 1 `i `uc ]
 [e $ < -> _i `i + / -> 127 `i -> 8 `i -> 1 `i 1631  ]
 [e $U 1632  ]
 [e :U 1631 ]
 {
-"806
-[; ;../../VLCBlib_PIC/can18_ecan.c: 806:             enumerationResults[i] = 0;
-[e = *U + &U _enumerationResults * -> _i `ux -> -> # *U &U _enumerationResults `ui `ux -> -> 0 `i `uc ]
 "807
-[; ;../../VLCBlib_PIC/can18_ecan.c: 807:         }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 807:             enumerationResults[i] = 0;
+[e = *U + &U _enumerationResults * -> _i `ux -> -> # *U &U _enumerationResults `ui `ux -> -> 0 `i `uc ]
+"808
+[; ;../../VLCBlib_PIC/can18_ecan.c: 808:         }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i + / -> 127 `i -> 8 `i -> 1 `i 1631  ]
 [e :U 1632 ]
 }
-"808
-[; ;../../VLCBlib_PIC/can18_ecan.c: 808:         enumerationResults[0] = 1;
+"809
+[; ;../../VLCBlib_PIC/can18_ecan.c: 809:         enumerationResults[0] = 1;
 [e = *U + &U _enumerationResults * -> -> -> 0 `i `ui `ux -> -> # *U &U _enumerationResults `ui `ux -> -> 1 `i `uc ]
-"810
-[; ;../../VLCBlib_PIC/can18_ecan.c: 810:         enumerationInProgress = 1;
-[e = _enumerationInProgress -> -> 1 `i `uc ]
 "811
-[; ;../../VLCBlib_PIC/can18_ecan.c: 811:         enumerationRequired = 0;
-[e = _enumerationRequired -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 811:         enumerationInProgress = 1;
+[e = _enumerationInProgress -> -> 1 `i `uc ]
 "812
-[; ;../../VLCBlib_PIC/can18_ecan.c: 812:         enumerationStartTime.val = tickGet();
-[e = . _enumerationStartTime 0 ( _tickGet ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 812:         enumerationRequired = 0;
+[e = _enumerationRequired -> -> 0 `i `uc ]
 "813
-[; ;../../VLCBlib_PIC/can18_ecan.c: 813:         canDiagnostics[0x0C].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 12 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 813:         enumerationStartTime.val = tickGet();
+[e = . _enumerationStartTime 0 ( _tickGet ..  ]
 "814
-[; ;../../VLCBlib_PIC/can18_ecan.c: 814:         TXB1CONbits.TXREQ = 1;
-[e = . . _TXB1CONbits 0 2 -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 814:         canDiagnostics[0x0C].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 12 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "815
-[; ;../../VLCBlib_PIC/can18_ecan.c: 815:     } else {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 815:         TXB1CONbits.TXREQ = 1;
+[e = . . _TXB1CONbits 0 2 -> -> 1 `i `uc ]
+"816
+[; ;../../VLCBlib_PIC/can18_ecan.c: 816:     } else {
 }
 [e $U 1634  ]
 [e :U 1630 ]
 {
-"816
-[; ;../../VLCBlib_PIC/can18_ecan.c: 816:         if (enumerationInProgress && ((tickGet() - enumerationStartTime.val) > (62500/10) )) {
+"817
+[; ;../../VLCBlib_PIC/can18_ecan.c: 817:         if (enumerationInProgress && ((tickGet() - enumerationStartTime.val) > (62500/10) )) {
 [e $ ! && != -> _enumerationInProgress `i -> 0 `i > - ( _tickGet ..  . _enumerationStartTime 0 -> / -> 62500 `l -> -> 10 `i `l `ul 1635  ]
 {
-"820
-[; ;../../VLCBlib_PIC/can18_ecan.c: 820:             for (i=0; (enumerationResults[i] == 0xFF) && (i < (0x7F/8)+1); i++) {
+"821
+[; ;../../VLCBlib_PIC/can18_ecan.c: 821:             for (i=0; (enumerationResults[i] == 0xFF) && (i < (0x7F/8)+1); i++) {
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 1639  ]
 [e :U 1636 ]
 {
-"822
-[; ;../../VLCBlib_PIC/can18_ecan.c: 822:             }
+"823
+[; ;../../VLCBlib_PIC/can18_ecan.c: 823:             }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 1639 ]
 [e $ && == -> *U + &U _enumerationResults * -> _i `ux -> -> # *U &U _enumerationResults `ui `ux `i -> 255 `i < -> _i `i + / -> 127 `i -> 8 `i -> 1 `i 1636  ]
 [e :U 1637 ]
 }
-"823
-[; ;../../VLCBlib_PIC/can18_ecan.c: 823:             if ((enumResult = enumerationResults[i]) != 0xFF) {
+"824
+[; ;../../VLCBlib_PIC/can18_ecan.c: 824:             if ((enumResult = enumerationResults[i]) != 0xFF) {
 [e $ ! != -> = _enumResult *U + &U _enumerationResults * -> _i `ux -> -> # *U &U _enumerationResults `ui `ux `i -> 255 `i 1640  ]
 {
-"824
-[; ;../../VLCBlib_PIC/can18_ecan.c: 824:                 for (newCanId = i*8; (enumResult & 0x01); newCanId++) {
+"825
+[; ;../../VLCBlib_PIC/can18_ecan.c: 825:                 for (newCanId = i*8; (enumResult & 0x01); newCanId++) {
 {
 [e = _newCanId -> * -> _i `i -> 8 `i `uc ]
 [e $U 1644  ]
 [e :U 1641 ]
 {
-"825
-[; ;../../VLCBlib_PIC/can18_ecan.c: 825:                     enumResult >>= 1;
-[e =>> _enumResult -> -> 1 `i `uc ]
 "826
-[; ;../../VLCBlib_PIC/can18_ecan.c: 826:                 }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 826:                     enumResult >>= 1;
+[e =>> _enumResult -> -> 1 `i `uc ]
+"827
+[; ;../../VLCBlib_PIC/can18_ecan.c: 827:                 }
 }
 [e ++ _newCanId -> -> 1 `i `uc ]
 [e :U 1644 ]
 [e $ != & -> _enumResult `i -> 1 `i -> 0 `i 1641  ]
 [e :U 1642 ]
 }
-"827
-[; ;../../VLCBlib_PIC/can18_ecan.c: 827:                 if ((newCanId >= 1) && (newCanId <= 99)) {
+"828
+[; ;../../VLCBlib_PIC/can18_ecan.c: 828:                 if ((newCanId >= 1) && (newCanId <= 99)) {
 [e $ ! && >= -> _newCanId `i -> 1 `i <= -> _newCanId `i -> 99 `i 1645  ]
 {
-"828
-[; ;../../VLCBlib_PIC/can18_ecan.c: 828:                     canId = newCanId;
-[e = _canId _newCanId ]
 "829
-[; ;../../VLCBlib_PIC/can18_ecan.c: 829:                     setNewCanId(canId);
-[e ( _setNewCanId (1 _canId ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 829:                     canId = newCanId;
+[e = _canId _newCanId ]
 "830
-[; ;../../VLCBlib_PIC/can18_ecan.c: 830:                 } else {
+[; ;../../VLCBlib_PIC/can18_ecan.c: 830:                     setNewCanId(canId);
+[e ( _setNewCanId (1 _canId ]
+"831
+[; ;../../VLCBlib_PIC/can18_ecan.c: 831:                 } else {
 }
 [e $U 1646  ]
 [e :U 1645 ]
 {
-"831
-[; ;../../VLCBlib_PIC/can18_ecan.c: 831:                     canDiagnostics[0x0F].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 15 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "832
-[; ;../../VLCBlib_PIC/can18_ecan.c: 832:                     updateModuleErrorStatus();
-[e ( _updateModuleErrorStatus ..  ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 832:                     canDiagnostics[0x0F].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 15 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "833
-[; ;../../VLCBlib_PIC/can18_ecan.c: 833:                 }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 833:                     updateModuleErrorStatus();
+[e ( _updateModuleErrorStatus ..  ]
+"834
+[; ;../../VLCBlib_PIC/can18_ecan.c: 834:                 }
 }
 [e :U 1646 ]
-"834
-[; ;../../VLCBlib_PIC/can18_ecan.c: 834:             } else {
+"835
+[; ;../../VLCBlib_PIC/can18_ecan.c: 835:             } else {
 }
 [e $U 1647  ]
 [e :U 1640 ]
 {
-"835
-[; ;../../VLCBlib_PIC/can18_ecan.c: 835:                 canDiagnostics[0x0F].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 15 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "836
-[; ;../../VLCBlib_PIC/can18_ecan.c: 836:                 updateModuleErrorStatus();
+[; ;../../VLCBlib_PIC/can18_ecan.c: 836:                 canDiagnostics[0x0F].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 15 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+"837
+[; ;../../VLCBlib_PIC/can18_ecan.c: 837:                 updateModuleErrorStatus();
 [e ( _updateModuleErrorStatus ..  ]
-"840
-[; ;../../VLCBlib_PIC/can18_ecan.c: 840:             }
+"841
+[; ;../../VLCBlib_PIC/can18_ecan.c: 841:             }
 }
 [e :U 1647 ]
-"841
-[; ;../../VLCBlib_PIC/can18_ecan.c: 841:         }
+"842
+[; ;../../VLCBlib_PIC/can18_ecan.c: 842:         }
 }
 [e :U 1635 ]
-"842
-[; ;../../VLCBlib_PIC/can18_ecan.c: 842:         enumerationRequired = enumerationInProgress = 0;
-[e = _enumerationRequired = _enumerationInProgress -> -> 0 `i `uc ]
 "843
-[; ;../../VLCBlib_PIC/can18_ecan.c: 843:     }
+[; ;../../VLCBlib_PIC/can18_ecan.c: 843:         enumerationRequired = enumerationInProgress = 0;
+[e = _enumerationRequired = _enumerationInProgress -> -> 0 `i `uc ]
+"844
+[; ;../../VLCBlib_PIC/can18_ecan.c: 844:     }
 }
 [e :U 1634 ]
-"844
-[; ;../../VLCBlib_PIC/can18_ecan.c: 844: }
+"845
+[; ;../../VLCBlib_PIC/can18_ecan.c: 845: }
 [e :UE 1629 ]
 }
-"851
-[; ;../../VLCBlib_PIC/can18_ecan.c: 851: static CanidResult setNewCanId(uint8_t newCanId) {
+"852
+[; ;../../VLCBlib_PIC/can18_ecan.c: 852: static CanidResult setNewCanId(uint8_t newCanId) {
 [v _setNewCanId `(E13106 ~T0 @X0 1 sf1`uc ]
 {
 [e :U _setNewCanId ]
 [v _newCanId `uc ~T0 @X0 1 r1 ]
 [f ]
-"852
-[; ;../../VLCBlib_PIC/can18_ecan.c: 852:     if ((newCanId >= 1) && (newCanId <= 99)) {
+"853
+[; ;../../VLCBlib_PIC/can18_ecan.c: 853:     if ((newCanId >= 1) && (newCanId <= 99)) {
 [e $ ! && >= -> _newCanId `i -> 1 `i <= -> _newCanId `i -> 99 `i 1649  ]
 {
-"853
-[; ;../../VLCBlib_PIC/can18_ecan.c: 853:         canId = newCanId;
+"854
+[; ;../../VLCBlib_PIC/can18_ecan.c: 854:         canId = newCanId;
 [e = _canId _newCanId ]
-"856
-[; ;../../VLCBlib_PIC/can18_ecan.c: 856:         TXB1SIDH &= 0b11110000;
-[e =& _TXB1SIDH -> -> 240 `i `Vuc ]
 "857
-[; ;../../VLCBlib_PIC/can18_ecan.c: 857:         TXB1SIDH |= ((newCanId & 0x78) >>3);
-[e =| _TXB1SIDH -> >> & -> _newCanId `i -> 120 `i -> 3 `i `Vuc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 857:         TXB1SIDH &= 0b11110000;
+[e =& _TXB1SIDH -> -> 240 `i `Vuc ]
 "858
-[; ;../../VLCBlib_PIC/can18_ecan.c: 858:         TXB1SIDL = TXB0SIDL;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 858:         TXB1SIDH |= ((newCanId & 0x78) >>3);
+[e =| _TXB1SIDH -> >> & -> _newCanId `i -> 120 `i -> 3 `i `Vuc ]
+"859
+[; ;../../VLCBlib_PIC/can18_ecan.c: 859:         TXB1SIDL = TXB0SIDL;
 [e = _TXB1SIDL _TXB0SIDL ]
-"860
-[; ;../../VLCBlib_PIC/can18_ecan.c: 860:         TXB2SIDH &= 0b11110000;
-[e =& _TXB2SIDH -> -> 240 `i `Vuc ]
 "861
-[; ;../../VLCBlib_PIC/can18_ecan.c: 861:         TXB2SIDH |= ((newCanId & 0x78) >>3);
-[e =| _TXB2SIDH -> >> & -> _newCanId `i -> 120 `i -> 3 `i `Vuc ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 861:         TXB2SIDH &= 0b11110000;
+[e =& _TXB2SIDH -> -> 240 `i `Vuc ]
 "862
-[; ;../../VLCBlib_PIC/can18_ecan.c: 862:         TXB2SIDL = TXB0SIDL;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 862:         TXB2SIDH |= ((newCanId & 0x78) >>3);
+[e =| _TXB2SIDH -> >> & -> _newCanId `i -> 120 `i -> 3 `i `Vuc ]
+"863
+[; ;../../VLCBlib_PIC/can18_ecan.c: 863:         TXB2SIDL = TXB0SIDL;
 [e = _TXB2SIDL _TXB0SIDL ]
-"864
-[; ;../../VLCBlib_PIC/can18_ecan.c: 864:         writeNVM(EEPROM_NVM_TYPE, 0x3FE, newCanId );
-[e ( _writeNVM (3 , , . `E12839 0 -> -> -> 1022 `i `m `um _newCanId ]
 "865
-[; ;../../VLCBlib_PIC/can18_ecan.c: 865:         canDiagnostics[0x0E].asUint++;
-[e ++ . *U + &U _canDiagnostics * -> -> -> 14 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+[; ;../../VLCBlib_PIC/can18_ecan.c: 865:         writeNVM(EEPROM_NVM_TYPE, 0x3FE, newCanId );
+[e ( _writeNVM (3 , , . `E12839 0 -> -> -> 1022 `i `m `um _newCanId ]
 "866
-[; ;../../VLCBlib_PIC/can18_ecan.c: 866:         return CANID_OK;
+[; ;../../VLCBlib_PIC/can18_ecan.c: 866:         canDiagnostics[0x0E].asUint++;
+[e ++ . *U + &U _canDiagnostics * -> -> -> 14 `i `ui `ux -> -> # *U &U _canDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+"867
+[; ;../../VLCBlib_PIC/can18_ecan.c: 867:         return CANID_OK;
 [e ) . `E13106 1 ]
 [e $UE 1648  ]
-"867
-[; ;../../VLCBlib_PIC/can18_ecan.c: 867:     } else {
+"868
+[; ;../../VLCBlib_PIC/can18_ecan.c: 868:     } else {
 }
 [e $U 1650  ]
 [e :U 1649 ]
 {
-"868
-[; ;../../VLCBlib_PIC/can18_ecan.c: 868:         return CANID_FAIL;
+"869
+[; ;../../VLCBlib_PIC/can18_ecan.c: 869:         return CANID_FAIL;
 [e ) . `E13106 0 ]
 [e $UE 1648  ]
-"869
-[; ;../../VLCBlib_PIC/can18_ecan.c: 869:     }
+"870
+[; ;../../VLCBlib_PIC/can18_ecan.c: 870:     }
 }
 [e :U 1650 ]
-"870
-[; ;../../VLCBlib_PIC/can18_ecan.c: 870: }
+"871
+[; ;../../VLCBlib_PIC/can18_ecan.c: 871: }
 [e :UE 1648 ]
 }

@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"66 ../../VLCBlib_PIC/timedResponse.c
-[; ;../../VLCBlib_PIC/timedResponse.c: 66: static TimedResponseResult (*timedResponseCallback)(uint8_t type, uint8_t serviceIndex, uint8_t step);
+"68 ../../VLCBlib_PIC/timedResponse.c
+[; ;../../VLCBlib_PIC/timedResponse.c: 68: static TimedResponseResult (*timedResponseCallback)(uint8_t type, uint8_t serviceIndex, uint8_t step);
 [c E12937 0 1 2 .. ]
 [n E12937 . TIMED_RESPONSE_RESULT_FINISHED TIMED_RESPONSE_RESULT_RETRY TIMED_RESPONSE_RESULT_NEXT  ]
 [v F12966 `(E12937 ~T0 @X0 0 tf3`uc`uc`uc ]
@@ -1381,36 +1381,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37211
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 37211: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"62 ../../VLCBlib_PIC/timedResponse.c
-[; ;../../VLCBlib_PIC/timedResponse.c: 62: static uint8_t timedResponseServiceIndex;
+"64 ../../VLCBlib_PIC/timedResponse.c
+[; ;../../VLCBlib_PIC/timedResponse.c: 64: static uint8_t timedResponseServiceIndex;
 [v _timedResponseServiceIndex `uc ~T0 @X0 1 s ]
-"63
-[; ;../../VLCBlib_PIC/timedResponse.c: 63: static uint8_t timedResponseAllServicesFlag;
-[v _timedResponseAllServicesFlag `uc ~T0 @X0 1 s ]
-"64
-[; ;../../VLCBlib_PIC/timedResponse.c: 64: static uint8_t timedResponseType;
-[v _timedResponseType `uc ~T0 @X0 1 s ]
 "65
-[; ;../../VLCBlib_PIC/timedResponse.c: 65: static uint8_t timedResponseStep;
-[v _timedResponseStep `uc ~T0 @X0 1 s ]
+[; ;../../VLCBlib_PIC/timedResponse.c: 65: static uint8_t timedResponseAllServicesFlag;
+[v _timedResponseAllServicesFlag `uc ~T0 @X0 1 s ]
 "66
-[; ;../../VLCBlib_PIC/timedResponse.c: 66: static TimedResponseResult (*timedResponseCallback)(uint8_t type, uint8_t serviceIndex, uint8_t step);
+[; ;../../VLCBlib_PIC/timedResponse.c: 66: static uint8_t timedResponseType;
+[v _timedResponseType `uc ~T0 @X0 1 s ]
+"67
+[; ;../../VLCBlib_PIC/timedResponse.c: 67: static uint8_t timedResponseStep;
+[v _timedResponseStep `uc ~T0 @X0 1 s ]
+"68
+[; ;../../VLCBlib_PIC/timedResponse.c: 68: static TimedResponseResult (*timedResponseCallback)(uint8_t type, uint8_t serviceIndex, uint8_t step);
 [v _timedResponseCallback `*F12966 ~T0 @X0 1 s ]
-"72
-[; ;../../VLCBlib_PIC/timedResponse.c: 72: void initTimedResponse(void) {
+"74
+[; ;../../VLCBlib_PIC/timedResponse.c: 74: void initTimedResponse(void) {
 [v _initTimedResponse `(v ~T0 @X0 1 ef ]
 {
 [e :U _initTimedResponse ]
 [f ]
-"73
-[; ;../../VLCBlib_PIC/timedResponse.c: 73:     timedResponseType = 0xFF;
+"75
+[; ;../../VLCBlib_PIC/timedResponse.c: 75:     timedResponseType = 0xFF;
 [e = _timedResponseType -> -> 255 `i `uc ]
-"74
-[; ;../../VLCBlib_PIC/timedResponse.c: 74: }
+"76
+[; ;../../VLCBlib_PIC/timedResponse.c: 76: }
 [e :UE 1536 ]
 }
-"84
-[; ;../../VLCBlib_PIC/timedResponse.c: 84: void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponseResult (*callback)(uint8_t type, uint8_t si, uint8_t step)) {
+"85
+[; ;../../VLCBlib_PIC/timedResponse.c: 85: void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponseResult (*callback)(uint8_t type, uint8_t si, uint8_t step)) {
 [v _startTimedResponse `(v ~T0 @X0 1 ef3`uc`uc`*F12972 ]
 {
 [e :U _startTimedResponse ]
@@ -1418,163 +1418,163 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _serviceIndex `uc ~T0 @X0 1 r2 ]
 [v _callback `*F12979 ~T0 @X0 1 r3 ]
 [f ]
-"85
-[; ;../../VLCBlib_PIC/timedResponse.c: 85:     timedResponseType = type;
-[e = _timedResponseType _type ]
 "86
-[; ;../../VLCBlib_PIC/timedResponse.c: 86:     if (serviceIndex == 0) {
+[; ;../../VLCBlib_PIC/timedResponse.c: 86:     timedResponseType = type;
+[e = _timedResponseType _type ]
+"87
+[; ;../../VLCBlib_PIC/timedResponse.c: 87:     if (serviceIndex == 0) {
 [e $ ! == -> _serviceIndex `i -> 0 `i 1538  ]
 {
-"88
-[; ;../../VLCBlib_PIC/timedResponse.c: 88:         timedResponseAllServicesFlag = 1;
-[e = _timedResponseAllServicesFlag -> -> 1 `i `uc ]
 "89
-[; ;../../VLCBlib_PIC/timedResponse.c: 89:         timedResponseServiceIndex = 0;
-[e = _timedResponseServiceIndex -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/timedResponse.c: 89:         timedResponseAllServicesFlag = 1;
+[e = _timedResponseAllServicesFlag -> -> 1 `i `uc ]
 "90
-[; ;../../VLCBlib_PIC/timedResponse.c: 90:     } else {
+[; ;../../VLCBlib_PIC/timedResponse.c: 90:         timedResponseServiceIndex = 0;
+[e = _timedResponseServiceIndex -> -> 0 `i `uc ]
+"91
+[; ;../../VLCBlib_PIC/timedResponse.c: 91:     } else {
 }
 [e $U 1539  ]
 [e :U 1538 ]
 {
-"91
-[; ;../../VLCBlib_PIC/timedResponse.c: 91:         timedResponseAllServicesFlag = 0;
-[e = _timedResponseAllServicesFlag -> -> 0 `i `uc ]
 "92
-[; ;../../VLCBlib_PIC/timedResponse.c: 92:         if ((serviceIndex < 1) || (serviceIndex > 9)) {
+[; ;../../VLCBlib_PIC/timedResponse.c: 92:         timedResponseAllServicesFlag = 0;
+[e = _timedResponseAllServicesFlag -> -> 0 `i `uc ]
+"93
+[; ;../../VLCBlib_PIC/timedResponse.c: 93:         if ((serviceIndex < 1) || (serviceIndex > 9)) {
 [e $ ! || < -> _serviceIndex `i -> 1 `i > -> _serviceIndex `i -> 9 `i 1540  ]
 {
-"94
-[; ;../../VLCBlib_PIC/timedResponse.c: 94:             timedResponseType = 0xFF;
-[e = _timedResponseType -> -> 255 `i `uc ]
 "95
-[; ;../../VLCBlib_PIC/timedResponse.c: 95:             return;
-[e $UE 1537  ]
+[; ;../../VLCBlib_PIC/timedResponse.c: 95:             timedResponseType = 0xFF;
+[e = _timedResponseType -> -> 255 `i `uc ]
 "96
-[; ;../../VLCBlib_PIC/timedResponse.c: 96:         }
+[; ;../../VLCBlib_PIC/timedResponse.c: 96:             return;
+[e $UE 1537  ]
+"97
+[; ;../../VLCBlib_PIC/timedResponse.c: 97:         }
 }
 [e :U 1540 ]
-"97
-[; ;../../VLCBlib_PIC/timedResponse.c: 97:         timedResponseServiceIndex = (uint8_t)serviceIndex-1;
-[e = _timedResponseServiceIndex -> - -> _serviceIndex `i -> 1 `i `uc ]
 "98
-[; ;../../VLCBlib_PIC/timedResponse.c: 98:     }
+[; ;../../VLCBlib_PIC/timedResponse.c: 98:         timedResponseServiceIndex = (uint8_t)serviceIndex-1;
+[e = _timedResponseServiceIndex -> - -> _serviceIndex `i -> 1 `i `uc ]
+"99
+[; ;../../VLCBlib_PIC/timedResponse.c: 99:     }
 }
 [e :U 1539 ]
-"99
-[; ;../../VLCBlib_PIC/timedResponse.c: 99:     timedResponseStep = 0;
-[e = _timedResponseStep -> -> 0 `i `uc ]
 "100
-[; ;../../VLCBlib_PIC/timedResponse.c: 100:     timedResponseCallback = callback;
-[e = _timedResponseCallback _callback ]
+[; ;../../VLCBlib_PIC/timedResponse.c: 100:     timedResponseStep = 0;
+[e = _timedResponseStep -> -> 0 `i `uc ]
 "101
-[; ;../../VLCBlib_PIC/timedResponse.c: 101: }
+[; ;../../VLCBlib_PIC/timedResponse.c: 101:     timedResponseCallback = callback;
+[e = _timedResponseCallback _callback ]
+"102
+[; ;../../VLCBlib_PIC/timedResponse.c: 102: }
 [e :UE 1537 ]
 }
-"107
-[; ;../../VLCBlib_PIC/timedResponse.c: 107: void pollTimedResponse() {
+"108
+[; ;../../VLCBlib_PIC/timedResponse.c: 108: void pollTimedResponse() {
 [v _pollTimedResponse `(v ~T0 @X0 1 ef ]
 {
 [e :U _pollTimedResponse ]
 [f ]
-"108
-[; ;../../VLCBlib_PIC/timedResponse.c: 108:     TimedResponseResult result;
+"109
+[; ;../../VLCBlib_PIC/timedResponse.c: 109:     TimedResponseResult result;
 [v _result `E12937 ~T0 @X0 1 a ]
-"110
-[; ;../../VLCBlib_PIC/timedResponse.c: 110:     if (timedResponseType == 0xFF) {
+"111
+[; ;../../VLCBlib_PIC/timedResponse.c: 111:     if (timedResponseType == 0xFF) {
 [e $ ! == -> _timedResponseType `i -> 255 `i 1542  ]
 {
-"112
-[; ;../../VLCBlib_PIC/timedResponse.c: 112:         return;
-[e $UE 1541  ]
 "113
-[; ;../../VLCBlib_PIC/timedResponse.c: 113:     }
+[; ;../../VLCBlib_PIC/timedResponse.c: 113:         return;
+[e $UE 1541  ]
+"114
+[; ;../../VLCBlib_PIC/timedResponse.c: 114:     }
 }
 [e :U 1542 ]
-"114
-[; ;../../VLCBlib_PIC/timedResponse.c: 114:     if (timedResponseCallback == ((void*)0)) {
+"115
+[; ;../../VLCBlib_PIC/timedResponse.c: 115:     if (timedResponseCallback == ((void*)0)) {
 [e $ ! == _timedResponseCallback -> -> -> 0 `i `*v `*F12989 1543  ]
 {
-"116
-[; ;../../VLCBlib_PIC/timedResponse.c: 116:         timedResponseType = 0xFF;
-[e = _timedResponseType -> -> 255 `i `uc ]
 "117
-[; ;../../VLCBlib_PIC/timedResponse.c: 117:         return;
-[e $UE 1541  ]
+[; ;../../VLCBlib_PIC/timedResponse.c: 117:         timedResponseType = 0xFF;
+[e = _timedResponseType -> -> 255 `i `uc ]
 "118
-[; ;../../VLCBlib_PIC/timedResponse.c: 118:     }
+[; ;../../VLCBlib_PIC/timedResponse.c: 118:         return;
+[e $UE 1541  ]
+"119
+[; ;../../VLCBlib_PIC/timedResponse.c: 119:     }
 }
 [e :U 1543 ]
-"121
-[; ;../../VLCBlib_PIC/timedResponse.c: 121:     result = (*timedResponseCallback)(timedResponseType, timedResponseServiceIndex, timedResponseStep);
-[e = _result ( *U _timedResponseCallback (3 , , _timedResponseType _timedResponseServiceIndex _timedResponseStep ]
 "122
-[; ;../../VLCBlib_PIC/timedResponse.c: 122:     switch (result) {
+[; ;../../VLCBlib_PIC/timedResponse.c: 122:     result = (*timedResponseCallback)(timedResponseType, timedResponseServiceIndex, timedResponseStep);
+[e = _result ( *U _timedResponseCallback (3 , , _timedResponseType _timedResponseServiceIndex _timedResponseStep ]
+"123
+[; ;../../VLCBlib_PIC/timedResponse.c: 123:     switch (result) {
 [e $U 1545  ]
 {
-"123
-[; ;../../VLCBlib_PIC/timedResponse.c: 123:         case TIMED_RESPONSE_RESULT_FINISHED:
+"124
+[; ;../../VLCBlib_PIC/timedResponse.c: 124:         case TIMED_RESPONSE_RESULT_FINISHED:
 [e :U 1546 ]
-"126
-[; ;../../VLCBlib_PIC/timedResponse.c: 126:             if (timedResponseAllServicesFlag) {
+"127
+[; ;../../VLCBlib_PIC/timedResponse.c: 127:             if (timedResponseAllServicesFlag) {
 [e $ ! != -> _timedResponseAllServicesFlag `i -> 0 `i 1547  ]
 {
-"128
-[; ;../../VLCBlib_PIC/timedResponse.c: 128:                 timedResponseServiceIndex++;
-[e ++ _timedResponseServiceIndex -> -> 1 `i `uc ]
 "129
-[; ;../../VLCBlib_PIC/timedResponse.c: 129:                 if (timedResponseServiceIndex >= 9) {
+[; ;../../VLCBlib_PIC/timedResponse.c: 129:                 timedResponseServiceIndex++;
+[e ++ _timedResponseServiceIndex -> -> 1 `i `uc ]
+"130
+[; ;../../VLCBlib_PIC/timedResponse.c: 130:                 if (timedResponseServiceIndex >= 9) {
 [e $ ! >= -> _timedResponseServiceIndex `i -> 9 `i 1548  ]
 {
-"131
-[; ;../../VLCBlib_PIC/timedResponse.c: 131:                     timedResponseType = 0xFF;
-[e = _timedResponseType -> -> 255 `i `uc ]
 "132
-[; ;../../VLCBlib_PIC/timedResponse.c: 132:                 } else {
+[; ;../../VLCBlib_PIC/timedResponse.c: 132:                     timedResponseType = 0xFF;
+[e = _timedResponseType -> -> 255 `i `uc ]
+"133
+[; ;../../VLCBlib_PIC/timedResponse.c: 133:                 } else {
 }
 [e $U 1549  ]
 [e :U 1548 ]
 {
-"133
-[; ;../../VLCBlib_PIC/timedResponse.c: 133:                     timedResponseStep = 0;
-[e = _timedResponseStep -> -> 0 `i `uc ]
 "134
-[; ;../../VLCBlib_PIC/timedResponse.c: 134:                 }
+[; ;../../VLCBlib_PIC/timedResponse.c: 134:                     timedResponseStep = 0;
+[e = _timedResponseStep -> -> 0 `i `uc ]
+"135
+[; ;../../VLCBlib_PIC/timedResponse.c: 135:                 }
 }
 [e :U 1549 ]
-"135
-[; ;../../VLCBlib_PIC/timedResponse.c: 135:             } else {
+"136
+[; ;../../VLCBlib_PIC/timedResponse.c: 136:             } else {
 }
 [e $U 1550  ]
 [e :U 1547 ]
 {
-"136
-[; ;../../VLCBlib_PIC/timedResponse.c: 136:                 timedResponseType = 0xFF;
-[e = _timedResponseType -> -> 255 `i `uc ]
 "137
-[; ;../../VLCBlib_PIC/timedResponse.c: 137:             }
+[; ;../../VLCBlib_PIC/timedResponse.c: 137:                 timedResponseType = 0xFF;
+[e = _timedResponseType -> -> 255 `i `uc ]
+"138
+[; ;../../VLCBlib_PIC/timedResponse.c: 138:             }
 }
 [e :U 1550 ]
-"138
-[; ;../../VLCBlib_PIC/timedResponse.c: 138:             break;
-[e $U 1544  ]
 "139
-[; ;../../VLCBlib_PIC/timedResponse.c: 139:         case TIMED_RESPONSE_RESULT_RETRY:
-[e :U 1551 ]
+[; ;../../VLCBlib_PIC/timedResponse.c: 139:             break;
+[e $U 1544  ]
 "140
-[; ;../../VLCBlib_PIC/timedResponse.c: 140:             break;
-[e $U 1544  ]
+[; ;../../VLCBlib_PIC/timedResponse.c: 140:         case TIMED_RESPONSE_RESULT_RETRY:
+[e :U 1551 ]
 "141
-[; ;../../VLCBlib_PIC/timedResponse.c: 141:         case TIMED_RESPONSE_RESULT_NEXT:
-[e :U 1552 ]
-"142
-[; ;../../VLCBlib_PIC/timedResponse.c: 142:             timedResponseStep++;
-[e ++ _timedResponseStep -> -> 1 `i `uc ]
-"143
-[; ;../../VLCBlib_PIC/timedResponse.c: 143:             break;
+[; ;../../VLCBlib_PIC/timedResponse.c: 141:             break;
 [e $U 1544  ]
+"142
+[; ;../../VLCBlib_PIC/timedResponse.c: 142:         case TIMED_RESPONSE_RESULT_NEXT:
+[e :U 1552 ]
+"143
+[; ;../../VLCBlib_PIC/timedResponse.c: 143:             timedResponseStep++;
+[e ++ _timedResponseStep -> -> 1 `i `uc ]
 "144
-[; ;../../VLCBlib_PIC/timedResponse.c: 144:     }
+[; ;../../VLCBlib_PIC/timedResponse.c: 144:             break;
+[e $U 1544  ]
+"145
+[; ;../../VLCBlib_PIC/timedResponse.c: 145:     }
 }
 [e $U 1544  ]
 [e :U 1545 ]
@@ -1583,7 +1583,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E12937 2 `ui 1552
  1544 ]
 [e :U 1544 ]
-"145
-[; ;../../VLCBlib_PIC/timedResponse.c: 145: }
+"146
+[; ;../../VLCBlib_PIC/timedResponse.c: 146: }
 [e :UE 1541 ]
 }

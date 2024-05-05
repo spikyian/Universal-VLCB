@@ -3,13 +3,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../config.h: 47: typedef struct {
 [s S1542 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1542 . pin port no an ]
-"202 ../../VLCBlib_PIC\ticktime.h
+"216 ../../VLCBlib_PIC\ticktime.h
 [s S1534 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1534 TickBytes b0 b1 b2 b3 ]
-"210
+"225
 [s S1535 `us 1 `us 1 ]
 [n S1535 TickWords w0 w1 ]
-"199
+"211
 [u S1533 `ul 1 `S1534 1 `uc -> 4 `i `S1535 1 ]
 [n S1533 _TickValue val byte v word ]
 [v F12808 `(v ~T0 @X0 0 tf ]
@@ -18,7 +18,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 189: const Service * const services[] = {
 [c E12342 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
 [n E12342 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
-"97 ../../VLCBlib_PIC\vlcb.h
+"105 ../../VLCBlib_PIC\vlcb.h
 [s S1526 `uc 1 `E12342 1 `uc -> 7 `i ]
 [n S1526 Message len opc bytes ]
 "189 ../main.c
@@ -30,41 +30,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F12817 `(v ~T0 @X0 0 tf ]
 [v F12819 `(v ~T0 @X0 0 tf ]
 [v F12821 `(uc ~T0 @X0 0 tf1`uc ]
-"133 ../../VLCBlib_PIC\vlcb.h
+"143 ../../VLCBlib_PIC\vlcb.h
 [s S1530 `uc 1 `uc 1 ]
 [n S1530 . lo hi ]
-"130
+"140
 [u S1529 `us 1 `s 1 `S1530 1 ]
 [n S1529 DiagnosticVal asUint asInt asBytes ]
 [v F12824 `(*S1529 ~T0 @X0 0 tf1`uc ]
-"276
+"289
 [s S1531 `uc 1 `uc 1 `*F12808 1 `*F12810 1 `*F12812 1 `*F12815 1 `*F12817 1 `*F12819 1 `*F12821 1 `*F12824 1 ]
 [n S1531 Service serviceNo version factoryReset powerUp processMessage poll highIsr lowIsr getESDdata getDiagnostic ]
-"82 ../../VLCBlib_PIC\can.h
-[; ;../../VLCBlib_PIC\can.h: 82: extern const Service canService;
+"85 ../../VLCBlib_PIC\can.h
+[; ;../../VLCBlib_PIC\can.h: 85: extern const Service canService;
 [v _canService `CS1531 ~T0 @X0 0 e ]
-"110 ../../VLCBlib_PIC\mns.h
-[; ;../../VLCBlib_PIC\mns.h: 110: extern const Service mnsService;
+"111 ../../VLCBlib_PIC\mns.h
+[; ;../../VLCBlib_PIC\mns.h: 111: extern const Service mnsService;
 [v _mnsService `CS1531 ~T0 @X0 0 e ]
-"85 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 85: extern const Service nvService;
+"86 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 86: extern const Service nvService;
 [v _nvService `CS1531 ~T0 @X0 0 e ]
-"80 ../../VLCBlib_PIC\boot.h
-[; ;../../VLCBlib_PIC\boot.h: 80: extern const Service bootService;
+"81 ../../VLCBlib_PIC\boot.h
+[; ;../../VLCBlib_PIC\boot.h: 81: extern const Service bootService;
 [v _bootService `CS1531 ~T0 @X0 0 e ]
-"97 ../../VLCBlib_PIC/event_teach.h
+"98 ../../VLCBlib_PIC/event_teach.h
 [v _eventTeachService `CS1531 ~T0 @X0 0 e ]
 "187 ../main.c
 [; ;../main.c: 187: extern const Service eventConsumer2QService;
 [v _eventConsumer2QService `CS1531 ~T0 @X0 0 e ]
-"75 ../../VLCBlib_PIC\event_producer.h
-[; ;../../VLCBlib_PIC\event_producer.h: 75: extern const Service eventProducerService;
+"76 ../../VLCBlib_PIC\event_producer.h
+[; ;../../VLCBlib_PIC\event_producer.h: 76: extern const Service eventProducerService;
 [v _eventProducerService `CS1531 ~T0 @X0 0 e ]
-"58 ../../VLCBlib_PIC\event_coe.h
-[; ;../../VLCBlib_PIC\event_coe.h: 58: extern const Service eventCoeService;
+"59 ../../VLCBlib_PIC\event_coe.h
+[; ;../../VLCBlib_PIC\event_coe.h: 59: extern const Service eventCoeService;
 [v _eventCoeService `CS1531 ~T0 @X0 0 e ]
-"61 ../../VLCBlib_PIC\event_acknowledge.h
-[; ;../../VLCBlib_PIC\event_acknowledge.h: 61: extern const Service eventAckService;
+"62 ../../VLCBlib_PIC\event_acknowledge.h
+[; ;../../VLCBlib_PIC\event_acknowledge.h: 62: extern const Service eventAckService;
 [v _eventAckService `CS1531 ~T0 @X0 0 e ]
 "174 ../universalEvents.h
 [; ;../universalEvents.h: 174: extern void factoryResetGlobalEvents(void);
@@ -72,7 +72,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "174 ../main.c
 [; ;../main.c: 174: void setType(uint8_t i, uint8_t type);
 [v _setType `(v ~T0 @X0 0 ef2`uc`uc ]
-"138 ../../VLCBlib_PIC\nvm.h
+"147 ../../VLCBlib_PIC\nvm.h
 [v _flushFlashBlock `(v ~T0 @X0 0 ef ]
 "233 ../main.c
 [; ;../main.c: 233:     transport = &canTransport;
@@ -82,13 +82,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [c E12843 0 1 .. ]
 [n E12843 MessageReceived NOT_RECEIVED RECEIVED  ]
 [v F12856 `(E12843 ~T0 @X0 0 tf1`*S1526 ]
-"386 ../../VLCBlib_PIC\vlcb.h
+"408 ../../VLCBlib_PIC\vlcb.h
 [s S1532 `*F12853 1 `*F12856 1 ]
 [n S1532 Transport sendMessage receiveMessage ]
-"398
+"420
 [v _transport `*CS1532 ~T0 @X0 0 e ]
-"83 ../../VLCBlib_PIC\can.h
-[; ;../../VLCBlib_PIC\can.h: 83: extern const Transport canTransport;
+"89 ../../VLCBlib_PIC\can.h
+[; ;../../VLCBlib_PIC\can.h: 89: extern const Transport canTransport;
 [v _canTransport `CS1532 ~T0 @X0 0 e ]
 "36557 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 36557:     struct {
@@ -112,10 +112,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26860
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 26860: extern volatile unsigned char WPUB __attribute__((address(0xF5B)));
 [v _WPUB `Vuc ~T0 @X0 0 e@3931 ]
-"106 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 106: extern int16_t getNV(uint8_t index);
+"110 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 110: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
-"179 ../../VLCBlib_PIC\vlcb.h
+"192 ../../VLCBlib_PIC\vlcb.h
 [v _setTimedResponseDelay `(v ~T0 @X0 0 ef1`uc ]
 "173 ../universalEvents.h
 [; ;../universalEvents.h: 173: extern void universalEventsInit(void);
@@ -126,6 +126,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26922
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 26922: extern volatile unsigned char ANCON1 __attribute__((address(0xF5C)));
 [v _ANCON1 `Vuc ~T0 @X0 0 e@3932 ]
+"54 ../servo.h
+[; ;../servo.h: 54: extern void initServos(void);
+[v _initServos `(v ~T0 @X0 0 ef ]
 "16 ../digitalOut.h
 [; ;../digitalOut.h: 16: extern void initOutputs(void);
 [v _initOutputs `(v ~T0 @X0 0 ef ]
@@ -154,7 +157,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36681
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 36681: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS1491 ~T0 @X0 0 e@4082 ]
-"228 ../../VLCBlib_PIC\ticktime.h
+"244 ../../VLCBlib_PIC\ticktime.h
 [v _tickGet `(ul ~T0 @X0 0 ef ]
 "333 ../main.c
 [; ;../main.c: 333:     started = FALSE;
@@ -164,9 +167,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 340:         sendProducedEvent(1, EVENT_ON);
 [c E12720 0 1 .. ]
 [n E12720 . EVENT_OFF EVENT_ON  ]
-"85 ../../VLCBlib_PIC\event_producer.h
-[; ;../../VLCBlib_PIC\event_producer.h: 85: extern Boolean sendProducedEvent(Happening h, EventState state);
+"86 ../../VLCBlib_PIC\event_producer.h
+[; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
 [v _sendProducedEvent `(E12700 ~T0 @X0 0 ef2`uc`E12720 ]
+"53 ../servo.h
+[; ;../servo.h: 53: extern void startServos(void);
+[v _startServos `(v ~T0 @X0 0 ef ]
 "47 ../inputs.h
 [; ;../inputs.h: 47:     extern void inputScan(void);
 [v _inputScan `(v ~T0 @X0 0 ef ]
@@ -180,12 +186,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 373: ValidTime APP_isSuitableTimeToWriteFlash(void){
 [c E12676 0 1 .. ]
 [n E12676 ValidTime BAD_TIME GOOD_TIME  ]
-"107 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 107: extern void saveNV(uint8_t index, uint8_t value);
+"71 ../servo.h
+[; ;../servo.h: 71: extern Boolean isNoServoPulses(void);
+[v _isNoServoPulses `(E12700 ~T0 @X0 0 ef ]
+"111 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 111: extern void saveNV(uint8_t index, uint8_t value);
 [v _saveNV `(v ~T0 @X0 0 ef2`uc`uc ]
 "247 ../universalNv.h
 [; ;../universalNv.h: 247: extern void defaultNVs(uint8_t i, uint8_t type);
 [v _defaultNVs `(v ~T0 @X0 0 ef2`uc`uc ]
+"48 ../servo.h
+[; ;../servo.h: 48: extern uint8_t currentPos[16];
+[v _currentPos `uc ~T0 @X0 -> 0 `x e ]
 "175 ../universalEvents.h
 [; ;../universalEvents.h: 175: extern void defaultEvents(uint8_t i, uint8_t type);
 [v _defaultEvents `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -196,9 +208,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 454:                 setDigitalOutput(i, (uint8_t)readNVM(EEPROM_NVM_TYPE, (eeprom_address_t)((eeprom_address_t)((0x3FF -8))-25)+i));
 [c E12672 0 1 .. ]
 [n E12672 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
-"151 ../../VLCBlib_PIC\nvm.h
+"160 ../../VLCBlib_PIC\nvm.h
 [v _readNVM `(s ~T0 @X0 0 ef2`E12672`um ]
-"160
+"169
 [v _writeNVM `(uc ~T0 @X0 0 ef3`E12672`um`uc ]
 "30645 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 30645: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
@@ -209,6 +221,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30764
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 30764: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
 [v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"31148
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 31148:     struct {
+[s S1188 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1188 . TMR1IF TMR2IF TMR1GIF SSPIF TX1IF RC1IF ADIF ]
+"31157
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 31157:     struct {
+[s S1189 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1189 . . TXIF RCIF ]
+"31147
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 31147: typedef union {
+[u S1187 `S1188 1 `S1189 1 ]
+[n S1187 . . . ]
+"31163
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 31163: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
+[v _PIR1bits `VS1187 ~T0 @X0 0 e@3998 ]
+"57 ../servo.h
+[; ;../servo.h: 57: extern void timer1DoneInterruptHandler(void);
+[v _timer1DoneInterruptHandler `(v ~T0 @X0 0 ef ]
+"31344 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 31344:     struct {
+[s S1197 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S1197 . TMR3GIF TMR3IF HLVDIF BCLIF . OSCFIF ]
+"31352
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 31352:     struct {
+[s S1198 :2 `uc 1 :1 `uc 1 ]
+[n S1198 . . LVDIF ]
+"31343
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 31343: typedef union {
+[u S1196 `S1197 1 `S1198 1 ]
+[n S1196 . . . ]
+"31357
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 31357: extern volatile PIR2bits_t PIR2bits __attribute__((address(0xFA1)));
+[v _PIR2bits `VS1196 ~T0 @X0 0 e@4001 ]
+"58 ../servo.h
+[; ;../servo.h: 58: extern void timer3DoneInterruptHandler(void);
+[v _timer3DoneInterruptHandler `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1704,7 +1752,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "185
 [; ;../main.c: 185: static uint8_t io;
 [v _io `uc ~T0 @X0 1 s ]
-[v F13206 `*CS1531 ~T0 @X0 1 t ]
+[v F13244 `*CS1531 ~T0 @X0 1 t ]
 "189
 [; ;../main.c: 189: const Service * const services[] = {
 [v _services `C*CS1531 ~T0 @X0 -> 9 `i e ]
@@ -1795,6 +1843,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "302
 [; ;../main.c: 302:     ANCON1 = 0x00;
 [e = _ANCON1 -> -> 0 `i `uc ]
+"315
+[; ;../main.c: 315:     initServos();
+[e ( _initServos ..  ]
 "317
 [; ;../main.c: 317:     initOutputs();
 [e ( _initOutputs ..  ]
@@ -1861,13 +1912,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 341:     }
 }
 [e :U 1563 ]
+"344
+[; ;../main.c: 344:     if ((tickGet() - lastServoStartTime.val) > 5*(62500/2000)) {
+[e $ ! > - ( _tickGet ..  . _lastServoStartTime 0 -> * -> -> 5 `i `l / -> 62500 `l -> -> 2000 `i `l `ul 1564  ]
+{
+"345
+[; ;../main.c: 345:         startServos();
+[e ( _startServos ..  ]
+"346
+[; ;../main.c: 346:         lastServoStartTime.val = tickGet();
+[e = . _lastServoStartTime 0 ( _tickGet ..  ]
+"347
+[; ;../main.c: 347:     }
+}
+[e :U 1564 ]
 "349
 [; ;../main.c: 349:     if (started) {
-[e $ ! != -> _started `i -> 0 `i 1564  ]
+[e $ ! != -> _started `i -> 0 `i 1565  ]
 {
 "350
 [; ;../main.c: 350:         if ((tickGet() - lastInputScanTime.val) > 5*(62500/1000)) {
-[e $ ! > - ( _tickGet ..  . _lastInputScanTime 0 -> * -> -> 5 `i `l / -> 62500 `l -> -> 1000 `i `l `ul 1565  ]
+[e $ ! > - ( _tickGet ..  . _lastInputScanTime 0 -> * -> -> 5 `i `l / -> 62500 `l -> -> 1000 `i `l `ul 1566  ]
 {
 "351
 [; ;../main.c: 351:             inputScan();
@@ -1878,10 +1943,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "353
 [; ;../main.c: 353:         }
 }
-[e :U 1565 ]
+[e :U 1566 ]
 "354
 [; ;../main.c: 354:         if ((tickGet() - lastActionPollTime.val) > 100*(62500/1000)) {
-[e $ ! > - ( _tickGet ..  . _lastActionPollTime 0 -> * -> -> 100 `i `l / -> 62500 `l -> -> 1000 `i `l `ul 1566  ]
+[e $ ! > - ( _tickGet ..  . _lastActionPollTime 0 -> * -> -> 100 `i `l / -> 62500 `l -> -> 1000 `i `l `ul 1567  ]
 {
 "355
 [; ;../main.c: 355:             processActions();
@@ -1895,11 +1960,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "358
 [; ;../main.c: 358:         }
 }
-[e :U 1566 ]
+[e :U 1567 ]
 "362
 [; ;../main.c: 362:     }
 }
-[e :U 1564 ]
+[e :U 1565 ]
 "363
 [; ;../main.c: 363: }
 [e :UE 1562 ]
@@ -1910,13 +1975,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _APP_isSuitableTimeToWriteFlash ]
 [f ]
-"377
-[; ;../main.c: 377:     return GOOD_TIME;
-[e ) . `E12676 1 ]
-[e $UE 1567  ]
+"375
+[; ;../main.c: 375:     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
+[e ) -> ? != -> ( _isNoServoPulses ..  `ui -> -> 0 `i `ui : . `E12676 1 . `E12676 0 `E12676 ]
+[e $UE 1568  ]
 "379
 [; ;../main.c: 379: }
-[e :UE 1567 ]
+[e :UE 1568 ]
 }
 "384
 [; ;../main.c: 384: Processed APP_preProcessMessage(Message * m) {
@@ -1928,10 +1993,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "385
 [; ;../main.c: 385:     return NOT_PROCESSED;
 [e ) . `E12732 0 ]
-[e $UE 1568  ]
+[e $UE 1569  ]
 "386
 [; ;../main.c: 386: }
-[e :UE 1568 ]
+[e :UE 1569 ]
 }
 "391
 [; ;../main.c: 391: Processed APP_postProcessMessage(Message * m) {
@@ -1943,10 +2008,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "392
 [; ;../main.c: 392:     return NOT_PROCESSED;
 [e ) . `E12732 0 ]
-[e $UE 1569  ]
+[e $UE 1570  ]
 "393
 [; ;../main.c: 393: }
-[e :UE 1569 ]
+[e :UE 1570 ]
 }
 "398
 [; ;../main.c: 398: EventState APP_GetEventState(Happening h) {
@@ -1958,10 +2023,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "399
 [; ;../main.c: 399:     return EVENT_OFF;
 [e ) . `E12720 0 ]
-[e $UE 1570  ]
+[e $UE 1571  ]
 "400
 [; ;../main.c: 400: }
-[e :UE 1570 ]
+[e :UE 1571 ]
 }
 "412
 [; ;../main.c: 412: void setType(uint8_t io, uint8_t type) {
@@ -1986,12 +2051,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "422
 [; ;../main.c: 422:     configIO(io);
 [e ( _configIO (1 _io ]
+"424
+[; ;../main.c: 424:     if ((type == 2) || (type== 3) || (type == 4)) {
+[e $ ! || || == -> _type `i -> 2 `i == -> _type `i -> 3 `i == -> _type `i -> 4 `i 1573  ]
+{
+"425
+[; ;../main.c: 425:         currentPos[io] = 128;
+[e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> 128 `i `uc ]
+"426
+[; ;../main.c: 426:     }
+}
+[e :U 1573 ]
 "429
 [; ;../main.c: 429:     defaultEvents(io, type);
 [e ( _defaultEvents (2 , _io _type ]
 "435
 [; ;../main.c: 435: }
-[e :UE 1571 ]
+[e :UE 1572 ]
 }
 "443
 [; ;../main.c: 443: void configIO(uint8_t i) {
@@ -2008,22 +2084,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _type `uc ~T0 @X0 1 a ]
 "447
 [; ;../main.c: 447:     if (i >= 16) return;
-[e $ ! >= -> _i `i -> 16 `i 1573  ]
-[e $UE 1572  ]
-[e :U 1573 ]
+[e $ ! >= -> _i `i -> 16 `i 1575  ]
+[e $UE 1574  ]
+[e :U 1575 ]
 "450
 [; ;../main.c: 450:     type = (uint8_t)getNV((16 + 7*(i) + 0));
 [e = _type -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _i `i -> 0 `i `uc `uc ]
 "451
 [; ;../main.c: 451:     switch (type) {
-[e $U 1575  ]
+[e $U 1577  ]
 {
 "452
 [; ;../main.c: 452:         case 1:
-[e :U 1576 ]
+[e :U 1578 ]
 "453
 [; ;../main.c: 453:             if (getNV((16 + 7*(i) + 1)) & 0x04) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _i `i -> 1 `i `uc `i -> 4 `i -> 0 `i 1577  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _i `i -> 1 `i `uc `i -> 4 `i -> 0 `i 1579  ]
 {
 "454
 [; ;../main.c: 454:                 setDigitalOutput(i, (uint8_t)readNVM(EEPROM_NVM_TYPE, (eeprom_address_t)((eeprom_address_t)((0x3FF -8))-25)+i));
@@ -2031,8 +2107,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "455
 [; ;../main.c: 455:             } else {
 }
-[e $U 1578  ]
-[e :U 1577 ]
+[e $U 1580  ]
+[e :U 1579 ]
 {
 "456
 [; ;../main.c: 456:                 action = (getNV((16 + 7*(i) + 1)) & 0x20) ? 1 : 2;
@@ -2046,28 +2122,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 "460
 [; ;../main.c: 460:             }
 }
-[e :U 1578 ]
+[e :U 1580 ]
 "461
 [; ;../main.c: 461:             break;
-[e $U 1574  ]
+[e $U 1576  ]
+"463
+[; ;../main.c: 463:         case 2:
+[e :U 1581 ]
+"465
+[; ;../main.c: 465:         case 3:
+[e :U 1582 ]
+"468
+[; ;../main.c: 468:             setDigitalOutput(i, getNV((16 + 7*(i) + 1)) & 0x10);
+[e ( _setDigitalOutput (2 , _i -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _i `i -> 1 `i `uc `i -> 16 `i `uc ]
+"469
+[; ;../main.c: 469:             break;
+[e $U 1576  ]
 "471
 [; ;../main.c: 471:     }
 }
-[e $U 1574  ]
-[e :U 1575 ]
-[e [\ _type , $ -> 1 `i 1576
- 1574 ]
-[e :U 1574 ]
+[e $U 1576  ]
+[e :U 1577 ]
+[e [\ _type , $ -> 1 `i 1578
+ , $ -> 2 `i 1581
+ , $ -> 3 `i 1582
+ 1576 ]
+[e :U 1576 ]
 "473
 [; ;../main.c: 473:     switch (configs[i].port) {
-[e $U 1580  ]
+[e $U 1584  ]
 {
 "474
 [; ;../main.c: 474:         case 'A':
-[e :U 1581 ]
+[e :U 1585 ]
 "475
 [; ;../main.c: 475:             if ((type == 0) || (type == 5) || (type == 6)) {
-[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1582  ]
+[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1586  ]
 {
 "476
 [; ;../main.c: 476:                 TRISA |= (1 << configs[i].no);
@@ -2075,8 +2165,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "477
 [; ;../main.c: 477:             } else {
 }
-[e $U 1583  ]
-[e :U 1582 ]
+[e $U 1587  ]
+[e :U 1586 ]
 {
 "478
 [; ;../main.c: 478:                 TRISA &= ~(1 << configs[i].no);
@@ -2084,16 +2174,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "479
 [; ;../main.c: 479:             }
 }
-[e :U 1583 ]
+[e :U 1587 ]
 "480
 [; ;../main.c: 480:             break;
-[e $U 1579  ]
+[e $U 1583  ]
 "481
 [; ;../main.c: 481:         case 'B':
-[e :U 1584 ]
+[e :U 1588 ]
 "482
 [; ;../main.c: 482:             if ((type == 0) || (type == 5) || (type == 6)) {
-[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1585  ]
+[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1589  ]
 {
 "483
 [; ;../main.c: 483:                 TRISB |= (1 << configs[i].no);
@@ -2101,8 +2191,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "484
 [; ;../main.c: 484:             } else {
 }
-[e $U 1586  ]
-[e :U 1585 ]
+[e $U 1590  ]
+[e :U 1589 ]
 {
 "485
 [; ;../main.c: 485:                 TRISB &= ~(1 << configs[i].no);
@@ -2110,16 +2200,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "486
 [; ;../main.c: 486:             }
 }
-[e :U 1586 ]
+[e :U 1590 ]
 "487
 [; ;../main.c: 487:             break;
-[e $U 1579  ]
+[e $U 1583  ]
 "488
 [; ;../main.c: 488:         case 'C':
-[e :U 1587 ]
+[e :U 1591 ]
 "489
 [; ;../main.c: 489:             if ((type == 0) || (type == 5) || (type == 6)) {
-[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1588  ]
+[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1592  ]
 {
 "490
 [; ;../main.c: 490:                 TRISC |= (1 << configs[i].no);
@@ -2127,8 +2217,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "491
 [; ;../main.c: 491:             } else {
 }
-[e $U 1589  ]
-[e :U 1588 ]
+[e $U 1593  ]
+[e :U 1592 ]
 {
 "492
 [; ;../main.c: 492:                 TRISC &= ~(1 << configs[i].no);
@@ -2136,23 +2226,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "493
 [; ;../main.c: 493:             }
 }
-[e :U 1589 ]
+[e :U 1593 ]
 "494
 [; ;../main.c: 494:             break;
-[e $U 1579  ]
+[e $U 1583  ]
 "512
 [; ;../main.c: 512:     }
 }
-[e $U 1579  ]
-[e :U 1580 ]
-[e [\ . *U + &U _configs * -> _i `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 1581
- , $ -> -> 66 `ui `i 1584
- , $ -> -> 67 `ui `i 1587
- 1579 ]
-[e :U 1579 ]
+[e $U 1583  ]
+[e :U 1584 ]
+[e [\ . *U + &U _configs * -> _i `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 1585
+ , $ -> -> 66 `ui `i 1588
+ , $ -> -> 67 `ui `i 1591
+ 1583 ]
+[e :U 1583 ]
 "530
 [; ;../main.c: 530: }
-[e :UE 1572 ]
+[e :UE 1574 ]
 }
 "537
 [; ;../main.c: 537: void APP_lowIsr(void) {
@@ -2162,7 +2252,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "538
 [; ;../main.c: 538: }
-[e :UE 1590 ]
+[e :UE 1594 ]
 }
 "541
 [; ;../main.c: 541: void APP_highIsr(void) {
@@ -2170,7 +2260,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _APP_highIsr ]
 [f ]
+"544
+[; ;../main.c: 544:     if (PIR1bits.TMR1IF) {
+[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 1596  ]
+{
+"545
+[; ;../main.c: 545:         timer1DoneInterruptHandler();
+[e ( _timer1DoneInterruptHandler ..  ]
+"546
+[; ;../main.c: 546:         PIR1bits.TMR1IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"547
+[; ;../main.c: 547:     }
+}
+[e :U 1596 ]
+"548
+[; ;../main.c: 548:     if (PIR2bits.TMR3IF) {
+[e $ ! != -> . . _PIR2bits 0 1 `i -> 0 `i 1597  ]
+{
+"549
+[; ;../main.c: 549:         timer3DoneInterruptHandler();
+[e ( _timer3DoneInterruptHandler ..  ]
+"550
+[; ;../main.c: 550:         PIR2bits.TMR3IF = 0;
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+"551
+[; ;../main.c: 551:     }
+}
+[e :U 1597 ]
 "553
 [; ;../main.c: 553: }
-[e :UE 1591 ]
+[e :UE 1595 ]
 }

@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"133 ../../VLCBlib_PIC/vlcb.h
+"143 ../../VLCBlib_PIC/vlcb.h
 [s S3225 `uc 1 `uc 1 ]
 [n S3225 . lo hi ]
-"130
+"140
 [u S3224 `us 1 `s 1 `S3225 1 ]
 [n S3224 DiagnosticVal asUint asInt asBytes ]
 [v F22981 `(v ~T0 @X0 0 tf ]
@@ -11,7 +11,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../event_consumerDualActionQueue.c: 74: const Service eventConsumer2QService = {
 [c E22515 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
 [n E22515 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
-"97 ../../VLCBlib_PIC/vlcb.h
+"105 ../../VLCBlib_PIC/vlcb.h
 [s S3221 `uc 1 `E22515 1 `uc -> 7 `i ]
 [n S3221 Message len opc bytes ]
 "74 ../event_consumerDualActionQueue.c
@@ -22,7 +22,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F22988 `(v ~T0 @X0 0 tf ]
 [v F22990 `(uc ~T0 @X0 0 tf1`uc ]
 [v F22993 `(*S3224 ~T0 @X0 0 tf1`uc ]
-"276 ../../VLCBlib_PIC/vlcb.h
+"289 ../../VLCBlib_PIC/vlcb.h
 [s S3226 `uc 1 `uc 1 `*F22981 1 `*F22983 1 `*F22985 1 `*F22988 1 `*F22990 1 `*F22993 1 ]
 [n S3226 Service serviceNo version factoryReset powerUp processMessage poll getESDdata getDiagnostic ]
 "74 ../event_consumerDualActionQueue.c
@@ -57,20 +57,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../event_consumerDualActionQueue.c: 97: static Boolean expedited;
 [c E22873 0 1 .. ]
 [n E22873 Boolean FALSE TRUE  ]
-"118 ../../VLCBlib_PIC\event_teach.h
-[; ;../../VLCBlib_PIC\event_teach.h: 118: extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
+"119 ../../VLCBlib_PIC\event_teach.h
+[; ;../../VLCBlib_PIC\event_teach.h: 119: extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
 [v _findEvent `(uc ~T0 @X0 0 ef2`us`us ]
-"113
-[; ;../../VLCBlib_PIC\event_teach.h: 113: extern uint8_t getEVs(uint8_t tableIndex);
-[v _getEVs `(uc ~T0 @X0 0 ef1`uc ]
 "114
-[; ;../../VLCBlib_PIC\event_teach.h: 114: extern uint8_t evs[20];
+[; ;../../VLCBlib_PIC\event_teach.h: 114: extern uint8_t getEVs(uint8_t tableIndex);
+[v _getEVs `(uc ~T0 @X0 0 ef1`uc ]
+"115
+[; ;../../VLCBlib_PIC\event_teach.h: 115: extern uint8_t evs[20];
 [v _evs `uc ~T0 @X0 -> 0 `x e ]
 "100 ../event_consumerDualActionQueue.h
 [; ;../event_consumerDualActionQueue.h: 100: extern Boolean pushTwoAction(ActionAndState a);
 [v _pushTwoAction `(E22873 ~T0 @X0 0 ef1`S3231 ]
-"106 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 106: extern int16_t getNV(uint8_t index);
+"110 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 110: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
 "103 ../event_consumerDualActionQueue.h
 [; ;../event_consumerDualActionQueue.h: 103: extern void setExpeditedActions(void);
@@ -81,17 +81,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "104
 [; ;../event_consumerDualActionQueue.h: 104: extern ActionAndState * peekTwoActionQueue(uint8_t index);
 [v _peekTwoActionQueue `(*S3231 ~T0 @X0 0 ef1`uc ]
-"111 ../../VLCBlib_PIC\event_teach.h
-[; ;../../VLCBlib_PIC\event_teach.h: 111: extern Boolean validStart(uint8_t index);
+"112 ../../VLCBlib_PIC\event_teach.h
+[; ;../../VLCBlib_PIC\event_teach.h: 112: extern Boolean validStart(uint8_t index);
 [v _validStart `(E22873 ~T0 @X0 0 ef1`uc ]
-"115
-[; ;../../VLCBlib_PIC\event_teach.h: 115: extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
+"116
+[; ;../../VLCBlib_PIC\event_teach.h: 116: extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
 [v _writeEv `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
-"124
-[; ;../../VLCBlib_PIC\event_teach.h: 124: extern void checkRemoveTableEntry(uint8_t tableIndex);
+"125
+[; ;../../VLCBlib_PIC\event_teach.h: 125: extern void checkRemoveTableEntry(uint8_t tableIndex);
 [v _checkRemoveTableEntry `(v ~T0 @X0 0 ef1`uc ]
-"138 ../../VLCBlib_PIC/nvm.h
-[; ;../../VLCBlib_PIC/nvm.h: 138: extern void flushFlashBlock(void);
+"147 ../../VLCBlib_PIC/nvm.h
+[; ;../../VLCBlib_PIC/nvm.h: 147: extern void flushFlashBlock(void);
 [v _flushFlashBlock `(v ~T0 @X0 0 ef ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");

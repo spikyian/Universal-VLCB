@@ -1,4 +1,4 @@
-# 1 "../outputs.c"
+# 1 "../bounce.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../outputs.c" 2
-# 40 "../outputs.c"
+# 1 "../bounce.c" 2
+# 56 "../bounce.c"
 # 1 "../module.h" 1
 
 
@@ -38753,25 +38753,8 @@ extern void showStatus(StatusDisplay s);
 extern uint8_t APP_nvDefault(uint8_t index);
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
 extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue);
-# 40 "../outputs.c" 2
+# 56 "../bounce.c" 2
 
-
-# 1 "../config.h" 1
-# 47 "../config.h"
-typedef struct {
-    unsigned char pin;
-    char port;
-    unsigned char no;
-    unsigned char an;
-} Config;
-
-extern const Config configs[16];
-# 42 "../outputs.c" 2
-
-
-
-# 1 "../universalEEPROM.h" 1
-# 45 "../outputs.c" 2
 
 
 # 1 "../universalNv.h" 1
@@ -38844,90 +38827,7 @@ typedef struct {
 } ModuleNvDefs;
 
 extern void defaultNVs(uint8_t i, uint8_t type);
-# 47 "../outputs.c" 2
-
-# 1 "../universalEvents.h" 1
-# 74 "../universalEvents.h"
-# 1 "../../VLCBlib_PIC\\event_teach.h" 1
-# 98 "../../VLCBlib_PIC\\event_teach.h"
-extern const Service eventTeachService;
-# 110 "../../VLCBlib_PIC\\event_teach.h"
-extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
-
-extern Boolean validStart(uint8_t index);
-extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
-extern uint8_t getEVs(uint8_t tableIndex);
-extern uint8_t evs[20];
-extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
-extern uint16_t getNN(uint8_t tableIndex);
-extern uint16_t getEN(uint8_t tableIndex);
-extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
-extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, uint8_t forceOwnNN);
-
-extern void rebuildHashtable(void);
-extern uint8_t getHash(uint16_t nodeNumber, uint16_t eventNumber);
-
-extern void checkRemoveTableEntry(uint8_t tableIndex);
-
-
-
-
-
-typedef uint8_t Happening;
-
-
-
-
-
-
-
-typedef struct {
-    uint16_t NN;
-    uint16_t EN;
-} Event;
-
-
-
-
-
-typedef union
-{
-    struct
-    {
-        uint8_t eVsUsed:4;
-        uint8_t continued:1;
-        uint8_t continuation:1;
-        uint8_t forceOwnNN:1;
-        uint8_t freeEntry:1;
-    };
-    uint8_t asByte;
-} EventTableFlags;
-
-
-
-
-
-
-typedef struct {
-    EventTableFlags flags;
-    uint8_t next;
-    Event event;
-    uint8_t evs[10];
-} EventTable;
-# 74 "../universalEvents.h" 2
-# 173 "../universalEvents.h"
-extern void universalEventsInit(void);
-extern void factoryResetGlobalEvents(void);
-extern void defaultEvents(uint8_t i, uint8_t type);
-extern void clearEvents(uint8_t i);
-# 185 "../universalEvents.h"
-extern void processEvent(uint8_t eventIndex, uint8_t* message);
-extern void processActions(void);
-
-extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
-                                        Boolean can_send_on, Boolean can_send_off);
-extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-# 48 "../outputs.c" 2
+# 59 "../bounce.c" 2
 
 # 1 "../servo.h" 1
 # 38 "../servo.h"
@@ -38991,171 +38891,127 @@ extern void startBounceOutput(uint8_t io, uint8_t action);
 extern void startMultiOutput(uint8_t io, uint8_t action);
 
 extern Boolean isNoServoPulses(void);
-# 49 "../outputs.c" 2
+# 60 "../bounce.c" 2
 
-# 1 "../digitalOut.h" 1
-# 16 "../digitalOut.h"
-extern void initOutputs(void);
-extern void processOutputs(void);
-extern void startDigitalOutput(uint8_t io, uint8_t state);
-extern void setDigitalOutput(uint8_t io, uint8_t state);
-extern void setOutputPin(uint8_t io, Boolean state);
-# 50 "../outputs.c" 2
 
-# 1 "../outputs.h" 1
-# 42 "../outputs.h"
-extern Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type);
-extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
-extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
-extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
-extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
-# 51 "../outputs.c" 2
+extern ServoState servoState[16];
+extern uint8_t currentPos[16];
+extern uint8_t targetPos[16];
+extern int speed[16];
+# 75 "../bounce.c"
+typedef enum {
+    STATE_FIRST_PULL,
+    STATE_PAUSE,
+    STATE_SECOND_PULL,
+    STATE_DONE
+} BounceState;
+BounceState bounceState[16];
 
 
 
 
 
 
-extern void setOuputPin(uint8_t io, Boolean state);
 
-extern uint8_t pulseDelays[16];
-# 69 "../outputs.c"
-void startOutput(uint8_t io, uint8_t act, uint8_t type) {
-    switch(type) {
-        case 0:
-
-            return;
-        case 1:
-            startDigitalOutput(io, act);
-            return;
-
-        case 3:
-            startBounceOutput(io, act);
-            return;
-
-
-        case 2:
-            startServoOutput(io, act);
-            return;
-
-
-        case 4:
-            startMultiOutput(io, act);
-            return;
-
-    }
+void initBounce(uint8_t io) {
+    bounceState[io] = STATE_FIRST_PULL;
+    speed[io] = 0;
 }
-# 102 "../outputs.c"
-void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
-    switch(type) {
-        case 0:
-        case 5:
-        case 6:
+# 103 "../bounce.c"
+Boolean bounceDown(uint8_t io) {
 
-            return;
-        case 1:
+    if ((currentPos[io]>targetPos[io]+3) || (currentPos[io]<targetPos[io]-3) || (speed[io]>3) || (speed[io]<-3)) {
+        Boolean reversed = ((uint8_t)getNV((16 + 7*(io) + 3)) > (uint8_t)getNV((16 + 7*(io) + 2)));
+        int tmp;
 
-            return;
-
-        case 3:
-            setBounceState(io, act);
-            return;
+        if (! reversed) {
 
 
-        case 2:
-            setServoState(io, act);
-            return;
+            if (currentPos[io] < (uint8_t)getNV((16 + 7*(io) + 3)) + speed[io]/30) {
 
 
-        case 4:
-            setMultiState(io, act);
-            return;
+                speed[io] = (-speed[io]*getNV((16 + 7*(io) + 4)))/100;
 
-    }
-}
-# 137 "../outputs.c"
-void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type) {
-    switch(type) {
-        case 0:
-        case 5:
-        case 6:
-
-            return;
-        case 1:
-            setDigitalOutput(io, pos);
-            return;
-
-        case 3:
+                tmp = (uint8_t)getNV((16 + 7*(io) + 3)) -
+                    (currentPos[io] - (uint8_t)getNV((16 + 7*(io) + 3))) -
+                    (speed[io]/30);
+                currentPos[io] = (uint8_t)tmp;
+            } else {
 
 
-        case 4:
-
-
-        case 2:
-            setServoPosition(io, pos);
-            setOutputPin(io, getNV((16 + 7*(io) + 1) & 0x20)?TRUE:FALSE);
-            return;
-
-
-    }
-}
-
-
-
-
-
-Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
-    switch(type) {
-        case 0:
-
-            return FALSE;
-        case 1:
-
-
-
-
-            return (pulseDelays[io] == 0);
-
-        case 2:
-
-
-        case 3:
-
-
-        case 4:
-
-            if (targetPos[io] == currentPos[io]) {
-
-                return FALSE;
+                speed[io] += 3;
+                currentPos[io] -= ((speed[io]/30)+1);
             }
-            return (servoState[io] != SS_MOVING);
+        } else {
 
+
+            if (currentPos[io] > (uint8_t)getNV((16 + 7*(io) + 3)) - speed[io]/30) {
+
+
+                speed[io] = (-speed[io]*getNV((16 + 7*(io) + 4)))/100;
+
+                tmp = (uint8_t)getNV((16 + 7*(io) + 3)) +
+                    ((uint8_t)getNV((16 + 7*(io) + 3)) - currentPos[io]) +
+                    (speed[io]/30);
+                currentPos[io] = (uint8_t)tmp;
+            } else {
+
+
+                speed[io] += 3;
+                currentPos[io] += ((speed[io]/30)+1);
+            }
+        }
+
+        return FALSE;
     }
     return TRUE;
 }
+# 161 "../bounce.c"
+Boolean bounceUp(uint8_t io) {
+    Boolean reversed = ((uint8_t)getNV((16 + 7*(io) + 3)) > (uint8_t)getNV((16 + 7*(io) + 2)));
+    uint8_t midway;
+    switch(bounceState[io]) {
+    case STATE_FIRST_PULL:
 
+        midway = ((uint8_t)getNV((16 + 7*(io) + 3)))/2 +
+                    ((uint8_t)getNV((16 + 7*(io) + 2)))/2;
+        if (reversed) {
+            currentPos[io] -= (uint8_t)getNV((16 + 7*(io) + 5));
+            if (currentPos[io] <= midway) {
+                bounceState[io] = STATE_PAUSE;
+                speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
+            }
+        } else {
+            currentPos[io] += (uint8_t)getNV((16 + 7*(io) + 5));
+            if (currentPos[io] >= midway) {
+                bounceState[io] = STATE_PAUSE;
+                speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
+            }
+        }
+        break;
+    case STATE_PAUSE:
 
+        if (speed[io] == 0) bounceState[io] = STATE_SECOND_PULL;
+        speed[io]--;
+        break;
+    case STATE_SECOND_PULL:
 
-
-
-Boolean completed(uint8_t io, ActionAndState * action, uint8_t type) {
-    switch(type) {
-        case 0:
-
-            return TRUE;
-        case 1:
-
-            return pulseDelays[io] == 1;
-
-        case 2:
-
-        case 3:
-
-
-        case 4:
-
-            return (targetPos[io] == currentPos[io]) && ((servoState[io] == SS_STOPPED) || (servoState[io] == SS_OFF));
-
+        if (reversed) {
+            currentPos[io] -= (uint8_t)getNV((16 + 7*(io) + 5));
+            if (currentPos[io]<=targetPos[io]-3) {
+                bounceState[io] = STATE_DONE;
+                return TRUE;
+            }
+        } else {
+            currentPos[io] += (uint8_t)getNV((16 + 7*(io) + 5));
+            if (currentPos[io]>=targetPos[io]-3) {
+                bounceState[io] = STATE_DONE;
+                return TRUE;
+            }
+        }
+        break;
+    case STATE_DONE:
+            break;
     }
-    return TRUE;
+    return FALSE;
 }

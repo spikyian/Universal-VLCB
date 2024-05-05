@@ -54,22 +54,23 @@
  *
  * Created on 17 April 2017, 13:14
  */
-#include "devincs.h"
+
 #include "module.h"
 #ifdef SERVO
-#include "mioNv.h"
-#include "mioEvents.h"
-#include "FliM.h"
+#include "universalNv.h"
+#include "universalEvents.h"
 #include "config.h"
-#include "GenericTypeDefs.h"
-#include "TickTime.h"
-#include "romops.h"
-#include "mioEEPROM.h"
+
+#include "ticktime.h"
+#include "nvm.h"
+#include "universalEEPROM.h"
 #include "servo.h"
-#include "actionQueue.h"
+#ifdef BOUNCE
 #include "bounce.h"
+#endif
 #include "outputs.h"
-#include "happeningsActions.h"
+#include "event_producer.h"
+
 
 // These setting for 1ms to 2ms
 #define POS2TICK_OFFSET                 3600    // change this to affect the min pulse width
@@ -85,26 +86,24 @@
 #define SERVOS_IN_BLOCK         8
 
 // forward definitions
-void setupTimer1(unsigned char io);
-void setupTimer2(unsigned char io);
-void setupTimer3(unsigned char io);
-void setupTimer4(unsigned char io);
+void setupTimer1(uint8_t io);
+void setupTimer3(uint8_t io);
 
 // Externs
-extern void setOutputPin(unsigned char io, BOOL state);
+extern void setOutputPin(uint8_t io, Boolean state);
 extern TickValue   lastServoStartTime;
 
 // Variables
 #pragma udata servo_data
 
 ServoState servoState[NUM_IO];
-unsigned char currentPos[NUM_IO];
-unsigned char targetPos[NUM_IO];
-unsigned char stepsPerPollSpeed[NUM_IO];
-unsigned char pollsPerStepSpeed[NUM_IO];
-unsigned char pollCount[NUM_IO];
+uint8_t currentPos[NUM_IO];
+uint8_t targetPos[NUM_IO];
+uint8_t stepsPerPollSpeed[NUM_IO];
+uint8_t pollsPerStepSpeed[NUM_IO];
+uint8_t pollCount[NUM_IO];
 int speed[NUM_IO];
-unsigned char loopCount[NUM_IO];
+uint8_t loopCount[NUM_IO];
 
 #define MAX_BOUNCE_LOOPS    255
 
@@ -119,27 +118,28 @@ TickValue  ticksWhenStopped[NUM_IO];
 
 #pragma udata
 
-static unsigned char servoInBlock;
+static uint8_t servoInBlock;
 
 void initServos(void) {
-    unsigned char io;
+    uint8_t io;
     for (io=0; io<NUM_IO; io++) {
         // try STOPPED state to reduced or correct power on jump
-        if (NV->io[io].flags & FLAG_OUTPUT_STARTUP) {
+        if (getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_STARTUP) {
             /* This will send 1sec of pulses at power up */
-            servoState[io] = STOPPED;
+            servoState[io] = SS_STOPPED;
         } else {
-            servoState[io] = OFF;
+            servoState[io] = SS_OFF;
         }
-        ticksWhenStopped[io].Val = tickGet();
-        if (NV->io[io].flags & FLAG_OUTPUT_STARTUP) {
-            setOutputPosition(io, ee_read(EE_OP_STATE+io), NV->io[io].type);   // restore last known positions
+        ticksWhenStopped[io].val = tickGet();
+        if (getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_STARTUP) {
+            setOutputPosition(io, (uint8_t)readNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io), (uint8_t)getNV(NV_IO_TYPE(io)));   // restore last known positions
         } else {
-            setOutputPosition(io, NV->io[io].nv_io.nv_servo.servo_start_pos, NV->io[io].type);    // START pos
+            setOutputPosition(io, (uint8_t)getNV(NV_IO_SERVO_START_POS(io)), (uint8_t)getNV(NV_IO_TYPE(io)));    // START pos
         }
         stepsPerPollSpeed[io] = 0;
     }
     
+#if defined(_18F66K80_FAMILY_)
     // initialise the timers for one-shot mode with interrupts and clocked from Fosc/4
     T1GCONbits.TMR1GE = 0;      // gating disabled
     T1CONbits.TMR1CS = 0;       // clock source Fosc/4
@@ -154,7 +154,24 @@ void initServos(void) {
     T3CONbits.SOSCEN = 1;       // clock source Fosc
     T3CONbits.RD16 = 1;         // 16bit read/write
     PIE2bits.TMR3IE = 1;        // enable interrupt
+#endif
+#if defined(_18FXXQ83_FAMILY_)
+    T1GCONbits.GE = 0;          // Gating disabled
+    T1CLKbits.CS = 1;           // Fosc/4
+    T1CONbits.CKPS = 2;         // 1:4 prescalar
+    T1CONbits.RD16 = 1;         // 16bit mode
+    TMR1 = 0;
+    PIR3bits.TMR1IF = 0;
+    PIE3bits.TMR1IE = 1;        // enable interrupts
     
+    T3GCONbits.GE = 0;          // Gating disabled
+    T3CLKbits.CS = 1;           // Fosc/4
+    T3CONbits.CKPS = 2;         // 1:4 prescalar
+    T3CONbits.RD16 = 1;         // 16bit mode
+    TMR3 = 0;
+    PIR5bits.TMR3IF = 0;
+    PIE5bits.TMR3IE = 1;        // enable interrupts
+#endif
     servoInBlock = io -1;
 }
 /**
@@ -163,7 +180,7 @@ void initServos(void) {
  * @param io
  */
 void startServos(void) {
-    unsigned char type;
+    uint8_t type;
     // increment block before calling setup so that block is left as the current block whilst the
     // timers expire
     servoInBlock++;
@@ -171,13 +188,13 @@ void startServos(void) {
         servoInBlock = 0;
         pollServos();
     }
-    type = NV->io[servoInBlock].type;
+    type = (uint8_t)getNV(NV_IO_TYPE(servoInBlock));
     if ((type == TYPE_SERVO) || (type == TYPE_BOUNCE) || (type == TYPE_MULTI)) {
-        if (servoState[servoInBlock] != OFF) setupTimer1(servoInBlock);
+        if (servoState[servoInBlock] != SS_OFF) setupTimer1(servoInBlock);
     }
-    type = NV->io[servoInBlock+SERVOS_IN_BLOCK].type;
+    type = (uint8_t)getNV(NV_IO_TYPE(servoInBlock+SERVOS_IN_BLOCK));
     if ((type == TYPE_SERVO) || (type == TYPE_BOUNCE) || (type == TYPE_MULTI)) {
-        if (servoState[servoInBlock+SERVOS_IN_BLOCK] != OFF) setupTimer3(servoInBlock+SERVOS_IN_BLOCK);
+        if (servoState[servoInBlock+SERVOS_IN_BLOCK] != SS_OFF) setupTimer3(servoInBlock+SERVOS_IN_BLOCK);
     }
 }
 
@@ -186,12 +203,12 @@ void startServos(void) {
  * a width of that required for the required position angle.
  * @param io
  */
-void setupTimer1(unsigned char io) {
-    WORD ticks = 0xFFFF - ((NV->io[io].flags & FLAG_SERVO_EXTENDED_TRAVEL) ? 
-                (POS2TICK_EXTENDED_OFFSET + (WORD)POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
-                (POS2TICK_OFFSET + (WORD)POS2TICK_MULTIPLIER * currentPos[io]) );
+void setupTimer1(uint8_t io) {
+    uint16_t ticks = 0xFFFF - ((getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_EXTENDED_TRAVEL) ? 
+                (POS2TICK_EXTENDED_OFFSET + (uint16_t)POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
+                (POS2TICK_OFFSET + (uint16_t)POS2TICK_MULTIPLIER * currentPos[io]) );
 #ifdef __XC8
-    TMR1 = - ((NV->io[io].flags & FLAG_SERVO_EXTENDED_TRAVEL) ?   // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
+    TMR1 = - ((getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_EXTENDED_TRAVEL) ?   // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
                 (POS2TICK_EXTENDED_OFFSET + POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
                 (POS2TICK_OFFSET + POS2TICK_MULTIPLIER * currentPos[io]) ); 
 #else
@@ -199,15 +216,15 @@ void setupTimer1(unsigned char io) {
     TMR1L = ticks & 0xFF;
 #endif
     // turn on output
-    setOutputPin(io, !(NV->io[io].flags & FLAG_OUTPUT_ACTION_INVERTED));
+    setOutputPin(io, !(getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED));
     T1CONbits.TMR1ON = 1;       // enable Timer1
 }
-void setupTimer3(unsigned char io) {
-    WORD ticks = 0xFFFF - ((NV->io[io].flags & FLAG_SERVO_EXTENDED_TRAVEL) ? 
-                (POS2TICK_EXTENDED_OFFSET + (WORD)POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
-                (POS2TICK_OFFSET + (WORD)POS2TICK_MULTIPLIER * currentPos[io]) );
+void setupTimer3(uint8_t io) {
+    uint16_t ticks = 0xFFFF - ((getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_EXTENDED_TRAVEL) ? 
+                (POS2TICK_EXTENDED_OFFSET + (uint16_t)POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
+                (POS2TICK_OFFSET + (uint16_t)POS2TICK_MULTIPLIER * currentPos[io]) );
 #ifdef __XC8
-    TMR3 = - ((NV->io[io].flags & FLAG_SERVO_EXTENDED_TRAVEL) ?   // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
+    TMR3 = - ((getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_EXTENDED_TRAVEL) ?   // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
                 (POS2TICK_EXTENDED_OFFSET + POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
                 (POS2TICK_OFFSET + POS2TICK_MULTIPLIER * currentPos[io]) ); 
 #else
@@ -215,11 +232,11 @@ void setupTimer3(unsigned char io) {
     TMR3L = ticks & 0xFF;     // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
 #endif
     // turn on output
-    setOutputPin(io, !(NV->io[io].flags & FLAG_OUTPUT_ACTION_INVERTED));
+    setOutputPin(io, !(getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED));
     T3CONbits.TMR3ON = 1;       // enable Timer3
 }
 
-
+#if defined(_18F66K80_FAMILY_)
 /**
  * These TimerDone routines are called when the on-shot timer expires so we
  * disable the timer and turn the output pin off. 
@@ -227,13 +244,43 @@ void setupTimer3(unsigned char io) {
  */
 void timer1DoneInterruptHandler(void) {
     T1CONbits.TMR1ON = 0;       // disable Timer1
-    setOutputPin(servoInBlock, NV->io[servoInBlock].flags & FLAG_OUTPUT_ACTION_INVERTED);    
+    setOutputPin(servoInBlock, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock)) & FLAG_OUTPUT_ACTION_INVERTED);    
 }
 
 void timer3DoneInterruptHandler(void) {
     T3CONbits.TMR3ON = 0;       // disable Timer3
-    setOutputPin(servoInBlock+SERVOS_IN_BLOCK, NV->io[servoInBlock+SERVOS_IN_BLOCK].flags & FLAG_OUTPUT_ACTION_INVERTED);    
+    setOutputPin(servoInBlock+SERVOS_IN_BLOCK, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock+SERVOS_IN_BLOCK)) & FLAG_OUTPUT_ACTION_INVERTED);    
 }
+#endif
+#if defined(_18FXXQ83_FAMILY_)
+/**
+ * The servo end pulse interrupt service routine. 
+ */
+void __interrupt(irq(TMR1), base(IVT_BASE)) TMR1_ISR(void)
+{
+    // Tick Timer interrupt
+    //check to see if the symbol timer overflowed
+    if(PIR3bits.TMR1IF) {
+        /* there was a timer overflow */
+        PIR3bits.TMR1IF = 0;
+        T1CONbits.TMR1ON = 0;       // disable Timer1
+        setOutputPin(servoInBlock, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock)) & FLAG_OUTPUT_ACTION_INVERTED);  
+    }
+    return;
+}
+void __interrupt(irq(TMR3), base(IVT_BASE)) TMR3_ISR(void)
+{
+    // Tick Timer interrupt
+    //check to see if the symbol timer overflowed
+    if(PIR5bits.TMR3IF) {
+        /* there was a timer overflow */
+        PIR5bits.TMR3IF = 0;
+        T3CONbits.TMR3ON = 0;       // disable Timer1
+        setOutputPin(servoInBlock, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock)) & FLAG_OUTPUT_ACTION_INVERTED);  
+    }
+    return;
+}
+#endif
 
 /**
  * This handles the servo state machine and moves the servo towards the required
@@ -245,27 +292,27 @@ void timer3DoneInterruptHandler(void) {
  * For a level crossing gate: 5 = 5 seconds
  */
 void pollServos(void) {
-    unsigned char midway;
-    BOOL beforeMidway;
-    unsigned char io;
-    unsigned char target;
+    uint8_t midway;
+    Boolean beforeMidway;
+    uint8_t io;
+    uint8_t target;
     
     for (io=0; io<NUM_IO; io++) {
-        switch (NV->io[io].type) {
+        switch (getNV(NV_IO_TYPE(io))) {
             case TYPE_SERVO:
-                midway = (NV->io[io].nv_io.nv_servo.servo_end_pos)/2 + 
-                    (NV->io[io].nv_io.nv_servo.servo_start_pos)/2;
+                midway = ((uint8_t)getNV(NV_IO_SERVO_END_POS(io)))/2 + 
+                    ((uint8_t)getNV(NV_IO_SERVO_START_POS(io)))/2;
                 beforeMidway=FALSE;
                 switch (servoState[io]) {
-                    case STARTING:
-                        if (currentPos[io]==NV->io[io].nv_io.nv_servo.servo_start_pos) {
-                            sendProducedEvent(HAPPENING_IO_SERVO_START(io), NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED);
+                    case SS_STARTING:
+                        if (currentPos[io]==getNV(NV_IO_SERVO_START_POS(io))) {
+                            sendProducedEvent(HAPPENING_IO_SERVO_START(io), getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED);
                         } else {
-                            sendProducedEvent(HAPPENING_IO_SERVO_END(io), NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED);
+                            sendProducedEvent(HAPPENING_IO_SERVO_END(io), getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED);
                         }
-                        servoState[io] = MOVING;
+                        servoState[io] = SS_MOVING;
                         // fall through
-                    case MOVING:
+                    case SS_MOVING:
                         if (targetPos[io] > currentPos[io]) {
                             if (currentPos[io] < midway) {
                                 beforeMidway = TRUE;
@@ -293,7 +340,7 @@ void pollServos(void) {
                                 // passed through midway point
                                 // we send an ACON/ACOF depending upon direction servo was moving
                                 // This can then be used to drive frog switching relays
-                                sendProducedEvent(HAPPENING_IO_SERVO_MID(io), !(NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED));
+                                sendProducedEvent(HAPPENING_IO_SERVO_MID(io), !(getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED));
                             }
                         } else if (targetPos[io] < currentPos[io]) {
                             if (currentPos[io] > midway) {
@@ -320,84 +367,90 @@ void pollServos(void) {
                             }
                             if ((currentPos[io] <= midway) && beforeMidway) {
                                 // passed through midway point
-                                sendProducedEvent(HAPPENING_IO_SERVO_MID(io), NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED);
+                                sendProducedEvent(HAPPENING_IO_SERVO_MID(io), getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED);
                             }
                         }
                         if (targetPos[io] == currentPos[io]) {
-                            servoState[io] = STOPPED;
-                            ticksWhenStopped[io].Val = tickGet();
+                            servoState[io] = SS_STOPPED;
+                            ticksWhenStopped[io].val = tickGet();
                             // send ON event or OFF
-                            if (currentPos[io] == NV->io[io].nv_io.nv_servo.servo_start_pos) { //ON means move to End
-                                sendProducedEvent(HAPPENING_IO_SERVO_START(io), !(NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED));
+                            if (currentPos[io] == getNV(NV_IO_SERVO_START_POS(io))) { //ON means move to End
+                                sendProducedEvent(HAPPENING_IO_SERVO_START(io), !(getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED));
                             } else {
-                                sendProducedEvent(HAPPENING_IO_SERVO_END(io), !(NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED));
+                                sendProducedEvent(HAPPENING_IO_SERVO_END(io), !(getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED));
                             }
-                            ee_write(EE_OP_STATE+io, currentPos[io]);
+                            writeNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io, currentPos[io]);
                         }
+                        break;
+                    case SS_STOPPED:
+                    case SS_OFF:
                         break;
                 }
                 break;
             case TYPE_BOUNCE:
                 switch (servoState[io]) {
-                    case STARTING:
+                    case SS_STARTING:
                         initBounce(io);
-                        servoState[io] = MOVING;
+                        servoState[io] = SS_MOVING;
                         loopCount[io] = 0;
                         
                         // fall through
-                    case MOVING:
+                    case SS_MOVING:
                         loopCount[io]++;
                         if (loopCount[io] >= MAX_BOUNCE_LOOPS) {
-                            servoState[io] = STOPPED;
-                            ticksWhenStopped[io].Val = tickGet();
+                            servoState[io] = SS_STOPPED;
+                            ticksWhenStopped[io].val = tickGet();
                             currentPos[io] = targetPos[io];
-                            sendProducedEvent(HAPPENING_IO_BOUNCE(io), !(NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED));
-                            ee_write(EE_OP_STATE+io, currentPos[io]);
+                            sendProducedEvent(HAPPENING_IO_BOUNCE(io), !(getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED));
+                            writeNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io, currentPos[io]);
                             break;
                         }
                         // Implement the bounce algorithm here
-                        target = NV->io[io].nv_io.nv_bounce.bounce_upper_pos;
-//                        if (NV->io[io].flags & FLAG_RESULT_ACTION_INVERTED) {
-//                            target = NV->io[io].nv_io.nv_bounce.bounce_lower_pos;
+                        target = (uint8_t)getNV(NV_IO_BOUNCE_UPPER_POS(io));
+//                        if (getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_ACTION_INVERTED) {
+//                            target = getNV(NV_IO_BOUNCE_LOWER_POS(io));
 //                        }
                         if (targetPos[io] == target) {
                             if (bounceUp(io)) {
-                                servoState[io] = STOPPED;
-                                ticksWhenStopped[io].Val = tickGet();
+                                servoState[io] = SS_STOPPED;
+                                ticksWhenStopped[io].val = tickGet();
                                 currentPos[io] = targetPos[io];
-                                sendProducedEvent(HAPPENING_IO_BOUNCE(io), !(NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED));
-                                ee_write(EE_OP_STATE+io, currentPos[io]);
+                                sendProducedEvent(HAPPENING_IO_BOUNCE(io), !(getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED));
+                                writeNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io, currentPos[io]);
                             }
                         } else {
                             if (bounceDown(io)) {
-                                servoState[io] = STOPPED;
-                                ticksWhenStopped[io].Val = tickGet();
+                                servoState[io] = SS_STOPPED;
+                                ticksWhenStopped[io].val = tickGet();
                                 currentPos[io] = targetPos[io];
-                                sendProducedEvent(HAPPENING_IO_BOUNCE(io), NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED);
-                                ee_write(EE_OP_STATE+io, currentPos[io]);
+                                sendProducedEvent(HAPPENING_IO_BOUNCE(io), getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED);
+                                writeNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io, currentPos[io]);
                             }
                         }
+                        break;
+                    case SS_STOPPED:
+                    case SS_OFF:
                         break;
                 }
                 break;
             case TYPE_MULTI:
                 switch (servoState[io]) {
-                    case STARTING:
-                        if (currentPos[io] == NV->io[io].nv_io.nv_multi.multi_pos1) {
-                            sendProducedEvent(HAPPENING_IO_MULTI_AT1(io), NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED);
+                    case SS_STARTING:
+                        if (currentPos[io] == getNV(NV_IO_MULTI_POS1(io))) {
+                            sendProducedEvent(HAPPENING_IO_MULTI_AT1(io), getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED);
                         }
-                        if (currentPos[io] == NV->io[io].nv_io.nv_multi.multi_pos2) {
-                            sendProducedEvent(HAPPENING_IO_MULTI_AT2(io), NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED);
+                        if (currentPos[io] == getNV(NV_IO_MULTI_POS2(io))) {
+                            sendProducedEvent(HAPPENING_IO_MULTI_AT2(io), getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED);
                         }
-                        if (currentPos[io] == NV->io[io].nv_io.nv_multi.multi_pos3) {
-                            sendProducedEvent(HAPPENING_IO_MULTI_AT3(io), NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED);
+                        if (currentPos[io] == getNV(NV_IO_MULTI_POS3(io))) {
+                            sendProducedEvent(HAPPENING_IO_MULTI_AT3(io), getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED);
                         }
-                        if (currentPos[io] == NV->io[io].nv_io.nv_multi.multi_pos4) {
-                            sendProducedEvent(HAPPENING_IO_MULTI_AT4(io), NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED);
+                        if (currentPos[io] == getNV(NV_IO_MULTI_POS4(io))) {
+                            sendProducedEvent(HAPPENING_IO_MULTI_AT4(io), getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED);
                         }
-                        servoState[io] = MOVING;
+                        servoState[io] = SS_MOVING;
                         // fall through
-                    case MOVING:
+                    case SS_MOVING:
                         if (targetPos[io] > currentPos[io]) {
                             if (stepsPerPollSpeed[io]) {
                                 if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
@@ -437,42 +490,48 @@ void pollServos(void) {
                             }
                         }
                         if (targetPos[io] == currentPos[io]) {
-                            servoState[io] = STOPPED;
-                            ticksWhenStopped[io].Val = tickGet();
+                            servoState[io] = SS_STOPPED;
+                            ticksWhenStopped[io].val = tickGet();
                             // MULTI only sends ON events. Work out which event
-                            if (currentPos[io] == NV->io[io].nv_io.nv_multi.multi_pos1) {
-                                sendProducedEvent(HAPPENING_IO_MULTI_AT1(io), !(NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED));
+                            if (currentPos[io] == getNV(NV_IO_MULTI_POS1(io))) {
+                                sendProducedEvent(HAPPENING_IO_MULTI_AT1(io), !(getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED));
                             }
-                            if (currentPos[io] == NV->io[io].nv_io.nv_multi.multi_pos2) {
-                                sendProducedEvent(HAPPENING_IO_MULTI_AT2(io), !(NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED));
+                            if (currentPos[io] == getNV(NV_IO_MULTI_POS2(io))) {
+                                sendProducedEvent(HAPPENING_IO_MULTI_AT2(io), !(getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED));
                             }
-                            if (currentPos[io] == NV->io[io].nv_io.nv_multi.multi_pos3) {
-                                sendProducedEvent(HAPPENING_IO_MULTI_AT3(io), !(NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED));
+                            if (currentPos[io] == getNV(NV_IO_MULTI_POS3(io))) {
+                                sendProducedEvent(HAPPENING_IO_MULTI_AT3(io), !(getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED));
                             }
-                            if (currentPos[io] == NV->io[io].nv_io.nv_multi.multi_pos4) {
-                                sendProducedEvent(HAPPENING_IO_MULTI_AT4(io), !(NV->io[io].flags & FLAG_RESULT_EVENT_INVERTED));
+                            if (currentPos[io] == getNV(NV_IO_MULTI_POS4(io))) {
+                                sendProducedEvent(HAPPENING_IO_MULTI_AT4(io), !(getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED));
                             }
-                            ee_write(EE_OP_STATE+io, currentPos[io]);
+                            writeNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io, currentPos[io]);
                         }
+                        break;
+                    case SS_STOPPED:
+                    case SS_OFF:
                         break;
                 }
                 break;
         }
         switch (servoState[io]) {
-        case STOPPED:
-            // if we have been stopped for more than 1 sec then change to OFF
-            // If FLAG_CUTOFF isn't set then we never reach OFF
-            if (NV->io[io].flags & FLAG_SERVO_CUTOFF) {
-                if (tickTimeSince(ticksWhenStopped[io]) > ONE_SECOND) {
-                    servoState[io] = OFF;
+            case SS_STARTING:
+            case SS_MOVING:
+                break;
+            case SS_STOPPED:
+                // if we have been stopped for more than 1 sec then change to OFF
+                // If FLAG_CUTOFF isn't set then we never reach OFF
+                if (getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_CUTOFF) {
+                    if (tickTimeSince(ticksWhenStopped[io]) > ONE_SECOND) {
+                        servoState[io] = SS_OFF;
+                    }
                 }
-            }
-            break;
-        case OFF:
-            // output off
-            //setOutputPin(io, 1);
-            // no need to do anything since if output is OFF we don't start the timer in startServos
-            break;
+                break;
+            case SS_OFF:
+                // output off
+                //setOutputPin(io, 1);
+                // no need to do anything since if output is OFF we don't start the timer in startServos
+                break;
         }
     }
 }
@@ -486,13 +545,13 @@ void pollServos(void) {
  * @param io
  * @param action
  */
-void startServoOutput(unsigned char io, ACTION_T action) {
+void startServoOutput(uint8_t io, uint8_t action) {
     switch (action) {
         case ACTION_IO_3:  // SERVO OFF
-            stepsPerPollSpeed[io] = NV->io[io].nv_io.nv_servo.servo_es_speed;
+            stepsPerPollSpeed[io] = (uint8_t)getNV(NV_IO_SERVO_ES_SPEED(io));
             break;
         case ACTION_IO_2:  // SERVO ON
-            stepsPerPollSpeed[io] = NV->io[io].nv_io.nv_servo.servo_se_speed;
+            stepsPerPollSpeed[io] = (uint8_t)getNV(NV_IO_SERVO_SE_SPEED(io));
             break;
     }
     if (stepsPerPollSpeed[io] > PIVOT) {
@@ -503,7 +562,7 @@ void startServoOutput(unsigned char io, ACTION_T action) {
         pollCount[io] = 1;
         stepsPerPollSpeed[io] = 0;
     }
-    servoState[io] = STARTING;
+    servoState[io] = SS_STARTING;
 }
 
 /**
@@ -514,7 +573,7 @@ void startServoOutput(unsigned char io, ACTION_T action) {
  * @param io
  * @param action
  */
-void startBounceOutput(unsigned char io, ACTION_T action) {
+void startBounceOutput(uint8_t io, uint8_t action) {
     switch (action) {
         case ACTION_IO_3:  // SERVO OFF
             speed[io] = 0;
@@ -523,7 +582,7 @@ void startBounceOutput(unsigned char io, ACTION_T action) {
             speed[io] = PULL_SPEED;
             break;
     }
-    servoState[io] = STARTING;
+    servoState[io] = SS_STARTING;
     loopCount[io] = 0;
 }
 
@@ -532,9 +591,9 @@ void startBounceOutput(unsigned char io, ACTION_T action) {
  * @param io
  * @param action
  */
-void startMultiOutput(unsigned char io, ACTION_T action) {
+void startMultiOutput(uint8_t io, uint8_t action) {
 
-    stepsPerPollSpeed[io] = NV->servo_speed;
+    stepsPerPollSpeed[io] = (uint8_t)getNV(NV_SERVO_SPEED);
     if (stepsPerPollSpeed[io] > PIVOT) {
         stepsPerPollSpeed[io] -= PIVOT;
         pollsPerStepSpeed[io] = 0;
@@ -543,7 +602,7 @@ void startMultiOutput(unsigned char io, ACTION_T action) {
         pollCount[io] = 1;
         stepsPerPollSpeed[io] = 0;   
     }
-    servoState[io] = STARTING;
+    servoState[io] = SS_STARTING;
 }
 
 /**
@@ -554,20 +613,20 @@ void startMultiOutput(unsigned char io, ACTION_T action) {
  * @param io
  * @param action
  */
-void setServoState(unsigned char io, ACTION_T action) {
+void setServoState(uint8_t io, uint8_t action) {
     switch (action) {
         case ACTION_IO_3:  // SERVO OFF
-            if (NV->io[io].flags & FLAG_TRIGGER_INVERTED) {
-                targetPos[io] = NV->io[io].nv_io.nv_servo.servo_end_pos;
+            if (getNV(NV_IO_FLAGS(io)) & FLAG_TRIGGER_INVERTED) {
+                targetPos[io] = (uint8_t)getNV(NV_IO_SERVO_END_POS(io));
             } else {
-                targetPos[io] = NV->io[io].nv_io.nv_servo.servo_start_pos;
+                targetPos[io] = (uint8_t)getNV(NV_IO_SERVO_START_POS(io));
             }
             break;
         case ACTION_IO_2:  // SERVO ON
-            if (NV->io[io].flags & FLAG_TRIGGER_INVERTED) {
-                targetPos[io] = NV->io[io].nv_io.nv_servo.servo_start_pos;
+            if (getNV(NV_IO_FLAGS(io)) & FLAG_TRIGGER_INVERTED) {
+                targetPos[io] = (uint8_t)getNV(NV_IO_SERVO_START_POS(io));
             } else {
-                targetPos[io] = NV->io[io].nv_io.nv_servo.servo_end_pos;
+                targetPos[io] = (uint8_t)getNV(NV_IO_SERVO_END_POS(io));
             }
             break;
     }
@@ -581,20 +640,20 @@ void setServoState(unsigned char io, ACTION_T action) {
  * @param io
  * @param action
  */
-void setBounceState(unsigned char io, ACTION_T action) {
+void setBounceState(uint8_t io, uint8_t action) {
     switch (action) {
         case ACTION_IO_3:  // SERVO OFF
-            if (NV->io[io].flags & FLAG_TRIGGER_INVERTED) {
-                targetPos[io] = NV->io[io].nv_io.nv_bounce.bounce_upper_pos;
+            if (getNV(NV_IO_FLAGS(io)) & FLAG_TRIGGER_INVERTED) {
+                targetPos[io] = (uint8_t)getNV(NV_IO_BOUNCE_UPPER_POS(io));
             } else {
-                targetPos[io] = NV->io[io].nv_io.nv_bounce.bounce_lower_pos;
+                targetPos[io] = (uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io));
             }
             break;
         case ACTION_IO_2:  // SERVO ON
-            if (NV->io[io].flags & FLAG_TRIGGER_INVERTED) {
-                targetPos[io] = NV->io[io].nv_io.nv_bounce.bounce_lower_pos;
+            if (getNV(NV_IO_FLAGS(io)) & FLAG_TRIGGER_INVERTED) {
+                targetPos[io] = (uint8_t)getNV(NV_IO_BOUNCE_LOWER_POS(io));
             } else {
-                targetPos[io] = NV->io[io].nv_io.nv_bounce.bounce_upper_pos;
+                targetPos[io] = (uint8_t)getNV(NV_IO_BOUNCE_UPPER_POS(io));
             }
             break;
     }
@@ -605,22 +664,22 @@ void setBounceState(unsigned char io, ACTION_T action) {
  * @param io
  * @param action
  */
-void setMultiState(unsigned char io, ACTION_T action) {
+void setMultiState(uint8_t io, uint8_t action) {
     switch (action) {
         case ACTION_IO_1:  // SERVO Position 1
-            targetPos[io] = NV->io[io].nv_io.nv_multi.multi_pos1;
+            targetPos[io] = (uint8_t)getNV(NV_IO_MULTI_POS1(io));
             break;
         case ACTION_IO_2:  // SERVO Position 2
-            targetPos[io] = NV->io[io].nv_io.nv_multi.multi_pos2;
+            targetPos[io] = (uint8_t)getNV(NV_IO_MULTI_POS2(io));
             break;
         case ACTION_IO_3:  // SERVO Position 3
-            if (NV->io[io].nv_io.nv_multi.multi_num_pos >= 3) {
-                targetPos[io] = NV->io[io].nv_io.nv_multi.multi_pos3;
+            if (getNV(NV_IO_MULTI_NUM_POS(io)) >= 3) {
+                targetPos[io] = (uint8_t)getNV(NV_IO_MULTI_POS3(io));
             }
             break;
         case ACTION_IO_4:  // SERVO Position 4
-            if (NV->io[io].nv_io.nv_multi.multi_num_pos >= 4) {
-                targetPos[io] = NV->io[io].nv_io.nv_multi.multi_pos4;
+            if (getNV(NV_IO_MULTI_NUM_POS(io)) >= 4) {
+                targetPos[io] = (uint8_t)getNV(NV_IO_MULTI_POS4(io));
             }
             break;
     }
@@ -631,7 +690,7 @@ void setMultiState(unsigned char io, ACTION_T action) {
  * @param io
  * @param pos
  */
-void setServoPosition(unsigned char io, unsigned char pos) {
+void setServoPosition(uint8_t io, uint8_t pos) {
     targetPos[io] = pos;
     currentPos[io] = pos;
 }
@@ -642,7 +701,7 @@ void setServoPosition(unsigned char io, unsigned char pos) {
  * 
  * @return 
  */
-unsigned char isNoServoPulses(void){
+Boolean isNoServoPulses(void){
     // check if either of the timers is running
     if (T1CONbits.TMR1ON) return FALSE;
     if (T3CONbits.TMR3ON) return FALSE;

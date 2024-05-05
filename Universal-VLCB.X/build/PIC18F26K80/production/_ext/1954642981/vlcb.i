@@ -20814,17 +20814,20 @@ typedef enum VlcbCanHardware
 # 37 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
-# 64 "../../VLCBlib_PIC/nvm.h"
+# 68 "../../VLCBlib_PIC/nvm.h"
 typedef enum {
     EEPROM_NVM_TYPE,
     FLASH_NVM_TYPE
 } NVMtype;
 
+
+
+
 typedef enum ValidTime {
     BAD_TIME=0,
     GOOD_TIME=1
 } ValidTime;
-# 102 "../../VLCBlib_PIC/nvm.h"
+# 109 "../../VLCBlib_PIC/nvm.h"
 typedef uint8_t flash_data_t;
 
 
@@ -20842,7 +20845,7 @@ typedef uint8_t eeprom_data_t;
 
 
 typedef uint16_t eeprom_address_t;
-# 138 "../../VLCBlib_PIC/nvm.h"
+# 147 "../../VLCBlib_PIC/nvm.h"
 extern void flushFlashBlock(void);
 
 
@@ -20857,7 +20860,7 @@ extern void initRomOps(void);
 
 
 extern int16_t readNVM(NVMtype type, uint24_t index);
-# 160 "../../VLCBlib_PIC/nvm.h"
+# 169 "../../VLCBlib_PIC/nvm.h"
 extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 
@@ -20866,7 +20869,7 @@ extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 38 "../../VLCBlib_PIC/vlcb.h" 2
-# 75 "../../VLCBlib_PIC/vlcb.h"
+# 77 "../../VLCBlib_PIC/vlcb.h"
 typedef enum Priority {
     pLOW=0,
     pNORMAL=1,
@@ -20874,10 +20877,16 @@ typedef enum Priority {
     pHIGH=3,
 } Priority;
 
+
+
+
 typedef enum Boolean {
     FALSE,
     TRUE
 } Boolean;
+
+
+
 
 typedef enum Result {
     RESULT_FAIL,
@@ -20908,11 +20917,13 @@ typedef union Word {
 
 
 
+
+
 typedef enum {
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 130 "../../VLCBlib_PIC/vlcb.h"
+# 140 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -20921,6 +20932,9 @@ typedef union DiagnosticVal {
         uint8_t hi;
     } asBytes;
 } DiagnosticVal;
+
+
+
 
 typedef enum Processed {
     NOT_PROCESSED=0,
@@ -20940,7 +20954,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 167 "../../VLCBlib_PIC/vlcb.h"
+# 180 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -20983,17 +20997,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 217 "../../VLCBlib_PIC/vlcb.h"
+# 230 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 227 "../../VLCBlib_PIC/vlcb.h"
+# 240 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 238 "../../VLCBlib_PIC/vlcb.h"
+# 251 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 250 "../../VLCBlib_PIC/vlcb.h"
-void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
 # 263 "../../VLCBlib_PIC/vlcb.h"
-void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
 # 276 "../../VLCBlib_PIC/vlcb.h"
+void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+# 289 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -21013,6 +21027,9 @@ typedef struct Service {
 
 
 extern const Service * const services[];
+
+
+
 
 typedef enum ServicePresent {
     NOT_PRESENT=0,
@@ -21046,15 +21063,21 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 359 "../../VLCBlib_PIC/vlcb.h"
+# 375 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 369 "../../VLCBlib_PIC/vlcb.h"
+# 385 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
+
+
+
 
 typedef enum MessageReceived {
     NOT_RECEIVED=0,
     RECEIVED=1
 } MessageReceived;
+
+
+
 
 typedef enum SendResult {
     SEND_FAILED=0,
@@ -21069,17 +21092,10 @@ typedef enum SendResult {
 typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
-
 } Transport;
-
-
-
-
-
-
-
+# 420 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 411 "../../VLCBlib_PIC/vlcb.h"
+# 433 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 41 "../../VLCBlib_PIC/vlcb.c" 2
 
@@ -21088,14 +21104,17 @@ extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 
 
 # 1 "../../VLCBlib_PIC\\nv.h" 1
-# 85 "../../VLCBlib_PIC\\nv.h"
+# 86 "../../VLCBlib_PIC\\nv.h"
 extern const Service nvService;
+
+
+
 
 typedef enum NvValidation {
     INVALID=0,
     VALID=1
 } NvValidation;
-# 99 "../../VLCBlib_PIC\\nv.h"
+# 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
 
 
@@ -21106,16 +21125,20 @@ extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
 extern int16_t getNV(uint8_t index);
 extern void saveNV(uint8_t index, uint8_t value);
 extern uint8_t setNV(uint8_t index, uint8_t value);
+
+
+
 extern void loadNvCache(void);
 # 4 "..\\module.h" 2
 
 # 1 "../../VLCBlib_PIC\\statusLeds.h" 1
 # 43 "../../VLCBlib_PIC\\statusLeds.h"
 # 1 "../../VLCBlib_PIC/ticktime.h" 1
-# 198 "../../VLCBlib_PIC/ticktime.h"
-typedef union _TickValue
-{
+# 211 "../../VLCBlib_PIC/ticktime.h"
+typedef union _TickValue {
+
     uint32_t val;
+
     struct TickBytes
     {
         uint8_t b0;
@@ -21124,14 +21147,16 @@ typedef union _TickValue
         uint8_t b3;
     } byte;
     uint8_t v[4];
+
     struct TickWords
     {
         uint16_t w0;
         uint16_t w1;
     } word;
 } TickValue;
-# 223 "../../VLCBlib_PIC/ticktime.h"
+# 238 "../../VLCBlib_PIC/ticktime.h"
 void initTicker(uint8_t priority);
+
 
 
 
@@ -21144,14 +21169,19 @@ uint32_t tickGet(void);
 
 
 
-extern volatile uint8_t timerExtension1,timerExtension2;
+extern volatile uint8_t timerExtension1;
+
+
+
+
+extern volatile uint8_t timerExtension2;
 # 43 "../../VLCBlib_PIC\\statusLeds.h" 2
 
 # 1 "..\\module.h" 1
 # 44 "../../VLCBlib_PIC\\statusLeds.h" 2
 
 # 1 "../../VLCBlib_PIC/statusDisplay.h" 1
-# 44 "../../VLCBlib_PIC/statusDisplay.h"
+# 55 "../../VLCBlib_PIC/statusDisplay.h"
 typedef enum StatusDisplay {
     STATUS_OFF,
     STATUS_UNINITIALISED,
@@ -21168,11 +21198,7 @@ typedef enum StatusDisplay {
     STATUS_FATAL_ERROR
 } StatusDisplay;
 # 45 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-
-
-
-
+# 55 "../../VLCBlib_PIC\\statusLeds.h"
 typedef enum {
     LED_OFF,
     LED_ON,
@@ -21203,7 +21229,7 @@ extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue
 
 
 # 1 "../../VLCBlib_PIC/timedResponse.h" 1
-# 83 "../../VLCBlib_PIC/timedResponse.h"
+# 86 "../../VLCBlib_PIC/timedResponse.h"
 typedef enum {
     TIMED_RESPONSE_RESULT_FINISHED,
     TIMED_RESPONSE_RESULT_RETRY,
@@ -21220,7 +21246,13 @@ typedef TimedResponseResult (* TimedResponseCallback)(uint8_t type, const Servic
 
 
 extern void initTimedResponse(void);
-# 107 "../../VLCBlib_PIC/timedResponse.h"
+
+
+
+
+
+
+
 extern void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponseResult (*callback)(uint8_t type, uint8_t si, uint8_t step));
 
 
@@ -21232,9 +21264,9 @@ extern void pollTimedResponse(void);
 
 
 # 1 "../../VLCBlib_PIC/mns.h" 1
-# 110 "../../VLCBlib_PIC/mns.h"
+# 111 "../../VLCBlib_PIC/mns.h"
 extern const Service mnsService;
-# 125 "../../VLCBlib_PIC/mns.h"
+# 126 "../../VLCBlib_PIC/mns.h"
 extern Word nn;
 
 
@@ -21255,7 +21287,7 @@ extern void updateModuleErrorStatus(void);
 
 extern TickValue pbTimer;
 # 48 "../../VLCBlib_PIC/vlcb.c" 2
-# 266 "../../VLCBlib_PIC/vlcb.c"
+# 267 "../../VLCBlib_PIC/vlcb.c"
 #pragma config RETEN = OFF
 #pragma config INTOSCSEL = HIGH
 #pragma config SOSCSEL = DIG
@@ -21315,7 +21347,7 @@ extern TickValue pbTimer;
 
 
 #pragma config EBTRB = OFF
-# 474 "../../VLCBlib_PIC/vlcb.c"
+# 475 "../../VLCBlib_PIC/vlcb.c"
 const Priority priorities[256] = {
     pNORMAL,
     pNORMAL,
@@ -21637,7 +21669,7 @@ void setup(void);
 
 
 void loop(void);
-# 806 "../../VLCBlib_PIC/vlcb.c"
+# 807 "../../VLCBlib_PIC/vlcb.c"
 const Service * findService(uint8_t id) {
     uint8_t i;
     for (i=0; i<9; i++) {
@@ -21677,7 +21709,7 @@ ServicePresent have(uint8_t id) {
     }
     return NOT_PRESENT;
 }
-# 854 "../../VLCBlib_PIC/vlcb.c"
+# 856 "../../VLCBlib_PIC/vlcb.c"
 void factoryReset(void) {
     uint8_t i;
 
@@ -21713,11 +21745,11 @@ static void powerUp(void) {
         }
     }
 }
-
-void setTimedResponseDelay(uint8_t d) {
-    timedResponseDelay = d;
+# 900 "../../VLCBlib_PIC/vlcb.c"
+void setTimedResponseDelay(uint8_t delay) {
+    timedResponseDelay = delay;
 }
-# 901 "../../VLCBlib_PIC/vlcb.c"
+# 911 "../../VLCBlib_PIC/vlcb.c"
 uint8_t pbDownTimer(uint8_t timeout) {
 
     pbTimer.val = tickGet();
@@ -21749,7 +21781,7 @@ uint8_t pbUpTimer(uint8_t timeout) {
 
     return (uint8_t)((tickGet() - pbTimer.val)/62500);
 }
-# 943 "../../VLCBlib_PIC/vlcb.c"
+# 953 "../../VLCBlib_PIC/vlcb.c"
 static void checkPowerOnPb(void) {
     uint8_t i;
 
@@ -21777,7 +21809,7 @@ static void checkPowerOnPb(void) {
         }
     }
 }
-# 981 "../../VLCBlib_PIC/vlcb.c"
+# 992 "../../VLCBlib_PIC/vlcb.c"
 static void poll(void) {
     uint8_t i;
     Message m;
@@ -21830,7 +21862,7 @@ static void poll(void) {
         showStatus(STATUS_MESSAGE_ACTED);
     }
 }
-# 1044 "../../VLCBlib_PIC/vlcb.c"
+# 1055 "../../VLCBlib_PIC/vlcb.c"
 static void highIsr(void) {
     uint8_t i;
 
@@ -21841,7 +21873,7 @@ static void highIsr(void) {
     }
     APP_highIsr();
 }
-# 1064 "../../VLCBlib_PIC/vlcb.c"
+# 1075 "../../VLCBlib_PIC/vlcb.c"
 static void lowIsr(void) {
     uint8_t i;
 
@@ -21852,7 +21884,7 @@ static void lowIsr(void) {
     }
     APP_lowIsr();
 }
-# 1083 "../../VLCBlib_PIC/vlcb.c"
+# 1094 "../../VLCBlib_PIC/vlcb.c"
 Processed checkLen(Message * m, uint8_t needed, uint8_t service) {
     if (m->len < needed) {
         if (m->len > 2) {
@@ -21864,7 +21896,7 @@ Processed checkLen(Message * m, uint8_t needed, uint8_t service) {
     }
     return NOT_PROCESSED;
 }
-# 1103 "../../VLCBlib_PIC/vlcb.c"
+# 1114 "../../VLCBlib_PIC/vlcb.c"
 Boolean isEvent(uint8_t opc) {
     return (((opc & 0b10010000) == 0b10010000) && ((~opc & 0b00000110)== 0b00000110)) ? TRUE : FALSE;
 }
@@ -21895,27 +21927,27 @@ void sendMessage1(VlcbOpCodes opc, uint8_t data1){
 void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2){
     sendMessage(opc, 3, data1, data2, 0,0,0,0,0);
 }
-# 1141 "../../VLCBlib_PIC/vlcb.c"
+# 1152 "../../VLCBlib_PIC/vlcb.c"
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3) {
     sendMessage(opc, 4, data1, data2, data3, 0,0,0,0);
 }
-# 1153 "../../VLCBlib_PIC/vlcb.c"
+# 1164 "../../VLCBlib_PIC/vlcb.c"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4){
     sendMessage(opc, 5, data1, data2, data3, data4, 0,0,0);
 }
-# 1166 "../../VLCBlib_PIC/vlcb.c"
+# 1177 "../../VLCBlib_PIC/vlcb.c"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5) {
     sendMessage(opc, 6, data1, data2, data3, data4, data5, 0,0);
 }
-# 1180 "../../VLCBlib_PIC/vlcb.c"
+# 1191 "../../VLCBlib_PIC/vlcb.c"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6) {
     sendMessage(opc, 7, data1, data2, data3, data4, data5, data6,0);
 }
-# 1195 "../../VLCBlib_PIC/vlcb.c"
+# 1206 "../../VLCBlib_PIC/vlcb.c"
 void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7) {
     sendMessage(opc, 8, data1, data2, data3, data4, data5, data6, data7);
 }
-# 1211 "../../VLCBlib_PIC/vlcb.c"
+# 1222 "../../VLCBlib_PIC/vlcb.c"
 void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7) {
     tmpMessage.opc = opc;
     tmpMessage.len = len;
@@ -21947,9 +21979,9 @@ void main(void) {
 
 
     OSCTUNEbits.PLLEN = 1;
-# 1256 "../../VLCBlib_PIC/vlcb.c"
+# 1267 "../../VLCBlib_PIC/vlcb.c"
     RCONbits.IPEN = 1;
-# 1278 "../../VLCBlib_PIC/vlcb.c"
+# 1289 "../../VLCBlib_PIC/vlcb.c"
     initRomOps();
 
     if (readNVM(FLASH_NVM_TYPE, 0xFF80) != 1) {
