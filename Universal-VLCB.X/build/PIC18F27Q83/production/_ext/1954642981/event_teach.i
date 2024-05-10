@@ -38695,14 +38695,22 @@ typedef enum NvValidation {
 } NvValidation;
 # 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
 
 

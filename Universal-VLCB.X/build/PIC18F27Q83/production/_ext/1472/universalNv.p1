@@ -21,6 +21,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "59951
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 59951: extern volatile unsigned char WPUC __attribute__((address(0x411)));
 [v _WPUC `Vuc ~T0 @X0 0 e@1041 ]
+"19 ../analogue.h
+[; ;../analogue.h: 19: extern unsigned char setupIo;
+[v _setupIo `uc ~T0 @X0 0 e ]
+"20
+[; ;../analogue.h: 20: extern unsigned char setupState;
+[v _setupState `uc ~T0 @X0 0 e ]
 "61 ../servo.h
 [; ;../servo.h: 61: extern void setServoState(uint8_t io, uint8_t action);
 [v _setServoState `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -30,8 +36,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "65
 [; ;../servo.h: 65: extern void setServoPosition(uint8_t io, uint8_t pos);
 [v _setServoPosition `(v ~T0 @X0 0 ef2`uc`uc ]
-"110 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 110: extern int16_t getNV(uint8_t index);
+"115 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 115: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
 "62 ../servo.h
 [; ;../servo.h: 62: extern void setBounceState(uint8_t io, uint8_t action);
@@ -52,11 +58,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../universalNv.c: 298: NvValidation APP_nvValidate(uint8_t index, uint8_t value) {
 [c E23031 0 1 .. ]
 [n E23031 NvValidation INVALID VALID  ]
-"111 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 111: extern void saveNV(uint8_t index, uint8_t value);
+"122 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 122: extern void saveNV(uint8_t index, uint8_t value);
 [v _saveNV `(v ~T0 @X0 0 ef2`uc`uc ]
-"116
-[; ;../../VLCBlib_PIC\nv.h: 116: extern void loadNvCache(void);
+"134
+[; ;../../VLCBlib_PIC\nv.h: 134: extern void loadNvCache(void);
 [v _loadNvCache `(v ~T0 @X0 0 ef ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");
@@ -4137,12 +4143,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../universalNv.c: 217:         switch(getNV((16 + 7*(io) + 0))) {
 [e $U 3313  ]
 {
+"219
+[; ;../universalNv.c: 219:             case 6:
+[e :U 3314 ]
+"221
+[; ;../universalNv.c: 221:                 if (index == (16 + 7*(io) + 2)) {
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i 3315  ]
+{
+"223
+[; ;../universalNv.c: 223:                     setupIo = io;
+[e = _setupIo _io ]
+"224
+[; ;../universalNv.c: 224:                     setupState = (value & 0x80)?2:1;
+[e = _setupState -> ? != & -> _value `i -> 128 `i -> 0 `i : -> 2 `i -> 1 `i `uc ]
+"225
+[; ;../universalNv.c: 225:                 }
+}
+[e :U 3315 ]
+"226
+[; ;../universalNv.c: 226:                 break;
+[e $U 3312  ]
 "229
 [; ;../universalNv.c: 229:             case 2:
-[e :U 3314 ]
+[e :U 3316 ]
 "231
 [; ;../universalNv.c: 231:                 if (index == (16 + 7*(io) + 2)) {
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i 3315  ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i 3317  ]
 {
 "232
 [; ;../universalNv.c: 232:                     setServoState(io, 2);
@@ -4153,9 +4179,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "234
 [; ;../universalNv.c: 234:                 } else if (index == (16 + 7*(io) + 3)) {
 }
-[e $U 3316  ]
-[e :U 3315 ]
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i 3317  ]
+[e $U 3318  ]
+[e :U 3317 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i 3319  ]
 {
 "235
 [; ;../universalNv.c: 235:                     setServoState(io, 1);
@@ -4166,13 +4192,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "237
 [; ;../universalNv.c: 237:                 } else if (index == (16 + 7*(io) + 1)) {
 }
-[e $U 3318  ]
-[e :U 3317 ]
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i 3319  ]
+[e $U 3320  ]
+[e :U 3319 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i 3321  ]
 {
 "238
 [; ;../universalNv.c: 238:                     if (((value & 0x80) == 0x80) &&
-[e $ ! && == & -> _value `i -> 128 `i -> 128 `i == & -> _oldValue `i -> 128 `i -> 0 `i 3320  ]
+[e $ ! && == & -> _value `i -> 128 `i -> 128 `i == & -> _oldValue `i -> 128 `i -> 0 `i 3322  ]
 "239
 [; ;../universalNv.c: 239:                             (oldValue & 0x80) == 0) {
 {
@@ -4182,22 +4208,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "243
 [; ;../universalNv.c: 243:                     }
 }
-[e :U 3320 ]
+[e :U 3322 ]
 "244
 [; ;../universalNv.c: 244:                 }
 }
-[e :U 3319 ]
+[e :U 3321 ]
+[e :U 3320 ]
 [e :U 3318 ]
-[e :U 3316 ]
 "245
 [; ;../universalNv.c: 245:                 break;
 [e $U 3312  ]
 "248
 [; ;../universalNv.c: 248:             case 3:
-[e :U 3321 ]
+[e :U 3323 ]
 "249
 [; ;../universalNv.c: 249:                 if (index == (16 + 7*(io) + 3)) {
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i 3322  ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i 3324  ]
 {
 "250
 [; ;../universalNv.c: 250:                     setBounceState(io, 2);
@@ -4208,9 +4234,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "252
 [; ;../universalNv.c: 252:                 } else if (index == (16 + 7*(io) + 2)) {
 }
-[e $U 3323  ]
-[e :U 3322 ]
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i 3324  ]
+[e $U 3325  ]
+[e :U 3324 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i 3326  ]
 {
 "253
 [; ;../universalNv.c: 253:                     setBounceState(io, 1);
@@ -4221,13 +4247,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "255
 [; ;../universalNv.c: 255:                 } else if (index == (16 + 7*(io) + 1)) {
 }
-[e $U 3325  ]
-[e :U 3324 ]
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i 3326  ]
+[e $U 3327  ]
+[e :U 3326 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i 3328  ]
 {
 "256
 [; ;../universalNv.c: 256:                     if (((value & 0x80) == 0x80) &&
-[e $ ! && == & -> _value `i -> 128 `i -> 128 `i == & -> _oldValue `i -> 128 `i -> 0 `i 3327  ]
+[e $ ! && == & -> _value `i -> 128 `i -> 128 `i == & -> _oldValue `i -> 128 `i -> 0 `i 3329  ]
 "257
 [; ;../universalNv.c: 257:                             (oldValue & 0x80) == 0) {
 {
@@ -4237,22 +4263,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "261
 [; ;../universalNv.c: 261:                     }
 }
-[e :U 3327 ]
+[e :U 3329 ]
 "262
 [; ;../universalNv.c: 262:                 }
 }
-[e :U 3326 ]
+[e :U 3328 ]
+[e :U 3327 ]
 [e :U 3325 ]
-[e :U 3323 ]
 "263
 [; ;../universalNv.c: 263:                 break;
 [e $U 3312  ]
 "266
 [; ;../universalNv.c: 266:             case 4:
-[e :U 3328 ]
+[e :U 3330 ]
 "267
 [; ;../universalNv.c: 267:                 if (index == (16 + 7*(io) + 3)) {
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i 3329  ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i 3331  ]
 {
 "268
 [; ;../universalNv.c: 268:                     setMultiState(io, 0);
@@ -4263,9 +4289,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "270
 [; ;../universalNv.c: 270:                 } else if (index == (16 + 7*(io) + 4)) {
 }
-[e $U 3330  ]
-[e :U 3329 ]
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i 3331  ]
+[e $U 3332  ]
+[e :U 3331 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i 3333  ]
 {
 "271
 [; ;../universalNv.c: 271:                     setMultiState(io, 1);
@@ -4276,9 +4302,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "273
 [; ;../universalNv.c: 273:                 } else if (index == (16 + 7*(io) + 5)) {
 }
-[e $U 3332  ]
-[e :U 3331 ]
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i 3333  ]
+[e $U 3334  ]
+[e :U 3333 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i 3335  ]
 {
 "274
 [; ;../universalNv.c: 274:                     setMultiState(io, 2);
@@ -4289,9 +4315,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "276
 [; ;../universalNv.c: 276:                 } else if (index == (16 + 7*(io) + 6)) {
 }
-[e $U 3334  ]
-[e :U 3333 ]
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i 3335  ]
+[e $U 3336  ]
+[e :U 3335 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i 3337  ]
 {
 "277
 [; ;../universalNv.c: 277:                     setMultiState(io, 3);
@@ -4302,13 +4328,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "279
 [; ;../universalNv.c: 279:                 } else if (index == (16 + 7*(io) + 1)) {
 }
-[e $U 3336  ]
-[e :U 3335 ]
-[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i 3337  ]
+[e $U 3338  ]
+[e :U 3337 ]
+[e $ ! == -> _index `i + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i 3339  ]
 {
 "280
 [; ;../universalNv.c: 280:                     if (((value & 0x80) == 0x80) &&
-[e $ ! && == & -> _value `i -> 128 `i -> 128 `i == & -> _oldValue `i -> 128 `i -> 0 `i 3338  ]
+[e $ ! && == & -> _value `i -> 128 `i -> 128 `i == & -> _oldValue `i -> 128 `i -> 0 `i 3340  ]
 "281
 [; ;../universalNv.c: 281:                             ((oldValue & 0x80) == 0)) {
 {
@@ -4318,15 +4344,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "285
 [; ;../universalNv.c: 285:                     }
 }
-[e :U 3338 ]
+[e :U 3340 ]
 "286
 [; ;../universalNv.c: 286:                 }
 }
-[e :U 3337 ]
+[e :U 3339 ]
+[e :U 3338 ]
 [e :U 3336 ]
 [e :U 3334 ]
 [e :U 3332 ]
-[e :U 3330 ]
 "287
 [; ;../universalNv.c: 287:                 break;
 [e $U 3312  ]
@@ -4335,9 +4361,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 3312  ]
 [e :U 3313 ]
-[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 2 `i 3314
- , $ -> 3 `i 3321
- , $ -> 4 `i 3328
+[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 6 `i 3314
+ , $ -> 2 `i 3316
+ , $ -> 3 `i 3323
+ , $ -> 4 `i 3330
  3312 ]
 [e :U 3312 ]
 "290
@@ -4361,69 +4388,89 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _io `uc ~T0 @X0 1 a ]
 "300
 [; ;../universalNv.c: 300:     if ((index >= 16) && (((index-16) % 7) == 0)) {
-[e $ ! && >= -> _index `i -> 16 `i == % - -> _index `i -> 16 `i -> 7 `i -> 0 `i 3340  ]
+[e $ ! && >= -> _index `i -> 16 `i == % - -> _index `i -> 16 `i -> 7 `i -> 0 `i 3342  ]
 {
 "301
 [; ;../universalNv.c: 301:         switch (value) {
-[e $U 3342  ]
+[e $U 3344  ]
 {
+"303
+[; ;../universalNv.c: 303:             case 5:
+[e :U 3345 ]
+"304
+[; ;../universalNv.c: 304:             case 6:
+[e :U 3346 ]
+"305
+[; ;../universalNv.c: 305:                 io = ((uint8_t)((index-16)/7));
+[e = _io -> / - -> _index `i -> 16 `i -> 7 `i `uc ]
+"306
+[; ;../universalNv.c: 306:                 if (configs[io].an == 0xFF) return INVALID;
+[e $ ! == -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 3 `i -> 255 `i 3347  ]
+[e ) . `E23031 0 ]
+[e $UE 3341  ]
+[e :U 3347 ]
+"307
+[; ;../universalNv.c: 307:                 break;
+[e $U 3343  ]
 "310
 [; ;../universalNv.c: 310:             case 4:
-[e :U 3343 ]
+[e :U 3348 ]
 "311
 [; ;../universalNv.c: 311:                 break;
-[e $U 3341  ]
+[e $U 3343  ]
 "314
 [; ;../universalNv.c: 314:             case 3:
-[e :U 3344 ]
+[e :U 3349 ]
 "315
 [; ;../universalNv.c: 315:                 break;
-[e $U 3341  ]
+[e $U 3343  ]
 "318
 [; ;../universalNv.c: 318:             case 2:
-[e :U 3345 ]
+[e :U 3350 ]
 "319
 [; ;../universalNv.c: 319:                 break;
-[e $U 3341  ]
+[e $U 3343  ]
 "321
 [; ;../universalNv.c: 321:             case 1:
-[e :U 3346 ]
+[e :U 3351 ]
 "322
 [; ;../universalNv.c: 322:             case 0:
-[e :U 3347 ]
+[e :U 3352 ]
 "323
 [; ;../universalNv.c: 323:                 break;
-[e $U 3341  ]
+[e $U 3343  ]
 "324
 [; ;../universalNv.c: 324:             default:
-[e :U 3348 ]
+[e :U 3353 ]
 "325
 [; ;../universalNv.c: 325:                 return INVALID;
 [e ) . `E23031 0 ]
-[e $UE 3339  ]
+[e $UE 3341  ]
 "326
 [; ;../universalNv.c: 326:         }
 }
-[e $U 3341  ]
-[e :U 3342 ]
-[e [\ _value , $ -> 4 `i 3343
- , $ -> 3 `i 3344
- , $ -> 2 `i 3345
- , $ -> 1 `i 3346
- , $ -> 0 `i 3347
- 3348 ]
-[e :U 3341 ]
+[e $U 3343  ]
+[e :U 3344 ]
+[e [\ _value , $ -> 5 `i 3345
+ , $ -> 6 `i 3346
+ , $ -> 4 `i 3348
+ , $ -> 3 `i 3349
+ , $ -> 2 `i 3350
+ , $ -> 1 `i 3351
+ , $ -> 0 `i 3352
+ 3353 ]
+[e :U 3343 ]
 "327
 [; ;../universalNv.c: 327:     }
 }
-[e :U 3340 ]
+[e :U 3342 ]
 "328
 [; ;../universalNv.c: 328:     return VALID;
 [e ) . `E23031 1 ]
-[e $UE 3339  ]
+[e $UE 3341  ]
 "329
 [; ;../universalNv.c: 329: }
-[e :UE 3339 ]
+[e :UE 3341 ]
 }
 "336
 [; ;../universalNv.c: 336: void defaultNVs(uint8_t io, uint8_t type) {
@@ -4440,9 +4487,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../universalNv.c: 339:     for (i=1; i<7; i++) {
 {
 [e = _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 7 `i 3350  ]
-[e $U 3351  ]
-[e :U 3350 ]
+[e $ < -> _i `i -> 7 `i 3355  ]
+[e $U 3356  ]
+[e :U 3355 ]
 {
 "340
 [; ;../universalNv.c: 340:         saveNV((16 + 7*(io) + 0)+i , channelDefaultNVs[type][i]);
@@ -4451,13 +4498,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../universalNv.c: 341:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 7 `i 3350  ]
-[e :U 3351 ]
+[e $ < -> _i `i -> 7 `i 3355  ]
+[e :U 3356 ]
 }
 "342
 [; ;../universalNv.c: 342:     loadNvCache();
 [e ( _loadNvCache ..  ]
 "343
 [; ;../universalNv.c: 343: }
-[e :UE 3349 ]
+[e :UE 3354 ]
 }

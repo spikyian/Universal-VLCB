@@ -207,14 +207,9 @@ void setupTimer1(uint8_t io) {
     uint16_t ticks = 0xFFFF - ((getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_EXTENDED_TRAVEL) ? 
                 (POS2TICK_EXTENDED_OFFSET + (uint16_t)POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
                 (POS2TICK_OFFSET + (uint16_t)POS2TICK_MULTIPLIER * currentPos[io]) );
-#ifdef __XC8
-    TMR1 = - ((getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_EXTENDED_TRAVEL) ?   // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
-                (POS2TICK_EXTENDED_OFFSET + POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
-                (POS2TICK_OFFSET + POS2TICK_MULTIPLIER * currentPos[io]) ); 
-#else
     TMR1H = ticks >> 8;     // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
     TMR1L = ticks & 0xFF;
-#endif
+
     // turn on output
     setOutputPin(io, !(getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED));
     T1CONbits.TMR1ON = 1;       // enable Timer1
@@ -223,14 +218,9 @@ void setupTimer3(uint8_t io) {
     uint16_t ticks = 0xFFFF - ((getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_EXTENDED_TRAVEL) ? 
                 (POS2TICK_EXTENDED_OFFSET + (uint16_t)POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
                 (POS2TICK_OFFSET + (uint16_t)POS2TICK_MULTIPLIER * currentPos[io]) );
-#ifdef __XC8
-    TMR3 = - ((getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_EXTENDED_TRAVEL) ?   // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
-                (POS2TICK_EXTENDED_OFFSET + POS2TICK_EXTENDED_MULTIPLIER * currentPos[io]) :
-                (POS2TICK_OFFSET + POS2TICK_MULTIPLIER * currentPos[io]) ); 
-#else
     TMR3H = ticks >> 8;
     TMR3L = ticks & 0xFF;     // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
-#endif
+
     // turn on output
     setOutputPin(io, !(getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED));
     T3CONbits.TMR3ON = 1;       // enable Timer3
@@ -705,6 +695,7 @@ Boolean isNoServoPulses(void){
     // check if either of the timers is running
     if (T1CONbits.TMR1ON) return FALSE;
     if (T3CONbits.TMR3ON) return FALSE;
+    // Timer not running and won't timeout with interrupt which would need to be handled quickly
     return TRUE;
 }
 

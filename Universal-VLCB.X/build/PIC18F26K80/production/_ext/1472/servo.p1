@@ -11,8 +11,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "211
 [u S1533 `ul 1 `S1534 1 `uc -> 4 `i `S1535 1 ]
 [n S1533 _TickValue val byte v word ]
-"110 ../../VLCBlib_PIC\nv.h
-[; ;../../VLCBlib_PIC\nv.h: 110: extern int16_t getNV(uint8_t index);
+"115 ../../VLCBlib_PIC\nv.h
+[; ;../../VLCBlib_PIC\nv.h: 115: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
 "244 ../../VLCBlib_PIC\ticktime.h
 [v _tickGet `(ul ~T0 @X0 0 ef ]
@@ -167,21 +167,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "90
 [; ;../servo.c: 90: void setupTimer3(uint8_t io);
 [v _setupTimer3 `(v ~T0 @X0 0 ef1`uc ]
-"35361 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 35361: extern volatile unsigned short TMR1 __attribute__((address(0xFCE)));
-[v _TMR1 `Vus ~T0 @X0 0 e@4046 ]
-"219 ../servo.c
-[; ;../servo.c: 219:     setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
+"35388 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 35388: extern volatile unsigned char TMR1H __attribute__((address(0xFCF)));
+[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
+"35368
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 35368: extern volatile unsigned char TMR1L __attribute__((address(0xFCE)));
+[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
+"214 ../servo.c
+[; ;../servo.c: 214:     setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
 [c E12700 0 1 .. ]
 [n E12700 Boolean FALSE TRUE  ]
 "93
 [; ;../servo.c: 93: extern void setOutputPin(uint8_t io, Boolean state);
 [v _setOutputPin `(v ~T0 @X0 0 ef2`uc`E12700 ]
-"33097 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 33097: extern volatile unsigned short TMR3 __attribute__((address(0xFB2)));
-[v _TMR3 `Vus ~T0 @X0 0 e@4018 ]
-"309 ../servo.c
-[; ;../servo.c: 309:                             sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+"33124 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 33124: extern volatile unsigned char TMR3H __attribute__((address(0xFB3)));
+[v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
+"33104
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 33104: extern volatile unsigned char TMR3L __attribute__((address(0xFB2)));
+[v _TMR3L `Vuc ~T0 @X0 0 e@4018 ]
+"299 ../servo.c
+[; ;../servo.c: 299:                             sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
 [c E12720 0 1 .. ]
 [n E12720 . EVENT_OFF EVENT_ON  ]
 "86 ../../VLCBlib_PIC\event_producer.h
@@ -1751,382 +1757,388 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../servo.c: 207:     uint16_t ticks = 0xFFFF - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
 [v _ticks `us ~T0 @X0 1 a ]
 [e = _ticks -> - -> 65535 `ui ? != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 128 `i -> 0 `i : + -> -> 1400 `i `ui * -> -> -> 36 `i `us `ui -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `ui + -> -> 3600 `i `ui * -> -> -> 19 `i `us `ui -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `ui `us ]
+"210
+[; ;../servo.c: 210:     TMR1H = ticks >> 8;
+[e = _TMR1H -> >> -> _ticks `ui -> 8 `i `uc ]
 "211
-[; ;../servo.c: 211:     TMR1 = - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
-[e = _TMR1 -> -U ? != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 128 `i -> 0 `i : + -> 1400 `i * -> 36 `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i + -> 3600 `i * -> 19 `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i `us ]
-"219
-[; ;../servo.c: 219:     setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
+[; ;../servo.c: 211:     TMR1L = ticks & 0xFF;
+[e = _TMR1L -> & -> _ticks `ui -> -> 255 `i `ui `uc ]
+"214
+[; ;../servo.c: 214:     setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
 [e ( _setOutputPin (2 , _io -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i `i `E12700 ]
-"220
-[; ;../servo.c: 220:     T1CONbits.TMR1ON = 1;
+"215
+[; ;../servo.c: 215:     T1CONbits.TMR1ON = 1;
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-"221
-[; ;../servo.c: 221: }
+"216
+[; ;../servo.c: 216: }
 [e :UE 1567 ]
 }
-"222
-[; ;../servo.c: 222: void setupTimer3(uint8_t io) {
+"217
+[; ;../servo.c: 217: void setupTimer3(uint8_t io) {
 [v _setupTimer3 `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _setupTimer3 ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [f ]
-"223
-[; ;../servo.c: 223:     uint16_t ticks = 0xFFFF - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
+"218
+[; ;../servo.c: 218:     uint16_t ticks = 0xFFFF - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
 [v _ticks `us ~T0 @X0 1 a ]
 [e = _ticks -> - -> 65535 `ui ? != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 128 `i -> 0 `i : + -> -> 1400 `i `ui * -> -> -> 36 `i `us `ui -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `ui + -> -> 3600 `i `ui * -> -> -> 19 `i `us `ui -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `ui `us ]
-"227
-[; ;../servo.c: 227:     TMR3 = - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
-[e = _TMR3 -> -U ? != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 128 `i -> 0 `i : + -> 1400 `i * -> 36 `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i + -> 3600 `i * -> 19 `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i `us ]
-"235
-[; ;../servo.c: 235:     setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
+"221
+[; ;../servo.c: 221:     TMR3H = ticks >> 8;
+[e = _TMR3H -> >> -> _ticks `ui -> 8 `i `uc ]
+"222
+[; ;../servo.c: 222:     TMR3L = ticks & 0xFF;
+[e = _TMR3L -> & -> _ticks `ui -> -> 255 `i `ui `uc ]
+"225
+[; ;../servo.c: 225:     setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
 [e ( _setOutputPin (2 , _io -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i `i `E12700 ]
-"236
-[; ;../servo.c: 236:     T3CONbits.TMR3ON = 1;
+"226
+[; ;../servo.c: 226:     T3CONbits.TMR3ON = 1;
 [e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
-"237
-[; ;../servo.c: 237: }
+"227
+[; ;../servo.c: 227: }
 [e :UE 1568 ]
 }
-"245
-[; ;../servo.c: 245: void timer1DoneInterruptHandler(void) {
+"235
+[; ;../servo.c: 235: void timer1DoneInterruptHandler(void) {
 [v _timer1DoneInterruptHandler `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer1DoneInterruptHandler ]
 [f ]
-"246
-[; ;../servo.c: 246:     T1CONbits.TMR1ON = 0;
+"236
+[; ;../servo.c: 236:     T1CONbits.TMR1ON = 0;
 [e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-"247
-[; ;../servo.c: 247:     setOutputPin(servoInBlock, (uint8_t)getNV((16 + 7*(servoInBlock) + 1)) & 0x20);
+"237
+[; ;../servo.c: 237:     setOutputPin(servoInBlock, (uint8_t)getNV((16 + 7*(servoInBlock) + 1)) & 0x20);
 [e ( _setOutputPin (2 , _servoInBlock -> & -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _servoInBlock `i -> 1 `i `uc `uc `i -> 32 `i `E12700 ]
-"248
-[; ;../servo.c: 248: }
+"238
+[; ;../servo.c: 238: }
 [e :UE 1569 ]
 }
-"250
-[; ;../servo.c: 250: void timer3DoneInterruptHandler(void) {
+"240
+[; ;../servo.c: 240: void timer3DoneInterruptHandler(void) {
 [v _timer3DoneInterruptHandler `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer3DoneInterruptHandler ]
 [f ]
-"251
-[; ;../servo.c: 251:     T3CONbits.TMR3ON = 0;
+"241
+[; ;../servo.c: 241:     T3CONbits.TMR3ON = 0;
 [e = . . _T3CONbits 1 0 -> -> 0 `i `uc ]
-"252
-[; ;../servo.c: 252:     setOutputPin(servoInBlock+8, (uint8_t)getNV((16 + 7*(servoInBlock+8) + 1)) & 0x20);
+"242
+[; ;../servo.c: 242:     setOutputPin(servoInBlock+8, (uint8_t)getNV((16 + 7*(servoInBlock+8) + 1)) & 0x20);
 [e ( _setOutputPin (2 , -> + -> _servoInBlock `i -> 8 `i `uc -> & -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i + -> _servoInBlock `i -> 8 `i -> 1 `i `uc `uc `i -> 32 `i `E12700 ]
-"253
-[; ;../servo.c: 253: }
+"243
+[; ;../servo.c: 243: }
 [e :UE 1570 ]
 }
-"294
-[; ;../servo.c: 294: void pollServos(void) {
+"284
+[; ;../servo.c: 284: void pollServos(void) {
 [v _pollServos `(v ~T0 @X0 1 ef ]
 {
 [e :U _pollServos ]
 [f ]
-"295
-[; ;../servo.c: 295:     uint8_t midway;
+"285
+[; ;../servo.c: 285:     uint8_t midway;
 [v _midway `uc ~T0 @X0 1 a ]
-"296
-[; ;../servo.c: 296:     Boolean beforeMidway;
+"286
+[; ;../servo.c: 286:     Boolean beforeMidway;
 [v _beforeMidway `E12700 ~T0 @X0 1 a ]
-"297
-[; ;../servo.c: 297:     uint8_t io;
+"287
+[; ;../servo.c: 287:     uint8_t io;
 [v _io `uc ~T0 @X0 1 a ]
-"298
-[; ;../servo.c: 298:     uint8_t target;
+"288
+[; ;../servo.c: 288:     uint8_t target;
 [v _target `uc ~T0 @X0 1 a ]
-"300
-[; ;../servo.c: 300:     for (io=0; io<16; io++) {
+"290
+[; ;../servo.c: 290:     for (io=0; io<16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
 [e $ < -> _io `i -> 16 `i 1572  ]
 [e $U 1573  ]
 [e :U 1572 ]
 {
-"301
-[; ;../servo.c: 301:         switch (getNV((16 + 7*(io) + 0))) {
+"291
+[; ;../servo.c: 291:         switch (getNV((16 + 7*(io) + 0))) {
 [e $U 1576  ]
 {
-"302
-[; ;../servo.c: 302:             case 2:
+"292
+[; ;../servo.c: 292:             case 2:
 [e :U 1577 ]
-"303
-[; ;../servo.c: 303:                 midway = ((uint8_t)getNV((16 + 7*(io) + 3)))/2 +
+"293
+[; ;../servo.c: 293:                 midway = ((uint8_t)getNV((16 + 7*(io) + 3)))/2 +
 [e = _midway -> + / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> 2 `i / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i -> 2 `i `uc ]
-"305
-[; ;../servo.c: 305:                 beforeMidway=FALSE;
+"295
+[; ;../servo.c: 295:                 beforeMidway=FALSE;
 [e = _beforeMidway . `E12700 0 ]
-"306
-[; ;../servo.c: 306:                 switch (servoState[io]) {
+"296
+[; ;../servo.c: 296:                 switch (servoState[io]) {
 [e $U 1579  ]
 {
-"307
-[; ;../servo.c: 307:                     case SS_STARTING:
+"297
+[; ;../servo.c: 297:                     case SS_STARTING:
 [e :U 1580 ]
-"308
-[; ;../servo.c: 308:                         if (currentPos[io]==getNV((16 + 7*(io) + 2))) {
+"298
+[; ;../servo.c: 298:                         if (currentPos[io]==getNV((16 + 7*(io) + 2))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i 1581  ]
 {
-"309
-[; ;../servo.c: 309:                             sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+"299
+[; ;../servo.c: 299:                             sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12720 ]
-"310
-[; ;../servo.c: 310:                         } else {
+"300
+[; ;../servo.c: 300:                         } else {
 }
 [e $U 1582  ]
 [e :U 1581 ]
 {
-"311
-[; ;../servo.c: 311:                             sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
+"301
+[; ;../servo.c: 301:                             sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12720 ]
-"312
-[; ;../servo.c: 312:                         }
+"302
+[; ;../servo.c: 302:                         }
 }
 [e :U 1582 ]
-"313
-[; ;../servo.c: 313:                         servoState[io] = SS_MOVING;
+"303
+[; ;../servo.c: 303:                         servoState[io] = SS_MOVING;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 2 ]
-"315
-[; ;../servo.c: 315:                     case SS_MOVING:
+"305
+[; ;../servo.c: 305:                     case SS_MOVING:
 [e :U 1583 ]
-"316
-[; ;../servo.c: 316:                         if (targetPos[io] > currentPos[io]) {
+"306
+[; ;../servo.c: 306:                         if (targetPos[io] > currentPos[io]) {
 [e $ ! > -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1584  ]
 {
-"317
-[; ;../servo.c: 317:                             if (currentPos[io] < midway) {
+"307
+[; ;../servo.c: 307:                             if (currentPos[io] < midway) {
 [e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 1585  ]
 {
-"318
-[; ;../servo.c: 318:                                 beforeMidway = TRUE;
+"308
+[; ;../servo.c: 308:                                 beforeMidway = TRUE;
 [e = _beforeMidway . `E12700 1 ]
-"319
-[; ;../servo.c: 319:                             }
+"309
+[; ;../servo.c: 309:                             }
 }
 [e :U 1585 ]
-"321
-[; ;../servo.c: 321:                             if (stepsPerPollSpeed[io]) {
+"311
+[; ;../servo.c: 311:                             if (stepsPerPollSpeed[io]) {
 [e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 1586  ]
 {
-"322
-[; ;../servo.c: 322:                                 if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
+"312
+[; ;../servo.c: 312:                                 if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
 [e $ ! < + -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1587  ]
 {
-"324
-[; ;../servo.c: 324:                                     currentPos[io] =255;
+"314
+[; ;../servo.c: 314:                                     currentPos[io] =255;
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> 255 `i `uc ]
-"325
-[; ;../servo.c: 325:                                 } else {
+"315
+[; ;../servo.c: 315:                                 } else {
 }
 [e $U 1588  ]
 [e :U 1587 ]
 {
-"326
-[; ;../servo.c: 326:                                     currentPos[io] += stepsPerPollSpeed[io];
+"316
+[; ;../servo.c: 316:                                     currentPos[io] += stepsPerPollSpeed[io];
 [e =+ *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `uc ]
-"327
-[; ;../servo.c: 327:                                 }
+"317
+[; ;../servo.c: 317:                                 }
 }
 [e :U 1588 ]
-"328
-[; ;../servo.c: 328:                             } else {
+"318
+[; ;../servo.c: 318:                             } else {
 }
 [e $U 1589  ]
 [e :U 1586 ]
 {
-"329
-[; ;../servo.c: 329:                                 pollCount[io]--;
+"319
+[; ;../servo.c: 319:                                 pollCount[io]--;
 [e -- *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
-"330
-[; ;../servo.c: 330:                                 if (pollCount[io] == 0) {
+"320
+[; ;../servo.c: 320:                                 if (pollCount[io] == 0) {
 [e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 1590  ]
 {
-"331
-[; ;../servo.c: 331:                                     currentPos[io]++;
+"321
+[; ;../servo.c: 321:                                     currentPos[io]++;
 [e ++ *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> 1 `i `uc ]
-"332
-[; ;../servo.c: 332:                                     pollCount[io] = pollsPerStepSpeed[io];
+"322
+[; ;../servo.c: 322:                                     pollCount[io] = pollsPerStepSpeed[io];
 [e = *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux *U + &U _pollsPerStepSpeed * -> _io `ux -> -> # *U &U _pollsPerStepSpeed `ui `ux ]
-"333
-[; ;../servo.c: 333:                                 }
+"323
+[; ;../servo.c: 323:                                 }
 }
 [e :U 1590 ]
+"324
+[; ;../servo.c: 324:                             }
+}
+[e :U 1589 ]
+"326
+[; ;../servo.c: 326:                             if (currentPos[io] > targetPos[io]) {
+[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 1591  ]
+{
+"327
+[; ;../servo.c: 327:                                 currentPos[io] = targetPos[io];
+[e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux ]
+"328
+[; ;../servo.c: 328:                             }
+}
+[e :U 1591 ]
+"329
+[; ;../servo.c: 329:                             if ((currentPos[io] >= midway) && beforeMidway) {
+[e $ ! && >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i != -> _beforeMidway `ui -> -> 0 `i `ui 1592  ]
+{
+"333
+[; ;../servo.c: 333:                                 sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
 "334
 [; ;../servo.c: 334:                             }
 }
-[e :U 1589 ]
-"336
-[; ;../servo.c: 336:                             if (currentPos[io] > targetPos[io]) {
-[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 1591  ]
-{
-"337
-[; ;../servo.c: 337:                                 currentPos[io] = targetPos[io];
-[e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux ]
-"338
-[; ;../servo.c: 338:                             }
-}
-[e :U 1591 ]
-"339
-[; ;../servo.c: 339:                             if ((currentPos[io] >= midway) && beforeMidway) {
-[e $ ! && >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i != -> _beforeMidway `ui -> -> 0 `i `ui 1592  ]
-{
-"343
-[; ;../servo.c: 343:                                 sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
-"344
-[; ;../servo.c: 344:                             }
-}
 [e :U 1592 ]
-"345
-[; ;../servo.c: 345:                         } else if (targetPos[io] < currentPos[io]) {
+"335
+[; ;../servo.c: 335:                         } else if (targetPos[io] < currentPos[io]) {
 }
 [e $U 1593  ]
 [e :U 1584 ]
 [e $ ! < -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1594  ]
 {
-"346
-[; ;../servo.c: 346:                             if (currentPos[io] > midway) {
+"336
+[; ;../servo.c: 336:                             if (currentPos[io] > midway) {
 [e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 1595  ]
 {
-"347
-[; ;../servo.c: 347:                                 beforeMidway = TRUE;
+"337
+[; ;../servo.c: 337:                                 beforeMidway = TRUE;
 [e = _beforeMidway . `E12700 1 ]
-"348
-[; ;../servo.c: 348:                             }
+"338
+[; ;../servo.c: 338:                             }
 }
 [e :U 1595 ]
-"350
-[; ;../servo.c: 350:                             if (stepsPerPollSpeed[io]) {
+"340
+[; ;../servo.c: 340:                             if (stepsPerPollSpeed[io]) {
 [e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 1596  ]
 {
-"351
-[; ;../servo.c: 351:                                 if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
+"341
+[; ;../servo.c: 341:                                 if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
 [e $ ! > - -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1597  ]
 {
-"353
-[; ;../servo.c: 353:                                     currentPos[io] = 0;
+"343
+[; ;../servo.c: 343:                                     currentPos[io] = 0;
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> 0 `i `uc ]
-"354
-[; ;../servo.c: 354:                                 } else {
+"344
+[; ;../servo.c: 344:                                 } else {
 }
 [e $U 1598  ]
 [e :U 1597 ]
 {
-"355
-[; ;../servo.c: 355:                                     currentPos[io] -= stepsPerPollSpeed[io];
+"345
+[; ;../servo.c: 345:                                     currentPos[io] -= stepsPerPollSpeed[io];
 [e =- *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `uc ]
-"356
-[; ;../servo.c: 356:                                 }
+"346
+[; ;../servo.c: 346:                                 }
 }
 [e :U 1598 ]
-"357
-[; ;../servo.c: 357:                             } else {
+"347
+[; ;../servo.c: 347:                             } else {
 }
 [e $U 1599  ]
 [e :U 1596 ]
 {
-"358
-[; ;../servo.c: 358:                                 pollCount[io]--;
+"348
+[; ;../servo.c: 348:                                 pollCount[io]--;
 [e -- *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
-"359
-[; ;../servo.c: 359:                                 if (pollCount[io] == 0) {
+"349
+[; ;../servo.c: 349:                                 if (pollCount[io] == 0) {
 [e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 1600  ]
 {
-"360
-[; ;../servo.c: 360:                                     currentPos[io]--;
+"350
+[; ;../servo.c: 350:                                     currentPos[io]--;
 [e -- *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> 1 `i `uc ]
-"361
-[; ;../servo.c: 361:                                     pollCount[io] = pollsPerStepSpeed[io];
+"351
+[; ;../servo.c: 351:                                     pollCount[io] = pollsPerStepSpeed[io];
 [e = *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux *U + &U _pollsPerStepSpeed * -> _io `ux -> -> # *U &U _pollsPerStepSpeed `ui `ux ]
-"362
-[; ;../servo.c: 362:                                 }
+"352
+[; ;../servo.c: 352:                                 }
 }
 [e :U 1600 ]
-"363
-[; ;../servo.c: 363:                             }
+"353
+[; ;../servo.c: 353:                             }
 }
 [e :U 1599 ]
-"365
-[; ;../servo.c: 365:                             if (currentPos[io] < targetPos[io]) {
+"355
+[; ;../servo.c: 355:                             if (currentPos[io] < targetPos[io]) {
 [e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 1601  ]
 {
-"366
-[; ;../servo.c: 366:                                 currentPos[io] = targetPos[io];
+"356
+[; ;../servo.c: 356:                                 currentPos[io] = targetPos[io];
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux ]
-"367
-[; ;../servo.c: 367:                             }
+"357
+[; ;../servo.c: 357:                             }
 }
 [e :U 1601 ]
-"368
-[; ;../servo.c: 368:                             if ((currentPos[io] <= midway) && beforeMidway) {
+"358
+[; ;../servo.c: 358:                             if ((currentPos[io] <= midway) && beforeMidway) {
 [e $ ! && <= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i != -> _beforeMidway `ui -> -> 0 `i `ui 1602  ]
 {
-"370
-[; ;../servo.c: 370:                                 sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
+"360
+[; ;../servo.c: 360:                                 sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12720 ]
-"371
-[; ;../servo.c: 371:                             }
+"361
+[; ;../servo.c: 361:                             }
 }
 [e :U 1602 ]
-"372
-[; ;../servo.c: 372:                         }
+"362
+[; ;../servo.c: 362:                         }
 }
 [e :U 1594 ]
 [e :U 1593 ]
-"373
-[; ;../servo.c: 373:                         if (targetPos[io] == currentPos[io]) {
+"363
+[; ;../servo.c: 363:                         if (targetPos[io] == currentPos[io]) {
 [e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1603  ]
 {
-"374
-[; ;../servo.c: 374:                             servoState[io] = SS_STOPPED;
+"364
+[; ;../servo.c: 364:                             servoState[io] = SS_STOPPED;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 1 ]
-"375
-[; ;../servo.c: 375:                             ticksWhenStopped[io].val = tickGet();
+"365
+[; ;../servo.c: 365:                             ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
-"377
-[; ;../servo.c: 377:                             if (currentPos[io] == getNV((16 + 7*(io) + 2))) {
+"367
+[; ;../servo.c: 367:                             if (currentPos[io] == getNV((16 + 7*(io) + 2))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i 1604  ]
 {
-"378
-[; ;../servo.c: 378:                                 sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+"368
+[; ;../servo.c: 368:                                 sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
-"379
-[; ;../servo.c: 379:                             } else {
+"369
+[; ;../servo.c: 369:                             } else {
 }
 [e $U 1605  ]
 [e :U 1604 ]
 {
-"380
-[; ;../servo.c: 380:                                 sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
+"370
+[; ;../servo.c: 370:                                 sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
-"381
-[; ;../servo.c: 381:                             }
+"371
+[; ;../servo.c: 371:                             }
 }
 [e :U 1605 ]
-"382
-[; ;../servo.c: 382:                             writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+"372
+[; ;../servo.c: 372:                             writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
 [e ( _writeNVM (3 , , . `E12672 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux ]
-"383
-[; ;../servo.c: 383:                         }
+"373
+[; ;../servo.c: 373:                         }
 }
 [e :U 1603 ]
-"384
-[; ;../servo.c: 384:                         break;
+"374
+[; ;../servo.c: 374:                         break;
 [e $U 1578  ]
-"385
-[; ;../servo.c: 385:                     case SS_STOPPED:
+"375
+[; ;../servo.c: 375:                     case SS_STOPPED:
 [e :U 1606 ]
-"386
-[; ;../servo.c: 386:                     case SS_OFF:
+"376
+[; ;../servo.c: 376:                     case SS_OFF:
 [e :U 1607 ]
-"387
-[; ;../servo.c: 387:                         break;
+"377
+[; ;../servo.c: 377:                         break;
 [e $U 1578  ]
-"388
-[; ;../servo.c: 388:                 }
+"378
+[; ;../servo.c: 378:                 }
 }
 [e $U 1578  ]
 [e :U 1579 ]
@@ -2136,137 +2148,137 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E13100 0 `ui 1607
  1578 ]
 [e :U 1578 ]
-"389
-[; ;../servo.c: 389:                 break;
+"379
+[; ;../servo.c: 379:                 break;
 [e $U 1575  ]
-"390
-[; ;../servo.c: 390:             case 3:
+"380
+[; ;../servo.c: 380:             case 3:
 [e :U 1608 ]
-"391
-[; ;../servo.c: 391:                 switch (servoState[io]) {
+"381
+[; ;../servo.c: 381:                 switch (servoState[io]) {
 [e $U 1610  ]
 {
-"392
-[; ;../servo.c: 392:                     case SS_STARTING:
+"382
+[; ;../servo.c: 382:                     case SS_STARTING:
 [e :U 1611 ]
-"393
-[; ;../servo.c: 393:                         initBounce(io);
+"383
+[; ;../servo.c: 383:                         initBounce(io);
 [e ( _initBounce (1 _io ]
-"394
-[; ;../servo.c: 394:                         servoState[io] = SS_MOVING;
+"384
+[; ;../servo.c: 384:                         servoState[io] = SS_MOVING;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 2 ]
-"395
-[; ;../servo.c: 395:                         loopCount[io] = 0;
+"385
+[; ;../servo.c: 385:                         loopCount[io] = 0;
 [e = *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux -> -> 0 `i `uc ]
-"398
-[; ;../servo.c: 398:                     case SS_MOVING:
+"388
+[; ;../servo.c: 388:                     case SS_MOVING:
 [e :U 1612 ]
-"399
-[; ;../servo.c: 399:                         loopCount[io]++;
+"389
+[; ;../servo.c: 389:                         loopCount[io]++;
 [e ++ *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux -> -> 1 `i `uc ]
-"400
-[; ;../servo.c: 400:                         if (loopCount[io] >= 255) {
+"390
+[; ;../servo.c: 390:                         if (loopCount[io] >= 255) {
 [e $ ! >= -> *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux `i -> 255 `i 1613  ]
 {
-"401
-[; ;../servo.c: 401:                             servoState[io] = SS_STOPPED;
+"391
+[; ;../servo.c: 391:                             servoState[io] = SS_STOPPED;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 1 ]
-"402
-[; ;../servo.c: 402:                             ticksWhenStopped[io].val = tickGet();
+"392
+[; ;../servo.c: 392:                             ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
-"403
-[; ;../servo.c: 403:                             currentPos[io] = targetPos[io];
+"393
+[; ;../servo.c: 393:                             currentPos[io] = targetPos[io];
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux ]
-"404
-[; ;../servo.c: 404:                             sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+"394
+[; ;../servo.c: 394:                             sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
-"405
-[; ;../servo.c: 405:                             writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+"395
+[; ;../servo.c: 395:                             writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
 [e ( _writeNVM (3 , , . `E12672 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux ]
-"406
-[; ;../servo.c: 406:                             break;
+"396
+[; ;../servo.c: 396:                             break;
 [e $U 1609  ]
-"407
-[; ;../servo.c: 407:                         }
+"397
+[; ;../servo.c: 397:                         }
 }
 [e :U 1613 ]
-"409
-[; ;../servo.c: 409:                         target = (uint8_t)getNV((16 + 7*(io) + 2));
+"399
+[; ;../servo.c: 399:                         target = (uint8_t)getNV((16 + 7*(io) + 2));
 [e = _target -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc ]
-"413
-[; ;../servo.c: 413:                         if (targetPos[io] == target) {
+"403
+[; ;../servo.c: 403:                         if (targetPos[io] == target) {
 [e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> _target `i 1614  ]
 {
-"414
-[; ;../servo.c: 414:                             if (bounceUp(io)) {
+"404
+[; ;../servo.c: 404:                             if (bounceUp(io)) {
 [e $ ! != -> ( _bounceUp (1 _io `ui -> -> 0 `i `ui 1615  ]
 {
-"415
-[; ;../servo.c: 415:                                 servoState[io] = SS_STOPPED;
+"405
+[; ;../servo.c: 405:                                 servoState[io] = SS_STOPPED;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 1 ]
-"416
-[; ;../servo.c: 416:                                 ticksWhenStopped[io].val = tickGet();
+"406
+[; ;../servo.c: 406:                                 ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
-"417
-[; ;../servo.c: 417:                                 currentPos[io] = targetPos[io];
+"407
+[; ;../servo.c: 407:                                 currentPos[io] = targetPos[io];
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux ]
-"418
-[; ;../servo.c: 418:                                 sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+"408
+[; ;../servo.c: 408:                                 sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
-"419
-[; ;../servo.c: 419:                                 writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+"409
+[; ;../servo.c: 409:                                 writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
 [e ( _writeNVM (3 , , . `E12672 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux ]
-"420
-[; ;../servo.c: 420:                             }
+"410
+[; ;../servo.c: 410:                             }
 }
 [e :U 1615 ]
-"421
-[; ;../servo.c: 421:                         } else {
+"411
+[; ;../servo.c: 411:                         } else {
 }
 [e $U 1616  ]
 [e :U 1614 ]
 {
-"422
-[; ;../servo.c: 422:                             if (bounceDown(io)) {
+"412
+[; ;../servo.c: 412:                             if (bounceDown(io)) {
 [e $ ! != -> ( _bounceDown (1 _io `ui -> -> 0 `i `ui 1617  ]
 {
-"423
-[; ;../servo.c: 423:                                 servoState[io] = SS_STOPPED;
+"413
+[; ;../servo.c: 413:                                 servoState[io] = SS_STOPPED;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 1 ]
-"424
-[; ;../servo.c: 424:                                 ticksWhenStopped[io].val = tickGet();
+"414
+[; ;../servo.c: 414:                                 ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
-"425
-[; ;../servo.c: 425:                                 currentPos[io] = targetPos[io];
+"415
+[; ;../servo.c: 415:                                 currentPos[io] = targetPos[io];
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux ]
-"426
-[; ;../servo.c: 426:                                 sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+"416
+[; ;../servo.c: 416:                                 sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12720 ]
-"427
-[; ;../servo.c: 427:                                 writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+"417
+[; ;../servo.c: 417:                                 writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
 [e ( _writeNVM (3 , , . `E12672 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux ]
-"428
-[; ;../servo.c: 428:                             }
+"418
+[; ;../servo.c: 418:                             }
 }
 [e :U 1617 ]
-"429
-[; ;../servo.c: 429:                         }
+"419
+[; ;../servo.c: 419:                         }
 }
 [e :U 1616 ]
-"430
-[; ;../servo.c: 430:                         break;
+"420
+[; ;../servo.c: 420:                         break;
 [e $U 1609  ]
-"431
-[; ;../servo.c: 431:                     case SS_STOPPED:
+"421
+[; ;../servo.c: 421:                     case SS_STOPPED:
 [e :U 1618 ]
-"432
-[; ;../servo.c: 432:                     case SS_OFF:
+"422
+[; ;../servo.c: 422:                     case SS_OFF:
 [e :U 1619 ]
-"433
-[; ;../servo.c: 433:                         break;
+"423
+[; ;../servo.c: 423:                         break;
 [e $U 1609  ]
-"434
-[; ;../servo.c: 434:                 }
+"424
+[; ;../servo.c: 424:                 }
 }
 [e $U 1609  ]
 [e :U 1610 ]
@@ -2276,284 +2288,284 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E13100 0 `ui 1619
  1609 ]
 [e :U 1609 ]
-"435
-[; ;../servo.c: 435:                 break;
+"425
+[; ;../servo.c: 425:                 break;
 [e $U 1575  ]
-"436
-[; ;../servo.c: 436:             case 4:
+"426
+[; ;../servo.c: 426:             case 4:
 [e :U 1620 ]
-"437
-[; ;../servo.c: 437:                 switch (servoState[io]) {
+"427
+[; ;../servo.c: 427:                 switch (servoState[io]) {
 [e $U 1622  ]
 {
-"438
-[; ;../servo.c: 438:                     case SS_STARTING:
+"428
+[; ;../servo.c: 428:                     case SS_STARTING:
 [e :U 1623 ]
-"439
-[; ;../servo.c: 439:                         if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
+"429
+[; ;../servo.c: 429:                         if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i 1624  ]
 {
-"440
-[; ;../servo.c: 440:                             sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+"430
+[; ;../servo.c: 430:                             sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12720 ]
-"441
-[; ;../servo.c: 441:                         }
+"431
+[; ;../servo.c: 431:                         }
 }
 [e :U 1624 ]
-"442
-[; ;../servo.c: 442:                         if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
+"432
+[; ;../servo.c: 432:                         if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i 1625  ]
 {
-"443
-[; ;../servo.c: 443:                             sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
+"433
+[; ;../servo.c: 433:                             sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12720 ]
-"444
-[; ;../servo.c: 444:                         }
+"434
+[; ;../servo.c: 434:                         }
 }
 [e :U 1625 ]
-"445
-[; ;../servo.c: 445:                         if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
+"435
+[; ;../servo.c: 435:                         if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i 1626  ]
 {
-"446
-[; ;../servo.c: 446:                             sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
+"436
+[; ;../servo.c: 436:                             sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12720 ]
-"447
-[; ;../servo.c: 447:                         }
+"437
+[; ;../servo.c: 437:                         }
 }
 [e :U 1626 ]
-"448
-[; ;../servo.c: 448:                         if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
+"438
+[; ;../servo.c: 438:                         if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i 1627  ]
 {
-"449
-[; ;../servo.c: 449:                             sendProducedEvent(((8 + 4*(io))+3), getNV((16 + 7*(io) + 1)) & 0x40);
+"439
+[; ;../servo.c: 439:                             sendProducedEvent(((8 + 4*(io))+3), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 3 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12720 ]
-"450
-[; ;../servo.c: 450:                         }
+"440
+[; ;../servo.c: 440:                         }
 }
 [e :U 1627 ]
-"451
-[; ;../servo.c: 451:                         servoState[io] = SS_MOVING;
+"441
+[; ;../servo.c: 441:                         servoState[io] = SS_MOVING;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 2 ]
-"453
-[; ;../servo.c: 453:                     case SS_MOVING:
+"443
+[; ;../servo.c: 443:                     case SS_MOVING:
 [e :U 1628 ]
-"454
-[; ;../servo.c: 454:                         if (targetPos[io] > currentPos[io]) {
+"444
+[; ;../servo.c: 444:                         if (targetPos[io] > currentPos[io]) {
 [e $ ! > -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1629  ]
 {
-"455
-[; ;../servo.c: 455:                             if (stepsPerPollSpeed[io]) {
+"445
+[; ;../servo.c: 445:                             if (stepsPerPollSpeed[io]) {
 [e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 1630  ]
 {
-"456
-[; ;../servo.c: 456:                                 if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
+"446
+[; ;../servo.c: 446:                                 if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
 [e $ ! < + -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1631  ]
 {
-"458
-[; ;../servo.c: 458:                                     currentPos[io] =255;
+"448
+[; ;../servo.c: 448:                                     currentPos[io] =255;
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> 255 `i `uc ]
-"459
-[; ;../servo.c: 459:                                 } else {
+"449
+[; ;../servo.c: 449:                                 } else {
 }
 [e $U 1632  ]
 [e :U 1631 ]
 {
-"460
-[; ;../servo.c: 460:                                     currentPos[io] += stepsPerPollSpeed[io];
+"450
+[; ;../servo.c: 450:                                     currentPos[io] += stepsPerPollSpeed[io];
 [e =+ *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `uc ]
-"461
-[; ;../servo.c: 461:                                 }
+"451
+[; ;../servo.c: 451:                                 }
 }
 [e :U 1632 ]
-"462
-[; ;../servo.c: 462:                             } else {
+"452
+[; ;../servo.c: 452:                             } else {
 }
 [e $U 1633  ]
 [e :U 1630 ]
 {
-"463
-[; ;../servo.c: 463:                                 pollCount[io]--;
+"453
+[; ;../servo.c: 453:                                 pollCount[io]--;
 [e -- *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
-"464
-[; ;../servo.c: 464:                                 if (pollCount[io] == 0) {
+"454
+[; ;../servo.c: 454:                                 if (pollCount[io] == 0) {
 [e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 1634  ]
 {
-"465
-[; ;../servo.c: 465:                                     currentPos[io]++;
+"455
+[; ;../servo.c: 455:                                     currentPos[io]++;
 [e ++ *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> 1 `i `uc ]
-"466
-[; ;../servo.c: 466:                                     pollCount[io] = pollsPerStepSpeed[io];
+"456
+[; ;../servo.c: 456:                                     pollCount[io] = pollsPerStepSpeed[io];
 [e = *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux *U + &U _pollsPerStepSpeed * -> _io `ux -> -> # *U &U _pollsPerStepSpeed `ui `ux ]
-"467
-[; ;../servo.c: 467:                                 }
+"457
+[; ;../servo.c: 457:                                 }
 }
 [e :U 1634 ]
-"468
-[; ;../servo.c: 468:                             }
+"458
+[; ;../servo.c: 458:                             }
 }
 [e :U 1633 ]
-"469
-[; ;../servo.c: 469:                             if (currentPos[io] > targetPos[io]) {
+"459
+[; ;../servo.c: 459:                             if (currentPos[io] > targetPos[io]) {
 [e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 1635  ]
 {
-"470
-[; ;../servo.c: 470:                                 currentPos[io] = targetPos[io];
+"460
+[; ;../servo.c: 460:                                 currentPos[io] = targetPos[io];
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux ]
-"471
-[; ;../servo.c: 471:                             }
+"461
+[; ;../servo.c: 461:                             }
 }
 [e :U 1635 ]
-"472
-[; ;../servo.c: 472:                         } else if (targetPos[io] < currentPos[io]) {
+"462
+[; ;../servo.c: 462:                         } else if (targetPos[io] < currentPos[io]) {
 }
 [e $U 1636  ]
 [e :U 1629 ]
 [e $ ! < -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1637  ]
 {
-"474
-[; ;../servo.c: 474:                             if (stepsPerPollSpeed[io]) {
+"464
+[; ;../servo.c: 464:                             if (stepsPerPollSpeed[io]) {
 [e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 1638  ]
 {
-"475
-[; ;../servo.c: 475:                                 if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
+"465
+[; ;../servo.c: 465:                                 if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
 [e $ ! > - -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1639  ]
 {
-"477
-[; ;../servo.c: 477:                                     currentPos[io] = 0;
+"467
+[; ;../servo.c: 467:                                     currentPos[io] = 0;
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> 0 `i `uc ]
-"478
-[; ;../servo.c: 478:                                 } else {
+"468
+[; ;../servo.c: 468:                                 } else {
 }
 [e $U 1640  ]
 [e :U 1639 ]
 {
-"479
-[; ;../servo.c: 479:                                     currentPos[io] -= stepsPerPollSpeed[io];
+"469
+[; ;../servo.c: 469:                                     currentPos[io] -= stepsPerPollSpeed[io];
 [e =- *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `uc ]
-"480
-[; ;../servo.c: 480:                                 }
+"470
+[; ;../servo.c: 470:                                 }
 }
 [e :U 1640 ]
-"481
-[; ;../servo.c: 481:                             } else {
+"471
+[; ;../servo.c: 471:                             } else {
 }
 [e $U 1641  ]
 [e :U 1638 ]
 {
-"482
-[; ;../servo.c: 482:                                 pollCount[io]--;
+"472
+[; ;../servo.c: 472:                                 pollCount[io]--;
 [e -- *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
-"483
-[; ;../servo.c: 483:                                 if (pollCount[io] == 0) {
+"473
+[; ;../servo.c: 473:                                 if (pollCount[io] == 0) {
 [e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 1642  ]
 {
-"484
-[; ;../servo.c: 484:                                     currentPos[io]--;
+"474
+[; ;../servo.c: 474:                                     currentPos[io]--;
 [e -- *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> 1 `i `uc ]
-"485
-[; ;../servo.c: 485:                                     pollCount[io] = pollsPerStepSpeed[io];
+"475
+[; ;../servo.c: 475:                                     pollCount[io] = pollsPerStepSpeed[io];
 [e = *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux *U + &U _pollsPerStepSpeed * -> _io `ux -> -> # *U &U _pollsPerStepSpeed `ui `ux ]
-"486
-[; ;../servo.c: 486:                                 }
+"476
+[; ;../servo.c: 476:                                 }
 }
 [e :U 1642 ]
-"487
-[; ;../servo.c: 487:                             }
+"477
+[; ;../servo.c: 477:                             }
 }
 [e :U 1641 ]
-"488
-[; ;../servo.c: 488:                             if (currentPos[io] < targetPos[io]) {
+"478
+[; ;../servo.c: 478:                             if (currentPos[io] < targetPos[io]) {
 [e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 1643  ]
 {
-"489
-[; ;../servo.c: 489:                                 currentPos[io] = targetPos[io];
+"479
+[; ;../servo.c: 479:                                 currentPos[io] = targetPos[io];
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux ]
-"490
-[; ;../servo.c: 490:                             }
+"480
+[; ;../servo.c: 480:                             }
 }
 [e :U 1643 ]
-"491
-[; ;../servo.c: 491:                         }
+"481
+[; ;../servo.c: 481:                         }
 }
 [e :U 1637 ]
 [e :U 1636 ]
-"492
-[; ;../servo.c: 492:                         if (targetPos[io] == currentPos[io]) {
+"482
+[; ;../servo.c: 482:                         if (targetPos[io] == currentPos[io]) {
 [e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 1644  ]
 {
-"493
-[; ;../servo.c: 493:                             servoState[io] = SS_STOPPED;
+"483
+[; ;../servo.c: 483:                             servoState[io] = SS_STOPPED;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 1 ]
-"494
-[; ;../servo.c: 494:                             ticksWhenStopped[io].val = tickGet();
+"484
+[; ;../servo.c: 484:                             ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
-"496
-[; ;../servo.c: 496:                             if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
+"486
+[; ;../servo.c: 486:                             if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i 1645  ]
 {
-"497
-[; ;../servo.c: 497:                                 sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
+"487
+[; ;../servo.c: 487:                                 sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
-"498
-[; ;../servo.c: 498:                             }
+"488
+[; ;../servo.c: 488:                             }
 }
 [e :U 1645 ]
-"499
-[; ;../servo.c: 499:                             if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
+"489
+[; ;../servo.c: 489:                             if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i 1646  ]
 {
-"500
-[; ;../servo.c: 500:                                 sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
+"490
+[; ;../servo.c: 490:                                 sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
-"501
-[; ;../servo.c: 501:                             }
+"491
+[; ;../servo.c: 491:                             }
 }
 [e :U 1646 ]
-"502
-[; ;../servo.c: 502:                             if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
+"492
+[; ;../servo.c: 492:                             if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i 1647  ]
 {
-"503
-[; ;../servo.c: 503:                                 sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
+"493
+[; ;../servo.c: 493:                                 sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
-"504
-[; ;../servo.c: 504:                             }
+"494
+[; ;../servo.c: 494:                             }
 }
 [e :U 1647 ]
-"505
-[; ;../servo.c: 505:                             if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
+"495
+[; ;../servo.c: 495:                             if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
 [e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i 1648  ]
 {
-"506
-[; ;../servo.c: 506:                                 sendProducedEvent(((8 + 4*(io))+3), !(getNV((16 + 7*(io) + 1)) & 0x40));
+"496
+[; ;../servo.c: 496:                                 sendProducedEvent(((8 + 4*(io))+3), !(getNV((16 + 7*(io) + 1)) & 0x40));
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 3 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E12720 ]
-"507
-[; ;../servo.c: 507:                             }
+"497
+[; ;../servo.c: 497:                             }
 }
 [e :U 1648 ]
-"508
-[; ;../servo.c: 508:                             writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
+"498
+[; ;../servo.c: 498:                             writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
 [e ( _writeNVM (3 , , . `E12672 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux ]
-"509
-[; ;../servo.c: 509:                         }
+"499
+[; ;../servo.c: 499:                         }
 }
 [e :U 1644 ]
-"510
-[; ;../servo.c: 510:                         break;
+"500
+[; ;../servo.c: 500:                         break;
 [e $U 1621  ]
-"511
-[; ;../servo.c: 511:                     case SS_STOPPED:
+"501
+[; ;../servo.c: 501:                     case SS_STOPPED:
 [e :U 1649 ]
-"512
-[; ;../servo.c: 512:                     case SS_OFF:
+"502
+[; ;../servo.c: 502:                     case SS_OFF:
 [e :U 1650 ]
-"513
-[; ;../servo.c: 513:                         break;
+"503
+[; ;../servo.c: 503:                         break;
 [e $U 1621  ]
-"514
-[; ;../servo.c: 514:                 }
+"504
+[; ;../servo.c: 504:                 }
 }
 [e $U 1621  ]
 [e :U 1622 ]
@@ -2563,11 +2575,11 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E13100 0 `ui 1650
  1621 ]
 [e :U 1621 ]
-"515
-[; ;../servo.c: 515:                 break;
+"505
+[; ;../servo.c: 505:                 break;
 [e $U 1575  ]
-"516
-[; ;../servo.c: 516:         }
+"506
+[; ;../servo.c: 506:         }
 }
 [e $U 1575  ]
 [e :U 1576 ]
@@ -2576,52 +2588,52 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 1620
  1575 ]
 [e :U 1575 ]
-"517
-[; ;../servo.c: 517:         switch (servoState[io]) {
+"507
+[; ;../servo.c: 507:         switch (servoState[io]) {
 [e $U 1652  ]
 {
-"518
-[; ;../servo.c: 518:             case SS_STARTING:
+"508
+[; ;../servo.c: 508:             case SS_STARTING:
 [e :U 1653 ]
-"519
-[; ;../servo.c: 519:             case SS_MOVING:
+"509
+[; ;../servo.c: 509:             case SS_MOVING:
 [e :U 1654 ]
-"520
-[; ;../servo.c: 520:                 break;
+"510
+[; ;../servo.c: 510:                 break;
 [e $U 1651  ]
-"521
-[; ;../servo.c: 521:             case SS_STOPPED:
+"511
+[; ;../servo.c: 511:             case SS_STOPPED:
 [e :U 1655 ]
-"524
-[; ;../servo.c: 524:                 if (getNV((16 + 7*(io) + 1)) & 0x02) {
+"514
+[; ;../servo.c: 514:                 if (getNV((16 + 7*(io) + 1)) & 0x02) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 2 `i -> 0 `i 1656  ]
 {
-"525
-[; ;../servo.c: 525:                     if ((tickGet() - ticksWhenStopped[io].val) > 62500) {
+"515
+[; ;../servo.c: 515:                     if ((tickGet() - ticksWhenStopped[io].val) > 62500) {
 [e $ ! > - ( _tickGet ..  . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 -> -> 62500 `l `ul 1657  ]
 {
-"526
-[; ;../servo.c: 526:                         servoState[io] = SS_OFF;
+"516
+[; ;../servo.c: 516:                         servoState[io] = SS_OFF;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 0 ]
-"527
-[; ;../servo.c: 527:                     }
+"517
+[; ;../servo.c: 517:                     }
 }
 [e :U 1657 ]
-"528
-[; ;../servo.c: 528:                 }
+"518
+[; ;../servo.c: 518:                 }
 }
 [e :U 1656 ]
-"529
-[; ;../servo.c: 529:                 break;
+"519
+[; ;../servo.c: 519:                 break;
 [e $U 1651  ]
-"530
-[; ;../servo.c: 530:             case SS_OFF:
+"520
+[; ;../servo.c: 520:             case SS_OFF:
 [e :U 1658 ]
-"534
-[; ;../servo.c: 534:                 break;
+"524
+[; ;../servo.c: 524:                 break;
 [e $U 1651  ]
-"535
-[; ;../servo.c: 535:         }
+"525
+[; ;../servo.c: 525:         }
 }
 [e $U 1651  ]
 [e :U 1652 ]
@@ -2631,49 +2643,49 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E13100 0 `ui 1658
  1651 ]
 [e :U 1651 ]
-"536
-[; ;../servo.c: 536:     }
+"526
+[; ;../servo.c: 526:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
 [e $ < -> _io `i -> 16 `i 1572  ]
 [e :U 1573 ]
 }
-"537
-[; ;../servo.c: 537: }
+"527
+[; ;../servo.c: 527: }
 [e :UE 1571 ]
 }
-"548
-[; ;../servo.c: 548: void startServoOutput(uint8_t io, uint8_t action) {
+"538
+[; ;../servo.c: 538: void startServoOutput(uint8_t io, uint8_t action) {
 [v _startServoOutput `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _startServoOutput ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _action `uc ~T0 @X0 1 r2 ]
 [f ]
-"549
-[; ;../servo.c: 549:     switch (action) {
+"539
+[; ;../servo.c: 539:     switch (action) {
 [e $U 1661  ]
 {
-"550
-[; ;../servo.c: 550:         case 2:
+"540
+[; ;../servo.c: 540:         case 2:
 [e :U 1662 ]
-"551
-[; ;../servo.c: 551:             stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 5));
+"541
+[; ;../servo.c: 541:             stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 5));
 [e = *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `uc ]
-"552
-[; ;../servo.c: 552:             break;
+"542
+[; ;../servo.c: 542:             break;
 [e $U 1660  ]
-"553
-[; ;../servo.c: 553:         case 1:
+"543
+[; ;../servo.c: 543:         case 1:
 [e :U 1663 ]
-"554
-[; ;../servo.c: 554:             stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 4));
+"544
+[; ;../servo.c: 544:             stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 4));
 [e = *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `uc ]
-"555
-[; ;../servo.c: 555:             break;
+"545
+[; ;../servo.c: 545:             break;
 [e $U 1660  ]
-"556
-[; ;../servo.c: 556:     }
+"546
+[; ;../servo.c: 546:     }
 }
 [e $U 1660  ]
 [e :U 1661 ]
@@ -2681,74 +2693,74 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 1663
  1660 ]
 [e :U 1660 ]
-"557
-[; ;../servo.c: 557:     if (stepsPerPollSpeed[io] > 234) {
+"547
+[; ;../servo.c: 547:     if (stepsPerPollSpeed[io] > 234) {
 [e $ ! > -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 234 `i 1664  ]
 {
-"558
-[; ;../servo.c: 558:         stepsPerPollSpeed[io] -= 234;
+"548
+[; ;../servo.c: 548:         stepsPerPollSpeed[io] -= 234;
 [e =- *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> -> 234 `i `uc ]
-"559
-[; ;../servo.c: 559:         pollsPerStepSpeed[io] = 0;
+"549
+[; ;../servo.c: 549:         pollsPerStepSpeed[io] = 0;
 [e = *U + &U _pollsPerStepSpeed * -> _io `ux -> -> # *U &U _pollsPerStepSpeed `ui `ux -> -> 0 `i `uc ]
-"560
-[; ;../servo.c: 560:     } else {
+"550
+[; ;../servo.c: 550:     } else {
 }
 [e $U 1665  ]
 [e :U 1664 ]
 {
-"561
-[; ;../servo.c: 561:         pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
+"551
+[; ;../servo.c: 551:         pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
 [e = *U + &U _pollsPerStepSpeed * -> _io `ux -> -> # *U &U _pollsPerStepSpeed `ui `ux -> + - -> 234 `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 1 `i `uc ]
-"562
-[; ;../servo.c: 562:         pollCount[io] = 1;
+"552
+[; ;../servo.c: 552:         pollCount[io] = 1;
 [e = *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
-"563
-[; ;../servo.c: 563:         stepsPerPollSpeed[io] = 0;
+"553
+[; ;../servo.c: 553:         stepsPerPollSpeed[io] = 0;
 [e = *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> -> 0 `i `uc ]
-"564
-[; ;../servo.c: 564:     }
+"554
+[; ;../servo.c: 554:     }
 }
 [e :U 1665 ]
-"565
-[; ;../servo.c: 565:     servoState[io] = SS_STARTING;
+"555
+[; ;../servo.c: 555:     servoState[io] = SS_STARTING;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 3 ]
-"566
-[; ;../servo.c: 566: }
+"556
+[; ;../servo.c: 556: }
 [e :UE 1659 ]
 }
-"576
-[; ;../servo.c: 576: void startBounceOutput(uint8_t io, uint8_t action) {
+"566
+[; ;../servo.c: 566: void startBounceOutput(uint8_t io, uint8_t action) {
 [v _startBounceOutput `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _startBounceOutput ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _action `uc ~T0 @X0 1 r2 ]
 [f ]
-"577
-[; ;../servo.c: 577:     switch (action) {
+"567
+[; ;../servo.c: 567:     switch (action) {
 [e $U 1668  ]
 {
-"578
-[; ;../servo.c: 578:         case 2:
+"568
+[; ;../servo.c: 568:         case 2:
 [e :U 1669 ]
-"579
-[; ;../servo.c: 579:             speed[io] = 0;
+"569
+[; ;../servo.c: 569:             speed[io] = 0;
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 0 `i ]
-"580
-[; ;../servo.c: 580:             break;
+"570
+[; ;../servo.c: 570:             break;
 [e $U 1667  ]
-"581
-[; ;../servo.c: 581:         case 1:
+"571
+[; ;../servo.c: 571:         case 1:
 [e :U 1670 ]
-"582
-[; ;../servo.c: 582:             speed[io] = 12;
+"572
+[; ;../servo.c: 572:             speed[io] = 12;
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 12 `i ]
-"583
-[; ;../servo.c: 583:             break;
+"573
+[; ;../servo.c: 573:             break;
 [e $U 1667  ]
-"584
-[; ;../servo.c: 584:     }
+"574
+[; ;../servo.c: 574:     }
 }
 [e $U 1667  ]
 [e :U 1668 ]
@@ -2756,129 +2768,129 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 1670
  1667 ]
 [e :U 1667 ]
-"585
-[; ;../servo.c: 585:     servoState[io] = SS_STARTING;
+"575
+[; ;../servo.c: 575:     servoState[io] = SS_STARTING;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 3 ]
-"586
-[; ;../servo.c: 586:     loopCount[io] = 0;
+"576
+[; ;../servo.c: 576:     loopCount[io] = 0;
 [e = *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux -> -> 0 `i `uc ]
-"587
-[; ;../servo.c: 587: }
+"577
+[; ;../servo.c: 577: }
 [e :UE 1666 ]
 }
-"594
-[; ;../servo.c: 594: void startMultiOutput(uint8_t io, uint8_t action) {
+"584
+[; ;../servo.c: 584: void startMultiOutput(uint8_t io, uint8_t action) {
 [v _startMultiOutput `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _startMultiOutput ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _action `uc ~T0 @X0 1 r2 ]
 [f ]
-"596
-[; ;../servo.c: 596:     stepsPerPollSpeed[io] = (uint8_t)getNV(3);
+"586
+[; ;../servo.c: 586:     stepsPerPollSpeed[io] = (uint8_t)getNV(3);
 [e = *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> ( _getNV (1 -> -> 3 `i `uc `uc ]
-"597
-[; ;../servo.c: 597:     if (stepsPerPollSpeed[io] > 234) {
+"587
+[; ;../servo.c: 587:     if (stepsPerPollSpeed[io] > 234) {
 [e $ ! > -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 234 `i 1672  ]
 {
-"598
-[; ;../servo.c: 598:         stepsPerPollSpeed[io] -= 234;
+"588
+[; ;../servo.c: 588:         stepsPerPollSpeed[io] -= 234;
 [e =- *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> -> 234 `i `uc ]
-"599
-[; ;../servo.c: 599:         pollsPerStepSpeed[io] = 0;
+"589
+[; ;../servo.c: 589:         pollsPerStepSpeed[io] = 0;
 [e = *U + &U _pollsPerStepSpeed * -> _io `ux -> -> # *U &U _pollsPerStepSpeed `ui `ux -> -> 0 `i `uc ]
-"600
-[; ;../servo.c: 600:     } else {
+"590
+[; ;../servo.c: 590:     } else {
 }
 [e $U 1673  ]
 [e :U 1672 ]
 {
-"601
-[; ;../servo.c: 601:         pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
+"591
+[; ;../servo.c: 591:         pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
 [e = *U + &U _pollsPerStepSpeed * -> _io `ux -> -> # *U &U _pollsPerStepSpeed `ui `ux -> + - -> 234 `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 1 `i `uc ]
-"602
-[; ;../servo.c: 602:         pollCount[io] = 1;
+"592
+[; ;../servo.c: 592:         pollCount[io] = 1;
 [e = *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
-"603
-[; ;../servo.c: 603:         stepsPerPollSpeed[io] = 0;
+"593
+[; ;../servo.c: 593:         stepsPerPollSpeed[io] = 0;
 [e = *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> -> 0 `i `uc ]
-"604
-[; ;../servo.c: 604:     }
+"594
+[; ;../servo.c: 594:     }
 }
 [e :U 1673 ]
-"605
-[; ;../servo.c: 605:     servoState[io] = SS_STARTING;
+"595
+[; ;../servo.c: 595:     servoState[io] = SS_STARTING;
 [e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E13100 3 ]
-"606
-[; ;../servo.c: 606: }
+"596
+[; ;../servo.c: 596: }
 [e :UE 1671 ]
 }
-"616
-[; ;../servo.c: 616: void setServoState(uint8_t io, uint8_t action) {
+"606
+[; ;../servo.c: 606: void setServoState(uint8_t io, uint8_t action) {
 [v _setServoState `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _setServoState ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _action `uc ~T0 @X0 1 r2 ]
 [f ]
-"617
-[; ;../servo.c: 617:     switch (action) {
+"607
+[; ;../servo.c: 607:     switch (action) {
 [e $U 1676  ]
 {
-"618
-[; ;../servo.c: 618:         case 2:
+"608
+[; ;../servo.c: 608:         case 2:
 [e :U 1677 ]
-"619
-[; ;../servo.c: 619:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
+"609
+[; ;../servo.c: 609:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1678  ]
 {
-"620
-[; ;../servo.c: 620:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+"610
+[; ;../servo.c: 610:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc ]
-"621
-[; ;../servo.c: 621:             } else {
+"611
+[; ;../servo.c: 611:             } else {
 }
 [e $U 1679  ]
 [e :U 1678 ]
 {
-"622
-[; ;../servo.c: 622:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+"612
+[; ;../servo.c: 612:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc ]
-"623
-[; ;../servo.c: 623:             }
+"613
+[; ;../servo.c: 613:             }
 }
 [e :U 1679 ]
-"624
-[; ;../servo.c: 624:             break;
+"614
+[; ;../servo.c: 614:             break;
 [e $U 1675  ]
-"625
-[; ;../servo.c: 625:         case 1:
+"615
+[; ;../servo.c: 615:         case 1:
 [e :U 1680 ]
-"626
-[; ;../servo.c: 626:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
+"616
+[; ;../servo.c: 616:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1681  ]
 {
-"627
-[; ;../servo.c: 627:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+"617
+[; ;../servo.c: 617:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc ]
-"628
-[; ;../servo.c: 628:             } else {
+"618
+[; ;../servo.c: 618:             } else {
 }
 [e $U 1682  ]
 [e :U 1681 ]
 {
-"629
-[; ;../servo.c: 629:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+"619
+[; ;../servo.c: 619:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc ]
-"630
-[; ;../servo.c: 630:             }
+"620
+[; ;../servo.c: 620:             }
 }
 [e :U 1682 ]
-"631
-[; ;../servo.c: 631:             break;
+"621
+[; ;../servo.c: 621:             break;
 [e $U 1675  ]
-"632
-[; ;../servo.c: 632:     }
+"622
+[; ;../servo.c: 622:     }
 }
 [e $U 1675  ]
 [e :U 1676 ]
@@ -2886,76 +2898,76 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 1680
  1675 ]
 [e :U 1675 ]
-"633
-[; ;../servo.c: 633: }
+"623
+[; ;../servo.c: 623: }
 [e :UE 1674 ]
 }
-"643
-[; ;../servo.c: 643: void setBounceState(uint8_t io, uint8_t action) {
+"633
+[; ;../servo.c: 633: void setBounceState(uint8_t io, uint8_t action) {
 [v _setBounceState `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _setBounceState ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _action `uc ~T0 @X0 1 r2 ]
 [f ]
-"644
-[; ;../servo.c: 644:     switch (action) {
+"634
+[; ;../servo.c: 634:     switch (action) {
 [e $U 1685  ]
 {
-"645
-[; ;../servo.c: 645:         case 2:
+"635
+[; ;../servo.c: 635:         case 2:
 [e :U 1686 ]
-"646
-[; ;../servo.c: 646:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
+"636
+[; ;../servo.c: 636:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1687  ]
 {
-"647
-[; ;../servo.c: 647:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+"637
+[; ;../servo.c: 637:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc ]
-"648
-[; ;../servo.c: 648:             } else {
+"638
+[; ;../servo.c: 638:             } else {
 }
 [e $U 1688  ]
 [e :U 1687 ]
 {
-"649
-[; ;../servo.c: 649:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+"639
+[; ;../servo.c: 639:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc ]
-"650
-[; ;../servo.c: 650:             }
+"640
+[; ;../servo.c: 640:             }
 }
 [e :U 1688 ]
-"651
-[; ;../servo.c: 651:             break;
+"641
+[; ;../servo.c: 641:             break;
 [e $U 1684  ]
-"652
-[; ;../servo.c: 652:         case 1:
+"642
+[; ;../servo.c: 642:         case 1:
 [e :U 1689 ]
-"653
-[; ;../servo.c: 653:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
+"643
+[; ;../servo.c: 643:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1690  ]
 {
-"654
-[; ;../servo.c: 654:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+"644
+[; ;../servo.c: 644:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc ]
-"655
-[; ;../servo.c: 655:             } else {
+"645
+[; ;../servo.c: 645:             } else {
 }
 [e $U 1691  ]
 [e :U 1690 ]
 {
-"656
-[; ;../servo.c: 656:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+"646
+[; ;../servo.c: 646:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc ]
-"657
-[; ;../servo.c: 657:             }
+"647
+[; ;../servo.c: 647:             }
 }
 [e :U 1691 ]
-"658
-[; ;../servo.c: 658:             break;
+"648
+[; ;../servo.c: 648:             break;
 [e $U 1684  ]
-"659
-[; ;../servo.c: 659:     }
+"649
+[; ;../servo.c: 649:     }
 }
 [e $U 1684  ]
 [e :U 1685 ]
@@ -2963,76 +2975,76 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 1689
  1684 ]
 [e :U 1684 ]
-"660
-[; ;../servo.c: 660: }
+"650
+[; ;../servo.c: 650: }
 [e :UE 1683 ]
 }
-"667
-[; ;../servo.c: 667: void setMultiState(uint8_t io, uint8_t action) {
+"657
+[; ;../servo.c: 657: void setMultiState(uint8_t io, uint8_t action) {
 [v _setMultiState `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _setMultiState ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _action `uc ~T0 @X0 1 r2 ]
 [f ]
-"668
-[; ;../servo.c: 668:     switch (action) {
+"658
+[; ;../servo.c: 658:     switch (action) {
 [e $U 1694  ]
 {
-"669
-[; ;../servo.c: 669:         case 0:
+"659
+[; ;../servo.c: 659:         case 0:
 [e :U 1695 ]
-"670
-[; ;../servo.c: 670:             targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
+"660
+[; ;../servo.c: 660:             targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc ]
-"671
-[; ;../servo.c: 671:             break;
+"661
+[; ;../servo.c: 661:             break;
 [e $U 1693  ]
-"672
-[; ;../servo.c: 672:         case 1:
+"662
+[; ;../servo.c: 662:         case 1:
 [e :U 1696 ]
-"673
-[; ;../servo.c: 673:             targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 4));
+"663
+[; ;../servo.c: 663:             targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 4));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `uc ]
+"664
+[; ;../servo.c: 664:             break;
+[e $U 1693  ]
+"665
+[; ;../servo.c: 665:         case 2:
+[e :U 1697 ]
+"666
+[; ;../servo.c: 666:             if (getNV((16 + 7*(io) + 2)) >= 3) {
+[e $ ! >= -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 3 `i 1698  ]
+{
+"667
+[; ;../servo.c: 667:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 5));
+[e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `uc ]
+"668
+[; ;../servo.c: 668:             }
+}
+[e :U 1698 ]
+"669
+[; ;../servo.c: 669:             break;
+[e $U 1693  ]
+"670
+[; ;../servo.c: 670:         case 3:
+[e :U 1699 ]
+"671
+[; ;../servo.c: 671:             if (getNV((16 + 7*(io) + 2)) >= 4) {
+[e $ ! >= -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 4 `i 1700  ]
+{
+"672
+[; ;../servo.c: 672:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 6));
+[e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `uc ]
+"673
+[; ;../servo.c: 673:             }
+}
+[e :U 1700 ]
 "674
 [; ;../servo.c: 674:             break;
 [e $U 1693  ]
 "675
-[; ;../servo.c: 675:         case 2:
-[e :U 1697 ]
-"676
-[; ;../servo.c: 676:             if (getNV((16 + 7*(io) + 2)) >= 3) {
-[e $ ! >= -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 3 `i 1698  ]
-{
-"677
-[; ;../servo.c: 677:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 5));
-[e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `uc ]
-"678
-[; ;../servo.c: 678:             }
-}
-[e :U 1698 ]
-"679
-[; ;../servo.c: 679:             break;
-[e $U 1693  ]
-"680
-[; ;../servo.c: 680:         case 3:
-[e :U 1699 ]
-"681
-[; ;../servo.c: 681:             if (getNV((16 + 7*(io) + 2)) >= 4) {
-[e $ ! >= -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 4 `i 1700  ]
-{
-"682
-[; ;../servo.c: 682:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 6));
-[e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `uc ]
-"683
-[; ;../servo.c: 683:             }
-}
-[e :U 1700 ]
-"684
-[; ;../servo.c: 684:             break;
-[e $U 1693  ]
-"685
-[; ;../servo.c: 685:     }
+[; ;../servo.c: 675:     }
 }
 [e $U 1693  ]
 [e :U 1694 ]
@@ -3042,51 +3054,51 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 1699
  1693 ]
 [e :U 1693 ]
-"686
-[; ;../servo.c: 686: }
+"676
+[; ;../servo.c: 676: }
 [e :UE 1692 ]
 }
-"693
-[; ;../servo.c: 693: void setServoPosition(uint8_t io, uint8_t pos) {
+"683
+[; ;../servo.c: 683: void setServoPosition(uint8_t io, uint8_t pos) {
 [v _setServoPosition `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _setServoPosition ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _pos `uc ~T0 @X0 1 r2 ]
 [f ]
-"694
-[; ;../servo.c: 694:     targetPos[io] = pos;
+"684
+[; ;../servo.c: 684:     targetPos[io] = pos;
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux _pos ]
-"695
-[; ;../servo.c: 695:     currentPos[io] = pos;
+"685
+[; ;../servo.c: 685:     currentPos[io] = pos;
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux _pos ]
-"696
-[; ;../servo.c: 696: }
+"686
+[; ;../servo.c: 686: }
 [e :UE 1701 ]
 }
-"704
-[; ;../servo.c: 704: Boolean isNoServoPulses(void){
+"694
+[; ;../servo.c: 694: Boolean isNoServoPulses(void){
 [v _isNoServoPulses `(E12700 ~T0 @X0 1 ef ]
 {
 [e :U _isNoServoPulses ]
 [f ]
-"706
-[; ;../servo.c: 706:     if (T1CONbits.TMR1ON) return FALSE;
+"696
+[; ;../servo.c: 696:     if (T1CONbits.TMR1ON) return FALSE;
 [e $ ! != -> . . _T1CONbits 1 0 `i -> 0 `i 1703  ]
 [e ) . `E12700 0 ]
 [e $UE 1702  ]
 [e :U 1703 ]
-"707
-[; ;../servo.c: 707:     if (T3CONbits.TMR3ON) return FALSE;
+"697
+[; ;../servo.c: 697:     if (T3CONbits.TMR3ON) return FALSE;
 [e $ ! != -> . . _T3CONbits 1 0 `i -> 0 `i 1704  ]
 [e ) . `E12700 0 ]
 [e $UE 1702  ]
 [e :U 1704 ]
-"708
-[; ;../servo.c: 708:     return TRUE;
+"699
+[; ;../servo.c: 699:     return TRUE;
 [e ) . `E12700 1 ]
 [e $UE 1702  ]
-"709
-[; ;../servo.c: 709: }
+"700
+[; ;../servo.c: 700: }
 [e :UE 1702 ]
 }

@@ -38648,14 +38648,22 @@ typedef enum NvValidation {
 } NvValidation;
 # 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
@@ -39124,13 +39132,8 @@ void setupTimer1(uint8_t io) {
     uint16_t ticks = 0xFFFF - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
                 (1400 + (uint16_t)36 * currentPos[io]) :
                 (3600 + (uint16_t)19 * currentPos[io]) );
-
-    TMR1 = - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
-                (1400 + 36 * currentPos[io]) :
-                (3600 + 19 * currentPos[io]) );
-
-
-
+    TMR1H = ticks >> 8;
+    TMR1L = ticks & 0xFF;
 
 
     setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
@@ -39140,19 +39143,14 @@ void setupTimer3(uint8_t io) {
     uint16_t ticks = 0xFFFF - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
                 (1400 + (uint16_t)36 * currentPos[io]) :
                 (3600 + (uint16_t)19 * currentPos[io]) );
-
-    TMR3 = - ((getNV((16 + 7*(io) + 1)) & 0x80) ?
-                (1400 + 36 * currentPos[io]) :
-                (3600 + 19 * currentPos[io]) );
-
-
-
+    TMR3H = ticks >> 8;
+    TMR3L = ticks & 0xFF;
 
 
     setOutputPin(io, !(getNV((16 + 7*(io) + 1)) & 0x20));
     T3CONbits.TMR3ON = 1;
 }
-# 259 "../servo.c"
+# 249 "../servo.c"
 void __attribute__((picinterrupt(("irq(TMR1), base(0x900)")))) TMR1_ISR(void)
 {
 
@@ -39177,7 +39175,7 @@ void __attribute__((picinterrupt(("irq(TMR3), base(0x900)")))) TMR3_ISR(void)
     }
     return;
 }
-# 294 "../servo.c"
+# 284 "../servo.c"
 void pollServos(void) {
     uint8_t midway;
     Boolean beforeMidway;
@@ -39422,7 +39420,7 @@ void pollServos(void) {
         }
     }
 }
-# 548 "../servo.c"
+# 538 "../servo.c"
 void startServoOutput(uint8_t io, uint8_t action) {
     switch (action) {
         case 2:
@@ -39442,7 +39440,7 @@ void startServoOutput(uint8_t io, uint8_t action) {
     }
     servoState[io] = SS_STARTING;
 }
-# 576 "../servo.c"
+# 566 "../servo.c"
 void startBounceOutput(uint8_t io, uint8_t action) {
     switch (action) {
         case 2:
@@ -39474,7 +39472,7 @@ void startMultiOutput(uint8_t io, uint8_t action) {
     }
     servoState[io] = SS_STARTING;
 }
-# 616 "../servo.c"
+# 606 "../servo.c"
 void setServoState(uint8_t io, uint8_t action) {
     switch (action) {
         case 2:
@@ -39493,7 +39491,7 @@ void setServoState(uint8_t io, uint8_t action) {
             break;
     }
 }
-# 643 "../servo.c"
+# 633 "../servo.c"
 void setBounceState(uint8_t io, uint8_t action) {
     switch (action) {
         case 2:
@@ -39559,5 +39557,6 @@ Boolean isNoServoPulses(void){
 
     if (T1CONbits.TMR1ON) return FALSE;
     if (T3CONbits.TMR3ON) return FALSE;
+
     return TRUE;
 }

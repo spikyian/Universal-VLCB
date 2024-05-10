@@ -368,6 +368,10 @@ void loop(void) {
 /**
  * Check to see if now is a good time to start a flash write.
  * It is a bad time if we are currently doing a servo pulse.
+ * 
+ * If a servo pulse timer is currently running then the NVM routine will keep 
+ * calling this until the timer expires.
+ * 
  * @return GOOD_TIME if OK else BAD_TIME
  */
 ValidTime APP_isSuitableTimeToWriteFlash(void){
@@ -511,6 +515,7 @@ void configIO(uint8_t i) {
 #endif
     }
 #ifdef ANALOGUE
+#if defined(_18F66K80_FAMILY_)
     if ((type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)) {
         // set analogue
         if (configs[i].an < 8) {
@@ -526,6 +531,52 @@ void configIO(uint8_t i) {
             ANCON1 &= ~(1 << (configs[i].an - 8));
         }
     }
+#endif
+#if defined(_18FXXQ83_FAMILY_)
+    if ((type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)) {
+        // set analogue
+        switch (configs[i].port) {
+            case 'A':
+                ANSELA |= (1 << configs[i].no);
+                break;
+            case 'B':
+                ANSELB |= (1 << configs[i].no);
+                break;
+            case 'C':
+                ANSELC |= (1 << configs[i].no);
+                break;
+#ifdef CANXIO
+            case 'D':
+                ANSELD |= (1 << configs[i].no);
+                break;
+            case 'E':
+                ANSELE |= (1 << configs[i].no);
+                break;
+#endif
+        }
+    } else {
+        // set digital
+        switch (configs[i].port) {
+            case 'A':
+                ANSELA &= ~(1 << configs[i].no);
+                break;
+            case 'B':
+                ANSELB &= ~(1 << configs[i].no);
+                break;
+            case 'C':
+                ANSELC &= ~(1 << configs[i].no);
+                break;
+#ifdef CANXIO
+            case 'D':
+                ANSELD &= ~(1 << configs[i].no);
+                break;
+            case 'E':
+                ANSELE &= ~(1 << configs[i].no);
+                break;
+#endif
+        }
+    }
+#endif
 #endif
 }
 

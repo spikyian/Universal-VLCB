@@ -66,6 +66,9 @@
 #include "universalEvents.h"
 #include "universalEEPROM.h"
 #include "outputs.h"
+#ifdef ANALOGUE
+#include "analogue.h"
+#endif
 
 
 // forward declarations
@@ -538,8 +541,8 @@ void doSOD(void) {
 #ifdef ANALOGUE
             case TYPE_ANALOGUE_IN:
             case TYPE_MAGNET:
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MAGNETL(io), eventState[io] == ANALOGUE_EVENT_LOWER, event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MAGNETH(io), eventState[io] == ANALOGUE_EVENT_UPPER, event_inverted));
+                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MAGNETL(io), analogueState[io].eventState == ANALOGUE_EVENT_LOWER, event_inverted));
+                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MAGNETH(io), analogueState[io].eventState == ANALOGUE_EVENT_UPPER, event_inverted));
                 break;
 #endif
         }

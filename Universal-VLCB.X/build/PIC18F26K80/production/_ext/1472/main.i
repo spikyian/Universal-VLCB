@@ -21116,14 +21116,22 @@ typedef enum NvValidation {
 } NvValidation;
 # 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
@@ -21770,7 +21778,7 @@ void loop(void) {
 
     }
 }
-# 373 "../main.c"
+# 377 "../main.c"
 ValidTime APP_isSuitableTimeToWriteFlash(void){
 
     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
@@ -21799,7 +21807,7 @@ Processed APP_postProcessMessage(Message * m) {
 EventState APP_GetEventState(Happening h) {
     return EVENT_OFF;
 }
-# 412 "../main.c"
+# 416 "../main.c"
 void setType(uint8_t io, uint8_t type) {
     uint8_t index;
 
@@ -21883,9 +21891,9 @@ void configIO(uint8_t i) {
                 TRISC &= ~(1 << configs[i].no);
             }
             break;
-# 512 "../main.c"
+# 516 "../main.c"
     }
-# 530 "../main.c"
+# 581 "../main.c"
 }
 
 

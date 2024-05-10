@@ -38649,14 +38649,22 @@ typedef enum NvValidation {
 } NvValidation;
 # 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
@@ -39103,9 +39111,9 @@ static Processed mnsProcessMessage(Message * m) {
                 }
                 return PROCESSED;
             case OPC_RQNP:
-                sendMessage7(OPC_PARAMS, 250, 'a',
+                sendMessage7(OPC_PARAMS, 250, 'e',
                         MTYP_CANMIO, 255, 20,
-                        127, 1);
+                        127, 3);
                 return PROCESSED;
             case OPC_RQMN:
                 sendMessage7(OPC_NAME, name[0], name[1], name[2], name[3],
@@ -39474,7 +39482,7 @@ static uint8_t getParameter(uint8_t idx) {
     case PAR_MANU:
         return 250;
     case PAR_MINVER:
-        return 'a';
+        return 'e';
     case PAR_MTYP:
         return MTYP_CANMIO;
     case PAR_EVTNUM:
@@ -39485,7 +39493,7 @@ static uint8_t getParameter(uint8_t idx) {
         return 127;
         break;
     case PAR_MAJVER:
-        i=1;
+        i=3;
     case PAR_FLAGS:
         return getParameterFlags();
     case PAR_CPUID:
@@ -39522,7 +39530,7 @@ static uint8_t getParameter(uint8_t idx) {
     case PAR_CPUMAN:
         return CPUM_MICROCHIP;
     case PAR_BETA:
-        return 1;
+        return 3;
     default:
         return 0;
     }

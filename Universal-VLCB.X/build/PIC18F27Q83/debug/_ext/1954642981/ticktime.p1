@@ -60,16 +60,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15305
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 15305:         unsigned TXPRI1 :1;
 [v _TMR0IE `Vb ~T0 @X0 0 e@9487 ]
-"202 ../../VLCBlib_PIC/ticktime.h
-[; ;../../VLCBlib_PIC/ticktime.h: 202:     {
+"216 ../../VLCBlib_PIC/ticktime.h
+[; ;../../VLCBlib_PIC/ticktime.h: 216:     {
 [s S3222 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S3222 TickBytes b0 b1 b2 b3 ]
-"210
-[; ;../../VLCBlib_PIC/ticktime.h: 210:     {
+"225
+[; ;../../VLCBlib_PIC/ticktime.h: 225:     {
 [s S3223 `us 1 `us 1 ]
 [n S3223 TickWords w0 w1 ]
-"199
-[; ;../../VLCBlib_PIC/ticktime.h: 199: {
+"211
+[; ;../../VLCBlib_PIC/ticktime.h: 211: typedef union _TickValue {
 [u S3221 `ul 1 `S3222 1 `uc -> 4 `i `S3223 1 ]
 [n S3221 _TickValue val byte v word ]
 [t ~ __interrupt . k ]
@@ -3593,202 +3593,202 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"81 ../../VLCBlib_PIC/ticktime.c
-[; ;../../VLCBlib_PIC/ticktime.c: 81: volatile uint8_t timerExtension1,timerExtension2;
+"88 ../../VLCBlib_PIC/ticktime.c
+[; ;../../VLCBlib_PIC/ticktime.c: 88: volatile uint8_t timerExtension1,timerExtension2;
 [v _timerExtension1 `Vuc ~T0 @X0 1 e ]
 [v _timerExtension2 `Vuc ~T0 @X0 1 e ]
-"109
-[; ;../../VLCBlib_PIC/ticktime.c: 109: void initTicker(uint8_t priority) {
+"101
+[; ;../../VLCBlib_PIC/ticktime.c: 101: void initTicker(uint8_t priority) {
 [v _initTicker `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _initTicker ]
 [v _priority `uc ~T0 @X0 1 r1 ]
 [f ]
-"110
-[; ;../../VLCBlib_PIC/ticktime.c: 110:     uint8_t divider, i;
+"102
+[; ;../../VLCBlib_PIC/ticktime.c: 102:     uint8_t divider, i;
 [v _divider `uc ~T0 @X0 1 a ]
 [v _i `uc ~T0 @X0 1 a ]
-"112
-[; ;../../VLCBlib_PIC/ticktime.c: 112:     divider = 0;
+"104
+[; ;../../VLCBlib_PIC/ticktime.c: 104:     divider = 0;
 [e = _divider -> -> 0 `i `uc ]
-"113
-[; ;../../VLCBlib_PIC/ticktime.c: 113:     for (i=64;i>0;i>>=1)
+"105
+[; ;../../VLCBlib_PIC/ticktime.c: 105:     for (i=64;i>0;i>>=1)
 {
 [e = _i -> -> 64 `i `uc ]
 [e $ > -> _i `i -> 0 `i 3232  ]
 [e $U 3233  ]
 [e :U 3232 ]
-"114
-[; ;../../VLCBlib_PIC/ticktime.c: 114:         divider++;
+"106
+[; ;../../VLCBlib_PIC/ticktime.c: 106:         divider++;
 [e ++ _divider -> -> 1 `i `uc ]
 [e =>> _i -> -> 1 `i `uc ]
 [e $ > -> _i `i -> 0 `i 3232  ]
 [e :U 3233 ]
 }
-"130
-[; ;../../VLCBlib_PIC/ticktime.c: 130:     T0CON1bits.CKPS = (uint8_t)(0b00000000 | (divider+1));
+"122
+[; ;../../VLCBlib_PIC/ticktime.c: 122:     T0CON1bits.CKPS = (uint8_t)(0b00000000 | (divider+1));
 [e = . . _T0CON1bits 0 0 -> | -> 0 `i + -> _divider `i -> 1 `i `uc ]
-"131
-[; ;../../VLCBlib_PIC/ticktime.c: 131:     T0CON0bits.MD16 = 1;
+"123
+[; ;../../VLCBlib_PIC/ticktime.c: 123:     T0CON0bits.MD16 = 1;
 [e = . . _T0CON0bits 0 1 -> -> 1 `i `uc ]
-"132
-[; ;../../VLCBlib_PIC/ticktime.c: 132:     T0CON1bits.CS = 2;
+"124
+[; ;../../VLCBlib_PIC/ticktime.c: 124:     T0CON1bits.CS = 2;
 [e = . . _T0CON1bits 0 2 -> -> 2 `i `uc ]
-"133
-[; ;../../VLCBlib_PIC/ticktime.c: 133:     TMR0H = 0;
+"125
+[; ;../../VLCBlib_PIC/ticktime.c: 125:     TMR0H = 0;
 [e = _TMR0H -> -> 0 `i `uc ]
-"134
-[; ;../../VLCBlib_PIC/ticktime.c: 134:     TMR0L = 0;
+"126
+[; ;../../VLCBlib_PIC/ticktime.c: 126:     TMR0L = 0;
 [e = _TMR0L -> -> 0 `i `uc ]
-"135
-[; ;../../VLCBlib_PIC/ticktime.c: 135:     TMR0IP = (__bit)priority;
+"127
+[; ;../../VLCBlib_PIC/ticktime.c: 127:     TMR0IP = (__bit)priority;
 [e = _TMR0IP -> -> _priority `b `b ]
-"136
-[; ;../../VLCBlib_PIC/ticktime.c: 136:     TMR0IF = 0;
+"128
+[; ;../../VLCBlib_PIC/ticktime.c: 128:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
-"137
-[; ;../../VLCBlib_PIC/ticktime.c: 137:     TMR0IE = 1;
+"129
+[; ;../../VLCBlib_PIC/ticktime.c: 129:     TMR0IE = 1;
 [e = _TMR0IE -> -> 1 `i `b ]
-"138
-[; ;../../VLCBlib_PIC/ticktime.c: 138:     T0CON0bits.EN = 1;
+"130
+[; ;../../VLCBlib_PIC/ticktime.c: 130:     T0CON0bits.EN = 1;
 [e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
-"140
-[; ;../../VLCBlib_PIC/ticktime.c: 140:     timerExtension1 = 0;
+"132
+[; ;../../VLCBlib_PIC/ticktime.c: 132:     timerExtension1 = 0;
 [e = _timerExtension1 -> -> 0 `i `uc ]
-"141
-[; ;../../VLCBlib_PIC/ticktime.c: 141:     timerExtension2 = 0;
+"133
+[; ;../../VLCBlib_PIC/ticktime.c: 133:     timerExtension2 = 0;
 [e = _timerExtension2 -> -> 0 `i `uc ]
-"155
-[; ;../../VLCBlib_PIC/ticktime.c: 155: }
+"147
+[; ;../../VLCBlib_PIC/ticktime.c: 147: }
 [e :UE 3231 ]
 }
-"182
-[; ;../../VLCBlib_PIC/ticktime.c: 182: uint32_t tickGet(void) {
+"158
+[; ;../../VLCBlib_PIC/ticktime.c: 158: uint32_t tickGet(void) {
 [v _tickGet `(ul ~T0 @X0 1 ef ]
 {
 [e :U _tickGet ]
 [f ]
-"183
-[; ;../../VLCBlib_PIC/ticktime.c: 183:     TickValue currentTime;
+"159
+[; ;../../VLCBlib_PIC/ticktime.c: 159:     TickValue currentTime;
 [v _currentTime `S3221 ~T0 @X0 1 a ]
-"186
-[; ;../../VLCBlib_PIC/ticktime.c: 186:     uint8_t IntFlag1;
+"162
+[; ;../../VLCBlib_PIC/ticktime.c: 162:     uint8_t IntFlag1;
 [v _IntFlag1 `uc ~T0 @X0 1 a ]
-"187
-[; ;../../VLCBlib_PIC/ticktime.c: 187:     uint8_t IntFlag2;
+"163
+[; ;../../VLCBlib_PIC/ticktime.c: 163:     uint8_t IntFlag2;
 [v _IntFlag2 `uc ~T0 @X0 1 a ]
-"190
-[; ;../../VLCBlib_PIC/ticktime.c: 190:     currentTime.byte.b2 = 0;
+"166
+[; ;../../VLCBlib_PIC/ticktime.c: 166:     currentTime.byte.b2 = 0;
 [e = . . _currentTime 1 2 -> -> 0 `i `uc ]
-"191
-[; ;../../VLCBlib_PIC/ticktime.c: 191:     currentTime.byte.b3 = 0;
+"167
+[; ;../../VLCBlib_PIC/ticktime.c: 167:     currentTime.byte.b3 = 0;
 [e = . . _currentTime 1 3 -> -> 0 `i `uc ]
-"193
-[; ;../../VLCBlib_PIC/ticktime.c: 193:     TMR0IE = 0;
+"169
+[; ;../../VLCBlib_PIC/ticktime.c: 169:     TMR0IE = 0;
 [e = _TMR0IE -> -> 0 `i `b ]
-"194
-[; ;../../VLCBlib_PIC/ticktime.c: 194:     do {
+"170
+[; ;../../VLCBlib_PIC/ticktime.c: 170:     do {
 [e :U 3238 ]
 {
-"195
-[; ;../../VLCBlib_PIC/ticktime.c: 195:         IntFlag1 = TMR0IF;
+"171
+[; ;../../VLCBlib_PIC/ticktime.c: 171:         IntFlag1 = TMR0IF;
 [e = _IntFlag1 -> _TMR0IF `uc ]
-"196
-[; ;../../VLCBlib_PIC/ticktime.c: 196:         currentTime.byte.b0 = TMR0L;
+"172
+[; ;../../VLCBlib_PIC/ticktime.c: 172:         currentTime.byte.b0 = TMR0L;
 [e = . . _currentTime 1 0 _TMR0L ]
-"197
-[; ;../../VLCBlib_PIC/ticktime.c: 197:         currentTime.byte.b1 = TMR0H;
+"173
+[; ;../../VLCBlib_PIC/ticktime.c: 173:         currentTime.byte.b1 = TMR0H;
 [e = . . _currentTime 1 1 _TMR0H ]
-"198
-[; ;../../VLCBlib_PIC/ticktime.c: 198:         IntFlag2 = TMR0IF;
+"174
+[; ;../../VLCBlib_PIC/ticktime.c: 174:         IntFlag2 = TMR0IF;
 [e = _IntFlag2 -> _TMR0IF `uc ]
-"199
-[; ;../../VLCBlib_PIC/ticktime.c: 199:     } while(IntFlag1 != IntFlag2);
+"175
+[; ;../../VLCBlib_PIC/ticktime.c: 175:     } while(IntFlag1 != IntFlag2);
 }
 [e $ != -> _IntFlag1 `i -> _IntFlag2 `i 3238  ]
 [e :U 3237 ]
-"201
-[; ;../../VLCBlib_PIC/ticktime.c: 201:     if( IntFlag1 > 0 ) {
+"177
+[; ;../../VLCBlib_PIC/ticktime.c: 177:     if( IntFlag1 > 0 ) {
 [e $ ! > -> _IntFlag1 `i -> 0 `i 3239  ]
 {
-"202
-[; ;../../VLCBlib_PIC/ticktime.c: 202:         TMR0IF = 0;
+"178
+[; ;../../VLCBlib_PIC/ticktime.c: 178:         TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
-"203
-[; ;../../VLCBlib_PIC/ticktime.c: 203:         timerExtension1++;
+"179
+[; ;../../VLCBlib_PIC/ticktime.c: 179:         timerExtension1++;
 [e ++ _timerExtension1 -> -> 1 `i `Vuc ]
-"204
-[; ;../../VLCBlib_PIC/ticktime.c: 204:         if(timerExtension1 == 0)
+"180
+[; ;../../VLCBlib_PIC/ticktime.c: 180:         if(timerExtension1 == 0)
 [e $ ! == -> _timerExtension1 `i -> 0 `i 3240  ]
-"205
-[; ;../../VLCBlib_PIC/ticktime.c: 205:         {
+"181
+[; ;../../VLCBlib_PIC/ticktime.c: 181:         {
 {
-"206
-[; ;../../VLCBlib_PIC/ticktime.c: 206:             timerExtension2++;
+"182
+[; ;../../VLCBlib_PIC/ticktime.c: 182:             timerExtension2++;
 [e ++ _timerExtension2 -> -> 1 `i `Vuc ]
-"207
-[; ;../../VLCBlib_PIC/ticktime.c: 207:         }
+"183
+[; ;../../VLCBlib_PIC/ticktime.c: 183:         }
 }
 [e :U 3240 ]
-"208
-[; ;../../VLCBlib_PIC/ticktime.c: 208:     }
+"184
+[; ;../../VLCBlib_PIC/ticktime.c: 184:     }
 }
 [e :U 3239 ]
-"211
-[; ;../../VLCBlib_PIC/ticktime.c: 211:     currentTime.byte.b2 += timerExtension1;
+"187
+[; ;../../VLCBlib_PIC/ticktime.c: 187:     currentTime.byte.b2 += timerExtension1;
 [e =+ . . _currentTime 1 2 -> _timerExtension1 `uc ]
-"212
-[; ;../../VLCBlib_PIC/ticktime.c: 212:     currentTime.byte.b3 += timerExtension2;
+"188
+[; ;../../VLCBlib_PIC/ticktime.c: 188:     currentTime.byte.b3 += timerExtension2;
 [e =+ . . _currentTime 1 3 -> _timerExtension2 `uc ]
-"215
-[; ;../../VLCBlib_PIC/ticktime.c: 215:     TMR0IE = 1;
+"191
+[; ;../../VLCBlib_PIC/ticktime.c: 191:     TMR0IE = 1;
 [e = _TMR0IE -> -> 1 `i `b ]
-"217
-[; ;../../VLCBlib_PIC/ticktime.c: 217:     return currentTime.val;
+"193
+[; ;../../VLCBlib_PIC/ticktime.c: 193:     return currentTime.val;
 [e ) . _currentTime 0 ]
 [e $UE 3235  ]
-"218
-[; ;../../VLCBlib_PIC/ticktime.c: 218: }
+"194
+[; ;../../VLCBlib_PIC/ticktime.c: 194: }
 [e :UE 3235 ]
 }
 [v $root$_TMR0_ISR `(v ~T0 @X0 0 e ]
-"225
-[; ;../../VLCBlib_PIC/ticktime.c: 225: void __attribute__((picinterrupt(("irq(TMR0), base(0x900)")))) TMR0_ISR(void)
+"201
+[; ;../../VLCBlib_PIC/ticktime.c: 201: void __attribute__((picinterrupt(("irq(TMR0), base(0x900)")))) TMR0_ISR(void)
 [v _TMR0_ISR `(v ~T1 @X0 1 ef ]
-"226
-[; ;../../VLCBlib_PIC/ticktime.c: 226: {
+"202
+[; ;../../VLCBlib_PIC/ticktime.c: 202: {
 {
 [e :U _TMR0_ISR ]
 [f ]
-"229
-[; ;../../VLCBlib_PIC/ticktime.c: 229:     if(TMR0IF) {
+"205
+[; ;../../VLCBlib_PIC/ticktime.c: 205:     if(TMR0IF) {
 [e $ ! _TMR0IF 3242  ]
 {
-"231
-[; ;../../VLCBlib_PIC/ticktime.c: 231:         TMR0IF = 0;
+"207
+[; ;../../VLCBlib_PIC/ticktime.c: 207:         TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
-"232
-[; ;../../VLCBlib_PIC/ticktime.c: 232:         timerExtension1++;
+"208
+[; ;../../VLCBlib_PIC/ticktime.c: 208:         timerExtension1++;
 [e ++ _timerExtension1 -> -> 1 `i `Vuc ]
-"233
-[; ;../../VLCBlib_PIC/ticktime.c: 233:         if(timerExtension1 == 0) {
+"209
+[; ;../../VLCBlib_PIC/ticktime.c: 209:         if(timerExtension1 == 0) {
 [e $ ! == -> _timerExtension1 `i -> 0 `i 3243  ]
 {
-"234
-[; ;../../VLCBlib_PIC/ticktime.c: 234:             timerExtension2++;
+"210
+[; ;../../VLCBlib_PIC/ticktime.c: 210:             timerExtension2++;
 [e ++ _timerExtension2 -> -> 1 `i `Vuc ]
-"235
-[; ;../../VLCBlib_PIC/ticktime.c: 235:         }
+"211
+[; ;../../VLCBlib_PIC/ticktime.c: 211:         }
 }
 [e :U 3243 ]
-"236
-[; ;../../VLCBlib_PIC/ticktime.c: 236:     }
+"212
+[; ;../../VLCBlib_PIC/ticktime.c: 212:     }
 }
 [e :U 3242 ]
-"237
-[; ;../../VLCBlib_PIC/ticktime.c: 237:     return;
+"213
+[; ;../../VLCBlib_PIC/ticktime.c: 213:     return;
 [e $UE 3241  ]
-"238
-[; ;../../VLCBlib_PIC/ticktime.c: 238: }
+"214
+[; ;../../VLCBlib_PIC/ticktime.c: 214: }
 [e :UE 3241 ]
 }

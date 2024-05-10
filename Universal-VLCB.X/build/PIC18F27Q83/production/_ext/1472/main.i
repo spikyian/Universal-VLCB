@@ -38648,14 +38648,22 @@ typedef enum NvValidation {
 } NvValidation;
 # 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
@@ -39147,6 +39155,27 @@ extern Boolean isNoServoPulses(void);
 
 
 
+# 1 "../analogue.h" 1
+# 15 "../analogue.h"
+extern void initAnalogue(void);
+extern void initAnaloguePort(unsigned char io);
+extern void pollAnalogue(void);
+
+extern unsigned char setupIo;
+extern unsigned char setupState;
+
+
+
+
+
+
+
+typedef struct {
+    unsigned char eventState:2;
+    unsigned char portState:1;
+} AnalogueStates;
+extern AnalogueStates analogueState[16];
+# 111 "../main.c" 2
 
 
 # 1 "../digitalOut.h" 1
@@ -39297,7 +39326,16 @@ void setup(void) {
 
     setTimedResponseDelay((uint8_t)getNV(5));
     universalEventsInit();
-# 305 "../main.c"
+
+
+    initAnalogue();
+
+
+
+
+
+
+
     ANSELA = 0x00;
     ANSELB = 0x00;
     ANSELC = 0x00;
@@ -39353,11 +39391,11 @@ void loop(void) {
             lastActionPollTime.val = tickGet();
         }
 
-
+        pollAnalogue();
 
     }
 }
-# 373 "../main.c"
+# 377 "../main.c"
 ValidTime APP_isSuitableTimeToWriteFlash(void){
 
     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
@@ -39386,7 +39424,7 @@ Processed APP_postProcessMessage(Message * m) {
 EventState APP_GetEventState(Happening h) {
     return EVENT_OFF;
 }
-# 412 "../main.c"
+# 416 "../main.c"
 void setType(uint8_t io, uint8_t type) {
     uint8_t index;
 
@@ -39406,9 +39444,9 @@ void setType(uint8_t io, uint8_t type) {
 
     defaultEvents(io, type);
 
-
-
-
+    if ((type == 5) || (type == 6)) {
+        initAnaloguePort(io);
+    }
 
 }
 
@@ -39470,7 +39508,38 @@ void configIO(uint8_t i) {
                 TRISC &= ~(1 << configs[i].no);
             }
             break;
-# 512 "../main.c"
+# 516 "../main.c"
     }
-# 530 "../main.c"
+# 536 "../main.c"
+    if ((type == 5) || (type == 6)) {
+
+        switch (configs[i].port) {
+            case 'A':
+                ANSELA |= (1 << configs[i].no);
+                break;
+            case 'B':
+                ANSELB |= (1 << configs[i].no);
+                break;
+            case 'C':
+                ANSELC |= (1 << configs[i].no);
+                break;
+# 556 "../main.c"
+        }
+    } else {
+
+        switch (configs[i].port) {
+            case 'A':
+                ANSELA &= ~(1 << configs[i].no);
+                break;
+            case 'B':
+                ANSELB &= ~(1 << configs[i].no);
+                break;
+            case 'C':
+                ANSELC &= ~(1 << configs[i].no);
+                break;
+# 577 "../main.c"
+        }
+    }
+
+
 }

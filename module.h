@@ -135,9 +135,9 @@ extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue
 // Parameters
 #define PARAM_MANU              MANU_VLCB
 #define PARAM_MODULE_ID         MTYP_CANMIO
-#define PARAM_MAJOR_VERSION     1
-#define PARAM_MINOR_VERSION     'a'
-#define PARAM_BUILD_VERSION     1
+#define PARAM_MAJOR_VERSION     3
+#define PARAM_MINOR_VERSION     'e'
+#define PARAM_BUILD_VERSION     3
 #define PARAM_NUM_NV            NV_NUM
 #define PARAM_NUM_EVENTS        NUM_EVENTS
 #define PARAM_NUM_EV_EVENT      20
@@ -170,7 +170,9 @@ extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue
 
 // Whether to enable MULTI and ANALOGUE inputs
 #define MULTI
-//#define ANALOGUE
+#if defined(_18FXXQ83_FAMILY_)
+#define ANALOGUE
+#endif
 
 
 // enable this for additional validation checks

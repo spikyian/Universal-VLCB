@@ -38347,11 +38347,14 @@ typedef enum VlcbCanHardware
 # 37 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
-# 64 "../../VLCBlib_PIC/nvm.h"
+# 68 "../../VLCBlib_PIC/nvm.h"
 typedef enum {
     EEPROM_NVM_TYPE,
     FLASH_NVM_TYPE
 } NVMtype;
+
+
+
 
 typedef enum ValidTime {
     BAD_TIME=0,
@@ -38380,7 +38383,7 @@ typedef uint8_t eeprom_data_t;
 
 
 typedef uint24_t eeprom_address_t;
-# 138 "../../VLCBlib_PIC/nvm.h"
+# 147 "../../VLCBlib_PIC/nvm.h"
 extern void flushFlashBlock(void);
 
 
@@ -38395,7 +38398,7 @@ extern void initRomOps(void);
 
 
 extern int16_t readNVM(NVMtype type, uint24_t index);
-# 160 "../../VLCBlib_PIC/nvm.h"
+# 169 "../../VLCBlib_PIC/nvm.h"
 extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 
@@ -38404,7 +38407,7 @@ extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 38 "../../VLCBlib_PIC/vlcb.h" 2
-# 75 "../../VLCBlib_PIC/vlcb.h"
+# 77 "../../VLCBlib_PIC/vlcb.h"
 typedef enum Priority {
     pLOW=0,
     pNORMAL=1,
@@ -38412,10 +38415,16 @@ typedef enum Priority {
     pHIGH=3,
 } Priority;
 
+
+
+
 typedef enum Boolean {
     FALSE,
     TRUE
 } Boolean;
+
+
+
 
 typedef enum Result {
     RESULT_FAIL,
@@ -38446,11 +38455,13 @@ typedef union Word {
 
 
 
+
+
 typedef enum {
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 130 "../../VLCBlib_PIC/vlcb.h"
+# 140 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -38459,6 +38470,9 @@ typedef union DiagnosticVal {
         uint8_t hi;
     } asBytes;
 } DiagnosticVal;
+
+
+
 
 typedef enum Processed {
     NOT_PROCESSED=0,
@@ -38478,7 +38492,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 167 "../../VLCBlib_PIC/vlcb.h"
+# 180 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -38521,17 +38535,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 217 "../../VLCBlib_PIC/vlcb.h"
+# 230 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 227 "../../VLCBlib_PIC/vlcb.h"
+# 240 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 238 "../../VLCBlib_PIC/vlcb.h"
+# 251 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 250 "../../VLCBlib_PIC/vlcb.h"
-void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
 # 263 "../../VLCBlib_PIC/vlcb.h"
-void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
 # 276 "../../VLCBlib_PIC/vlcb.h"
+void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+# 289 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -38551,6 +38565,9 @@ typedef struct Service {
 
 
 extern const Service * const services[];
+
+
+
 
 typedef enum ServicePresent {
     NOT_PRESENT=0,
@@ -38584,15 +38601,21 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 359 "../../VLCBlib_PIC/vlcb.h"
+# 375 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 369 "../../VLCBlib_PIC/vlcb.h"
+# 385 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
+
+
+
 
 typedef enum MessageReceived {
     NOT_RECEIVED=0,
     RECEIVED=1
 } MessageReceived;
+
+
+
 
 typedef enum SendResult {
     SEND_FAILED=0,
@@ -38607,47 +38630,55 @@ typedef enum SendResult {
 typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
-
 } Transport;
-
-
-
-
-
-
-
+# 420 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 411 "../../VLCBlib_PIC/vlcb.h"
+# 433 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 42 "../../VLCBlib_PIC\\nv.h" 2
-# 85 "../../VLCBlib_PIC\\nv.h"
+# 86 "../../VLCBlib_PIC\\nv.h"
 extern const Service nvService;
+
+
+
 
 typedef enum NvValidation {
     INVALID=0,
     VALID=1
 } NvValidation;
-# 99 "../../VLCBlib_PIC\\nv.h"
+# 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
+
+
+
 extern void loadNvCache(void);
 # 4 "../module.h" 2
 
 # 1 "../../VLCBlib_PIC\\statusLeds.h" 1
 # 43 "../../VLCBlib_PIC\\statusLeds.h"
 # 1 "../../VLCBlib_PIC/ticktime.h" 1
-# 198 "../../VLCBlib_PIC/ticktime.h"
-typedef union _TickValue
-{
+# 211 "../../VLCBlib_PIC/ticktime.h"
+typedef union _TickValue {
+
     uint32_t val;
+
     struct TickBytes
     {
         uint8_t b0;
@@ -38656,14 +38687,16 @@ typedef union _TickValue
         uint8_t b3;
     } byte;
     uint8_t v[4];
+
     struct TickWords
     {
         uint16_t w0;
         uint16_t w1;
     } word;
 } TickValue;
-# 223 "../../VLCBlib_PIC/ticktime.h"
+# 238 "../../VLCBlib_PIC/ticktime.h"
 void initTicker(uint8_t priority);
+
 
 
 
@@ -38676,14 +38709,19 @@ uint32_t tickGet(void);
 
 
 
-extern volatile uint8_t timerExtension1,timerExtension2;
+extern volatile uint8_t timerExtension1;
+
+
+
+
+extern volatile uint8_t timerExtension2;
 # 43 "../../VLCBlib_PIC\\statusLeds.h" 2
 
 # 1 "..\\module.h" 1
 # 44 "../../VLCBlib_PIC\\statusLeds.h" 2
 
 # 1 "../../VLCBlib_PIC/statusDisplay.h" 1
-# 44 "../../VLCBlib_PIC/statusDisplay.h"
+# 55 "../../VLCBlib_PIC/statusDisplay.h"
 typedef enum StatusDisplay {
     STATUS_OFF,
     STATUS_UNINITIALISED,
@@ -38700,11 +38738,7 @@ typedef enum StatusDisplay {
     STATUS_FATAL_ERROR
 } StatusDisplay;
 # 45 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-
-
-
-
+# 55 "../../VLCBlib_PIC\\statusLeds.h"
 typedef enum {
     LED_OFF,
     LED_ON,
@@ -38732,9 +38766,9 @@ extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue
 
 
 # 1 "../../VLCBlib_PIC\\mns.h" 1
-# 110 "../../VLCBlib_PIC\\mns.h"
+# 111 "../../VLCBlib_PIC\\mns.h"
 extern const Service mnsService;
-# 125 "../../VLCBlib_PIC\\mns.h"
+# 126 "../../VLCBlib_PIC\\mns.h"
 extern Word nn;
 
 
@@ -38758,15 +38792,18 @@ extern TickValue pbTimer;
 
 
 # 1 "../../VLCBlib_PIC\\can.h" 1
-# 82 "../../VLCBlib_PIC\\can.h"
+# 85 "../../VLCBlib_PIC\\can.h"
 extern const Service canService;
+
+
+
 extern const Transport canTransport;
-# 115 "../../VLCBlib_PIC\\can.h"
+# 124 "../../VLCBlib_PIC\\can.h"
 typedef enum CanidResult {
     CANID_FAIL,
     CANID_OK
 } CanidResult;
-# 152 "../../VLCBlib_PIC\\can.h"
+# 161 "../../VLCBlib_PIC\\can.h"
 enum CAN_OP_MODES
 {
     CAN_NORMAL_FD_MODE = 0x0,
@@ -38790,21 +38827,21 @@ enum CAN_OP_MODE_STATUS
     CAN_OP_MODE_REQUEST_FAIL,
     CAN_OP_MODE_SYS_ERROR_OCCURED
 };
-# 183 "../../VLCBlib_PIC\\can.h"
-enum CAN_OP_MODE_STATUS CAN1_OperationModeSet(const enum CAN_OP_MODES requestMode);
 # 192 "../../VLCBlib_PIC\\can.h"
+enum CAN_OP_MODE_STATUS CAN1_OperationModeSet(const enum CAN_OP_MODES requestMode);
+# 201 "../../VLCBlib_PIC\\can.h"
 enum CAN_OP_MODES CAN1_OperationModeGet(void);
 # 49 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\boot.h" 1
-# 80 "../../VLCBlib_PIC\\boot.h"
+# 81 "../../VLCBlib_PIC\\boot.h"
 extern const Service bootService;
 # 50 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_teach.h" 1
-# 97 "../../VLCBlib_PIC\\event_teach.h"
+# 98 "../../VLCBlib_PIC\\event_teach.h"
 extern const Service eventTeachService;
-# 109 "../../VLCBlib_PIC\\event_teach.h"
+# 110 "../../VLCBlib_PIC\\event_teach.h"
 extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
 
 extern Boolean validStart(uint8_t index);
@@ -38831,10 +38868,16 @@ typedef uint8_t Happening;
 
 
 
+
+
+
 typedef struct {
     uint16_t NN;
     uint16_t EN;
 } Event;
+
+
+
 
 
 typedef union
@@ -38850,6 +38893,11 @@ typedef union
     uint8_t asByte;
 } EventTableFlags;
 
+
+
+
+
+
 typedef struct {
     EventTableFlags flags;
     uint8_t next;
@@ -38859,13 +38907,16 @@ typedef struct {
 # 51 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_consumer.h" 1
-# 79 "../../VLCBlib_PIC\\event_consumer.h"
+# 80 "../../VLCBlib_PIC\\event_consumer.h"
 extern const Service eventConsumerService;
-# 91 "../../VLCBlib_PIC\\event_consumer.h"
+# 96 "../../VLCBlib_PIC\\event_consumer.h"
 typedef struct {
+
     EventState state;
     union {
+
         uint8_t value;
+
         uint8_t bytes[1];
     } a;
 } ActionAndState;
@@ -38875,11 +38926,15 @@ extern Boolean pushAction(ActionAndState a);
 extern void deleteActionRange(uint8_t action, uint8_t number);
 
 
+
+
+
+
 extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
 # 52 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_producer.h" 1
-# 75 "../../VLCBlib_PIC\\event_producer.h"
+# 76 "../../VLCBlib_PIC\\event_producer.h"
 extern const Service eventProducerService;
 
 
@@ -38892,24 +38947,24 @@ extern uint8_t happening2Event[71 +1];
 
 extern Boolean sendProducedEvent(Happening h, EventState state);
 extern void deleteHappeningRange(Happening happening, uint8_t number);
-# 95 "../../VLCBlib_PIC\\event_producer.h"
+# 96 "../../VLCBlib_PIC\\event_producer.h"
 extern EventState APP_GetEventState(Happening h);
 # 53 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_acknowledge.h" 1
-# 61 "../../VLCBlib_PIC\\event_acknowledge.h"
+# 62 "../../VLCBlib_PIC\\event_acknowledge.h"
 extern const Service eventAckService;
 # 54 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_coe.h" 1
-# 58 "../../VLCBlib_PIC\\event_coe.h"
+# 59 "../../VLCBlib_PIC\\event_coe.h"
 extern const Service eventCoeService;
 # 55 "../main.c" 2
 
 
 
 # 1 "../../VLCBlib_PIC\\timedResponse.h" 1
-# 83 "../../VLCBlib_PIC\\timedResponse.h"
+# 86 "../../VLCBlib_PIC\\timedResponse.h"
 typedef enum {
     TIMED_RESPONSE_RESULT_FINISHED,
     TIMED_RESPONSE_RESULT_RETRY,
@@ -38926,7 +38981,13 @@ typedef TimedResponseResult (* TimedResponseCallback)(uint8_t type, const Servic
 
 
 extern void initTimedResponse(void);
-# 107 "../../VLCBlib_PIC\\timedResponse.h"
+
+
+
+
+
+
+
 extern void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponseResult (*callback)(uint8_t type, uint8_t si, uint8_t step));
 
 
@@ -39056,9 +39117,65 @@ extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState stat
 # 106 "../main.c" 2
 
 
+# 1 "../servo.h" 1
+# 40 "../servo.h"
+typedef enum {
+    SS_OFF,
+    SS_STOPPED,
+    SS_MOVING,
+    SS_STARTING
+} ServoState;
+
+extern ServoState servoState[16];
+extern uint8_t currentPos[16];
+extern uint8_t targetPos[16];
+extern uint8_t stepsPerPollSpeed[16];
+extern int speed[16];
+
+extern void startServos(void);
+extern void initServos(void);
+extern void pollServos(void);
 
 
 
+
+
+extern void setServoState(uint8_t io, uint8_t action);
+extern void setBounceState(uint8_t io, uint8_t action);
+extern void setMultiState(uint8_t io, uint8_t action);
+
+extern void setServoPosition(uint8_t io, uint8_t pos);
+
+extern void startServoOutput(uint8_t io, uint8_t action);
+extern void startBounceOutput(uint8_t io, uint8_t action);
+extern void startMultiOutput(uint8_t io, uint8_t action);
+
+extern Boolean isNoServoPulses(void);
+# 108 "../main.c" 2
+
+
+
+# 1 "../analogue.h" 1
+# 15 "../analogue.h"
+extern void initAnalogue(void);
+extern void initAnaloguePort(unsigned char io);
+extern void pollAnalogue(void);
+
+extern unsigned char setupIo;
+extern unsigned char setupState;
+
+
+
+
+
+
+
+typedef struct {
+    unsigned char eventState:2;
+    unsigned char portState:1;
+} AnalogueStates;
+extern AnalogueStates analogueState[16];
+# 111 "../main.c" 2
 
 
 # 1 "../digitalOut.h" 1
@@ -39209,11 +39326,28 @@ void setup(void) {
 
     setTimedResponseDelay((uint8_t)getNV(5));
     universalEventsInit();
-# 305 "../main.c"
+
+
+    initAnalogue();
+
+
+
+
+
+
+
     ANSELA = 0x00;
     ANSELB = 0x00;
     ANSELC = 0x00;
-# 317 "../main.c"
+
+
+
+
+
+
+
+    initServos();
+
     initOutputs();
 
 
@@ -39241,10 +39375,10 @@ void loop(void) {
     }
 
 
-
-
-
-
+    if ((tickGet() - lastServoStartTime.val) > 5*(62500/2000)) {
+        startServos();
+        lastServoStartTime.val = tickGet();
+    }
 
     if (started) {
         if ((tickGet() - lastInputScanTime.val) > 5*(62500/1000)) {
@@ -39257,16 +39391,16 @@ void loop(void) {
             lastActionPollTime.val = tickGet();
         }
 
-
+        pollAnalogue();
 
     }
 }
 # 373 "../main.c"
 ValidTime APP_isSuitableTimeToWriteFlash(void){
 
+    return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
 
 
-    return GOOD_TIME;
 
 }
 
@@ -39303,16 +39437,16 @@ void setType(uint8_t io, uint8_t type) {
 
     configIO(io);
 
-
-
-
+    if ((type == 2) || (type== 3) || (type == 4)) {
+        currentPos[io] = 128;
+    }
 
 
     defaultEvents(io, type);
 
-
-
-
+    if ((type == 5) || (type == 6)) {
+        initAnaloguePort(io);
+    }
 
 }
 
@@ -39341,7 +39475,15 @@ void configIO(uint8_t i) {
                 writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(((eeprom_address_t)((0x3FF -8))-25)+i), action);
             }
             break;
-# 471 "../main.c"
+
+        case 2:
+
+        case 3:
+
+
+            setDigitalOutput(i, getNV((16 + 7*(i) + 1)) & 0x10);
+            break;
+
     }
 
     switch (configs[i].port) {
@@ -39368,5 +39510,36 @@ void configIO(uint8_t i) {
             break;
 # 512 "../main.c"
     }
-# 530 "../main.c"
+# 532 "../main.c"
+    if ((type == 5) || (type == 6)) {
+
+        switch (configs[i].port) {
+            case 'A':
+                ANSELA |= (1 << configs[i].no);
+                break;
+            case 'B':
+                ANSELB |= (1 << configs[i].no);
+                break;
+            case 'C':
+                ANSELC |= (1 << configs[i].no);
+                break;
+# 552 "../main.c"
+        }
+    } else {
+
+        switch (configs[i].port) {
+            case 'A':
+                ANSELA &= ~(1 << configs[i].no);
+                break;
+            case 'B':
+                ANSELB &= ~(1 << configs[i].no);
+                break;
+            case 'C':
+                ANSELC &= ~(1 << configs[i].no);
+                break;
+# 573 "../main.c"
+        }
+    }
+
+
 }

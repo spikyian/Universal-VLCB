@@ -21166,14 +21166,22 @@ typedef enum NvValidation {
 } NvValidation;
 # 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
@@ -21371,7 +21379,8 @@ void eraseFlashBlock(void) {
     uint8_t interruptEnabled;
 
 
-    while (! APP_isSuitableTimeToWriteFlash());
+    while (! APP_isSuitableTimeToWriteFlash())
+        ;
 
     interruptEnabled = (INTCONbits.GIEH);
 
@@ -21388,7 +21397,7 @@ void eraseFlashBlock(void) {
     while(EECON1bits.WR)
         ;
     EECON1bits.WREN = 0;
-# 353 "../../VLCBlib_PIC/nvm.c"
+# 354 "../../VLCBlib_PIC/nvm.c"
     if (interruptEnabled) {
         {INTCONbits.GIEH = 1; INTCONbits.GIEL = 1;};
     }
@@ -21409,6 +21418,11 @@ void flushFlashBlock(void) {
 
 
     if (! flashFlags.writeNeeded) return;
+
+
+    while (APP_isSuitableTimeToWriteFlash() == BAD_TIME)
+        ;
+
     if (flashFlags.eraseNeeded) {
         eraseFlashBlock();
     }
@@ -21437,7 +21451,7 @@ void flushFlashBlock(void) {
     EECON2 = 0xAA;
     EECON1bits.WR = 1;
     EECON1bits.WREN = 0;
-# 421 "../../VLCBlib_PIC/nvm.c"
+# 427 "../../VLCBlib_PIC/nvm.c"
     if (interruptEnabled) {
         {INTCONbits.GIEH = 1; INTCONbits.GIEL = 1;};
     }
@@ -21459,16 +21473,13 @@ void loadFlashBlock(void) {
     }
     TBLPTR = flashBlock;
     TBLPTRU = 0;
-# 457 "../../VLCBlib_PIC/nvm.c"
+# 463 "../../VLCBlib_PIC/nvm.c"
     flashFlags.asByte = 0;
 }
-# 468 "../../VLCBlib_PIC/nvm.c"
+# 474 "../../VLCBlib_PIC/nvm.c"
 uint8_t FLASH_Write(flash_address_t index, flash_data_t value) {
     uint8_t oldValue;
-
-    while (APP_isSuitableTimeToWriteFlash() == BAD_TIME)
-        ;
-# 486 "../../VLCBlib_PIC/nvm.c"
+# 490 "../../VLCBlib_PIC/nvm.c"
     if ((index&(~((flash_address_t)64 -1))) != flashBlock) {
         if (flashBlock != 0) {
 
@@ -21491,7 +21502,7 @@ uint8_t FLASH_Write(flash_address_t index, flash_data_t value) {
     }
     return GRSP_OK;
 }
-# 516 "../../VLCBlib_PIC/nvm.c"
+# 520 "../../VLCBlib_PIC/nvm.c"
 uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value) {
     switch(type) {
         case EEPROM_NVM_TYPE:

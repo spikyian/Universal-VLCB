@@ -21122,14 +21122,22 @@ typedef enum NvValidation {
 } NvValidation;
 # 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
@@ -21483,6 +21491,9 @@ extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
 
 
 
+
+
+
 void clearEvents(uint8_t i);
 void doWait(uint16_t duration);
 Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off);
@@ -21547,14 +21558,14 @@ void defaultEvents(uint8_t io, uint8_t type) {
         case 4:
 
             break;
-# 148 "../universalEvents.c"
+# 151 "../universalEvents.c"
     }
 }
-# 163 "../universalEvents.c"
+# 166 "../universalEvents.c"
 uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
     if ((evNum == 0) && (evVal != 0))
     {
-# 178 "../universalEvents.c"
+# 181 "../universalEvents.c"
     }
     return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
 }
@@ -21685,7 +21696,7 @@ void doWait(uint16_t duration) {
         }
     }
 }
-# 319 "../universalEvents.c"
+# 322 "../universalEvents.c"
 Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
  EventState state_to_send = invert?!state:state;
  if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
@@ -21694,11 +21705,11 @@ Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean
   return TRUE;
  }
 }
-# 335 "../universalEvents.c"
+# 338 "../universalEvents.c"
 Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
     return sendProducedEvent(action, invert?!state:state);
 }
-# 495 "../universalEvents.c"
+# 498 "../universalEvents.c"
 void doSOD(void) {
     uint8_t midway;
     uint8_t state;
@@ -21740,7 +21751,7 @@ void doSOD(void) {
                     while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+3), currentPos[io] == getNV((16 + 7*(io) + 6)), event_inverted));
                 }
                 break;
-# 545 "../universalEvents.c"
+# 548 "../universalEvents.c"
         }
     }
 }

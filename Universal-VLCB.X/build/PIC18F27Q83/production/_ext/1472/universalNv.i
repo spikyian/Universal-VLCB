@@ -38648,14 +38648,22 @@ typedef enum NvValidation {
 } NvValidation;
 # 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
@@ -39169,7 +39177,17 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
         io = ((uint8_t)((index-16)/7));
         nv = ((uint8_t)((index-16) % 7));
         switch(getNV((16 + 7*(io) + 0))) {
-# 229 "../universalNv.c"
+
+            case 6:
+
+                if (index == (16 + 7*(io) + 2)) {
+
+                    setupIo = io;
+                    setupState = (value & 0x80)?2:1;
+                }
+                break;
+
+
             case 2:
 
                 if (index == (16 + 7*(io) + 2)) {
@@ -39243,7 +39261,14 @@ NvValidation APP_nvValidate(uint8_t index, uint8_t value) {
     uint8_t io;
     if ((index >= 16) && (((index-16) % 7) == 0)) {
         switch (value) {
-# 310 "../universalNv.c"
+
+            case 5:
+            case 6:
+                io = ((uint8_t)((index-16)/7));
+                if (configs[io].an == 0xFF) return INVALID;
+                break;
+
+
             case 4:
                 break;
 

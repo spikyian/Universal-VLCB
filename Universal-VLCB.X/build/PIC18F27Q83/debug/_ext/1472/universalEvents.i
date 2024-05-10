@@ -38346,11 +38346,14 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
 # 49 "../../VLCBlib_PIC/nvm.h" 2
-# 64 "../../VLCBlib_PIC/nvm.h"
+# 68 "../../VLCBlib_PIC/nvm.h"
 typedef enum {
     EEPROM_NVM_TYPE,
     FLASH_NVM_TYPE
 } NVMtype;
+
+
+
 
 typedef enum ValidTime {
     BAD_TIME=0,
@@ -38379,7 +38382,7 @@ typedef uint8_t eeprom_data_t;
 
 
 typedef uint24_t eeprom_address_t;
-# 138 "../../VLCBlib_PIC/nvm.h"
+# 147 "../../VLCBlib_PIC/nvm.h"
 extern void flushFlashBlock(void);
 
 
@@ -38394,7 +38397,7 @@ extern void initRomOps(void);
 
 
 extern int16_t readNVM(NVMtype type, uint24_t index);
-# 160 "../../VLCBlib_PIC/nvm.h"
+# 169 "../../VLCBlib_PIC/nvm.h"
 extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 
@@ -38403,7 +38406,7 @@ extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 38 "../../VLCBlib_PIC\\vlcb.h" 2
-# 75 "../../VLCBlib_PIC\\vlcb.h"
+# 77 "../../VLCBlib_PIC\\vlcb.h"
 typedef enum Priority {
     pLOW=0,
     pNORMAL=1,
@@ -38411,10 +38414,16 @@ typedef enum Priority {
     pHIGH=3,
 } Priority;
 
+
+
+
 typedef enum Boolean {
     FALSE,
     TRUE
 } Boolean;
+
+
+
 
 typedef enum Result {
     RESULT_FAIL,
@@ -38445,11 +38454,13 @@ typedef union Word {
 
 
 
+
+
 typedef enum {
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 130 "../../VLCBlib_PIC\\vlcb.h"
+# 140 "../../VLCBlib_PIC\\vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -38458,6 +38469,9 @@ typedef union DiagnosticVal {
         uint8_t hi;
     } asBytes;
 } DiagnosticVal;
+
+
+
 
 typedef enum Processed {
     NOT_PROCESSED=0,
@@ -38477,7 +38491,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 167 "../../VLCBlib_PIC\\vlcb.h"
+# 180 "../../VLCBlib_PIC\\vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -38520,17 +38534,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 217 "../../VLCBlib_PIC\\vlcb.h"
+# 230 "../../VLCBlib_PIC\\vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 227 "../../VLCBlib_PIC\\vlcb.h"
+# 240 "../../VLCBlib_PIC\\vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 238 "../../VLCBlib_PIC\\vlcb.h"
+# 251 "../../VLCBlib_PIC\\vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 250 "../../VLCBlib_PIC\\vlcb.h"
-void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
 # 263 "../../VLCBlib_PIC\\vlcb.h"
-void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
 # 276 "../../VLCBlib_PIC\\vlcb.h"
+void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+# 289 "../../VLCBlib_PIC\\vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -38550,6 +38564,9 @@ typedef struct Service {
 
 
 extern const Service * const services[];
+
+
+
 
 typedef enum ServicePresent {
     NOT_PRESENT=0,
@@ -38583,15 +38600,21 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 359 "../../VLCBlib_PIC\\vlcb.h"
+# 375 "../../VLCBlib_PIC\\vlcb.h"
 extern void APP_highIsr(void);
-# 369 "../../VLCBlib_PIC\\vlcb.h"
+# 385 "../../VLCBlib_PIC\\vlcb.h"
 extern void APP_lowIsr(void);
+
+
+
 
 typedef enum MessageReceived {
     NOT_RECEIVED=0,
     RECEIVED=1
 } MessageReceived;
+
+
+
 
 typedef enum SendResult {
     SEND_FAILED=0,
@@ -38606,17 +38629,10 @@ typedef enum SendResult {
 typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
-
 } Transport;
-
-
-
-
-
-
-
+# 420 "../../VLCBlib_PIC\\vlcb.h"
 extern const Transport * transport;
-# 411 "../../VLCBlib_PIC\\vlcb.h"
+# 433 "../../VLCBlib_PIC\\vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 57 "../universalEvents.c" 2
 
@@ -38626,34 +38642,49 @@ extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 
 
 # 1 "../../VLCBlib_PIC\\nv.h" 1
-# 85 "../../VLCBlib_PIC\\nv.h"
+# 86 "../../VLCBlib_PIC\\nv.h"
 extern const Service nvService;
+
+
+
 
 typedef enum NvValidation {
     INVALID=0,
     VALID=1
 } NvValidation;
-# 99 "../../VLCBlib_PIC\\nv.h"
+# 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
+
+
+
 extern void loadNvCache(void);
 # 4 "../module.h" 2
 
 # 1 "../../VLCBlib_PIC\\statusLeds.h" 1
 # 43 "../../VLCBlib_PIC\\statusLeds.h"
 # 1 "../../VLCBlib_PIC/ticktime.h" 1
-# 198 "../../VLCBlib_PIC/ticktime.h"
-typedef union _TickValue
-{
+# 211 "../../VLCBlib_PIC/ticktime.h"
+typedef union _TickValue {
+
     uint32_t val;
+
     struct TickBytes
     {
         uint8_t b0;
@@ -38662,14 +38693,16 @@ typedef union _TickValue
         uint8_t b3;
     } byte;
     uint8_t v[4];
+
     struct TickWords
     {
         uint16_t w0;
         uint16_t w1;
     } word;
 } TickValue;
-# 223 "../../VLCBlib_PIC/ticktime.h"
+# 238 "../../VLCBlib_PIC/ticktime.h"
 void initTicker(uint8_t priority);
+
 
 
 
@@ -38682,14 +38715,19 @@ uint32_t tickGet(void);
 
 
 
-extern volatile uint8_t timerExtension1,timerExtension2;
+extern volatile uint8_t timerExtension1;
+
+
+
+
+extern volatile uint8_t timerExtension2;
 # 43 "../../VLCBlib_PIC\\statusLeds.h" 2
 
 # 1 "..\\module.h" 1
 # 44 "../../VLCBlib_PIC\\statusLeds.h" 2
 
 # 1 "../../VLCBlib_PIC/statusDisplay.h" 1
-# 44 "../../VLCBlib_PIC/statusDisplay.h"
+# 55 "../../VLCBlib_PIC/statusDisplay.h"
 typedef enum StatusDisplay {
     STATUS_OFF,
     STATUS_UNINITIALISED,
@@ -38706,11 +38744,7 @@ typedef enum StatusDisplay {
     STATUS_FATAL_ERROR
 } StatusDisplay;
 # 45 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-
-
-
-
+# 55 "../../VLCBlib_PIC\\statusLeds.h"
 typedef enum {
     LED_OFF,
     LED_ON,
@@ -38738,9 +38772,9 @@ extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue
 # 1 "../../VLCBlib_PIC\\event_producer.h" 1
 # 37 "../../VLCBlib_PIC\\event_producer.h"
 # 1 "../../VLCBlib_PIC/event_teach.h" 1
-# 97 "../../VLCBlib_PIC/event_teach.h"
+# 98 "../../VLCBlib_PIC/event_teach.h"
 extern const Service eventTeachService;
-# 109 "../../VLCBlib_PIC/event_teach.h"
+# 110 "../../VLCBlib_PIC/event_teach.h"
 extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
 
 extern Boolean validStart(uint8_t index);
@@ -38767,10 +38801,16 @@ typedef uint8_t Happening;
 
 
 
+
+
+
 typedef struct {
     uint16_t NN;
     uint16_t EN;
 } Event;
+
+
+
 
 
 typedef union
@@ -38786,6 +38826,11 @@ typedef union
     uint8_t asByte;
 } EventTableFlags;
 
+
+
+
+
+
 typedef struct {
     EventTableFlags flags;
     uint8_t next;
@@ -38793,7 +38838,7 @@ typedef struct {
     uint8_t evs[10];
 } EventTable;
 # 37 "../../VLCBlib_PIC\\event_producer.h" 2
-# 75 "../../VLCBlib_PIC\\event_producer.h"
+# 76 "../../VLCBlib_PIC\\event_producer.h"
 extern const Service eventProducerService;
 
 
@@ -38806,18 +38851,21 @@ extern uint8_t happening2Event[71 +1];
 
 extern Boolean sendProducedEvent(Happening h, EventState state);
 extern void deleteHappeningRange(Happening happening, uint8_t number);
-# 95 "../../VLCBlib_PIC\\event_producer.h"
+# 96 "../../VLCBlib_PIC\\event_producer.h"
 extern EventState APP_GetEventState(Happening h);
 # 60 "../universalEvents.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_consumer.h" 1
-# 79 "../../VLCBlib_PIC\\event_consumer.h"
+# 80 "../../VLCBlib_PIC\\event_consumer.h"
 extern const Service eventConsumerService;
-# 91 "../../VLCBlib_PIC\\event_consumer.h"
+# 96 "../../VLCBlib_PIC\\event_consumer.h"
 typedef struct {
+
     EventState state;
     union {
+
         uint8_t value;
+
         uint8_t bytes[1];
     } a;
 } ActionAndState;
@@ -38827,13 +38875,17 @@ extern Boolean pushAction(ActionAndState a);
 extern void deleteActionRange(uint8_t action, uint8_t number);
 
 
+
+
+
+
 extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
 # 61 "../universalEvents.c" 2
 
 # 1 "../../VLCBlib_PIC\\mns.h" 1
-# 110 "../../VLCBlib_PIC\\mns.h"
+# 111 "../../VLCBlib_PIC\\mns.h"
 extern const Service mnsService;
-# 125 "../../VLCBlib_PIC\\mns.h"
+# 126 "../../VLCBlib_PIC\\mns.h"
 extern Word nn;
 
 
@@ -38969,6 +39021,30 @@ extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
 # 68 "../universalEvents.c" 2
 
 
+# 1 "../analogue.h" 1
+# 15 "../analogue.h"
+extern void initAnalogue(void);
+extern void initAnaloguePort(unsigned char io);
+extern void pollAnalogue(void);
+
+extern unsigned char setupIo;
+extern unsigned char setupState;
+
+
+
+
+
+
+
+typedef struct {
+    unsigned char eventState:2;
+    unsigned char portState:1;
+} AnalogueStates;
+extern AnalogueStates analogueState[16];
+# 70 "../universalEvents.c" 2
+
+
+
 
 
 void clearEvents(uint8_t i);
@@ -39007,8 +39083,8 @@ void defaultEvents(uint8_t io, uint8_t type) {
     switch(type) {
 
 
-
-
+        case 3:
+             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
 
 
         case 1:
@@ -39021,14 +39097,39 @@ void defaultEvents(uint8_t io, uint8_t type) {
 
             addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
             break;
-# 148 "../universalEvents.c"
+
+        case 2:
+
+            addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
+            addEvent(nn.word, 300+en, 0, ((8 + 4*(io))+1), TRUE);
+            addEvent(nn.word, 200+en, 0, ((8 + 4*(io))+2), TRUE);
+
+            addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
+            break;
+
+
+        case 4:
+
+            break;
+
+
+        case 5:
+
+            addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
+            break;
+        case 6:
+
+            addEvent(nn.word, en, 0, ((8 + 4*(io))+1), TRUE);
+            addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
+            break;
+
     }
 }
-# 163 "../universalEvents.c"
+# 166 "../universalEvents.c"
 uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
     if ((evNum == 0) && (evVal != 0))
     {
-# 178 "../universalEvents.c"
+# 181 "../universalEvents.c"
     }
     return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
 }
@@ -39159,7 +39260,7 @@ void doWait(uint16_t duration) {
         }
     }
 }
-# 319 "../universalEvents.c"
+# 322 "../universalEvents.c"
 Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
  EventState state_to_send = invert?!state:state;
  if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
@@ -39168,11 +39269,11 @@ Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean
   return TRUE;
  }
 }
-# 335 "../universalEvents.c"
+# 338 "../universalEvents.c"
 Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
     return sendProducedEvent(action, invert?!state:state);
 }
-# 495 "../universalEvents.c"
+# 498 "../universalEvents.c"
 void doSOD(void) {
     uint8_t midway;
     uint8_t state;
@@ -39191,7 +39292,38 @@ void doSOD(void) {
                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state!=2, event_inverted));
                 break;
-# 545 "../universalEvents.c"
+
+            case 2:
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 2)), event_inverted));
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
+
+                midway = (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2);
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] >= midway, event_inverted));
+                break;
+
+            case 3:
+                state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state, event_inverted));
+                break;
+
+
+            case 4:
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] == getNV((16 + 7*(io) + 4)), event_inverted));
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 5)), event_inverted));
+                if (getNV((16 + 7*(io) + 2)) > 3) {
+                    while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+3), currentPos[io] == getNV((16 + 7*(io) + 6)), event_inverted));
+                }
+                break;
+
+
+
+            case 5:
+            case 6:
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), analogueState[io].eventState == 1, event_inverted));
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), analogueState[io].eventState == 2, event_inverted));
+                break;
+
         }
     }
 }

@@ -38654,14 +38654,22 @@ typedef enum NvValidation {
 } NvValidation;
 # 103 "../../VLCBlib_PIC\\nv.h"
 extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-
-
-
-
-
-
+# 115 "../../VLCBlib_PIC\\nv.h"
 extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
 extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
 extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
@@ -39013,6 +39021,30 @@ extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
 # 68 "../universalEvents.c" 2
 
 
+# 1 "../analogue.h" 1
+# 15 "../analogue.h"
+extern void initAnalogue(void);
+extern void initAnaloguePort(unsigned char io);
+extern void pollAnalogue(void);
+
+extern unsigned char setupIo;
+extern unsigned char setupState;
+
+
+
+
+
+
+
+typedef struct {
+    unsigned char eventState:2;
+    unsigned char portState:1;
+} AnalogueStates;
+extern AnalogueStates analogueState[16];
+# 70 "../universalEvents.c" 2
+
+
+
 
 
 void clearEvents(uint8_t i);
@@ -39079,14 +39111,25 @@ void defaultEvents(uint8_t io, uint8_t type) {
         case 4:
 
             break;
-# 148 "../universalEvents.c"
+
+
+        case 5:
+
+            addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
+            break;
+        case 6:
+
+            addEvent(nn.word, en, 0, ((8 + 4*(io))+1), TRUE);
+            addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
+            break;
+
     }
 }
-# 163 "../universalEvents.c"
+# 166 "../universalEvents.c"
 uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
     if ((evNum == 0) && (evVal != 0))
     {
-# 178 "../universalEvents.c"
+# 181 "../universalEvents.c"
     }
     return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
 }
@@ -39217,7 +39260,7 @@ void doWait(uint16_t duration) {
         }
     }
 }
-# 319 "../universalEvents.c"
+# 322 "../universalEvents.c"
 Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
  EventState state_to_send = invert?!state:state;
  if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
@@ -39226,11 +39269,11 @@ Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean
   return TRUE;
  }
 }
-# 335 "../universalEvents.c"
+# 338 "../universalEvents.c"
 Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
     return sendProducedEvent(action, invert?!state:state);
 }
-# 495 "../universalEvents.c"
+# 498 "../universalEvents.c"
 void doSOD(void) {
     uint8_t midway;
     uint8_t state;
@@ -39272,7 +39315,15 @@ void doSOD(void) {
                     while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+3), currentPos[io] == getNV((16 + 7*(io) + 6)), event_inverted));
                 }
                 break;
-# 545 "../universalEvents.c"
+
+
+
+            case 5:
+            case 6:
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), analogueState[io].eventState == 1, event_inverted));
+                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), analogueState[io].eventState == 2, event_inverted));
+                break;
+
         }
     }
 }

@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"123 ../../VLCBlib_PIC/nvm.c
-[; ;../../VLCBlib_PIC/nvm.c: 123:     struct {
+"125 ../../VLCBlib_PIC/nvm.c
+[; ;../../VLCBlib_PIC/nvm.c: 125:     struct {
 [s S3232 :1 `uc 1 :1 `uc 1 ]
 [n S3232 . writeNeeded eraseNeeded ]
-"121
-[; ;../../VLCBlib_PIC/nvm.c: 121: {
+"123
+[; ;../../VLCBlib_PIC/nvm.c: 123: {
 [u S3231 `uc 1 `S3232 1 ]
 [n S3231 . asByte . ]
 "3863 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
@@ -72,22 +72,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "653
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 653: extern volatile unsigned char NVMLOCK __attribute__((address(0x042)));
 [v _NVMLOCK `Vuc ~T0 @X0 0 e@66 ]
-"133 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 133:     struct {
+"143 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 143:     struct {
 [s S3225 `uc 1 `uc 1 ]
 [n S3225 . lo hi ]
-"130
-[; ;../../VLCBlib_PIC/vlcb.h: 130: typedef union DiagnosticVal {
+"140
+[; ;../../VLCBlib_PIC/vlcb.h: 140: typedef union DiagnosticVal {
 [u S3224 `us 1 `s 1 `S3225 1 ]
 [n S3224 DiagnosticVal asUint asInt asBytes ]
-"139 ../../VLCBlib_PIC/mns.h
-[; ;../../VLCBlib_PIC/mns.h: 139: extern DiagnosticVal mnsDiagnostics[6];
+"140 ../../VLCBlib_PIC/mns.h
+[; ;../../VLCBlib_PIC/mns.h: 140: extern DiagnosticVal mnsDiagnostics[6];
 [v _mnsDiagnostics `S3224 ~T0 @X0 -> 0 `x e ]
-"141
-[; ;../../VLCBlib_PIC/mns.h: 141: extern void updateModuleErrorStatus(void);
+"142
+[; ;../../VLCBlib_PIC/mns.h: 142: extern void updateModuleErrorStatus(void);
 [v _updateModuleErrorStatus `(v ~T0 @X0 0 ef ]
-"275 ../../VLCBlib_PIC/nvm.c
-[; ;../../VLCBlib_PIC/nvm.c: 275:     return GRSP_OK;
+"274 ../../VLCBlib_PIC/nvm.c
+[; ;../../VLCBlib_PIC/nvm.c: 274:     return GRSP_OK;
 [c E22699 0 254 253 252 251 250 .. ]
 [n E22699 VlcbGrspCodes GRSP_OK GRSP_UNKNOWN_NVM_TYPE GRSP_INVALID_DIAGNOSTIC GRSP_INVALID_SERVICE GRSP_INVALID_COMMAND_PARAMETER GRSP_INVALID_MODE  ]
 "3843 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
@@ -96,15 +96,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TBLPTRL `Vuc ~T0 @X0 0 e@1270 ]
 "3794
 [v _TABLAT `Vuc ~T0 @X0 0 e@1269 ]
-"318 ../../VLCBlib_PIC/nvm.c
-[; ;../../VLCBlib_PIC/nvm.c: 318:     while (! APP_isSuitableTimeToWriteFlash());
+"317 ../../VLCBlib_PIC/nvm.c
+[; ;../../VLCBlib_PIC/nvm.c: 317:     while (! APP_isSuitableTimeToWriteFlash());
 [c E22849 0 1 .. ]
 [n E22849 ValidTime BAD_TIME GOOD_TIME  ]
-"411 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 411: extern ValidTime APP_isSuitableTimeToWriteFlash(void);
+"433 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 433: extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 [v _APP_isSuitableTimeToWriteFlash `(E22849 ~T0 @X0 0 ef ]
-"522 ../../VLCBlib_PIC/nvm.c
-[; ;../../VLCBlib_PIC/nvm.c: 522: uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value) {
+"516 ../../VLCBlib_PIC/nvm.c
+[; ;../../VLCBlib_PIC/nvm.c: 516: uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value) {
 [c E22845 0 1 .. ]
 [n E22845 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
@@ -3626,595 +3626,565 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"127 ../../VLCBlib_PIC/nvm.c
-[; ;../../VLCBlib_PIC/nvm.c: 127: } flashFlags;
+"129 ../../VLCBlib_PIC/nvm.c
+[; ;../../VLCBlib_PIC/nvm.c: 129: } flashFlags;
 [v _flashFlags `S3231 ~T0 @X0 1 s ]
-"133
-[; ;../../VLCBlib_PIC/nvm.c: 133:  flash_data_t * flashBuffer = (flash_data_t *)(0x3700U);
+"135
+[; ;../../VLCBlib_PIC/nvm.c: 135:  flash_data_t * flashBuffer = (flash_data_t *)(0x3700U);
 [v _flashBuffer `*uc ~T0 @X0 1 e ]
 [i _flashBuffer
 -> -> 14080 `ui `*uc
 ]
-"135
-[; ;../../VLCBlib_PIC/nvm.c: 135: static flash_address_t flashBlock;
-[v _flashBlock `um ~T0 @X0 1 s ]
-"136
-[; ;../../VLCBlib_PIC/nvm.c: 136: uint8_t flags;
-[v _flags `uc ~T0 @X0 1 e ]
 "137
-[; ;../../VLCBlib_PIC/nvm.c: 137: uint8_t nnh;
-[v _nnh `uc ~T0 @X0 1 e ]
-"138
-[; ;../../VLCBlib_PIC/nvm.c: 138: uint8_t nnl;
-[v _nnl `uc ~T0 @X0 1 e ]
-"139
-[; ;../../VLCBlib_PIC/nvm.c: 139: uint8_t enh;
-[v _enh `uc ~T0 @X0 1 e ]
-"140
-[; ;../../VLCBlib_PIC/nvm.c: 140: uint8_t enl;
-[v _enl `uc ~T0 @X0 1 e ]
-"148
-[; ;../../VLCBlib_PIC/nvm.c: 148: void initRomOps(void) {
+[; ;../../VLCBlib_PIC/nvm.c: 137: static flash_address_t flashBlock;
+[v _flashBlock `um ~T0 @X0 1 s ]
+"147
+[; ;../../VLCBlib_PIC/nvm.c: 147: void initRomOps(void) {
 [v _initRomOps `(v ~T0 @X0 1 ef ]
 {
 [e :U _initRomOps ]
 [f ]
-"149
-[; ;../../VLCBlib_PIC/nvm.c: 149:     flashFlags.asByte = 0;
+"148
+[; ;../../VLCBlib_PIC/nvm.c: 148:     flashFlags.asByte = 0;
 [e = . _flashFlags 0 -> -> 0 `i `uc ]
-"150
-[; ;../../VLCBlib_PIC/nvm.c: 150:     flashBlock = 0x0000;
+"149
+[; ;../../VLCBlib_PIC/nvm.c: 149:     flashBlock = 0x0000;
 [e = _flashBlock -> -> -> 0 `i `m `um ]
-"152
-[; ;../../VLCBlib_PIC/nvm.c: 152:     TBLPTRU = 0;
+"151
+[; ;../../VLCBlib_PIC/nvm.c: 151:     TBLPTRU = 0;
 [e = _TBLPTRU -> -> 0 `i `uc ]
-"154
-[; ;../../VLCBlib_PIC/nvm.c: 154:     NVMCON1bits.WRERR = 0;
+"153
+[; ;../../VLCBlib_PIC/nvm.c: 153:     NVMCON1bits.WRERR = 0;
 [e = . . _NVMCON1bits 0 2 -> -> 0 `i `uc ]
-"156
-[; ;../../VLCBlib_PIC/nvm.c: 156: }
+"155
+[; ;../../VLCBlib_PIC/nvm.c: 155: }
 [e :UE 3233 ]
 }
-"163
-[; ;../../VLCBlib_PIC/nvm.c: 163: eeprom_data_t EEPROM_Read(eeprom_address_t index) {
+"162
+[; ;../../VLCBlib_PIC/nvm.c: 162: eeprom_data_t EEPROM_Read(eeprom_address_t index) {
 [v _EEPROM_Read `(uc ~T0 @X0 1 ef1`um ]
 {
 [e :U _EEPROM_Read ]
 [v _index `um ~T0 @X0 1 r1 ]
 [f ]
-"183
-[; ;../../VLCBlib_PIC/nvm.c: 183:     while (NVMCON0bits.GO)
+"182
+[; ;../../VLCBlib_PIC/nvm.c: 182:     while (NVMCON0bits.GO)
 [e $U 3235  ]
 [e :U 3236 ]
-"184
-[; ;../../VLCBlib_PIC/nvm.c: 184:         ;
-[e :U 3235 ]
 "183
-[; ;../../VLCBlib_PIC/nvm.c: 183:     while (NVMCON0bits.GO)
+[; ;../../VLCBlib_PIC/nvm.c: 183:         ;
+[e :U 3235 ]
+"182
+[; ;../../VLCBlib_PIC/nvm.c: 182:     while (NVMCON0bits.GO)
 [e $ != -> . . _NVMCON0bits 0 0 `i -> 0 `i 3236  ]
 [e :U 3237 ]
-"186
-[; ;../../VLCBlib_PIC/nvm.c: 186:     NVMADRU = 0x38;
+"185
+[; ;../../VLCBlib_PIC/nvm.c: 185:     NVMADRU = 0x38;
 [e = _NVMADRU -> -> 56 `i `uc ]
-"187
-[; ;../../VLCBlib_PIC/nvm.c: 187:     NVMADRH = (uint8_t) (index >> 8);
+"186
+[; ;../../VLCBlib_PIC/nvm.c: 186:     NVMADRH = (uint8_t) (index >> 8);
 [e = _NVMADRH -> >> _index -> 8 `i `uc ]
-"188
-[; ;../../VLCBlib_PIC/nvm.c: 188:     NVMADRL = (uint8_t) index;
+"187
+[; ;../../VLCBlib_PIC/nvm.c: 187:     NVMADRL = (uint8_t) index;
 [e = _NVMADRL -> _index `uc ]
-"191
-[; ;../../VLCBlib_PIC/nvm.c: 191:     NVMCON1bits.NVMCMD = 0x00;
+"190
+[; ;../../VLCBlib_PIC/nvm.c: 190:     NVMCON1bits.NVMCMD = 0x00;
 [e = . . _NVMCON1bits 1 0 -> -> 0 `i `uc ]
-"194
-[; ;../../VLCBlib_PIC/nvm.c: 194:     NVMCON0bits.GO = 1;
+"193
+[; ;../../VLCBlib_PIC/nvm.c: 193:     NVMCON0bits.GO = 1;
 [e = . . _NVMCON0bits 0 0 -> -> 1 `i `uc ]
-"195
-[; ;../../VLCBlib_PIC/nvm.c: 195:     while (NVMCON0bits.GO)
+"194
+[; ;../../VLCBlib_PIC/nvm.c: 194:     while (NVMCON0bits.GO)
 [e $U 3238  ]
 [e :U 3239 ]
-"196
-[; ;../../VLCBlib_PIC/nvm.c: 196:         ;
-[e :U 3238 ]
 "195
-[; ;../../VLCBlib_PIC/nvm.c: 195:     while (NVMCON0bits.GO)
+[; ;../../VLCBlib_PIC/nvm.c: 195:         ;
+[e :U 3238 ]
+"194
+[; ;../../VLCBlib_PIC/nvm.c: 194:     while (NVMCON0bits.GO)
 [e $ != -> . . _NVMCON0bits 0 0 `i -> 0 `i 3239  ]
 [e :U 3240 ]
-"198
-[; ;../../VLCBlib_PIC/nvm.c: 198:     return NVMDATL;
+"197
+[; ;../../VLCBlib_PIC/nvm.c: 197:     return NVMDATL;
 [e ) _NVMDATL ]
 [e $UE 3234  ]
-"200
-[; ;../../VLCBlib_PIC/nvm.c: 200: }
+"199
+[; ;../../VLCBlib_PIC/nvm.c: 199: }
 [e :UE 3234 ]
 }
-"208
-[; ;../../VLCBlib_PIC/nvm.c: 208: uint8_t EEPROM_Write(eeprom_address_t index, eeprom_data_t value) {
+"207
+[; ;../../VLCBlib_PIC/nvm.c: 207: uint8_t EEPROM_Write(eeprom_address_t index, eeprom_data_t value) {
 [v _EEPROM_Write `(uc ~T0 @X0 1 ef2`um`uc ]
 {
 [e :U _EEPROM_Write ]
 [v _index `um ~T0 @X0 1 r1 ]
 [v _value `uc ~T0 @X0 1 r2 ]
 [f ]
-"209
-[; ;../../VLCBlib_PIC/nvm.c: 209:     uint8_t interruptEnabled;
+"208
+[; ;../../VLCBlib_PIC/nvm.c: 208:     uint8_t interruptEnabled;
 [v _interruptEnabled `uc ~T0 @X0 1 a ]
-"210
-[; ;../../VLCBlib_PIC/nvm.c: 210:     interruptEnabled = (INTCON0bits.GIE);
+"209
+[; ;../../VLCBlib_PIC/nvm.c: 209:     interruptEnabled = (INTCON0bits.GIE);
 [e = _interruptEnabled . . _INTCON0bits 0 6 ]
-"211
-[; ;../../VLCBlib_PIC/nvm.c: 211:     do {
+"210
+[; ;../../VLCBlib_PIC/nvm.c: 210:     do {
 [e :U 3244 ]
 {
-"237
-[; ;../../VLCBlib_PIC/nvm.c: 237:         while (NVMCON0bits.GO)
+"236
+[; ;../../VLCBlib_PIC/nvm.c: 236:         while (NVMCON0bits.GO)
 [e $U 3245  ]
 [e :U 3246 ]
-"238
-[; ;../../VLCBlib_PIC/nvm.c: 238:             ;
-[e :U 3245 ]
 "237
-[; ;../../VLCBlib_PIC/nvm.c: 237:         while (NVMCON0bits.GO)
+[; ;../../VLCBlib_PIC/nvm.c: 237:             ;
+[e :U 3245 ]
+"236
+[; ;../../VLCBlib_PIC/nvm.c: 236:         while (NVMCON0bits.GO)
 [e $ != -> . . _NVMCON0bits 0 0 `i -> 0 `i 3246  ]
 [e :U 3247 ]
-"240
-[; ;../../VLCBlib_PIC/nvm.c: 240:         NVMADRU = 0x38;
+"239
+[; ;../../VLCBlib_PIC/nvm.c: 239:         NVMADRU = 0x38;
 [e = _NVMADRU -> -> 56 `i `uc ]
-"241
-[; ;../../VLCBlib_PIC/nvm.c: 241:         NVMADRH = (uint8_t) (index >> 8);
+"240
+[; ;../../VLCBlib_PIC/nvm.c: 240:         NVMADRH = (uint8_t) (index >> 8);
 [e = _NVMADRH -> >> _index -> 8 `i `uc ]
-"242
-[; ;../../VLCBlib_PIC/nvm.c: 242:         NVMADRL = (uint8_t) index;
+"241
+[; ;../../VLCBlib_PIC/nvm.c: 241:         NVMADRL = (uint8_t) index;
 [e = _NVMADRL -> _index `uc ]
-"245
-[; ;../../VLCBlib_PIC/nvm.c: 245:         NVMDATL = value;
+"244
+[; ;../../VLCBlib_PIC/nvm.c: 244:         NVMDATL = value;
 [e = _NVMDATL _value ]
-"248
-[; ;../../VLCBlib_PIC/nvm.c: 248:         NVMCON1bits.NVMCMD = 0x03;
+"247
+[; ;../../VLCBlib_PIC/nvm.c: 247:         NVMCON1bits.NVMCMD = 0x03;
 [e = . . _NVMCON1bits 1 0 -> -> 3 `i `uc ]
-"251
-[; ;../../VLCBlib_PIC/nvm.c: 251:         {INTCON0bits.GIE = 0;};
+"250
+[; ;../../VLCBlib_PIC/nvm.c: 250:         {INTCON0bits.GIE = 0;};
 {
 [e = . . _INTCON0bits 0 6 -> -> 0 `i `uc ]
 }
-"254
-[; ;../../VLCBlib_PIC/nvm.c: 254:         NVMLOCK = 0x55;
+"253
+[; ;../../VLCBlib_PIC/nvm.c: 253:         NVMLOCK = 0x55;
 [e = _NVMLOCK -> -> 85 `i `uc ]
-"255
-[; ;../../VLCBlib_PIC/nvm.c: 255:         NVMLOCK = 0xAA;
+"254
+[; ;../../VLCBlib_PIC/nvm.c: 254:         NVMLOCK = 0xAA;
 [e = _NVMLOCK -> -> 170 `i `uc ]
-"258
-[; ;../../VLCBlib_PIC/nvm.c: 258:         NVMCON0bits.GO = 1;
+"257
+[; ;../../VLCBlib_PIC/nvm.c: 257:         NVMCON0bits.GO = 1;
 [e = . . _NVMCON0bits 0 0 -> -> 1 `i `uc ]
-"260
-[; ;../../VLCBlib_PIC/nvm.c: 260:         if (interruptEnabled) {
+"259
+[; ;../../VLCBlib_PIC/nvm.c: 259:         if (interruptEnabled) {
 [e $ ! != -> _interruptEnabled `i -> 0 `i 3248  ]
 {
-"262
-[; ;../../VLCBlib_PIC/nvm.c: 262:             {INTCON0bits.GIE = 1;};
+"261
+[; ;../../VLCBlib_PIC/nvm.c: 261:             {INTCON0bits.GIE = 1;};
 {
 [e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
 }
-"263
-[; ;../../VLCBlib_PIC/nvm.c: 263:         }
+"262
+[; ;../../VLCBlib_PIC/nvm.c: 262:         }
 }
 [e :U 3248 ]
-"266
-[; ;../../VLCBlib_PIC/nvm.c: 266:         NVMCON1bits.NVMCMD = 0x00;
+"265
+[; ;../../VLCBlib_PIC/nvm.c: 265:         NVMCON1bits.NVMCMD = 0x00;
 [e = . . _NVMCON1bits 1 0 -> -> 0 `i `uc ]
-"269
-[; ;../../VLCBlib_PIC/nvm.c: 269:         if (EEPROM_Read(index) == value) {
+"268
+[; ;../../VLCBlib_PIC/nvm.c: 268:         if (EEPROM_Read(index) == value) {
 [e $ ! == -> ( _EEPROM_Read (1 _index `i -> _value `i 3249  ]
 {
-"270
-[; ;../../VLCBlib_PIC/nvm.c: 270:             break;
+"269
+[; ;../../VLCBlib_PIC/nvm.c: 269:             break;
 [e $U 3243  ]
-"271
-[; ;../../VLCBlib_PIC/nvm.c: 271:         }
+"270
+[; ;../../VLCBlib_PIC/nvm.c: 270:         }
 }
 [e :U 3249 ]
-"272
-[; ;../../VLCBlib_PIC/nvm.c: 272:         mnsDiagnostics[0x03].asUint++;
+"271
+[; ;../../VLCBlib_PIC/nvm.c: 271:         mnsDiagnostics[0x03].asUint++;
 [e ++ . *U + &U _mnsDiagnostics * -> -> -> 3 `i `ui `ux -> -> # *U &U _mnsDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"273
-[; ;../../VLCBlib_PIC/nvm.c: 273:         updateModuleErrorStatus();
+"272
+[; ;../../VLCBlib_PIC/nvm.c: 272:         updateModuleErrorStatus();
 [e ( _updateModuleErrorStatus ..  ]
-"274
-[; ;../../VLCBlib_PIC/nvm.c: 274:     } while (1);
+"273
+[; ;../../VLCBlib_PIC/nvm.c: 273:     } while (1);
 }
 [e $ != -> 1 `i -> 0 `i 3244  ]
 [e :U 3243 ]
-"275
-[; ;../../VLCBlib_PIC/nvm.c: 275:     return GRSP_OK;
+"274
+[; ;../../VLCBlib_PIC/nvm.c: 274:     return GRSP_OK;
 [e ) -> . `E22699 0 `uc ]
 [e $UE 3241  ]
-"276
-[; ;../../VLCBlib_PIC/nvm.c: 276: }
+"275
+[; ;../../VLCBlib_PIC/nvm.c: 275: }
 [e :UE 3241 ]
 }
-"285
-[; ;../../VLCBlib_PIC/nvm.c: 285: flash_data_t FLASH_Read(flash_address_t address) {
-[v _FLASH_Read `(uc ~T0 @X0 1 ef1`um ]
+"284
+[; ;../../VLCBlib_PIC/nvm.c: 284: static flash_data_t FLASH_Read(flash_address_t address) {
+[v _FLASH_Read `(uc ~T0 @X0 1 sf1`um ]
 {
 [e :U _FLASH_Read ]
 [v _address `um ~T0 @X0 1 r1 ]
 [f ]
-"287
-[; ;../../VLCBlib_PIC/nvm.c: 287:     if ((address&(~((flash_address_t)(256U)-1))) == flashBlock) {
+"286
+[; ;../../VLCBlib_PIC/nvm.c: 286:     if ((address&(~((flash_address_t)(256U)-1))) == flashBlock) {
 [e $ ! == & _address ~ - -> -> 256 `ui `um -> -> -> 1 `i `m `um _flashBlock 3251  ]
 {
-"289
-[; ;../../VLCBlib_PIC/nvm.c: 289:         return flashBuffer[(address&((256U)-1))];
+"288
+[; ;../../VLCBlib_PIC/nvm.c: 288:         return flashBuffer[(address&((256U)-1))];
 [e ) *U + _flashBuffer * -> & _address -> - -> 256 `ui -> -> 1 `i `ui `um `ux -> -> # *U _flashBuffer `ui `ux ]
 [e $UE 3250  ]
-"290
-[; ;../../VLCBlib_PIC/nvm.c: 290:     } else {
+"289
+[; ;../../VLCBlib_PIC/nvm.c: 289:     } else {
 }
 [e $U 3252  ]
 [e :U 3251 ]
 {
-"299
-[; ;../../VLCBlib_PIC/nvm.c: 299:         TBLPTRU = (uint8_t) (address >> 16);
+"298
+[; ;../../VLCBlib_PIC/nvm.c: 298:         TBLPTRU = (uint8_t) (address >> 16);
 [e = _TBLPTRU -> >> _address -> 16 `i `uc ]
-"300
-[; ;../../VLCBlib_PIC/nvm.c: 300:         TBLPTRH = (uint8_t) (address >> 8);
+"299
+[; ;../../VLCBlib_PIC/nvm.c: 299:         TBLPTRH = (uint8_t) (address >> 8);
 [e = _TBLPTRH -> >> _address -> 8 `i `uc ]
-"301
-[; ;../../VLCBlib_PIC/nvm.c: 301:         TBLPTRL = (uint8_t) address;
+"300
+[; ;../../VLCBlib_PIC/nvm.c: 300:         TBLPTRL = (uint8_t) address;
 [e = _TBLPTRL -> _address `uc ]
-"303
-[; ;../../VLCBlib_PIC/nvm.c: 303:         __asm("TBLRD*");
+"302
+[; ;../../VLCBlib_PIC/nvm.c: 302:         __asm("TBLRD*");
 [; <" TBLRD* ;# ">
-"305
-[; ;../../VLCBlib_PIC/nvm.c: 305:         return TABLAT;
+"304
+[; ;../../VLCBlib_PIC/nvm.c: 304:         return TABLAT;
 [e ) _TABLAT ]
 [e $UE 3250  ]
-"306
-[; ;../../VLCBlib_PIC/nvm.c: 306:     }
+"305
+[; ;../../VLCBlib_PIC/nvm.c: 305:     }
 }
 [e :U 3252 ]
-"307
-[; ;../../VLCBlib_PIC/nvm.c: 307: }
+"306
+[; ;../../VLCBlib_PIC/nvm.c: 306: }
 [e :UE 3250 ]
 }
-"314
-[; ;../../VLCBlib_PIC/nvm.c: 314: void eraseFlashBlock(void) {
+"313
+[; ;../../VLCBlib_PIC/nvm.c: 313: void eraseFlashBlock(void) {
 [v _eraseFlashBlock `(v ~T0 @X0 1 ef ]
 {
 [e :U _eraseFlashBlock ]
 [f ]
-"315
-[; ;../../VLCBlib_PIC/nvm.c: 315:     uint8_t interruptEnabled;
+"314
+[; ;../../VLCBlib_PIC/nvm.c: 314:     uint8_t interruptEnabled;
 [v _interruptEnabled `uc ~T0 @X0 1 a ]
-"318
-[; ;../../VLCBlib_PIC/nvm.c: 318:     while (! APP_isSuitableTimeToWriteFlash());
+"317
+[; ;../../VLCBlib_PIC/nvm.c: 317:     while (! APP_isSuitableTimeToWriteFlash());
 [e $U 3254  ]
 [e :U 3255 ]
 [e :U 3254 ]
 [e $ ! != -> ( _APP_isSuitableTimeToWriteFlash ..  `ui -> -> 0 `i `ui 3255  ]
 [e :U 3256 ]
-"320
-[; ;../../VLCBlib_PIC/nvm.c: 320:     interruptEnabled = (INTCON0bits.GIE);
+"319
+[; ;../../VLCBlib_PIC/nvm.c: 319:     interruptEnabled = (INTCON0bits.GIE);
 [e = _interruptEnabled . . _INTCON0bits 0 6 ]
-"338
-[; ;../../VLCBlib_PIC/nvm.c: 338:     while (NVMCON0bits.GO)
+"337
+[; ;../../VLCBlib_PIC/nvm.c: 337:     while (NVMCON0bits.GO)
 [e $U 3257  ]
 [e :U 3258 ]
-"339
-[; ;../../VLCBlib_PIC/nvm.c: 339:         ;
-[e :U 3257 ]
 "338
-[; ;../../VLCBlib_PIC/nvm.c: 338:     while (NVMCON0bits.GO)
+[; ;../../VLCBlib_PIC/nvm.c: 338:         ;
+[e :U 3257 ]
+"337
+[; ;../../VLCBlib_PIC/nvm.c: 337:     while (NVMCON0bits.GO)
 [e $ != -> . . _NVMCON0bits 0 0 `i -> 0 `i 3258  ]
 [e :U 3259 ]
-"341
-[; ;../../VLCBlib_PIC/nvm.c: 341:     NVMADRU = (uint8_t) (flashBlock >> 16);
+"340
+[; ;../../VLCBlib_PIC/nvm.c: 340:     NVMADRU = (uint8_t) (flashBlock >> 16);
 [e = _NVMADRU -> >> _flashBlock -> 16 `i `uc ]
-"342
-[; ;../../VLCBlib_PIC/nvm.c: 342:     NVMADRH = (uint8_t) (flashBlock >> 8);
+"341
+[; ;../../VLCBlib_PIC/nvm.c: 341:     NVMADRH = (uint8_t) (flashBlock >> 8);
 [e = _NVMADRH -> >> _flashBlock -> 8 `i `uc ]
-"344
-[; ;../../VLCBlib_PIC/nvm.c: 344:     NVMCON1bits.NVMCMD = 0x06;
+"343
+[; ;../../VLCBlib_PIC/nvm.c: 343:     NVMCON1bits.NVMCMD = 0x06;
 [e = . . _NVMCON1bits 1 0 -> -> 6 `i `uc ]
-"345
-[; ;../../VLCBlib_PIC/nvm.c: 345:     {INTCON0bits.GIE = 0;};
+"344
+[; ;../../VLCBlib_PIC/nvm.c: 344:     {INTCON0bits.GIE = 0;};
 {
 [e = . . _INTCON0bits 0 6 -> -> 0 `i `uc ]
 }
-"347
-[; ;../../VLCBlib_PIC/nvm.c: 347:     NVMLOCK = 0x55;
+"346
+[; ;../../VLCBlib_PIC/nvm.c: 346:     NVMLOCK = 0x55;
 [e = _NVMLOCK -> -> 85 `i `uc ]
-"348
-[; ;../../VLCBlib_PIC/nvm.c: 348:     NVMLOCK = 0xAA;
+"347
+[; ;../../VLCBlib_PIC/nvm.c: 347:     NVMLOCK = 0xAA;
 [e = _NVMLOCK -> -> 170 `i `uc ]
-"349
-[; ;../../VLCBlib_PIC/nvm.c: 349:     NVMCON0bits.GO = 1;
+"348
+[; ;../../VLCBlib_PIC/nvm.c: 348:     NVMCON0bits.GO = 1;
 [e = . . _NVMCON0bits 0 0 -> -> 1 `i `uc ]
-"350
-[; ;../../VLCBlib_PIC/nvm.c: 350:     while (NVMCON0bits.GO)
+"349
+[; ;../../VLCBlib_PIC/nvm.c: 349:     while (NVMCON0bits.GO)
 [e $U 3260  ]
 [e :U 3261 ]
-"351
-[; ;../../VLCBlib_PIC/nvm.c: 351:         ;
-[e :U 3260 ]
 "350
-[; ;../../VLCBlib_PIC/nvm.c: 350:     while (NVMCON0bits.GO)
+[; ;../../VLCBlib_PIC/nvm.c: 350:         ;
+[e :U 3260 ]
+"349
+[; ;../../VLCBlib_PIC/nvm.c: 349:     while (NVMCON0bits.GO)
 [e $ != -> . . _NVMCON0bits 0 0 `i -> 0 `i 3261  ]
 [e :U 3262 ]
-"352
-[; ;../../VLCBlib_PIC/nvm.c: 352:     NVMCON1bits.NVMCMD = 0x00;
+"351
+[; ;../../VLCBlib_PIC/nvm.c: 351:     NVMCON1bits.NVMCMD = 0x00;
 [e = . . _NVMCON1bits 1 0 -> -> 0 `i `uc ]
-"354
-[; ;../../VLCBlib_PIC/nvm.c: 354:     if (interruptEnabled) {
+"353
+[; ;../../VLCBlib_PIC/nvm.c: 353:     if (interruptEnabled) {
 [e $ ! != -> _interruptEnabled `i -> 0 `i 3263  ]
 {
-"355
-[; ;../../VLCBlib_PIC/nvm.c: 355:         {INTCON0bits.GIE = 1;};
+"354
+[; ;../../VLCBlib_PIC/nvm.c: 354:         {INTCON0bits.GIE = 1;};
 {
 [e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
 }
-"356
-[; ;../../VLCBlib_PIC/nvm.c: 356:     }
+"355
+[; ;../../VLCBlib_PIC/nvm.c: 355:     }
 }
 [e :U 3263 ]
-"357
-[; ;../../VLCBlib_PIC/nvm.c: 357: }
+"356
+[; ;../../VLCBlib_PIC/nvm.c: 356: }
 [e :UE 3253 ]
 }
-"364
-[; ;../../VLCBlib_PIC/nvm.c: 364: void flushFlashBlock(void) {
+"363
+[; ;../../VLCBlib_PIC/nvm.c: 363: void flushFlashBlock(void) {
 [v _flushFlashBlock `(v ~T0 @X0 1 ef ]
 {
 [e :U _flushFlashBlock ]
 [f ]
-"365
-[; ;../../VLCBlib_PIC/nvm.c: 365:     uint8_t interruptEnabled;
+"364
+[; ;../../VLCBlib_PIC/nvm.c: 364:     uint8_t interruptEnabled;
 [v _interruptEnabled `uc ~T0 @X0 1 a ]
-"373
-[; ;../../VLCBlib_PIC/nvm.c: 373:     if (! flashFlags.writeNeeded) return;
+"372
+[; ;../../VLCBlib_PIC/nvm.c: 372:     if (! flashFlags.writeNeeded) return;
 [e $ ! ! != -> . . _flashFlags 1 0 `i -> 0 `i 3265  ]
 [e $UE 3264  ]
 [e :U 3265 ]
-"374
-[; ;../../VLCBlib_PIC/nvm.c: 374:     if (flashFlags.eraseNeeded) {
+"373
+[; ;../../VLCBlib_PIC/nvm.c: 373:     if (flashFlags.eraseNeeded) {
 [e $ ! != -> . . _flashFlags 1 1 `i -> 0 `i 3266  ]
 {
-"375
-[; ;../../VLCBlib_PIC/nvm.c: 375:         eraseFlashBlock();
+"374
+[; ;../../VLCBlib_PIC/nvm.c: 374:         eraseFlashBlock();
 [e ( _eraseFlashBlock ..  ]
-"376
-[; ;../../VLCBlib_PIC/nvm.c: 376:     }
+"375
+[; ;../../VLCBlib_PIC/nvm.c: 375:     }
 }
 [e :U 3266 ]
-"378
-[; ;../../VLCBlib_PIC/nvm.c: 378:     interruptEnabled = (INTCON0bits.GIE);
+"377
+[; ;../../VLCBlib_PIC/nvm.c: 377:     interruptEnabled = (INTCON0bits.GIE);
 [e = _interruptEnabled . . _INTCON0bits 0 6 ]
-"379
-[; ;../../VLCBlib_PIC/nvm.c: 379:     {INTCON0bits.GIE = 0;};
+"378
+[; ;../../VLCBlib_PIC/nvm.c: 378:     {INTCON0bits.GIE = 0;};
 {
 [e = . . _INTCON0bits 0 6 -> -> 0 `i `uc ]
 }
-"405
-[; ;../../VLCBlib_PIC/nvm.c: 405:     while (NVMCON0bits.GO)
+"404
+[; ;../../VLCBlib_PIC/nvm.c: 404:     while (NVMCON0bits.GO)
 [e $U 3267  ]
 [e :U 3268 ]
-"406
-[; ;../../VLCBlib_PIC/nvm.c: 406:         ;
-[e :U 3267 ]
 "405
-[; ;../../VLCBlib_PIC/nvm.c: 405:     while (NVMCON0bits.GO)
+[; ;../../VLCBlib_PIC/nvm.c: 405:         ;
+[e :U 3267 ]
+"404
+[; ;../../VLCBlib_PIC/nvm.c: 404:     while (NVMCON0bits.GO)
 [e $ != -> . . _NVMCON0bits 0 0 `i -> 0 `i 3268  ]
 [e :U 3269 ]
-"408
-[; ;../../VLCBlib_PIC/nvm.c: 408:     NVMADRU = (uint8_t) (flashBlock >> 16);
+"407
+[; ;../../VLCBlib_PIC/nvm.c: 407:     NVMADRU = (uint8_t) (flashBlock >> 16);
 [e = _NVMADRU -> >> _flashBlock -> 16 `i `uc ]
-"409
-[; ;../../VLCBlib_PIC/nvm.c: 409:     NVMADRH = (uint8_t) (flashBlock >> 8);
+"408
+[; ;../../VLCBlib_PIC/nvm.c: 408:     NVMADRH = (uint8_t) (flashBlock >> 8);
 [e = _NVMADRH -> >> _flashBlock -> 8 `i `uc ]
-"410
-[; ;../../VLCBlib_PIC/nvm.c: 410:     NVMADRL = (uint8_t) flashBlock;
+"409
+[; ;../../VLCBlib_PIC/nvm.c: 409:     NVMADRL = (uint8_t) flashBlock;
 [e = _NVMADRL -> _flashBlock `uc ]
-"412
-[; ;../../VLCBlib_PIC/nvm.c: 412:     NVMCON1bits.NVMCMD = 0x05;
+"411
+[; ;../../VLCBlib_PIC/nvm.c: 411:     NVMCON1bits.NVMCMD = 0x05;
 [e = . . _NVMCON1bits 1 0 -> -> 5 `i `uc ]
-"414
-[; ;../../VLCBlib_PIC/nvm.c: 414:     NVMLOCK = 0x55;
+"413
+[; ;../../VLCBlib_PIC/nvm.c: 413:     NVMLOCK = 0x55;
 [e = _NVMLOCK -> -> 85 `i `uc ]
-"415
-[; ;../../VLCBlib_PIC/nvm.c: 415:     NVMLOCK = 0xAA;
+"414
+[; ;../../VLCBlib_PIC/nvm.c: 414:     NVMLOCK = 0xAA;
 [e = _NVMLOCK -> -> 170 `i `uc ]
-"416
-[; ;../../VLCBlib_PIC/nvm.c: 416:     NVMCON0bits.GO = 1;
+"415
+[; ;../../VLCBlib_PIC/nvm.c: 415:     NVMCON0bits.GO = 1;
 [e = . . _NVMCON0bits 0 0 -> -> 1 `i `uc ]
-"417
-[; ;../../VLCBlib_PIC/nvm.c: 417:     while (NVMCON0bits.GO)
+"416
+[; ;../../VLCBlib_PIC/nvm.c: 416:     while (NVMCON0bits.GO)
 [e $U 3270  ]
 [e :U 3271 ]
-"418
-[; ;../../VLCBlib_PIC/nvm.c: 418:         ;
-[e :U 3270 ]
 "417
-[; ;../../VLCBlib_PIC/nvm.c: 417:     while (NVMCON0bits.GO)
+[; ;../../VLCBlib_PIC/nvm.c: 417:         ;
+[e :U 3270 ]
+"416
+[; ;../../VLCBlib_PIC/nvm.c: 416:     while (NVMCON0bits.GO)
 [e $ != -> . . _NVMCON0bits 0 0 `i -> 0 `i 3271  ]
 [e :U 3272 ]
-"419
-[; ;../../VLCBlib_PIC/nvm.c: 419:     NVMCON1bits.NVMCMD = 0x00;
+"418
+[; ;../../VLCBlib_PIC/nvm.c: 418:     NVMCON1bits.NVMCMD = 0x00;
 [e = . . _NVMCON1bits 1 0 -> -> 0 `i `uc ]
-"422
-[; ;../../VLCBlib_PIC/nvm.c: 422:     if (interruptEnabled) {
+"421
+[; ;../../VLCBlib_PIC/nvm.c: 421:     if (interruptEnabled) {
 [e $ ! != -> _interruptEnabled `i -> 0 `i 3273  ]
 {
-"423
-[; ;../../VLCBlib_PIC/nvm.c: 423:         {INTCON0bits.GIE = 1;};
+"422
+[; ;../../VLCBlib_PIC/nvm.c: 422:         {INTCON0bits.GIE = 1;};
 {
 [e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
 }
-"424
-[; ;../../VLCBlib_PIC/nvm.c: 424:     }
+"423
+[; ;../../VLCBlib_PIC/nvm.c: 423:     }
 }
 [e :U 3273 ]
-"425
-[; ;../../VLCBlib_PIC/nvm.c: 425:     flashFlags.asByte = 0;
+"424
+[; ;../../VLCBlib_PIC/nvm.c: 424:     flashFlags.asByte = 0;
 [e = . _flashFlags 0 -> -> 0 `i `uc ]
-"426
-[; ;../../VLCBlib_PIC/nvm.c: 426: }
+"425
+[; ;../../VLCBlib_PIC/nvm.c: 425: }
 [e :UE 3264 ]
 }
-"431
-[; ;../../VLCBlib_PIC/nvm.c: 431: void loadFlashBlock(void) {
+"430
+[; ;../../VLCBlib_PIC/nvm.c: 430: void loadFlashBlock(void) {
 [v _loadFlashBlock `(v ~T0 @X0 1 ef ]
 {
 [e :U _loadFlashBlock ]
 [f ]
-"446
-[; ;../../VLCBlib_PIC/nvm.c: 446:     while (NVMCON0bits.GO)
+"445
+[; ;../../VLCBlib_PIC/nvm.c: 445:     while (NVMCON0bits.GO)
 [e $U 3275  ]
 [e :U 3276 ]
-"447
-[; ;../../VLCBlib_PIC/nvm.c: 447:         ;
-[e :U 3275 ]
 "446
-[; ;../../VLCBlib_PIC/nvm.c: 446:     while (NVMCON0bits.GO)
+[; ;../../VLCBlib_PIC/nvm.c: 446:         ;
+[e :U 3275 ]
+"445
+[; ;../../VLCBlib_PIC/nvm.c: 445:     while (NVMCON0bits.GO)
 [e $ != -> . . _NVMCON0bits 0 0 `i -> 0 `i 3276  ]
 [e :U 3277 ]
-"449
-[; ;../../VLCBlib_PIC/nvm.c: 449:     NVMADRU = (uint8_t) (flashBlock >> 16);
+"448
+[; ;../../VLCBlib_PIC/nvm.c: 448:     NVMADRU = (uint8_t) (flashBlock >> 16);
 [e = _NVMADRU -> >> _flashBlock -> 16 `i `uc ]
-"450
-[; ;../../VLCBlib_PIC/nvm.c: 450:     NVMADRH = (uint8_t) (flashBlock >> 8);
+"449
+[; ;../../VLCBlib_PIC/nvm.c: 449:     NVMADRH = (uint8_t) (flashBlock >> 8);
 [e = _NVMADRH -> >> _flashBlock -> 8 `i `uc ]
-"451
-[; ;../../VLCBlib_PIC/nvm.c: 451:     NVMADRL = (uint8_t) flashBlock;
+"450
+[; ;../../VLCBlib_PIC/nvm.c: 450:     NVMADRL = (uint8_t) flashBlock;
 [e = _NVMADRL -> _flashBlock `uc ]
-"452
-[; ;../../VLCBlib_PIC/nvm.c: 452:     NVMCON1bits.NVMCMD = 0x02;
+"451
+[; ;../../VLCBlib_PIC/nvm.c: 451:     NVMCON1bits.NVMCMD = 0x02;
 [e = . . _NVMCON1bits 1 0 -> -> 2 `i `uc ]
-"453
-[; ;../../VLCBlib_PIC/nvm.c: 453:     NVMCON0bits.GO = 1;
+"452
+[; ;../../VLCBlib_PIC/nvm.c: 452:     NVMCON0bits.GO = 1;
 [e = . . _NVMCON0bits 0 0 -> -> 1 `i `uc ]
-"454
-[; ;../../VLCBlib_PIC/nvm.c: 454:     while (NVMCON0bits.GO)
+"453
+[; ;../../VLCBlib_PIC/nvm.c: 453:     while (NVMCON0bits.GO)
 [e $U 3278  ]
 [e :U 3279 ]
-"455
-[; ;../../VLCBlib_PIC/nvm.c: 455:         ;
-[e :U 3278 ]
 "454
-[; ;../../VLCBlib_PIC/nvm.c: 454:     while (NVMCON0bits.GO)
+[; ;../../VLCBlib_PIC/nvm.c: 454:         ;
+[e :U 3278 ]
+"453
+[; ;../../VLCBlib_PIC/nvm.c: 453:     while (NVMCON0bits.GO)
 [e $ != -> . . _NVMCON0bits 0 0 `i -> 0 `i 3279  ]
 [e :U 3280 ]
-"456
-[; ;../../VLCBlib_PIC/nvm.c: 456:     NVMCON1bits.NVMCMD = 0x00;
+"455
+[; ;../../VLCBlib_PIC/nvm.c: 455:     NVMCON1bits.NVMCMD = 0x00;
 [e = . . _NVMCON1bits 1 0 -> -> 0 `i `uc ]
-"458
-[; ;../../VLCBlib_PIC/nvm.c: 458:     flashFlags.asByte = 0;
+"457
+[; ;../../VLCBlib_PIC/nvm.c: 457:     flashFlags.asByte = 0;
 [e = . _flashFlags 0 -> -> 0 `i `uc ]
-"459
-[; ;../../VLCBlib_PIC/nvm.c: 459:     flags = flashBuffer[0];
-[e = _flags *U + _flashBuffer * -> -> 0 `i `x -> -> # *U _flashBuffer `i `x ]
-"460
-[; ;../../VLCBlib_PIC/nvm.c: 460:     nnh = flashBuffer[2];
-[e = _nnh *U + _flashBuffer * -> -> 2 `i `x -> -> # *U _flashBuffer `i `x ]
-"461
-[; ;../../VLCBlib_PIC/nvm.c: 461:     nnl = flashBuffer[3];
-[e = _nnl *U + _flashBuffer * -> -> 3 `i `x -> -> # *U _flashBuffer `i `x ]
-"462
-[; ;../../VLCBlib_PIC/nvm.c: 462:     enh = flashBuffer[4];
-[e = _enh *U + _flashBuffer * -> -> 4 `i `x -> -> # *U _flashBuffer `i `x ]
-"463
-[; ;../../VLCBlib_PIC/nvm.c: 463:     enl = flashBuffer[5];
-[e = _enl *U + _flashBuffer * -> -> 5 `i `x -> -> # *U _flashBuffer `i `x ]
-"464
-[; ;../../VLCBlib_PIC/nvm.c: 464: }
+"458
+[; ;../../VLCBlib_PIC/nvm.c: 458: }
 [e :UE 3274 ]
 }
-"474
-[; ;../../VLCBlib_PIC/nvm.c: 474: uint8_t FLASH_Write(flash_address_t index, flash_data_t value) {
+"468
+[; ;../../VLCBlib_PIC/nvm.c: 468: uint8_t FLASH_Write(flash_address_t index, flash_data_t value) {
 [v _FLASH_Write `(uc ~T0 @X0 1 ef2`um`uc ]
 {
 [e :U _FLASH_Write ]
 [v _index `um ~T0 @X0 1 r1 ]
 [v _value `uc ~T0 @X0 1 r2 ]
 [f ]
-"475
-[; ;../../VLCBlib_PIC/nvm.c: 475:     uint8_t oldValue;
+"469
+[; ;../../VLCBlib_PIC/nvm.c: 469:     uint8_t oldValue;
 [v _oldValue `uc ~T0 @X0 1 a ]
-"477
-[; ;../../VLCBlib_PIC/nvm.c: 477:     while (APP_isSuitableTimeToWriteFlash() == BAD_TIME)
+"471
+[; ;../../VLCBlib_PIC/nvm.c: 471:     while (APP_isSuitableTimeToWriteFlash() == BAD_TIME)
 [e $U 3282  ]
 [e :U 3283 ]
-"478
-[; ;../../VLCBlib_PIC/nvm.c: 478:         ;
+"472
+[; ;../../VLCBlib_PIC/nvm.c: 472:         ;
 [e :U 3282 ]
-"477
-[; ;../../VLCBlib_PIC/nvm.c: 477:     while (APP_isSuitableTimeToWriteFlash() == BAD_TIME)
+"471
+[; ;../../VLCBlib_PIC/nvm.c: 471:     while (APP_isSuitableTimeToWriteFlash() == BAD_TIME)
 [e $ == -> ( _APP_isSuitableTimeToWriteFlash ..  `ui -> . `E22849 0 `ui 3283  ]
 [e :U 3284 ]
-"492
-[; ;../../VLCBlib_PIC/nvm.c: 492:     if ((index&(~((flash_address_t)(256U)-1))) != flashBlock) {
+"486
+[; ;../../VLCBlib_PIC/nvm.c: 486:     if ((index&(~((flash_address_t)(256U)-1))) != flashBlock) {
 [e $ ! != & _index ~ - -> -> 256 `ui `um -> -> -> 1 `i `m `um _flashBlock 3285  ]
 {
-"493
-[; ;../../VLCBlib_PIC/nvm.c: 493:         if (flashBlock != 0) {
+"487
+[; ;../../VLCBlib_PIC/nvm.c: 487:         if (flashBlock != 0) {
 [e $ ! != _flashBlock -> -> -> 0 `i `m `um 3286  ]
 {
-"495
-[; ;../../VLCBlib_PIC/nvm.c: 495:             if (flashFlags.eraseNeeded) {
+"489
+[; ;../../VLCBlib_PIC/nvm.c: 489:             if (flashFlags.eraseNeeded) {
 [e $ ! != -> . . _flashFlags 1 1 `i -> 0 `i 3287  ]
 {
-"496
-[; ;../../VLCBlib_PIC/nvm.c: 496:                 eraseFlashBlock();
+"490
+[; ;../../VLCBlib_PIC/nvm.c: 490:                 eraseFlashBlock();
 [e ( _eraseFlashBlock ..  ]
-"497
-[; ;../../VLCBlib_PIC/nvm.c: 497:                 flashFlags.eraseNeeded = 0;
+"491
+[; ;../../VLCBlib_PIC/nvm.c: 491:                 flashFlags.eraseNeeded = 0;
 [e = . . _flashFlags 1 1 -> -> 0 `i `uc ]
-"498
-[; ;../../VLCBlib_PIC/nvm.c: 498:             }
+"492
+[; ;../../VLCBlib_PIC/nvm.c: 492:             }
 }
 [e :U 3287 ]
-"500
-[; ;../../VLCBlib_PIC/nvm.c: 500:             flushFlashBlock();
+"494
+[; ;../../VLCBlib_PIC/nvm.c: 494:             flushFlashBlock();
 [e ( _flushFlashBlock ..  ]
-"501
-[; ;../../VLCBlib_PIC/nvm.c: 501:         }
+"495
+[; ;../../VLCBlib_PIC/nvm.c: 495:         }
 }
 [e :U 3286 ]
-"504
-[; ;../../VLCBlib_PIC/nvm.c: 504:         flashBlock = (index&(~((flash_address_t)(256U)-1)));
+"498
+[; ;../../VLCBlib_PIC/nvm.c: 498:         flashBlock = (index&(~((flash_address_t)(256U)-1)));
 [e = _flashBlock & _index ~ - -> -> 256 `ui `um -> -> -> 1 `i `m `um ]
-"505
-[; ;../../VLCBlib_PIC/nvm.c: 505:         loadFlashBlock();
+"499
+[; ;../../VLCBlib_PIC/nvm.c: 499:         loadFlashBlock();
 [e ( _loadFlashBlock ..  ]
-"506
-[; ;../../VLCBlib_PIC/nvm.c: 506:     }
+"500
+[; ;../../VLCBlib_PIC/nvm.c: 500:     }
 }
 [e :U 3285 ]
-"507
-[; ;../../VLCBlib_PIC/nvm.c: 507:     flashFlags.eraseNeeded |= (value & ~flashBuffer[(index&((256U)-1))])?1:0;
+"501
+[; ;../../VLCBlib_PIC/nvm.c: 501:     flashFlags.eraseNeeded |= (value & ~flashBuffer[(index&((256U)-1))])?1:0;
 [e =| . . _flashFlags 1 1 -> ? != & -> _value `i ~ -> *U + _flashBuffer * -> & _index -> - -> 256 `ui -> -> 1 `i `ui `um `ux -> -> # *U _flashBuffer `ui `ux `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"508
-[; ;../../VLCBlib_PIC/nvm.c: 508:     if (flashBuffer[(index&((256U)-1))] != value) {
+"502
+[; ;../../VLCBlib_PIC/nvm.c: 502:     if (flashBuffer[(index&((256U)-1))] != value) {
 [e $ ! != -> *U + _flashBuffer * -> & _index -> - -> 256 `ui -> -> 1 `i `ui `um `ux -> -> # *U _flashBuffer `ui `ux `i -> _value `i 3288  ]
 {
-"509
-[; ;../../VLCBlib_PIC/nvm.c: 509:         flashFlags.writeNeeded = 1;
+"503
+[; ;../../VLCBlib_PIC/nvm.c: 503:         flashFlags.writeNeeded = 1;
 [e = . . _flashFlags 1 0 -> -> 1 `i `uc ]
-"510
-[; ;../../VLCBlib_PIC/nvm.c: 510:         flashBuffer[(index&((256U)-1))] = value;
+"504
+[; ;../../VLCBlib_PIC/nvm.c: 504:         flashBuffer[(index&((256U)-1))] = value;
 [e = *U + _flashBuffer * -> & _index -> - -> 256 `ui -> -> 1 `i `ui `um `ux -> -> # *U _flashBuffer `ui `ux _value ]
-"511
-[; ;../../VLCBlib_PIC/nvm.c: 511:     }
+"505
+[; ;../../VLCBlib_PIC/nvm.c: 505:     }
 }
 [e :U 3288 ]
-"512
-[; ;../../VLCBlib_PIC/nvm.c: 512:     return GRSP_OK;
+"506
+[; ;../../VLCBlib_PIC/nvm.c: 506:     return GRSP_OK;
 [e ) -> . `E22699 0 `uc ]
 [e $UE 3281  ]
-"513
-[; ;../../VLCBlib_PIC/nvm.c: 513: }
+"507
+[; ;../../VLCBlib_PIC/nvm.c: 507: }
 [e :UE 3281 ]
 }
-"522
-[; ;../../VLCBlib_PIC/nvm.c: 522: uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value) {
+"516
+[; ;../../VLCBlib_PIC/nvm.c: 516: uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value) {
 [v _writeNVM `(uc ~T0 @X0 1 ef3`E22845`um`uc ]
 {
 [e :U _writeNVM ]
@@ -4222,33 +4192,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _index `um ~T0 @X0 1 r2 ]
 [v _value `uc ~T0 @X0 1 r3 ]
 [f ]
-"523
-[; ;../../VLCBlib_PIC/nvm.c: 523:     switch(type) {
+"517
+[; ;../../VLCBlib_PIC/nvm.c: 517:     switch(type) {
 [e $U 3291  ]
 {
-"524
-[; ;../../VLCBlib_PIC/nvm.c: 524:         case EEPROM_NVM_TYPE:
+"518
+[; ;../../VLCBlib_PIC/nvm.c: 518:         case EEPROM_NVM_TYPE:
 [e :U 3292 ]
-"525
-[; ;../../VLCBlib_PIC/nvm.c: 525:             return EEPROM_Write((eeprom_address_t)index, value);
+"519
+[; ;../../VLCBlib_PIC/nvm.c: 519:             return EEPROM_Write((eeprom_address_t)index, value);
 [e ) ( _EEPROM_Write (2 , _index _value ]
 [e $UE 3289  ]
-"526
-[; ;../../VLCBlib_PIC/nvm.c: 526:         case FLASH_NVM_TYPE:
+"520
+[; ;../../VLCBlib_PIC/nvm.c: 520:         case FLASH_NVM_TYPE:
 [e :U 3293 ]
-"527
-[; ;../../VLCBlib_PIC/nvm.c: 527:             return FLASH_Write((flash_address_t)index, value);
+"521
+[; ;../../VLCBlib_PIC/nvm.c: 521:             return FLASH_Write((flash_address_t)index, value);
 [e ) ( _FLASH_Write (2 , _index _value ]
 [e $UE 3289  ]
-"528
-[; ;../../VLCBlib_PIC/nvm.c: 528:         default:
+"522
+[; ;../../VLCBlib_PIC/nvm.c: 522:         default:
 [e :U 3294 ]
-"529
-[; ;../../VLCBlib_PIC/nvm.c: 529:             return GRSP_UNKNOWN_NVM_TYPE;
+"523
+[; ;../../VLCBlib_PIC/nvm.c: 523:             return GRSP_UNKNOWN_NVM_TYPE;
 [e ) -> . `E22699 1 `uc ]
 [e $UE 3289  ]
-"530
-[; ;../../VLCBlib_PIC/nvm.c: 530:     }
+"524
+[; ;../../VLCBlib_PIC/nvm.c: 524:     }
 }
 [e $U 3290  ]
 [e :U 3291 ]
@@ -4256,45 +4226,45 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E22845 1 `ui 3293
  3294 ]
 [e :U 3290 ]
-"531
-[; ;../../VLCBlib_PIC/nvm.c: 531: }
+"525
+[; ;../../VLCBlib_PIC/nvm.c: 525: }
 [e :UE 3289 ]
 }
-"539
-[; ;../../VLCBlib_PIC/nvm.c: 539: int16_t readNVM(NVMtype type, uint24_t index) {
+"533
+[; ;../../VLCBlib_PIC/nvm.c: 533: int16_t readNVM(NVMtype type, uint24_t index) {
 [v _readNVM `(s ~T0 @X0 1 ef2`E22845`um ]
 {
 [e :U _readNVM ]
 [v _type `E22845 ~T0 @X0 1 r1 ]
 [v _index `um ~T0 @X0 1 r2 ]
 [f ]
-"540
-[; ;../../VLCBlib_PIC/nvm.c: 540:     switch(type) {
+"534
+[; ;../../VLCBlib_PIC/nvm.c: 534:     switch(type) {
 [e $U 3297  ]
 {
-"541
-[; ;../../VLCBlib_PIC/nvm.c: 541:         case EEPROM_NVM_TYPE:
+"535
+[; ;../../VLCBlib_PIC/nvm.c: 535:         case EEPROM_NVM_TYPE:
 [e :U 3298 ]
-"542
-[; ;../../VLCBlib_PIC/nvm.c: 542:             return EEPROM_Read((uint16_t)index);
+"536
+[; ;../../VLCBlib_PIC/nvm.c: 536:             return EEPROM_Read((uint16_t)index);
 [e ) -> ( _EEPROM_Read (1 -> -> _index `us `um `s ]
 [e $UE 3295  ]
-"543
-[; ;../../VLCBlib_PIC/nvm.c: 543:         case FLASH_NVM_TYPE:
+"537
+[; ;../../VLCBlib_PIC/nvm.c: 537:         case FLASH_NVM_TYPE:
 [e :U 3299 ]
-"548
-[; ;../../VLCBlib_PIC/nvm.c: 548:             return FLASH_Read(index);
+"542
+[; ;../../VLCBlib_PIC/nvm.c: 542:             return FLASH_Read(index);
 [e ) -> ( _FLASH_Read (1 _index `s ]
 [e $UE 3295  ]
-"550
-[; ;../../VLCBlib_PIC/nvm.c: 550:         default:
+"544
+[; ;../../VLCBlib_PIC/nvm.c: 544:         default:
 [e :U 3300 ]
-"551
-[; ;../../VLCBlib_PIC/nvm.c: 551:             return -GRSP_UNKNOWN_NVM_TYPE;
+"545
+[; ;../../VLCBlib_PIC/nvm.c: 545:             return -GRSP_UNKNOWN_NVM_TYPE;
 [e ) -> -U -> . `E22699 1 `i `s ]
 [e $UE 3295  ]
-"552
-[; ;../../VLCBlib_PIC/nvm.c: 552:     }
+"546
+[; ;../../VLCBlib_PIC/nvm.c: 546:     }
 }
 [e $U 3296  ]
 [e :U 3297 ]
@@ -4302,7 +4272,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E22845 1 `ui 3299
  3300 ]
 [e :U 3296 ]
-"553
-[; ;../../VLCBlib_PIC/nvm.c: 553: }
+"547
+[; ;../../VLCBlib_PIC/nvm.c: 547: }
 [e :UE 3295 ]
 }
