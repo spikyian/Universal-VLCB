@@ -401,7 +401,7 @@ EVENT_ON 1
 EEPROM_NVM_TYPE 0
 FLASH_NVM_TYPE 1
 ]
-"298 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
+"299 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
 [e E23031 NvValidation `uc
 INVALID 0
 VALID 1
@@ -777,6 +777,17 @@ SERVICE_ID_BOOT 10
 SERVICE_ID_STREAMING 17
 ]
 "131
+[e E22382 VlcbManufacturer `uc
+MANU_DEV 13
+MANU_MERG 165
+MANU_SPROG 44
+MANU_ROCRAIL 70
+MANU_SPECTRUM 80
+MANU_MERG_VLCB 250
+MANU_VLCB 250
+MANU_SYSPIXIE 249
+MANU_RME 248
+]
 [e E22393 VlcbMergModuleTypes `uc
 MTYP_SLIM 0
 MTYP_CANACC4 1
@@ -1174,14 +1185,14 @@ TRUE 1
 NOT_PRESENT 0
 PRESENT 1
 ]
-"574
+"580
 [e E23034 Priority `uc
 pLOW 0
 pNORMAL 1
 pABOVE 2
 pHIGH 3
 ]
-"767
+"773
 [e E23275 CanidResult `uc
 CANID_FAIL 0
 CANID_OK 1
@@ -2139,6 +2150,17 @@ CMDERR_INV_NV_VALUE 12
 CMDERR_LRN_OTHER 13
 ]
 "359
+[e E22382 VlcbManufacturer `uc
+MANU_DEV 13
+MANU_MERG 165
+MANU_SPROG 44
+MANU_ROCRAIL 70
+MANU_SPECTRUM 80
+MANU_MERG_VLCB 250
+MANU_VLCB 250
+MANU_SYSPIXIE 249
+MANU_RME 248
+]
 [e E22393 VlcbMergModuleTypes `uc
 MTYP_SLIM 0
 MTYP_CANACC4 1
@@ -2982,21 +3004,21 @@ FLASH_NVM_TYPE 1
 [v _canGetDiagnostic canGetDiagnostic `(*.39S201  1 s 2 canGetDiagnostic ]
 "528
 [v _canSendMessage canSendMessage `(E23183  1 s 1 canSendMessage ]
-"603
+"609
 [v _sendRTR sendRTR `(v  1 s 1 sendRTR ]
-"621
+"627
 [v _canReceiveMessage canReceiveMessage `(E23179  1 s 1 canReceiveMessage ]
-"687
+"693
 [v _startEnumeration startEnumeration `(v  1 s 1 startEnumeration ]
-"708
+"714
 [v _handleSelfEnumeration handleSelfEnumeration `(v  1 s 1 handleSelfEnumeration ]
-"734
+"740
 [v _processEnumeration processEnumeration `(v  1 s 1 processEnumeration ]
-"798
+"804
 [v _setNewCanId setNewCanId `(E23275  1 s 1 setNewCanId ]
-"819
+"825
 [v _CAN1_OperationModeSet CAN1_OperationModeSet `(E23288  1 e 1 0 ]
-"852
+"858
 [v _CAN1_OperationModeGet CAN1_OperationModeGet `(E23279  1 e 1 0 ]
 "85 C:\Users\ianwh\github/VLCBlib_PIC/event_acknowledge.c
 [v _ackPowerUp ackPowerUp `(v  1 s 1 ackPowerUp ]
@@ -3394,9 +3416,9 @@ FLASH_NVM_TYPE 1
 [v _APP_nvDefault APP_nvDefault `(uc  1 e 1 0 ]
 "104
 [v _APP_nvValueChanged APP_nvValueChanged `(v  1 e 1 0 ]
-"298
+"299
 [v _APP_nvValidate APP_nvValidate `(E23031  1 e 1 0 ]
-"336
+"337
 [v _defaultNVs defaultNVs `(v  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -3454,8 +3476,8 @@ FLASH_NVM_TYPE 1
 "153
 [v _rxBuffers rxBuffers `[8]S188  1 s 72 rxBuffers ]
 "154
-[s S2960 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v _rxQueue rxQueue `S2960  1 s 5 rxQueue ]
+[s S2970 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v _rxQueue rxQueue `S2970  1 s 5 rxQueue ]
 [s S29 TickBytes 4 `uc 1 b0 1 0 `uc 1 b1 1 1 `uc 1 b2 1 2 `uc 1 b3 1 3 ]
 "165
 [s S34 TickWords 4 `us 1 w0 2 0 `us 1 w1 2 2 ]
@@ -3527,12 +3549,12 @@ FLASH_NVM_TYPE 1
 [v _nvDiagnostics nvDiagnostics `[2]S201  1 s 4 nvDiagnostics ]
 "100
 [v _nvCache nvCache `[128]uc  1 s 128 nvCache ]
-[s S7349 . 1 `uc 1 writeNeeded 1 0 :1:0 
+[s S7369 . 1 `uc 1 writeNeeded 1 0 :1:0 
 `uc 1 eraseNeeded 1 0 :1:1 
 ]
 "129 C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
-[u S7352 . 1 `uc 1 asByte 1 0 `S7349 1 . 1 0 ]
-[v _flashFlags flashFlags `S7352  1 s 1 flashFlags ]
+[u S7372 . 1 `uc 1 asByte 1 0 `S7369 1 . 1 0 ]
+[v _flashFlags flashFlags `S7372  1 s 1 flashFlags ]
 "137
 [v _flashBlock flashBlock `um  1 s 3 flashBlock ]
 "59 C:\Users\ianwh\github/VLCBlib_PIC/statusLeds2.c
@@ -3654,7 +3676,7 @@ FLASH_NVM_TYPE 1
 [v _startWait startWait `S37  1 s 4 startWait ]
 "58 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
 [v _channelDefaultNVs channelDefaultNVs `C[11][7]uc  1 s 77 channelDefaultNVs ]
-[s S3173 . 1 `uc 1 SWIE 1 0 :1:0 
+[s S3183 . 1 `uc 1 SWIE 1 0 :1:0 
 `uc 1 HLVDIE 1 0 :1:1 
 `uc 1 OSFIE 1 0 :1:2 
 `uc 1 CSWIE 1 0 :1:3 
@@ -3664,8 +3686,8 @@ FLASH_NVM_TYPE 1
 `uc 1 IOCIE 1 0 :1:7 
 ]
 "305 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
-[u S3182 . 1 `S3173 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES3182  1 e 1 @1182 ]
+[u S3192 . 1 `S3183 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES3192  1 e 1 @1182 ]
 [s S1596 . 1 `uc 1 SPI1RXIE 1 0 :1:0 
 `uc 1 SPI1TXIE 1 0 :1:1 
 `uc 1 SPI1IE 1 0 :1:2 
@@ -3678,15 +3700,15 @@ FLASH_NVM_TYPE 1
 "499
 [u S1605 . 1 `S1596 1 . 1 0 ]
 [v _PIE3bits PIE3bits `VES1605  1 e 1 @1185 ]
-[s S7372 . 1 `uc 1 GO 1 0 :1:0 
+[s S7392 . 1 `uc 1 GO 1 0 :1:0 
 ]
 "598
-[s S7374 . 1 `uc 1 NOT_DONE 1 0 :1:0 
+[s S7394 . 1 `uc 1 NOT_DONE 1 0 :1:0 
 ]
-[s S7376 . 1 `uc 1 nDONE 1 0 :1:0 
+[s S7396 . 1 `uc 1 nDONE 1 0 :1:0 
 ]
-[u S7378 . 1 `S7372 1 . 1 0 `S7374 1 . 1 0 `S7376 1 . 1 0 ]
-[v _NVMCON0bits NVMCON0bits `VES7378  1 e 1 @64 ]
+[u S7398 . 1 `S7392 1 . 1 0 `S7394 1 . 1 0 `S7396 1 . 1 0 ]
+[v _NVMCON0bits NVMCON0bits `VES7398  1 e 1 @64 ]
 [s S1807 . 1 `uc 1 SPI2RXIE 1 0 :1:0 
 `uc 1 SPI2TXIE 1 0 :1:1 
 `uc 1 SPI2IE 1 0 :1:2 
@@ -3699,15 +3721,15 @@ FLASH_NVM_TYPE 1
 "623
 [u S1816 . 1 `S1807 1 . 1 0 ]
 [v _PIE5bits PIE5bits `VES1816  1 e 1 @1187 ]
-[s S7356 . 1 `uc 1 CMD 1 0 :3:0 
+[s S7376 . 1 `uc 1 CMD 1 0 :3:0 
 `uc 1 . 1 0 :4:3 
 `uc 1 WRERR 1 0 :1:7 
 ]
 "633
-[s S7360 . 1 `uc 1 NVMCMD 1 0 :3:0 
+[s S7380 . 1 `uc 1 NVMCMD 1 0 :3:0 
 ]
-[u S7362 . 1 `S7356 1 . 1 0 `S7360 1 . 1 0 ]
-[v _NVMCON1bits NVMCON1bits `VES7362  1 e 1 @65 ]
+[u S7382 . 1 `S7376 1 . 1 0 `S7380 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES7382  1 e 1 @65 ]
 "653
 [v _NVMLOCK NVMLOCK `VEuc  1 e 1 @66 ]
 "682
@@ -3718,7 +3740,7 @@ FLASH_NVM_TYPE 1
 [v _NVMADRU NVMADRU `VEuc  1 e 1 @69 ]
 "887
 [v _NVMDATL NVMDATL `VEuc  1 e 1 @70 ]
-[s S3118 . 1 `uc 1 SWIF 1 0 :1:0 
+[s S3128 . 1 `uc 1 SWIF 1 0 :1:0 
 `uc 1 HLVDIF 1 0 :1:1 
 `uc 1 OSFIF 1 0 :1:2 
 `uc 1 CSWIF 1 0 :1:3 
@@ -3728,8 +3750,8 @@ FLASH_NVM_TYPE 1
 `uc 1 IOCIF 1 0 :1:7 
 ]
 "1290
-[u S3127 . 1 `S3118 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES3127  1 e 1 @1198 ]
+[u S3137 . 1 `S3128 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES3137  1 e 1 @1198 ]
 [s S1575 . 1 `uc 1 SPI1RXIF 1 0 :1:0 
 `uc 1 SPI1TXIF 1 0 :1:1 
 `uc 1 SPI1IF 1 0 :1:2 
@@ -3758,7 +3780,7 @@ FLASH_NVM_TYPE 1
 [v _LATA LATA `VEuc  1 e 1 @1214 ]
 "2320
 [v _LATB LATB `VEuc  1 e 1 @1215 ]
-[s S6344 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S6364 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -3768,13 +3790,13 @@ FLASH_NVM_TYPE 1
 `uc 1 LATB7 1 0 :1:7 
 ]
 "2337
-[u S6353 . 1 `S6344 1 . 1 0 ]
-[v _LATBbits LATBbits `VES6353  1 e 1 @1215 ]
+[u S6373 . 1 `S6364 1 . 1 0 ]
+[v _LATBbits LATBbits `VES6373  1 e 1 @1215 ]
 "2382
 [v _LATC LATC `VEuc  1 e 1 @1216 ]
 "2444
 [v _TRISA TRISA `VEuc  1 e 1 @1222 ]
-[s S6322 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S6342 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -3784,11 +3806,11 @@ FLASH_NVM_TYPE 1
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "2461
-[u S6331 . 1 `S6322 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES6331  1 e 1 @1222 ]
+[u S6351 . 1 `S6342 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES6351  1 e 1 @1222 ]
 "2506
 [v _TRISB TRISB `VEuc  1 e 1 @1223 ]
-[s S2990 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S3000 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -3798,13 +3820,13 @@ FLASH_NVM_TYPE 1
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "2523
-[u S2999 . 1 `S2990 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES2999  1 e 1 @1223 ]
+[u S3009 . 1 `S3000 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES3009  1 e 1 @1223 ]
 "2568
 [v _TRISC TRISC `VEuc  1 e 1 @1224 ]
 "2651
 [v _PORTA PORTA `VEuc  1 e 1 @1230 ]
-[s S5757 . 1 `uc 1 RA0 1 0 :1:0 
+[s S5777 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -3814,8 +3836,8 @@ FLASH_NVM_TYPE 1
 `uc 1 RA7 1 0 :1:7 
 ]
 "2668
-[u S5766 . 1 `S5757 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES5766  1 e 1 @1230 ]
+[u S5786 . 1 `S5777 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES5786  1 e 1 @1230 ]
 "2713
 [v _PORTB PORTB `VEuc  1 e 1 @1231 ]
 "2775
@@ -3842,11 +3864,11 @@ FLASH_NVM_TYPE 1
 [v _TBLPTRH TBLPTRH `VEuc  1 e 1 @1271 ]
 "3863
 [v _TBLPTRU TBLPTRU `VEuc  1 e 1 @1272 ]
-[s S6923 . 1 `uc 1 NDIV 1 0 :4:0 
+[s S6943 . 1 `uc 1 NDIV 1 0 :4:0 
 `uc 1 NOSC 1 0 :3:4 
 ]
 "5357
-[s S6926 . 1 `uc 1 NDIV0 1 0 :1:0 
+[s S6946 . 1 `uc 1 NDIV0 1 0 :1:0 
 `uc 1 NDIV1 1 0 :1:1 
 `uc 1 NDIV2 1 0 :1:2 
 `uc 1 NDIV3 1 0 :1:3 
@@ -3854,13 +3876,13 @@ FLASH_NVM_TYPE 1
 `uc 1 NOSC1 1 0 :1:5 
 `uc 1 NOSC2 1 0 :1:6 
 ]
-[u S6934 . 1 `S6923 1 . 1 0 `S6926 1 . 1 0 ]
-[v _OSCCON1bits OSCCON1bits `VES6934  1 e 1 @173 ]
+[u S6954 . 1 `S6943 1 . 1 0 `S6946 1 . 1 0 ]
+[v _OSCCON1bits OSCCON1bits `VES6954  1 e 1 @173 ]
 "8945
 [v _C1CONL C1CONL `VEuc  1 e 1 @256 ]
 "9004
 [v _C1CONH C1CONH `VEuc  1 e 1 @257 ]
-[s S3012 . 1 `uc 1 WAKFIL 1 0 :1:0 
+[s S3022 . 1 `uc 1 WAKFIL 1 0 :1:0 
 `uc 1 WFT 1 0 :2:1 
 `uc 1 BUSY 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
@@ -3869,15 +3891,15 @@ FLASH_NVM_TYPE 1
 `uc 1 ON 1 0 :1:7 
 ]
 "9025
-[s S3020 . 1 `uc 1 . 1 0 :1:0 
+[s S3030 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 WFT0 1 0 :1:1 
 `uc 1 WFT1 1 0 :1:2 
 ]
-[u S3024 . 1 `S3012 1 . 1 0 `S3020 1 . 1 0 ]
-[v _C1CONHbits C1CONHbits `VES3024  1 e 1 @257 ]
+[u S3034 . 1 `S3022 1 . 1 0 `S3030 1 . 1 0 ]
+[v _C1CONHbits C1CONHbits `VES3034  1 e 1 @257 ]
 "9070
 [v _C1CONU C1CONU `VEuc  1 e 1 @258 ]
-[s S3535 . 1 `uc 1 RTXAT 1 0 :1:0 
+[s S3545 . 1 `uc 1 RTXAT 1 0 :1:0 
 `uc 1 ESIGM 1 0 :1:1 
 `uc 1 SERR2LOM 1 0 :1:2 
 `uc 1 STEF 1 0 :1:3 
@@ -3885,21 +3907,21 @@ FLASH_NVM_TYPE 1
 `uc 1 OPMOD 1 0 :3:5 
 ]
 "9091
-[s S3542 . 1 `uc 1 . 1 0 :5:0 
+[s S3552 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 OPMOD0 1 0 :1:5 
 `uc 1 OPMOD1 1 0 :1:6 
 `uc 1 OPMOD2 1 0 :1:7 
 ]
-[u S3547 . 1 `S3535 1 . 1 0 `S3542 1 . 1 0 ]
-[v _C1CONUbits C1CONUbits `VES3547  1 e 1 @258 ]
+[u S3557 . 1 `S3545 1 . 1 0 `S3552 1 . 1 0 ]
+[v _C1CONUbits C1CONUbits `VES3557  1 e 1 @258 ]
 "9141
 [v _C1CONT C1CONT `VEuc  1 e 1 @259 ]
-[s S3505 . 1 `uc 1 REQOP 1 0 :3:0 
+[s S3515 . 1 `uc 1 REQOP 1 0 :3:0 
 `uc 1 ABAT 1 0 :1:3 
 `uc 1 TXBWS 1 0 :4:4 
 ]
 "9163
-[s S3509 . 1 `uc 1 REQOP0 1 0 :1:0 
+[s S3519 . 1 `uc 1 REQOP0 1 0 :1:0 
 `uc 1 REQOP1 1 0 :1:1 
 `uc 1 REQOP2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -3908,8 +3930,8 @@ FLASH_NVM_TYPE 1
 `uc 1 TXBWS2 1 0 :1:6 
 `uc 1 TXBWS3 1 0 :1:7 
 ]
-[u S3518 . 1 `S3505 1 . 1 0 `S3509 1 . 1 0 ]
-[v _C1CONTbits C1CONTbits `VES3518  1 e 1 @259 ]
+[u S3528 . 1 `S3515 1 . 1 0 `S3519 1 . 1 0 ]
+[v _C1CONTbits C1CONTbits `VES3528  1 e 1 @259 ]
 "9218
 [v _C1NBTCFGL C1NBTCFGL `VEuc  1 e 1 @260 ]
 "9282
@@ -3918,7 +3940,7 @@ FLASH_NVM_TYPE 1
 [v _C1NBTCFGU C1NBTCFGU `VEuc  1 e 1 @262 ]
 "9416
 [v _C1NBTCFGT C1NBTCFGT `VEuc  1 e 1 @263 ]
-[s S3215 . 1 `uc 1 . 1 0 :2:0 
+[s S3225 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TXATIF 1 0 :1:2 
 `uc 1 RXOVIF 1 0 :1:3 
 `uc 1 SERRIF 1 0 :1:4 
@@ -3927,18 +3949,18 @@ FLASH_NVM_TYPE 1
 `uc 1 IVMIF 1 0 :1:7 
 ]
 "10420
-[u S3223 . 1 `S3215 1 . 1 0 ]
-[v _C1INTHbits C1INTHbits `VES3223  1 e 1 @285 ]
-[s S3139 . 1 `uc 1 TXIE 1 0 :1:0 
+[u S3233 . 1 `S3225 1 . 1 0 ]
+[v _C1INTHbits C1INTHbits `VES3233  1 e 1 @285 ]
+[s S3149 . 1 `uc 1 TXIE 1 0 :1:0 
 `uc 1 RXIE 1 0 :1:1 
 `uc 1 TBCIE 1 0 :1:2 
 `uc 1 MODIE 1 0 :1:3 
 `uc 1 TEFIE 1 0 :1:4 
 ]
 "10469
-[u S3145 . 1 `S3139 1 . 1 0 ]
-[v _C1INTUbits C1INTUbits `VES3145  1 e 1 @286 ]
-[s S3154 . 1 `uc 1 . 1 0 :2:0 
+[u S3155 . 1 `S3149 1 . 1 0 ]
+[v _C1INTUbits C1INTUbits `VES3155  1 e 1 @286 ]
+[s S3164 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TXATIE 1 0 :1:2 
 `uc 1 RXOVIE 1 0 :1:3 
 `uc 1 SERRIE 1 0 :1:4 
@@ -3947,14 +3969,14 @@ FLASH_NVM_TYPE 1
 `uc 1 IVMIE 1 0 :1:7 
 ]
 "10515
-[u S3162 . 1 `S3154 1 . 1 0 ]
-[v _C1INTTbits C1INTTbits `VES3162  1 e 1 @287 ]
+[u S3172 . 1 `S3164 1 . 1 0 ]
+[v _C1INTTbits C1INTTbits `VES3172  1 e 1 @287 ]
 "12117
 [v _C1TRECU C1TRECU `VEuc  1 e 1 @310 ]
-[s S3402 . 1 `uc 1 NRERRCNT 1 0 :8:0 
+[s S3412 . 1 `uc 1 NRERRCNT 1 0 :8:0 
 ]
 "12194
-[s S3404 . 1 `uc 1 NRERRCNT0 1 0 :1:0 
+[s S3414 . 1 `uc 1 NRERRCNT0 1 0 :1:0 
 `uc 1 NRERRCNT1 1 0 :1:1 
 `uc 1 NRERRCNT2 1 0 :1:2 
 `uc 1 NRERRCNT3 1 0 :1:3 
@@ -3963,12 +3985,12 @@ FLASH_NVM_TYPE 1
 `uc 1 NRERRCNT6 1 0 :1:6 
 `uc 1 NRERRCNT7 1 0 :1:7 
 ]
-[u S3413 . 1 `S3402 1 . 1 0 `S3404 1 . 1 0 ]
-[v _C1BDIAG0Lbits C1BDIAG0Lbits `VES3413  1 e 1 @312 ]
-[s S3376 . 1 `uc 1 NTERRCNT 1 0 :8:0 
+[u S3423 . 1 `S3412 1 . 1 0 `S3414 1 . 1 0 ]
+[v _C1BDIAG0Lbits C1BDIAG0Lbits `VES3423  1 e 1 @312 ]
+[s S3386 . 1 `uc 1 NTERRCNT 1 0 :8:0 
 ]
 "12264
-[s S3378 . 1 `uc 1 NTERRCNT0 1 0 :1:0 
+[s S3388 . 1 `uc 1 NTERRCNT0 1 0 :1:0 
 `uc 1 NTERRCNT1 1 0 :1:1 
 `uc 1 NTERRCNT2 1 0 :1:2 
 `uc 1 NTERRCNT3 1 0 :1:3 
@@ -3977,8 +3999,8 @@ FLASH_NVM_TYPE 1
 `uc 1 NTERRCNT6 1 0 :1:6 
 `uc 1 NTERRCNT7 1 0 :1:7 
 ]
-[u S3387 . 1 `S3376 1 . 1 0 `S3378 1 . 1 0 ]
-[v _C1BDIAG0Hbits C1BDIAG0Hbits `VES3387  1 e 1 @313 ]
+[u S3397 . 1 `S3386 1 . 1 0 `S3388 1 . 1 0 ]
+[v _C1BDIAG0Hbits C1BDIAG0Hbits `VES3397  1 e 1 @313 ]
 "13015
 [v _C1FIFOBA C1FIFOBA `VEul  1 e 4 @332 ]
 "13302
@@ -3995,18 +4017,18 @@ FLASH_NVM_TYPE 1
 [v _C1FIFOCON1L C1FIFOCON1L `VEuc  1 e 1 @348 ]
 "13971
 [v _C1FIFOCON1H C1FIFOCON1H `VEuc  1 e 1 @349 ]
-[s S3235 . 1 `uc 1 UINC 1 0 :1:0 
+[s S3245 . 1 `uc 1 UINC 1 0 :1:0 
 `uc 1 TXREQ 1 0 :1:1 
 `uc 1 FRESET 1 0 :1:2 
 ]
 "13983
-[u S3239 . 1 `S3235 1 . 1 0 ]
-[v _C1FIFOCON1Hbits C1FIFOCON1Hbits `VES3239  1 e 1 @349 ]
+[u S3249 . 1 `S3245 1 . 1 0 ]
+[v _C1FIFOCON1Hbits C1FIFOCON1Hbits `VES3249  1 e 1 @349 ]
 "14003
 [v _C1FIFOCON1U C1FIFOCON1U `VEuc  1 e 1 @350 ]
 "14073
 [v _C1FIFOCON1T C1FIFOCON1T `VEuc  1 e 1 @351 ]
-[s S3194 . 1 `uc 1 TFNRFNIF 1 0 :1:0 
+[s S3204 . 1 `uc 1 TFNRFNIF 1 0 :1:0 
 `uc 1 TFHRFHIF 1 0 :1:1 
 `uc 1 TFERFFIF 1 0 :1:2 
 `uc 1 RXOVIF 1 0 :1:3 
@@ -4016,8 +4038,8 @@ FLASH_NVM_TYPE 1
 `uc 1 TXABT 1 0 :1:7 
 ]
 "14149
-[u S3203 . 1 `S3194 1 . 1 0 ]
-[v _C1FIFOSTA1Lbits C1FIFOSTA1Lbits `VES3203  1 e 1 @352 ]
+[u S3213 . 1 `S3204 1 . 1 0 ]
+[v _C1FIFOSTA1Lbits C1FIFOSTA1Lbits `VES3213  1 e 1 @352 ]
 "14260
 [v _C1FIFOUA1 C1FIFOUA1 `VEul  1 e 4 @356 ]
 "14554
@@ -4029,18 +4051,18 @@ FLASH_NVM_TYPE 1
 "14718
 [v _C1FIFOCON2T C1FIFOCON2T `VEuc  1 e 1 @363 ]
 "14794
-[v _C1FIFOSTA2Lbits C1FIFOSTA2Lbits `VES3203  1 e 1 @364 ]
-[s S3335 . 1 `uc 1 FIFOCI 1 0 :5:0 
+[v _C1FIFOSTA2Lbits C1FIFOSTA2Lbits `VES3213  1 e 1 @364 ]
+[s S3345 . 1 `uc 1 FIFOCI 1 0 :5:0 
 ]
 "14856
-[s S3337 . 1 `uc 1 FIFOCI0 1 0 :1:0 
+[s S3347 . 1 `uc 1 FIFOCI0 1 0 :1:0 
 `uc 1 FIFOCI1 1 0 :1:1 
 `uc 1 FIFOCI2 1 0 :1:2 
 `uc 1 FIFOCI3 1 0 :1:3 
 `uc 1 FIFOCI4 1 0 :1:4 
 ]
-[u S3343 . 1 `S3335 1 . 1 0 `S3337 1 . 1 0 ]
-[v _C1FIFOSTA2Hbits C1FIFOSTA2Hbits `VES3343  1 e 1 @365 ]
+[u S3353 . 1 `S3345 1 . 1 0 `S3347 1 . 1 0 ]
+[v _C1FIFOSTA2Hbits C1FIFOSTA2Hbits `VES3353  1 e 1 @365 ]
 "14905
 [v _C1FIFOUA2 C1FIFOUA2 `VEul  1 e 4 @368 ]
 "15199
@@ -4048,7 +4070,7 @@ FLASH_NVM_TYPE 1
 "15261
 [v _C1FIFOCON3H C1FIFOCON3H `VEuc  1 e 1 @373 ]
 "15273
-[v _C1FIFOCON3Hbits C1FIFOCON3Hbits `VES3239  1 e 1 @373 ]
+[v _C1FIFOCON3Hbits C1FIFOCON3Hbits `VES3249  1 e 1 @373 ]
 "15293
 [v _C1FIFOCON3U C1FIFOCON3U `VEuc  1 e 1 @374 ]
 "15305
@@ -4060,9 +4082,9 @@ FLASH_NVM_TYPE 1
 "15363
 [v _C1FIFOCON3T C1FIFOCON3T `VEuc  1 e 1 @375 ]
 "15439
-[v _C1FIFOSTA3Lbits C1FIFOSTA3Lbits `VES3203  1 e 1 @376 ]
+[v _C1FIFOSTA3Lbits C1FIFOSTA3Lbits `VES3213  1 e 1 @376 ]
 "15501
-[v _C1FIFOSTA3Hbits C1FIFOSTA3Hbits `VES3343  1 e 1 @377 ]
+[v _C1FIFOSTA3Hbits C1FIFOSTA3Hbits `VES3353  1 e 1 @377 ]
 "15550
 [v _C1FIFOUA3 C1FIFOUA3 `VEul  1 e 4 @380 ]
 "15837
@@ -4091,43 +4113,43 @@ FLASH_NVM_TYPE 1
 [v _TMR0L TMR0L `VEuc  1 e 1 @792 ]
 "38243
 [v _TMR0H TMR0H `VEuc  1 e 1 @793 ]
-[s S6470 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S6490 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 MD16 1 0 :1:4 
 `uc 1 OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 EN 1 0 :1:7 
 ]
 "38531
-[s S6476 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S6496 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T0MD16 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "38531
-[s S6482 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S6502 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
 `uc 1 T016BIT 1 0 :1:4 
 ]
 "38531
-[s S6488 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S6508 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
 "38531
-[u S6493 . 1 `S6470 1 . 1 0 `S6476 1 . 1 0 `S6482 1 . 1 0 `S6488 1 . 1 0 ]
+[u S6513 . 1 `S6490 1 . 1 0 `S6496 1 . 1 0 `S6502 1 . 1 0 `S6508 1 . 1 0 ]
 "38531
 "38531
-[v _T0CON0bits T0CON0bits `VES6493  1 e 1 @794 ]
-[s S6412 . 1 `uc 1 CKPS 1 0 :4:0 
+[v _T0CON0bits T0CON0bits `VES6513  1 e 1 @794 ]
+[s S6432 . 1 `uc 1 CKPS 1 0 :4:0 
 `uc 1 ASYNC 1 0 :1:4 
 `uc 1 CS 1 0 :3:5 
 ]
 "38658
-[s S6416 . 1 `uc 1 CKPS0 1 0 :1:0 
+[s S6436 . 1 `uc 1 CKPS0 1 0 :1:0 
 `uc 1 CKPS1 1 0 :1:1 
 `uc 1 CKPS2 1 0 :1:2 
 `uc 1 CKPS3 1 0 :1:3 
@@ -4137,12 +4159,12 @@ FLASH_NVM_TYPE 1
 `uc 1 CS2 1 0 :1:7 
 ]
 "38658
-[s S6425 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[s S6445 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 . 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "38658
-[s S6429 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S6449 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -4152,10 +4174,10 @@ FLASH_NVM_TYPE 1
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "38658
-[u S6438 . 1 `S6412 1 . 1 0 `S6416 1 . 1 0 `S6425 1 . 1 0 `S6429 1 . 1 0 ]
+[u S6458 . 1 `S6432 1 . 1 0 `S6436 1 . 1 0 `S6445 1 . 1 0 `S6449 1 . 1 0 ]
 "38658
 "38658
-[v _T0CON1bits T0CON1bits `VES6438  1 e 1 @795 ]
+[v _T0CON1bits T0CON1bits `VES6458  1 e 1 @795 ]
 "38763
 [v _TMR1 TMR1 `VEus  1 e 2 @796 ]
 "38770
@@ -4333,7 +4355,7 @@ FLASH_NVM_TYPE 1
 "41484
 "41484
 [v _T3CLKbits T3CLKbits `VES1709  1 e 1 @813 ]
-[s S3097 . 1 `uc 1 SWIP 1 0 :1:0 
+[s S3107 . 1 `uc 1 SWIP 1 0 :1:0 
 `uc 1 HLVDIP 1 0 :1:1 
 `uc 1 OSFIP 1 0 :1:2 
 `uc 1 CSWIP 1 0 :1:3 
@@ -4343,10 +4365,10 @@ FLASH_NVM_TYPE 1
 `uc 1 IOCIP 1 0 :1:7 
 ]
 "47364
-[u S3106 . 1 `S3097 1 . 1 0 ]
+[u S3116 . 1 `S3107 1 . 1 0 ]
 "47364
 "47364
-[v _IPR0bits IPR0bits `VES3106  1 e 1 @866 ]
+[v _IPR0bits IPR0bits `VES3116  1 e 1 @866 ]
 "47665
 [v _IPR5 IPR5 `VEuc  1 e 1 @871 ]
 "56990
@@ -4432,13 +4454,13 @@ FLASH_NVM_TYPE 1
 [v _WPUC WPUC `VEuc  1 e 1 @1041 ]
 "63210
 [v _IVTLOCK IVTLOCK `VEuc  1 e 1 @1113 ]
-[s S6953 . 1 `uc 1 IVTLOCKED 1 0 :1:0 
+[s S6973 . 1 `uc 1 IVTLOCKED 1 0 :1:0 
 ]
 "63220
-[u S6955 . 1 `S6953 1 . 1 0 ]
+[u S6975 . 1 `S6973 1 . 1 0 ]
 "63220
 "63220
-[v _IVTLOCKbits IVTLOCKbits `VES6955  1 e 1 @1113 ]
+[v _IVTLOCKbits IVTLOCKbits `VES6975  1 e 1 @1113 ]
 "63416
 [v _IVTBASEL IVTBASEL `VEuc  1 e 1 @1117 ]
 "63478
@@ -4570,22 +4592,22 @@ FLASH_NVM_TYPE 1
 [v initTicker@priority priority `uc  1 a 1 25 ]
 "147
 } 0
-"819 C:\Users\ianwh\github/VLCBlib_PIC/can18_can_2.c
+"825 C:\Users\ianwh\github/VLCBlib_PIC/can18_can_2.c
 [v _CAN1_OperationModeSet CAN1_OperationModeSet `(E23288  1 e 1 0 ]
 {
 [v CAN1_OperationModeSet@requestMode requestMode `CE23279  1 a 1 wreg ]
-"821
+"827
 [v CAN1_OperationModeSet@status status `E23288  1 a 1 24 ]
-"819
+"825
 [v CAN1_OperationModeSet@requestMode requestMode `CE23279  1 a 1 wreg ]
-"821
+"827
 [v CAN1_OperationModeSet@requestMode requestMode `CE23279  1 a 1 25 ]
-"845
+"851
 } 0
-"852
+"858
 [v _CAN1_OperationModeGet CAN1_OperationModeGet `(E23279  1 e 1 0 ]
 {
-"855
+"861
 } 0
 "992 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _poll poll `(v  1 s 1 poll ]
@@ -4762,15 +4784,15 @@ FLASH_NVM_TYPE 1
 "491
 [v _doNnevn doNnevn `(v  1 s 1 doNnevn ]
 {
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "496
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v doNnevn@f f `S4534  1 a 1 16 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v doNnevn@f f `S4544  1 a 1 16 ]
 "494
 [v doNnevn@i i `uc  1 a 1 18 ]
 "493
@@ -4934,15 +4956,15 @@ FLASH_NVM_TYPE 1
 [v _numEv numEv `(uc  1 e 1 0 ]
 {
 [v numEv@tableIndex tableIndex `uc  1 a 1 wreg ]
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "1047
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v numEv@f f `S4534  1 a 1 1 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v numEv@f f `S4544  1 a 1 1 ]
 "1048
 [v numEv@num num `uc  1 a 1 0 ]
 "1046
@@ -4984,7 +5006,7 @@ FLASH_NVM_TYPE 1
 [v APP_nvValueChanged@oldValue oldValue `uc  1 p 1 76 ]
 "108
 [v APP_nvValueChanged@index index `uc  1 a 1 82 ]
-"291
+"292
 } 0
 "900 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _setTimedResponseDelay setTimedResponseDelay `(v  1 e 1 0 ]
@@ -5003,18 +5025,18 @@ FLASH_NVM_TYPE 1
 [v setServoPosition@io io `uc  1 a 1 43 ]
 "686
 } 0
-"298 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
+"299 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
 [v _APP_nvValidate APP_nvValidate `(E23031  1 e 1 0 ]
 {
 [v APP_nvValidate@index index `uc  1 a 1 wreg ]
-"299
+"300
 [v APP_nvValidate@io io `uc  1 a 1 43 ]
-"298
+"299
 [v APP_nvValidate@index index `uc  1 a 1 wreg ]
 [v APP_nvValidate@value value `uc  1 p 1 42 ]
-"300
+"301
 [v APP_nvValidate@index index `uc  1 a 1 44 ]
-"329
+"330
 } 0
 "313 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _nvGetESDdata nvGetESDdata `(uc  1 s 1 nvGetESDdata ]
@@ -5233,19 +5255,19 @@ FLASH_NVM_TYPE 1
 [v pushTwoAction@a a `S922  1 p 2 24 ]
 "349
 } 0
-"621 C:\Users\ianwh\github/VLCBlib_PIC/can18_can_2.c
+"627 C:\Users\ianwh\github/VLCBlib_PIC/can18_can_2.c
 [v _canReceiveMessage canReceiveMessage `(E23179  1 s 1 canReceiveMessage ]
 {
-"624
+"630
 [v canReceiveMessage@rxFifoObj rxFifoObj `*.39uc  1 a 2 44 ]
 [s S188 Message 9 `uc 1 len 1 0 `E22515 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
-"622
+"628
 [v canReceiveMessage@mp mp `*.39S188  1 a 2 42 ]
-"623
+"629
 [v canReceiveMessage@incomingCanId incomingCanId `uc  1 a 1 41 ]
-"621
+"627
 [v canReceiveMessage@m m `*.39S188  1 p 2 39 ]
-"668
+"674
 } 0
 "105 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 [s S188 Message 9 `uc 1 len 1 0 `E22515 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
@@ -5255,8 +5277,8 @@ FLASH_NVM_TYPE 1
 "96
 [v pop@ret ret `*.39S188  1 a 2 31 ]
 "95
-[s S2960 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v pop@q q `*.39S2960  1 p 2 24 ]
+[s S2970 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v pop@q q `*.39S2970  1 p 2 24 ]
 "103
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\memcpy.c
@@ -5274,30 +5296,30 @@ FLASH_NVM_TYPE 1
 [v memcpy@n n `ui  1 p 2 28 ]
 "18
 } 0
-"708 C:\Users\ianwh\github/VLCBlib_PIC/can18_can_2.c
+"714 C:\Users\ianwh\github/VLCBlib_PIC/can18_can_2.c
 [v _handleSelfEnumeration handleSelfEnumeration `(v  1 s 1 handleSelfEnumeration ]
 {
 [v handleSelfEnumeration@receivedCanId receivedCanId `uc  1 a 1 wreg ]
 [v handleSelfEnumeration@receivedCanId receivedCanId `uc  1 a 1 wreg ]
 [v handleSelfEnumeration@receivedCanId receivedCanId `uc  1 a 1 38 ]
-"727
+"733
 } 0
-"734
+"740
 [v _processEnumeration processEnumeration `(v  1 s 1 processEnumeration ]
 {
-"735
+"741
 [v processEnumeration@i i `uc  1 a 1 14 ]
 [v processEnumeration@newCanId newCanId `uc  1 a 1 13 ]
 [v processEnumeration@enumResult enumResult `uc  1 a 1 12 ]
-"791
+"797
 } 0
-"798
+"804
 [v _setNewCanId setNewCanId `(E23275  1 s 1 setNewCanId ]
 {
 [v setNewCanId@newCanId newCanId `uc  1 a 1 wreg ]
 [v setNewCanId@newCanId newCanId `uc  1 a 1 wreg ]
 [v setNewCanId@newCanId newCanId `uc  1 a 1 7 ]
-"809
+"815
 } 0
 "369
 [v _prepareSelfEnumResponse prepareSelfEnumResponse `(v  1 s 1 prepareSelfEnumResponse ]
@@ -5787,26 +5809,26 @@ FLASH_NVM_TYPE 1
 [v canSendMessage@m m `*.39S188  1 a 2 42 ]
 "528
 [v canSendMessage@mp mp `*.39S188  1 p 2 36 ]
-"598
+"604
 } 0
-"687
+"693
 [v _startEnumeration startEnumeration `(v  1 s 1 startEnumeration ]
 {
 [v startEnumeration@txWaiting txWaiting `E23040  1 a 1 wreg ]
-"688
+"694
 [v startEnumeration@i i `uc  1 a 1 35 ]
-"687
+"693
 [v startEnumeration@txWaiting txWaiting `E23040  1 a 1 wreg ]
-"690
+"696
 [v startEnumeration@txWaiting txWaiting `E23040  1 a 1 34 ]
-"699
+"705
 } 0
-"603
+"609
 [v _sendRTR sendRTR `(v  1 s 1 sendRTR ]
 {
-"604
-[v sendRTR@txFifoObj txFifoObj `*.39uc  1 a 2 24 ]
 "610
+[v sendRTR@txFifoObj txFifoObj `*.39uc  1 a 2 24 ]
+"616
 } 0
 "1114 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _isEvent isEvent `(E23040  1 e 1 0 ]
@@ -5836,8 +5858,8 @@ FLASH_NVM_TYPE 1
 "80
 [v getNextWriteMessage@wr wr `uc  1 a 1 35 ]
 "79
-[s S2960 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v getNextWriteMessage@q q `*.39S2960  1 p 2 24 ]
+[s S2970 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v getNextWriteMessage@q q `*.39S2970  1 p 2 24 ]
 "86
 } 0
 "174 C:\Users\ianwh\github\Universal-VLCB/inputs.c
@@ -6033,18 +6055,18 @@ FLASH_NVM_TYPE 1
 [v initAnaloguePort@io io `uc  1 a 1 24 ]
 "81
 } 0
-"336 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
+"337 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
 [v _defaultNVs defaultNVs `(v  1 e 1 0 ]
 {
 [v defaultNVs@io io `uc  1 a 1 wreg ]
-"337
+"338
 [v defaultNVs@i i `uc  1 a 1 15 ]
-"336
+"337
 [v defaultNVs@io io `uc  1 a 1 wreg ]
 [v defaultNVs@type type `uc  1 p 1 11 ]
-"339
+"340
 [v defaultNVs@io io `uc  1 a 1 14 ]
-"343
+"344
 } 0
 "188 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _saveNV saveNV `(v  1 e 1 0 ]
@@ -6122,15 +6144,15 @@ FLASH_NVM_TYPE 1
 {
 "850
 [v addEvent@e e `uc  1 a 1 66 ]
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "847
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v addEvent@f f `S4534  1 a 1 65 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v addEvent@f f `S4544  1 a 1 65 ]
 "831
 [v addEvent@tableIndex tableIndex `uc  1 a 1 67 ]
 "832
@@ -6149,26 +6171,26 @@ FLASH_NVM_TYPE 1
 [v writeEv@tableIndex tableIndex `uc  1 a 1 wreg ]
 "964
 [v writeEv@e e `uc  1 a 1 43 ]
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "961
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v writeEv@nextF nextF `S4534  1 a 1 42 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v writeEv@nextF nextF `S4544  1 a 1 42 ]
 "938
 [v writeEv@nextIdx nextIdx `uc  1 a 1 46 ]
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "932
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v writeEv@f f `S4534  1 a 1 44 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v writeEv@f f `S4544  1 a 1 44 ]
 "933
 [v writeEv@startIndex startIndex `uc  1 a 1 41 ]
 "931
@@ -6195,15 +6217,15 @@ FLASH_NVM_TYPE 1
 [v _removeTableEntry removeTableEntry `(uc  1 s 1 removeTableEntry ]
 {
 [v removeTableEntry@tableIndex tableIndex `uc  1 a 1 wreg ]
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "762
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v removeTableEntry@f f `S4534  1 a 1 25 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v removeTableEntry@f f `S4544  1 a 1 25 ]
 "761
 [v removeTableEntry@tableIndex tableIndex `uc  1 a 1 wreg ]
 "767
@@ -6229,15 +6251,15 @@ FLASH_NVM_TYPE 1
 [v _getEv getEv `(s  1 e 2 0 ]
 {
 [v getEv@tableIndex tableIndex `uc  1 a 1 wreg ]
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "1012
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v getEv@f f `S4534  1 a 1 44 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v getEv@f f `S4544  1 a 1 44 ]
 "1011
 [v getEv@tableIndex tableIndex `uc  1 a 1 wreg ]
 [v getEv@evNum evNum `uc  1 p 1 42 ]
@@ -6253,15 +6275,15 @@ FLASH_NVM_TYPE 1
 [v getEVs@evIdx evIdx `uc  1 a 1 43 ]
 "1078
 [v getEVs@evNum evNum `uc  1 a 1 45 ]
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "1077
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v getEVs@f f `S4534  1 a 1 42 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v getEVs@f f `S4544  1 a 1 42 ]
 "1076
 [v getEVs@tableIndex tableIndex `uc  1 a 1 wreg ]
 "1080
@@ -6272,15 +6294,15 @@ FLASH_NVM_TYPE 1
 [v _validStart validStart `(E22873  1 e 1 0 ]
 {
 [v validStart@tableIndex tableIndex `uc  1 a 1 wreg ]
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "1176
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v validStart@f f `S4534  1 a 1 41 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v validStart@f f `S4544  1 a 1 41 ]
 "1175
 [v validStart@tableIndex tableIndex `uc  1 a 1 wreg ]
 "1180
@@ -6312,15 +6334,15 @@ FLASH_NVM_TYPE 1
 [v getNN@lo lo `us  1 a 2 2 ]
 "1113
 [v getNN@hi hi `us  1 a 2 0 ]
-[s S4528 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S4538 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "1115
-[u S4534 . 1 `S4528 1 . 1 0 `uc 1 asByte 1 0 ]
-[v getNN@f f `S4534  1 a 1 4 ]
+[u S4544 . 1 `S4538 1 . 1 0 `uc 1 asByte 1 0 ]
+[v getNN@f f `S4544  1 a 1 4 ]
 "1112
 [v getNN@tableIndex tableIndex `uc  1 a 1 wreg ]
 "1117

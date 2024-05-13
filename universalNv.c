@@ -83,7 +83,7 @@ uint8_t APP_nvDefault(uint8_t index) {
             case NV_SERVO_SPEED:
                 return 234;
             case NV_PULLUPS:
-                return 0;
+                return 0x33;
             case NV_RESPONSE_DELAY:
                 return 5;
             case NV_LOW_CHANNELS_PULLUPS:
@@ -171,6 +171,7 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
             }
         }
     }
+#ifdef CANXIO
     if (index == NV_TOP_CHANNELS_PULLUPS) {
         for (io=16; io<24; io++) {
             switch (configs[io].port) {
@@ -192,7 +193,6 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
                 else
                     WPUC &= ~(1<<(configs[io].no));
                 break;
-#ifdef CANXIO
             case 'D':
                 if (value && (1 << io % 8))
                     WPUD |= 1<<(configs[io].no);
@@ -205,10 +205,11 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
                 else
                     WPUE &= ~(1<<(configs[io].no));
                 break;
-#endif
+
             }
         }
-    }    
+    }  
+#endif
 #endif
     // Now some channel type specific functionality
     if (index >= NV_IO_START) {

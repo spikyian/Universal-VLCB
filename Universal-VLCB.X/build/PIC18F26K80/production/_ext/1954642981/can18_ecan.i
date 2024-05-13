@@ -21451,9 +21451,13 @@ static MessageQueue txQueue;
 
 
 
+enum EnumerationState {
+    NO_ENUMERATION,
+    ENUMERATION_REQUIRED,
+    ENUMERATION_IN_PROGRESS
+} EnumerationState;
 static TickValue enumerationStartTime;
-static uint8_t enumerationRequired;
-static uint8_t enumerationInProgress;
+static enum EnumerationState enumerationState;
 static uint8_t enumerationResults[(0x7F/8)+1];
 
 
@@ -21477,12 +21481,12 @@ static const uint8_t canPri[] = {
     0b01000000,
     0b00000000
 };
-# 189 "../../VLCBlib_PIC/can18_ecan.c"
+# 193 "../../VLCBlib_PIC/can18_ecan.c"
 static void canFactoryReset(void) {
     canId = 0;
     writeNVM(EEPROM_NVM_TYPE, 0x3FE, canId);
 }
-# 202 "../../VLCBlib_PIC/can18_ecan.c"
+# 206 "../../VLCBlib_PIC/can18_ecan.c"
 static void canPowerUp(void) {
     int temp;
 
@@ -21521,7 +21525,7 @@ static void canPowerUp(void) {
 
     ECANCON = 0b10110000;
     BSEL0 = 0;
-# 263 "../../VLCBlib_PIC/can18_ecan.c"
+# 267 "../../VLCBlib_PIC/can18_ecan.c"
       BRGCON1 = 0b00001111;
 
 
@@ -21607,7 +21611,7 @@ static void canPowerUp(void) {
 
 
 
-    enumerationRequired = enumerationInProgress = 0;
+    enumerationState = NO_ENUMERATION;
     enumerationStartTime.val = tickGet();
 
 
@@ -21617,7 +21621,7 @@ static void canPowerUp(void) {
     PIE5bits.TXBnIE = 1;
     PIE5bits.ERRIE = 1;
 }
-# 366 "../../VLCBlib_PIC/can18_ecan.c"
+# 370 "../../VLCBlib_PIC/can18_ecan.c"
 static Processed canProcessMessage(Message * m) {
 
     if (m->len < 3) return NOT_PROCESSED;
@@ -21684,7 +21688,7 @@ static DiagnosticVal * canGetDiagnostic(uint8_t index) {
     }
     return &(canDiagnostics[index-1]);
 }
-# 441 "../../VLCBlib_PIC/can18_ecan.c"
+# 445 "../../VLCBlib_PIC/can18_ecan.c"
 static SendResult canSendMessage(Message * mp) {
 
     Message * m;
@@ -21695,6 +21699,10 @@ static SendResult canSendMessage(Message * mp) {
 
         if (TXB0CONbits.TXREQ == 0) {
 
+            if ((canId == 0) && (enumerationState == NO_ENUMERATION)) {
+                enumerationState = ENUMERATION_REQUIRED;
+                canId = 1;
+            }
             PIE5bits.TXBnIE = 1;
 
             if (mp->len >8) mp->len = 8;
@@ -21751,7 +21759,7 @@ static SendResult canSendMessage(Message * mp) {
     PIE5bits.TXBnIE = 1;
     return SEND_OK;
 }
-# 517 "../../VLCBlib_PIC/can18_ecan.c"
+# 525 "../../VLCBlib_PIC/can18_ecan.c"
 static MessageReceived canReceiveMessage(Message * m){
     Message * mp;
     uint8_t * p;
@@ -21778,6 +21786,7 @@ static MessageReceived canReceiveMessage(Message * m){
             PIR5bits.RXBnIF = 0;
             if (handleSelfEnumeration(p) == RECEIVED) {
 
+                canDiagnostics[0x08].asUint++;
 
 
 
@@ -21958,20 +21967,6 @@ static void canTxError(void) {
 static MessageReceived handleSelfEnumeration(uint8_t * p) {
     uint8_t incomingCanId;
 
-    canDiagnostics[0x08].asUint++;
-
-    if (enumerationInProgress) {
-        ( enumerationResults[incomingCanId>>3] |= ( 1<<(incomingCanId & 0x07) ) );
-    } else {
-        incomingCanId = (p[1] << 3) + (p[2] >> 5) & 0x7f;
-        if (!enumerationRequired && (incomingCanId == canId)) {
-
-
-            enumerationRequired = 1;
-            canDiagnostics[0x0D].asUint++;
-            enumerationStartTime.val = tickGet();
-        }
-    }
 
 
     if (p[5] & 0x40 ) {
@@ -21980,6 +21975,20 @@ static MessageReceived handleSelfEnumeration(uint8_t * p) {
         enumerationStartTime.val = tickGet();
         return NOT_RECEIVED;
     }
+    incomingCanId = (p[1] << 3) + (p[2] >> 5) & 0x7f;
+
+    if ((enumerationState == ENUMERATION_IN_PROGRESS) || ((p[5]&0x0F) == 0)) {
+        ( enumerationResults[incomingCanId>>3] |= ( 1<<(incomingCanId & 0x07) ) );
+    } else {
+        if ((enumerationState == NO_ENUMERATION) && (incomingCanId == canId)) {
+
+
+            enumerationState = ENUMERATION_REQUIRED;
+            canDiagnostics[0x0D].asUint++;
+            enumerationStartTime.val = tickGet();
+        }
+    }
+
     return (p[5] & 0x0F) ? RECEIVED:NOT_RECEIVED;
 }
 
@@ -21999,29 +22008,27 @@ static void canFillRxFifo(void) {
             COMSTATbits.RXB1OVFL = 0;
         }
 
-        if (handleSelfEnumeration(ptr) == RECEIVED) {
 
-            m = getNextWriteMessage(&rxQueue);
-            if (m == ((void*)0)) {
-                canDiagnostics[0x07].asUint++;
-                updateModuleErrorStatus();
+        m = getNextWriteMessage(&rxQueue);
+        if (m == ((void*)0)) {
+            canDiagnostics[0x07].asUint++;
+            updateModuleErrorStatus();
 
-                if (PIR5bits.IRXIF) {
-                    PIR5bits.IRXIF = 0;
-                }
-                return;
-            } else {
-
-                m->opc = ptr[6];
-                m->bytes[0] = ptr[7];
-                m->bytes[1] = ptr[8];
-                m->bytes[2] = ptr[9];
-                m->bytes[3] = ptr[10];
-                m->bytes[4] = ptr[11];
-                m->bytes[5] = ptr[12];
-                m->bytes[6] = ptr[13];
-                m->len = ptr[5]&0xF;
+            if (PIR5bits.IRXIF) {
+                PIR5bits.IRXIF = 0;
             }
+            return;
+        } else {
+
+            m->opc = ptr[6];
+            m->bytes[0] = ptr[7];
+            m->bytes[1] = ptr[8];
+            m->bytes[2] = ptr[9];
+            m->bytes[3] = ptr[10];
+            m->bytes[4] = ptr[11];
+            m->bytes[5] = ptr[12];
+            m->bytes[6] = ptr[13];
+            m->len = ptr[5]&0xF;
         }
 
         if (PIR5bits.IRXIF) {
@@ -22040,45 +22047,52 @@ static void canFillRxFifo(void) {
 static void processEnumeration(void) {
     uint8_t i, newCanId, enumResult;
 
-    if (enumerationRequired && ((tickGet() - enumerationStartTime.val) > 2 * (62500/10) )) {
-        for (i=1; i< (0x7F/8)+1; i++) {
-            enumerationResults[i] = 0;
-        }
-        enumerationResults[0] = 1;
+    switch (enumerationState) {
+        case ENUMERATION_REQUIRED:
+            if (((tickGet() - enumerationStartTime.val) > 2 * (62500/10) )) {
 
-        enumerationInProgress = 1;
-        enumerationRequired = 0;
-        enumerationStartTime.val = tickGet();
-        canDiagnostics[0x0C].asUint++;
-        TXB1CONbits.TXREQ = 1;
-    } else {
-        if (enumerationInProgress && ((tickGet() - enumerationStartTime.val) > (62500/10) )) {
-
-
-
-            for (i=0; (enumerationResults[i] == 0xFF) && (i < (0x7F/8)+1); i++) {
-                ;
-            }
-            if ((enumResult = enumerationResults[i]) != 0xFF) {
-                for (newCanId = i*8; (enumResult & 0x01); newCanId++) {
-                    enumResult >>= 1;
+                for (i=1; i< (0x7F/8)+1; i++) {
+                    enumerationResults[i] = 0;
                 }
-                if ((newCanId >= 1) && (newCanId <= 99)) {
-                    canId = newCanId;
-                    setNewCanId(canId);
+                enumerationResults[0] = 1;
+
+                enumerationState = ENUMERATION_IN_PROGRESS;
+                enumerationStartTime.val = tickGet();
+                canDiagnostics[0x0C].asUint++;
+                TXB1CONbits.TXREQ = 1;
+            }
+            break;
+        case ENUMERATION_IN_PROGRESS:
+            if ((tickGet() - enumerationStartTime.val) > (62500/10) ) {
+
+
+
+                for (i=0; (enumerationResults[i] == 0xFF) && (i < (0x7F/8)+1); i++) {
+                    ;
+                }
+                if ((enumResult = enumerationResults[i]) != 0xFF) {
+                    for (newCanId = i*8; (enumResult & 0x01); newCanId++) {
+                        enumResult >>= 1;
+                    }
+                    if ((newCanId >= 1) && (newCanId <= 99)) {
+                        canId = newCanId;
+                        setNewCanId(canId);
+                    } else {
+                        canDiagnostics[0x0F].asUint++;
+                        updateModuleErrorStatus();
+                    }
                 } else {
                     canDiagnostics[0x0F].asUint++;
                     updateModuleErrorStatus();
+
+
+
                 }
-            } else {
-                canDiagnostics[0x0F].asUint++;
-                updateModuleErrorStatus();
-
-
-
+                enumerationState = NO_ENUMERATION;
             }
-        }
-        enumerationRequired = enumerationInProgress = 0;
+            break;
+        default:
+            break;
     }
 }
 

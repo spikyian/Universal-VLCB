@@ -133,7 +133,7 @@ extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue
 #define MODE_FLAGS_ADDRESS    0x3FA
 #define MODE_FLAGS_NVM_TYPE   EEPROM_NVM_TYPE
 // Parameters
-#define PARAM_MANU              MANU_VLCB
+#define PARAM_MANU              MANU_MERG
 #define PARAM_MODULE_ID         MTYP_CANMIO
 #define PARAM_MAJOR_VERSION     3
 #define PARAM_MINOR_VERSION     'e'

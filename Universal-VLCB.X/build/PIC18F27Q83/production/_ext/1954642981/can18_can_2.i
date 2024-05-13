@@ -39318,6 +39318,12 @@ static SendResult canSendMessage(Message * mp) {
     }
 
 
+    if ((canId == 0) && (enumerationState == NO_ENUMERATION)) {
+        enumerationState = ENUMERATION_REQUIRED;
+        canId = 1;
+    }
+
+
     txFifoObj = (uint8_t*) C1FIFOUA2;
     txFifoObj[0] = (canId & 0x7F);
     txFifoObj[1] = canPri[priorities[mp->opc]];
@@ -39357,7 +39363,7 @@ static void sendRTR(void) {
     C1TXQCONH |= (0x2 | 0x1);
     canDiagnostics[0x05].asUint++;
 }
-# 621 "../../VLCBlib_PIC/can18_can_2.c"
+# 627 "../../VLCBlib_PIC/can18_can_2.c"
 static MessageReceived canReceiveMessage(Message * m){
     Message * mp;
     uint8_t incomingCanId;
@@ -39406,7 +39412,7 @@ static MessageReceived canReceiveMessage(Message * m){
         return RECEIVED;
     }
 }
-# 687 "../../VLCBlib_PIC/can18_can_2.c"
+# 693 "../../VLCBlib_PIC/can18_can_2.c"
 static void startEnumeration(Boolean txWaiting) {
     uint8_t i;
 
@@ -39420,7 +39426,7 @@ static void startEnumeration(Boolean txWaiting) {
     canDiagnostics[0x0C].asUint++;
     sendRTR();
 }
-# 708 "../../VLCBlib_PIC/can18_can_2.c"
+# 714 "../../VLCBlib_PIC/can18_can_2.c"
 static void handleSelfEnumeration(uint8_t receivedCanId) {
 
     switch (enumerationState) {
@@ -39523,7 +39529,7 @@ static CanidResult setNewCanId(uint8_t newCanId) {
         return CANID_FAIL;
     }
 }
-# 819 "../../VLCBlib_PIC/can18_can_2.c"
+# 825 "../../VLCBlib_PIC/can18_can_2.c"
 enum CAN_OP_MODE_STATUS CAN1_OperationModeSet(const enum CAN_OP_MODES requestMode)
 {
     enum CAN_OP_MODE_STATUS status = CAN_OP_MODE_REQUEST_SUCCESS;

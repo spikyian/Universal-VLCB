@@ -39111,7 +39111,7 @@ static Processed mnsProcessMessage(Message * m) {
                 }
                 return PROCESSED;
             case OPC_RQNP:
-                sendMessage7(OPC_PARAMS, 250, 'e',
+                sendMessage7(OPC_PARAMS, MANU_MERG, 'e',
                         MTYP_CANMIO, 255, 20,
                         127, 3);
                 return PROCESSED;
@@ -39120,7 +39120,7 @@ static Processed mnsProcessMessage(Message * m) {
                         name[4], name[5], name[6]);
                 return PROCESSED;
             case OPC_QNN:
-                sendMessage5(OPC_PNN, 0,0, 250, MTYP_CANMIO, getParameterFlags());
+                sendMessage5(OPC_PNN, 0,0, MANU_MERG, MTYP_CANMIO, getParameterFlags());
                 return PROCESSED;
             default:
                 break;
@@ -39130,7 +39130,7 @@ static Processed mnsProcessMessage(Message * m) {
 
     switch (m->opc) {
         case OPC_QNN:
-            sendMessage5(OPC_PNN, nn.bytes.hi,nn.bytes.lo, 250, MTYP_CANMIO, getParameterFlags());
+            sendMessage5(OPC_PNN, nn.bytes.hi,nn.bytes.lo, MANU_MERG, MTYP_CANMIO, getParameterFlags());
             return PROCESSED;
         case OPC_MODE:
             if (m->len < 4) {
@@ -39480,7 +39480,7 @@ static uint8_t getParameter(uint8_t idx) {
     case PAR_NUM:
         return 20;
     case PAR_MANU:
-        return 250;
+        return MANU_MERG;
     case PAR_MINVER:
         return 'e';
     case PAR_MTYP:
