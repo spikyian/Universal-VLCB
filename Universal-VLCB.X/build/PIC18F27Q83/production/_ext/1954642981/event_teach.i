@@ -38985,7 +38985,7 @@ static Processed teachProcessMessage(Message* m) {
             if ((m->bytes[0] == nn.bytes.hi) && (m->bytes[1] == nn.bytes.lo)) {
                 mode_flags |= 1;
             } else {
-                mode_state &= ~1;
+                mode_flags &= ~1;
             }
             return PROCESSED;
         case OPC_MODE:

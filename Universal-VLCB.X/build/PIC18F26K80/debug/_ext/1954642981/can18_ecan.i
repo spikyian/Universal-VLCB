@@ -21454,8 +21454,7 @@ static MessageQueue txQueue;
 enum EnumerationState {
     NO_ENUMERATION,
     ENUMERATION_REQUIRED,
-    ENUMERATION_IN_PROGRESS,
-    ENUMERATION_IN_PROGRESS_TX_WAITING
+    ENUMERATION_IN_PROGRESS
 } EnumerationState;
 static TickValue enumerationStartTime;
 static enum EnumerationState enumerationState;
@@ -21482,12 +21481,12 @@ static const uint8_t canPri[] = {
     0b01000000,
     0b00000000
 };
-# 194 "../../VLCBlib_PIC/can18_ecan.c"
+# 193 "../../VLCBlib_PIC/can18_ecan.c"
 static void canFactoryReset(void) {
     canId = 0;
     writeNVM(EEPROM_NVM_TYPE, 0x3FE, canId);
 }
-# 207 "../../VLCBlib_PIC/can18_ecan.c"
+# 206 "../../VLCBlib_PIC/can18_ecan.c"
 static void canPowerUp(void) {
     int temp;
 
@@ -21526,7 +21525,7 @@ static void canPowerUp(void) {
 
     ECANCON = 0b10110000;
     BSEL0 = 0;
-# 268 "../../VLCBlib_PIC/can18_ecan.c"
+# 267 "../../VLCBlib_PIC/can18_ecan.c"
       BRGCON1 = 0b00001111;
 
 
@@ -21622,7 +21621,7 @@ static void canPowerUp(void) {
     PIE5bits.TXBnIE = 1;
     PIE5bits.ERRIE = 1;
 }
-# 371 "../../VLCBlib_PIC/can18_ecan.c"
+# 370 "../../VLCBlib_PIC/can18_ecan.c"
 static Processed canProcessMessage(Message * m) {
 
     if (m->len < 3) return NOT_PROCESSED;
@@ -21689,7 +21688,7 @@ static DiagnosticVal * canGetDiagnostic(uint8_t index) {
     }
     return &(canDiagnostics[index-1]);
 }
-# 446 "../../VLCBlib_PIC/can18_ecan.c"
+# 445 "../../VLCBlib_PIC/can18_ecan.c"
 static SendResult canSendMessage(Message * mp) {
 
     Message * m;
@@ -21760,7 +21759,7 @@ static SendResult canSendMessage(Message * mp) {
     PIE5bits.TXBnIE = 1;
     return SEND_OK;
 }
-# 526 "../../VLCBlib_PIC/can18_ecan.c"
+# 525 "../../VLCBlib_PIC/can18_ecan.c"
 static MessageReceived canReceiveMessage(Message * m){
     Message * mp;
     uint8_t * p;

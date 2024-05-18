@@ -1885,7 +1885,7 @@ STATUS_RECEIVE_ERROR 10
 STATUS_MEMORY_FAULT 11
 STATUS_FATAL_ERROR 12
 ]
-"782
+"781
 [e E12621 VlcbMicrochipProcessors `uc
 P18F2480 1
 P18F4480 2
@@ -1921,20 +1921,20 @@ P32MX775F256 36
 P32MX775F512 37
 P32MX795F512 38
 ]
-"785
+"784
 [e E12610 VlcbBusTypes `uc
 PB_CAN 1
 PB_ETH 2
 PB_MIWI 3
 PB_USB 4
 ]
-"813
+"806
 [e E12616 VlcbProcessorManufacturers `uc
 CPUM_MICROCHIP 1
 CPUM_ATMEL 2
 CPUM_ARM 3
 ]
-"818
+"811
 [e E12563 VlcbParams `uc
 PAR_NUM 0
 PAR_MANU 1
@@ -2747,19 +2747,18 @@ SEND_OK 1
 NOT_RECEIVED 0
 RECEIVED 1
 ]
-"160
+"159
 [e E13178 EnumerationState `uc
 NO_ENUMERATION 0
 ENUMERATION_REQUIRED 1
 ENUMERATION_IN_PROGRESS 2
-ENUMERATION_IN_PROGRESS_TX_WAITING 3
 ]
-"196
+"195
 [e E12839 . `uc
 EEPROM_NVM_TYPE 0
 FLASH_NVM_TYPE 1
 ]
-"384
+"383
 [e E12678 VlcbCmdErrs `uc
 CMDERR_INV_CMD 1
 CMDERR_NOT_LRN 2
@@ -2775,7 +2774,7 @@ CMDERR_INV_EV_VALUE 11
 CMDERR_INV_NV_VALUE 12
 CMDERR_LRN_OTHER 13
 ]
-"420
+"419
 [e E12828 VlcbCanHardware `uc
 CAN_HW_NOT_SPECIFIED 0
 CAN_HW_PIC_ECAN 1
@@ -2787,77 +2786,77 @@ CAN_HW_ESP32_TWAI 6
 CAN_HW_SAM3X8E 6
 CAN_HW_PICO_PIO 7
 ]
-"464
+"463
 [e E12861 Priority `uc
 pLOW 0
 pNORMAL 1
 pABOVE 2
 pHIGH 3
 ]
-"481
+"480
 [e E12867 Boolean `uc
 FALSE 0
 TRUE 1
 ]
-"482
+"481
 [e E12997 ServicePresent `uc
 NOT_PRESENT 0
 PRESENT 1
 ]
-"507
+"506
 [e E13123 Qresult `uc
 QUEUE_FAIL 0
 QUEUE_SUCCESS 1
 ]
-"842
+"841
 [e E13106 CanidResult `uc
 CANID_FAIL 0
 CANID_OK 1
 ]
 "176 C:\Users\ianwh\github/VLCBlib_PIC/boot.c
 [v _bootProcessMessage bootProcessMessage `(E12732  1 s 1 bootProcessMessage ]
-"194 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"193 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _canFactoryReset canFactoryReset `(v  1 s 1 canFactoryReset ]
-"207
+"206
 [v _canPowerUp canPowerUp `(v  1 s 1 canPowerUp ]
-"371
+"370
 [v _canProcessMessage canProcessMessage `(E12899  1 s 1 canProcessMessage ]
-"398
+"397
 [v _canIsr canIsr `(v  1 s 1 canIsr ]
 [v i2_canIsr canIsr `(v  1 s 1 i2_canIsr ]
-"417
+"416
 [v _canEsdData canEsdData `(uc  1 s 1 canEsdData ]
 "140 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 "143
 [s S200 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"431 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"430 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [u S203 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S200 1 asBytes 2 0 ]
 [v _canGetDiagnostic canGetDiagnostic `(*.39S203  1 s 2 canGetDiagnostic ]
-"446
+"445
 [v _canSendMessage canSendMessage `(E13014  1 s 1 canSendMessage ]
-"526
+"525
 [v _canReceiveMessage canReceiveMessage `(E13010  1 s 1 canReceiveMessage ]
-"589
+"588
 [v _getBufferPointer getBufferPointer `(*.39uc  1 s 2 getBufferPointer ]
 [v i1_getBufferPointer getBufferPointer `(*.39uc  1 s 2 i1_getBufferPointer ]
 [v i2_getBufferPointer getBufferPointer `(*.39uc  1 s 2 i2_getBufferPointer ]
-"617
+"616
 [v _checkTxFifo checkTxFifo `(v  1 s 1 checkTxFifo ]
 [v i2_checkTxFifo checkTxFifo `(v  1 s 1 i2_checkTxFifo ]
-"686
+"685
 [v _checkCANTimeout checkCANTimeout `(v  1 s 1 checkCANTimeout ]
 [v i2_checkCANTimeout checkCANTimeout `(v  1 s 1 i2_checkCANTimeout ]
-"703
+"702
 [v _canTxError canTxError `(v  1 s 1 canTxError ]
 [v i2_canTxError canTxError `(v  1 s 1 i2_canTxError ]
-"730
+"729
 [v _handleSelfEnumeration handleSelfEnumeration `(E13010  1 s 1 handleSelfEnumeration ]
-"762
+"761
 [v _canFillRxFifo canFillRxFifo `(v  1 s 1 canFillRxFifo ]
 [v i2_canFillRxFifo canFillRxFifo `(v  1 s 1 i2_canFillRxFifo ]
-"810
+"809
 [v _processEnumeration processEnumeration `(v  1 s 1 processEnumeration ]
-"867
+"866
 [v _setNewCanId setNewCanId `(E13106  1 s 1 setNewCanId ]
 "85 C:\Users\ianwh\github/VLCBlib_PIC/event_acknowledge.c
 [v _ackPowerUp ackPowerUp `(v  1 s 1 ackPowerUp ]
@@ -3009,11 +3008,11 @@ CANID_OK 1
 [v _setLEDsByMode setLEDsByMode `(v  1 e 1 0 ]
 "759
 [v _getParameter getParameter `(uc  1 s 1 getParameter ]
-"828
+"821
 [v _mnsTRserviceDiscoveryCallback mnsTRserviceDiscoveryCallback `(E12944  1 e 1 0 ]
-"845
+"838
 [v _mnsTRallDiagnosticsCallback mnsTRallDiagnosticsCallback `(E12944  1 e 1 0 ]
-"866
+"859
 [v _mnsTRrqnpnCallback mnsTRrqnpnCallback `(E12944  1 e 1 0 ]
 "119 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _nvFactoryReset nvFactoryReset `(v  1 s 1 nvFactoryReset ]
@@ -3350,19 +3349,19 @@ CANID_OK 1
 "146
 [v _rxBuffers rxBuffers `[32]S188  1 s 288 rxBuffers ]
 "147
-[s S6118 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v _rxQueue rxQueue `S6118  1 s 5 rxQueue ]
+[s S6117 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v _rxQueue rxQueue `S6117  1 s 5 rxQueue ]
 "148
 [v _txBuffers txBuffers `[8]S188  1 s 72 txBuffers ]
 "149
-[v _txQueue txQueue `S6118  1 s 5 txQueue ]
-"161
+[v _txQueue txQueue `S6117  1 s 5 txQueue ]
+"160
 [v _enumerationStartTime enumerationStartTime `S37  1 s 4 enumerationStartTime ]
-"162
+"161
 [v _enumerationState enumerationState `E13178  1 s 1 enumerationState ]
-"163
+"162
 [v _enumerationResults enumerationResults `[16]uc  1 s 16 enumerationResults ]
-"179
+"178
 [v _canPri canPri `C[5]uc  1 s 5 canPri ]
 "68 C:\Users\ianwh\github/VLCBlib_PIC/event_acknowledge.c
 [v _eventAckService eventAckService `CS208  1 e 18 0 ]
@@ -3424,12 +3423,12 @@ CANID_OK 1
 [v _nvDiagnostics nvDiagnostics `[2]S203  1 s 4 nvDiagnostics ]
 "100
 [v _nvCache nvCache `[128]uc  1 s 128 nvCache ]
-[s S6187 . 1 `uc 1 writeNeeded 1 0 :1:0 
+[s S6186 . 1 `uc 1 writeNeeded 1 0 :1:0 
 `uc 1 eraseNeeded 1 0 :1:1 
 ]
 "129 C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
-[u S6190 . 1 `uc 1 asByte 1 0 `S6187 1 . 1 0 ]
-[v _flashFlags flashFlags `S6190  1 s 1 flashFlags ]
+[u S6189 . 1 `uc 1 asByte 1 0 `S6186 1 . 1 0 ]
+[v _flashFlags flashFlags `S6189  1 s 1 flashFlags ]
 "132
 [v _flashBuffer flashBuffer `[64]uc  1 s 64 flashBuffer ]
 "137
@@ -3574,19 +3573,19 @@ CANID_OK 1
 [v _BSEL0 BSEL0 `VEuc  1 e 1 @3709 ]
 "6327
 [v _BIE0 BIE0 `VEuc  1 e 1 @3710 ]
-[s S6708 . 1 `uc 1 . 1 0 :2:0 
+[s S6706 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
 `uc 1 TXB2IE 1 0 :1:4 
 ]
 "6422
-[s S6713 . 1 `uc 1 . 1 0 :2:0 
+[s S6711 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TX0IE 1 0 :1:2 
 `uc 1 TX1IE 1 0 :1:3 
 `uc 1 TX2IE 1 0 :1:4 
 ]
-[u S6718 . 1 `S6708 1 . 1 0 `S6713 1 . 1 0 ]
-[v _TXBIEbits TXBIEbits `VES6718  1 e 1 @3711 ]
+[u S6716 . 1 `S6706 1 . 1 0 `S6711 1 . 1 0 ]
+[v _TXBIEbits TXBIEbits `VES6716  1 e 1 @3711 ]
 "6457
 [v _B0CON B0CON `VEuc  1 e 1 @3712 ]
 "8088
@@ -3619,7 +3618,7 @@ CANID_OK 1
 [v _RXM1EIDL RXM1EIDL `VEuc  1 e 1 @3839 ]
 "20015
 [v _TXB2CON TXB2CON `VEuc  1 e 1 @3840 ]
-[s S6733 . 1 `uc 1 TXPRI 1 0 :2:0 
+[s S6731 . 1 `uc 1 TXPRI 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXREQ 1 0 :1:3 
 `uc 1 TXERR 1 0 :1:4 
@@ -3628,10 +3627,10 @@ CANID_OK 1
 `uc 1 TXBIF 1 0 :1:7 
 ]
 "20045
-[s S6741 . 1 `uc 1 TXPRI0 1 0 :1:0 
+[s S6739 . 1 `uc 1 TXPRI0 1 0 :1:0 
 `uc 1 TXPRI1 1 0 :1:1 
 ]
-[s S6842 . 1 `uc 1 TXB2PRI0 1 0 :1:0 
+[s S6840 . 1 `uc 1 TXB2PRI0 1 0 :1:0 
 `uc 1 TXB2PRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXB2REQ 1 0 :1:3 
@@ -3640,8 +3639,8 @@ CANID_OK 1
 `uc 1 TXB2ABT 1 0 :1:6 
 `uc 1 TX2IF 1 0 :1:7 
 ]
-[u S6851 . 1 `S6733 1 . 1 0 `S6741 1 . 1 0 `S6842 1 . 1 0 ]
-[v _TXB2CONbits TXB2CONbits `VES6851  1 e 1 @3840 ]
+[u S6849 . 1 `S6731 1 . 1 0 `S6739 1 . 1 0 `S6840 1 . 1 0 ]
+[v _TXB2CONbits TXB2CONbits `VES6849  1 e 1 @3840 ]
 "20125
 [v _TXB2SIDH TXB2SIDH `VEuc  1 e 1 @3841 ]
 "20245
@@ -3651,7 +3650,7 @@ CANID_OK 1
 "21446
 [v _TXB1CON TXB1CON `VEuc  1 e 1 @3856 ]
 "21476
-[s S6793 . 1 `uc 1 TXB1PRI0 1 0 :1:0 
+[s S6791 . 1 `uc 1 TXB1PRI0 1 0 :1:0 
 `uc 1 TXB1PRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXB1REQ 1 0 :1:3 
@@ -3660,8 +3659,8 @@ CANID_OK 1
 `uc 1 TXB1ABT 1 0 :1:6 
 `uc 1 TX1IF 1 0 :1:7 
 ]
-[u S6802 . 1 `S6733 1 . 1 0 `S6741 1 . 1 0 `S6793 1 . 1 0 ]
-[v _TXB1CONbits TXB1CONbits `VES6802  1 e 1 @3856 ]
+[u S6800 . 1 `S6731 1 . 1 0 `S6739 1 . 1 0 `S6791 1 . 1 0 ]
+[v _TXB1CONbits TXB1CONbits `VES6800  1 e 1 @3856 ]
 "21556
 [v _TXB1SIDH TXB1SIDH `VEuc  1 e 1 @3857 ]
 "21676
@@ -3671,7 +3670,7 @@ CANID_OK 1
 "22877
 [v _TXB0CON TXB0CON `VEuc  1 e 1 @3872 ]
 "22907
-[s S6744 . 1 `uc 1 TXB0PRI0 1 0 :1:0 
+[s S6742 . 1 `uc 1 TXB0PRI0 1 0 :1:0 
 `uc 1 TXB0PRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXB0REQ 1 0 :1:3 
@@ -3680,8 +3679,8 @@ CANID_OK 1
 `uc 1 TXB0ABT 1 0 :1:6 
 `uc 1 TX0IF 1 0 :1:7 
 ]
-[u S6753 . 1 `S6733 1 . 1 0 `S6741 1 . 1 0 `S6744 1 . 1 0 ]
-[v _TXB0CONbits TXB0CONbits `VES6753  1 e 1 @3872 ]
+[u S6751 . 1 `S6731 1 . 1 0 `S6739 1 . 1 0 `S6742 1 . 1 0 ]
+[v _TXB0CONbits TXB0CONbits `VES6751  1 e 1 @3872 ]
 "22987
 [v _TXB0SIDH TXB0SIDH `VEuc  1 e 1 @3873 ]
 "23107
@@ -3714,7 +3713,7 @@ CANID_OK 1
 [v _ANCON0 ANCON0 `VEuc  1 e 1 @3933 ]
 "27582
 [v _RXB0CON RXB0CON `VEuc  1 e 1 @3936 ]
-[s S6625 . 1 `uc 1 EICODE0 1 0 :1:0 
+[s S6623 . 1 `uc 1 EICODE0 1 0 :1:0 
 `uc 1 EICODE1_ICODE0 1 0 :1:1 
 `uc 1 EICODE2_ICODE1 1 0 :1:2 
 `uc 1 EICODE3_ICODE2 1 0 :1:3 
@@ -3722,7 +3721,7 @@ CANID_OK 1
 `uc 1 OPMODE 1 0 :3:5 
 ]
 "28948
-[s S6632 . 1 `uc 1 . 1 0 :1:0 
+[s S6630 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 EICODE1 1 0 :1:1 
 `uc 1 EICODE2 1 0 :1:2 
 `uc 1 EICODE3 1 0 :1:3 
@@ -3731,18 +3730,18 @@ CANID_OK 1
 `uc 1 OPMODE1 1 0 :1:6 
 `uc 1 OPMODE2 1 0 :1:7 
 ]
-[s S6641 . 1 `uc 1 . 1 0 :1:0 
+[s S6639 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ICODE0 1 0 :1:1 
 `uc 1 ICODE1 1 0 :1:2 
 `uc 1 ICODE2 1 0 :1:3 
 ]
-[u S6646 . 1 `S6625 1 . 1 0 `S6632 1 . 1 0 `S6641 1 . 1 0 ]
-[v _CANSTATbits CANSTATbits `VES6646  1 e 1 @3950 ]
+[u S6644 . 1 `S6623 1 . 1 0 `S6630 1 . 1 0 `S6639 1 . 1 0 ]
+[v _CANSTATbits CANSTATbits `VES6644  1 e 1 @3950 ]
 "29028
 [v _CANCON CANCON `VEuc  1 e 1 @3951 ]
 "29120
 [v _CIOCON CIOCON `VEuc  1 e 1 @3952 ]
-[s S7033 . 1 `uc 1 EWARN 1 0 :1:0 
+[s S7031 . 1 `uc 1 EWARN 1 0 :1:0 
 `uc 1 RXWARN 1 0 :1:1 
 `uc 1 TXWARN 1 0 :1:2 
 `uc 1 RXBP 1 0 :1:3 
@@ -3752,18 +3751,18 @@ CANID_OK 1
 `uc 1 RXB0OVFL 1 0 :1:7 
 ]
 "29195
-[s S7042 . 1 `uc 1 . 1 0 :7:0 
+[s S7040 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_FIFOEMPTY 1 0 :1:7 
 ]
-[s S7045 . 1 `uc 1 . 1 0 :7:0 
+[s S7043 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 nFIFOEMPTY 1 0 :1:7 
 ]
-[s S7048 . 1 `uc 1 . 1 0 :6:0 
+[s S7046 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RXBNOVFL 1 0 :1:6 
 `uc 1 FIFOEMPTY 1 0 :1:7 
 ]
-[u S7052 . 1 `S7033 1 . 1 0 `S7042 1 . 1 0 `S7045 1 . 1 0 `S7048 1 . 1 0 ]
-[v _COMSTATbits COMSTATbits `VES7052  1 e 1 @3953 ]
+[u S7050 . 1 `S7031 1 . 1 0 `S7040 1 . 1 0 `S7043 1 . 1 0 `S7046 1 . 1 0 ]
+[v _COMSTATbits COMSTATbits `VES7050  1 e 1 @3953 ]
 "29260
 [v _ECANCON ECANCON `VEuc  1 e 1 @3954 ]
 "29337
@@ -3772,7 +3771,7 @@ CANID_OK 1
 [v _EEADR EEADR `VEuc  1 e 1 @3956 ]
 "29377
 [v _EEADRH EEADRH `VEuc  1 e 1 @3957 ]
-[s S6880 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[s S6878 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
@@ -3782,14 +3781,14 @@ CANID_OK 1
 `uc 1 IRXIE 1 0 :1:7 
 ]
 "29420
-[s S6889 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
+[s S6887 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
 `uc 1 RXBnIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIE 1 0 :1:4 
 ]
-[u S6894 . 1 `S6880 1 . 1 0 `S6889 1 . 1 0 ]
-[v _PIE5bits PIE5bits `VES6894  1 e 1 @3958 ]
-[s S6934 . 1 `uc 1 RXB0IF 1 0 :1:0 
+[u S6892 . 1 `S6878 1 . 1 0 `S6887 1 . 1 0 ]
+[v _PIE5bits PIE5bits `VES6892  1 e 1 @3958 ]
+[s S6932 . 1 `uc 1 RXB0IF 1 0 :1:0 
 `uc 1 RXB1IF 1 0 :1:1 
 `uc 1 TXB0IF 1 0 :1:2 
 `uc 1 TXB1IF 1 0 :1:3 
@@ -3799,20 +3798,20 @@ CANID_OK 1
 `uc 1 IRXIF 1 0 :1:7 
 ]
 "29503
-[s S6943 . 1 `uc 1 FIFOWMIF 1 0 :1:0 
+[s S6941 . 1 `uc 1 FIFOWMIF 1 0 :1:0 
 `uc 1 RXBnIF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIF 1 0 :1:4 
 ]
-[u S6948 . 1 `S6934 1 . 1 0 `S6943 1 . 1 0 ]
-[v _PIR5bits PIR5bits `VES6948  1 e 1 @3959 ]
+[u S6946 . 1 `S6932 1 . 1 0 `S6941 1 . 1 0 ]
+[v _PIR5bits PIR5bits `VES6946  1 e 1 @3959 ]
 "29563
 [v _IPR5 IPR5 `VEuc  1 e 1 @3960 ]
 "29773
 [v _EECON2 EECON2 `VEuc  1 e 1 @3966 ]
 "29793
 [v _EECON1 EECON1 `VEuc  1 e 1 @3967 ]
-[s S6194 . 1 `uc 1 RD 1 0 :1:0 
+[s S6193 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -3822,14 +3821,14 @@ CANID_OK 1
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "29814
-[s S6203 . 1 `uc 1 . 1 0 :6:0 
+[s S6202 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S6206 . 1 `S6194 1 . 1 0 `S6203 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES6206  1 e 1 @3967 ]
+[u S6205 . 1 `S6193 1 . 1 0 `S6202 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES6205  1 e 1 @3967 ]
 "29859
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
-[s S4411 . 1 `uc 1 RA0 1 0 :1:0 
+[s S4410 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -3839,14 +3838,14 @@ CANID_OK 1
 `uc 1 RA7 1 0 :1:7 
 ]
 "29883
-[s S4420 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S4419 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 `uc 1 . 1 0 :4:1 
 `uc 1 LVDIN 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[u S4426 . 1 `S4411 1 . 1 0 `S4420 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES4426  1 e 1 @3968 ]
+[u S4425 . 1 `S4410 1 . 1 0 `S4419 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES4425  1 e 1 @3968 ]
 "29938
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
 "30009
@@ -3855,7 +3854,7 @@ CANID_OK 1
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "30327
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
-[s S5066 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S5065 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -3865,7 +3864,7 @@ CANID_OK 1
 `uc 1 LATB7 1 0 :1:7 
 ]
 "30354
-[s S5075 . 1 `uc 1 LB0 1 0 :1:0 
+[s S5074 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -3874,13 +3873,13 @@ CANID_OK 1
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S5084 . 1 `S5066 1 . 1 0 `S5075 1 . 1 0 ]
-[v _LATBbits LATBbits `VES5084  1 e 1 @3978 ]
+[u S5083 . 1 `S5065 1 . 1 0 `S5074 1 . 1 0 ]
+[v _LATBbits LATBbits `VES5083  1 e 1 @3978 ]
 "30439
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "30645
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
-[s S5044 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S5043 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -3890,11 +3889,11 @@ CANID_OK 1
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "30662
-[u S5053 . 1 `S5044 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES5053  1 e 1 @3986 ]
+[u S5052 . 1 `S5043 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES5052  1 e 1 @3986 ]
 "30702
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S5023 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S5022 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -3904,24 +3903,24 @@ CANID_OK 1
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "30719
-[u S5032 . 1 `S5023 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES5032  1 e 1 @3987 ]
+[u S5031 . 1 `S5022 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES5031  1 e 1 @3987 ]
 "30764
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S5652 . 1 `uc 1 TUN 1 0 :6:0 
+[s S5651 . 1 `uc 1 TUN 1 0 :6:0 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "30955
-[s S5656 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S5655 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
 `uc 1 TUN4 1 0 :1:4 
 `uc 1 TUN5 1 0 :1:5 
 ]
-[u S5663 . 1 `S5652 1 . 1 0 `S5656 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES5663  1 e 1 @3995 ]
+[u S5662 . 1 `S5651 1 . 1 0 `S5655 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES5662  1 e 1 @3995 ]
 [s S1644 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 TMR1GIE 1 0 :1:2 
@@ -4104,30 +4103,30 @@ CANID_OK 1
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "35388
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S5678 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S5677 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "35456
-[s S5680 . 1 `uc 1 . 1 0 :1:0 
+[s S5679 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
 "35456
-[s S5683 . 1 `uc 1 . 1 0 :2:0 
+[s S5682 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
 "35456
-[s S5686 . 1 `uc 1 . 1 0 :3:0 
+[s S5685 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
 "35456
-[s S5689 . 1 `uc 1 . 1 0 :4:0 
+[s S5688 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
 "35456
-[s S5692 . 1 `uc 1 . 1 0 :5:0 
+[s S5691 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_CM 1 0 :1:5 
 ]
 "35456
-[s S5695 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S5694 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -4137,7 +4136,7 @@ CANID_OK 1
 `uc 1 IPEN 1 0 :1:7 
 ]
 "35456
-[s S5704 . 1 `uc 1 BOR 1 0 :1:0 
+[s S5703 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
@@ -4145,13 +4144,13 @@ CANID_OK 1
 `uc 1 CM 1 0 :1:5 
 ]
 "35456
-[u S5711 . 1 `S5678 1 . 1 0 `S5680 1 . 1 0 `S5683 1 . 1 0 `S5686 1 . 1 0 `S5689 1 . 1 0 `S5692 1 . 1 0 `S5695 1 . 1 0 `S5704 1 . 1 0 ]
+[u S5710 . 1 `S5677 1 . 1 0 `S5679 1 . 1 0 `S5682 1 . 1 0 `S5685 1 . 1 0 `S5688 1 . 1 0 `S5691 1 . 1 0 `S5694 1 . 1 0 `S5703 1 . 1 0 ]
 "35456
 "35456
-[v _RCONbits RCONbits `VES5711  1 e 1 @4048 ]
+[v _RCONbits RCONbits `VES5710  1 e 1 @4048 ]
 "35770
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
-[s S5162 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S5161 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -4159,15 +4158,15 @@ CANID_OK 1
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "35790
-[s S5169 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S5168 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
 "35790
-[u S5173 . 1 `S5162 1 . 1 0 `S5169 1 . 1 0 ]
+[u S5172 . 1 `S5161 1 . 1 0 `S5168 1 . 1 0 ]
 "35790
 "35790
-[v _T0CONbits T0CONbits `VES5173  1 e 1 @4053 ]
+[v _T0CONbits T0CONbits `VES5172  1 e 1 @4053 ]
 "35847
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "35867
@@ -4288,12 +4287,12 @@ CANID_OK 1
 [v powerUp@i i `uc  1 a 1 14 ]
 "890
 } 0
-"207 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"206 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _canPowerUp canPowerUp `(v  1 s 1 canPowerUp ]
 {
-"208
+"207
 [v canPowerUp@temp temp `i  1 a 2 56 ]
-"362
+"361
 } 0
 "129 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _nvPowerUp nvPowerUp `(v  1 s 1 nvPowerUp ]
@@ -4365,12 +4364,12 @@ CANID_OK 1
 [v poll@handled handled `E12732  1 a 1 34 ]
 "1043
 } 0
-"371 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"370 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _canProcessMessage canProcessMessage `(E12899  1 s 1 canProcessMessage ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
 [v canProcessMessage@m m `*.39S188  1 p 2 63 ]
-"393
+"392
 } 0
 "229 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _nvProcessMessage nvProcessMessage `(E12732  1 s 1 nvProcessMessage ]
@@ -4640,29 +4639,29 @@ CANID_OK 1
 [v nvTRnvrdCallback@step step `uc  1 p 1 16 ]
 "339
 } 0
-"828 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"821 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v _mnsTRserviceDiscoveryCallback mnsTRserviceDiscoveryCallback `(E12944  1 e 1 0 ]
 {
 [v mnsTRserviceDiscoveryCallback@step step `uc  1 p 1 16 ]
-"836
+"829
 } 0
-"845
+"838
 [v _mnsTRallDiagnosticsCallback mnsTRallDiagnosticsCallback `(E12944  1 e 1 0 ]
 {
 [s S200 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"849
+"842
 [u S203 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S200 1 asBytes 2 0 ]
 [v mnsTRallDiagnosticsCallback@d d `*.39S203  1 a 2 21 ]
-"845
+"838
 [v mnsTRallDiagnosticsCallback@serviceIndex serviceIndex `uc  1 p 1 15 ]
 [v mnsTRallDiagnosticsCallback@step step `uc  1 p 1 16 ]
-"857
+"850
 } 0
-"866
+"859
 [v _mnsTRrqnpnCallback mnsTRrqnpnCallback `(E12944  1 e 1 0 ]
 {
 [v mnsTRrqnpnCallback@step step `uc  1 p 1 16 ]
-"872
+"865
 } 0
 "521 C:\Users\ianwh\github/VLCBlib_PIC/event_teach.c
 [v _nerdCallback nerdCallback `(E12944  1 e 1 0 ]
@@ -4779,13 +4778,13 @@ CANID_OK 1
 [v APP_nvValidate@index index `uc  1 a 1 52 ]
 "330
 } 0
-"417 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"416 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _canEsdData canEsdData `(uc  1 s 1 canEsdData ]
 {
 [v canEsdData@id id `uc  1 a 1 wreg ]
 [v canEsdData@id id `uc  1 a 1 wreg ]
 [v canEsdData@id id `uc  1 a 1 45 ]
-"424
+"423
 } 0
 "313 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _nvGetESDdata nvGetESDdata `(uc  1 s 1 nvGetESDdata ]
@@ -4806,14 +4805,14 @@ CANID_OK 1
 "140 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 "143
 [s S200 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"431 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"430 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [u S203 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S200 1 asBytes 2 0 ]
 [v _canGetDiagnostic canGetDiagnostic `(*.39S203  1 s 2 canGetDiagnostic ]
 {
 [v canGetDiagnostic@index index `uc  1 a 1 wreg ]
 [v canGetDiagnostic@index index `uc  1 a 1 wreg ]
 [v canGetDiagnostic@index index `uc  1 a 1 49 ]
-"436
+"435
 } 0
 "140 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 "143
@@ -4928,7 +4927,7 @@ CANID_OK 1
 [v getParameter@idx idx `uc  1 a 1 wreg ]
 [v getParameter@idx idx `uc  1 a 1 wreg ]
 [v getParameter@idx idx `uc  1 a 1 50 ]
-"819
+"812
 } 0
 "559
 [v _getParameterFlags getParameterFlags `(uc  1 s 1 getParameterFlags ]
@@ -4987,36 +4986,36 @@ CANID_OK 1
 [v pushTwoAction@a a `S1078  1 p 2 45 ]
 "349
 } 0
-"526 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"525 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _canReceiveMessage canReceiveMessage `(E13010  1 s 1 canReceiveMessage ]
 {
-"528
+"527
 [v canReceiveMessage@p p `*.39uc  1 a 2 16 ]
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
-"527
-[v canReceiveMessage@mp mp `*.39S188  1 a 2 14 ]
-"529
-[v canReceiveMessage@messageAvailable messageAvailable `E13010  1 a 1 13 ]
 "526
+[v canReceiveMessage@mp mp `*.39S188  1 a 2 14 ]
+"528
+[v canReceiveMessage@messageAvailable messageAvailable `E13010  1 a 1 13 ]
+"525
 [v canReceiveMessage@m m `*.39S188  1 p 2 10 ]
-"584
+"583
 } 0
-"810
+"809
 [v _processEnumeration processEnumeration `(v  1 s 1 processEnumeration ]
 {
-"811
+"810
 [v processEnumeration@i i `uc  1 a 1 9 ]
 [v processEnumeration@newCanId newCanId `uc  1 a 1 8 ]
 [v processEnumeration@enumResult enumResult `uc  1 a 1 7 ]
-"860
+"859
 } 0
-"867
+"866
 [v _setNewCanId setNewCanId `(E13106  1 s 1 setNewCanId ]
 {
 [v setNewCanId@newCanId newCanId `uc  1 a 1 wreg ]
 [v setNewCanId@newCanId newCanId `uc  1 a 1 wreg ]
 [v setNewCanId@newCanId newCanId `uc  1 a 1 2 ]
-"886
+"885
 } 0
 "105 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
@@ -5026,8 +5025,8 @@ CANID_OK 1
 "96
 [v pop@ret ret `*.39S188  1 a 2 52 ]
 "95
-[s S6118 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v pop@q q `*.30S6118  1 p 1 45 ]
+[s S6117 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v pop@q q `*.30S6117  1 p 1 45 ]
 "103
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\memcpy.c
@@ -5045,22 +5044,22 @@ CANID_OK 1
 [v memcpy@n n `ui  1 p 2 49 ]
 "18
 } 0
-"730 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"729 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _handleSelfEnumeration handleSelfEnumeration `(E13010  1 s 1 handleSelfEnumeration ]
 {
-"731
-[v handleSelfEnumeration@incomingCanId incomingCanId `uc  1 a 1 61 ]
 "730
+[v handleSelfEnumeration@incomingCanId incomingCanId `uc  1 a 1 61 ]
+"729
 [v handleSelfEnumeration@p p `*.39uc  1 p 2 55 ]
-"756
+"755
 } 0
-"589
+"588
 [v _getBufferPointer getBufferPointer `(*.39uc  1 s 2 getBufferPointer ]
 {
 [v getBufferPointer@b b `uc  1 a 1 wreg ]
 [v getBufferPointer@b b `uc  1 a 1 wreg ]
 [v getBufferPointer@b b `uc  1 a 1 47 ]
-"610
+"609
 } 0
 "1206 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _sendMessage7 sendMessage7 `(v  1 e 1 0 ]
@@ -5518,30 +5517,30 @@ CANID_OK 1
 [v sendMessage@opc opc `E12342  1 a 1 68 ]
 "1237
 } 0
-"446 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"445 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _canSendMessage canSendMessage `(E13014  1 s 1 canSendMessage ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
-"448
+"447
 [v canSendMessage@m m `*.39S188  1 a 2 64 ]
-"446
+"445
 [v canSendMessage@mp mp `*.39S188  1 p 2 57 ]
-"515
+"514
 } 0
 "129 C:\Users\ianwh\github/VLCBlib_PIC/messageQueue.c
 [v _quantity quantity `(uc  1 e 1 0 ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
-[s S6118 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v quantity@q q `*.30S6118  1 p 1 45 ]
+[s S6117 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v quantity@q q `*.30S6117  1 p 1 45 ]
 "131
 } 0
 "57
 [v _push push `(E12867  1 e 1 0 ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
-[s S6118 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v push@q q `*.30S6118  1 p 1 45 ]
+[s S6117 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v push@q q `*.30S6117  1 p 1 45 ]
 [v push@m m `*.39S188  1 p 2 46 ]
 "72
 } 0
@@ -5573,8 +5572,8 @@ CANID_OK 1
 "80
 [v getNextWriteMessage@wr wr `uc  1 a 1 56 ]
 "79
-[s S6118 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v getNextWriteMessage@q q `*.30S6118  1 p 1 45 ]
+[s S6117 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v getNextWriteMessage@q q `*.30S6117  1 p 1 45 ]
 "86
 } 0
 "174 C:\Users\ianwh\github\Universal-VLCB/inputs.c
@@ -5671,10 +5670,10 @@ CANID_OK 1
 [v factoryReset@i i `uc  1 a 1 56 ]
 "868
 } 0
-"194 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"193 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _canFactoryReset canFactoryReset `(v  1 s 1 canFactoryReset ]
 {
-"197
+"196
 } 0
 "119 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _nvFactoryReset nvFactoryReset `(v  1 s 1 nvFactoryReset ]
@@ -6231,35 +6230,35 @@ CANID_OK 1
 [v lowIsr@i i `uc  1 a 1 29 ]
 "1084
 } 0
-"398 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"397 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _canIsr canIsr `(v  1 s 1 canIsr ]
 {
-"410
+"409
 } 0
 "710 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v _mnsLowIsr mnsLowIsr `(v  1 s 1 mnsLowIsr ]
 {
 "722
 } 0
-"686 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"685 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _checkCANTimeout checkCANTimeout `(v  1 s 1 checkCANTimeout ]
 {
-"696
+"695
 } 0
-"703
+"702
 [v _canTxError canTxError `(v  1 s 1 canTxError ]
 {
-"722
+"721
 } 0
-"617
+"616
 [v _checkTxFifo checkTxFifo `(v  1 s 1 checkTxFifo ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
-"618
+"617
 [v checkTxFifo@mp mp `*.39S188  1 a 2 19 ]
-"620
+"619
 [v checkTxFifo@m m `*.39S188  1 a 2 17 ]
-"679
+"678
 } 0
 "158 C:\Users\ianwh\github/VLCBlib_PIC/ticktime.c
 [v i1_tickGet tickGet `(ul  1 e 4 0 ]
@@ -6283,8 +6282,8 @@ CANID_OK 1
 "96
 [v i1pop@ret ret `*.39S188  1 a 2 7 ]
 "95
-[s S6118 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v i1pop@q q `*.30S6118  1 p 1 0 ]
+[s S6117 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v i1pop@q q `*.30S6117  1 p 1 0 ]
 "103
 } 0
 "1114 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
@@ -6295,15 +6294,15 @@ CANID_OK 1
 [v i1isEvent@opc opc `uc  1 a 1 1 ]
 "1116
 } 0
-"762 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"761 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _canFillRxFifo canFillRxFifo `(v  1 s 1 canFillRxFifo ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
-"765
+"764
 [v canFillRxFifo@m m `*.39S188  1 a 2 14 ]
-"763
+"762
 [v canFillRxFifo@ptr ptr `*.39uc  1 a 2 12 ]
-"804
+"803
 } 0
 "583 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v i1_updateModuleErrorStatus updateModuleErrorStatus `(v  1 e 1 0 ]
@@ -6318,17 +6317,17 @@ CANID_OK 1
 "80
 [v i1getNextWriteMessage@wr wr `uc  1 a 1 11 ]
 "79
-[s S6118 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v i1getNextWriteMessage@q q `*.30S6118  1 p 1 0 ]
+[s S6117 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v i1getNextWriteMessage@q q `*.30S6117  1 p 1 0 ]
 "86
 } 0
-"589 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"588 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v i1_getBufferPointer getBufferPointer `(*.39uc  1 s 2 i1_getBufferPointer ]
 {
 [v i1getBufferPointer@b b `uc  1 a 1 wreg ]
 [v i1getBufferPointer@b b `uc  1 a 1 wreg ]
 [v i1getBufferPointer@b b `uc  1 a 1 2 ]
-"610
+"609
 } 0
 "588 C:\Users\ianwh\github\Universal-VLCB/main.c
 [v _APP_lowIsr APP_lowIsr `(v  1 e 1 0 ]
@@ -6347,30 +6346,30 @@ CANID_OK 1
 [v highIsr@i i `uc  1 a 1 29 ]
 "1064
 } 0
-"398 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"397 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v i2_canIsr canIsr `(v  1 s 1 i2_canIsr ]
 {
-"410
+"409
 } 0
-"686
+"685
 [v i2_checkCANTimeout checkCANTimeout `(v  1 s 1 i2_checkCANTimeout ]
 {
-"696
+"695
 } 0
-"703
+"702
 [v i2_canTxError canTxError `(v  1 s 1 i2_canTxError ]
 {
-"722
+"721
 } 0
-"617
+"616
 [v i2_checkTxFifo checkTxFifo `(v  1 s 1 i2_checkTxFifo ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
-"618
+"617
 [v i2checkTxFifo@mp mp `*.39S188  1 a 2 19 ]
-"620
+"619
 [v i2checkTxFifo@m m `*.39S188  1 a 2 17 ]
-"679
+"678
 } 0
 "158 C:\Users\ianwh\github/VLCBlib_PIC/ticktime.c
 [v i2_tickGet tickGet `(ul  1 e 4 0 ]
@@ -6394,8 +6393,8 @@ CANID_OK 1
 "96
 [v i2pop@ret ret `*.39S188  1 a 2 7 ]
 "95
-[s S6118 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v i2pop@q q `*.30S6118  1 p 1 0 ]
+[s S6117 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v i2pop@q q `*.30S6117  1 p 1 0 ]
 "103
 } 0
 "1114 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
@@ -6406,15 +6405,15 @@ CANID_OK 1
 [v i2isEvent@opc opc `uc  1 a 1 1 ]
 "1116
 } 0
-"762 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"761 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v i2_canFillRxFifo canFillRxFifo `(v  1 s 1 i2_canFillRxFifo ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E12342 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
-"765
+"764
 [v i2canFillRxFifo@m m `*.39S188  1 a 2 14 ]
-"763
+"762
 [v i2canFillRxFifo@ptr ptr `*.39uc  1 a 2 12 ]
-"804
+"803
 } 0
 "583 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v i2_updateModuleErrorStatus updateModuleErrorStatus `(v  1 e 1 0 ]
@@ -6429,17 +6428,17 @@ CANID_OK 1
 "80
 [v i2getNextWriteMessage@wr wr `uc  1 a 1 11 ]
 "79
-[s S6118 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
-[v i2getNextWriteMessage@q q `*.30S6118  1 p 1 0 ]
+[s S6117 MessageQueue 5 `*.39S188 1 messages 2 0 `uc 1 readIndex 1 2 `uc 1 writeIndex 1 3 `uc 1 size 1 4 ]
+[v i2getNextWriteMessage@q q `*.30S6117  1 p 1 0 ]
 "86
 } 0
-"589 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
+"588 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v i2_getBufferPointer getBufferPointer `(*.39uc  1 s 2 i2_getBufferPointer ]
 {
 [v i2getBufferPointer@b b `uc  1 a 1 wreg ]
 [v i2getBufferPointer@b b `uc  1 a 1 wreg ]
 [v i2getBufferPointer@b b `uc  1 a 1 2 ]
-"610
+"609
 } 0
 "592 C:\Users\ianwh\github\Universal-VLCB/main.c
 [v _APP_highIsr APP_highIsr `(v  1 e 1 0 ]

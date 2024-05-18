@@ -2291,7 +2291,7 @@ STATUS_RECEIVE_ERROR 10
 STATUS_MEMORY_FAULT 11
 STATUS_FATAL_ERROR 12
 ]
-"782
+"781
 [e E22794 VlcbMicrochipProcessors `uc
 P18F2480 1
 P18F4480 2
@@ -2327,20 +2327,20 @@ P32MX775F256 36
 P32MX775F512 37
 P32MX795F512 38
 ]
-"785
+"784
 [e E22783 VlcbBusTypes `uc
 PB_CAN 1
 PB_ETH 2
 PB_MIWI 3
 PB_USB 4
 ]
-"813
+"806
 [e E22789 VlcbProcessorManufacturers `uc
 CPUM_MICROCHIP 1
 CPUM_ATMEL 2
 CPUM_ARM 3
 ]
-"818
+"811
 [e E22736 VlcbParams `uc
 PAR_NUM 0
 PAR_MANU 1
@@ -3146,11 +3146,11 @@ FLASH_NVM_TYPE 1
 [v _setLEDsByMode setLEDsByMode `(v  1 e 1 0 ]
 "759
 [v _getParameter getParameter `(uc  1 s 1 getParameter ]
-"828
+"821
 [v _mnsTRserviceDiscoveryCallback mnsTRserviceDiscoveryCallback `(E23113  1 e 1 0 ]
-"845
+"838
 [v _mnsTRallDiagnosticsCallback mnsTRallDiagnosticsCallback `(E23113  1 e 1 0 ]
-"866
+"859
 [v _mnsTRrqnpnCallback mnsTRrqnpnCallback `(E23113  1 e 1 0 ]
 "119 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _nvFactoryReset nvFactoryReset `(v  1 s 1 nvFactoryReset ]
@@ -3549,12 +3549,12 @@ FLASH_NVM_TYPE 1
 [v _nvDiagnostics nvDiagnostics `[2]S201  1 s 4 nvDiagnostics ]
 "100
 [v _nvCache nvCache `[128]uc  1 s 128 nvCache ]
-[s S7369 . 1 `uc 1 writeNeeded 1 0 :1:0 
+[s S7368 . 1 `uc 1 writeNeeded 1 0 :1:0 
 `uc 1 eraseNeeded 1 0 :1:1 
 ]
 "129 C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
-[u S7372 . 1 `uc 1 asByte 1 0 `S7369 1 . 1 0 ]
-[v _flashFlags flashFlags `S7372  1 s 1 flashFlags ]
+[u S7371 . 1 `uc 1 asByte 1 0 `S7368 1 . 1 0 ]
+[v _flashFlags flashFlags `S7371  1 s 1 flashFlags ]
 "137
 [v _flashBlock flashBlock `um  1 s 3 flashBlock ]
 "59 C:\Users\ianwh\github/VLCBlib_PIC/statusLeds2.c
@@ -3700,15 +3700,15 @@ FLASH_NVM_TYPE 1
 "499
 [u S1605 . 1 `S1596 1 . 1 0 ]
 [v _PIE3bits PIE3bits `VES1605  1 e 1 @1185 ]
-[s S7392 . 1 `uc 1 GO 1 0 :1:0 
+[s S7391 . 1 `uc 1 GO 1 0 :1:0 
 ]
 "598
-[s S7394 . 1 `uc 1 NOT_DONE 1 0 :1:0 
+[s S7393 . 1 `uc 1 NOT_DONE 1 0 :1:0 
 ]
-[s S7396 . 1 `uc 1 nDONE 1 0 :1:0 
+[s S7395 . 1 `uc 1 nDONE 1 0 :1:0 
 ]
-[u S7398 . 1 `S7392 1 . 1 0 `S7394 1 . 1 0 `S7396 1 . 1 0 ]
-[v _NVMCON0bits NVMCON0bits `VES7398  1 e 1 @64 ]
+[u S7397 . 1 `S7391 1 . 1 0 `S7393 1 . 1 0 `S7395 1 . 1 0 ]
+[v _NVMCON0bits NVMCON0bits `VES7397  1 e 1 @64 ]
 [s S1807 . 1 `uc 1 SPI2RXIE 1 0 :1:0 
 `uc 1 SPI2TXIE 1 0 :1:1 
 `uc 1 SPI2IE 1 0 :1:2 
@@ -3721,15 +3721,15 @@ FLASH_NVM_TYPE 1
 "623
 [u S1816 . 1 `S1807 1 . 1 0 ]
 [v _PIE5bits PIE5bits `VES1816  1 e 1 @1187 ]
-[s S7376 . 1 `uc 1 CMD 1 0 :3:0 
+[s S7375 . 1 `uc 1 CMD 1 0 :3:0 
 `uc 1 . 1 0 :4:3 
 `uc 1 WRERR 1 0 :1:7 
 ]
 "633
-[s S7380 . 1 `uc 1 NVMCMD 1 0 :3:0 
+[s S7379 . 1 `uc 1 NVMCMD 1 0 :3:0 
 ]
-[u S7382 . 1 `S7376 1 . 1 0 `S7380 1 . 1 0 ]
-[v _NVMCON1bits NVMCON1bits `VES7382  1 e 1 @65 ]
+[u S7381 . 1 `S7375 1 . 1 0 `S7379 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES7381  1 e 1 @65 ]
 "653
 [v _NVMLOCK NVMLOCK `VEuc  1 e 1 @66 ]
 "682
@@ -3780,7 +3780,7 @@ FLASH_NVM_TYPE 1
 [v _LATA LATA `VEuc  1 e 1 @1214 ]
 "2320
 [v _LATB LATB `VEuc  1 e 1 @1215 ]
-[s S6364 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S6363 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -3790,13 +3790,13 @@ FLASH_NVM_TYPE 1
 `uc 1 LATB7 1 0 :1:7 
 ]
 "2337
-[u S6373 . 1 `S6364 1 . 1 0 ]
-[v _LATBbits LATBbits `VES6373  1 e 1 @1215 ]
+[u S6372 . 1 `S6363 1 . 1 0 ]
+[v _LATBbits LATBbits `VES6372  1 e 1 @1215 ]
 "2382
 [v _LATC LATC `VEuc  1 e 1 @1216 ]
 "2444
 [v _TRISA TRISA `VEuc  1 e 1 @1222 ]
-[s S6342 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S6341 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -3806,8 +3806,8 @@ FLASH_NVM_TYPE 1
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "2461
-[u S6351 . 1 `S6342 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES6351  1 e 1 @1222 ]
+[u S6350 . 1 `S6341 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES6350  1 e 1 @1222 ]
 "2506
 [v _TRISB TRISB `VEuc  1 e 1 @1223 ]
 [s S3000 . 1 `uc 1 TRISB0 1 0 :1:0 
@@ -3826,7 +3826,7 @@ FLASH_NVM_TYPE 1
 [v _TRISC TRISC `VEuc  1 e 1 @1224 ]
 "2651
 [v _PORTA PORTA `VEuc  1 e 1 @1230 ]
-[s S5777 . 1 `uc 1 RA0 1 0 :1:0 
+[s S5776 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -3836,8 +3836,8 @@ FLASH_NVM_TYPE 1
 `uc 1 RA7 1 0 :1:7 
 ]
 "2668
-[u S5786 . 1 `S5777 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES5786  1 e 1 @1230 ]
+[u S5785 . 1 `S5776 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES5785  1 e 1 @1230 ]
 "2713
 [v _PORTB PORTB `VEuc  1 e 1 @1231 ]
 "2775
@@ -3864,11 +3864,11 @@ FLASH_NVM_TYPE 1
 [v _TBLPTRH TBLPTRH `VEuc  1 e 1 @1271 ]
 "3863
 [v _TBLPTRU TBLPTRU `VEuc  1 e 1 @1272 ]
-[s S6943 . 1 `uc 1 NDIV 1 0 :4:0 
+[s S6942 . 1 `uc 1 NDIV 1 0 :4:0 
 `uc 1 NOSC 1 0 :3:4 
 ]
 "5357
-[s S6946 . 1 `uc 1 NDIV0 1 0 :1:0 
+[s S6945 . 1 `uc 1 NDIV0 1 0 :1:0 
 `uc 1 NDIV1 1 0 :1:1 
 `uc 1 NDIV2 1 0 :1:2 
 `uc 1 NDIV3 1 0 :1:3 
@@ -3876,8 +3876,8 @@ FLASH_NVM_TYPE 1
 `uc 1 NOSC1 1 0 :1:5 
 `uc 1 NOSC2 1 0 :1:6 
 ]
-[u S6954 . 1 `S6943 1 . 1 0 `S6946 1 . 1 0 ]
-[v _OSCCON1bits OSCCON1bits `VES6954  1 e 1 @173 ]
+[u S6953 . 1 `S6942 1 . 1 0 `S6945 1 . 1 0 ]
+[v _OSCCON1bits OSCCON1bits `VES6953  1 e 1 @173 ]
 "8945
 [v _C1CONL C1CONL `VEuc  1 e 1 @256 ]
 "9004
@@ -4113,43 +4113,43 @@ FLASH_NVM_TYPE 1
 [v _TMR0L TMR0L `VEuc  1 e 1 @792 ]
 "38243
 [v _TMR0H TMR0H `VEuc  1 e 1 @793 ]
-[s S6490 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S6489 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 MD16 1 0 :1:4 
 `uc 1 OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 EN 1 0 :1:7 
 ]
 "38531
-[s S6496 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S6495 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T0MD16 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "38531
-[s S6502 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S6501 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
 `uc 1 T016BIT 1 0 :1:4 
 ]
 "38531
-[s S6508 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S6507 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
 "38531
-[u S6513 . 1 `S6490 1 . 1 0 `S6496 1 . 1 0 `S6502 1 . 1 0 `S6508 1 . 1 0 ]
+[u S6512 . 1 `S6489 1 . 1 0 `S6495 1 . 1 0 `S6501 1 . 1 0 `S6507 1 . 1 0 ]
 "38531
 "38531
-[v _T0CON0bits T0CON0bits `VES6513  1 e 1 @794 ]
-[s S6432 . 1 `uc 1 CKPS 1 0 :4:0 
+[v _T0CON0bits T0CON0bits `VES6512  1 e 1 @794 ]
+[s S6431 . 1 `uc 1 CKPS 1 0 :4:0 
 `uc 1 ASYNC 1 0 :1:4 
 `uc 1 CS 1 0 :3:5 
 ]
 "38658
-[s S6436 . 1 `uc 1 CKPS0 1 0 :1:0 
+[s S6435 . 1 `uc 1 CKPS0 1 0 :1:0 
 `uc 1 CKPS1 1 0 :1:1 
 `uc 1 CKPS2 1 0 :1:2 
 `uc 1 CKPS3 1 0 :1:3 
@@ -4159,12 +4159,12 @@ FLASH_NVM_TYPE 1
 `uc 1 CS2 1 0 :1:7 
 ]
 "38658
-[s S6445 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[s S6444 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 . 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "38658
-[s S6449 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S6448 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -4174,10 +4174,10 @@ FLASH_NVM_TYPE 1
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "38658
-[u S6458 . 1 `S6432 1 . 1 0 `S6436 1 . 1 0 `S6445 1 . 1 0 `S6449 1 . 1 0 ]
+[u S6457 . 1 `S6431 1 . 1 0 `S6435 1 . 1 0 `S6444 1 . 1 0 `S6448 1 . 1 0 ]
 "38658
 "38658
-[v _T0CON1bits T0CON1bits `VES6458  1 e 1 @795 ]
+[v _T0CON1bits T0CON1bits `VES6457  1 e 1 @795 ]
 "38763
 [v _TMR1 TMR1 `VEus  1 e 2 @796 ]
 "38770
@@ -4454,13 +4454,13 @@ FLASH_NVM_TYPE 1
 [v _WPUC WPUC `VEuc  1 e 1 @1041 ]
 "63210
 [v _IVTLOCK IVTLOCK `VEuc  1 e 1 @1113 ]
-[s S6973 . 1 `uc 1 IVTLOCKED 1 0 :1:0 
+[s S6972 . 1 `uc 1 IVTLOCKED 1 0 :1:0 
 ]
 "63220
-[u S6975 . 1 `S6973 1 . 1 0 ]
+[u S6974 . 1 `S6972 1 . 1 0 ]
 "63220
 "63220
-[v _IVTLOCKbits IVTLOCKbits `VES6975  1 e 1 @1113 ]
+[v _IVTLOCKbits IVTLOCKbits `VES6974  1 e 1 @1113 ]
 "63416
 [v _IVTBASEL IVTBASEL `VEuc  1 e 1 @1117 ]
 "63478
@@ -4896,29 +4896,29 @@ FLASH_NVM_TYPE 1
 [v nvTRnvrdCallback@step step `uc  1 p 1 17 ]
 "339
 } 0
-"828 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"821 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v _mnsTRserviceDiscoveryCallback mnsTRserviceDiscoveryCallback `(E23113  1 e 1 0 ]
 {
 [v mnsTRserviceDiscoveryCallback@step step `uc  1 p 1 17 ]
-"836
+"829
 } 0
-"845
+"838
 [v _mnsTRallDiagnosticsCallback mnsTRallDiagnosticsCallback `(E23113  1 e 1 0 ]
 {
 [s S198 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"849
+"842
 [u S201 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S198 1 asBytes 2 0 ]
 [v mnsTRallDiagnosticsCallback@d d `*.39S201  1 a 2 20 ]
-"845
+"838
 [v mnsTRallDiagnosticsCallback@serviceIndex serviceIndex `uc  1 p 1 16 ]
 [v mnsTRallDiagnosticsCallback@step step `uc  1 p 1 17 ]
-"857
+"850
 } 0
-"866
+"859
 [v _mnsTRrqnpnCallback mnsTRrqnpnCallback `(E23113  1 e 1 0 ]
 {
 [v mnsTRrqnpnCallback@step step `uc  1 p 1 17 ]
-"872
+"865
 } 0
 "521 C:\Users\ianwh\github/VLCBlib_PIC/event_teach.c
 [v _nerdCallback nerdCallback `(E23113  1 e 1 0 ]
@@ -5191,7 +5191,7 @@ FLASH_NVM_TYPE 1
 [v getParameter@idx idx `uc  1 a 1 wreg ]
 [v getParameter@idx idx `uc  1 a 1 wreg ]
 [v getParameter@idx idx `uc  1 a 1 29 ]
-"819
+"812
 } 0
 "559
 [v _getParameterFlags getParameterFlags `(uc  1 s 1 getParameterFlags ]

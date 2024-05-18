@@ -21528,7 +21528,7 @@ uint8_t APP_nvDefault(uint8_t index) {
             case 4:
                 return 0x33;
             case 5:
-                return 5;
+                return 2;
             case 6:
             case 7:
             case 8:

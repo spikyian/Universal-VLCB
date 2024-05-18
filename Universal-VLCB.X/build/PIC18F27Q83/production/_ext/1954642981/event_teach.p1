@@ -72,9 +72,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "126 ../../VLCBlib_PIC/mns.h
 [; ;../../VLCBlib_PIC/mns.h: 126: extern Word nn;
 [v _nn `S3222 ~T0 @X0 0 e ]
-"130
-[; ;../../VLCBlib_PIC/mns.h: 130: extern uint8_t mode_state;
-[v _mode_state `uc ~T0 @X0 0 e ]
 "322 ../../VLCBlib_PIC/event_teach.c
 [; ;../../VLCBlib_PIC/event_teach.c: 322:                 if (m->bytes[2] == MODE_LEARN_ON) {
 [c E22771 255 0 1 8 9 10 11 12 13 14 .. ]
@@ -7936,8 +7933,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3245 ]
 {
 "316
-[; ;../../VLCBlib_PIC/event_teach.c: 316:                 mode_state &= ~1;
-[e =& _mode_state -> ~ -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/event_teach.c: 316:                 mode_flags &= ~1;
+[e =& _mode_flags -> ~ -> 1 `i `uc ]
 "317
 [; ;../../VLCBlib_PIC/event_teach.c: 317:             }
 }

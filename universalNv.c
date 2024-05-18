@@ -85,7 +85,7 @@ uint8_t APP_nvDefault(uint8_t index) {
             case NV_PULLUPS:
                 return 0x33;
             case NV_RESPONSE_DELAY:
-                return 5;
+                return 2;
             case NV_LOW_CHANNELS_PULLUPS:
             case NV_MID_CHANNELS_PULLUPS:
             case NV_TOP_CHANNELS_PULLUPS:
