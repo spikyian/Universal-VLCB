@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "99 ../servo.c
-[c E23269 0 1 2 3 .. ]
-[n E23269 . SS_OFF SS_STOPPED SS_MOVING SS_STARTING  ]
+[c E23260 0 1 2 3 .. ]
+[n E23260 . SS_OFF SS_STOPPED SS_MOVING SS_STARTING  ]
 "216 ../../VLCBlib_PIC\ticktime.h
 [s S3229 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S3229 TickBytes b0 b1 b2 b3 ]
@@ -3806,7 +3806,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
 "99 ../servo.c
-[v _servoState `E23269 ~T0 @X0 -> 16 `i e ]
+[v _servoState `E23260 ~T0 @X0 -> 16 `i e ]
 "100
 [v _currentPos `uc ~T0 @X0 -> 16 `i e ]
 "101
@@ -3844,14 +3844,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 4 `i -> 0 `i 3252  ]
 {
 "129
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 1 ]
 "130
 }
 [e $U 3253  ]
 [e :U 3252 ]
 {
 "131
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 0 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 0 ]
 "132
 }
 [e :U 3253 ]
@@ -3964,7 +3964,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "193
 [; ;../servo.c: 193:         if (servoState[servoInBlock] != SS_OFF) setupTimer1(servoInBlock);
-[e $ ! != -> *U + &U _servoState * -> _servoInBlock `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23269 0 `ui 3259  ]
+[e $ ! != -> *U + &U _servoState * -> _servoInBlock `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23260 0 `ui 3259  ]
 [e ( _setupTimer1 (1 _servoInBlock ]
 [e :U 3259 ]
 "194
@@ -3980,7 +3980,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "197
 [; ;../servo.c: 197:         if (servoState[servoInBlock+8] != SS_OFF) setupTimer3(servoInBlock+8);
-[e $ ! != -> *U + &U _servoState * -> -> + -> _servoInBlock `i -> 8 `i `ui `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23269 0 `ui 3261  ]
+[e $ ! != -> *U + &U _servoState * -> -> + -> _servoInBlock `i -> 8 `i `ui `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23260 0 `ui 3261  ]
 [e ( _setupTimer3 (1 -> + -> _servoInBlock `i -> 8 `i `uc ]
 [e :U 3261 ]
 "198
@@ -4179,7 +4179,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3279 ]
 "303
 [; ;../servo.c: 303:                         servoState[io] = SS_MOVING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 2 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 2 ]
 "305
 [; ;../servo.c: 305:                     case SS_MOVING:
 [e :U 3280 ]
@@ -4373,7 +4373,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "364
 [; ;../servo.c: 364:                             servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 1 ]
 "365
 [; ;../servo.c: 365:                             ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
@@ -4421,10 +4421,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 3275  ]
 [e :U 3276 ]
-[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23269 3 `ui 3277
- , $ -> . `E23269 2 `ui 3280
- , $ -> . `E23269 1 `ui 3303
- , $ -> . `E23269 0 `ui 3304
+[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23260 3 `ui 3277
+ , $ -> . `E23260 2 `ui 3280
+ , $ -> . `E23260 1 `ui 3303
+ , $ -> . `E23260 0 `ui 3304
  3275 ]
 [e :U 3275 ]
 "379
@@ -4445,7 +4445,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _initBounce (1 _io ]
 "384
 [; ;../servo.c: 384:                         servoState[io] = SS_MOVING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 2 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 2 ]
 "385
 [; ;../servo.c: 385:                         loopCount[io] = 0;
 [e = *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux -> -> 0 `i `uc ]
@@ -4461,7 +4461,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "391
 [; ;../servo.c: 391:                             servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 1 ]
 "392
 [; ;../servo.c: 392:                             ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
@@ -4494,7 +4494,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "405
 [; ;../servo.c: 405:                                 servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 1 ]
 "406
 [; ;../servo.c: 406:                                 ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
@@ -4523,7 +4523,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "413
 [; ;../servo.c: 413:                                 servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 1 ]
 "414
 [; ;../servo.c: 414:                                 ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
@@ -4561,10 +4561,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 3306  ]
 [e :U 3307 ]
-[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23269 3 `ui 3308
- , $ -> . `E23269 2 `ui 3309
- , $ -> . `E23269 1 `ui 3315
- , $ -> . `E23269 0 `ui 3316
+[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23260 3 `ui 3308
+ , $ -> . `E23260 2 `ui 3309
+ , $ -> . `E23260 1 `ui 3315
+ , $ -> . `E23260 0 `ui 3316
  3306 ]
 [e :U 3306 ]
 "425
@@ -4626,7 +4626,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3324 ]
 "441
 [; ;../servo.c: 441:                         servoState[io] = SS_MOVING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 2 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 2 ]
 "443
 [; ;../servo.c: 443:                     case SS_MOVING:
 [e :U 3325 ]
@@ -4776,7 +4776,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "483
 [; ;../servo.c: 483:                             servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 1 ]
 "484
 [; ;../servo.c: 484:                             ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
@@ -4848,10 +4848,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 3318  ]
 [e :U 3319 ]
-[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23269 3 `ui 3320
- , $ -> . `E23269 2 `ui 3325
- , $ -> . `E23269 1 `ui 3346
- , $ -> . `E23269 0 `ui 3347
+[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23260 3 `ui 3320
+ , $ -> . `E23260 2 `ui 3325
+ , $ -> . `E23260 1 `ui 3346
+ , $ -> . `E23260 0 `ui 3347
  3318 ]
 [e :U 3318 ]
 "505
@@ -4893,7 +4893,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "516
 [; ;../servo.c: 516:                         servoState[io] = SS_OFF;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 0 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 0 ]
 "517
 [; ;../servo.c: 517:                     }
 }
@@ -4916,10 +4916,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 3348  ]
 [e :U 3349 ]
-[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23269 3 `ui 3350
- , $ -> . `E23269 2 `ui 3351
- , $ -> . `E23269 1 `ui 3352
- , $ -> . `E23269 0 `ui 3355
+[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23260 3 `ui 3350
+ , $ -> . `E23260 2 `ui 3351
+ , $ -> . `E23260 1 `ui 3352
+ , $ -> . `E23260 0 `ui 3355
  3348 ]
 [e :U 3348 ]
 "526
@@ -5003,7 +5003,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3362 ]
 "555
 [; ;../servo.c: 555:     servoState[io] = SS_STARTING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 3 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 3 ]
 "556
 [; ;../servo.c: 556: }
 [e :UE 3356 ]
@@ -5049,7 +5049,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3364 ]
 "575
 [; ;../servo.c: 575:     servoState[io] = SS_STARTING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 3 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 3 ]
 "576
 [; ;../servo.c: 576:     loopCount[io] = 0;
 [e = *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux -> -> 0 `i `uc ]
@@ -5099,7 +5099,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3370 ]
 "595
 [; ;../servo.c: 595:     servoState[io] = SS_STARTING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23269 3 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23260 3 ]
 "596
 [; ;../servo.c: 596: }
 [e :UE 3368 ]

@@ -2,8 +2,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "53 ../universalNv.c
 [; ;../universalNv.c: 53: extern void setType(uint8_t i, uint8_t type);
 [v _setType `(v ~T0 @X0 0 ef2`uc`uc ]
-"192 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 192: extern void setTimedResponseDelay(uint8_t delay);
+"209 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 209: extern void setTimedResponseDelay(uint8_t delay);
 [v _setTimedResponseDelay `(v ~T0 @X0 0 ef1`uc ]
 "58959 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 58959: extern volatile unsigned char WPUA __attribute__((address(0x401)));
@@ -56,8 +56,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _startMultiOutput `(v ~T0 @X0 0 ef2`uc`uc ]
 "299 ../universalNv.c
 [; ;../universalNv.c: 299: NvValidation APP_nvValidate(uint8_t index, uint8_t value) {
-[c E23031 0 1 .. ]
-[n E23031 NvValidation INVALID VALID  ]
+[c E23081 0 1 .. ]
+[n E23081 NvValidation INVALID VALID  ]
 "122 ../../VLCBlib_PIC\nv.h
 [; ;../../VLCBlib_PIC\nv.h: 122: extern void saveNV(uint8_t index, uint8_t value);
 [v _saveNV `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -3583,10 +3583,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-[v F23320 `Cuc ~T0 @X0 -> 7 `i t ]
+[v F23311 `Cuc ~T0 @X0 -> 7 `i t ]
 "58 ../universalNv.c
 [; ;../universalNv.c: 58: static const uint8_t channelDefaultNVs[11][7] = {
-[v _channelDefaultNVs `F23320 ~T0 @X0 -> 11 `i s ]
+[v _channelDefaultNVs `F23311 ~T0 @X0 -> 11 `i s ]
 [i _channelDefaultNVs
 :U ..
 :U ..
@@ -4280,7 +4280,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "299
 [; ;../universalNv.c: 299: NvValidation APP_nvValidate(uint8_t index, uint8_t value) {
-[v _APP_nvValidate `(E23031 ~T0 @X0 1 ef2`uc`uc ]
+[v _APP_nvValidate `(E23081 ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _APP_nvValidate ]
 [v _index `uc ~T0 @X0 1 r1 ]
@@ -4309,7 +4309,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "307
 [; ;../universalNv.c: 307:                 if (configs[io].an == 0xFF) return INVALID;
 [e $ ! == -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 3 `i -> 255 `i 3332  ]
-[e ) . `E23031 0 ]
+[e ) . `E23081 0 ]
 [e $UE 3326  ]
 [e :U 3332 ]
 "308
@@ -4347,7 +4347,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3338 ]
 "326
 [; ;../universalNv.c: 326:                 return INVALID;
-[e ) . `E23031 0 ]
+[e ) . `E23081 0 ]
 [e $UE 3326  ]
 "327
 [; ;../universalNv.c: 327:         }
@@ -4369,7 +4369,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3327 ]
 "329
 [; ;../universalNv.c: 329:     return VALID;
-[e ) . `E23031 1 ]
+[e ) . `E23081 1 ]
 [e $UE 3326  ]
 "330
 [; ;../universalNv.c: 330: }

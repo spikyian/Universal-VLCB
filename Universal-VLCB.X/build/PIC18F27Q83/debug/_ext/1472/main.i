@@ -37677,10 +37677,17 @@ unsigned char __t3rd16on(void);
 
 
 
-# 1 "../../VLCBlib_PIC\\nv.h" 1
-# 42 "../../VLCBlib_PIC\\nv.h"
+
+
+
+
+# 1 "../../VLCBlib_PIC\\statusLeds.h" 1
+# 42 "../../VLCBlib_PIC\\statusLeds.h"
 # 1 "../../VLCBlib_PIC/vlcb.h" 1
-# 37 "../../VLCBlib_PIC/vlcb.h"
+# 38 "../../VLCBlib_PIC/vlcb.h"
+# 1 "..\\module.h" 1
+# 38 "../../VLCBlib_PIC/vlcb.h" 2
+
 # 1 "../../VLCB-defs\\vlcbdefs_enums.h" 1
 # 15 "../../VLCB-defs\\vlcbdefs_enums.h"
 typedef enum VlcbManufacturer
@@ -38344,7 +38351,7 @@ typedef enum VlcbCanHardware
   CAN_HW_SAM3X8E = 0x06,
   CAN_HW_PICO_PIO = 0x07,
 } VlcbCanHardware;
-# 37 "../../VLCBlib_PIC/vlcb.h" 2
+# 39 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
 # 68 "../../VLCBlib_PIC/nvm.h"
@@ -38406,8 +38413,8 @@ extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 38 "../../VLCBlib_PIC/vlcb.h" 2
-# 77 "../../VLCBlib_PIC/vlcb.h"
+# 40 "../../VLCBlib_PIC/vlcb.h" 2
+# 91 "../../VLCBlib_PIC/vlcb.h"
 typedef enum Priority {
     pLOW=0,
     pNORMAL=1,
@@ -38461,7 +38468,7 @@ typedef enum {
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 140 "../../VLCBlib_PIC/vlcb.h"
+# 155 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -38470,6 +38477,8 @@ typedef union DiagnosticVal {
         uint8_t hi;
     } asBytes;
 } DiagnosticVal;
+
+
 
 
 
@@ -38492,7 +38501,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 180 "../../VLCBlib_PIC/vlcb.h"
+# 197 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -38535,17 +38544,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 230 "../../VLCBlib_PIC/vlcb.h"
+# 247 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 240 "../../VLCBlib_PIC/vlcb.h"
+# 257 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 251 "../../VLCBlib_PIC/vlcb.h"
+# 268 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 263 "../../VLCBlib_PIC/vlcb.h"
+# 280 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 276 "../../VLCBlib_PIC/vlcb.h"
+# 293 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 289 "../../VLCBlib_PIC/vlcb.h"
+# 306 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -38557,8 +38566,12 @@ typedef struct Service {
 
 
 
+
     uint8_t (* getESDdata)(uint8_t id);
+
+
     DiagnosticVal * (* getDiagnostic)(uint8_t index);
+
 } Service;
 
 
@@ -38601,9 +38614,9 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 375 "../../VLCBlib_PIC/vlcb.h"
+# 396 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 385 "../../VLCBlib_PIC/vlcb.h"
+# 406 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
 
 
@@ -38631,48 +38644,12 @@ typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
 } Transport;
-# 420 "../../VLCBlib_PIC/vlcb.h"
+# 441 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 433 "../../VLCBlib_PIC/vlcb.h"
+# 454 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 42 "../../VLCBlib_PIC\\nv.h" 2
-# 86 "../../VLCBlib_PIC\\nv.h"
-extern const Service nvService;
+# 42 "../../VLCBlib_PIC\\statusLeds.h" 2
 
-
-
-
-typedef enum NvValidation {
-    INVALID=0,
-    VALID=1
-} NvValidation;
-# 103 "../../VLCBlib_PIC\\nv.h"
-extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-# 115 "../../VLCBlib_PIC\\nv.h"
-extern int16_t getNV(uint8_t index);
-
-
-
-
-
-
-extern void saveNV(uint8_t index, uint8_t value);
-
-
-
-
-
-
-
-extern uint8_t setNV(uint8_t index, uint8_t value);
-
-
-
-extern void loadNvCache(void);
-# 4 "../module.h" 2
-
-# 1 "../../VLCBlib_PIC\\statusLeds.h" 1
-# 43 "../../VLCBlib_PIC\\statusLeds.h"
 # 1 "../../VLCBlib_PIC/ticktime.h" 1
 # 211 "../../VLCBlib_PIC/ticktime.h"
 typedef union _TickValue {
@@ -38756,11 +38733,7 @@ typedef enum {
 extern void leds_powerUp(void);
 extern void leds_poll(void);
 extern void showStatus(StatusDisplay s);
-# 5 "..\\module.h" 2
-# 37 "..\\module.h"
-extern uint8_t APP_nvDefault(uint8_t index);
-extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue);
+# 8 "..\\module.h" 2
 # 44 "../main.c" 2
 
 
@@ -38783,13 +38756,49 @@ extern uint8_t mode_flags;
 
 
 
-extern DiagnosticVal mnsDiagnostics[6];
 
+extern DiagnosticVal mnsDiagnostics[6];
 extern void updateModuleErrorStatus(void);
+
 
 extern TickValue pbTimer;
 # 47 "../main.c" 2
 
+# 1 "../../VLCBlib_PIC\\nv.h" 1
+# 86 "../../VLCBlib_PIC\\nv.h"
+extern const Service nvService;
+
+
+
+
+typedef enum NvValidation {
+    INVALID=0,
+    VALID=1
+} NvValidation;
+# 103 "../../VLCBlib_PIC\\nv.h"
+extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
+# 115 "../../VLCBlib_PIC\\nv.h"
+extern int16_t getNV(uint8_t index);
+
+
+
+
+
+
+extern void saveNV(uint8_t index, uint8_t value);
+
+
+
+
+
+
+
+extern uint8_t setNV(uint8_t index, uint8_t value);
+
+
+
+extern void loadNvCache(void);
+# 48 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\can.h" 1
 # 85 "../../VLCBlib_PIC\\can.h"
@@ -39035,7 +39044,7 @@ extern const Config configs[16];
 # 103 "../main.c" 2
 
 # 1 "../universalNv.h" 1
-# 186 "../universalNv.h"
+# 187 "../universalNv.h"
 typedef struct {
     uint8_t type;
     uint8_t flags;

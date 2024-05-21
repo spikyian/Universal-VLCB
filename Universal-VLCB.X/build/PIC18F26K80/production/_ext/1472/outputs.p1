@@ -47,11 +47,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _currentPos `uc ~T0 @X0 -> 0 `x e ]
 "191 ../outputs.c
 [; ;../outputs.c: 191:             return (servoState[io] != SS_MOVING);
-[c E13100 0 1 2 3 .. ]
-[n E13100 . SS_OFF SS_STOPPED SS_MOVING SS_STARTING  ]
+[c E13091 0 1 2 3 .. ]
+[n E13091 . SS_OFF SS_STOPPED SS_MOVING SS_STARTING  ]
 "47 ../servo.h
 [; ;../servo.h: 47: extern ServoState servoState[16];
-[v _servoState `E13100 ~T0 @X0 -> 0 `x e ]
+[v _servoState `E13091 ~T0 @X0 -> 0 `x e ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1693,7 +1693,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1589 ]
 "191
 [; ;../outputs.c: 191:             return (servoState[io] != SS_MOVING);
-[e ) -> -> != -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E13100 2 `ui `i `E12700 ]
+[e ) -> -> != -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E13091 2 `ui `i `E12700 ]
 [e $UE 1581  ]
 "193
 [; ;../outputs.c: 193:     }
@@ -1753,7 +1753,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1597 ]
 "217
 [; ;../outputs.c: 217:             return (targetPos[io] == currentPos[io]) && ((servoState[io] == SS_STOPPED) || (servoState[io] == SS_OFF));
-[e ) -> -> && == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i || == -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E13100 1 `ui == -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E13100 0 `ui `i `E12700 ]
+[e ) -> -> && == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i || == -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E13091 1 `ui == -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E13091 0 `ui `i `E12700 ]
 [e $UE 1590  ]
 "219
 [; ;../outputs.c: 219:     }

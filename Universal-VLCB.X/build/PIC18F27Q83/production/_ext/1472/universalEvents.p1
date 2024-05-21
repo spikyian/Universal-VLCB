@@ -1,34 +1,36 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "216 ../../VLCBlib_PIC/ticktime.h
 [; ;../../VLCBlib_PIC/ticktime.h: 216:     {
-[s S3229 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S3229 TickBytes b0 b1 b2 b3 ]
+[s S3222 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S3222 TickBytes b0 b1 b2 b3 ]
 "225
 [; ;../../VLCBlib_PIC/ticktime.h: 225:     {
-[s S3230 `us 1 `us 1 ]
-[n S3230 TickWords w0 w1 ]
+[s S3223 `us 1 `us 1 ]
+[n S3223 TickWords w0 w1 ]
 "211
 [; ;../../VLCBlib_PIC/ticktime.h: 211: typedef union _TickValue {
-[u S3228 `ul 1 `S3229 1 `uc -> 4 `i `S3230 1 ]
-[n S3228 _TickValue val byte v word ]
+[u S3221 `ul 1 `S3222 1 `uc -> 4 `i `S3223 1 ]
+[n S3221 _TickValue val byte v word ]
 "75 ../universalEvents.c
 [; ;../universalEvents.c: 75: void clearEvents(uint8_t i);
 [v _clearEvents `(v ~T0 @X0 0 ef1`uc ]
 "120 ../../VLCBlib_PIC\event_teach.h
 [v _addEvent `(uc ~T0 @X0 0 ef5`us`us`uc`uc`uc ]
-"115 ../../VLCBlib_PIC/vlcb.h
-[s S3223 `uc 1 `uc 1 ]
-[n S3223 . lo hi ]
-"114
-[u S3222 `S3223 1 `us 1 ]
-[n S3222 Word bytes word ]
+"129 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 129:     struct {
+[s S3226 `uc 1 `uc 1 ]
+[n S3226 . lo hi ]
+"128
+[; ;../../VLCBlib_PIC/vlcb.h: 128: typedef union Word {
+[u S3225 `S3226 1 `us 1 ]
+[n S3225 Word bytes word ]
 "126 ../../VLCBlib_PIC\mns.h
 [; ;../../VLCBlib_PIC\mns.h: 126: extern Word nn;
-[v _nn `S3222 ~T0 @X0 0 e ]
+[v _nn `S3225 ~T0 @X0 0 e ]
 "116 ../universalEvents.c
 [; ;../universalEvents.c: 116:              addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-[c E22874 0 1 .. ]
-[n E22874 Boolean FALSE TRUE  ]
+[c E22924 0 1 .. ]
+[n E22924 Boolean FALSE TRUE  ]
 "109 ../../VLCBlib_PIC\event_consumer.h
 [; ;../../VLCBlib_PIC\event_consumer.h: 109: extern void deleteActionRange(uint8_t action, uint8_t number);
 [v _deleteActionRange `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -55,7 +57,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _setOutputState `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "42
 [; ;../outputs.h: 42: extern Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type);
-[v _needsStarting `(E22874 ~T0 @X0 0 ef3`uc`uc`uc ]
+[v _needsStarting `(E22924 ~T0 @X0 0 ef3`uc`uc`uc ]
 "43
 [; ;../outputs.h: 43: extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 [v _startOutput `(v ~T0 @X0 0 ef3`uc`uc`uc ]
@@ -64,7 +66,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _peekTwoActionQueue `(uc ~T0 @X0 0 ef1`uc ]
 "46 ../outputs.h
 [; ;../outputs.h: 46: extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
-[v _completed `(E22874 ~T0 @X0 0 ef3`uc`uc`uc ]
+[v _completed `(E22924 ~T0 @X0 0 ef3`uc`uc`uc ]
 "83 ../universalEvents.c
 [; ;../universalEvents.c: 83: void deleteTwoActionQueue(uint8_t index);
 [v _deleteTwoActionQueue `(v ~T0 @X0 0 ef1`uc ]
@@ -73,20 +75,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _tickGet `(ul ~T0 @X0 0 ef ]
 "334 ../universalEvents.c
 [; ;../universalEvents.c: 334: Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
-[c E22894 0 1 .. ]
-[n E22894 . EVENT_OFF EVENT_ON  ]
+[c E22944 0 1 .. ]
+[n E22944 . EVENT_OFF EVENT_ON  ]
 "86 ../../VLCBlib_PIC\event_producer.h
 [; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
-[v _sendProducedEvent `(E22874 ~T0 @X0 0 ef2`uc`E22894 ]
+[v _sendProducedEvent `(E22924 ~T0 @X0 0 ef2`uc`E22944 ]
 "85 ../universalEvents.c
 [; ;../universalEvents.c: 85: extern uint8_t outputState[16];
 [v _outputState `uc ~T0 @X0 -> 0 `x e ]
 "525
 [; ;../universalEvents.c: 525:                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-[c E22846 0 1 .. ]
-[n E22846 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
+[c E22896 0 1 .. ]
+[n E22896 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
 "160 ../../VLCBlib_PIC\nvm.h
-[v _readNVM `(s ~T0 @X0 0 ef2`E22846`um ]
+[v _readNVM `(s ~T0 @X0 0 ef2`E22896`um ]
 "86 ../universalEvents.c
 [; ;../universalEvents.c: 86: extern uint8_t currentPos[16];
 [v _currentPos `uc ~T0 @X0 -> 0 `x e ]
@@ -3618,7 +3620,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "88 ../universalEvents.c
 [; ;../universalEvents.c: 88: static TickValue startWait;
-[v _startWait `S3228 ~T0 @X0 1 s ]
+[v _startWait `S3221 ~T0 @X0 1 s ]
 "90
 [; ;../universalEvents.c: 90: void universalEventsInit(void) {
 [v _universalEventsInit `(v ~T0 @X0 1 ef ]
@@ -3666,13 +3668,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3253 ]
 "116
 [; ;../universalEvents.c: 116:              addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22924 1 `uc ]
 "119
 [; ;../universalEvents.c: 119:         case 1:
 [e :U 3254 ]
 "121
 [; ;../universalEvents.c: 121:             addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 1 `i `uc -> + + -> 8 `i * -> 5 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 1 `i `uc -> + + -> 8 `i * -> 5 `i -> _io `i -> 0 `i `uc -> . `E22924 1 `uc ]
 "124
 [; ;../universalEvents.c: 124:             break;
 [e $U 3251  ]
@@ -3681,7 +3683,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3255 ]
 "127
 [; ;../universalEvents.c: 127:             addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22924 1 `uc ]
 "128
 [; ;../universalEvents.c: 128:             break;
 [e $U 3251  ]
@@ -3690,16 +3692,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3256 ]
 "132
 [; ;../universalEvents.c: 132:             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22924 1 `uc ]
 "133
 [; ;../universalEvents.c: 133:             addEvent(nn.word, 300+en, 0, ((8 + 4*(io))+1), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 300 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 300 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> . `E22924 1 `uc ]
 "134
 [; ;../universalEvents.c: 134:             addEvent(nn.word, 200+en, 0, ((8 + 4*(io))+2), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 200 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 200 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> . `E22924 1 `uc ]
 "136
 [; ;../universalEvents.c: 136:             addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 1 `i `uc -> + + -> 8 `i * -> 5 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 1 `i `uc -> + + -> 8 `i * -> 5 `i -> _io `i -> 0 `i `uc -> . `E22924 1 `uc ]
 "137
 [; ;../universalEvents.c: 137:             break;
 [e $U 3251  ]
@@ -3714,7 +3716,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3258 ]
 "147
 [; ;../universalEvents.c: 147:             addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22924 1 `uc ]
 "148
 [; ;../universalEvents.c: 148:             break;
 [e $U 3251  ]
@@ -3723,10 +3725,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3259 ]
 "151
 [; ;../universalEvents.c: 151:             addEvent(nn.word, en, 0, ((8 + 4*(io))+1), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> . `E22924 1 `uc ]
 "152
 [; ;../universalEvents.c: 152:             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22924 1 `uc ]
 "153
 [; ;../universalEvents.c: 153:             break;
 [e $U 3251  ]
@@ -3750,14 +3752,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "170
 [; ;../universalEvents.c: 170: uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
-[v _APP_addEvent `(uc ~T0 @X0 1 ef5`us`us`uc`uc`E22874 ]
+[v _APP_addEvent `(uc ~T0 @X0 1 ef5`us`us`uc`uc`E22924 ]
 {
 [e :U _APP_addEvent ]
 [v _nodeNumber `us ~T0 @X0 1 r1 ]
 [v _eventNumber `us ~T0 @X0 1 r2 ]
 [v _evNum `uc ~T0 @X0 1 r3 ]
 [v _evVal `uc ~T0 @X0 1 r4 ]
-[v _forceOwnNN `E22874 ~T0 @X0 1 r5 ]
+[v _forceOwnNN `E22924 ~T0 @X0 1 r5 ]
 [f ]
 "171
 [; ;../universalEvents.c: 171:     if ((evNum == 0) && (evVal != 0))
@@ -4128,19 +4130,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "334
 [; ;../universalEvents.c: 334: Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
-[v _sendInvertedProducedEvent `(E22874 ~T0 @X0 1 ef5`uc`E22894`E22874`E22874`E22874 ]
+[v _sendInvertedProducedEvent `(E22924 ~T0 @X0 1 ef5`uc`E22944`E22924`E22924`E22924 ]
 {
 [e :U _sendInvertedProducedEvent ]
 [v _happening `uc ~T0 @X0 1 r1 ]
-[v _state `E22894 ~T0 @X0 1 r2 ]
-[v _invert `E22874 ~T0 @X0 1 r3 ]
-[v _can_send_on `E22874 ~T0 @X0 1 r4 ]
-[v _can_send_off `E22874 ~T0 @X0 1 r5 ]
+[v _state `E22944 ~T0 @X0 1 r2 ]
+[v _invert `E22924 ~T0 @X0 1 r3 ]
+[v _can_send_on `E22924 ~T0 @X0 1 r4 ]
+[v _can_send_off `E22924 ~T0 @X0 1 r5 ]
 [f ]
 "335
 [; ;../universalEvents.c: 335:  EventState state_to_send = invert?!state:state;
-[v _state_to_send `E22894 ~T0 @X0 1 a ]
-[e = _state_to_send -> ? != -> _invert `ui -> -> 0 `i `ui : -> -> ! != -> _state `ui -> -> 0 `i `ui `i `ui -> _state `ui `E22894 ]
+[v _state_to_send `E22944 ~T0 @X0 1 a ]
+[e = _state_to_send -> ? != -> _invert `ui -> -> 0 `i `ui : -> -> ! != -> _state `ui -> -> 0 `i `ui `i `ui -> _state `ui `E22944 ]
 "336
 [; ;../universalEvents.c: 336:  if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
 [e $ ! || && != -> _state_to_send `ui -> -> 0 `i `ui != -> _can_send_on `ui -> -> 0 `i `ui && ! != -> _state_to_send `ui -> -> 0 `i `ui != -> _can_send_off `ui -> -> 0 `i `ui 3290  ]
@@ -4157,7 +4159,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "339
 [; ;../universalEvents.c: 339:   return TRUE;
-[e ) . `E22874 1 ]
+[e ) . `E22924 1 ]
 [e $UE 3289  ]
 "340
 [; ;../universalEvents.c: 340:  }
@@ -4169,16 +4171,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "350
 [; ;../universalEvents.c: 350: Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
-[v _alwaysSendInvertedProducedEvent `(E22874 ~T0 @X0 1 ef3`uc`E22894`E22874 ]
+[v _alwaysSendInvertedProducedEvent `(E22924 ~T0 @X0 1 ef3`uc`E22944`E22924 ]
 {
 [e :U _alwaysSendInvertedProducedEvent ]
 [v _action `uc ~T0 @X0 1 r1 ]
-[v _state `E22894 ~T0 @X0 1 r2 ]
-[v _invert `E22874 ~T0 @X0 1 r3 ]
+[v _state `E22944 ~T0 @X0 1 r2 ]
+[v _invert `E22924 ~T0 @X0 1 r3 ]
 [f ]
 "351
 [; ;../universalEvents.c: 351:     return sendProducedEvent(action, invert?!state:state);
-[e ) ( _sendProducedEvent (2 , _action -> ? != -> _invert `ui -> -> 0 `i `ui : -> -> ! != -> _state `ui -> -> 0 `i `ui `i `ui -> _state `ui `E22894 ]
+[e ) ( _sendProducedEvent (2 , _action -> ? != -> _invert `ui -> -> 0 `i `ui : -> -> ! != -> _state `ui -> -> 0 `i `ui `i `ui -> _state `ui `E22944 ]
 [e $UE 3292  ]
 "352
 [; ;../universalEvents.c: 352: }
@@ -4223,7 +4225,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 3300  ]
 [e :U 3301 ]
 [e :U 3300 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3301  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3301  ]
 [e :U 3302 ]
 "523
 [; ;../universalEvents.c: 523:                 break;
@@ -4233,13 +4235,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3303 ]
 "525
 [; ;../universalEvents.c: 525:                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-[e = _state -> ( _readNVM (2 , . `E22846 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um `uc ]
+[e = _state -> ( _readNVM (2 , . `E22896 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um `uc ]
 "526
 [; ;../universalEvents.c: 526:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state!=2, event_inverted));
 [e $U 3304  ]
 [e :U 3305 ]
 [e :U 3304 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> != -> _state `i -> 2 `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3305  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> != -> _state `i -> 2 `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3305  ]
 [e :U 3306 ]
 "527
 [; ;../universalEvents.c: 527:                 break;
@@ -4252,14 +4254,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 3308  ]
 [e :U 3309 ]
 [e :U 3308 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3309  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3309  ]
 [e :U 3310 ]
 "531
 [; ;../universalEvents.c: 531:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
 [e $U 3311  ]
 [e :U 3312 ]
 [e :U 3311 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3312  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3312  ]
 [e :U 3313 ]
 "533
 [; ;../universalEvents.c: 533:                 midway = (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2);
@@ -4269,7 +4271,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 3314  ]
 [e :U 3315 ]
 [e :U 3314 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3315  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3315  ]
 [e :U 3316 ]
 "535
 [; ;../universalEvents.c: 535:                 break;
@@ -4279,13 +4281,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3317 ]
 "538
 [; ;../universalEvents.c: 538:                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-[e = _state -> ( _readNVM (2 , . `E22846 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um `uc ]
+[e = _state -> ( _readNVM (2 , . `E22896 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um `uc ]
 "539
 [; ;../universalEvents.c: 539:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state, event_inverted));
 [e $U 3318  ]
 [e :U 3319 ]
 [e :U 3318 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> _state `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3319  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> _state `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3319  ]
 [e :U 3320 ]
 "540
 [; ;../universalEvents.c: 540:                 break;
@@ -4298,21 +4300,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 3322  ]
 [e :U 3323 ]
 [e :U 3322 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3323  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3323  ]
 [e :U 3324 ]
 "545
 [; ;../universalEvents.c: 545:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] == getNV((16 + 7*(io) + 4)), event_inverted));
 [e $U 3325  ]
 [e :U 3326 ]
 [e :U 3325 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3326  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3326  ]
 [e :U 3327 ]
 "546
 [; ;../universalEvents.c: 546:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 5)), event_inverted));
 [e $U 3328  ]
 [e :U 3329 ]
 [e :U 3328 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3329  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3329  ]
 [e :U 3330 ]
 "547
 [; ;../universalEvents.c: 547:                 if (getNV((16 + 7*(io) + 2)) > 3) {
@@ -4323,7 +4325,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 3332  ]
 [e :U 3333 ]
 [e :U 3332 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 3 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3333  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 3 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3333  ]
 [e :U 3334 ]
 "549
 [; ;../universalEvents.c: 549:                 }
@@ -4343,14 +4345,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 3337  ]
 [e :U 3338 ]
 [e :U 3337 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> . *U + &U _analogueState * -> _io `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 1 `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3338  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> . *U + &U _analogueState * -> _io `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 1 `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3338  ]
 [e :U 3339 ]
 "557
 [; ;../universalEvents.c: 557:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), analogueState[io].eventState == 2, event_inverted));
 [e $U 3340  ]
 [e :U 3341 ]
 [e :U 3340 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> == -> . *U + &U _analogueState * -> _io `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 2 `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3341  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> == -> . *U + &U _analogueState * -> _io `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 2 `i `i `E22944 -> _event_inverted `E22924 `ui -> -> 0 `i `ui 3341  ]
 [e :U 3342 ]
 "558
 [; ;../universalEvents.c: 558:                 break;

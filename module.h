@@ -1,7 +1,10 @@
 #ifndef _MODULE_H_
 #define _MODULE_H_
 
-#include "nv.h"
+// comment out for CBUS
+#define VLCB
+
+
 #include "statusLeds.h"
 
 //
@@ -34,9 +37,6 @@
 #define NV_NVM_TYPE EEPROM_NVM_TYPE
 #endif
 #define NV_CACHE
-extern uint8_t APP_nvDefault(uint8_t index);
-extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue);
 
 //
 // CAN service

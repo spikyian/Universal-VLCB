@@ -60,10 +60,12 @@
  * by the application.
  */
 
-static DiagnosticVal consumer2QDiagnostics[NUM_CONSUMER_DIAGNOSTICS];
 static void consumer2QPowerUp(void);
 static Processed consumer2QProcessMessage(Message * m);
-static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index); 
+#ifdef VLCB_DIAG
+static DiagnosticVal consumer2QDiagnostics[NUM_CONSUMER_DIAGNOSTICS];
+static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index);
+#endif
         
 /**
  * The service descriptor for the eventConsumer service. The application must include this
@@ -82,8 +84,12 @@ const Service eventConsumer2QService = {
     NULL,               // highIsr
     NULL,               // lowIsr
 #endif
+#ifdef VLCB_SERVICE
     NULL,               // Get ESD data
+#endif
+#ifdef VLCB_DIAG
     consumer2QGetDiagnostic                // getDiagnostic
+#endif
 };
 
 uint8_t normalReadIndex;                   // index of the next to read
@@ -310,11 +316,13 @@ static Processed consumer2QProcessMessage(Message *m) {
             }
         } // ignore getEv errors as we expect CMDERR_NO_EV
     }
+#ifdef VLCB_DIAG
     consumer2QDiagnostics[CONSUMER_DIAG_NUMCONSUMED].asUint++;
+#endif
     return PROCESSED;
 }
 
-
+#ifdef VLCB_DIAG
 /**
  * Provide the means to return the diagnostic data.
  * @param index the diagnostic index
@@ -326,6 +334,7 @@ static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
     }
     return &(consumer2QDiagnostics[index-1]);
 }
+#endif
 
 /**
  * Put the action onto the list of actions to be processed.

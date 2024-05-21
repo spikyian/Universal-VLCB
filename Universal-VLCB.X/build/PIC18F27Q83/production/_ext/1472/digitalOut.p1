@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "106 ../digitalOut.c
 [; ;../digitalOut.c: 106:     Boolean pinState;
-[c E22873 0 1 .. ]
-[n E22873 Boolean FALSE TRUE  ]
+[c E22923 0 1 .. ]
+[n E22923 Boolean FALSE TRUE  ]
 "115 ../../VLCBlib_PIC\nv.h
 [; ;../../VLCBlib_PIC\nv.h: 115: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
 "76 ../digitalOut.c
 [; ;../digitalOut.c: 76: void setOutputPin(uint8_t io, Boolean state);
-[v _setOutputPin `(v ~T0 @X0 0 ef2`uc`E22873 ]
+[v _setOutputPin `(v ~T0 @X0 0 ef2`uc`E22923 ]
 "118
 [; ;../digitalOut.c: 118:         writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)((eeprom_address_t)((0x3FF -8))-25)+io, state);
 [c E22382 0 1 .. ]
@@ -17,14 +17,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _writeNVM `(uc ~T0 @X0 0 ef3`E22382`um`uc ]
 "119 ../digitalOut.c
 [; ;../digitalOut.c: 119:         sendInvertedProducedEvent(((8 + 4*(io))+0), EVENT_ON,
-[c E22893 0 1 .. ]
-[n E22893 . EVENT_OFF EVENT_ON  ]
+[c E22943 0 1 .. ]
+[n E22943 . EVENT_OFF EVENT_ON  ]
 "188 ../universalEvents.h
 [; ;../universalEvents.h: 188: extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
-[v _sendInvertedProducedEvent `(E22873 ~T0 @X0 0 ef5`uc`E22893`E22873`E22873`E22873 ]
+[v _sendInvertedProducedEvent `(E22923 ~T0 @X0 0 ef5`uc`E22943`E22923`E22923`E22923 ]
 "86 ../../VLCBlib_PIC\event_producer.h
 [; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
-[v _sendProducedEvent `(E22873 ~T0 @X0 0 ef2`uc`E22893 ]
+[v _sendProducedEvent `(E22923 ~T0 @X0 0 ef2`uc`E22943 ]
 "2258 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [v _LATA `Vuc ~T0 @X0 0 e@1214 ]
 "47 ../config.h
@@ -3608,10 +3608,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "106
 [; ;../digitalOut.c: 106:     Boolean pinState;
-[v _pinState `E22873 ~T0 @X0 1 a ]
+[v _pinState `E22923 ~T0 @X0 1 a ]
 "107
 [; ;../digitalOut.c: 107:     Boolean actionState;
-[v _actionState `E22873 ~T0 @X0 1 a ]
+[v _actionState `E22923 ~T0 @X0 1 a ]
 "114
 [; ;../digitalOut.c: 114:     if (state == 3) {
 [e $ ! == -> _state `i -> 3 `i 3251  ]
@@ -3624,13 +3624,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> -> 1 `i `uc ]
 "117
 [; ;../digitalOut.c: 117:         setOutputPin(io, ! getNV((16 + 7*(io) + 1) & 0x20));
-[e ( _setOutputPin (2 , _io -> -> ! != -> ( _getNV (1 -> & + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i -> 32 `i `uc `i -> 0 `i `i `E22873 ]
+[e ( _setOutputPin (2 , _io -> -> ! != -> ( _getNV (1 -> & + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i -> 32 `i `uc `i -> 0 `i `i `E22923 ]
 "118
 [; ;../digitalOut.c: 118:         writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)((eeprom_address_t)((0x3FF -8))-25)+io, state);
 [e ( _writeNVM (3 , , . `E22382 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um _state ]
 "119
 [; ;../digitalOut.c: 119:         sendInvertedProducedEvent(((8 + 4*(io))+0), EVENT_ON,
-[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E22893 1 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22873 . `E22873 1 . `E22873 1 ]
+[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E22943 1 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22923 . `E22923 1 . `E22923 1 ]
 "121
 [; ;../digitalOut.c: 121:         return;
 [e $UE 3250  ]
@@ -3643,14 +3643,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -> 0 `i `c ]
 "125
 [; ;../digitalOut.c: 125:     actionState = (state == 1);
-[e = _actionState -> -> == -> _state `i -> 1 `i `i `E22873 ]
+[e = _actionState -> -> == -> _state `i -> 1 `i `i `E22923 ]
 "128
 [; ;../digitalOut.c: 128:     if (getNV((16 + 7*(io) + 1)) & 0x01) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 3252  ]
 {
 "129
 [; ;../digitalOut.c: 129:         actionState = !actionState;
-[e = _actionState -> -> ! != -> _actionState `ui -> -> 0 `i `ui `i `E22873 ]
+[e = _actionState -> -> ! != -> _actionState `ui -> -> 0 `i `ui `i `E22923 ]
 "130
 [; ;../digitalOut.c: 130:     }
 }
@@ -3701,7 +3701,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "151
 [; ;../digitalOut.c: 151:         pinState = !pinState;
-[e = _pinState -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E22873 ]
+[e = _pinState -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E22923 ]
 "152
 [; ;../digitalOut.c: 152:     }
 }
@@ -3719,7 +3719,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "162
 [; ;../digitalOut.c: 162:             sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
-[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22893 1 . `E22893 0 `E22893 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22873 . `E22873 1 . `E22873 1 ]
+[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22943 1 . `E22943 0 `E22943 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22923 . `E22923 1 . `E22923 1 ]
 "164
 [; ;../digitalOut.c: 164:         }
 }
@@ -3732,7 +3732,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "167
 [; ;../digitalOut.c: 167:         sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
-[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22893 1 . `E22893 0 `E22893 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22873 . `E22873 1 . `E22873 1 ]
+[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22943 1 . `E22943 0 `E22943 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22923 . `E22923 1 . `E22923 1 ]
 "169
 [; ;../digitalOut.c: 169:     }
 }
@@ -3749,7 +3749,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "176
 [; ;../digitalOut.c: 176:     Boolean state;
-[v _state `E22873 ~T0 @X0 1 a ]
+[v _state `E22923 ~T0 @X0 1 a ]
 "177
 [; ;../digitalOut.c: 177:     uint8_t io;
 [v _io `uc ~T0 @X0 1 a ]
@@ -3771,7 +3771,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "182
 [; ;../digitalOut.c: 182:                 setOutputPin(io, getNV((16 + 7*(io) + 1)) & 0x20);
-[e ( _setOutputPin (2 , _io -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i `E22873 ]
+[e ( _setOutputPin (2 , _io -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i `E22923 ]
 "183
 [; ;../digitalOut.c: 183:                 flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
@@ -3788,7 +3788,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "187
 [; ;../digitalOut.c: 187:                 setOutputPin(io, ! (getNV((16 + 7*(io) + 1)) & 0x20));
-[e ( _setOutputPin (2 , _io -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i `i `E22873 ]
+[e ( _setOutputPin (2 , _io -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i `i `E22923 ]
 "188
 [; ;../digitalOut.c: 188:                 flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
@@ -3835,7 +3835,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "202
 [; ;../digitalOut.c: 202:                         setOutputPin(io, TRUE);
-[e ( _setOutputPin (2 , _io . `E22873 1 ]
+[e ( _setOutputPin (2 , _io . `E22923 1 ]
 "203
 [; ;../digitalOut.c: 203:                     } else {
 }
@@ -3844,7 +3844,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "204
 [; ;../digitalOut.c: 204:                         setOutputPin(io, FALSE);
-[e ( _setOutputPin (2 , _io . `E22873 0 ]
+[e ( _setOutputPin (2 , _io . `E22923 0 ]
 "205
 [; ;../digitalOut.c: 205:                     }
 }
@@ -3855,7 +3855,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "209
 [; ;../digitalOut.c: 209:                         sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22893 ]
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22943 ]
 "210
 [; ;../digitalOut.c: 210:                     }
 }
@@ -3893,7 +3893,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "225
 [; ;../digitalOut.c: 225:     Boolean pinState;
-[v _pinState `E22873 ~T0 @X0 1 a ]
+[v _pinState `E22923 ~T0 @X0 1 a ]
 "226
 [; ;../digitalOut.c: 226:     switch (state) {
 [e $U 3277  ]
@@ -3912,14 +3912,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3280 ]
 "232
 [; ;../digitalOut.c: 232:             pinState = (state == 1);
-[e = _pinState -> -> == -> _state `i -> 1 `i `i `E22873 ]
+[e = _pinState -> -> == -> _state `i -> 1 `i `i `E22923 ]
 "236
 [; ;../digitalOut.c: 236:             if (getNV((16 + 7*(io) + 1)) & 0x20) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 3281  ]
 {
 "237
 [; ;../digitalOut.c: 237:                 setOutputPin(io, ! pinState);
-[e ( _setOutputPin (2 , _io -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E22873 ]
+[e ( _setOutputPin (2 , _io -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E22923 ]
 "238
 [; ;../digitalOut.c: 238:             } else {
 }
@@ -3944,7 +3944,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
 "244
 [; ;../digitalOut.c: 244:             setOutputPin(io, TRUE);
-[e ( _setOutputPin (2 , _io . `E22873 1 ]
+[e ( _setOutputPin (2 , _io . `E22923 1 ]
 "245
 [; ;../digitalOut.c: 245:             break;
 [e $U 3276  ]
@@ -3964,11 +3964,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "254
 [; ;../digitalOut.c: 254: void setOutputPin(uint8_t io, Boolean state) {
-[v _setOutputPin `(v ~T0 @X0 1 ef2`uc`E22873 ]
+[v _setOutputPin `(v ~T0 @X0 1 ef2`uc`E22923 ]
 {
 [e :U _setOutputPin ]
 [v _io `uc ~T0 @X0 1 r1 ]
-[v _state `E22873 ~T0 @X0 1 r2 ]
+[v _state `E22923 ~T0 @X0 1 r2 ]
 [f ]
 "255
 [; ;../digitalOut.c: 255:     switch (configs[io].port) {

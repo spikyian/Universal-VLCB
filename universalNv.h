@@ -62,6 +62,7 @@ extern "C" {
 #endif /* __cplusplus */
     
 #include "canmio.h"
+#include "nv.h"
 
 #define FLASH_VERSION   0x02        // Version 2 introduced when Actions were changed to have 5 per channel
     
