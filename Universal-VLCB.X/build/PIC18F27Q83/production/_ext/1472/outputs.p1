@@ -52,18 +52,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ../servo.h
 [; ;../servo.h: 47: extern ServoState servoState[16];
 [v _servoState `E23269 ~T0 @X0 -> 0 `x e ]
-"201 ../outputs.c
-[; ;../outputs.c: 201: Boolean completed(uint8_t io, ActionAndState * action, uint8_t type) {
-[c E22893 0 1 .. ]
-[n E22893 . EVENT_OFF EVENT_ON  ]
-"99 ../../VLCBlib_PIC\event_consumer.h
-[; ;../../VLCBlib_PIC\event_consumer.h: 99:     union {
-[u S3247 `uc 1 `uc -> -> 1 `i `ux ]
-[n S3247 . value bytes ]
-"96
-[; ;../../VLCBlib_PIC\event_consumer.h: 96: typedef struct {
-[s S3246 `E22893 1 `S3247 1 ]
-[n S3246 . state a ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");
 [; <" BOOTREG equ 038h ;# ">
@@ -3873,12 +3861,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 3276 ]
 }
 "201
-[; ;../outputs.c: 201: Boolean completed(uint8_t io, ActionAndState * action, uint8_t type) {
-[v _completed `(E22873 ~T0 @X0 1 ef3`uc`*S3246`uc ]
+[; ;../outputs.c: 201: Boolean completed(uint8_t io, uint8_t action, uint8_t type) {
+[v _completed `(E22873 ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _completed ]
 [v _io `uc ~T0 @X0 1 r1 ]
-[v _action `*S3246 ~T0 @X0 1 r2 ]
+[v _action `uc ~T0 @X0 1 r2 ]
 [v _type `uc ~T0 @X0 1 r3 ]
 [f ]
 "202

@@ -88,11 +88,11 @@ const Service eventConsumer2QService = {
 
 uint8_t normalReadIndex;                   // index of the next to read
 uint8_t normalWriteIndex;                  // index of the next to write
-ActionAndState normalQueueBuf[ACTION_NORMAL_QUEUE_SIZE];   // the actual cyclic buffer space
+Action normalQueueBuf[ACTION_NORMAL_QUEUE_SIZE];   // the actual cyclic buffer space
 
 uint8_t expeditedReadIndex;                   // index of the next to read
 uint8_t expeditedWriteIndex;                  // index of the next to write
-ActionAndState expeditedQueueBuf[ACTION_EXPEDITED_QUEUE_SIZE];   // the actual cyclic buffer space
+Action expeditedQueueBuf[ACTION_EXPEDITED_QUEUE_SIZE];   // the actual cyclic buffer space
 
 static Boolean expedited;
 
@@ -129,7 +129,7 @@ static Processed consumer2QProcessMessage(Message *m) {
     uint8_t tableIndex;
     int8_t change;
     uint8_t e;
-    ActionAndState action;
+    Action action;
     uint8_t masked_action;
     uint8_t ca;
     uint8_t io;
@@ -189,15 +189,14 @@ static Processed consumer2QProcessMessage(Message *m) {
     opc=m->opc;
     // check the OPC if this is an ON or OFF event
     if ( ! (opc&EVENT_ON_MASK)) {
-        action.state = EVENT_ON;
         // ON events work up through the EVs
         // EV#0 is for produced event so start at 1
         // TODO would be more efficient to get all the EVs in one go and then work through them. getEV() isn't quick)
         for (e=1; e<EVperEVT ;e++) { 
-            action.a.value = evs[e];  // we don't mask out the SEQUENTIAL flag so it could be specified in EVs
-            if (action.a.value != NO_ACTION) {
+            action = evs[e];  // we don't mask out the SEQUENTIAL flag so it could be specified in EVs
+            if (action != NO_ACTION) {
                 // check this is a consumed action
-                masked_action = action.a.value&ACTION_MASK;
+                masked_action = action&ACTION_MASK;
                 if ((masked_action) <= NUM_ACTIONS) {
                     // check global consumed actions
                     if ((masked_action) == ACTION_STOP_PROCESSING) {
@@ -218,11 +217,11 @@ static Processed consumer2QProcessMessage(Message *m) {
                             case TYPE_BOUNCE:
                                 if (ca == ACTION_IO_1) {
                                     // action 1 (EV) must be converted to 2(ON)
-                                    action.a.value++;
+                                    action++;
                                 }
                                 if (ca == ACTION_IO_5) {
                                     // action 5 (EV) must be converted to 3(OFF)
-                                    action.a.value-=2;
+                                    action-=2;
                                 }
                                 pushTwoAction(action);
                                 setNormalActions();
@@ -241,12 +240,12 @@ static Processed consumer2QProcessMessage(Message *m) {
     } else {
         // OFF events work down through the EVs
         //int nextAction = getEv(tableIndex, EVperEVT-1);
-        uint8_t nextAction = evs[EVperEVT-1];
-        action.state = EVENT_OFF;
+        Action nextAction = evs[EVperEVT-1];
+
         for (e=EVperEVT-1; e>=1 ;e--) { 
             uint8_t nextSimultaneous;
             uint8_t firstAction = NO_ACTION;  // used to determine simultaneous flag for the end of actions
-            action.a.value = nextAction;  // we don't mask out the SIMULTANEOUS flag so it could be specified in EVs
+            action = nextAction;  // we don't mask out the SIMULTANEOUS flag so it could be specified in EVs
             
 
             // get the Simultaneous flag from the next action
@@ -256,23 +255,23 @@ static Processed consumer2QProcessMessage(Message *m) {
             } else {
                 nextSimultaneous = firstAction & ACTION_SIMULTANEOUS;
             }
-            if (action.a.value != NO_ACTION) {
+            if (action != NO_ACTION) {
                 // record the first action we come to - which is actually the last action when doing an ON event
                 if (firstAction == NO_ACTION) {
-                    firstAction = action.a.value;
+                    firstAction = action;
                 }
-                action.a.value &= ACTION_MASK;
-                if (action.a.value <= NUM_ACTIONS) {
+                action &= ACTION_MASK;
+                if (action <= NUM_ACTIONS) {
                     // check global consumed actions
-                    if ((action.a.value) == ACTION_STOP_PROCESSING) {
+                    if ((action) == ACTION_STOP_PROCESSING) {
                         break;
                     }            
-                    if ((action.a.value < BASE_ACTION_IO) && (action.a.value != ACTION_SOD)) {  // Only do SoD on ON events
-                        action.a.value |= nextSimultaneous;
+                    if ((action < BASE_ACTION_IO) && (action != ACTION_SOD)) {  // Only do SoD on ON events
+                        action |= nextSimultaneous;
                         pushTwoAction(action);
                     } else {
-                        io = ACTION_IO(action.a.value);
-                        ca = ACTION(action.a.value);
+                        io = ACTION_IO(action);
+                        ca = ACTION(action);
                         switch (getNV(NV_IO_TYPE(io))) {
                             case TYPE_OUTPUT:
                                 if (getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_EXPEDITED) {
@@ -280,25 +279,25 @@ static Processed consumer2QProcessMessage(Message *m) {
                                 }
                                 if (ca == ACTION_IO_4) {
                                     // action 4 (Flash) must be converted to 3(OFF)
-                                    action.a.value--;
+                                    action--;
                                 }
                                 // fall through
                             case TYPE_SERVO:
                             case TYPE_BOUNCE:
                                 if (ca == ACTION_IO_1) {
                                     // action 1 (EV) must be converted to 3(OFF)
-                                    action.a.value += 2;
+                                    action += 2;
                                 }
                                 if (ca == ACTION_IO_5) {
                                     // action 5 (EV) must be converted to 3(ON)
-                                    action.a.value -= 3;
+                                    action -= 3;
                                 }
-                                action.a.value |= nextSimultaneous;
+                                action |= nextSimultaneous;
                                 pushTwoAction(action);
                                 setNormalActions();
                                 break;
                             case TYPE_MULTI:
-                                action.a.value |= nextSimultaneous;
+                                action |= nextSimultaneous;
                                 pushTwoAction(action);
                                 setNormalActions();
                                 break;
@@ -333,7 +332,7 @@ static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
  *
  * @param a the action to be processed
  */
-Boolean pushTwoAction(ActionAndState a) {
+Boolean pushTwoAction(Action a) {
     if (expedited) {
         if (((expeditedWriteIndex+1)&(ACTION_EXPEDITED_QUEUE_SIZE-1)) == expeditedReadIndex) 
             return FALSE;	// buffer full
@@ -354,7 +353,7 @@ Boolean pushTwoAction(ActionAndState a) {
  *
  * @return the action
  */
-ActionAndState * getTwoAction(void) {
+Action getTwoAction(void) {
 	return peekTwoActionQueue(0);
 }
 
@@ -363,20 +362,20 @@ ActionAndState * getTwoAction(void) {
  *
  * @return the next action
  */
-ActionAndState * popTwoAction(void) {
-    ActionAndState * ret;
+Action popTwoAction(void) {
+    Action ret;
     
 	if (expeditedWriteIndex != expeditedReadIndex) {
         // buffer not empty
-        ret = &(expeditedQueueBuf[expeditedReadIndex++]);
+        ret = expeditedQueueBuf[expeditedReadIndex++];
         if (expeditedReadIndex >= ACTION_EXPEDITED_QUEUE_SIZE) expeditedReadIndex = 0;
         return ret;
     }
     
 	if (normalWriteIndex == normalReadIndex) {
-        return NULL;	// buffer empty
+        return NO_ACTION;	// buffer empty
     }
-	ret = &(normalQueueBuf[normalReadIndex++]);
+	ret = normalQueueBuf[normalReadIndex++];
 	if (normalReadIndex >= ACTION_NORMAL_QUEUE_SIZE) normalReadIndex = 0;
 	return ret;
 }
@@ -393,30 +392,30 @@ void doneTwoAction(void) {
  * @param index the item index within the queue
  * @return the Action or NO_ACTION 
  */
-ActionAndState * peekTwoActionQueue(uint8_t index) {
+Action peekTwoActionQueue(uint8_t index) {
     uint8_t qty;
     qty = (expeditedWriteIndex - expeditedReadIndex) & (ACTION_EXPEDITED_QUEUE_SIZE -1);
     if (index < qty) {
-        if (expeditedReadIndex == expeditedWriteIndex) return NULL;    // empty
+        if (expeditedReadIndex == expeditedWriteIndex) return NO_ACTION;    // empty
         index += expeditedReadIndex;
         if (index >= ACTION_EXPEDITED_QUEUE_SIZE) {
             index -= ACTION_EXPEDITED_QUEUE_SIZE;
         }
-        if (index == expeditedWriteIndex) return NULL; // at end
-        return &(expeditedQueueBuf[index]);      
+        if (index == expeditedWriteIndex) return NO_ACTION; // at end
+        return expeditedQueueBuf[index];      
     }
     index -= qty;
     qty = (normalWriteIndex - normalReadIndex) & (ACTION_NORMAL_QUEUE_SIZE -1);
     if (index < qty) {
-        if (normalReadIndex == normalWriteIndex) return NULL;    // empty
+        if (normalReadIndex == normalWriteIndex) return NO_ACTION;    // empty
         index += normalReadIndex;
         if (index >= ACTION_NORMAL_QUEUE_SIZE) {
             index -= ACTION_NORMAL_QUEUE_SIZE;
         }
-        if (index == normalWriteIndex) return NULL; // at end
-        return &(normalQueueBuf[index]);
+        if (index == normalWriteIndex) return NO_ACTION; // at end
+        return normalQueueBuf[index];
     }
-    return NULL;
+    return NO_ACTION;
 }
 
 /**
@@ -432,7 +431,7 @@ void deleteTwoActionQueue(uint8_t index) {
             index -= ACTION_EXPEDITED_QUEUE_SIZE;
         }
         if (index == expeditedWriteIndex) return; // at end
-        expeditedQueueBuf[index].a.value = NO_ACTION;
+        expeditedQueueBuf[index] = NO_ACTION;
         return;
     }
     index -= qty;
@@ -444,7 +443,7 @@ void deleteTwoActionQueue(uint8_t index) {
             index -= ACTION_NORMAL_QUEUE_SIZE;
         }
         if (index == normalWriteIndex) return; // at end
-        normalQueueBuf[index].a.value = NO_ACTION;
+        normalQueueBuf[index] = NO_ACTION;
         return;
     }
 }

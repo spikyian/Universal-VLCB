@@ -25,8 +25,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "126 ../../VLCBlib_PIC\mns.h
 [; ;../../VLCBlib_PIC\mns.h: 126: extern Word nn;
 [v _nn `S3222 ~T0 @X0 0 e ]
-"112 ../universalEvents.c
-[; ;../universalEvents.c: 112:              addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
+"116 ../universalEvents.c
+[; ;../universalEvents.c: 116:              addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
 [c E22874 0 1 .. ]
 [n E22874 Boolean FALSE TRUE  ]
 "109 ../../VLCBlib_PIC\event_consumer.h
@@ -35,25 +35,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "87 ../../VLCBlib_PIC\event_producer.h
 [; ;../../VLCBlib_PIC\event_producer.h: 87: extern void deleteHappeningRange(Happening happening, uint8_t number);
 [v _deleteHappeningRange `(v ~T0 @X0 0 ef2`uc`uc ]
-"205 ../universalEvents.c
-[; ;../universalEvents.c: 205:     ActionAndState * action = getTwoAction();
-[c E22894 0 1 .. ]
-[n E22894 . EVENT_OFF EVENT_ON  ]
-"99 ../../VLCBlib_PIC\event_consumer.h
-[; ;../../VLCBlib_PIC\event_consumer.h: 99:     union {
-[u S3236 `uc 1 `uc -> -> 1 `i `ux ]
-[n S3236 . value bytes ]
-"96
-[; ;../../VLCBlib_PIC\event_consumer.h: 96: typedef struct {
-[s S3235 `E22894 1 `S3236 1 ]
-[n S3235 . state a ]
-"43 ../actionQueue.h
-[; ;../actionQueue.h: 43: extern ActionAndState * getTwoAction(void);
-[v _getTwoAction `(*S3235 ~T0 @X0 0 ef ]
-"44
-[; ;../actionQueue.h: 44: extern void doneTwoAction(void);
+"80 ../universalEvents.c
+[; ;../universalEvents.c: 80: uint8_t getTwoAction(void);
+[v _getTwoAction `(uc ~T0 @X0 0 ef ]
+"81
+[; ;../universalEvents.c: 81: void doneTwoAction(void);
 [v _doneTwoAction `(v ~T0 @X0 0 ef ]
-"79 ../universalEvents.c
+"79
 [; ;../universalEvents.c: 79: void doSOD(void);
 [v _doSOD `(v ~T0 @X0 0 ef ]
 "76
@@ -71,32 +59,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "43
 [; ;../outputs.h: 43: extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 [v _startOutput `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"46 ../actionQueue.h
-[; ;../actionQueue.h: 46: extern ActionAndState * peekTwoActionQueue(uint8_t index);
-[v _peekTwoActionQueue `(*S3235 ~T0 @X0 0 ef1`uc ]
+"82 ../universalEvents.c
+[; ;../universalEvents.c: 82: uint8_t peekTwoActionQueue(uint8_t index);
+[v _peekTwoActionQueue `(uc ~T0 @X0 0 ef1`uc ]
 "46 ../outputs.h
-[; ;../outputs.h: 46: extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
-[v _completed `(E22874 ~T0 @X0 0 ef3`uc`*S3235`uc ]
-"47 ../actionQueue.h
-[; ;../actionQueue.h: 47: extern void deleteTwoActionQueue(uint8_t index);
+[; ;../outputs.h: 46: extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
+[v _completed `(E22874 ~T0 @X0 0 ef3`uc`uc`uc ]
+"83 ../universalEvents.c
+[; ;../universalEvents.c: 83: void deleteTwoActionQueue(uint8_t index);
 [v _deleteTwoActionQueue `(v ~T0 @X0 0 ef1`uc ]
 "244 ../../VLCBlib_PIC/ticktime.h
 [; ;../../VLCBlib_PIC/ticktime.h: 244: uint32_t tickGet(void);
 [v _tickGet `(ul ~T0 @X0 0 ef ]
+"334 ../universalEvents.c
+[; ;../universalEvents.c: 334: Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
+[c E22894 0 1 .. ]
+[n E22894 . EVENT_OFF EVENT_ON  ]
 "86 ../../VLCBlib_PIC\event_producer.h
 [; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
 [v _sendProducedEvent `(E22874 ~T0 @X0 0 ef2`uc`E22894 ]
-"81 ../universalEvents.c
-[; ;../universalEvents.c: 81: extern uint8_t outputState[16];
+"85 ../universalEvents.c
+[; ;../universalEvents.c: 85: extern uint8_t outputState[16];
 [v _outputState `uc ~T0 @X0 -> 0 `x e ]
-"513
-[; ;../universalEvents.c: 513:                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
+"525
+[; ;../universalEvents.c: 525:                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
 [c E22846 0 1 .. ]
 [n E22846 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
 "160 ../../VLCBlib_PIC\nvm.h
 [v _readNVM `(s ~T0 @X0 0 ef2`E22846`um ]
-"82 ../universalEvents.c
-[; ;../universalEvents.c: 82: extern uint8_t currentPos[16];
+"86 ../universalEvents.c
+[; ;../universalEvents.c: 86: extern uint8_t currentPos[16];
 [v _currentPos `uc ~T0 @X0 -> 0 `x e ]
 "28 ../analogue.h
 [; ;../analogue.h: 28: typedef struct {
@@ -3624,122 +3616,122 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"84 ../universalEvents.c
-[; ;../universalEvents.c: 84: static TickValue startWait;
+"88 ../universalEvents.c
+[; ;../universalEvents.c: 88: static TickValue startWait;
 [v _startWait `S3228 ~T0 @X0 1 s ]
-"86
-[; ;../universalEvents.c: 86: void universalEventsInit(void) {
+"90
+[; ;../universalEvents.c: 90: void universalEventsInit(void) {
 [v _universalEventsInit `(v ~T0 @X0 1 ef ]
 {
 [e :U _universalEventsInit ]
 [f ]
-"87
-[; ;../universalEvents.c: 87:     startWait.val = 0;
+"91
+[; ;../universalEvents.c: 91:     startWait.val = 0;
 [e = . _startWait 0 -> -> -> 0 `i `l `ul ]
-"88
-[; ;../universalEvents.c: 88: }
+"92
+[; ;../universalEvents.c: 92: }
 [e :UE 3248 ]
 }
-"93
-[; ;../universalEvents.c: 93: void factoryResetGlobalEvents(void) {
+"97
+[; ;../universalEvents.c: 97: void factoryResetGlobalEvents(void) {
 [v _factoryResetGlobalEvents `(v ~T0 @X0 1 ef ]
 {
 [e :U _factoryResetGlobalEvents ]
 [f ]
-"95
-[; ;../universalEvents.c: 95: }
+"99
+[; ;../universalEvents.c: 99: }
 [e :UE 3249 ]
 }
-"103
-[; ;../universalEvents.c: 103: void defaultEvents(uint8_t io, uint8_t type) {
+"107
+[; ;../universalEvents.c: 107: void defaultEvents(uint8_t io, uint8_t type) {
 [v _defaultEvents `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _defaultEvents ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _type `uc ~T0 @X0 1 r2 ]
 [f ]
-"104
-[; ;../universalEvents.c: 104:     uint16_t en = io+1;
+"108
+[; ;../universalEvents.c: 108:     uint16_t en = io+1;
 [v _en `us ~T0 @X0 1 a ]
 [e = _en -> + -> _io `i -> 1 `i `us ]
-"105
-[; ;../universalEvents.c: 105:     clearEvents(io);
+"109
+[; ;../universalEvents.c: 109:     clearEvents(io);
 [e ( _clearEvents (1 _io ]
-"108
-[; ;../universalEvents.c: 108:     switch(type) {
+"112
+[; ;../universalEvents.c: 112:     switch(type) {
 [e $U 3252  ]
 {
-"111
-[; ;../universalEvents.c: 111:         case 3:
-[e :U 3253 ]
-"112
-[; ;../universalEvents.c: 112:              addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
 "115
-[; ;../universalEvents.c: 115:         case 1:
+[; ;../universalEvents.c: 115:         case 3:
+[e :U 3253 ]
+"116
+[; ;../universalEvents.c: 116:              addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+"119
+[; ;../universalEvents.c: 119:         case 1:
 [e :U 3254 ]
-"117
-[; ;../universalEvents.c: 117:             addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 1 `i `uc -> + + -> 8 `i * -> 5 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
-"120
-[; ;../universalEvents.c: 120:             break;
-[e $U 3251  ]
 "121
-[; ;../universalEvents.c: 121:         case 0:
-[e :U 3255 ]
-"123
-[; ;../universalEvents.c: 123:             addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+[; ;../universalEvents.c: 121:             addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
+[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 1 `i `uc -> + + -> 8 `i * -> 5 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
 "124
 [; ;../universalEvents.c: 124:             break;
 [e $U 3251  ]
-"126
-[; ;../universalEvents.c: 126:         case 2:
-[e :U 3256 ]
-"128
-[; ;../universalEvents.c: 128:             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
-"129
-[; ;../universalEvents.c: 129:             addEvent(nn.word, 300+en, 0, ((8 + 4*(io))+1), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 300 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> . `E22874 1 `uc ]
-"130
-[; ;../universalEvents.c: 130:             addEvent(nn.word, 200+en, 0, ((8 + 4*(io))+2), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 200 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> . `E22874 1 `uc ]
-"132
-[; ;../universalEvents.c: 132:             addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 1 `i `uc -> + + -> 8 `i * -> 5 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
-"133
-[; ;../universalEvents.c: 133:             break;
-[e $U 3251  ]
-"136
-[; ;../universalEvents.c: 136:         case 4:
-[e :U 3257 ]
-"138
-[; ;../universalEvents.c: 138:             break;
-[e $U 3251  ]
-"141
-[; ;../universalEvents.c: 141:         case 5:
-[e :U 3258 ]
-"143
-[; ;../universalEvents.c: 143:             addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
+"125
+[; ;../universalEvents.c: 125:         case 0:
+[e :U 3255 ]
+"127
+[; ;../universalEvents.c: 127:             addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
 [e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
-"144
-[; ;../universalEvents.c: 144:             break;
+"128
+[; ;../universalEvents.c: 128:             break;
+[e $U 3251  ]
+"130
+[; ;../universalEvents.c: 130:         case 2:
+[e :U 3256 ]
+"132
+[; ;../universalEvents.c: 132:             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+"133
+[; ;../universalEvents.c: 133:             addEvent(nn.word, 300+en, 0, ((8 + 4*(io))+1), TRUE);
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 300 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> . `E22874 1 `uc ]
+"134
+[; ;../universalEvents.c: 134:             addEvent(nn.word, 200+en, 0, ((8 + 4*(io))+2), TRUE);
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 200 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> . `E22874 1 `uc ]
+"136
+[; ;../universalEvents.c: 136:             addEvent(nn.word, en, 1, ((8 + 5*(io))+0), TRUE);
+[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 1 `i `uc -> + + -> 8 `i * -> 5 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+"137
+[; ;../universalEvents.c: 137:             break;
+[e $U 3251  ]
+"140
+[; ;../universalEvents.c: 140:         case 4:
+[e :U 3257 ]
+"142
+[; ;../universalEvents.c: 142:             break;
 [e $U 3251  ]
 "145
-[; ;../universalEvents.c: 145:         case 6:
-[e :U 3259 ]
+[; ;../universalEvents.c: 145:         case 5:
+[e :U 3258 ]
 "147
-[; ;../universalEvents.c: 147:             addEvent(nn.word, en, 0, ((8 + 4*(io))+1), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> . `E22874 1 `uc ]
+[; ;../universalEvents.c: 147:             addEvent(nn.word, en, 0, ((8 + 4*(io))+0), TRUE);
+[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
 "148
-[; ;../universalEvents.c: 148:             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
-[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
-"149
-[; ;../universalEvents.c: 149:             break;
+[; ;../universalEvents.c: 148:             break;
 [e $U 3251  ]
+"149
+[; ;../universalEvents.c: 149:         case 6:
+[e :U 3259 ]
 "151
-[; ;../universalEvents.c: 151:     }
+[; ;../universalEvents.c: 151:             addEvent(nn.word, en, 0, ((8 + 4*(io))+1), TRUE);
+[e ( _addEvent (4 , , , , . _nn 1 _en -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> . `E22874 1 `uc ]
+"152
+[; ;../universalEvents.c: 152:             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
+[e ( _addEvent (4 , , , , . _nn 1 -> + -> -> 100 `i `ui -> _en `ui `us -> -> 0 `i `uc -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> . `E22874 1 `uc ]
+"153
+[; ;../universalEvents.c: 153:             break;
+[e $U 3251  ]
+"155
+[; ;../universalEvents.c: 155:     }
 }
 [e $U 3251  ]
 [e :U 3252 ]
@@ -3752,12 +3744,12 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 6 `i 3259
  3251 ]
 [e :U 3251 ]
-"152
-[; ;../universalEvents.c: 152: }
+"156
+[; ;../universalEvents.c: 156: }
 [e :UE 3250 ]
 }
-"166
-[; ;../universalEvents.c: 166: uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
+"170
+[; ;../universalEvents.c: 170: uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
 [v _APP_addEvent `(uc ~T0 @X0 1 ef5`us`us`uc`uc`E22874 ]
 {
 [e :U _APP_addEvent ]
@@ -3767,351 +3759,375 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _evVal `uc ~T0 @X0 1 r4 ]
 [v _forceOwnNN `E22874 ~T0 @X0 1 r5 ]
 [f ]
-"167
-[; ;../universalEvents.c: 167:     if ((evNum == 0) && (evVal != 0))
+"171
+[; ;../universalEvents.c: 171:     if ((evNum == 0) && (evVal != 0))
 [e $ ! && == -> _evNum `i -> 0 `i != -> _evVal `i -> 0 `i 3261  ]
-"168
-[; ;../universalEvents.c: 168:     {
+"172
+[; ;../universalEvents.c: 172:     {
 {
-"181
-[; ;../universalEvents.c: 181:     }
+"185
+[; ;../universalEvents.c: 185:     }
 }
 [e :U 3261 ]
-"182
-[; ;../universalEvents.c: 182:     return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
+"186
+[; ;../universalEvents.c: 186:     return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
 [e ) ( _addEvent (4 , , , , _nodeNumber _eventNumber _evNum _evVal -> _forceOwnNN `uc ]
 [e $UE 3260  ]
-"183
-[; ;../universalEvents.c: 183: }
+"187
+[; ;../universalEvents.c: 187: }
 [e :UE 3260 ]
 }
-"191
-[; ;../universalEvents.c: 191: void clearEvents(uint8_t io) {
+"195
+[; ;../universalEvents.c: 195: void clearEvents(uint8_t io) {
 [v _clearEvents `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _clearEvents ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [f ]
-"192
-[; ;../universalEvents.c: 192:     deleteActionRange((8 + 5*(io)), 5);
+"196
+[; ;../universalEvents.c: 196:     deleteActionRange((8 + 5*(io)), 5);
 [e ( _deleteActionRange (2 , -> + -> 8 `i * -> 5 `i -> _io `i `uc -> -> 5 `i `uc ]
-"193
-[; ;../universalEvents.c: 193:     deleteActionRange((8 + 5*(io)) | 0x80, 5);
+"197
+[; ;../universalEvents.c: 197:     deleteActionRange((8 + 5*(io)) | 0x80, 5);
 [e ( _deleteActionRange (2 , -> | + -> 8 `i * -> 5 `i -> _io `i -> 128 `i `uc -> -> 5 `i `uc ]
-"194
-[; ;../universalEvents.c: 194:     deleteHappeningRange((8 + 4*(io)), 4);
+"198
+[; ;../universalEvents.c: 198:     deleteHappeningRange((8 + 4*(io)), 4);
 [e ( _deleteHappeningRange (2 , -> + -> 8 `i * -> 4 `i -> _io `i `uc -> -> 4 `i `uc ]
-"195
-[; ;../universalEvents.c: 195: }
+"199
+[; ;../universalEvents.c: 199: }
 [e :UE 3262 ]
 }
-"202
-[; ;../universalEvents.c: 202: void processActions(void) {
+"206
+[; ;../universalEvents.c: 206: void processActions(void) {
 [v _processActions `(v ~T0 @X0 1 ef ]
 {
 [e :U _processActions ]
 [f ]
-"203
-[; ;../universalEvents.c: 203:     uint8_t io;
-[v _io `uc ~T0 @X0 1 a ]
-"204
-[; ;../universalEvents.c: 204:     uint8_t type;
-[v _type `uc ~T0 @X0 1 a ]
-"205
-[; ;../universalEvents.c: 205:     ActionAndState * action = getTwoAction();
-[v _action `*S3235 ~T0 @X0 1 a ]
-[e = _action ( _getTwoAction ..  ]
-"206
-[; ;../universalEvents.c: 206:     uint8_t ioAction;
-[v _ioAction `uc ~T0 @X0 1 a ]
 "207
-[; ;../universalEvents.c: 207:     uint8_t simultaneous;
-[v _simultaneous `uc ~T0 @X0 1 a ]
+[; ;../universalEvents.c: 207:     uint8_t io;
+[v _io `uc ~T0 @X0 1 a ]
 "208
-[; ;../universalEvents.c: 208:     uint8_t peekItem;
-[v _peekItem `uc ~T0 @X0 1 a ]
+[; ;../universalEvents.c: 208:     uint8_t type;
+[v _type `uc ~T0 @X0 1 a ]
+"209
+[; ;../universalEvents.c: 209:     uint8_t action;
+[v _action `uc ~T0 @X0 1 a ]
+"210
+[; ;../universalEvents.c: 210:     uint8_t ioAction;
+[v _ioAction `uc ~T0 @X0 1 a ]
 "211
-[; ;../universalEvents.c: 211:     if (action->a.value == 0) {
-[e $ ! == -> . . *U _action 1 0 `i -> 0 `i 3264  ]
-{
+[; ;../universalEvents.c: 211:     uint8_t simultaneous;
+[v _simultaneous `uc ~T0 @X0 1 a ]
 "212
-[; ;../universalEvents.c: 212:         doneTwoAction();
-[e ( _doneTwoAction ..  ]
-"213
-[; ;../universalEvents.c: 213:         return;
-[e $UE 3263  ]
+[; ;../universalEvents.c: 212:     uint8_t peekItem;
+[v _peekItem `uc ~T0 @X0 1 a ]
 "214
-[; ;../universalEvents.c: 214:     }
-}
-[e :U 3264 ]
-"216
-[; ;../universalEvents.c: 216:     if (action->a.value == 1) {
-[e $ ! == -> . . *U _action 1 0 `i -> 1 `i 3265  ]
+[; ;../universalEvents.c: 214:     while (1) {
+[e :U 3265 ]
+{
+"215
+[; ;../universalEvents.c: 215:         action = getTwoAction();
+[e = _action ( _getTwoAction ..  ]
+"217
+[; ;../universalEvents.c: 217:         if (action == 0) {
+[e $ ! == -> _action `i -> 0 `i 3267  ]
 {
 "218
-[; ;../universalEvents.c: 218:         doSOD();
-[e ( _doSOD ..  ]
-"219
-[; ;../universalEvents.c: 219:         doneTwoAction();
+[; ;../universalEvents.c: 218:             doneTwoAction();
 [e ( _doneTwoAction ..  ]
+"219
+[; ;../universalEvents.c: 219:             return;
+[e $UE 3263  ]
 "220
-[; ;../universalEvents.c: 220:         return;
-[e $UE 3263  ]
-"221
-[; ;../universalEvents.c: 221:     }
-}
-[e :U 3265 ]
-"222
-[; ;../universalEvents.c: 222:     if (action->a.value == 2) {
-[e $ ! == -> . . *U _action 1 0 `i -> 2 `i 3266  ]
-{
-"223
-[; ;../universalEvents.c: 223:         doWait(5);
-[e ( _doWait (1 -> -> 5 `i `us ]
-"224
-[; ;../universalEvents.c: 224:         return;
-[e $UE 3263  ]
-"225
-[; ;../universalEvents.c: 225:     }
-}
-[e :U 3266 ]
-"226
-[; ;../universalEvents.c: 226:     if (action->a.value == 3) {
-[e $ ! == -> . . *U _action 1 0 `i -> 3 `i 3267  ]
-{
-"227
-[; ;../universalEvents.c: 227:         doWait(10);
-[e ( _doWait (1 -> -> 10 `i `us ]
-"228
-[; ;../universalEvents.c: 228:         return;
-[e $UE 3263  ]
-"229
-[; ;../universalEvents.c: 229:     }
+[; ;../universalEvents.c: 220:         }
 }
 [e :U 3267 ]
-"230
-[; ;../universalEvents.c: 230:     if (action->a.value == 4) {
-[e $ ! == -> . . *U _action 1 0 `i -> 4 `i 3268  ]
+"222
+[; ;../universalEvents.c: 222:         if (action == 1) {
+[e $ ! == -> _action `i -> 1 `i 3268  ]
 {
-"231
-[; ;../universalEvents.c: 231:         doWait(20);
-[e ( _doWait (1 -> -> 20 `i `us ]
-"232
-[; ;../universalEvents.c: 232:         return;
+"224
+[; ;../universalEvents.c: 224:             doSOD();
+[e ( _doSOD ..  ]
+"225
+[; ;../universalEvents.c: 225:             doneTwoAction();
+[e ( _doneTwoAction ..  ]
+"226
+[; ;../universalEvents.c: 226:             return;
 [e $UE 3263  ]
-"233
-[; ;../universalEvents.c: 233:     }
+"227
+[; ;../universalEvents.c: 227:         }
 }
 [e :U 3268 ]
-"234
-[; ;../universalEvents.c: 234:     if (action->a.value == 5) {
-[e $ ! == -> . . *U _action 1 0 `i -> 5 `i 3269  ]
+"228
+[; ;../universalEvents.c: 228:         if (action == 2) {
+[e $ ! == -> _action `i -> 2 `i 3269  ]
 {
-"235
-[; ;../universalEvents.c: 235:         doWait(50);
-[e ( _doWait (1 -> -> 50 `i `us ]
-"236
-[; ;../universalEvents.c: 236:         return;
+"229
+[; ;../universalEvents.c: 229:             doWait(5);
+[e ( _doWait (1 -> -> 5 `i `us ]
+"230
+[; ;../universalEvents.c: 230:             return;
 [e $UE 3263  ]
-"237
-[; ;../universalEvents.c: 237:     }
+"231
+[; ;../universalEvents.c: 231:         }
 }
 [e :U 3269 ]
+"232
+[; ;../universalEvents.c: 232:         if (action == 3) {
+[e $ ! == -> _action `i -> 3 `i 3270  ]
+{
+"233
+[; ;../universalEvents.c: 233:             doWait(10);
+[e ( _doWait (1 -> -> 10 `i `us ]
+"234
+[; ;../universalEvents.c: 234:             return;
+[e $UE 3263  ]
+"235
+[; ;../universalEvents.c: 235:         }
+}
+[e :U 3270 ]
+"236
+[; ;../universalEvents.c: 236:         if (action == 4) {
+[e $ ! == -> _action `i -> 4 `i 3271  ]
+{
+"237
+[; ;../universalEvents.c: 237:             doWait(20);
+[e ( _doWait (1 -> -> 20 `i `us ]
 "238
-[; ;../universalEvents.c: 238:     simultaneous = action->a.value & 0x80;
-[e = _simultaneous -> & -> . . *U _action 1 0 `i -> 128 `i `uc ]
+[; ;../universalEvents.c: 238:             return;
+[e $UE 3263  ]
 "239
-[; ;../universalEvents.c: 239:     ioAction = action->a.value&0x7F;
-[e = _ioAction -> & -> . . *U _action 1 0 `i -> 127 `i `uc ]
-"240
-[; ;../universalEvents.c: 240:     if ((ioAction >= 8) && (ioAction < (8 + 5 * 16))) {
-[e $ ! && >= -> _ioAction `i -> 8 `i < -> _ioAction `i + -> 8 `i * -> 5 `i -> 16 `i 3270  ]
-{
-"243
-[; ;../universalEvents.c: 243:         io = (((ioAction)-8)/5);
-[e = _io -> / - -> _ioAction `i -> 8 `i -> 5 `i `uc ]
-"244
-[; ;../universalEvents.c: 244:         ioAction = (((ioAction)-8)%5);
-[e = _ioAction -> % - -> _ioAction `i -> 8 `i -> 5 `i `uc ]
-"245
-[; ;../universalEvents.c: 245:         type = (uint8_t)getNV((16 + 7*(io) + 0));
-[e = _type -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `uc ]
-"248
-[; ;../universalEvents.c: 248:         setOutputState(io, ioAction, type);
-[e ( _setOutputState (3 , , _io _ioAction _type ]
-"249
-[; ;../universalEvents.c: 249:         if (needsStarting(io, ioAction, type)) {
-[e $ ! != -> ( _needsStarting (3 , , _io _ioAction _type `ui -> -> 0 `i `ui 3271  ]
-{
-"250
-[; ;../universalEvents.c: 250:             startOutput(io, ioAction, type);
-[e ( _startOutput (3 , , _io _ioAction _type ]
-"251
-[; ;../universalEvents.c: 251:         }
+[; ;../universalEvents.c: 239:         }
 }
 [e :U 3271 ]
-"253
-[; ;../universalEvents.c: 253:         peekItem = 1;
-[e = _peekItem -> -> 1 `i `uc ]
-"254
-[; ;../universalEvents.c: 254:         while (simultaneous) {
-[e $U 3272  ]
-[e :U 3273 ]
+"240
+[; ;../universalEvents.c: 240:         if (action == 5) {
+[e $ ! == -> _action `i -> 5 `i 3272  ]
 {
-"255
-[; ;../universalEvents.c: 255:             ActionAndState * nextAction;
-[v _nextAction `*S3235 ~T0 @X0 1 a ]
-"256
-[; ;../universalEvents.c: 256:             uint8_t nextIo;
-[v _nextIo `uc ~T0 @X0 1 a ]
-"257
-[; ;../universalEvents.c: 257:             uint8_t nextType;
-[v _nextType `uc ~T0 @X0 1 a ]
-"259
-[; ;../universalEvents.c: 259:             nextAction = peekTwoActionQueue(peekItem);
-[e = _nextAction ( _peekTwoActionQueue (1 _peekItem ]
-"261
-[; ;../universalEvents.c: 261:             if (nextAction->a.value == 0) break;
-[e $ ! == -> . . *U _nextAction 1 0 `i -> 0 `i 3275  ]
-[e $U 3274  ]
-[e :U 3275 ]
-"262
-[; ;../universalEvents.c: 262:             simultaneous = nextAction->a.value & 0x80;
-[e = _simultaneous -> & -> . . *U _nextAction 1 0 `i -> 128 `i `uc ]
-"263
-[; ;../universalEvents.c: 263:             nextAction->a.value &= 0x7F;
-[e =& . . *U _nextAction 1 0 -> -> 127 `i `uc ]
-"264
-[; ;../universalEvents.c: 264:             nextIo = (((nextAction->a.value)-8)/5);
-[e = _nextIo -> / - -> . . *U _nextAction 1 0 `i -> 8 `i -> 5 `i `uc ]
-"265
-[; ;../universalEvents.c: 265:             if (nextIo == io) {
-[e $ ! == -> _nextIo `i -> _io `i 3276  ]
-{
-"269
-[; ;../universalEvents.c: 269:                 break;
-[e $U 3274  ]
-"270
-[; ;../universalEvents.c: 270:             }
-}
-[e :U 3276 ]
-"271
-[; ;../universalEvents.c: 271:             nextType = (uint8_t)getNV((16 + 7*(io) + 0));
-[e = _nextType -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `uc ]
-"272
-[; ;../universalEvents.c: 272:             setOutputState(nextIo, nextAction->a.value, nextType);
-[e ( _setOutputState (3 , , _nextIo . . *U _nextAction 1 0 _nextType ]
-"273
-[; ;../universalEvents.c: 273:             if (needsStarting(nextIo, nextAction->a.value, nextType)) {
-[e $ ! != -> ( _needsStarting (3 , , _nextIo . . *U _nextAction 1 0 _nextType `ui -> -> 0 `i `ui 3277  ]
-{
-"274
-[; ;../universalEvents.c: 274:                 startOutput(nextIo, nextAction->a.value, nextType);
-[e ( _startOutput (3 , , _nextIo . . *U _nextAction 1 0 _nextType ]
-"275
-[; ;../universalEvents.c: 275:             }
-}
-[e :U 3277 ]
-"276
-[; ;../universalEvents.c: 276:             if (completed(nextIo, nextAction, nextType)) {
-[e $ ! != -> ( _completed (3 , , _nextIo _nextAction _nextType `ui -> -> 0 `i `ui 3278  ]
-{
-"277
-[; ;../universalEvents.c: 277:                 deleteTwoActionQueue(peekItem);
-[e ( _deleteTwoActionQueue (1 _peekItem ]
-"278
-[; ;../universalEvents.c: 278:             }
-}
-[e :U 3278 ]
-"279
-[; ;../universalEvents.c: 279:             peekItem++;
-[e ++ _peekItem -> -> 1 `i `uc ]
-"280
-[; ;../universalEvents.c: 280:         }
+"241
+[; ;../universalEvents.c: 241:             doWait(50);
+[e ( _doWait (1 -> -> 50 `i `us ]
+"242
+[; ;../universalEvents.c: 242:             return;
+[e $UE 3263  ]
+"243
+[; ;../universalEvents.c: 243:         }
 }
 [e :U 3272 ]
-"254
-[; ;../universalEvents.c: 254:         while (simultaneous) {
-[e $ != -> _simultaneous `i -> 0 `i 3273  ]
-[e :U 3274 ]
-"282
-[; ;../universalEvents.c: 282:         if (completed(io, action, type)) {
-[e $ ! != -> ( _completed (3 , , _io _action _type `ui -> -> 0 `i `ui 3279  ]
+"244
+[; ;../universalEvents.c: 244:         simultaneous = action & 0x80;
+[e = _simultaneous -> & -> _action `i -> 128 `i `uc ]
+"245
+[; ;../universalEvents.c: 245:         ioAction = action&0x7F;
+[e = _ioAction -> & -> _action `i -> 127 `i `uc ]
+"246
+[; ;../universalEvents.c: 246:         if ((ioAction >= 8) && (ioAction < (8 + 5 * 16))) {
+[e $ ! && >= -> _ioAction `i -> 8 `i < -> _ioAction `i + -> 8 `i * -> 5 `i -> 16 `i 3273  ]
 {
-"283
-[; ;../universalEvents.c: 283:             doneTwoAction();
-[e ( _doneTwoAction ..  ]
-"284
-[; ;../universalEvents.c: 284:         }
+"249
+[; ;../universalEvents.c: 249:             io = (((ioAction)-8)/5);
+[e = _io -> / - -> _ioAction `i -> 8 `i -> 5 `i `uc ]
+"250
+[; ;../universalEvents.c: 250:             ioAction = (((ioAction)-8)%5);
+[e = _ioAction -> % - -> _ioAction `i -> 8 `i -> 5 `i `uc ]
+"251
+[; ;../universalEvents.c: 251:             type = (uint8_t)getNV((16 + 7*(io) + 0));
+[e = _type -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `uc ]
+"254
+[; ;../universalEvents.c: 254:             setOutputState(io, ioAction, type);
+[e ( _setOutputState (3 , , _io _ioAction _type ]
+"255
+[; ;../universalEvents.c: 255:             if (needsStarting(io, ioAction, type)) {
+[e $ ! != -> ( _needsStarting (3 , , _io _ioAction _type `ui -> -> 0 `i `ui 3274  ]
+{
+"256
+[; ;../universalEvents.c: 256:                 startOutput(io, ioAction, type);
+[e ( _startOutput (3 , , _io _ioAction _type ]
+"257
+[; ;../universalEvents.c: 257:             }
+}
+[e :U 3274 ]
+"259
+[; ;../universalEvents.c: 259:             peekItem = 1;
+[e = _peekItem -> -> 1 `i `uc ]
+"260
+[; ;../universalEvents.c: 260:             while (simultaneous) {
+[e $U 3275  ]
+[e :U 3276 ]
+{
+"261
+[; ;../universalEvents.c: 261:                 uint8_t nextAction;
+[v _nextAction `uc ~T0 @X0 1 a ]
+"262
+[; ;../universalEvents.c: 262:                 uint8_t nextIo;
+[v _nextIo `uc ~T0 @X0 1 a ]
+"263
+[; ;../universalEvents.c: 263:                 uint8_t nextType;
+[v _nextType `uc ~T0 @X0 1 a ]
+"265
+[; ;../universalEvents.c: 265:                 nextAction = peekTwoActionQueue(peekItem);
+[e = _nextAction ( _peekTwoActionQueue (1 _peekItem ]
+"267
+[; ;../universalEvents.c: 267:                 if (nextAction == 0) break;
+[e $ ! == -> _nextAction `i -> 0 `i 3278  ]
+[e $U 3277  ]
+[e :U 3278 ]
+"268
+[; ;../universalEvents.c: 268:                 simultaneous = nextAction & 0x80;
+[e = _simultaneous -> & -> _nextAction `i -> 128 `i `uc ]
+"269
+[; ;../universalEvents.c: 269:                 nextAction &= 0x7F;
+[e =& _nextAction -> -> 127 `i `uc ]
+"270
+[; ;../universalEvents.c: 270:                 nextIo = (((nextAction)-8)/5);
+[e = _nextIo -> / - -> _nextAction `i -> 8 `i -> 5 `i `uc ]
+"271
+[; ;../universalEvents.c: 271:                 if (nextIo == io) {
+[e $ ! == -> _nextIo `i -> _io `i 3279  ]
+{
+"275
+[; ;../universalEvents.c: 275:                     break;
+[e $U 3277  ]
+"276
+[; ;../universalEvents.c: 276:                 }
 }
 [e :U 3279 ]
-"285
-[; ;../universalEvents.c: 285:     } else {
-}
-[e $U 3280  ]
-[e :U 3270 ]
+"277
+[; ;../universalEvents.c: 277:                 nextAction = (((nextAction)-8)%5);
+[e = _nextAction -> % - -> _nextAction `i -> 8 `i -> 5 `i `uc ]
+"278
+[; ;../universalEvents.c: 278:                 nextType = (uint8_t)getNV((16 + 7*(io) + 0));
+[e = _nextType -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `uc ]
+"279
+[; ;../universalEvents.c: 279:                 setOutputState(nextIo, nextAction, nextType);
+[e ( _setOutputState (3 , , _nextIo _nextAction _nextType ]
+"280
+[; ;../universalEvents.c: 280:                 if (needsStarting(nextIo, nextAction, nextType)) {
+[e $ ! != -> ( _needsStarting (3 , , _nextIo _nextAction _nextType `ui -> -> 0 `i `ui 3280  ]
 {
-"288
-[; ;../universalEvents.c: 288:         doneTwoAction();
-[e ( _doneTwoAction ..  ]
-"289
-[; ;../universalEvents.c: 289:     }
+"281
+[; ;../universalEvents.c: 281:                     startOutput(nextIo, nextAction, nextType);
+[e ( _startOutput (3 , , _nextIo _nextAction _nextType ]
+"282
+[; ;../universalEvents.c: 282:                 }
 }
 [e :U 3280 ]
+"283
+[; ;../universalEvents.c: 283:                 if (completed(nextIo, nextAction, nextType)) {
+[e $ ! != -> ( _completed (3 , , _nextIo _nextAction _nextType `ui -> -> 0 `i `ui 3281  ]
+{
+"284
+[; ;../universalEvents.c: 284:                     deleteTwoActionQueue(peekItem);
+[e ( _deleteTwoActionQueue (1 _peekItem ]
+"285
+[; ;../universalEvents.c: 285:                 }
+}
+[e :U 3281 ]
+"286
+[; ;../universalEvents.c: 286:                 peekItem++;
+[e ++ _peekItem -> -> 1 `i `uc ]
+"287
+[; ;../universalEvents.c: 287:             }
+}
+[e :U 3275 ]
+"260
+[; ;../universalEvents.c: 260:             while (simultaneous) {
+[e $ != -> _simultaneous `i -> 0 `i 3276  ]
+[e :U 3277 ]
+"289
+[; ;../universalEvents.c: 289:             if (completed(io, action, type)) {
+[e $ ! != -> ( _completed (3 , , _io _action _type `ui -> -> 0 `i `ui 3282  ]
+{
 "290
-[; ;../universalEvents.c: 290: }
+[; ;../universalEvents.c: 290:                 doneTwoAction();
+[e ( _doneTwoAction ..  ]
+"291
+[; ;../universalEvents.c: 291:             } else {
+}
+[e $U 3283  ]
+[e :U 3282 ]
+{
+"294
+[; ;../universalEvents.c: 294:                 return;
+[e $UE 3263  ]
+"295
+[; ;../universalEvents.c: 295:             }
+}
+[e :U 3283 ]
+"296
+[; ;../universalEvents.c: 296:         } else {
+}
+[e $U 3284  ]
+[e :U 3273 ]
+{
+"299
+[; ;../universalEvents.c: 299:             doneTwoAction();
+[e ( _doneTwoAction ..  ]
+"300
+[; ;../universalEvents.c: 300:         }
+}
+[e :U 3284 ]
+"301
+[; ;../universalEvents.c: 301:     }
+}
+[e :U 3264 ]
+[e $U 3265  ]
+[e :U 3266 ]
+"302
+[; ;../universalEvents.c: 302: }
 [e :UE 3263 ]
 }
-"297
-[; ;../universalEvents.c: 297: void doWait(uint16_t duration) {
+"309
+[; ;../universalEvents.c: 309: void doWait(uint16_t duration) {
 [v _doWait `(v ~T0 @X0 1 ef1`us ]
 {
 [e :U _doWait ]
 [v _duration `us ~T0 @X0 1 r1 ]
 [f ]
-"299
-[; ;../universalEvents.c: 299:     if (startWait.val == 0) {
-[e $ ! == . _startWait 0 -> -> -> 0 `i `l `ul 3282  ]
+"311
+[; ;../universalEvents.c: 311:     if (startWait.val == 0) {
+[e $ ! == . _startWait 0 -> -> -> 0 `i `l `ul 3286  ]
 {
-"300
-[; ;../universalEvents.c: 300:         startWait.val = tickGet();
+"312
+[; ;../universalEvents.c: 312:         startWait.val = tickGet();
 [e = . _startWait 0 ( _tickGet ..  ]
-"301
-[; ;../universalEvents.c: 301:         return;
-[e $UE 3281  ]
-"302
-[; ;../universalEvents.c: 302:     } else {
+"313
+[; ;../universalEvents.c: 313:         return;
+[e $UE 3285  ]
+"314
+[; ;../universalEvents.c: 314:     } else {
 }
-[e $U 3283  ]
-[e :U 3282 ]
+[e $U 3287  ]
+[e :U 3286 ]
 {
-"304
-[; ;../universalEvents.c: 304:         if (((tickGet() - startWait.val) > ((long)duration * (long)(62500/10)))) {
-[e $ ! > - ( _tickGet ..  . _startWait 0 -> * -> _duration `l / -> 62500 `l -> -> 10 `i `l `ul 3284  ]
+"316
+[; ;../universalEvents.c: 316:         if (((tickGet() - startWait.val) > ((long)duration * (long)(62500/10)))) {
+[e $ ! > - ( _tickGet ..  . _startWait 0 -> * -> _duration `l / -> 62500 `l -> -> 10 `i `l `ul 3288  ]
 {
-"305
-[; ;../universalEvents.c: 305:             doneTwoAction();
+"317
+[; ;../universalEvents.c: 317:             doneTwoAction();
 [e ( _doneTwoAction ..  ]
-"306
-[; ;../universalEvents.c: 306:             startWait.val = 0;
+"318
+[; ;../universalEvents.c: 318:             startWait.val = 0;
 [e = . _startWait 0 -> -> -> 0 `i `l `ul ]
-"307
-[; ;../universalEvents.c: 307:             return;
-[e $UE 3281  ]
-"308
-[; ;../universalEvents.c: 308:         }
+"319
+[; ;../universalEvents.c: 319:             return;
+[e $UE 3285  ]
+"320
+[; ;../universalEvents.c: 320:         }
 }
-[e :U 3284 ]
-"309
-[; ;../universalEvents.c: 309:     }
+[e :U 3288 ]
+"321
+[; ;../universalEvents.c: 321:     }
 }
-[e :U 3283 ]
-"310
-[; ;../universalEvents.c: 310: }
-[e :UE 3281 ]
-}
+[e :U 3287 ]
 "322
-[; ;../universalEvents.c: 322: Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
+[; ;../universalEvents.c: 322: }
+[e :UE 3285 ]
+}
+"334
+[; ;../universalEvents.c: 334: Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
 [v _sendInvertedProducedEvent `(E22874 ~T0 @X0 1 ef5`uc`E22894`E22874`E22874`E22874 ]
 {
 [e :U _sendInvertedProducedEvent ]
@@ -4121,38 +4137,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _can_send_on `E22874 ~T0 @X0 1 r4 ]
 [v _can_send_off `E22874 ~T0 @X0 1 r5 ]
 [f ]
-"323
-[; ;../universalEvents.c: 323:  EventState state_to_send = invert?!state:state;
+"335
+[; ;../universalEvents.c: 335:  EventState state_to_send = invert?!state:state;
 [v _state_to_send `E22894 ~T0 @X0 1 a ]
 [e = _state_to_send -> ? != -> _invert `ui -> -> 0 `i `ui : -> -> ! != -> _state `ui -> -> 0 `i `ui `i `ui -> _state `ui `E22894 ]
-"324
-[; ;../universalEvents.c: 324:  if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
-[e $ ! || && != -> _state_to_send `ui -> -> 0 `i `ui != -> _can_send_on `ui -> -> 0 `i `ui && ! != -> _state_to_send `ui -> -> 0 `i `ui != -> _can_send_off `ui -> -> 0 `i `ui 3286  ]
+"336
+[; ;../universalEvents.c: 336:  if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
+[e $ ! || && != -> _state_to_send `ui -> -> 0 `i `ui != -> _can_send_on `ui -> -> 0 `i `ui && ! != -> _state_to_send `ui -> -> 0 `i `ui != -> _can_send_off `ui -> -> 0 `i `ui 3290  ]
 {
-"325
-[; ;../universalEvents.c: 325:   return sendProducedEvent(happening, state_to_send);
+"337
+[; ;../universalEvents.c: 337:   return sendProducedEvent(happening, state_to_send);
 [e ) ( _sendProducedEvent (2 , _happening _state_to_send ]
-[e $UE 3285  ]
-"326
-[; ;../universalEvents.c: 326:  } else {
-}
-[e $U 3287  ]
-[e :U 3286 ]
-{
-"327
-[; ;../universalEvents.c: 327:   return TRUE;
-[e ) . `E22874 1 ]
-[e $UE 3285  ]
-"328
-[; ;../universalEvents.c: 328:  }
-}
-[e :U 3287 ]
-"329
-[; ;../universalEvents.c: 329: }
-[e :UE 3285 ]
-}
+[e $UE 3289  ]
 "338
-[; ;../universalEvents.c: 338: Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
+[; ;../universalEvents.c: 338:  } else {
+}
+[e $U 3291  ]
+[e :U 3290 ]
+{
+"339
+[; ;../universalEvents.c: 339:   return TRUE;
+[e ) . `E22874 1 ]
+[e $UE 3289  ]
+"340
+[; ;../universalEvents.c: 340:  }
+}
+[e :U 3291 ]
+"341
+[; ;../universalEvents.c: 341: }
+[e :UE 3289 ]
+}
+"350
+[; ;../universalEvents.c: 350: Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
 [v _alwaysSendInvertedProducedEvent `(E22874 ~T0 @X0 1 ef3`uc`E22894`E22874 ]
 {
 [e :U _alwaysSendInvertedProducedEvent ]
@@ -4160,207 +4176,207 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _state `E22894 ~T0 @X0 1 r2 ]
 [v _invert `E22874 ~T0 @X0 1 r3 ]
 [f ]
-"339
-[; ;../universalEvents.c: 339:     return sendProducedEvent(action, invert?!state:state);
+"351
+[; ;../universalEvents.c: 351:     return sendProducedEvent(action, invert?!state:state);
 [e ) ( _sendProducedEvent (2 , _action -> ? != -> _invert `ui -> -> 0 `i `ui : -> -> ! != -> _state `ui -> -> 0 `i `ui `i `ui -> _state `ui `E22894 ]
-[e $UE 3288  ]
-"340
-[; ;../universalEvents.c: 340: }
-[e :UE 3288 ]
+[e $UE 3292  ]
+"352
+[; ;../universalEvents.c: 352: }
+[e :UE 3292 ]
 }
-"498
-[; ;../universalEvents.c: 498: void doSOD(void) {
+"510
+[; ;../universalEvents.c: 510: void doSOD(void) {
 [v _doSOD `(v ~T0 @X0 1 ef ]
 {
 [e :U _doSOD ]
 [f ]
-"499
-[; ;../universalEvents.c: 499:     uint8_t midway;
+"511
+[; ;../universalEvents.c: 511:     uint8_t midway;
 [v _midway `uc ~T0 @X0 1 a ]
-"500
-[; ;../universalEvents.c: 500:     uint8_t state;
+"512
+[; ;../universalEvents.c: 512:     uint8_t state;
 [v _state `uc ~T0 @X0 1 a ]
-"501
-[; ;../universalEvents.c: 501:     uint8_t io;
+"513
+[; ;../universalEvents.c: 513:     uint8_t io;
 [v _io `uc ~T0 @X0 1 a ]
-"505
-[; ;../universalEvents.c: 505:     for (io=0; io < 16; io++) {
+"517
+[; ;../universalEvents.c: 517:     for (io=0; io < 16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 16 `i 3290  ]
-[e $U 3291  ]
-[e :U 3290 ]
+[e $ < -> _io `i -> 16 `i 3294  ]
+[e $U 3295  ]
+[e :U 3294 ]
 {
-"506
-[; ;../universalEvents.c: 506:         uint8_t event_inverted = getNV((16 + 7*(io) + 1)) & 0x40;
+"518
+[; ;../universalEvents.c: 518:         uint8_t event_inverted = getNV((16 + 7*(io) + 1)) & 0x40;
 [v _event_inverted `uc ~T0 @X0 1 a ]
 [e = _event_inverted -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `uc ]
-"507
-[; ;../universalEvents.c: 507:         switch(getNV((16 + 7*(io) + 0))) {
-[e $U 3294  ]
+"519
+[; ;../universalEvents.c: 519:         switch(getNV((16 + 7*(io) + 0))) {
+[e $U 3298  ]
 {
-"508
-[; ;../universalEvents.c: 508:             case 0:
-[e :U 3295 ]
-"510
-[; ;../universalEvents.c: 510:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), outputState[io], event_inverted)) ;
-[e $U 3296  ]
-[e :U 3297 ]
-[e :U 3296 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3297  ]
-[e :U 3298 ]
-"511
-[; ;../universalEvents.c: 511:                 break;
-[e $U 3293  ]
-"512
-[; ;../universalEvents.c: 512:             case 1:
+"520
+[; ;../universalEvents.c: 520:             case 0:
 [e :U 3299 ]
-"513
-[; ;../universalEvents.c: 513:                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-[e = _state -> ( _readNVM (2 , . `E22846 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um `uc ]
-"514
-[; ;../universalEvents.c: 514:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state!=2, event_inverted));
+"522
+[; ;../universalEvents.c: 522:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), outputState[io], event_inverted)) ;
 [e $U 3300  ]
 [e :U 3301 ]
 [e :U 3300 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> != -> _state `i -> 2 `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3301  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3301  ]
 [e :U 3302 ]
-"515
-[; ;../universalEvents.c: 515:                 break;
-[e $U 3293  ]
-"517
-[; ;../universalEvents.c: 517:             case 2:
+"523
+[; ;../universalEvents.c: 523:                 break;
+[e $U 3297  ]
+"524
+[; ;../universalEvents.c: 524:             case 1:
 [e :U 3303 ]
-"518
-[; ;../universalEvents.c: 518:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 2)), event_inverted));
+"525
+[; ;../universalEvents.c: 525:                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
+[e = _state -> ( _readNVM (2 , . `E22846 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um `uc ]
+"526
+[; ;../universalEvents.c: 526:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state!=2, event_inverted));
 [e $U 3304  ]
 [e :U 3305 ]
 [e :U 3304 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3305  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> != -> _state `i -> 2 `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3305  ]
 [e :U 3306 ]
-"519
-[; ;../universalEvents.c: 519:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
-[e $U 3307  ]
-[e :U 3308 ]
-[e :U 3307 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3308  ]
-[e :U 3309 ]
-"521
-[; ;../universalEvents.c: 521:                 midway = (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2);
-[e = _midway -> + / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i -> 2 `i / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 2 `i `uc ]
-"522
-[; ;../universalEvents.c: 522:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] >= midway, event_inverted));
-[e $U 3310  ]
-[e :U 3311 ]
-[e :U 3310 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3311  ]
-[e :U 3312 ]
-"523
-[; ;../universalEvents.c: 523:                 break;
-[e $U 3293  ]
-"525
-[; ;../universalEvents.c: 525:             case 3:
-[e :U 3313 ]
-"526
-[; ;../universalEvents.c: 526:                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-[e = _state -> ( _readNVM (2 , . `E22846 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um `uc ]
 "527
-[; ;../universalEvents.c: 527:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state, event_inverted));
+[; ;../universalEvents.c: 527:                 break;
+[e $U 3297  ]
+"529
+[; ;../universalEvents.c: 529:             case 2:
+[e :U 3307 ]
+"530
+[; ;../universalEvents.c: 530:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 2)), event_inverted));
+[e $U 3308  ]
+[e :U 3309 ]
+[e :U 3308 ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3309  ]
+[e :U 3310 ]
+"531
+[; ;../universalEvents.c: 531:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
+[e $U 3311  ]
+[e :U 3312 ]
+[e :U 3311 ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3312  ]
+[e :U 3313 ]
+"533
+[; ;../universalEvents.c: 533:                 midway = (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2);
+[e = _midway -> + / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i -> 2 `i / -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 2 `i `uc ]
+"534
+[; ;../universalEvents.c: 534:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] >= midway, event_inverted));
 [e $U 3314  ]
 [e :U 3315 ]
 [e :U 3314 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> _state `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3315  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3315  ]
 [e :U 3316 ]
-"528
-[; ;../universalEvents.c: 528:                 break;
-[e $U 3293  ]
-"531
-[; ;../universalEvents.c: 531:             case 4:
+"535
+[; ;../universalEvents.c: 535:                 break;
+[e $U 3297  ]
+"537
+[; ;../universalEvents.c: 537:             case 3:
 [e :U 3317 ]
-"532
-[; ;../universalEvents.c: 532:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
+"538
+[; ;../universalEvents.c: 538:                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
+[e = _state -> ( _readNVM (2 , . `E22846 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um `uc ]
+"539
+[; ;../universalEvents.c: 539:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state, event_inverted));
 [e $U 3318  ]
 [e :U 3319 ]
 [e :U 3318 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3319  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> _state `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3319  ]
 [e :U 3320 ]
-"533
-[; ;../universalEvents.c: 533:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] == getNV((16 + 7*(io) + 4)), event_inverted));
-[e $U 3321  ]
-[e :U 3322 ]
+"540
+[; ;../universalEvents.c: 540:                 break;
+[e $U 3297  ]
+"543
+[; ;../universalEvents.c: 543:             case 4:
 [e :U 3321 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3322  ]
+"544
+[; ;../universalEvents.c: 544:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
+[e $U 3322  ]
 [e :U 3323 ]
-"534
-[; ;../universalEvents.c: 534:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 5)), event_inverted));
-[e $U 3324  ]
-[e :U 3325 ]
+[e :U 3322 ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3323  ]
 [e :U 3324 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3325  ]
+"545
+[; ;../universalEvents.c: 545:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] == getNV((16 + 7*(io) + 4)), event_inverted));
+[e $U 3325  ]
 [e :U 3326 ]
-"535
-[; ;../universalEvents.c: 535:                 if (getNV((16 + 7*(io) + 2)) > 3) {
-[e $ ! > -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 3 `i 3327  ]
-{
-"536
-[; ;../universalEvents.c: 536:                     while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+3), currentPos[io] == getNV((16 + 7*(io) + 6)), event_inverted));
+[e :U 3325 ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3326  ]
+[e :U 3327 ]
+"546
+[; ;../universalEvents.c: 546:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 5)), event_inverted));
 [e $U 3328  ]
 [e :U 3329 ]
 [e :U 3328 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 3 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3329  ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 2 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3329  ]
 [e :U 3330 ]
-"537
-[; ;../universalEvents.c: 537:                 }
-}
-[e :U 3327 ]
-"538
-[; ;../universalEvents.c: 538:                 break;
-[e $U 3293  ]
-"542
-[; ;../universalEvents.c: 542:             case 5:
-[e :U 3331 ]
-"543
-[; ;../universalEvents.c: 543:             case 6:
-[e :U 3332 ]
-"544
-[; ;../universalEvents.c: 544:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), analogueState[io].eventState == 1, event_inverted));
-[e $U 3333  ]
-[e :U 3334 ]
-[e :U 3333 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> . *U + &U _analogueState * -> _io `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 1 `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3334  ]
-[e :U 3335 ]
-"545
-[; ;../universalEvents.c: 545:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), analogueState[io].eventState == 2, event_inverted));
-[e $U 3336  ]
-[e :U 3337 ]
-[e :U 3336 ]
-[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> == -> . *U + &U _analogueState * -> _io `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 2 `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3337  ]
-[e :U 3338 ]
-"546
-[; ;../universalEvents.c: 546:                 break;
-[e $U 3293  ]
+"547
+[; ;../universalEvents.c: 547:                 if (getNV((16 + 7*(io) + 2)) > 3) {
+[e $ ! > -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 3 `i 3331  ]
+{
 "548
-[; ;../universalEvents.c: 548:         }
-}
-[e $U 3293  ]
-[e :U 3294 ]
-[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 0 `i 3295
- , $ -> 1 `i 3299
- , $ -> 2 `i 3303
- , $ -> 3 `i 3313
- , $ -> 4 `i 3317
- , $ -> 5 `i 3331
- , $ -> 6 `i 3332
- 3293 ]
-[e :U 3293 ]
+[; ;../universalEvents.c: 548:                     while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+3), currentPos[io] == getNV((16 + 7*(io) + 6)), event_inverted));
+[e $U 3332  ]
+[e :U 3333 ]
+[e :U 3332 ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 3 `i `uc -> -> == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3333  ]
+[e :U 3334 ]
 "549
-[; ;../universalEvents.c: 549:     }
+[; ;../universalEvents.c: 549:                 }
+}
+[e :U 3331 ]
+"550
+[; ;../universalEvents.c: 550:                 break;
+[e $U 3297  ]
+"554
+[; ;../universalEvents.c: 554:             case 5:
+[e :U 3335 ]
+"555
+[; ;../universalEvents.c: 555:             case 6:
+[e :U 3336 ]
+"556
+[; ;../universalEvents.c: 556:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), analogueState[io].eventState == 1, event_inverted));
+[e $U 3337  ]
+[e :U 3338 ]
+[e :U 3337 ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> == -> . *U + &U _analogueState * -> _io `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 1 `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3338  ]
+[e :U 3339 ]
+"557
+[; ;../universalEvents.c: 557:                 while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), analogueState[io].eventState == 2, event_inverted));
+[e $U 3340  ]
+[e :U 3341 ]
+[e :U 3340 ]
+[e $ ! != -> ( _alwaysSendInvertedProducedEvent (3 , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc -> -> == -> . *U + &U _analogueState * -> _io `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 2 `i `i `E22894 -> _event_inverted `E22874 `ui -> -> 0 `i `ui 3341  ]
+[e :U 3342 ]
+"558
+[; ;../universalEvents.c: 558:                 break;
+[e $U 3297  ]
+"560
+[; ;../universalEvents.c: 560:         }
+}
+[e $U 3297  ]
+[e :U 3298 ]
+[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 0 `i 3299
+ , $ -> 1 `i 3303
+ , $ -> 2 `i 3307
+ , $ -> 3 `i 3317
+ , $ -> 4 `i 3321
+ , $ -> 5 `i 3335
+ , $ -> 6 `i 3336
+ 3297 ]
+[e :U 3297 ]
+"561
+[; ;../universalEvents.c: 561:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 3290  ]
-[e :U 3291 ]
+[e $ < -> _io `i -> 16 `i 3294  ]
+[e :U 3295 ]
 }
-"550
-[; ;../universalEvents.c: 550: }
-[e :UE 3289 ]
+"562
+[; ;../universalEvents.c: 562: }
+[e :UE 3293 ]
 }

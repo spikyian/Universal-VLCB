@@ -39378,8 +39378,6 @@ static void mnsPoll(void) {
         }
     }
 
-    setLEDsByMode();
-
 
     switch(mode_state) {
         case MODE_UNINITIALISED:
@@ -39396,11 +39394,12 @@ static void mnsPoll(void) {
                     pbTimer.val = tickGet();
 
                     sendMessage2(OPC_RQNN, nn.bytes.hi, nn.bytes.lo);
+                    setLEDsByMode();
                 }
             }
             break;
         case MODE_SETUP:
-# 661 "../../VLCBlib_PIC/mns.c"
+# 660 "../../VLCBlib_PIC/mns.c"
             if ((!(PORTAbits.RA2)) == 0) {
 
 
@@ -39413,6 +39412,7 @@ static void mnsPoll(void) {
                         sendMessage2(OPC_NNACK, nn.bytes.hi, nn.bytes.lo);
                         mnsDiagnostics[0x04].asUint++;
                     }
+                    setLEDsByMode();
                 } else if ((tickGet() - pbTimer.val) > 62500) {
 
                     if (nn.word != 0) {
@@ -39420,6 +39420,7 @@ static void mnsPoll(void) {
                     }
                     nn.word = 0;
                     mode_state = MODE_UNINITIALISED;
+                    setLEDsByMode();
                 }
                 pbTimer.val = tickGet();
             }
@@ -39439,12 +39440,13 @@ static void mnsPoll(void) {
                     pbTimer.val = tickGet();
 
                     sendMessage2(OPC_RQNN, previousNN.bytes.hi, previousNN.bytes.lo);
+                    setLEDsByMode();
                 }
                 pbTimer.val = tickGet();
             }
     }
 }
-# 730 "../../VLCBlib_PIC/mns.c"
+# 732 "../../VLCBlib_PIC/mns.c"
 static DiagnosticVal * mnsGetDiagnostic(uint8_t index) {
     if ((index<1) || (index>6)) {
         return ((void*)0);
@@ -39528,7 +39530,7 @@ static uint8_t getParameter(uint8_t idx) {
         return 0;
     }
 }
-# 821 "../../VLCBlib_PIC/mns.c"
+# 823 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (step >= 9) {
         return TIMED_RESPONSE_RESULT_FINISHED;
@@ -39538,7 +39540,7 @@ TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceI
 
     return TIMED_RESPONSE_RESULT_NEXT;
 }
-# 838 "../../VLCBlib_PIC/mns.c"
+# 840 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (services[serviceIndex]->getDiagnostic == ((void*)0)) {
         return TIMED_RESPONSE_RESULT_FINISHED;
@@ -39552,7 +39554,7 @@ TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceInd
     sendMessage6(OPC_DGN, nn.bytes.hi, nn.bytes.lo, serviceIndex+1, step+1, d->asBytes.hi, d->asBytes.lo);
     return TIMED_RESPONSE_RESULT_NEXT;
 }
-# 859 "../../VLCBlib_PIC/mns.c"
+# 861 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRrqnpnCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (step >= 20) {
         return TIMED_RESPONSE_RESULT_FINISHED;

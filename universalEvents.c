@@ -61,7 +61,7 @@
 #include "event_consumer.h"
 #include "mns.h"
 
-#include "actionQueue.h"
+#include "event_consumerDualActionQueue.h"
 #include "universalNv.h"
 #include "universalEvents.h"
 #include "universalEEPROM.h"
@@ -77,6 +77,10 @@ void doWait(uint16_t duration);
 Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off);
 Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
 void doSOD(void);
+Action getTwoAction(void);
+void doneTwoAction(void);
+Action peekTwoActionQueue(uint8_t index);
+void deleteTwoActionQueue(uint8_t index);
 
 extern uint8_t outputState[NUM_IO];
 extern uint8_t currentPos[NUM_IO];
@@ -202,90 +206,98 @@ void clearEvents(uint8_t io) {
 void processActions(void) {
     uint8_t io;
     uint8_t type;
-    ActionAndState * action = getTwoAction();
+    Action action;
     uint8_t ioAction;
     uint8_t simultaneous;
     uint8_t peekItem;
     
-    
-    if (action->a.value == NO_ACTION) {
-        doneTwoAction();
-        return;
-    }
-    // Check for SOD
-    if (action->a.value == ACTION_SOD) {
-        // Do the SOD
-        doSOD();
-        doneTwoAction();
-        return;
-    }
-    if (action->a.value == ACTION_WAIT05) {
-        doWait(5);
-        return;
-    }
-    if (action->a.value == ACTION_WAIT1) {
-        doWait(10);
-        return;
-    }
-    if (action->a.value == ACTION_WAIT2) {
-        doWait(20);
-        return;
-    }
-    if (action->a.value == ACTION_WAIT5) {
-        doWait(50);
-        return;
-    }
-    simultaneous = action->a.value & ACTION_SIMULTANEOUS;
-    ioAction = action->a.value&ACTION_MASK;
-    if ((ioAction >= BASE_ACTION_IO) && (ioAction < NUM_ACTIONS)) {
-        // process IO based consumed actions
+    while (1) {
+        action = getTwoAction();
         
-        io = ACTION_IO(ioAction);
-        ioAction = ACTION(ioAction);
-        type = (uint8_t)getNV(NV_IO_TYPE(io));
+        if (action == NO_ACTION) {
+            doneTwoAction();
+            return;
+        }
+        // Check for SOD
+        if (action == ACTION_SOD) {
+            // Do the SOD
+            doSOD();
+            doneTwoAction();
+            return;
+        }
+        if (action == ACTION_WAIT05) {
+            doWait(5);
+            return;
+        }
+        if (action == ACTION_WAIT1) {
+            doWait(10);
+            return;
+        }
+        if (action == ACTION_WAIT2) {
+            doWait(20);
+            return;
+        }
+        if (action == ACTION_WAIT5) {
+            doWait(50);
+            return;
+        }
+        simultaneous = action & ACTION_SIMULTANEOUS;
+        ioAction = action&ACTION_MASK;
+        if ((ioAction >= BASE_ACTION_IO) && (ioAction < NUM_ACTIONS)) {
+            // process IO based consumed actions
 
-        // check if a simultaneous action needs to be started
-        setOutputState(io, ioAction, type);
-        if (needsStarting(io, ioAction, type)) {
-            startOutput(io, ioAction, type);
-        }
-        // now check to see if any others need starting  
-        peekItem = 1;
-        while (simultaneous) {
-            ActionAndState * nextAction;
-            uint8_t nextIo;
-            uint8_t nextType;
-            
-            nextAction = peekTwoActionQueue(peekItem);
-            
-            if (nextAction->a.value == NO_ACTION) break;
-            simultaneous = nextAction->a.value & ACTION_SIMULTANEOUS;
-            nextAction->a.value &= ACTION_MASK;
-            nextIo = ACTION_IO(nextAction->a.value);
-            if (nextIo == io) {
-                // if we have 2 simultaneous actions on the same IO at the same 
-                // time then cancel the first and just do the second
-                // doneAction(); decided to not implement this change after all.
-                break;
+            io = ACTION_IO(ioAction);
+            ioAction = ACTION(ioAction);
+            type = (uint8_t)getNV(NV_IO_TYPE(io));
+
+            // check if a simultaneous action needs to be started
+            setOutputState(io, ioAction, type);
+            if (needsStarting(io, ioAction, type)) {
+                startOutput(io, ioAction, type);
             }
-            nextType = (uint8_t)getNV(NV_IO_TYPE(io));
-            setOutputState(nextIo, nextAction->a.value, nextType);
-            if (needsStarting(nextIo, nextAction->a.value, nextType)) {
-                startOutput(nextIo, nextAction->a.value, nextType);
+            // now check to see if any others need starting  
+            peekItem = 1;
+            while (simultaneous) {
+                Action nextAction;
+                uint8_t nextIo;
+                uint8_t nextType;
+
+                nextAction = peekTwoActionQueue(peekItem);
+
+                if (nextAction == NO_ACTION) break;
+                simultaneous = nextAction & ACTION_SIMULTANEOUS;
+                nextAction &= ACTION_MASK;
+                nextIo = ACTION_IO(nextAction);
+                if (nextIo == io) {
+                    // if we have 2 simultaneous actions on the same IO at the same 
+                    // time then cancel the first and just do the second
+                    // doneAction(); decided to not implement this change after all.
+                    break;
+                }
+                nextAction = ACTION(nextAction);
+                nextType = (uint8_t)getNV(NV_IO_TYPE(io));
+                setOutputState(nextIo, nextAction, nextType);
+                if (needsStarting(nextIo, nextAction, nextType)) {
+                    startOutput(nextIo, nextAction, nextType);
+                }
+                if (completed(nextIo, nextAction, nextType)) {
+                    deleteTwoActionQueue(peekItem);
+                }
+                peekItem++;
             }
-            if (completed(nextIo, nextAction, nextType)) {
-                deleteTwoActionQueue(peekItem);
+            // check if this current action has been completed
+            if (completed(io, action, type)) {
+                doneTwoAction();
+            } else {
+                // If the current action hasn't yet completed return so other stuff
+                // can get done before we get called back on next poll.
+                return;
             }
-            peekItem++;
-        }
-        // check if this current action has been completed
-        if (completed(io, action, type)) {
+        } else {
+            // shouldn't get here as this is an unknown action
+            // In case we do get here make sure we do the action to prevent endless loop
             doneTwoAction();
         }
-    } else {
-        // shouldn't get here as this is an unknown action
-        // In case we do get here make sure we do the action to prevent endless loop
-        doneTwoAction();
     }
 }
 

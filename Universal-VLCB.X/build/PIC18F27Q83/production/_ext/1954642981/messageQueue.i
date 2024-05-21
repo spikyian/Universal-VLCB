@@ -38681,6 +38681,7 @@ extern Message * getNextWriteMessage(MessageQueue * q);
 # 49 "../../VLCBlib_PIC/messageQueue.c" 2
 
 
+#pragma warning disable 1498
 
 
 
@@ -38717,7 +38718,7 @@ Message * getNextWriteMessage(MessageQueue * q) {
     if (q->writeIndex >= q->size) q->writeIndex = 0;
     return &(q->messages[wr]);
 }
-# 95 "../../VLCBlib_PIC/messageQueue.c"
+# 96 "../../VLCBlib_PIC/messageQueue.c"
 Message * pop(MessageQueue * q) {
     Message * ret;
  if (q->writeIndex == q->readIndex) {
@@ -38727,7 +38728,7 @@ Message * pop(MessageQueue * q) {
  if (q->readIndex >= q->size) q->readIndex = 0;
  return ret;
 }
-# 112 "../../VLCBlib_PIC/messageQueue.c"
+# 113 "../../VLCBlib_PIC/messageQueue.c"
 Message * peek(MessageQueue * q, uint8_t index) {
     if (q->readIndex == q->writeIndex) return ((void*)0);
     index += q->readIndex;

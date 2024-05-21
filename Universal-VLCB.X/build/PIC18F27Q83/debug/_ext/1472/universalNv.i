@@ -39058,9 +39058,9 @@ uint8_t APP_nvDefault(uint8_t index) {
             case 3:
                 return 234;
             case 4:
-                return 0;
+                return 0x33;
             case 5:
-                return 5;
+                return 2;
             case 6:
             case 7:
             case 8:
@@ -39146,33 +39146,7 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
             }
         }
     }
-    if (index == 8) {
-        for (io=16; io<24; io++) {
-            switch (configs[io].port) {
-            case 'A':
-                if (value && (1 << io % 8))
-                    WPUA |= 1<<(configs[io].no);
-                else
-                    WPUA &= ~(1<<(configs[io].no));
-                break;
-            case 'B':
-                if (value && (1 << io % 8))
-                    WPUB |= 1<<(configs[io].no);
-                else
-                    WPUB &= ~(1<<(configs[io].no));
-                break;
-            case 'C':
-                if (value && (1 << io % 8))
-                    WPUC |= 1<<(configs[io].no);
-                else
-                    WPUC &= ~(1<<(configs[io].no));
-                break;
-# 209 "../universalNv.c"
-            }
-        }
-    }
-
-
+# 215 "../universalNv.c"
     if (index >= 16) {
         io = ((uint8_t)((index-16)/7));
         nv = ((uint8_t)((index-16) % 7));

@@ -39034,7 +39034,9 @@ static void canFactoryReset(void) {
     canId = 0;
     writeNVM(EEPROM_NVM_TYPE, 0x3FE, canId);
 }
-# 241 "../../VLCBlib_PIC/can18_can_2.c"
+
+#pragma warning disable 759
+# 242 "../../VLCBlib_PIC/can18_can_2.c"
 static void canPowerUp(void) {
     int temp;
     uint8_t* txFifoObj;
@@ -39177,7 +39179,7 @@ void prepareSelfEnumResponse(void) {
         C1FIFOCON1Hbits.UINC = 1;
     }
 }
-# 391 "../../VLCBlib_PIC/can18_can_2.c"
+# 392 "../../VLCBlib_PIC/can18_can_2.c"
 static Processed canProcessMessage(Message * m) {
 
     if (m->len < 3) return NOT_PROCESSED;
@@ -39212,7 +39214,7 @@ void canPoll() {
     uint8_t t8;
 
     processEnumeration();
-# 438 "../../VLCBlib_PIC/can18_can_2.c"
+# 439 "../../VLCBlib_PIC/can18_can_2.c"
 }
 
 
@@ -39228,7 +39230,7 @@ uint8_t canEsdData(uint8_t id) {
             return 0;
     }
 }
-# 476 "../../VLCBlib_PIC/can18_can_2.c"
+# 477 "../../VLCBlib_PIC/can18_can_2.c"
 static DiagnosticVal * canGetDiagnostic(uint8_t index) {
     int16_t i16;
 
@@ -39273,7 +39275,7 @@ static DiagnosticVal * canGetDiagnostic(uint8_t index) {
 
     return &(canDiagnostics[index-1]);
 }
-# 528 "../../VLCBlib_PIC/can18_can_2.c"
+# 529 "../../VLCBlib_PIC/can18_can_2.c"
 static SendResult canSendMessage(Message * mp) {
     uint8_t i;
     uint8_t* txFifoObj;
@@ -39363,7 +39365,7 @@ static void sendRTR(void) {
     C1TXQCONH |= (0x2 | 0x1);
     canDiagnostics[0x05].asUint++;
 }
-# 627 "../../VLCBlib_PIC/can18_can_2.c"
+# 628 "../../VLCBlib_PIC/can18_can_2.c"
 static MessageReceived canReceiveMessage(Message * m){
     Message * mp;
     uint8_t incomingCanId;
@@ -39412,7 +39414,7 @@ static MessageReceived canReceiveMessage(Message * m){
         return RECEIVED;
     }
 }
-# 693 "../../VLCBlib_PIC/can18_can_2.c"
+# 694 "../../VLCBlib_PIC/can18_can_2.c"
 static void startEnumeration(Boolean txWaiting) {
     uint8_t i;
 
@@ -39426,7 +39428,7 @@ static void startEnumeration(Boolean txWaiting) {
     canDiagnostics[0x0C].asUint++;
     sendRTR();
 }
-# 714 "../../VLCBlib_PIC/can18_can_2.c"
+# 715 "../../VLCBlib_PIC/can18_can_2.c"
 static void handleSelfEnumeration(uint8_t receivedCanId) {
 
     switch (enumerationState) {
@@ -39529,7 +39531,7 @@ static CanidResult setNewCanId(uint8_t newCanId) {
         return CANID_FAIL;
     }
 }
-# 825 "../../VLCBlib_PIC/can18_can_2.c"
+# 826 "../../VLCBlib_PIC/can18_can_2.c"
 enum CAN_OP_MODE_STATUS CAN1_OperationModeSet(const enum CAN_OP_MODES requestMode)
 {
     enum CAN_OP_MODE_STATUS status = CAN_OP_MODE_REQUEST_SUCCESS;

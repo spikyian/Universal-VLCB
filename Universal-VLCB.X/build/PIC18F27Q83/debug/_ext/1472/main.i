@@ -39193,7 +39193,7 @@ extern Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type);
 extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
-extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
+extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
 # 114 "../main.c" 2
 
 
@@ -39395,7 +39395,7 @@ void loop(void) {
 
     }
 }
-# 373 "../main.c"
+# 377 "../main.c"
 ValidTime APP_isSuitableTimeToWriteFlash(void){
 
     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
@@ -39424,7 +39424,7 @@ Processed APP_postProcessMessage(Message * m) {
 EventState APP_GetEventState(Happening h) {
     return EVENT_OFF;
 }
-# 412 "../main.c"
+# 416 "../main.c"
 void setType(uint8_t io, uint8_t type) {
     uint8_t index;
 
@@ -39508,9 +39508,9 @@ void configIO(uint8_t i) {
                 TRISC &= ~(1 << configs[i].no);
             }
             break;
-# 512 "../main.c"
+# 516 "../main.c"
     }
-# 532 "../main.c"
+# 536 "../main.c"
     if ((type == 5) || (type == 6)) {
 
         switch (configs[i].port) {
@@ -39523,7 +39523,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC |= (1 << configs[i].no);
                 break;
-# 552 "../main.c"
+# 556 "../main.c"
         }
     } else {
 
@@ -39537,7 +39537,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC &= ~(1 << configs[i].no);
                 break;
-# 573 "../main.c"
+# 577 "../main.c"
         }
     }
 

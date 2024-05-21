@@ -31,33 +31,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../event_consumerDualActionQueue.c: 74: const Service eventConsumer2QService = {
 [c E12549 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
 [n E12549 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
-[v F13104 `(v ~T0 @X0 0 tf ]
+[v F13097 `(v ~T0 @X0 0 tf ]
 "64
 [; ;../event_consumerDualActionQueue.c: 64: static void consumer2QPowerUp(void);
 [v _consumer2QPowerUp `(v ~T0 @X0 0 sf ]
 "65
 [; ;../event_consumerDualActionQueue.c: 65: static Processed consumer2QProcessMessage(Message * m);
 [v _consumer2QProcessMessage `(E12732 ~T0 @X0 0 sf1`*S1526 ]
-[v F13108 `(v ~T0 @X0 0 tf ]
-[v F13109 `(v ~T0 @X0 0 tf ]
-[v F13110 `(v ~T0 @X0 0 tf ]
-[v F13111 `(uc ~T0 @X0 0 tf1`uc ]
+[v F13101 `(v ~T0 @X0 0 tf ]
+[v F13102 `(v ~T0 @X0 0 tf ]
+[v F13103 `(v ~T0 @X0 0 tf ]
+[v F13104 `(uc ~T0 @X0 0 tf1`uc ]
 "66
 [; ;../event_consumerDualActionQueue.c: 66: static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index);
 [v _consumer2QGetDiagnostic `(*S1529 ~T0 @X0 0 sf1`uc ]
-"91
-[; ;../event_consumerDualActionQueue.c: 91: ActionAndState normalQueueBuf[64];
-[c E12720 0 1 .. ]
-[n E12720 . EVENT_OFF EVENT_ON  ]
-"93 ../event_consumerDualActionQueue.h
-[; ;../event_consumerDualActionQueue.h: 93:     union {
-[u S1537 `uc 1 `uc -> -> 1 `i `ux ]
-[n S1537 . value bytes ]
-"91
-[; ;../event_consumerDualActionQueue.h: 91: typedef struct {
-[s S1536 `E12720 1 `S1537 1 ]
-[n S1536 . state a ]
-"97 ../event_consumerDualActionQueue.c
+"97
 [; ;../event_consumerDualActionQueue.c: 97: static Boolean expedited;
 [c E12700 0 1 .. ]
 [n E12700 Boolean FALSE TRUE  ]
@@ -70,21 +58,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "115
 [; ;../../VLCBlib_PIC\event_teach.h: 115: extern uint8_t evs[20];
 [v _evs `uc ~T0 @X0 -> 0 `x e ]
-"100 ../event_consumerDualActionQueue.h
-[; ;../event_consumerDualActionQueue.h: 100: extern Boolean pushTwoAction(ActionAndState a);
-[v _pushTwoAction `(E12700 ~T0 @X0 0 ef1`S1536 ]
+"92 ../event_consumerDualActionQueue.h
+[; ;../event_consumerDualActionQueue.h: 92: extern Boolean pushTwoAction(uint8_t a);
+[v _pushTwoAction `(E12700 ~T0 @X0 0 ef1`uc ]
 "115 ../../VLCBlib_PIC\nv.h
 [; ;../../VLCBlib_PIC\nv.h: 115: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
-"103 ../event_consumerDualActionQueue.h
-[; ;../event_consumerDualActionQueue.h: 103: extern void setExpeditedActions(void);
+"95 ../event_consumerDualActionQueue.h
+[; ;../event_consumerDualActionQueue.h: 95: extern void setExpeditedActions(void);
 [v _setExpeditedActions `(v ~T0 @X0 0 ef ]
-"102
-[; ;../event_consumerDualActionQueue.h: 102: extern void setNormalActions(void);
+"94
+[; ;../event_consumerDualActionQueue.h: 94: extern void setNormalActions(void);
 [v _setNormalActions `(v ~T0 @X0 0 ef ]
-"104
-[; ;../event_consumerDualActionQueue.h: 104: extern ActionAndState * peekTwoActionQueue(uint8_t index);
-[v _peekTwoActionQueue `(*S1536 ~T0 @X0 0 ef1`uc ]
+"96
+[; ;../event_consumerDualActionQueue.h: 96: extern uint8_t peekTwoActionQueue(uint8_t index);
+[v _peekTwoActionQueue `(uc ~T0 @X0 0 ef1`uc ]
 "112 ../../VLCBlib_PIC\event_teach.h
 [; ;../../VLCBlib_PIC\event_teach.h: 112: extern Boolean validStart(uint8_t index);
 [v _validStart `(E12700 ~T0 @X0 0 ef1`uc ]
@@ -1482,13 +1470,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 -> . `E12549 6 `uc
 -> -> 1 `i `uc
--> -> -> 0 `i `*v `*F13104
+-> -> -> 0 `i `*v `*F13097
 &U _consumer2QPowerUp
 &U _consumer2QProcessMessage
--> -> -> 0 `i `*v `*F13108
--> -> -> 0 `i `*v `*F13109
--> -> -> 0 `i `*v `*F13110
--> -> -> 0 `i `*v `*F13111
+-> -> -> 0 `i `*v `*F13101
+-> -> -> 0 `i `*v `*F13102
+-> -> -> 0 `i `*v `*F13103
+-> -> -> 0 `i `*v `*F13104
 &U _consumer2QGetDiagnostic
 ..
 ..
@@ -1500,8 +1488,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../event_consumerDualActionQueue.c: 90: uint8_t normalWriteIndex;
 [v _normalWriteIndex `uc ~T0 @X0 1 e ]
 "91
-[; ;../event_consumerDualActionQueue.c: 91: ActionAndState normalQueueBuf[64];
-[v _normalQueueBuf `S1536 ~T0 @X0 -> 64 `i e ]
+[; ;../event_consumerDualActionQueue.c: 91: uint8_t normalQueueBuf[64];
+[v _normalQueueBuf `uc ~T0 @X0 -> 64 `i e ]
 "93
 [; ;../event_consumerDualActionQueue.c: 93: uint8_t expeditedReadIndex;
 [v _expeditedReadIndex `uc ~T0 @X0 1 e ]
@@ -1509,8 +1497,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../event_consumerDualActionQueue.c: 94: uint8_t expeditedWriteIndex;
 [v _expeditedWriteIndex `uc ~T0 @X0 1 e ]
 "95
-[; ;../event_consumerDualActionQueue.c: 95: ActionAndState expeditedQueueBuf[8];
-[v _expeditedQueueBuf `S1536 ~T0 @X0 -> 8 `i e ]
+[; ;../event_consumerDualActionQueue.c: 95: uint8_t expeditedQueueBuf[8];
+[v _expeditedQueueBuf `uc ~T0 @X0 -> 8 `i e ]
 "97
 [; ;../event_consumerDualActionQueue.c: 97: static Boolean expedited;
 [v _expedited `E12700 ~T0 @X0 1 s ]
@@ -1537,7 +1525,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _expedited . `E12700 0 ]
 "106
 [; ;../event_consumerDualActionQueue.c: 106: }
-[e :UE 1552 ]
+[e :UE 1550 ]
 }
 "127
 [; ;../event_consumerDualActionQueue.c: 127: static Processed consumer2QProcessMessage(Message *m) {
@@ -1560,8 +1548,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../event_consumerDualActionQueue.c: 131:     uint8_t e;
 [v _e `uc ~T0 @X0 1 a ]
 "132
-[; ;../event_consumerDualActionQueue.c: 132:     ActionAndState action;
-[v _action `S1536 ~T0 @X0 1 a ]
+[; ;../event_consumerDualActionQueue.c: 132:     uint8_t action;
+[v _action `uc ~T0 @X0 1 a ]
 "133
 [; ;../event_consumerDualActionQueue.c: 133:     uint8_t masked_action;
 [v _masked_action `uc ~T0 @X0 1 a ]
@@ -1573,47 +1561,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _io `uc ~T0 @X0 1 a ]
 "137
 [; ;../event_consumerDualActionQueue.c: 137:     if (m->len < 5) return NOT_PROCESSED;
-[e $ ! < -> . *U _m 0 `i -> 5 `i 1554  ]
+[e $ ! < -> . *U _m 0 `i -> 5 `i 1552  ]
 [e ) . `E12732 0 ]
-[e $UE 1553  ]
-[e :U 1554 ]
+[e $UE 1551  ]
+[e :U 1552 ]
 "139
 [; ;../event_consumerDualActionQueue.c: 139:     tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
 [e = _tableIndex ( _findEvent (2 , -> + * -> -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `us `ui -> -> 256 `i `ui -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `ui `us -> + * -> -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `us `ui -> -> 256 `i `ui -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `ui `us ]
 "140
 [; ;../event_consumerDualActionQueue.c: 140:     if (tableIndex == 0xff) return NOT_PROCESSED;
-[e $ ! == -> _tableIndex `i -> 255 `i 1555  ]
+[e $ ! == -> _tableIndex `i -> 255 `i 1553  ]
 [e ) . `E12732 0 ]
-[e $UE 1553  ]
-[e :U 1555 ]
+[e $UE 1551  ]
+[e :U 1553 ]
 "142
 [; ;../event_consumerDualActionQueue.c: 142:     switch (m->opc) {
-[e $U 1557  ]
+[e $U 1555  ]
 {
 "143
 [; ;../event_consumerDualActionQueue.c: 143:         case OPC_ACON:
-[e :U 1558 ]
+[e :U 1556 ]
 "145
 [; ;../event_consumerDualActionQueue.c: 145:         case OPC_ACON1:
-[e :U 1559 ]
+[e :U 1557 ]
 "146
 [; ;../event_consumerDualActionQueue.c: 146:         case OPC_ACON2:
-[e :U 1560 ]
+[e :U 1558 ]
 "147
 [; ;../event_consumerDualActionQueue.c: 147:         case OPC_ACON3:
-[e :U 1561 ]
+[e :U 1559 ]
 "149
 [; ;../event_consumerDualActionQueue.c: 149:         case OPC_ASON:
-[e :U 1562 ]
+[e :U 1560 ]
 "151
 [; ;../event_consumerDualActionQueue.c: 151:         case OPC_ASON1:
-[e :U 1563 ]
+[e :U 1561 ]
 "152
 [; ;../event_consumerDualActionQueue.c: 152:         case OPC_ASON2:
-[e :U 1564 ]
+[e :U 1562 ]
 "153
 [; ;../event_consumerDualActionQueue.c: 153:         case OPC_ASON3:
-[e :U 1565 ]
+[e :U 1563 ]
 "155
 [; ;../event_consumerDualActionQueue.c: 155:             start = 1;
 [e = _start -> -> 1 `i `uc ]
@@ -1625,31 +1613,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _change -> -> 1 `i `c ]
 "158
 [; ;../event_consumerDualActionQueue.c: 158:             break;
-[e $U 1556  ]
+[e $U 1554  ]
 "159
 [; ;../event_consumerDualActionQueue.c: 159:         case OPC_ACOF:
-[e :U 1566 ]
+[e :U 1564 ]
 "161
 [; ;../event_consumerDualActionQueue.c: 161:         case OPC_ACOF1:
-[e :U 1567 ]
+[e :U 1565 ]
 "162
 [; ;../event_consumerDualActionQueue.c: 162:         case OPC_ACOF2:
-[e :U 1568 ]
+[e :U 1566 ]
 "163
 [; ;../event_consumerDualActionQueue.c: 163:         case OPC_ACOF3:
-[e :U 1569 ]
+[e :U 1567 ]
 "165
 [; ;../event_consumerDualActionQueue.c: 165:         case OPC_ASOF:
-[e :U 1570 ]
+[e :U 1568 ]
 "167
 [; ;../event_consumerDualActionQueue.c: 167:         case OPC_ASOF1:
-[e :U 1571 ]
+[e :U 1569 ]
 "168
 [; ;../event_consumerDualActionQueue.c: 168:         case OPC_ASOF2:
-[e :U 1572 ]
+[e :U 1570 ]
 "169
 [; ;../event_consumerDualActionQueue.c: 169:         case OPC_ASOF3:
-[e :U 1573 ]
+[e :U 1571 ]
 "171
 [; ;../event_consumerDualActionQueue.c: 171:             start = 20 -1;
 [e = _start -> - -> 20 `i -> 1 `i `uc ]
@@ -1661,46 +1649,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _change -> -U -> 1 `i `c ]
 "174
 [; ;../event_consumerDualActionQueue.c: 174:             break;
-[e $U 1556  ]
+[e $U 1554  ]
 "175
 [; ;../event_consumerDualActionQueue.c: 175:         default:
-[e :U 1574 ]
+[e :U 1572 ]
 "176
 [; ;../event_consumerDualActionQueue.c: 176:             return NOT_PROCESSED;
 [e ) . `E12732 0 ]
-[e $UE 1553  ]
+[e $UE 1551  ]
 "177
 [; ;../event_consumerDualActionQueue.c: 177:     }
 }
-[e $U 1556  ]
-[e :U 1557 ]
-[e [\ -> . *U _m 1 `ui , $ -> . `E12342 69 `ui 1558
- , $ -> . `E12342 90 `ui 1559
- , $ -> . `E12342 107 `ui 1560
- , $ -> . `E12342 126 `ui 1561
- , $ -> . `E12342 77 `ui 1562
- , $ -> . `E12342 97 `ui 1563
- , $ -> . `E12342 113 `ui 1564
- , $ -> . `E12342 134 `ui 1565
- , $ -> . `E12342 70 `ui 1566
- , $ -> . `E12342 91 `ui 1567
- , $ -> . `E12342 108 `ui 1568
- , $ -> . `E12342 127 `ui 1569
- , $ -> . `E12342 78 `ui 1570
- , $ -> . `E12342 98 `ui 1571
- , $ -> . `E12342 114 `ui 1572
- , $ -> . `E12342 135 `ui 1573
- 1574 ]
-[e :U 1556 ]
+[e $U 1554  ]
+[e :U 1555 ]
+[e [\ -> . *U _m 1 `ui , $ -> . `E12342 69 `ui 1556
+ , $ -> . `E12342 90 `ui 1557
+ , $ -> . `E12342 107 `ui 1558
+ , $ -> . `E12342 126 `ui 1559
+ , $ -> . `E12342 77 `ui 1560
+ , $ -> . `E12342 97 `ui 1561
+ , $ -> . `E12342 113 `ui 1562
+ , $ -> . `E12342 134 `ui 1563
+ , $ -> . `E12342 70 `ui 1564
+ , $ -> . `E12342 91 `ui 1565
+ , $ -> . `E12342 108 `ui 1566
+ , $ -> . `E12342 127 `ui 1567
+ , $ -> . `E12342 78 `ui 1568
+ , $ -> . `E12342 98 `ui 1569
+ , $ -> . `E12342 114 `ui 1570
+ , $ -> . `E12342 135 `ui 1571
+ 1572 ]
+[e :U 1554 ]
 "180
 [; ;../event_consumerDualActionQueue.c: 180:     tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
 [e = _tableIndex ( _findEvent (2 , -> + * -> -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `us `ui -> -> 256 `i `ui -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `ui `us -> + * -> -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `us `ui -> -> 256 `i `ui -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `ui `us ]
 "181
 [; ;../event_consumerDualActionQueue.c: 181:     if (tableIndex == 0xff) return NOT_PROCESSED;
-[e $ ! == -> _tableIndex `i -> 255 `i 1575  ]
+[e $ ! == -> _tableIndex `i -> 255 `i 1573  ]
 [e ) . `E12732 0 ]
-[e $UE 1553  ]
-[e :U 1575 ]
+[e $UE 1551  ]
+[e :U 1573 ]
 "183
 [; ;../event_consumerDualActionQueue.c: 183:     uint8_t opc = getEVs(tableIndex);
 [v _opc `uc ~T0 @X0 1 a ]
@@ -1710,896 +1698,890 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _opc -> . *U _m 1 `uc ]
 "191
 [; ;../event_consumerDualActionQueue.c: 191:     if ( ! (opc&0b00000001)) {
-[e $ ! ! != & -> _opc `i -> 1 `i -> 0 `i 1576  ]
+[e $ ! ! != & -> _opc `i -> 1 `i -> 0 `i 1574  ]
 {
-"192
-[; ;../event_consumerDualActionQueue.c: 192:         action.state = EVENT_ON;
-[e = . _action 0 . `E12720 1 ]
-"196
-[; ;../event_consumerDualActionQueue.c: 196:         for (e=1; e<20 ;e++) {
+"195
+[; ;../event_consumerDualActionQueue.c: 195:         for (e=1; e<20 ;e++) {
 {
 [e = _e -> -> 1 `i `uc ]
-[e $ < -> _e `i -> 20 `i 1577  ]
-[e $U 1578  ]
-[e :U 1577 ]
+[e $ < -> _e `i -> 20 `i 1575  ]
+[e $U 1576  ]
+[e :U 1575 ]
 {
+"196
+[; ;../event_consumerDualActionQueue.c: 196:             action = evs[e];
+[e = _action *U + &U _evs * -> _e `ux -> -> # *U &U _evs `ui `ux ]
 "197
-[; ;../event_consumerDualActionQueue.c: 197:             action.a.value = evs[e];
-[e = . . _action 1 0 *U + &U _evs * -> _e `ux -> -> # *U &U _evs `ui `ux ]
-"198
-[; ;../event_consumerDualActionQueue.c: 198:             if (action.a.value != 0) {
-[e $ ! != -> . . _action 1 0 `i -> 0 `i 1580  ]
+[; ;../event_consumerDualActionQueue.c: 197:             if (action != 0) {
+[e $ ! != -> _action `i -> 0 `i 1578  ]
 {
+"199
+[; ;../event_consumerDualActionQueue.c: 199:                 masked_action = action&0x7F;
+[e = _masked_action -> & -> _action `i -> 127 `i `uc ]
 "200
-[; ;../event_consumerDualActionQueue.c: 200:                 masked_action = action.a.value&0x7F;
-[e = _masked_action -> & -> . . _action 1 0 `i -> 127 `i `uc ]
-"201
-[; ;../event_consumerDualActionQueue.c: 201:                 if ((masked_action) <= (8 + 5 * 16)) {
-[e $ ! <= -> _masked_action `i + -> 8 `i * -> 5 `i -> 16 `i 1581  ]
+[; ;../event_consumerDualActionQueue.c: 200:                 if ((masked_action) <= (8 + 5 * 16)) {
+[e $ ! <= -> _masked_action `i + -> 8 `i * -> 5 `i -> 16 `i 1579  ]
+{
+"202
+[; ;../event_consumerDualActionQueue.c: 202:                     if ((masked_action) == 7) {
+[e $ ! == -> _masked_action `i -> 7 `i 1580  ]
 {
 "203
-[; ;../event_consumerDualActionQueue.c: 203:                     if ((masked_action) == 7) {
-[e $ ! == -> _masked_action `i -> 7 `i 1582  ]
-{
+[; ;../event_consumerDualActionQueue.c: 203:                         break;
+[e $U 1576  ]
 "204
-[; ;../event_consumerDualActionQueue.c: 204:                         break;
-[e $U 1578  ]
-"205
-[; ;../event_consumerDualActionQueue.c: 205:                     }
-}
-[e :U 1582 ]
-"206
-[; ;../event_consumerDualActionQueue.c: 206:                     if ((masked_action) < 8) {
-[e $ ! < -> _masked_action `i -> 8 `i 1583  ]
-{
-"207
-[; ;../event_consumerDualActionQueue.c: 207:                         pushTwoAction(action);
-[e ( _pushTwoAction (1 _action ]
-"208
-[; ;../event_consumerDualActionQueue.c: 208:                     } else {
-}
-[e $U 1584  ]
-[e :U 1583 ]
-{
-"209
-[; ;../event_consumerDualActionQueue.c: 209:                         io = (((masked_action)-8)/5);
-[e = _io -> / - -> _masked_action `i -> 8 `i -> 5 `i `uc ]
-"210
-[; ;../event_consumerDualActionQueue.c: 210:                         ca = (((masked_action)-8)%5);
-[e = _ca -> % - -> _masked_action `i -> 8 `i -> 5 `i `uc ]
-"211
-[; ;../event_consumerDualActionQueue.c: 211:                         switch (getNV((16 + 7*(io) + 0))) {
-[e $U 1586  ]
-{
-"212
-[; ;../event_consumerDualActionQueue.c: 212:                             case 1:
-[e :U 1587 ]
-"213
-[; ;../event_consumerDualActionQueue.c: 213:                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 128 `i -> 0 `i 1588  ]
-{
-"214
-[; ;../event_consumerDualActionQueue.c: 214:                                     setExpeditedActions();
-[e ( _setExpeditedActions ..  ]
-"215
-[; ;../event_consumerDualActionQueue.c: 215:                                 }
-}
-[e :U 1588 ]
-"217
-[; ;../event_consumerDualActionQueue.c: 217:                             case 2:
-[e :U 1589 ]
-"218
-[; ;../event_consumerDualActionQueue.c: 218:                             case 3:
-[e :U 1590 ]
-"219
-[; ;../event_consumerDualActionQueue.c: 219:                                 if (ca == 0) {
-[e $ ! == -> _ca `i -> 0 `i 1591  ]
-{
-"221
-[; ;../event_consumerDualActionQueue.c: 221:                                     action.a.value++;
-[e ++ . . _action 1 0 -> -> 1 `i `uc ]
-"222
-[; ;../event_consumerDualActionQueue.c: 222:                                 }
-}
-[e :U 1591 ]
-"223
-[; ;../event_consumerDualActionQueue.c: 223:                                 if (ca == 4) {
-[e $ ! == -> _ca `i -> 4 `i 1592  ]
-{
-"225
-[; ;../event_consumerDualActionQueue.c: 225:                                     action.a.value-=2;
-[e =- . . _action 1 0 -> -> 2 `i `uc ]
-"226
-[; ;../event_consumerDualActionQueue.c: 226:                                 }
-}
-[e :U 1592 ]
-"227
-[; ;../event_consumerDualActionQueue.c: 227:                                 pushTwoAction(action);
-[e ( _pushTwoAction (1 _action ]
-"228
-[; ;../event_consumerDualActionQueue.c: 228:                                 setNormalActions();
-[e ( _setNormalActions ..  ]
-"229
-[; ;../event_consumerDualActionQueue.c: 229:                                 break;
-[e $U 1585  ]
-"230
-[; ;../event_consumerDualActionQueue.c: 230:                             case 4:
-[e :U 1593 ]
-"231
-[; ;../event_consumerDualActionQueue.c: 231:                                 pushTwoAction(action);
-[e ( _pushTwoAction (1 _action ]
-"232
-[; ;../event_consumerDualActionQueue.c: 232:                                 break;
-[e $U 1585  ]
-"233
-[; ;../event_consumerDualActionQueue.c: 233:                             default:
-[e :U 1594 ]
-"235
-[; ;../event_consumerDualActionQueue.c: 235:                                 break;
-[e $U 1585  ]
-"236
-[; ;../event_consumerDualActionQueue.c: 236:                         }
-}
-[e $U 1585  ]
-[e :U 1586 ]
-[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 1 `i 1587
- , $ -> 2 `i 1589
- , $ -> 3 `i 1590
- , $ -> 4 `i 1593
- 1594 ]
-[e :U 1585 ]
-"237
-[; ;../event_consumerDualActionQueue.c: 237:                     }
-}
-[e :U 1584 ]
-"238
-[; ;../event_consumerDualActionQueue.c: 238:                 }
-}
-[e :U 1581 ]
-"239
-[; ;../event_consumerDualActionQueue.c: 239:             }
+[; ;../event_consumerDualActionQueue.c: 204:                     }
 }
 [e :U 1580 ]
-"240
-[; ;../event_consumerDualActionQueue.c: 240:         }
+"205
+[; ;../event_consumerDualActionQueue.c: 205:                     if ((masked_action) < 8) {
+[e $ ! < -> _masked_action `i -> 8 `i 1581  ]
+{
+"206
+[; ;../event_consumerDualActionQueue.c: 206:                         pushTwoAction(action);
+[e ( _pushTwoAction (1 _action ]
+"207
+[; ;../event_consumerDualActionQueue.c: 207:                     } else {
+}
+[e $U 1582  ]
+[e :U 1581 ]
+{
+"208
+[; ;../event_consumerDualActionQueue.c: 208:                         io = (((masked_action)-8)/5);
+[e = _io -> / - -> _masked_action `i -> 8 `i -> 5 `i `uc ]
+"209
+[; ;../event_consumerDualActionQueue.c: 209:                         ca = (((masked_action)-8)%5);
+[e = _ca -> % - -> _masked_action `i -> 8 `i -> 5 `i `uc ]
+"210
+[; ;../event_consumerDualActionQueue.c: 210:                         switch (getNV((16 + 7*(io) + 0))) {
+[e $U 1584  ]
+{
+"211
+[; ;../event_consumerDualActionQueue.c: 211:                             case 1:
+[e :U 1585 ]
+"212
+[; ;../event_consumerDualActionQueue.c: 212:                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 128 `i -> 0 `i 1586  ]
+{
+"213
+[; ;../event_consumerDualActionQueue.c: 213:                                     setExpeditedActions();
+[e ( _setExpeditedActions ..  ]
+"214
+[; ;../event_consumerDualActionQueue.c: 214:                                 }
+}
+[e :U 1586 ]
+"216
+[; ;../event_consumerDualActionQueue.c: 216:                             case 2:
+[e :U 1587 ]
+"217
+[; ;../event_consumerDualActionQueue.c: 217:                             case 3:
+[e :U 1588 ]
+"218
+[; ;../event_consumerDualActionQueue.c: 218:                                 if (ca == 0) {
+[e $ ! == -> _ca `i -> 0 `i 1589  ]
+{
+"220
+[; ;../event_consumerDualActionQueue.c: 220:                                     action++;
+[e ++ _action -> -> 1 `i `uc ]
+"221
+[; ;../event_consumerDualActionQueue.c: 221:                                 }
+}
+[e :U 1589 ]
+"222
+[; ;../event_consumerDualActionQueue.c: 222:                                 if (ca == 4) {
+[e $ ! == -> _ca `i -> 4 `i 1590  ]
+{
+"224
+[; ;../event_consumerDualActionQueue.c: 224:                                     action-=2;
+[e =- _action -> -> 2 `i `uc ]
+"225
+[; ;../event_consumerDualActionQueue.c: 225:                                 }
+}
+[e :U 1590 ]
+"226
+[; ;../event_consumerDualActionQueue.c: 226:                                 pushTwoAction(action);
+[e ( _pushTwoAction (1 _action ]
+"227
+[; ;../event_consumerDualActionQueue.c: 227:                                 setNormalActions();
+[e ( _setNormalActions ..  ]
+"228
+[; ;../event_consumerDualActionQueue.c: 228:                                 break;
+[e $U 1583  ]
+"229
+[; ;../event_consumerDualActionQueue.c: 229:                             case 4:
+[e :U 1591 ]
+"230
+[; ;../event_consumerDualActionQueue.c: 230:                                 pushTwoAction(action);
+[e ( _pushTwoAction (1 _action ]
+"231
+[; ;../event_consumerDualActionQueue.c: 231:                                 break;
+[e $U 1583  ]
+"232
+[; ;../event_consumerDualActionQueue.c: 232:                             default:
+[e :U 1592 ]
+"234
+[; ;../event_consumerDualActionQueue.c: 234:                                 break;
+[e $U 1583  ]
+"235
+[; ;../event_consumerDualActionQueue.c: 235:                         }
+}
+[e $U 1583  ]
+[e :U 1584 ]
+[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 1 `i 1585
+ , $ -> 2 `i 1587
+ , $ -> 3 `i 1588
+ , $ -> 4 `i 1591
+ 1592 ]
+[e :U 1583 ]
+"236
+[; ;../event_consumerDualActionQueue.c: 236:                     }
+}
+[e :U 1582 ]
+"237
+[; ;../event_consumerDualActionQueue.c: 237:                 }
+}
+[e :U 1579 ]
+"238
+[; ;../event_consumerDualActionQueue.c: 238:             }
+}
+[e :U 1578 ]
+"239
+[; ;../event_consumerDualActionQueue.c: 239:         }
 }
 [e ++ _e -> -> 1 `i `uc ]
-[e $ < -> _e `i -> 20 `i 1577  ]
-[e :U 1578 ]
-}
-"241
-[; ;../event_consumerDualActionQueue.c: 241:     } else {
-}
-[e $U 1595  ]
+[e $ < -> _e `i -> 20 `i 1575  ]
 [e :U 1576 ]
+}
+"240
+[; ;../event_consumerDualActionQueue.c: 240:     } else {
+}
+[e $U 1593  ]
+[e :U 1574 ]
 {
-"244
-[; ;../event_consumerDualActionQueue.c: 244:         uint8_t nextAction = evs[20 -1];
+"243
+[; ;../event_consumerDualActionQueue.c: 243:         uint8_t nextAction = evs[20 -1];
 [v _nextAction `uc ~T0 @X0 1 a ]
 [e = _nextAction *U + &U _evs * -> -> - -> 20 `i -> 1 `i `ui `ux -> -> # *U &U _evs `ui `ux ]
 "245
-[; ;../event_consumerDualActionQueue.c: 245:         action.state = EVENT_OFF;
-[e = . _action 0 . `E12720 0 ]
-"246
-[; ;../event_consumerDualActionQueue.c: 246:         for (e=20 -1; e>=1 ;e--) {
+[; ;../event_consumerDualActionQueue.c: 245:         for (e=20 -1; e>=1 ;e--) {
 {
 [e = _e -> - -> 20 `i -> 1 `i `uc ]
-[e $ >= -> _e `i -> 1 `i 1596  ]
-[e $U 1597  ]
-[e :U 1596 ]
+[e $ >= -> _e `i -> 1 `i 1594  ]
+[e $U 1595  ]
+[e :U 1594 ]
 {
-"247
-[; ;../event_consumerDualActionQueue.c: 247:             uint8_t nextSimultaneous;
+"246
+[; ;../event_consumerDualActionQueue.c: 246:             uint8_t nextSimultaneous;
 [v _nextSimultaneous `uc ~T0 @X0 1 a ]
-"248
-[; ;../event_consumerDualActionQueue.c: 248:             uint8_t firstAction = 0;
+"247
+[; ;../event_consumerDualActionQueue.c: 247:             uint8_t firstAction = 0;
 [v _firstAction `uc ~T0 @X0 1 a ]
 [e = _firstAction -> -> 0 `i `uc ]
-"249
-[; ;../event_consumerDualActionQueue.c: 249:             action.a.value = nextAction;
-[e = . . _action 1 0 _nextAction ]
+"248
+[; ;../event_consumerDualActionQueue.c: 248:             action = nextAction;
+[e = _action _nextAction ]
+"252
+[; ;../event_consumerDualActionQueue.c: 252:             if (e > 1) {
+[e $ ! > -> _e `i -> 1 `i 1597  ]
+{
 "253
-[; ;../event_consumerDualActionQueue.c: 253:             if (e > 1) {
-[e $ ! > -> _e `i -> 1 `i 1599  ]
-{
-"254
-[; ;../event_consumerDualActionQueue.c: 254:                 nextAction = evs[e-1];
+[; ;../event_consumerDualActionQueue.c: 253:                 nextAction = evs[e-1];
 [e = _nextAction *U + &U _evs * -> -> - -> _e `i -> 1 `i `ui `ux -> -> # *U &U _evs `ui `ux ]
-"255
-[; ;../event_consumerDualActionQueue.c: 255:                 nextSimultaneous = nextAction & 0x80;
+"254
+[; ;../event_consumerDualActionQueue.c: 254:                 nextSimultaneous = nextAction & 0x80;
 [e = _nextSimultaneous -> & -> _nextAction `i -> 128 `i `uc ]
-"256
-[; ;../event_consumerDualActionQueue.c: 256:             } else {
+"255
+[; ;../event_consumerDualActionQueue.c: 255:             } else {
 }
-[e $U 1600  ]
-[e :U 1599 ]
+[e $U 1598  ]
+[e :U 1597 ]
 {
-"257
-[; ;../event_consumerDualActionQueue.c: 257:                 nextSimultaneous = firstAction & 0x80;
+"256
+[; ;../event_consumerDualActionQueue.c: 256:                 nextSimultaneous = firstAction & 0x80;
 [e = _nextSimultaneous -> & -> _firstAction `i -> 128 `i `uc ]
-"258
-[; ;../event_consumerDualActionQueue.c: 258:             }
+"257
+[; ;../event_consumerDualActionQueue.c: 257:             }
 }
-[e :U 1600 ]
-"259
-[; ;../event_consumerDualActionQueue.c: 259:             if (action.a.value != 0) {
-[e $ ! != -> . . _action 1 0 `i -> 0 `i 1601  ]
+[e :U 1598 ]
+"258
+[; ;../event_consumerDualActionQueue.c: 258:             if (action != 0) {
+[e $ ! != -> _action `i -> 0 `i 1599  ]
+{
+"260
+[; ;../event_consumerDualActionQueue.c: 260:                 if (firstAction == 0) {
+[e $ ! == -> _firstAction `i -> 0 `i 1600  ]
 {
 "261
-[; ;../event_consumerDualActionQueue.c: 261:                 if (firstAction == 0) {
-[e $ ! == -> _firstAction `i -> 0 `i 1602  ]
-{
+[; ;../event_consumerDualActionQueue.c: 261:                     firstAction = action;
+[e = _firstAction _action ]
 "262
-[; ;../event_consumerDualActionQueue.c: 262:                     firstAction = action.a.value;
-[e = _firstAction . . _action 1 0 ]
-"263
-[; ;../event_consumerDualActionQueue.c: 263:                 }
+[; ;../event_consumerDualActionQueue.c: 262:                 }
 }
-[e :U 1602 ]
+[e :U 1600 ]
+"263
+[; ;../event_consumerDualActionQueue.c: 263:                 action &= 0x7F;
+[e =& _action -> -> 127 `i `uc ]
 "264
-[; ;../event_consumerDualActionQueue.c: 264:                 action.a.value &= 0x7F;
-[e =& . . _action 1 0 -> -> 127 `i `uc ]
-"265
-[; ;../event_consumerDualActionQueue.c: 265:                 if (action.a.value <= (8 + 5 * 16)) {
-[e $ ! <= -> . . _action 1 0 `i + -> 8 `i * -> 5 `i -> 16 `i 1603  ]
+[; ;../event_consumerDualActionQueue.c: 264:                 if (action <= (8 + 5 * 16)) {
+[e $ ! <= -> _action `i + -> 8 `i * -> 5 `i -> 16 `i 1601  ]
+{
+"266
+[; ;../event_consumerDualActionQueue.c: 266:                     if ((action) == 7) {
+[e $ ! == -> _action `i -> 7 `i 1602  ]
 {
 "267
-[; ;../event_consumerDualActionQueue.c: 267:                     if ((action.a.value) == 7) {
-[e $ ! == -> . . _action 1 0 `i -> 7 `i 1604  ]
-{
+[; ;../event_consumerDualActionQueue.c: 267:                         break;
+[e $U 1595  ]
 "268
-[; ;../event_consumerDualActionQueue.c: 268:                         break;
-[e $U 1597  ]
+[; ;../event_consumerDualActionQueue.c: 268:                     }
+}
+[e :U 1602 ]
 "269
-[; ;../event_consumerDualActionQueue.c: 269:                     }
+[; ;../event_consumerDualActionQueue.c: 269:                     if ((action < 8) && (action != 1)) {
+[e $ ! && < -> _action `i -> 8 `i != -> _action `i -> 1 `i 1603  ]
+{
+"270
+[; ;../event_consumerDualActionQueue.c: 270:                         action |= nextSimultaneous;
+[e =| _action -> _nextSimultaneous `uc ]
+"271
+[; ;../event_consumerDualActionQueue.c: 271:                         pushTwoAction(action);
+[e ( _pushTwoAction (1 _action ]
+"272
+[; ;../event_consumerDualActionQueue.c: 272:                     } else {
+}
+[e $U 1604  ]
+[e :U 1603 ]
+{
+"273
+[; ;../event_consumerDualActionQueue.c: 273:                         io = (((action)-8)/5);
+[e = _io -> / - -> _action `i -> 8 `i -> 5 `i `uc ]
+"274
+[; ;../event_consumerDualActionQueue.c: 274:                         ca = (((action)-8)%5);
+[e = _ca -> % - -> _action `i -> 8 `i -> 5 `i `uc ]
+"275
+[; ;../event_consumerDualActionQueue.c: 275:                         switch (getNV((16 + 7*(io) + 0))) {
+[e $U 1606  ]
+{
+"276
+[; ;../event_consumerDualActionQueue.c: 276:                             case 1:
+[e :U 1607 ]
+"277
+[; ;../event_consumerDualActionQueue.c: 277:                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 128 `i -> 0 `i 1608  ]
+{
+"278
+[; ;../event_consumerDualActionQueue.c: 278:                                     setExpeditedActions();
+[e ( _setExpeditedActions ..  ]
+"279
+[; ;../event_consumerDualActionQueue.c: 279:                                 }
+}
+[e :U 1608 ]
+"280
+[; ;../event_consumerDualActionQueue.c: 280:                                 if (ca == 3) {
+[e $ ! == -> _ca `i -> 3 `i 1609  ]
+{
+"282
+[; ;../event_consumerDualActionQueue.c: 282:                                     action--;
+[e -- _action -> -> 1 `i `uc ]
+"283
+[; ;../event_consumerDualActionQueue.c: 283:                                 }
+}
+[e :U 1609 ]
+"285
+[; ;../event_consumerDualActionQueue.c: 285:                             case 2:
+[e :U 1610 ]
+"286
+[; ;../event_consumerDualActionQueue.c: 286:                             case 3:
+[e :U 1611 ]
+"287
+[; ;../event_consumerDualActionQueue.c: 287:                                 if (ca == 0) {
+[e $ ! == -> _ca `i -> 0 `i 1612  ]
+{
+"289
+[; ;../event_consumerDualActionQueue.c: 289:                                     action += 2;
+[e =+ _action -> -> 2 `i `uc ]
+"290
+[; ;../event_consumerDualActionQueue.c: 290:                                 }
+}
+[e :U 1612 ]
+"291
+[; ;../event_consumerDualActionQueue.c: 291:                                 if (ca == 4) {
+[e $ ! == -> _ca `i -> 4 `i 1613  ]
+{
+"293
+[; ;../event_consumerDualActionQueue.c: 293:                                     action -= 3;
+[e =- _action -> -> 3 `i `uc ]
+"294
+[; ;../event_consumerDualActionQueue.c: 294:                                 }
+}
+[e :U 1613 ]
+"295
+[; ;../event_consumerDualActionQueue.c: 295:                                 action |= nextSimultaneous;
+[e =| _action -> _nextSimultaneous `uc ]
+"296
+[; ;../event_consumerDualActionQueue.c: 296:                                 pushTwoAction(action);
+[e ( _pushTwoAction (1 _action ]
+"297
+[; ;../event_consumerDualActionQueue.c: 297:                                 setNormalActions();
+[e ( _setNormalActions ..  ]
+"298
+[; ;../event_consumerDualActionQueue.c: 298:                                 break;
+[e $U 1605  ]
+"299
+[; ;../event_consumerDualActionQueue.c: 299:                             case 4:
+[e :U 1614 ]
+"300
+[; ;../event_consumerDualActionQueue.c: 300:                                 action |= nextSimultaneous;
+[e =| _action -> _nextSimultaneous `uc ]
+"301
+[; ;../event_consumerDualActionQueue.c: 301:                                 pushTwoAction(action);
+[e ( _pushTwoAction (1 _action ]
+"302
+[; ;../event_consumerDualActionQueue.c: 302:                                 setNormalActions();
+[e ( _setNormalActions ..  ]
+"303
+[; ;../event_consumerDualActionQueue.c: 303:                                 break;
+[e $U 1605  ]
+"304
+[; ;../event_consumerDualActionQueue.c: 304:                             default:
+[e :U 1615 ]
+"306
+[; ;../event_consumerDualActionQueue.c: 306:                                 break;
+[e $U 1605  ]
+"307
+[; ;../event_consumerDualActionQueue.c: 307:                         }
+}
+[e $U 1605  ]
+[e :U 1606 ]
+[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 1 `i 1607
+ , $ -> 2 `i 1610
+ , $ -> 3 `i 1611
+ , $ -> 4 `i 1614
+ 1615 ]
+[e :U 1605 ]
+"308
+[; ;../event_consumerDualActionQueue.c: 308:                     }
 }
 [e :U 1604 ]
-"270
-[; ;../event_consumerDualActionQueue.c: 270:                     if ((action.a.value < 8) && (action.a.value != 1)) {
-[e $ ! && < -> . . _action 1 0 `i -> 8 `i != -> . . _action 1 0 `i -> 1 `i 1605  ]
-{
-"271
-[; ;../event_consumerDualActionQueue.c: 271:                         action.a.value |= nextSimultaneous;
-[e =| . . _action 1 0 -> _nextSimultaneous `uc ]
-"272
-[; ;../event_consumerDualActionQueue.c: 272:                         pushTwoAction(action);
-[e ( _pushTwoAction (1 _action ]
-"273
-[; ;../event_consumerDualActionQueue.c: 273:                     } else {
-}
-[e $U 1606  ]
-[e :U 1605 ]
-{
-"274
-[; ;../event_consumerDualActionQueue.c: 274:                         io = (((action.a.value)-8)/5);
-[e = _io -> / - -> . . _action 1 0 `i -> 8 `i -> 5 `i `uc ]
-"275
-[; ;../event_consumerDualActionQueue.c: 275:                         ca = (((action.a.value)-8)%5);
-[e = _ca -> % - -> . . _action 1 0 `i -> 8 `i -> 5 `i `uc ]
-"276
-[; ;../event_consumerDualActionQueue.c: 276:                         switch (getNV((16 + 7*(io) + 0))) {
-[e $U 1608  ]
-{
-"277
-[; ;../event_consumerDualActionQueue.c: 277:                             case 1:
-[e :U 1609 ]
-"278
-[; ;../event_consumerDualActionQueue.c: 278:                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 128 `i -> 0 `i 1610  ]
-{
-"279
-[; ;../event_consumerDualActionQueue.c: 279:                                     setExpeditedActions();
-[e ( _setExpeditedActions ..  ]
-"280
-[; ;../event_consumerDualActionQueue.c: 280:                                 }
-}
-[e :U 1610 ]
-"281
-[; ;../event_consumerDualActionQueue.c: 281:                                 if (ca == 3) {
-[e $ ! == -> _ca `i -> 3 `i 1611  ]
-{
-"283
-[; ;../event_consumerDualActionQueue.c: 283:                                     action.a.value--;
-[e -- . . _action 1 0 -> -> 1 `i `uc ]
-"284
-[; ;../event_consumerDualActionQueue.c: 284:                                 }
-}
-[e :U 1611 ]
-"286
-[; ;../event_consumerDualActionQueue.c: 286:                             case 2:
-[e :U 1612 ]
-"287
-[; ;../event_consumerDualActionQueue.c: 287:                             case 3:
-[e :U 1613 ]
-"288
-[; ;../event_consumerDualActionQueue.c: 288:                                 if (ca == 0) {
-[e $ ! == -> _ca `i -> 0 `i 1614  ]
-{
-"290
-[; ;../event_consumerDualActionQueue.c: 290:                                     action.a.value += 2;
-[e =+ . . _action 1 0 -> -> 2 `i `uc ]
-"291
-[; ;../event_consumerDualActionQueue.c: 291:                                 }
-}
-[e :U 1614 ]
-"292
-[; ;../event_consumerDualActionQueue.c: 292:                                 if (ca == 4) {
-[e $ ! == -> _ca `i -> 4 `i 1615  ]
-{
-"294
-[; ;../event_consumerDualActionQueue.c: 294:                                     action.a.value -= 3;
-[e =- . . _action 1 0 -> -> 3 `i `uc ]
-"295
-[; ;../event_consumerDualActionQueue.c: 295:                                 }
-}
-[e :U 1615 ]
-"296
-[; ;../event_consumerDualActionQueue.c: 296:                                 action.a.value |= nextSimultaneous;
-[e =| . . _action 1 0 -> _nextSimultaneous `uc ]
-"297
-[; ;../event_consumerDualActionQueue.c: 297:                                 pushTwoAction(action);
-[e ( _pushTwoAction (1 _action ]
-"298
-[; ;../event_consumerDualActionQueue.c: 298:                                 setNormalActions();
-[e ( _setNormalActions ..  ]
-"299
-[; ;../event_consumerDualActionQueue.c: 299:                                 break;
-[e $U 1607  ]
-"300
-[; ;../event_consumerDualActionQueue.c: 300:                             case 4:
-[e :U 1616 ]
-"301
-[; ;../event_consumerDualActionQueue.c: 301:                                 action.a.value |= nextSimultaneous;
-[e =| . . _action 1 0 -> _nextSimultaneous `uc ]
-"302
-[; ;../event_consumerDualActionQueue.c: 302:                                 pushTwoAction(action);
-[e ( _pushTwoAction (1 _action ]
-"303
-[; ;../event_consumerDualActionQueue.c: 303:                                 setNormalActions();
-[e ( _setNormalActions ..  ]
-"304
-[; ;../event_consumerDualActionQueue.c: 304:                                 break;
-[e $U 1607  ]
-"305
-[; ;../event_consumerDualActionQueue.c: 305:                             default:
-[e :U 1617 ]
-"307
-[; ;../event_consumerDualActionQueue.c: 307:                                 break;
-[e $U 1607  ]
-"308
-[; ;../event_consumerDualActionQueue.c: 308:                         }
-}
-[e $U 1607  ]
-[e :U 1608 ]
-[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 1 `i 1609
- , $ -> 2 `i 1612
- , $ -> 3 `i 1613
- , $ -> 4 `i 1616
- 1617 ]
-[e :U 1607 ]
 "309
-[; ;../event_consumerDualActionQueue.c: 309:                     }
-}
-[e :U 1606 ]
-"310
-[; ;../event_consumerDualActionQueue.c: 310:                 }
-}
-[e :U 1603 ]
-"311
-[; ;../event_consumerDualActionQueue.c: 311:             }
+[; ;../event_consumerDualActionQueue.c: 309:                 }
 }
 [e :U 1601 ]
-"312
-[; ;../event_consumerDualActionQueue.c: 312:         }
+"310
+[; ;../event_consumerDualActionQueue.c: 310:             }
+}
+[e :U 1599 ]
+"311
+[; ;../event_consumerDualActionQueue.c: 311:         }
 }
 [e -- _e -> -> 1 `i `uc ]
-[e $ >= -> _e `i -> 1 `i 1596  ]
-[e :U 1597 ]
-}
-"313
-[; ;../event_consumerDualActionQueue.c: 313:     }
-}
+[e $ >= -> _e `i -> 1 `i 1594  ]
 [e :U 1595 ]
-"314
-[; ;../event_consumerDualActionQueue.c: 314:     consumer2QDiagnostics[0].asUint++;
-[e ++ . *U + &U _consumer2QDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _consumer2QDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"315
-[; ;../event_consumerDualActionQueue.c: 315:     return PROCESSED;
-[e ) . `E12732 1 ]
-[e $UE 1553  ]
-"316
-[; ;../event_consumerDualActionQueue.c: 316: }
-[e :UE 1553 ]
 }
-"324
-[; ;../event_consumerDualActionQueue.c: 324: static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
+"312
+[; ;../event_consumerDualActionQueue.c: 312:     }
+}
+[e :U 1593 ]
+"313
+[; ;../event_consumerDualActionQueue.c: 313:     consumer2QDiagnostics[0].asUint++;
+[e ++ . *U + &U _consumer2QDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _consumer2QDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+"314
+[; ;../event_consumerDualActionQueue.c: 314:     return PROCESSED;
+[e ) . `E12732 1 ]
+[e $UE 1551  ]
+"315
+[; ;../event_consumerDualActionQueue.c: 315: }
+[e :UE 1551 ]
+}
+"323
+[; ;../event_consumerDualActionQueue.c: 323: static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
 [v _consumer2QGetDiagnostic `(*S1529 ~T0 @X0 1 sf1`uc ]
 {
 [e :U _consumer2QGetDiagnostic ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"325
-[; ;../event_consumerDualActionQueue.c: 325:     if ((index<1) || (index>1)) {
-[e $ ! || < -> _index `i -> 1 `i > -> _index `i -> 1 `i 1619  ]
+"324
+[; ;../event_consumerDualActionQueue.c: 324:     if ((index<1) || (index>1)) {
+[e $ ! || < -> _index `i -> 1 `i > -> _index `i -> 1 `i 1617  ]
 {
-"326
-[; ;../event_consumerDualActionQueue.c: 326:         return ((void*)0);
+"325
+[; ;../event_consumerDualActionQueue.c: 325:         return ((void*)0);
 [e ) -> -> -> 0 `i `*v `*S1529 ]
-[e $UE 1618  ]
+[e $UE 1616  ]
+"326
+[; ;../event_consumerDualActionQueue.c: 326:     }
+}
+[e :U 1617 ]
 "327
-[; ;../event_consumerDualActionQueue.c: 327:     }
-}
-[e :U 1619 ]
-"328
-[; ;../event_consumerDualActionQueue.c: 328:     return &(consumer2QDiagnostics[index-1]);
+[; ;../event_consumerDualActionQueue.c: 327:     return &(consumer2QDiagnostics[index-1]);
 [e ) &U *U + &U _consumer2QDiagnostics * -> -> - -> _index `i -> 1 `i `ui `ux -> -> # *U &U _consumer2QDiagnostics `ui `ux ]
-[e $UE 1618  ]
-"329
-[; ;../event_consumerDualActionQueue.c: 329: }
-[e :UE 1618 ]
+[e $UE 1616  ]
+"328
+[; ;../event_consumerDualActionQueue.c: 328: }
+[e :UE 1616 ]
 }
-"336
-[; ;../event_consumerDualActionQueue.c: 336: Boolean pushTwoAction(ActionAndState a) {
-[v _pushTwoAction `(E12700 ~T0 @X0 1 ef1`S1536 ]
+"335
+[; ;../event_consumerDualActionQueue.c: 335: Boolean pushTwoAction(uint8_t a) {
+[v _pushTwoAction `(E12700 ~T0 @X0 1 ef1`uc ]
 {
 [e :U _pushTwoAction ]
-[v _a `S1536 ~T0 @X0 1 r1 ]
+[v _a `uc ~T0 @X0 1 r1 ]
 [f ]
-"337
-[; ;../event_consumerDualActionQueue.c: 337:     if (expedited) {
-[e $ ! != -> _expedited `ui -> -> 0 `i `ui 1621  ]
+"336
+[; ;../event_consumerDualActionQueue.c: 336:     if (expedited) {
+[e $ ! != -> _expedited `ui -> -> 0 `i `ui 1619  ]
 {
+"337
+[; ;../event_consumerDualActionQueue.c: 337:         if (((expeditedWriteIndex+1)&(8 -1)) == expeditedReadIndex)
+[e $ ! == & + -> _expeditedWriteIndex `i -> 1 `i - -> 8 `i -> 1 `i -> _expeditedReadIndex `i 1620  ]
 "338
-[; ;../event_consumerDualActionQueue.c: 338:         if (((expeditedWriteIndex+1)&(8 -1)) == expeditedReadIndex)
-[e $ ! == & + -> _expeditedWriteIndex `i -> 1 `i - -> 8 `i -> 1 `i -> _expeditedReadIndex `i 1622  ]
+[; ;../event_consumerDualActionQueue.c: 338:             return FALSE;
+[e ) . `E12700 0 ]
+[e $UE 1618  ]
+[e :U 1620 ]
 "339
-[; ;../event_consumerDualActionQueue.c: 339:             return FALSE;
-[e ) . `E12700 0 ]
-[e $UE 1620  ]
-[e :U 1622 ]
-"340
-[; ;../event_consumerDualActionQueue.c: 340:         expeditedQueueBuf[expeditedWriteIndex++] = a;
+[; ;../event_consumerDualActionQueue.c: 339:         expeditedQueueBuf[expeditedWriteIndex++] = a;
 [e = *U + &U _expeditedQueueBuf * -> ++ _expeditedWriteIndex -> -> 1 `i `uc `ux -> -> # *U &U _expeditedQueueBuf `ui `ux _a ]
-"341
-[; ;../event_consumerDualActionQueue.c: 341:         if (expeditedWriteIndex >= 8) expeditedWriteIndex = 0;
-[e $ ! >= -> _expeditedWriteIndex `i -> 8 `i 1623  ]
+"340
+[; ;../event_consumerDualActionQueue.c: 340:         if (expeditedWriteIndex >= 8) expeditedWriteIndex = 0;
+[e $ ! >= -> _expeditedWriteIndex `i -> 8 `i 1621  ]
 [e = _expeditedWriteIndex -> -> 0 `i `uc ]
-[e :U 1623 ]
-"342
-[; ;../event_consumerDualActionQueue.c: 342:         return TRUE;
-[e ) . `E12700 1 ]
-[e $UE 1620  ]
-"343
-[; ;../event_consumerDualActionQueue.c: 343:     }
-}
 [e :U 1621 ]
-"344
-[; ;../event_consumerDualActionQueue.c: 344:     if (((normalWriteIndex+1)&(64 -1)) == normalReadIndex)
-[e $ ! == & + -> _normalWriteIndex `i -> 1 `i - -> 64 `i -> 1 `i -> _normalReadIndex `i 1624  ]
-"345
-[; ;../event_consumerDualActionQueue.c: 345:         return FALSE;
-[e ) . `E12700 0 ]
-[e $UE 1620  ]
-[e :U 1624 ]
-"346
-[; ;../event_consumerDualActionQueue.c: 346:     normalQueueBuf[normalWriteIndex++] = a;
-[e = *U + &U _normalQueueBuf * -> ++ _normalWriteIndex -> -> 1 `i `uc `ux -> -> # *U &U _normalQueueBuf `ui `ux _a ]
-"347
-[; ;../event_consumerDualActionQueue.c: 347:     if (normalWriteIndex >= 64) normalWriteIndex = 0;
-[e $ ! >= -> _normalWriteIndex `i -> 64 `i 1625  ]
-[e = _normalWriteIndex -> -> 0 `i `uc ]
-[e :U 1625 ]
-"348
-[; ;../event_consumerDualActionQueue.c: 348:     return TRUE;
+"341
+[; ;../event_consumerDualActionQueue.c: 341:         return TRUE;
 [e ) . `E12700 1 ]
-[e $UE 1620  ]
-"349
-[; ;../event_consumerDualActionQueue.c: 349: }
-[e :UE 1620 ]
+[e $UE 1618  ]
+"342
+[; ;../event_consumerDualActionQueue.c: 342:     }
 }
-"357
-[; ;../event_consumerDualActionQueue.c: 357: ActionAndState * getTwoAction(void) {
-[v _getTwoAction `(*S1536 ~T0 @X0 1 ef ]
+[e :U 1619 ]
+"343
+[; ;../event_consumerDualActionQueue.c: 343:     if (((normalWriteIndex+1)&(64 -1)) == normalReadIndex)
+[e $ ! == & + -> _normalWriteIndex `i -> 1 `i - -> 64 `i -> 1 `i -> _normalReadIndex `i 1622  ]
+"344
+[; ;../event_consumerDualActionQueue.c: 344:         return FALSE;
+[e ) . `E12700 0 ]
+[e $UE 1618  ]
+[e :U 1622 ]
+"345
+[; ;../event_consumerDualActionQueue.c: 345:     normalQueueBuf[normalWriteIndex++] = a;
+[e = *U + &U _normalQueueBuf * -> ++ _normalWriteIndex -> -> 1 `i `uc `ux -> -> # *U &U _normalQueueBuf `ui `ux _a ]
+"346
+[; ;../event_consumerDualActionQueue.c: 346:     if (normalWriteIndex >= 64) normalWriteIndex = 0;
+[e $ ! >= -> _normalWriteIndex `i -> 64 `i 1623  ]
+[e = _normalWriteIndex -> -> 0 `i `uc ]
+[e :U 1623 ]
+"347
+[; ;../event_consumerDualActionQueue.c: 347:     return TRUE;
+[e ) . `E12700 1 ]
+[e $UE 1618  ]
+"348
+[; ;../event_consumerDualActionQueue.c: 348: }
+[e :UE 1618 ]
+}
+"356
+[; ;../event_consumerDualActionQueue.c: 356: uint8_t getTwoAction(void) {
+[v _getTwoAction `(uc ~T0 @X0 1 ef ]
 {
 [e :U _getTwoAction ]
 [f ]
-"358
-[; ;../event_consumerDualActionQueue.c: 358:  return peekTwoActionQueue(0);
+"357
+[; ;../event_consumerDualActionQueue.c: 357:  return peekTwoActionQueue(0);
 [e ) ( _peekTwoActionQueue (1 -> -> 0 `i `uc ]
-[e $UE 1626  ]
-"359
-[; ;../event_consumerDualActionQueue.c: 359: }
-[e :UE 1626 ]
+[e $UE 1624  ]
+"358
+[; ;../event_consumerDualActionQueue.c: 358: }
+[e :UE 1624 ]
 }
-"366
-[; ;../event_consumerDualActionQueue.c: 366: ActionAndState * popTwoAction(void) {
-[v _popTwoAction `(*S1536 ~T0 @X0 1 ef ]
+"365
+[; ;../event_consumerDualActionQueue.c: 365: uint8_t popTwoAction(void) {
+[v _popTwoAction `(uc ~T0 @X0 1 ef ]
 {
 [e :U _popTwoAction ]
 [f ]
-"367
-[; ;../event_consumerDualActionQueue.c: 367:     ActionAndState * ret;
-[v _ret `*S1536 ~T0 @X0 1 a ]
-"369
-[; ;../event_consumerDualActionQueue.c: 369:  if (expeditedWriteIndex != expeditedReadIndex) {
-[e $ ! != -> _expeditedWriteIndex `i -> _expeditedReadIndex `i 1628  ]
+"366
+[; ;../event_consumerDualActionQueue.c: 366:     uint8_t ret;
+[v _ret `uc ~T0 @X0 1 a ]
+"368
+[; ;../event_consumerDualActionQueue.c: 368:  if (expeditedWriteIndex != expeditedReadIndex) {
+[e $ ! != -> _expeditedWriteIndex `i -> _expeditedReadIndex `i 1626  ]
 {
+"370
+[; ;../event_consumerDualActionQueue.c: 370:         ret = expeditedQueueBuf[expeditedReadIndex++];
+[e = _ret *U + &U _expeditedQueueBuf * -> ++ _expeditedReadIndex -> -> 1 `i `uc `ux -> -> # *U &U _expeditedQueueBuf `ui `ux ]
 "371
-[; ;../event_consumerDualActionQueue.c: 371:         ret = &(expeditedQueueBuf[expeditedReadIndex++]);
-[e = _ret &U *U + &U _expeditedQueueBuf * -> ++ _expeditedReadIndex -> -> 1 `i `uc `ux -> -> # *U &U _expeditedQueueBuf `ui `ux ]
-"372
-[; ;../event_consumerDualActionQueue.c: 372:         if (expeditedReadIndex >= 8) expeditedReadIndex = 0;
-[e $ ! >= -> _expeditedReadIndex `i -> 8 `i 1629  ]
+[; ;../event_consumerDualActionQueue.c: 371:         if (expeditedReadIndex >= 8) expeditedReadIndex = 0;
+[e $ ! >= -> _expeditedReadIndex `i -> 8 `i 1627  ]
 [e = _expeditedReadIndex -> -> 0 `i `uc ]
-[e :U 1629 ]
-"373
-[; ;../event_consumerDualActionQueue.c: 373:         return ret;
+[e :U 1627 ]
+"372
+[; ;../event_consumerDualActionQueue.c: 372:         return ret;
 [e ) _ret ]
-[e $UE 1627  ]
-"374
-[; ;../event_consumerDualActionQueue.c: 374:     }
+[e $UE 1625  ]
+"373
+[; ;../event_consumerDualActionQueue.c: 373:     }
+}
+[e :U 1626 ]
+"375
+[; ;../event_consumerDualActionQueue.c: 375:  if (normalWriteIndex == normalReadIndex) {
+[e $ ! == -> _normalWriteIndex `i -> _normalReadIndex `i 1628  ]
+{
+"376
+[; ;../event_consumerDualActionQueue.c: 376:         return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1625  ]
+"377
+[; ;../event_consumerDualActionQueue.c: 377:     }
 }
 [e :U 1628 ]
-"376
-[; ;../event_consumerDualActionQueue.c: 376:  if (normalWriteIndex == normalReadIndex) {
-[e $ ! == -> _normalWriteIndex `i -> _normalReadIndex `i 1630  ]
-{
-"377
-[; ;../event_consumerDualActionQueue.c: 377:         return ((void*)0);
-[e ) -> -> -> 0 `i `*v `*S1536 ]
-[e $UE 1627  ]
 "378
-[; ;../event_consumerDualActionQueue.c: 378:     }
-}
-[e :U 1630 ]
+[; ;../event_consumerDualActionQueue.c: 378:  ret = normalQueueBuf[normalReadIndex++];
+[e = _ret *U + &U _normalQueueBuf * -> ++ _normalReadIndex -> -> 1 `i `uc `ux -> -> # *U &U _normalQueueBuf `ui `ux ]
 "379
-[; ;../event_consumerDualActionQueue.c: 379:  ret = &(normalQueueBuf[normalReadIndex++]);
-[e = _ret &U *U + &U _normalQueueBuf * -> ++ _normalReadIndex -> -> 1 `i `uc `ux -> -> # *U &U _normalQueueBuf `ui `ux ]
-"380
-[; ;../event_consumerDualActionQueue.c: 380:  if (normalReadIndex >= 64) normalReadIndex = 0;
-[e $ ! >= -> _normalReadIndex `i -> 64 `i 1631  ]
+[; ;../event_consumerDualActionQueue.c: 379:  if (normalReadIndex >= 64) normalReadIndex = 0;
+[e $ ! >= -> _normalReadIndex `i -> 64 `i 1629  ]
 [e = _normalReadIndex -> -> 0 `i `uc ]
-[e :U 1631 ]
-"381
-[; ;../event_consumerDualActionQueue.c: 381:  return ret;
+[e :U 1629 ]
+"380
+[; ;../event_consumerDualActionQueue.c: 380:  return ret;
 [e ) _ret ]
-[e $UE 1627  ]
-"382
-[; ;../event_consumerDualActionQueue.c: 382: }
-[e :UE 1627 ]
+[e $UE 1625  ]
+"381
+[; ;../event_consumerDualActionQueue.c: 381: }
+[e :UE 1625 ]
 }
-"387
-[; ;../event_consumerDualActionQueue.c: 387: void doneTwoAction(void) {
+"386
+[; ;../event_consumerDualActionQueue.c: 386: void doneTwoAction(void) {
 [v _doneTwoAction `(v ~T0 @X0 1 ef ]
 {
 [e :U _doneTwoAction ]
 [f ]
-"388
-[; ;../event_consumerDualActionQueue.c: 388:  popTwoAction();
+"387
+[; ;../event_consumerDualActionQueue.c: 387:  popTwoAction();
 [e ( _popTwoAction ..  ]
-"389
-[; ;../event_consumerDualActionQueue.c: 389: }
-[e :UE 1632 ]
+"388
+[; ;../event_consumerDualActionQueue.c: 388: }
+[e :UE 1630 ]
 }
-"396
-[; ;../event_consumerDualActionQueue.c: 396: ActionAndState * peekTwoActionQueue(uint8_t index) {
-[v _peekTwoActionQueue `(*S1536 ~T0 @X0 1 ef1`uc ]
+"395
+[; ;../event_consumerDualActionQueue.c: 395: uint8_t peekTwoActionQueue(uint8_t index) {
+[v _peekTwoActionQueue `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _peekTwoActionQueue ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"397
-[; ;../event_consumerDualActionQueue.c: 397:     uint8_t qty;
+"396
+[; ;../event_consumerDualActionQueue.c: 396:     uint8_t qty;
 [v _qty `uc ~T0 @X0 1 a ]
-"398
-[; ;../event_consumerDualActionQueue.c: 398:     qty = (expeditedWriteIndex - expeditedReadIndex) & (8 -1);
+"397
+[; ;../event_consumerDualActionQueue.c: 397:     qty = (expeditedWriteIndex - expeditedReadIndex) & (8 -1);
 [e = _qty -> & - -> _expeditedWriteIndex `i -> _expeditedReadIndex `i - -> 8 `i -> 1 `i `uc ]
+"398
+[; ;../event_consumerDualActionQueue.c: 398:     if (index < qty) {
+[e $ ! < -> _index `i -> _qty `i 1632  ]
+{
 "399
-[; ;../event_consumerDualActionQueue.c: 399:     if (index < qty) {
-[e $ ! < -> _index `i -> _qty `i 1634  ]
-{
+[; ;../event_consumerDualActionQueue.c: 399:         if (expeditedReadIndex == expeditedWriteIndex) return 0;
+[e $ ! == -> _expeditedReadIndex `i -> _expeditedWriteIndex `i 1633  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 1631  ]
+[e :U 1633 ]
 "400
-[; ;../event_consumerDualActionQueue.c: 400:         if (expeditedReadIndex == expeditedWriteIndex) return ((void*)0);
-[e $ ! == -> _expeditedReadIndex `i -> _expeditedWriteIndex `i 1635  ]
-[e ) -> -> -> 0 `i `*v `*S1536 ]
-[e $UE 1633  ]
-[e :U 1635 ]
-"401
-[; ;../event_consumerDualActionQueue.c: 401:         index += expeditedReadIndex;
+[; ;../event_consumerDualActionQueue.c: 400:         index += expeditedReadIndex;
 [e =+ _index -> _expeditedReadIndex `uc ]
-"402
-[; ;../event_consumerDualActionQueue.c: 402:         if (index >= 8) {
-[e $ ! >= -> _index `i -> 8 `i 1636  ]
+"401
+[; ;../event_consumerDualActionQueue.c: 401:         if (index >= 8) {
+[e $ ! >= -> _index `i -> 8 `i 1634  ]
 {
-"403
-[; ;../event_consumerDualActionQueue.c: 403:             index -= 8;
+"402
+[; ;../event_consumerDualActionQueue.c: 402:             index -= 8;
 [e =- _index -> -> 8 `i `uc ]
-"404
-[; ;../event_consumerDualActionQueue.c: 404:         }
-}
-[e :U 1636 ]
-"405
-[; ;../event_consumerDualActionQueue.c: 405:         if (index == expeditedWriteIndex) return ((void*)0);
-[e $ ! == -> _index `i -> _expeditedWriteIndex `i 1637  ]
-[e ) -> -> -> 0 `i `*v `*S1536 ]
-[e $UE 1633  ]
-[e :U 1637 ]
-"406
-[; ;../event_consumerDualActionQueue.c: 406:         return &(expeditedQueueBuf[index]);
-[e ) &U *U + &U _expeditedQueueBuf * -> _index `ux -> -> # *U &U _expeditedQueueBuf `ui `ux ]
-[e $UE 1633  ]
-"407
-[; ;../event_consumerDualActionQueue.c: 407:     }
+"403
+[; ;../event_consumerDualActionQueue.c: 403:         }
 }
 [e :U 1634 ]
-"408
-[; ;../event_consumerDualActionQueue.c: 408:     index -= qty;
-[e =- _index -> _qty `uc ]
-"409
-[; ;../event_consumerDualActionQueue.c: 409:     qty = (normalWriteIndex - normalReadIndex) & (64 -1);
-[e = _qty -> & - -> _normalWriteIndex `i -> _normalReadIndex `i - -> 64 `i -> 1 `i `uc ]
-"410
-[; ;../event_consumerDualActionQueue.c: 410:     if (index < qty) {
-[e $ ! < -> _index `i -> _qty `i 1638  ]
-{
-"411
-[; ;../event_consumerDualActionQueue.c: 411:         if (normalReadIndex == normalWriteIndex) return ((void*)0);
-[e $ ! == -> _normalReadIndex `i -> _normalWriteIndex `i 1639  ]
-[e ) -> -> -> 0 `i `*v `*S1536 ]
-[e $UE 1633  ]
-[e :U 1639 ]
-"412
-[; ;../event_consumerDualActionQueue.c: 412:         index += normalReadIndex;
-[e =+ _index -> _normalReadIndex `uc ]
-"413
-[; ;../event_consumerDualActionQueue.c: 413:         if (index >= 64) {
-[e $ ! >= -> _index `i -> 64 `i 1640  ]
-{
-"414
-[; ;../event_consumerDualActionQueue.c: 414:             index -= 64;
-[e =- _index -> -> 64 `i `uc ]
-"415
-[; ;../event_consumerDualActionQueue.c: 415:         }
+"404
+[; ;../event_consumerDualActionQueue.c: 404:         if (index == expeditedWriteIndex) return 0;
+[e $ ! == -> _index `i -> _expeditedWriteIndex `i 1635  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 1631  ]
+[e :U 1635 ]
+"405
+[; ;../event_consumerDualActionQueue.c: 405:         return expeditedQueueBuf[index];
+[e ) *U + &U _expeditedQueueBuf * -> _index `ux -> -> # *U &U _expeditedQueueBuf `ui `ux ]
+[e $UE 1631  ]
+"406
+[; ;../event_consumerDualActionQueue.c: 406:     }
 }
-[e :U 1640 ]
-"416
-[; ;../event_consumerDualActionQueue.c: 416:         if (index == normalWriteIndex) return ((void*)0);
-[e $ ! == -> _index `i -> _normalWriteIndex `i 1641  ]
-[e ) -> -> -> 0 `i `*v `*S1536 ]
-[e $UE 1633  ]
-[e :U 1641 ]
-"417
-[; ;../event_consumerDualActionQueue.c: 417:         return &(normalQueueBuf[index]);
-[e ) &U *U + &U _normalQueueBuf * -> _index `ux -> -> # *U &U _normalQueueBuf `ui `ux ]
-[e $UE 1633  ]
-"418
-[; ;../event_consumerDualActionQueue.c: 418:     }
+[e :U 1632 ]
+"407
+[; ;../event_consumerDualActionQueue.c: 407:     index -= qty;
+[e =- _index -> _qty `uc ]
+"408
+[; ;../event_consumerDualActionQueue.c: 408:     qty = (normalWriteIndex - normalReadIndex) & (64 -1);
+[e = _qty -> & - -> _normalWriteIndex `i -> _normalReadIndex `i - -> 64 `i -> 1 `i `uc ]
+"409
+[; ;../event_consumerDualActionQueue.c: 409:     if (index < qty) {
+[e $ ! < -> _index `i -> _qty `i 1636  ]
+{
+"410
+[; ;../event_consumerDualActionQueue.c: 410:         if (normalReadIndex == normalWriteIndex) return 0;
+[e $ ! == -> _normalReadIndex `i -> _normalWriteIndex `i 1637  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 1631  ]
+[e :U 1637 ]
+"411
+[; ;../event_consumerDualActionQueue.c: 411:         index += normalReadIndex;
+[e =+ _index -> _normalReadIndex `uc ]
+"412
+[; ;../event_consumerDualActionQueue.c: 412:         if (index >= 64) {
+[e $ ! >= -> _index `i -> 64 `i 1638  ]
+{
+"413
+[; ;../event_consumerDualActionQueue.c: 413:             index -= 64;
+[e =- _index -> -> 64 `i `uc ]
+"414
+[; ;../event_consumerDualActionQueue.c: 414:         }
 }
 [e :U 1638 ]
-"419
-[; ;../event_consumerDualActionQueue.c: 419:     return ((void*)0);
-[e ) -> -> -> 0 `i `*v `*S1536 ]
-[e $UE 1633  ]
-"420
-[; ;../event_consumerDualActionQueue.c: 420: }
-[e :UE 1633 ]
+"415
+[; ;../event_consumerDualActionQueue.c: 415:         if (index == normalWriteIndex) return 0;
+[e $ ! == -> _index `i -> _normalWriteIndex `i 1639  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 1631  ]
+[e :U 1639 ]
+"416
+[; ;../event_consumerDualActionQueue.c: 416:         return normalQueueBuf[index];
+[e ) *U + &U _normalQueueBuf * -> _index `ux -> -> # *U &U _normalQueueBuf `ui `ux ]
+[e $UE 1631  ]
+"417
+[; ;../event_consumerDualActionQueue.c: 417:     }
 }
-"426
-[; ;../event_consumerDualActionQueue.c: 426: void deleteTwoActionQueue(uint8_t index) {
+[e :U 1636 ]
+"418
+[; ;../event_consumerDualActionQueue.c: 418:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1631  ]
+"419
+[; ;../event_consumerDualActionQueue.c: 419: }
+[e :UE 1631 ]
+}
+"425
+[; ;../event_consumerDualActionQueue.c: 425: void deleteTwoActionQueue(uint8_t index) {
 [v _deleteTwoActionQueue `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _deleteTwoActionQueue ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"427
-[; ;../event_consumerDualActionQueue.c: 427:     uint8_t qty;
+"426
+[; ;../event_consumerDualActionQueue.c: 426:     uint8_t qty;
 [v _qty `uc ~T0 @X0 1 a ]
-"428
-[; ;../event_consumerDualActionQueue.c: 428:     qty = (expeditedWriteIndex - expeditedReadIndex) & (8 -1);
+"427
+[; ;../event_consumerDualActionQueue.c: 427:     qty = (expeditedWriteIndex - expeditedReadIndex) & (8 -1);
 [e = _qty -> & - -> _expeditedWriteIndex `i -> _expeditedReadIndex `i - -> 8 `i -> 1 `i `uc ]
+"428
+[; ;../event_consumerDualActionQueue.c: 428:     if (index < qty) {
+[e $ ! < -> _index `i -> _qty `i 1641  ]
+{
 "429
-[; ;../event_consumerDualActionQueue.c: 429:     if (index < qty) {
-[e $ ! < -> _index `i -> _qty `i 1643  ]
-{
-"430
-[; ;../event_consumerDualActionQueue.c: 430:         index += expeditedReadIndex;
+[; ;../event_consumerDualActionQueue.c: 429:         index += expeditedReadIndex;
 [e =+ _index -> _expeditedReadIndex `uc ]
+"430
+[; ;../event_consumerDualActionQueue.c: 430:         if (index >= 8) {
+[e $ ! >= -> _index `i -> 8 `i 1642  ]
+{
 "431
-[; ;../event_consumerDualActionQueue.c: 431:         if (index >= 8) {
-[e $ ! >= -> _index `i -> 8 `i 1644  ]
-{
-"432
-[; ;../event_consumerDualActionQueue.c: 432:             index -= 8;
+[; ;../event_consumerDualActionQueue.c: 431:             index -= 8;
 [e =- _index -> -> 8 `i `uc ]
+"432
+[; ;../event_consumerDualActionQueue.c: 432:         }
+}
+[e :U 1642 ]
 "433
-[; ;../event_consumerDualActionQueue.c: 433:         }
-}
-[e :U 1644 ]
-"434
-[; ;../event_consumerDualActionQueue.c: 434:         if (index == expeditedWriteIndex) return;
-[e $ ! == -> _index `i -> _expeditedWriteIndex `i 1645  ]
-[e $UE 1642  ]
-[e :U 1645 ]
-"435
-[; ;../event_consumerDualActionQueue.c: 435:         expeditedQueueBuf[index].a.value = 0;
-[e = . . *U + &U _expeditedQueueBuf * -> _index `ux -> -> # *U &U _expeditedQueueBuf `ui `ux 1 0 -> -> 0 `i `uc ]
-"436
-[; ;../event_consumerDualActionQueue.c: 436:         return;
-[e $UE 1642  ]
-"437
-[; ;../event_consumerDualActionQueue.c: 437:     }
-}
+[; ;../event_consumerDualActionQueue.c: 433:         if (index == expeditedWriteIndex) return;
+[e $ ! == -> _index `i -> _expeditedWriteIndex `i 1643  ]
+[e $UE 1640  ]
 [e :U 1643 ]
-"438
-[; ;../event_consumerDualActionQueue.c: 438:     index -= qty;
-[e =- _index -> _qty `uc ]
-"439
-[; ;../event_consumerDualActionQueue.c: 439:     qty = (normalWriteIndex - normalReadIndex) & (64 -1);
-[e = _qty -> & - -> _normalWriteIndex `i -> _normalReadIndex `i - -> 64 `i -> 1 `i `uc ]
-"440
-[; ;../event_consumerDualActionQueue.c: 440:     if (index < qty) {
-[e $ ! < -> _index `i -> _qty `i 1646  ]
-{
-"441
-[; ;../event_consumerDualActionQueue.c: 441:         if (normalReadIndex == normalWriteIndex) return;
-[e $ ! == -> _normalReadIndex `i -> _normalWriteIndex `i 1647  ]
-[e $UE 1642  ]
-[e :U 1647 ]
-"442
-[; ;../event_consumerDualActionQueue.c: 442:         index += normalReadIndex;
-[e =+ _index -> _normalReadIndex `uc ]
-"443
-[; ;../event_consumerDualActionQueue.c: 443:         if (index >= 64) {
-[e $ ! >= -> _index `i -> 64 `i 1648  ]
-{
-"444
-[; ;../event_consumerDualActionQueue.c: 444:             index -= 64;
-[e =- _index -> -> 64 `i `uc ]
-"445
-[; ;../event_consumerDualActionQueue.c: 445:         }
+"434
+[; ;../event_consumerDualActionQueue.c: 434:         expeditedQueueBuf[index] = 0;
+[e = *U + &U _expeditedQueueBuf * -> _index `ux -> -> # *U &U _expeditedQueueBuf `ui `ux -> -> 0 `i `uc ]
+"435
+[; ;../event_consumerDualActionQueue.c: 435:         return;
+[e $UE 1640  ]
+"436
+[; ;../event_consumerDualActionQueue.c: 436:     }
 }
-[e :U 1648 ]
-"446
-[; ;../event_consumerDualActionQueue.c: 446:         if (index == normalWriteIndex) return;
-[e $ ! == -> _index `i -> _normalWriteIndex `i 1649  ]
-[e $UE 1642  ]
-[e :U 1649 ]
-"447
-[; ;../event_consumerDualActionQueue.c: 447:         normalQueueBuf[index].a.value = 0;
-[e = . . *U + &U _normalQueueBuf * -> _index `ux -> -> # *U &U _normalQueueBuf `ui `ux 1 0 -> -> 0 `i `uc ]
-"448
-[; ;../event_consumerDualActionQueue.c: 448:         return;
-[e $UE 1642  ]
-"449
-[; ;../event_consumerDualActionQueue.c: 449:     }
+[e :U 1641 ]
+"437
+[; ;../event_consumerDualActionQueue.c: 437:     index -= qty;
+[e =- _index -> _qty `uc ]
+"438
+[; ;../event_consumerDualActionQueue.c: 438:     qty = (normalWriteIndex - normalReadIndex) & (64 -1);
+[e = _qty -> & - -> _normalWriteIndex `i -> _normalReadIndex `i - -> 64 `i -> 1 `i `uc ]
+"439
+[; ;../event_consumerDualActionQueue.c: 439:     if (index < qty) {
+[e $ ! < -> _index `i -> _qty `i 1644  ]
+{
+"440
+[; ;../event_consumerDualActionQueue.c: 440:         if (normalReadIndex == normalWriteIndex) return;
+[e $ ! == -> _normalReadIndex `i -> _normalWriteIndex `i 1645  ]
+[e $UE 1640  ]
+[e :U 1645 ]
+"441
+[; ;../event_consumerDualActionQueue.c: 441:         index += normalReadIndex;
+[e =+ _index -> _normalReadIndex `uc ]
+"442
+[; ;../event_consumerDualActionQueue.c: 442:         if (index >= 64) {
+[e $ ! >= -> _index `i -> 64 `i 1646  ]
+{
+"443
+[; ;../event_consumerDualActionQueue.c: 443:             index -= 64;
+[e =- _index -> -> 64 `i `uc ]
+"444
+[; ;../event_consumerDualActionQueue.c: 444:         }
 }
 [e :U 1646 ]
-"450
-[; ;../event_consumerDualActionQueue.c: 450: }
-[e :UE 1642 ]
+"445
+[; ;../event_consumerDualActionQueue.c: 445:         if (index == normalWriteIndex) return;
+[e $ ! == -> _index `i -> _normalWriteIndex `i 1647  ]
+[e $UE 1640  ]
+[e :U 1647 ]
+"446
+[; ;../event_consumerDualActionQueue.c: 446:         normalQueueBuf[index] = 0;
+[e = *U + &U _normalQueueBuf * -> _index `ux -> -> # *U &U _normalQueueBuf `ui `ux -> -> 0 `i `uc ]
+"447
+[; ;../event_consumerDualActionQueue.c: 447:         return;
+[e $UE 1640  ]
+"448
+[; ;../event_consumerDualActionQueue.c: 448:     }
 }
-"455
-[; ;../event_consumerDualActionQueue.c: 455: void setExpeditedActions(void) {
+[e :U 1644 ]
+"449
+[; ;../event_consumerDualActionQueue.c: 449: }
+[e :UE 1640 ]
+}
+"454
+[; ;../event_consumerDualActionQueue.c: 454: void setExpeditedActions(void) {
 [v _setExpeditedActions `(v ~T0 @X0 1 ef ]
 {
 [e :U _setExpeditedActions ]
 [f ]
-"456
-[; ;../event_consumerDualActionQueue.c: 456:     expedited = TRUE;
+"455
+[; ;../event_consumerDualActionQueue.c: 455:     expedited = TRUE;
 [e = _expedited . `E12700 1 ]
-"457
-[; ;../event_consumerDualActionQueue.c: 457: }
-[e :UE 1650 ]
+"456
+[; ;../event_consumerDualActionQueue.c: 456: }
+[e :UE 1648 ]
 }
-"462
-[; ;../event_consumerDualActionQueue.c: 462: void setNormalActions(void) {
+"461
+[; ;../event_consumerDualActionQueue.c: 461: void setNormalActions(void) {
 [v _setNormalActions `(v ~T0 @X0 1 ef ]
 {
 [e :U _setNormalActions ]
 [f ]
-"463
-[; ;../event_consumerDualActionQueue.c: 463:     expedited = FALSE;
+"462
+[; ;../event_consumerDualActionQueue.c: 462:     expedited = FALSE;
 [e = _expedited . `E12700 0 ]
-"464
-[; ;../event_consumerDualActionQueue.c: 464: }
-[e :UE 1651 ]
+"463
+[; ;../event_consumerDualActionQueue.c: 463: }
+[e :UE 1649 ]
 }
-"471
-[; ;../event_consumerDualActionQueue.c: 471: void deleteActionRange(uint8_t action, uint8_t number) {
+"470
+[; ;../event_consumerDualActionQueue.c: 470: void deleteActionRange(uint8_t action, uint8_t number) {
 [v _deleteActionRange `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _deleteActionRange ]
 [v _action `uc ~T0 @X0 1 r1 ]
 [v _number `uc ~T0 @X0 1 r2 ]
 [f ]
-"472
-[; ;../event_consumerDualActionQueue.c: 472:     uint8_t tableIndex;
+"471
+[; ;../event_consumerDualActionQueue.c: 471:     uint8_t tableIndex;
 [v _tableIndex `uc ~T0 @X0 1 a ]
-"473
-[; ;../event_consumerDualActionQueue.c: 473:     for (tableIndex=0; tableIndex < 255; tableIndex++) {
+"472
+[; ;../event_consumerDualActionQueue.c: 472:     for (tableIndex=0; tableIndex < 255; tableIndex++) {
 {
 [e = _tableIndex -> -> 0 `i `uc ]
-[e $ < -> _tableIndex `i -> 255 `i 1653  ]
-[e $U 1654  ]
-[e :U 1653 ]
+[e $ < -> _tableIndex `i -> 255 `i 1651  ]
+[e $U 1652  ]
+[e :U 1651 ]
+{
+"473
+[; ;../event_consumerDualActionQueue.c: 473:         if (validStart(tableIndex)) {
+[e $ ! != -> ( _validStart (1 _tableIndex `ui -> -> 0 `i `ui 1654  ]
 {
 "474
-[; ;../event_consumerDualActionQueue.c: 474:         if (validStart(tableIndex)) {
-[e $ ! != -> ( _validStart (1 _tableIndex `ui -> -> 0 `i `ui 1656  ]
-{
-"475
-[; ;../event_consumerDualActionQueue.c: 475:             Boolean updated = FALSE;
+[; ;../event_consumerDualActionQueue.c: 474:             Boolean updated = FALSE;
 [v _updated `E12700 ~T0 @X0 1 a ]
 [e = _updated . `E12700 0 ]
-"476
-[; ;../event_consumerDualActionQueue.c: 476:             uint8_t e;
+"475
+[; ;../event_consumerDualActionQueue.c: 475:             uint8_t e;
 [v _e `uc ~T0 @X0 1 a ]
-"477
-[; ;../event_consumerDualActionQueue.c: 477:             if (getEVs(tableIndex)) {
-[e $ ! != -> ( _getEVs (1 _tableIndex `i -> 0 `i 1657  ]
+"476
+[; ;../event_consumerDualActionQueue.c: 476:             if (getEVs(tableIndex)) {
+[e $ ! != -> ( _getEVs (1 _tableIndex `i -> 0 `i 1655  ]
 {
+"477
+[; ;../event_consumerDualActionQueue.c: 477:                 return;
+[e $UE 1650  ]
 "478
-[; ;../event_consumerDualActionQueue.c: 478:                 return;
-[e $UE 1652  ]
-"479
-[; ;../event_consumerDualActionQueue.c: 479:             }
+[; ;../event_consumerDualActionQueue.c: 478:             }
 }
-[e :U 1657 ]
-"481
-[; ;../event_consumerDualActionQueue.c: 481:             for (e=1; e<20; e++) {
+[e :U 1655 ]
+"480
+[; ;../event_consumerDualActionQueue.c: 480:             for (e=1; e<20; e++) {
 {
 [e = _e -> -> 1 `i `uc ]
-[e $ < -> _e `i -> 20 `i 1658  ]
-[e $U 1659  ]
-[e :U 1658 ]
+[e $ < -> _e `i -> 20 `i 1656  ]
+[e $U 1657  ]
+[e :U 1656 ]
+{
+"481
+[; ;../event_consumerDualActionQueue.c: 481:                 if ((evs[e] >= action) && (evs[e] < action+number)) {
+[e $ ! && >= -> *U + &U _evs * -> _e `ux -> -> # *U &U _evs `ui `ux `i -> _action `i < -> *U + &U _evs * -> _e `ux -> -> # *U &U _evs `ui `ux `i + -> _action `i -> _number `i 1659  ]
 {
 "482
-[; ;../event_consumerDualActionQueue.c: 482:                 if ((evs[e] >= action) && (evs[e] < action+number)) {
-[e $ ! && >= -> *U + &U _evs * -> _e `ux -> -> # *U &U _evs `ui `ux `i -> _action `i < -> *U + &U _evs * -> _e `ux -> -> # *U &U _evs `ui `ux `i + -> _action `i -> _number `i 1661  ]
-{
-"483
-[; ;../event_consumerDualActionQueue.c: 483:                     writeEv(tableIndex, e, 0);
+[; ;../event_consumerDualActionQueue.c: 482:                     writeEv(tableIndex, e, 0);
 [e ( _writeEv (3 , , _tableIndex _e -> -> 0 `i `uc ]
-"484
-[; ;../event_consumerDualActionQueue.c: 484:                     updated = TRUE;
+"483
+[; ;../event_consumerDualActionQueue.c: 483:                     updated = TRUE;
 [e = _updated . `E12700 1 ]
-"485
-[; ;../event_consumerDualActionQueue.c: 485:                 }
+"484
+[; ;../event_consumerDualActionQueue.c: 484:                 }
 }
-[e :U 1661 ]
-"486
-[; ;../event_consumerDualActionQueue.c: 486:             }
+[e :U 1659 ]
+"485
+[; ;../event_consumerDualActionQueue.c: 485:             }
 }
 [e ++ _e -> -> 1 `i `uc ]
-[e $ < -> _e `i -> 20 `i 1658  ]
-[e :U 1659 ]
+[e $ < -> _e `i -> 20 `i 1656  ]
+[e :U 1657 ]
 }
-"487
-[; ;../event_consumerDualActionQueue.c: 487:             if (updated) {
-[e $ ! != -> _updated `ui -> -> 0 `i `ui 1662  ]
+"486
+[; ;../event_consumerDualActionQueue.c: 486:             if (updated) {
+[e $ ! != -> _updated `ui -> -> 0 `i `ui 1660  ]
 {
-"488
-[; ;../event_consumerDualActionQueue.c: 488:                 checkRemoveTableEntry(tableIndex);
+"487
+[; ;../event_consumerDualActionQueue.c: 487:                 checkRemoveTableEntry(tableIndex);
 [e ( _checkRemoveTableEntry (1 _tableIndex ]
+"488
+[; ;../event_consumerDualActionQueue.c: 488:             }
+}
+[e :U 1660 ]
 "489
-[; ;../event_consumerDualActionQueue.c: 489:             }
+[; ;../event_consumerDualActionQueue.c: 489:         }
 }
-[e :U 1662 ]
+[e :U 1654 ]
 "490
-[; ;../event_consumerDualActionQueue.c: 490:         }
-}
-[e :U 1656 ]
-"491
-[; ;../event_consumerDualActionQueue.c: 491:     }
+[; ;../event_consumerDualActionQueue.c: 490:     }
 }
 [e ++ _tableIndex -> -> 1 `i `uc ]
-[e $ < -> _tableIndex `i -> 255 `i 1653  ]
-[e :U 1654 ]
+[e $ < -> _tableIndex `i -> 255 `i 1651  ]
+[e :U 1652 ]
 }
-"492
-[; ;../event_consumerDualActionQueue.c: 492:     flushFlashBlock();
+"491
+[; ;../event_consumerDualActionQueue.c: 491:     flushFlashBlock();
 [e ( _flushFlashBlock ..  ]
-"496
-[; ;../event_consumerDualActionQueue.c: 496: }
-[e :UE 1652 ]
+"495
+[; ;../event_consumerDualActionQueue.c: 495: }
+[e :UE 1650 ]
 }

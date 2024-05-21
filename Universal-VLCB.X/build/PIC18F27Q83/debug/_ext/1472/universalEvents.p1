@@ -36,7 +36,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC\event_producer.h: 87: extern void deleteHappeningRange(Happening happening, uint8_t number);
 [v _deleteHappeningRange `(v ~T0 @X0 0 ef2`uc`uc ]
 "205 ../universalEvents.c
-[; ;../universalEvents.c: 205:     ActionAndState * action = getTwoAction();
+[; ;../universalEvents.c: 205:     uint8_t action = getTwoAction();
 [c E22894 0 1 .. ]
 [n E22894 . EVENT_OFF EVENT_ON  ]
 "99 ../../VLCBlib_PIC\event_consumer.h
@@ -75,8 +75,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../actionQueue.h: 46: extern ActionAndState * peekTwoActionQueue(uint8_t index);
 [v _peekTwoActionQueue `(*S3235 ~T0 @X0 0 ef1`uc ]
 "46 ../outputs.h
-[; ;../outputs.h: 46: extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
-[v _completed `(E22874 ~T0 @X0 0 ef3`uc`*S3235`uc ]
+[; ;../outputs.h: 46: extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
+[v _completed `(E22874 ~T0 @X0 0 ef3`uc`uc`uc ]
 "47 ../actionQueue.h
 [; ;../actionQueue.h: 47: extern void deleteTwoActionQueue(uint8_t index);
 [v _deleteTwoActionQueue `(v ~T0 @X0 0 ef1`uc ]
@@ -3818,9 +3818,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../universalEvents.c: 204:     uint8_t type;
 [v _type `uc ~T0 @X0 1 a ]
 "205
-[; ;../universalEvents.c: 205:     ActionAndState * action = getTwoAction();
-[v _action `*S3235 ~T0 @X0 1 a ]
-[e = _action ( _getTwoAction ..  ]
+[; ;../universalEvents.c: 205:     uint8_t action = getTwoAction();
+[v _action `uc ~T0 @X0 1 a ]
+[e = _action -> ( _getTwoAction ..  `uc ]
 "206
 [; ;../universalEvents.c: 206:     uint8_t ioAction;
 [v _ioAction `uc ~T0 @X0 1 a ]
@@ -3831,8 +3831,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../universalEvents.c: 208:     uint8_t peekItem;
 [v _peekItem `uc ~T0 @X0 1 a ]
 "211
-[; ;../universalEvents.c: 211:     if (action->a.value == 0) {
-[e $ ! == -> . . *U _action 1 0 `i -> 0 `i 3264  ]
+[; ;../universalEvents.c: 211:     if (action == 0) {
+[e $ ! == -> _action `i -> 0 `i 3264  ]
 {
 "212
 [; ;../universalEvents.c: 212:         doneTwoAction();
@@ -3845,8 +3845,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 3264 ]
 "216
-[; ;../universalEvents.c: 216:     if (action->a.value == 1) {
-[e $ ! == -> . . *U _action 1 0 `i -> 1 `i 3265  ]
+[; ;../universalEvents.c: 216:     if (action == 1) {
+[e $ ! == -> _action `i -> 1 `i 3265  ]
 {
 "218
 [; ;../universalEvents.c: 218:         doSOD();
@@ -3862,8 +3862,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 3265 ]
 "222
-[; ;../universalEvents.c: 222:     if (action->a.value == 2) {
-[e $ ! == -> . . *U _action 1 0 `i -> 2 `i 3266  ]
+[; ;../universalEvents.c: 222:     if (action == 2) {
+[e $ ! == -> _action `i -> 2 `i 3266  ]
 {
 "223
 [; ;../universalEvents.c: 223:         doWait(5);
@@ -3876,8 +3876,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 3266 ]
 "226
-[; ;../universalEvents.c: 226:     if (action->a.value == 3) {
-[e $ ! == -> . . *U _action 1 0 `i -> 3 `i 3267  ]
+[; ;../universalEvents.c: 226:     if (action == 3) {
+[e $ ! == -> _action `i -> 3 `i 3267  ]
 {
 "227
 [; ;../universalEvents.c: 227:         doWait(10);
@@ -3890,8 +3890,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 3267 ]
 "230
-[; ;../universalEvents.c: 230:     if (action->a.value == 4) {
-[e $ ! == -> . . *U _action 1 0 `i -> 4 `i 3268  ]
+[; ;../universalEvents.c: 230:     if (action == 4) {
+[e $ ! == -> _action `i -> 4 `i 3268  ]
 {
 "231
 [; ;../universalEvents.c: 231:         doWait(20);
@@ -3904,8 +3904,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 3268 ]
 "234
-[; ;../universalEvents.c: 234:     if (action->a.value == 5) {
-[e $ ! == -> . . *U _action 1 0 `i -> 5 `i 3269  ]
+[; ;../universalEvents.c: 234:     if (action == 5) {
+[e $ ! == -> _action `i -> 5 `i 3269  ]
 {
 "235
 [; ;../universalEvents.c: 235:         doWait(50);
@@ -3918,11 +3918,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 3269 ]
 "238
-[; ;../universalEvents.c: 238:     simultaneous = action->a.value & 0x80;
-[e = _simultaneous -> & -> . . *U _action 1 0 `i -> 128 `i `uc ]
+[; ;../universalEvents.c: 238:     simultaneous = action & 0x80;
+[e = _simultaneous -> & -> _action `i -> 128 `i `uc ]
 "239
-[; ;../universalEvents.c: 239:     ioAction = action->a.value&0x7F;
-[e = _ioAction -> & -> . . *U _action 1 0 `i -> 127 `i `uc ]
+[; ;../universalEvents.c: 239:     ioAction = action&0x7F;
+[e = _ioAction -> & -> _action `i -> 127 `i `uc ]
 "240
 [; ;../universalEvents.c: 240:     if ((ioAction >= 8) && (ioAction < (8 + 5 * 16))) {
 [e $ ! && >= -> _ioAction `i -> 8 `i < -> _ioAction `i + -> 8 `i * -> 5 `i -> 16 `i 3270  ]
@@ -3959,8 +3959,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3273 ]
 {
 "255
-[; ;../universalEvents.c: 255:             ActionAndState * nextAction;
-[v _nextAction `*S3235 ~T0 @X0 1 a ]
+[; ;../universalEvents.c: 255:             uint8_t nextAction;
+[v _nextAction `uc ~T0 @X0 1 a ]
 "256
 [; ;../universalEvents.c: 256:             uint8_t nextIo;
 [v _nextIo `uc ~T0 @X0 1 a ]
@@ -3969,21 +3969,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _nextType `uc ~T0 @X0 1 a ]
 "259
 [; ;../universalEvents.c: 259:             nextAction = peekTwoActionQueue(peekItem);
-[e = _nextAction ( _peekTwoActionQueue (1 _peekItem ]
+[e = _nextAction -> ( _peekTwoActionQueue (1 _peekItem `uc ]
 "261
-[; ;../universalEvents.c: 261:             if (nextAction->a.value == 0) break;
-[e $ ! == -> . . *U _nextAction 1 0 `i -> 0 `i 3275  ]
+[; ;../universalEvents.c: 261:             if (nextAction == 0) break;
+[e $ ! == -> _nextAction `i -> 0 `i 3275  ]
 [e $U 3274  ]
 [e :U 3275 ]
 "262
-[; ;../universalEvents.c: 262:             simultaneous = nextAction->a.value & 0x80;
-[e = _simultaneous -> & -> . . *U _nextAction 1 0 `i -> 128 `i `uc ]
+[; ;../universalEvents.c: 262:             simultaneous = nextAction & 0x80;
+[e = _simultaneous -> & -> _nextAction `i -> 128 `i `uc ]
 "263
-[; ;../universalEvents.c: 263:             nextAction->a.value &= 0x7F;
-[e =& . . *U _nextAction 1 0 -> -> 127 `i `uc ]
+[; ;../universalEvents.c: 263:             nextAction &= 0x7F;
+[e =& _nextAction -> -> 127 `i `uc ]
 "264
-[; ;../universalEvents.c: 264:             nextIo = (((nextAction->a.value)-8)/5);
-[e = _nextIo -> / - -> . . *U _nextAction 1 0 `i -> 8 `i -> 5 `i `uc ]
+[; ;../universalEvents.c: 264:             nextIo = (((nextAction)-8)/5);
+[e = _nextIo -> / - -> _nextAction `i -> 8 `i -> 5 `i `uc ]
 "265
 [; ;../universalEvents.c: 265:             if (nextIo == io) {
 [e $ ! == -> _nextIo `i -> _io `i 3276  ]
@@ -3999,15 +3999,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../universalEvents.c: 271:             nextType = (uint8_t)getNV((16 + 7*(io) + 0));
 [e = _nextType -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `uc ]
 "272
-[; ;../universalEvents.c: 272:             setOutputState(nextIo, nextAction->a.value, nextType);
-[e ( _setOutputState (3 , , _nextIo . . *U _nextAction 1 0 _nextType ]
+[; ;../universalEvents.c: 272:             setOutputState(nextIo, nextAction, nextType);
+[e ( _setOutputState (3 , , _nextIo _nextAction _nextType ]
 "273
-[; ;../universalEvents.c: 273:             if (needsStarting(nextIo, nextAction->a.value, nextType)) {
-[e $ ! != -> ( _needsStarting (3 , , _nextIo . . *U _nextAction 1 0 _nextType `ui -> -> 0 `i `ui 3277  ]
+[; ;../universalEvents.c: 273:             if (needsStarting(nextIo, nextAction, nextType)) {
+[e $ ! != -> ( _needsStarting (3 , , _nextIo _nextAction _nextType `ui -> -> 0 `i `ui 3277  ]
 {
 "274
-[; ;../universalEvents.c: 274:                 startOutput(nextIo, nextAction->a.value, nextType);
-[e ( _startOutput (3 , , _nextIo . . *U _nextAction 1 0 _nextType ]
+[; ;../universalEvents.c: 274:                 startOutput(nextIo, nextAction, nextType);
+[e ( _startOutput (3 , , _nextIo _nextAction _nextType ]
 "275
 [; ;../universalEvents.c: 275:             }
 }

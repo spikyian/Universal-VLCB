@@ -52,18 +52,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ../servo.h
 [; ;../servo.h: 47: extern ServoState servoState[16];
 [v _servoState `E13100 ~T0 @X0 -> 0 `x e ]
-"201 ../outputs.c
-[; ;../outputs.c: 201: Boolean completed(uint8_t io, ActionAndState * action, uint8_t type) {
-[c E12720 0 1 .. ]
-[n E12720 . EVENT_OFF EVENT_ON  ]
-"99 ../../VLCBlib_PIC\event_consumer.h
-[; ;../../VLCBlib_PIC\event_consumer.h: 99:     union {
-[u S1552 `uc 1 `uc -> -> 1 `i `ux ]
-[n S1552 . value bytes ]
-"96
-[; ;../../VLCBlib_PIC\event_consumer.h: 96: typedef struct {
-[s S1551 `E12720 1 `S1552 1 ]
-[n S1551 . state a ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1728,12 +1716,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 1581 ]
 }
 "201
-[; ;../outputs.c: 201: Boolean completed(uint8_t io, ActionAndState * action, uint8_t type) {
-[v _completed `(E12700 ~T0 @X0 1 ef3`uc`*S1551`uc ]
+[; ;../outputs.c: 201: Boolean completed(uint8_t io, uint8_t action, uint8_t type) {
+[v _completed `(E12700 ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _completed ]
 [v _io `uc ~T0 @X0 1 r1 ]
-[v _action `*S1551 ~T0 @X0 1 r2 ]
+[v _action `uc ~T0 @X0 1 r2 ]
 [v _type `uc ~T0 @X0 1 r3 ]
 [f ]
 "202

@@ -21376,17 +21376,7 @@ extern TickValue pbTimer;
 # 62 "../universalEvents.c" 2
 
 
-# 1 "../actionQueue.h" 1
-# 41 "../actionQueue.h"
-extern void actionQueueInit(void);
-extern Boolean pushTwoAction(ActionAndState a);
-extern ActionAndState * getTwoAction(void);
-extern void doneTwoAction(void);
-extern ActionAndState * popTwoAction(void);
-extern ActionAndState * peekTwoActionQueue(uint8_t index);
-extern void deleteTwoActionQueue(uint8_t index);
-extern void setExpeditedActions(void);
-extern void setNormalActions(void);
+# 1 "../event_consumerDualActionQueue.h" 1
 # 64 "../universalEvents.c" 2
 
 # 1 "../universalNv.h" 1
@@ -21485,7 +21475,7 @@ extern Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type);
 extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
-extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
+extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
 # 68 "../universalEvents.c" 2
 
 
@@ -21499,6 +21489,10 @@ void doWait(uint16_t duration);
 Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off);
 Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
 void doSOD(void);
+uint8_t getTwoAction(void);
+void doneTwoAction(void);
+uint8_t peekTwoActionQueue(uint8_t index);
+void deleteTwoActionQueue(uint8_t index);
 
 extern uint8_t outputState[16];
 extern uint8_t currentPos[16];
@@ -21558,14 +21552,14 @@ void defaultEvents(uint8_t io, uint8_t type) {
         case 4:
 
             break;
-# 151 "../universalEvents.c"
+# 155 "../universalEvents.c"
     }
 }
-# 166 "../universalEvents.c"
+# 170 "../universalEvents.c"
 uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
     if ((evNum == 0) && (evVal != 0))
     {
-# 181 "../universalEvents.c"
+# 185 "../universalEvents.c"
     }
     return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
 }
@@ -21590,90 +21584,94 @@ void clearEvents(uint8_t io) {
 void processActions(void) {
     uint8_t io;
     uint8_t type;
-    ActionAndState * action = getTwoAction();
+    uint8_t action;
     uint8_t ioAction;
     uint8_t simultaneous;
     uint8_t peekItem;
 
+    while (1) {
+        action = getTwoAction();
 
-    if (action->a.value == 0) {
-        doneTwoAction();
-        return;
-    }
-
-    if (action->a.value == 1) {
-
-        doSOD();
-        doneTwoAction();
-        return;
-    }
-    if (action->a.value == 2) {
-        doWait(5);
-        return;
-    }
-    if (action->a.value == 3) {
-        doWait(10);
-        return;
-    }
-    if (action->a.value == 4) {
-        doWait(20);
-        return;
-    }
-    if (action->a.value == 5) {
-        doWait(50);
-        return;
-    }
-    simultaneous = action->a.value & 0x80;
-    ioAction = action->a.value&0x7F;
-    if ((ioAction >= 8) && (ioAction < (8 + 5 * 16))) {
-
-
-        io = (((ioAction)-8)/5);
-        ioAction = (((ioAction)-8)%5);
-        type = (uint8_t)getNV((16 + 7*(io) + 0));
-
-
-        setOutputState(io, ioAction, type);
-        if (needsStarting(io, ioAction, type)) {
-            startOutput(io, ioAction, type);
+        if (action == 0) {
+            doneTwoAction();
+            return;
         }
 
-        peekItem = 1;
-        while (simultaneous) {
-            ActionAndState * nextAction;
-            uint8_t nextIo;
-            uint8_t nextType;
+        if (action == 1) {
 
-            nextAction = peekTwoActionQueue(peekItem);
-
-            if (nextAction->a.value == 0) break;
-            simultaneous = nextAction->a.value & 0x80;
-            nextAction->a.value &= 0x7F;
-            nextIo = (((nextAction->a.value)-8)/5);
-            if (nextIo == io) {
-
-
-
-                break;
-            }
-            nextType = (uint8_t)getNV((16 + 7*(io) + 0));
-            setOutputState(nextIo, nextAction->a.value, nextType);
-            if (needsStarting(nextIo, nextAction->a.value, nextType)) {
-                startOutput(nextIo, nextAction->a.value, nextType);
-            }
-            if (completed(nextIo, nextAction, nextType)) {
-                deleteTwoActionQueue(peekItem);
-            }
-            peekItem++;
+            doSOD();
+            doneTwoAction();
+            return;
         }
+        if (action == 2) {
+            doWait(5);
+            return;
+        }
+        if (action == 3) {
+            doWait(10);
+            return;
+        }
+        if (action == 4) {
+            doWait(20);
+            return;
+        }
+        if (action == 5) {
+            doWait(50);
+            return;
+        }
+        simultaneous = action & 0x80;
+        ioAction = action&0x7F;
+        if ((ioAction >= 8) && (ioAction < (8 + 5 * 16))) {
 
-        if (completed(io, action, type)) {
+
+            io = (((ioAction)-8)/5);
+            ioAction = (((ioAction)-8)%5);
+            type = (uint8_t)getNV((16 + 7*(io) + 0));
+
+
+            setOutputState(io, ioAction, type);
+            if (needsStarting(io, ioAction, type)) {
+                startOutput(io, ioAction, type);
+            }
+
+            peekItem = 1;
+            while (simultaneous) {
+                uint8_t nextAction;
+                uint8_t nextIo;
+                uint8_t nextType;
+
+                nextAction = peekTwoActionQueue(peekItem);
+
+                if (nextAction == 0) break;
+                simultaneous = nextAction & 0x80;
+                nextAction &= 0x7F;
+                nextIo = (((nextAction)-8)/5);
+                if (nextIo == io) {
+
+
+
+                    break;
+                }
+                nextAction = (((nextAction)-8)%5);
+                nextType = (uint8_t)getNV((16 + 7*(io) + 0));
+                setOutputState(nextIo, nextAction, nextType);
+                if (needsStarting(nextIo, nextAction, nextType)) {
+                    startOutput(nextIo, nextAction, nextType);
+                }
+                if (completed(nextIo, nextAction, nextType)) {
+                    deleteTwoActionQueue(peekItem);
+                }
+                peekItem++;
+            }
+
+            if (completed(io, action, type)) {
+                doneTwoAction();
+            }
+        } else {
+
+
             doneTwoAction();
         }
-    } else {
-
-
-        doneTwoAction();
     }
 }
 
@@ -21696,7 +21694,7 @@ void doWait(uint16_t duration) {
         }
     }
 }
-# 322 "../universalEvents.c"
+# 330 "../universalEvents.c"
 Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
  EventState state_to_send = invert?!state:state;
  if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
@@ -21705,11 +21703,11 @@ Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean
   return TRUE;
  }
 }
-# 338 "../universalEvents.c"
+# 346 "../universalEvents.c"
 Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
     return sendProducedEvent(action, invert?!state:state);
 }
-# 498 "../universalEvents.c"
+# 506 "../universalEvents.c"
 void doSOD(void) {
     uint8_t midway;
     uint8_t state;
@@ -21751,7 +21749,7 @@ void doSOD(void) {
                     while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+3), currentPos[io] == getNV((16 + 7*(io) + 6)), event_inverted));
                 }
                 break;
-# 548 "../universalEvents.c"
+# 556 "../universalEvents.c"
         }
     }
 }

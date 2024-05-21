@@ -39111,16 +39111,16 @@ static Processed mnsProcessMessage(Message * m) {
                 }
                 return PROCESSED;
             case OPC_RQNP:
-                sendMessage7(OPC_PARAMS, 250, 'a',
+                sendMessage7(OPC_PARAMS, MANU_MERG, 'e',
                         MTYP_CANMIO, 255, 20,
-                        127, 1);
+                        127, 3);
                 return PROCESSED;
             case OPC_RQMN:
                 sendMessage7(OPC_NAME, name[0], name[1], name[2], name[3],
                         name[4], name[5], name[6]);
                 return PROCESSED;
             case OPC_QNN:
-                sendMessage5(OPC_PNN, 0,0, 250, MTYP_CANMIO, getParameterFlags());
+                sendMessage5(OPC_PNN, 0,0, MANU_MERG, MTYP_CANMIO, getParameterFlags());
                 return PROCESSED;
             default:
                 break;
@@ -39130,7 +39130,7 @@ static Processed mnsProcessMessage(Message * m) {
 
     switch (m->opc) {
         case OPC_QNN:
-            sendMessage5(OPC_PNN, nn.bytes.hi,nn.bytes.lo, 250, MTYP_CANMIO, getParameterFlags());
+            sendMessage5(OPC_PNN, nn.bytes.hi,nn.bytes.lo, MANU_MERG, MTYP_CANMIO, getParameterFlags());
             return PROCESSED;
         case OPC_MODE:
             if (m->len < 4) {
@@ -39480,9 +39480,9 @@ static uint8_t getParameter(uint8_t idx) {
     case PAR_NUM:
         return 20;
     case PAR_MANU:
-        return 250;
+        return MANU_MERG;
     case PAR_MINVER:
-        return 'a';
+        return 'e';
     case PAR_MTYP:
         return MTYP_CANMIO;
     case PAR_EVTNUM:
@@ -39491,9 +39491,8 @@ static uint8_t getParameter(uint8_t idx) {
         return 20;
     case PAR_NVNUM:
         return 127;
-        break;
     case PAR_MAJVER:
-        i=1;
+        return 3;
     case PAR_FLAGS:
         return getParameterFlags();
     case PAR_CPUID:
@@ -39511,17 +39510,11 @@ static uint8_t getParameter(uint8_t idx) {
         return 0x00;
     case (PAR_LOAD+3):
         return 0x00;
+
     case PAR_CPUMID:
-
-        return 0;
-
-
-
+        return *(const uint8_t*)0x3FFFFC;
     case PAR_CPUMID+1:
-
-        return 0;
-
-
+        return *(const uint8_t*)0x3FFFFD;
 
     case PAR_CPUMID+2:
         return *(const uint8_t*)0x3FFFFE;
@@ -39530,12 +39523,12 @@ static uint8_t getParameter(uint8_t idx) {
     case PAR_CPUMAN:
         return CPUM_MICROCHIP;
     case PAR_BETA:
-        return 1;
+        return 3;
     default:
         return 0;
     }
 }
-# 828 "../../VLCBlib_PIC/mns.c"
+# 821 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (step >= 9) {
         return TIMED_RESPONSE_RESULT_FINISHED;
@@ -39545,7 +39538,7 @@ TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceI
 
     return TIMED_RESPONSE_RESULT_NEXT;
 }
-# 845 "../../VLCBlib_PIC/mns.c"
+# 838 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (services[serviceIndex]->getDiagnostic == ((void*)0)) {
         return TIMED_RESPONSE_RESULT_FINISHED;
@@ -39559,7 +39552,7 @@ TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceInd
     sendMessage6(OPC_DGN, nn.bytes.hi, nn.bytes.lo, serviceIndex+1, step+1, d->asBytes.hi, d->asBytes.lo);
     return TIMED_RESPONSE_RESULT_NEXT;
 }
-# 866 "../../VLCBlib_PIC/mns.c"
+# 859 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRrqnpnCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (step >= 20) {
         return TIMED_RESPONSE_RESULT_FINISHED;

@@ -198,7 +198,7 @@ Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
  * Indicates if the action has been completed.
  * @return true if completed
  */
-Boolean completed(uint8_t io, ActionAndState * action, uint8_t type) {
+Boolean completed(uint8_t io, Action action, uint8_t type) {
     switch(type) {
         case TYPE_INPUT:
             // this should never happen

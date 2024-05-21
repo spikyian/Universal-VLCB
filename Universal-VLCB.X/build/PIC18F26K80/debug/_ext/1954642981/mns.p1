@@ -209,26 +209,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "257
 [; ;../../VLCBlib_PIC/ticktime.h: 257: extern volatile uint8_t timerExtension2;
 [v _timerExtension2 `Vuc ~T0 @X0 0 e ]
-"743 ../../VLCBlib_PIC/mns.c
-[; ;../../VLCBlib_PIC/mns.c: 743:             showStatus(STATUS_UNINITIALISED);
+"745 ../../VLCBlib_PIC/mns.c
+[; ;../../VLCBlib_PIC/mns.c: 745:             showStatus(STATUS_UNINITIALISED);
 [c E12897 0 1 2 3 4 5 6 7 8 9 10 11 12 .. ]
 [n E12897 StatusDisplay STATUS_OFF STATUS_UNINITIALISED STATUS_SETUP STATUS_NORMAL STATUS_RESET_WARNING STATUS_LEARN STATUS_BOOT STATUS_MESSAGE_RECEIVED STATUS_MESSAGE_ACTED STATUS_TRANSMIT_ERROR STATUS_RECEIVE_ERROR STATUS_MEMORY_FAULT STATUS_FATAL_ERROR  ]
 "71 ../../VLCBlib_PIC/statusLeds.h
 [v _showStatus `(v ~T0 @X0 0 ef1`E12897 ]
-"781 ../../VLCBlib_PIC/mns.c
-[; ;../../VLCBlib_PIC/mns.c: 781:         return P18F26K80;
+"783 ../../VLCBlib_PIC/mns.c
+[; ;../../VLCBlib_PIC/mns.c: 783:         return P18F26K80;
 [c E12621 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 25 30 31 32 33 34 35 36 37 38 .. ]
 [n E12621 VlcbMicrochipProcessors P18F2480 P18F4480 P18F2580 P18F4580 P18F2585 P18F4585 P18F2680 P18F4680 P18F2682 P18F4682 P18F2685 P18F4685 P18F25K80 P18F45K80 P18F26K80 P18F46K80 P18F65K80 P18F66K80 P18F25K83 P18F26K83 P18F27Q84 P18F47Q84 P18F27Q83 P18F14K22 P32MX534F064 P32MX564F064 P32MX564F128 P32MX575F256 P32MX575F512 P32MX764F128 P32MX775F256 P32MX775F512 P32MX795F512  ]
-"784
-[; ;../../VLCBlib_PIC/mns.c: 784:             return PB_CAN;
+"786
+[; ;../../VLCBlib_PIC/mns.c: 786:             return PB_CAN;
 [c E12610 1 2 3 4 .. ]
 [n E12610 VlcbBusTypes PB_CAN PB_ETH PB_MIWI PB_USB  ]
-"806
-[; ;../../VLCBlib_PIC/mns.c: 806:         return CPUM_MICROCHIP;
+"808
+[; ;../../VLCBlib_PIC/mns.c: 808:         return CPUM_MICROCHIP;
 [c E12616 1 2 3 .. ]
 [n E12616 VlcbProcessorManufacturers CPUM_MICROCHIP CPUM_ATMEL CPUM_ARM  ]
-"811
-[; ;../../VLCBlib_PIC/mns.c: 811:     }
+"813
+[; ;../../VLCBlib_PIC/mns.c: 813:     }
 [c E12563 0 1 2 3 4 5 6 7 8 9 10 11 15 19 20 .. ]
 [n E12563 VlcbParams PAR_NUM PAR_MANU PAR_MINVER PAR_MTYP PAR_EVTNUM PAR_EVNUM PAR_NVNUM PAR_MAJVER PAR_FLAGS PAR_CPUID PAR_BUSTYPE PAR_LOAD PAR_CPUMID PAR_CPUMAN PAR_BETA  ]
 [v F13192 `(*S1529 ~T0 @X0 0 tf1`uc ]
@@ -2759,87 +2759,90 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/mns.c: 624:     }
 }
 [e :U 1632 ]
-"626
-[; ;../../VLCBlib_PIC/mns.c: 626:     setLEDsByMode();
-[e ( _setLEDsByMode ..  ]
-"629
-[; ;../../VLCBlib_PIC/mns.c: 629:     switch(mode_state) {
+"627
+[; ;../../VLCBlib_PIC/mns.c: 627:     switch(mode_state) {
 [e $U 1635  ]
 {
-"630
-[; ;../../VLCBlib_PIC/mns.c: 630:         case MODE_UNINITIALISED:
+"628
+[; ;../../VLCBlib_PIC/mns.c: 628:         case MODE_UNINITIALISED:
 [e :U 1636 ]
-"632
-[; ;../../VLCBlib_PIC/mns.c: 632:             if ((!(PORTAbits.RA2)) == 0) {
+"630
+[; ;../../VLCBlib_PIC/mns.c: 630:             if ((!(PORTAbits.RA2)) == 0) {
 [e $ ! == -> ! != -> . . _PORTAbits 0 2 `i -> 0 `i `i -> 0 `i 1637  ]
 {
-"634
-[; ;../../VLCBlib_PIC/mns.c: 634:                 pbTimer.val = tickGet();
+"632
+[; ;../../VLCBlib_PIC/mns.c: 632:                 pbTimer.val = tickGet();
 [e = . _pbTimer 0 ( _tickGet ..  ]
-"635
-[; ;../../VLCBlib_PIC/mns.c: 635:             } else {
+"633
+[; ;../../VLCBlib_PIC/mns.c: 633:             } else {
 }
 [e $U 1638  ]
 [e :U 1637 ]
 {
-"637
-[; ;../../VLCBlib_PIC/mns.c: 637:                 if ((tickGet() - pbTimer.val) > 4*62500) {
+"635
+[; ;../../VLCBlib_PIC/mns.c: 635:                 if ((tickGet() - pbTimer.val) > 4*62500) {
 [e $ ! > - ( _tickGet ..  . _pbTimer 0 -> * -> -> 4 `i `l -> 62500 `l `ul 1639  ]
 {
-"639
-[; ;../../VLCBlib_PIC/mns.c: 639:                     mode_state = MODE_SETUP;
+"637
+[; ;../../VLCBlib_PIC/mns.c: 637:                     mode_state = MODE_SETUP;
 [e = _mode_state -> . `E12598 1 `uc ]
-"640
-[; ;../../VLCBlib_PIC/mns.c: 640:                     setupModePreviousMode = MODE_UNINITIALISED;
+"638
+[; ;../../VLCBlib_PIC/mns.c: 638:                     setupModePreviousMode = MODE_UNINITIALISED;
 [e = _setupModePreviousMode -> . `E12598 0 `uc ]
-"641
-[; ;../../VLCBlib_PIC/mns.c: 641:                     pbTimer.val = tickGet();
+"639
+[; ;../../VLCBlib_PIC/mns.c: 639:                     pbTimer.val = tickGet();
 [e = . _pbTimer 0 ( _tickGet ..  ]
-"643
-[; ;../../VLCBlib_PIC/mns.c: 643:                     sendMessage2(OPC_RQNN, nn.bytes.hi, nn.bytes.lo);
+"641
+[; ;../../VLCBlib_PIC/mns.c: 641:                     sendMessage2(OPC_RQNN, nn.bytes.hi, nn.bytes.lo);
 [e ( _sendMessage2 (3 , , . `E12342 33 . . _nn 0 1 . . _nn 0 0 ]
-"644
-[; ;../../VLCBlib_PIC/mns.c: 644:                 }
+"642
+[; ;../../VLCBlib_PIC/mns.c: 642:                     setLEDsByMode();
+[e ( _setLEDsByMode ..  ]
+"643
+[; ;../../VLCBlib_PIC/mns.c: 643:                 }
 }
 [e :U 1639 ]
-"645
-[; ;../../VLCBlib_PIC/mns.c: 645:             }
+"644
+[; ;../../VLCBlib_PIC/mns.c: 644:             }
 }
 [e :U 1638 ]
-"646
-[; ;../../VLCBlib_PIC/mns.c: 646:             break;
+"645
+[; ;../../VLCBlib_PIC/mns.c: 645:             break;
 [e $U 1634  ]
-"647
-[; ;../../VLCBlib_PIC/mns.c: 647:         case MODE_SETUP:
+"646
+[; ;../../VLCBlib_PIC/mns.c: 646:         case MODE_SETUP:
 [e :U 1640 ]
-"661
-[; ;../../VLCBlib_PIC/mns.c: 661:             if ((!(PORTAbits.RA2)) == 0) {
+"660
+[; ;../../VLCBlib_PIC/mns.c: 660:             if ((!(PORTAbits.RA2)) == 0) {
 [e $ ! == -> ! != -> . . _PORTAbits 0 2 `i -> 0 `i `i -> 0 `i 1641  ]
 {
-"664
-[; ;../../VLCBlib_PIC/mns.c: 664:                 if ((tickGet() - pbTimer.val) > 4*62500) {
+"663
+[; ;../../VLCBlib_PIC/mns.c: 663:                 if ((tickGet() - pbTimer.val) > 4*62500) {
 [e $ ! > - ( _tickGet ..  . _pbTimer 0 -> * -> -> 4 `i `l -> 62500 `l `ul 1642  ]
 {
-"667
-[; ;../../VLCBlib_PIC/mns.c: 667:                     mode_state = setupModePreviousMode;
+"666
+[; ;../../VLCBlib_PIC/mns.c: 666:                     mode_state = setupModePreviousMode;
 [e = _mode_state _setupModePreviousMode ]
-"668
-[; ;../../VLCBlib_PIC/mns.c: 668:                     if (mode_state == MODE_NORMAL) {
+"667
+[; ;../../VLCBlib_PIC/mns.c: 667:                     if (mode_state == MODE_NORMAL) {
 [e $ ! == -> _mode_state `i -> . `E12598 2 `i 1643  ]
 {
-"669
-[; ;../../VLCBlib_PIC/mns.c: 669:                         nn.word = previousNN.word;
+"668
+[; ;../../VLCBlib_PIC/mns.c: 668:                         nn.word = previousNN.word;
 [e = . _nn 1 . _previousNN 1 ]
-"670
-[; ;../../VLCBlib_PIC/mns.c: 670:                         sendMessage2(OPC_NNACK, nn.bytes.hi, nn.bytes.lo);
+"669
+[; ;../../VLCBlib_PIC/mns.c: 669:                         sendMessage2(OPC_NNACK, nn.bytes.hi, nn.bytes.lo);
 [e ( _sendMessage2 (3 , , . `E12342 35 . . _nn 0 1 . . _nn 0 0 ]
-"671
-[; ;../../VLCBlib_PIC/mns.c: 671:                         mnsDiagnostics[0x04].asUint++;
+"670
+[; ;../../VLCBlib_PIC/mns.c: 670:                         mnsDiagnostics[0x04].asUint++;
 [e ++ . *U + &U _mnsDiagnostics * -> -> -> 4 `i `ui `ux -> -> # *U &U _mnsDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"672
-[; ;../../VLCBlib_PIC/mns.c: 672:                     }
+"671
+[; ;../../VLCBlib_PIC/mns.c: 671:                     }
 }
 [e :U 1643 ]
+"672
+[; ;../../VLCBlib_PIC/mns.c: 672:                     setLEDsByMode();
+[e ( _setLEDsByMode ..  ]
 "673
 [; ;../../VLCBlib_PIC/mns.c: 673:                 } else if ((tickGet() - pbTimer.val) > 62500) {
 }
@@ -2865,62 +2868,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/mns.c: 679:                     mode_state = MODE_UNINITIALISED;
 [e = _mode_state -> . `E12598 0 `uc ]
 "680
-[; ;../../VLCBlib_PIC/mns.c: 680:                 }
+[; ;../../VLCBlib_PIC/mns.c: 680:                     setLEDsByMode();
+[e ( _setLEDsByMode ..  ]
+"681
+[; ;../../VLCBlib_PIC/mns.c: 681:                 }
 }
 [e :U 1645 ]
 [e :U 1644 ]
-"681
-[; ;../../VLCBlib_PIC/mns.c: 681:                 pbTimer.val = tickGet();
-[e = . _pbTimer 0 ( _tickGet ..  ]
 "682
-[; ;../../VLCBlib_PIC/mns.c: 682:             }
+[; ;../../VLCBlib_PIC/mns.c: 682:                 pbTimer.val = tickGet();
+[e = . _pbTimer 0 ( _tickGet ..  ]
+"683
+[; ;../../VLCBlib_PIC/mns.c: 683:             }
 }
 [e :U 1641 ]
-"683
-[; ;../../VLCBlib_PIC/mns.c: 683:             break;
-[e $U 1634  ]
 "684
-[; ;../../VLCBlib_PIC/mns.c: 684:         default:
+[; ;../../VLCBlib_PIC/mns.c: 684:             break;
+[e $U 1634  ]
+"685
+[; ;../../VLCBlib_PIC/mns.c: 685:         default:
 [e :U 1647 ]
-"686
-[; ;../../VLCBlib_PIC/mns.c: 686:             if ((!(PORTAbits.RA2)) == 0) {
+"687
+[; ;../../VLCBlib_PIC/mns.c: 687:             if ((!(PORTAbits.RA2)) == 0) {
 [e $ ! == -> ! != -> . . _PORTAbits 0 2 `i -> 0 `i `i -> 0 `i 1648  ]
 {
-"688
-[; ;../../VLCBlib_PIC/mns.c: 688:                 if ((tickGet() - pbTimer.val) > 4*62500) {
+"689
+[; ;../../VLCBlib_PIC/mns.c: 689:                 if ((tickGet() - pbTimer.val) > 4*62500) {
 [e $ ! > - ( _tickGet ..  . _pbTimer 0 -> * -> -> 4 `i `l -> 62500 `l `ul 1649  ]
 {
-"691
-[; ;../../VLCBlib_PIC/mns.c: 691:                     previousNN.word = nn.word;
-[e = . _previousNN 1 . _nn 1 ]
 "692
-[; ;../../VLCBlib_PIC/mns.c: 692:                     nn.bytes.lo = nn.bytes.hi = 0;
+[; ;../../VLCBlib_PIC/mns.c: 692:                     previousNN.word = nn.word;
+[e = . _previousNN 1 . _nn 1 ]
+"693
+[; ;../../VLCBlib_PIC/mns.c: 693:                     nn.bytes.lo = nn.bytes.hi = 0;
 [e = . . _nn 0 0 = . . _nn 0 1 -> -> 0 `i `uc ]
-"694
-[; ;../../VLCBlib_PIC/mns.c: 694:                     mode_state = MODE_SETUP;
-[e = _mode_state -> . `E12598 1 `uc ]
 "695
-[; ;../../VLCBlib_PIC/mns.c: 695:                     setupModePreviousMode = MODE_NORMAL;
-[e = _setupModePreviousMode -> . `E12598 2 `uc ]
+[; ;../../VLCBlib_PIC/mns.c: 695:                     mode_state = MODE_SETUP;
+[e = _mode_state -> . `E12598 1 `uc ]
 "696
-[; ;../../VLCBlib_PIC/mns.c: 696:                     pbTimer.val = tickGet();
+[; ;../../VLCBlib_PIC/mns.c: 696:                     setupModePreviousMode = MODE_NORMAL;
+[e = _setupModePreviousMode -> . `E12598 2 `uc ]
+"697
+[; ;../../VLCBlib_PIC/mns.c: 697:                     pbTimer.val = tickGet();
 [e = . _pbTimer 0 ( _tickGet ..  ]
-"698
-[; ;../../VLCBlib_PIC/mns.c: 698:                     sendMessage2(OPC_RQNN, previousNN.bytes.hi, previousNN.bytes.lo);
-[e ( _sendMessage2 (3 , , . `E12342 33 . . _previousNN 0 1 . . _previousNN 0 0 ]
 "699
-[; ;../../VLCBlib_PIC/mns.c: 699:                 }
+[; ;../../VLCBlib_PIC/mns.c: 699:                     sendMessage2(OPC_RQNN, previousNN.bytes.hi, previousNN.bytes.lo);
+[e ( _sendMessage2 (3 , , . `E12342 33 . . _previousNN 0 1 . . _previousNN 0 0 ]
+"700
+[; ;../../VLCBlib_PIC/mns.c: 700:                     setLEDsByMode();
+[e ( _setLEDsByMode ..  ]
+"701
+[; ;../../VLCBlib_PIC/mns.c: 701:                 }
 }
 [e :U 1649 ]
-"700
-[; ;../../VLCBlib_PIC/mns.c: 700:                 pbTimer.val = tickGet();
+"702
+[; ;../../VLCBlib_PIC/mns.c: 702:                 pbTimer.val = tickGet();
 [e = . _pbTimer 0 ( _tickGet ..  ]
-"701
-[; ;../../VLCBlib_PIC/mns.c: 701:             }
+"703
+[; ;../../VLCBlib_PIC/mns.c: 703:             }
 }
 [e :U 1648 ]
-"702
-[; ;../../VLCBlib_PIC/mns.c: 702:     }
+"704
+[; ;../../VLCBlib_PIC/mns.c: 704:     }
 }
 [e $U 1634  ]
 [e :U 1635 ]
@@ -2928,114 +2937,114 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ . `E12598 1 1640
  1647 ]
 [e :U 1634 ]
-"703
-[; ;../../VLCBlib_PIC/mns.c: 703: }
+"705
+[; ;../../VLCBlib_PIC/mns.c: 705: }
 [e :UE 1625 ]
 }
-"710
-[; ;../../VLCBlib_PIC/mns.c: 710: static void mnsLowIsr(void) {
+"712
+[; ;../../VLCBlib_PIC/mns.c: 712: static void mnsLowIsr(void) {
 [v _mnsLowIsr `(v ~T0 @X0 1 sf ]
 {
 [e :U _mnsLowIsr ]
 [f ]
-"713
-[; ;../../VLCBlib_PIC/mns.c: 713:     if(INTCONbits.TMR0IF) {
+"715
+[; ;../../VLCBlib_PIC/mns.c: 715:     if(INTCONbits.TMR0IF) {
 [e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 1651  ]
 {
-"715
-[; ;../../VLCBlib_PIC/mns.c: 715:         INTCONbits.TMR0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"716
-[; ;../../VLCBlib_PIC/mns.c: 716:         timerExtension1++;
-[e ++ _timerExtension1 -> -> 1 `i `Vuc ]
 "717
-[; ;../../VLCBlib_PIC/mns.c: 717:         if(timerExtension1 == 0) {
+[; ;../../VLCBlib_PIC/mns.c: 717:         INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"718
+[; ;../../VLCBlib_PIC/mns.c: 718:         timerExtension1++;
+[e ++ _timerExtension1 -> -> 1 `i `Vuc ]
+"719
+[; ;../../VLCBlib_PIC/mns.c: 719:         if(timerExtension1 == 0) {
 [e $ ! == -> _timerExtension1 `i -> 0 `i 1652  ]
 {
-"718
-[; ;../../VLCBlib_PIC/mns.c: 718:             timerExtension2++;
+"720
+[; ;../../VLCBlib_PIC/mns.c: 720:             timerExtension2++;
 [e ++ _timerExtension2 -> -> 1 `i `Vuc ]
-"719
-[; ;../../VLCBlib_PIC/mns.c: 719:         }
+"721
+[; ;../../VLCBlib_PIC/mns.c: 721:         }
 }
 [e :U 1652 ]
-"720
-[; ;../../VLCBlib_PIC/mns.c: 720:     }
+"722
+[; ;../../VLCBlib_PIC/mns.c: 722:     }
 }
 [e :U 1651 ]
-"721
-[; ;../../VLCBlib_PIC/mns.c: 721:     return;
+"723
+[; ;../../VLCBlib_PIC/mns.c: 723:     return;
 [e $UE 1650  ]
-"722
-[; ;../../VLCBlib_PIC/mns.c: 722: }
+"724
+[; ;../../VLCBlib_PIC/mns.c: 724: }
 [e :UE 1650 ]
 }
-"730
-[; ;../../VLCBlib_PIC/mns.c: 730: static DiagnosticVal * mnsGetDiagnostic(uint8_t index) {
+"732
+[; ;../../VLCBlib_PIC/mns.c: 732: static DiagnosticVal * mnsGetDiagnostic(uint8_t index) {
 [v _mnsGetDiagnostic `(*S1529 ~T0 @X0 1 sf1`uc ]
 {
 [e :U _mnsGetDiagnostic ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"731
-[; ;../../VLCBlib_PIC/mns.c: 731:     if ((index<1) || (index>6)) {
+"733
+[; ;../../VLCBlib_PIC/mns.c: 733:     if ((index<1) || (index>6)) {
 [e $ ! || < -> _index `i -> 1 `i > -> _index `i -> 6 `i 1654  ]
 {
-"732
-[; ;../../VLCBlib_PIC/mns.c: 732:         return ((void*)0);
+"734
+[; ;../../VLCBlib_PIC/mns.c: 734:         return ((void*)0);
 [e ) -> -> -> 0 `i `*v `*S1529 ]
 [e $UE 1653  ]
-"733
-[; ;../../VLCBlib_PIC/mns.c: 733:     }
+"735
+[; ;../../VLCBlib_PIC/mns.c: 735:     }
 }
 [e :U 1654 ]
-"734
-[; ;../../VLCBlib_PIC/mns.c: 734:     return &(mnsDiagnostics[index-1]);
+"736
+[; ;../../VLCBlib_PIC/mns.c: 736:     return &(mnsDiagnostics[index-1]);
 [e ) &U *U + &U _mnsDiagnostics * -> -> - -> _index `i -> 1 `i `ui `ux -> -> # *U &U _mnsDiagnostics `ui `ux ]
 [e $UE 1653  ]
-"735
-[; ;../../VLCBlib_PIC/mns.c: 735: }
+"737
+[; ;../../VLCBlib_PIC/mns.c: 737: }
 [e :UE 1653 ]
 }
-"740
-[; ;../../VLCBlib_PIC/mns.c: 740: void setLEDsByMode(void) {
+"742
+[; ;../../VLCBlib_PIC/mns.c: 742: void setLEDsByMode(void) {
 [v _setLEDsByMode `(v ~T0 @X0 1 ef ]
 {
 [e :U _setLEDsByMode ]
 [f ]
-"741
-[; ;../../VLCBlib_PIC/mns.c: 741:        switch (mode_state) {
+"743
+[; ;../../VLCBlib_PIC/mns.c: 743:        switch (mode_state) {
 [e $U 1657  ]
 {
-"742
-[; ;../../VLCBlib_PIC/mns.c: 742:         case MODE_UNINITIALISED:
-[e :U 1658 ]
-"743
-[; ;../../VLCBlib_PIC/mns.c: 743:             showStatus(STATUS_UNINITIALISED);
-[e ( _showStatus (1 . `E12897 1 ]
 "744
-[; ;../../VLCBlib_PIC/mns.c: 744:             break;
-[e $U 1656  ]
+[; ;../../VLCBlib_PIC/mns.c: 744:         case MODE_UNINITIALISED:
+[e :U 1658 ]
 "745
-[; ;../../VLCBlib_PIC/mns.c: 745:         case MODE_SETUP:
-[e :U 1659 ]
+[; ;../../VLCBlib_PIC/mns.c: 745:             showStatus(STATUS_UNINITIALISED);
+[e ( _showStatus (1 . `E12897 1 ]
 "746
-[; ;../../VLCBlib_PIC/mns.c: 746:             showStatus(STATUS_SETUP);
-[e ( _showStatus (1 . `E12897 2 ]
+[; ;../../VLCBlib_PIC/mns.c: 746:             break;
+[e $U 1656  ]
 "747
-[; ;../../VLCBlib_PIC/mns.c: 747:             break;
-[e $U 1656  ]
+[; ;../../VLCBlib_PIC/mns.c: 747:         case MODE_SETUP:
+[e :U 1659 ]
 "748
-[; ;../../VLCBlib_PIC/mns.c: 748:         default:
-[e :U 1660 ]
+[; ;../../VLCBlib_PIC/mns.c: 748:             showStatus(STATUS_SETUP);
+[e ( _showStatus (1 . `E12897 2 ]
 "749
-[; ;../../VLCBlib_PIC/mns.c: 749:             showStatus(STATUS_NORMAL);
-[e ( _showStatus (1 . `E12897 3 ]
-"750
-[; ;../../VLCBlib_PIC/mns.c: 750:             break;
+[; ;../../VLCBlib_PIC/mns.c: 749:             break;
 [e $U 1656  ]
+"750
+[; ;../../VLCBlib_PIC/mns.c: 750:         default:
+[e :U 1660 ]
 "751
-[; ;../../VLCBlib_PIC/mns.c: 751:     }
+[; ;../../VLCBlib_PIC/mns.c: 751:             showStatus(STATUS_NORMAL);
+[e ( _showStatus (1 . `E12897 3 ]
+"752
+[; ;../../VLCBlib_PIC/mns.c: 752:             break;
+[e $U 1656  ]
+"753
+[; ;../../VLCBlib_PIC/mns.c: 753:     }
 }
 [e $U 1656  ]
 [e :U 1657 ]
@@ -3043,178 +3052,178 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ . `E12598 1 1659
  1660 ]
 [e :U 1656 ]
-"752
-[; ;../../VLCBlib_PIC/mns.c: 752: }
+"754
+[; ;../../VLCBlib_PIC/mns.c: 754: }
 [e :UE 1655 ]
 }
-"759
-[; ;../../VLCBlib_PIC/mns.c: 759: static uint8_t getParameter(uint8_t idx) {
+"761
+[; ;../../VLCBlib_PIC/mns.c: 761: static uint8_t getParameter(uint8_t idx) {
 [v _getParameter `(uc ~T0 @X0 1 sf1`uc ]
 {
 [e :U _getParameter ]
 [v _idx `uc ~T0 @X0 1 r1 ]
 [f ]
-"760
-[; ;../../VLCBlib_PIC/mns.c: 760:     uint8_t i;
+"762
+[; ;../../VLCBlib_PIC/mns.c: 762:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"761
-[; ;../../VLCBlib_PIC/mns.c: 761:     switch(idx) {
+"763
+[; ;../../VLCBlib_PIC/mns.c: 763:     switch(idx) {
 [e $U 1663  ]
 {
-"762
-[; ;../../VLCBlib_PIC/mns.c: 762:     case PAR_NUM:
-[e :U 1664 ]
-"763
-[; ;../../VLCBlib_PIC/mns.c: 763:         return 20;
-[e ) -> -> 20 `i `uc ]
-[e $UE 1661  ]
 "764
-[; ;../../VLCBlib_PIC/mns.c: 764:     case PAR_MANU:
-[e :U 1665 ]
+[; ;../../VLCBlib_PIC/mns.c: 764:     case PAR_NUM:
+[e :U 1664 ]
 "765
-[; ;../../VLCBlib_PIC/mns.c: 765:         return MANU_MERG;
-[e ) -> . `E12209 1 `uc ]
+[; ;../../VLCBlib_PIC/mns.c: 765:         return 20;
+[e ) -> -> 20 `i `uc ]
 [e $UE 1661  ]
 "766
-[; ;../../VLCBlib_PIC/mns.c: 766:     case PAR_MINVER:
-[e :U 1666 ]
+[; ;../../VLCBlib_PIC/mns.c: 766:     case PAR_MANU:
+[e :U 1665 ]
 "767
-[; ;../../VLCBlib_PIC/mns.c: 767:         return 'e';
-[e ) -> -> 101 `ui `uc ]
+[; ;../../VLCBlib_PIC/mns.c: 767:         return MANU_MERG;
+[e ) -> . `E12209 1 `uc ]
 [e $UE 1661  ]
 "768
-[; ;../../VLCBlib_PIC/mns.c: 768:     case PAR_MTYP:
-[e :U 1667 ]
+[; ;../../VLCBlib_PIC/mns.c: 768:     case PAR_MINVER:
+[e :U 1666 ]
 "769
-[; ;../../VLCBlib_PIC/mns.c: 769:         return MTYP_CANMIO;
-[e ) -> . `E12220 32 `uc ]
+[; ;../../VLCBlib_PIC/mns.c: 769:         return 'e';
+[e ) -> -> 101 `ui `uc ]
 [e $UE 1661  ]
 "770
-[; ;../../VLCBlib_PIC/mns.c: 770:     case PAR_EVTNUM:
-[e :U 1668 ]
+[; ;../../VLCBlib_PIC/mns.c: 770:     case PAR_MTYP:
+[e :U 1667 ]
 "771
-[; ;../../VLCBlib_PIC/mns.c: 771:         return 255;
-[e ) -> -> 255 `i `uc ]
+[; ;../../VLCBlib_PIC/mns.c: 771:         return MTYP_CANMIO;
+[e ) -> . `E12220 32 `uc ]
 [e $UE 1661  ]
 "772
-[; ;../../VLCBlib_PIC/mns.c: 772:     case PAR_EVNUM:
-[e :U 1669 ]
+[; ;../../VLCBlib_PIC/mns.c: 772:     case PAR_EVTNUM:
+[e :U 1668 ]
 "773
-[; ;../../VLCBlib_PIC/mns.c: 773:         return 20;
-[e ) -> -> 20 `i `uc ]
+[; ;../../VLCBlib_PIC/mns.c: 773:         return 255;
+[e ) -> -> 255 `i `uc ]
 [e $UE 1661  ]
 "774
-[; ;../../VLCBlib_PIC/mns.c: 774:     case PAR_NVNUM:
-[e :U 1670 ]
+[; ;../../VLCBlib_PIC/mns.c: 774:     case PAR_EVNUM:
+[e :U 1669 ]
 "775
-[; ;../../VLCBlib_PIC/mns.c: 775:         return 127;
-[e ) -> -> 127 `i `uc ]
+[; ;../../VLCBlib_PIC/mns.c: 775:         return 20;
+[e ) -> -> 20 `i `uc ]
 [e $UE 1661  ]
 "776
-[; ;../../VLCBlib_PIC/mns.c: 776:     case PAR_MAJVER:
-[e :U 1671 ]
+[; ;../../VLCBlib_PIC/mns.c: 776:     case PAR_NVNUM:
+[e :U 1670 ]
 "777
-[; ;../../VLCBlib_PIC/mns.c: 777:         return 3;
-[e ) -> -> 3 `i `uc ]
+[; ;../../VLCBlib_PIC/mns.c: 777:         return 127;
+[e ) -> -> 127 `i `uc ]
 [e $UE 1661  ]
 "778
-[; ;../../VLCBlib_PIC/mns.c: 778:     case PAR_FLAGS:
-[e :U 1672 ]
+[; ;../../VLCBlib_PIC/mns.c: 778:     case PAR_MAJVER:
+[e :U 1671 ]
 "779
-[; ;../../VLCBlib_PIC/mns.c: 779:         return getParameterFlags();
-[e ) ( _getParameterFlags ..  ]
+[; ;../../VLCBlib_PIC/mns.c: 779:         return 3;
+[e ) -> -> 3 `i `uc ]
 [e $UE 1661  ]
 "780
-[; ;../../VLCBlib_PIC/mns.c: 780:     case PAR_CPUID:
-[e :U 1673 ]
+[; ;../../VLCBlib_PIC/mns.c: 780:     case PAR_FLAGS:
+[e :U 1672 ]
 "781
-[; ;../../VLCBlib_PIC/mns.c: 781:         return P18F26K80;
-[e ) -> . `E12621 14 `uc ]
+[; ;../../VLCBlib_PIC/mns.c: 781:         return getParameterFlags();
+[e ) ( _getParameterFlags ..  ]
 [e $UE 1661  ]
 "782
-[; ;../../VLCBlib_PIC/mns.c: 782:     case PAR_BUSTYPE:
-[e :U 1674 ]
+[; ;../../VLCBlib_PIC/mns.c: 782:     case PAR_CPUID:
+[e :U 1673 ]
 "783
-[; ;../../VLCBlib_PIC/mns.c: 783:         if (have(SERVICE_ID_CAN)) {
+[; ;../../VLCBlib_PIC/mns.c: 783:         return P18F26K80;
+[e ) -> . `E12621 14 `uc ]
+[e $UE 1661  ]
+"784
+[; ;../../VLCBlib_PIC/mns.c: 784:     case PAR_BUSTYPE:
+[e :U 1674 ]
+"785
+[; ;../../VLCBlib_PIC/mns.c: 785:         if (have(SERVICE_ID_CAN)) {
 [e $ ! != -> ( _have (1 -> . `E12549 3 `uc `ui -> -> 0 `i `ui 1675  ]
 {
-"784
-[; ;../../VLCBlib_PIC/mns.c: 784:             return PB_CAN;
+"786
+[; ;../../VLCBlib_PIC/mns.c: 786:             return PB_CAN;
 [e ) -> . `E12610 0 `uc ]
 [e $UE 1661  ]
-"785
-[; ;../../VLCBlib_PIC/mns.c: 785:         }
+"787
+[; ;../../VLCBlib_PIC/mns.c: 787:         }
 }
 [e :U 1675 ]
-"786
-[; ;../../VLCBlib_PIC/mns.c: 786:         return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 1661  ]
-"787
-[; ;../../VLCBlib_PIC/mns.c: 787:     case PAR_LOAD:
-[e :U 1676 ]
 "788
-[; ;../../VLCBlib_PIC/mns.c: 788:         return 0x00;
+[; ;../../VLCBlib_PIC/mns.c: 788:         return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 1661  ]
 "789
-[; ;../../VLCBlib_PIC/mns.c: 789:     case (PAR_LOAD+1):
-[e :U 1677 ]
+[; ;../../VLCBlib_PIC/mns.c: 789:     case PAR_LOAD:
+[e :U 1676 ]
 "790
-[; ;../../VLCBlib_PIC/mns.c: 790:         return 0x08;
-[e ) -> -> 8 `i `uc ]
-[e $UE 1661  ]
-"791
-[; ;../../VLCBlib_PIC/mns.c: 791:     case (PAR_LOAD+2):
-[e :U 1678 ]
-"792
-[; ;../../VLCBlib_PIC/mns.c: 792:         return 0x00;
+[; ;../../VLCBlib_PIC/mns.c: 790:         return 0x00;
 [e ) -> -> 0 `i `uc ]
 [e $UE 1661  ]
+"791
+[; ;../../VLCBlib_PIC/mns.c: 791:     case (PAR_LOAD+1):
+[e :U 1677 ]
+"792
+[; ;../../VLCBlib_PIC/mns.c: 792:         return 0x08;
+[e ) -> -> 8 `i `uc ]
+[e $UE 1661  ]
 "793
-[; ;../../VLCBlib_PIC/mns.c: 793:     case (PAR_LOAD+3):
-[e :U 1679 ]
+[; ;../../VLCBlib_PIC/mns.c: 793:     case (PAR_LOAD+2):
+[e :U 1678 ]
 "794
 [; ;../../VLCBlib_PIC/mns.c: 794:         return 0x00;
 [e ) -> -> 0 `i `uc ]
 [e $UE 1661  ]
-"801
-[; ;../../VLCBlib_PIC/mns.c: 801:     case PAR_CPUMID+2:
-[e :U 1680 ]
-"802
-[; ;../../VLCBlib_PIC/mns.c: 802:         return *(const uint8_t*)0x3FFFFE;
-[e ) *U -> -> 4194302 `l `*Cuc ]
-[e $UE 1661  ]
-"803
-[; ;../../VLCBlib_PIC/mns.c: 803:     case PAR_CPUMID+3:
-[e :U 1681 ]
-"804
-[; ;../../VLCBlib_PIC/mns.c: 804:         return *(const uint8_t*)0x3FFFFF;
-[e ) *U -> -> 4194303 `l `*Cuc ]
-[e $UE 1661  ]
-"805
-[; ;../../VLCBlib_PIC/mns.c: 805:     case PAR_CPUMAN:
-[e :U 1682 ]
-"806
-[; ;../../VLCBlib_PIC/mns.c: 806:         return CPUM_MICROCHIP;
-[e ) -> . `E12616 0 `uc ]
-[e $UE 1661  ]
-"807
-[; ;../../VLCBlib_PIC/mns.c: 807:     case PAR_BETA:
-[e :U 1683 ]
-"808
-[; ;../../VLCBlib_PIC/mns.c: 808:         return 3;
-[e ) -> -> 3 `i `uc ]
-[e $UE 1661  ]
-"809
-[; ;../../VLCBlib_PIC/mns.c: 809:     default:
-[e :U 1684 ]
-"810
-[; ;../../VLCBlib_PIC/mns.c: 810:         return 0;
+"795
+[; ;../../VLCBlib_PIC/mns.c: 795:     case (PAR_LOAD+3):
+[e :U 1679 ]
+"796
+[; ;../../VLCBlib_PIC/mns.c: 796:         return 0x00;
 [e ) -> -> 0 `i `uc ]
 [e $UE 1661  ]
+"803
+[; ;../../VLCBlib_PIC/mns.c: 803:     case PAR_CPUMID+2:
+[e :U 1680 ]
+"804
+[; ;../../VLCBlib_PIC/mns.c: 804:         return *(const uint8_t*)0x3FFFFE;
+[e ) *U -> -> 4194302 `l `*Cuc ]
+[e $UE 1661  ]
+"805
+[; ;../../VLCBlib_PIC/mns.c: 805:     case PAR_CPUMID+3:
+[e :U 1681 ]
+"806
+[; ;../../VLCBlib_PIC/mns.c: 806:         return *(const uint8_t*)0x3FFFFF;
+[e ) *U -> -> 4194303 `l `*Cuc ]
+[e $UE 1661  ]
+"807
+[; ;../../VLCBlib_PIC/mns.c: 807:     case PAR_CPUMAN:
+[e :U 1682 ]
+"808
+[; ;../../VLCBlib_PIC/mns.c: 808:         return CPUM_MICROCHIP;
+[e ) -> . `E12616 0 `uc ]
+[e $UE 1661  ]
+"809
+[; ;../../VLCBlib_PIC/mns.c: 809:     case PAR_BETA:
+[e :U 1683 ]
+"810
+[; ;../../VLCBlib_PIC/mns.c: 810:         return 3;
+[e ) -> -> 3 `i `uc ]
+[e $UE 1661  ]
 "811
-[; ;../../VLCBlib_PIC/mns.c: 811:     }
+[; ;../../VLCBlib_PIC/mns.c: 811:     default:
+[e :U 1684 ]
+"812
+[; ;../../VLCBlib_PIC/mns.c: 812:         return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1661  ]
+"813
+[; ;../../VLCBlib_PIC/mns.c: 813:     }
 }
 [e $U 1662  ]
 [e :U 1663 ]
@@ -3239,12 +3248,12 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ . `E12563 14 1683
  1684 ]
 [e :U 1662 ]
-"812
-[; ;../../VLCBlib_PIC/mns.c: 812: }
+"814
+[; ;../../VLCBlib_PIC/mns.c: 814: }
 [e :UE 1661 ]
 }
-"821
-[; ;../../VLCBlib_PIC/mns.c: 821: TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
+"823
+[; ;../../VLCBlib_PIC/mns.c: 823: TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
 [v _mnsTRserviceDiscoveryCallback `(E12944 ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _mnsTRserviceDiscoveryCallback ]
@@ -3252,31 +3261,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _serviceIndex `uc ~T0 @X0 1 r2 ]
 [v _step `uc ~T0 @X0 1 r3 ]
 [f ]
-"822
-[; ;../../VLCBlib_PIC/mns.c: 822:     if (step >= 9) {
+"824
+[; ;../../VLCBlib_PIC/mns.c: 824:     if (step >= 9) {
 [e $ ! >= -> _step `i -> 9 `i 1686  ]
 {
-"823
-[; ;../../VLCBlib_PIC/mns.c: 823:         return TIMED_RESPONSE_RESULT_FINISHED;
+"825
+[; ;../../VLCBlib_PIC/mns.c: 825:         return TIMED_RESPONSE_RESULT_FINISHED;
 [e ) . `E12944 0 ]
 [e $UE 1685  ]
-"824
-[; ;../../VLCBlib_PIC/mns.c: 824:     }
+"826
+[; ;../../VLCBlib_PIC/mns.c: 826:     }
 }
 [e :U 1686 ]
-"826
-[; ;../../VLCBlib_PIC/mns.c: 826:         sendMessage5(OPC_SD, nn.bytes.hi, nn.bytes.lo, step+1, services[step]->serviceNo, services[step]->version);
-[e ( _sendMessage5 (4 , , , , , . `E12342 88 . . _nn 0 1 . . _nn 0 0 -> + -> _step `i -> 1 `i `uc . *U *U + &U _services * -> _step `ux -> -> # *U &U _services `ui `ux 0 . *U *U + &U _services * -> _step `ux -> -> # *U &U _services `ui `ux 1 ]
 "828
-[; ;../../VLCBlib_PIC/mns.c: 828:     return TIMED_RESPONSE_RESULT_NEXT;
+[; ;../../VLCBlib_PIC/mns.c: 828:         sendMessage5(OPC_SD, nn.bytes.hi, nn.bytes.lo, step+1, services[step]->serviceNo, services[step]->version);
+[e ( _sendMessage5 (4 , , , , , . `E12342 88 . . _nn 0 1 . . _nn 0 0 -> + -> _step `i -> 1 `i `uc . *U *U + &U _services * -> _step `ux -> -> # *U &U _services `ui `ux 0 . *U *U + &U _services * -> _step `ux -> -> # *U &U _services `ui `ux 1 ]
+"830
+[; ;../../VLCBlib_PIC/mns.c: 830:     return TIMED_RESPONSE_RESULT_NEXT;
 [e ) . `E12944 2 ]
 [e $UE 1685  ]
-"829
-[; ;../../VLCBlib_PIC/mns.c: 829: }
+"831
+[; ;../../VLCBlib_PIC/mns.c: 831: }
 [e :UE 1685 ]
 }
-"838
-[; ;../../VLCBlib_PIC/mns.c: 838: TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
+"840
+[; ;../../VLCBlib_PIC/mns.c: 840: TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
 [v _mnsTRallDiagnosticsCallback `(E12944 ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _mnsTRallDiagnosticsCallback ]
@@ -3284,47 +3293,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _serviceIndex `uc ~T0 @X0 1 r2 ]
 [v _step `uc ~T0 @X0 1 r3 ]
 [f ]
-"839
-[; ;../../VLCBlib_PIC/mns.c: 839:     if (services[serviceIndex]->getDiagnostic == ((void*)0)) {
+"841
+[; ;../../VLCBlib_PIC/mns.c: 841:     if (services[serviceIndex]->getDiagnostic == ((void*)0)) {
 [e $ ! == . *U *U + &U _services * -> _serviceIndex `ux -> -> # *U &U _services `ui `ux 9 -> -> -> 0 `i `*v `*F13192 1688  ]
 {
-"840
-[; ;../../VLCBlib_PIC/mns.c: 840:         return TIMED_RESPONSE_RESULT_FINISHED;
+"842
+[; ;../../VLCBlib_PIC/mns.c: 842:         return TIMED_RESPONSE_RESULT_FINISHED;
 [e ) . `E12944 0 ]
 [e $UE 1687  ]
-"841
-[; ;../../VLCBlib_PIC/mns.c: 841:     }
+"843
+[; ;../../VLCBlib_PIC/mns.c: 843:     }
 }
 [e :U 1688 ]
-"842
-[; ;../../VLCBlib_PIC/mns.c: 842:     DiagnosticVal * d = services[serviceIndex]->getDiagnostic(step+1);
+"844
+[; ;../../VLCBlib_PIC/mns.c: 844:     DiagnosticVal * d = services[serviceIndex]->getDiagnostic(step+1);
 [v _d `*S1529 ~T0 @X0 1 a ]
 [e = _d ( *U . *U *U + &U _services * -> _serviceIndex `ux -> -> # *U &U _services `ui `ux 9 (1 -> + -> _step `i -> 1 `i `uc ]
-"843
-[; ;../../VLCBlib_PIC/mns.c: 843:     if (d == ((void*)0)) {
+"845
+[; ;../../VLCBlib_PIC/mns.c: 845:     if (d == ((void*)0)) {
 [e $ ! == _d -> -> -> 0 `i `*v `*S1529 1689  ]
 {
-"845
-[; ;../../VLCBlib_PIC/mns.c: 845:         return TIMED_RESPONSE_RESULT_FINISHED;
+"847
+[; ;../../VLCBlib_PIC/mns.c: 847:         return TIMED_RESPONSE_RESULT_FINISHED;
 [e ) . `E12944 0 ]
 [e $UE 1687  ]
-"846
-[; ;../../VLCBlib_PIC/mns.c: 846:     }
+"848
+[; ;../../VLCBlib_PIC/mns.c: 848:     }
 }
 [e :U 1689 ]
-"848
-[; ;../../VLCBlib_PIC/mns.c: 848:     sendMessage6(OPC_DGN, nn.bytes.hi, nn.bytes.lo, serviceIndex+1, step+1, d->asBytes.hi, d->asBytes.lo);
+"850
+[; ;../../VLCBlib_PIC/mns.c: 850:     sendMessage6(OPC_DGN, nn.bytes.hi, nn.bytes.lo, serviceIndex+1, step+1, d->asBytes.hi, d->asBytes.lo);
 [e ( _sendMessage6 (4 , , , , , , . `E12342 105 . . _nn 0 1 . . _nn 0 0 -> + -> _serviceIndex `i -> 1 `i `uc -> + -> _step `i -> 1 `i `uc . . *U _d 2 1 . . *U _d 2 0 ]
-"849
-[; ;../../VLCBlib_PIC/mns.c: 849:     return TIMED_RESPONSE_RESULT_NEXT;
+"851
+[; ;../../VLCBlib_PIC/mns.c: 851:     return TIMED_RESPONSE_RESULT_NEXT;
 [e ) . `E12944 2 ]
 [e $UE 1687  ]
-"850
-[; ;../../VLCBlib_PIC/mns.c: 850: }
+"852
+[; ;../../VLCBlib_PIC/mns.c: 852: }
 [e :UE 1687 ]
 }
-"859
-[; ;../../VLCBlib_PIC/mns.c: 859: TimedResponseResult mnsTRrqnpnCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
+"861
+[; ;../../VLCBlib_PIC/mns.c: 861: TimedResponseResult mnsTRrqnpnCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
 [v _mnsTRrqnpnCallback `(E12944 ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _mnsTRrqnpnCallback ]
@@ -3332,26 +3341,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _serviceIndex `uc ~T0 @X0 1 r2 ]
 [v _step `uc ~T0 @X0 1 r3 ]
 [f ]
-"860
-[; ;../../VLCBlib_PIC/mns.c: 860:     if (step >= 20) {
+"862
+[; ;../../VLCBlib_PIC/mns.c: 862:     if (step >= 20) {
 [e $ ! >= -> _step `i -> 20 `i 1691  ]
 {
-"861
-[; ;../../VLCBlib_PIC/mns.c: 861:         return TIMED_RESPONSE_RESULT_FINISHED;
+"863
+[; ;../../VLCBlib_PIC/mns.c: 863:         return TIMED_RESPONSE_RESULT_FINISHED;
 [e ) . `E12944 0 ]
 [e $UE 1690  ]
-"862
-[; ;../../VLCBlib_PIC/mns.c: 862:     }
+"864
+[; ;../../VLCBlib_PIC/mns.c: 864:     }
 }
 [e :U 1691 ]
-"863
-[; ;../../VLCBlib_PIC/mns.c: 863:     sendMessage4(OPC_PARAN, nn.bytes.hi, nn.bytes.lo, step+1, getParameter(step+1));
+"865
+[; ;../../VLCBlib_PIC/mns.c: 865:     sendMessage4(OPC_PARAN, nn.bytes.hi, nn.bytes.lo, step+1, getParameter(step+1));
 [e ( _sendMessage4 (4 , , , , . `E12342 80 . . _nn 0 1 . . _nn 0 0 -> + -> _step `i -> 1 `i `uc ( _getParameter (1 -> + -> _step `i -> 1 `i `uc ]
-"864
-[; ;../../VLCBlib_PIC/mns.c: 864:     return TIMED_RESPONSE_RESULT_NEXT;
+"866
+[; ;../../VLCBlib_PIC/mns.c: 866:     return TIMED_RESPONSE_RESULT_NEXT;
 [e ) . `E12944 2 ]
 [e $UE 1690  ]
-"865
-[; ;../../VLCBlib_PIC/mns.c: 865: }
+"867
+[; ;../../VLCBlib_PIC/mns.c: 867: }
 [e :UE 1690 ]
 }

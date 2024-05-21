@@ -38767,20 +38767,12 @@ extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue
 # 79 "../event_consumerDualActionQueue.h"
 extern const Service eventConsumerService;
 # 91 "../event_consumerDualActionQueue.h"
-typedef struct {
-    EventState state;
-    union {
-        uint8_t value;
-        uint8_t bytes[1];
-    } a;
-} ActionAndState;
-
-extern ActionAndState * popTwoAction(void);
-extern Boolean pushTwoAction(ActionAndState a);
+extern uint8_t popTwoAction(void);
+extern Boolean pushTwoAction(uint8_t a);
 extern void deleteActionRange(uint8_t action, uint8_t number);
 extern void setNormalActions(void);
 extern void setExpeditedActions(void);
-extern ActionAndState * peekTwoActionQueue(uint8_t index);
+extern uint8_t peekTwoActionQueue(uint8_t index);
 
 
 extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
@@ -38970,11 +38962,11 @@ const Service eventConsumer2QService = {
 
 uint8_t normalReadIndex;
 uint8_t normalWriteIndex;
-ActionAndState normalQueueBuf[64];
+uint8_t normalQueueBuf[64];
 
 uint8_t expeditedReadIndex;
 uint8_t expeditedWriteIndex;
-ActionAndState expeditedQueueBuf[8];
+uint8_t expeditedQueueBuf[8];
 
 static Boolean expedited;
 
@@ -38992,7 +38984,7 @@ static Processed consumer2QProcessMessage(Message *m) {
     uint8_t tableIndex;
     int8_t change;
     uint8_t e;
-    ActionAndState action;
+    uint8_t action;
     uint8_t masked_action;
     uint8_t ca;
     uint8_t io;
@@ -39052,15 +39044,14 @@ static Processed consumer2QProcessMessage(Message *m) {
     opc=m->opc;
 
     if ( ! (opc&0b00000001)) {
-        action.state = EVENT_ON;
 
 
 
         for (e=1; e<20 ;e++) {
-            action.a.value = evs[e];
-            if (action.a.value != 0) {
+            action = evs[e];
+            if (action != 0) {
 
-                masked_action = action.a.value&0x7F;
+                masked_action = action&0x7F;
                 if ((masked_action) <= (8 + 5 * 16)) {
 
                     if ((masked_action) == 7) {
@@ -39081,11 +39072,11 @@ static Processed consumer2QProcessMessage(Message *m) {
                             case 3:
                                 if (ca == 0) {
 
-                                    action.a.value++;
+                                    action++;
                                 }
                                 if (ca == 4) {
 
-                                    action.a.value-=2;
+                                    action-=2;
                                 }
                                 pushTwoAction(action);
                                 setNormalActions();
@@ -39105,11 +39096,11 @@ static Processed consumer2QProcessMessage(Message *m) {
 
 
         uint8_t nextAction = evs[20 -1];
-        action.state = EVENT_OFF;
+
         for (e=20 -1; e>=1 ;e--) {
             uint8_t nextSimultaneous;
             uint8_t firstAction = 0;
-            action.a.value = nextAction;
+            action = nextAction;
 
 
 
@@ -39119,23 +39110,23 @@ static Processed consumer2QProcessMessage(Message *m) {
             } else {
                 nextSimultaneous = firstAction & 0x80;
             }
-            if (action.a.value != 0) {
+            if (action != 0) {
 
                 if (firstAction == 0) {
-                    firstAction = action.a.value;
+                    firstAction = action;
                 }
-                action.a.value &= 0x7F;
-                if (action.a.value <= (8 + 5 * 16)) {
+                action &= 0x7F;
+                if (action <= (8 + 5 * 16)) {
 
-                    if ((action.a.value) == 7) {
+                    if ((action) == 7) {
                         break;
                     }
-                    if ((action.a.value < 8) && (action.a.value != 1)) {
-                        action.a.value |= nextSimultaneous;
+                    if ((action < 8) && (action != 1)) {
+                        action |= nextSimultaneous;
                         pushTwoAction(action);
                     } else {
-                        io = (((action.a.value)-8)/5);
-                        ca = (((action.a.value)-8)%5);
+                        io = (((action)-8)/5);
+                        ca = (((action)-8)%5);
                         switch (getNV((16 + 7*(io) + 0))) {
                             case 1:
                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
@@ -39143,25 +39134,25 @@ static Processed consumer2QProcessMessage(Message *m) {
                                 }
                                 if (ca == 3) {
 
-                                    action.a.value--;
+                                    action--;
                                 }
 
                             case 2:
                             case 3:
                                 if (ca == 0) {
 
-                                    action.a.value += 2;
+                                    action += 2;
                                 }
                                 if (ca == 4) {
 
-                                    action.a.value -= 3;
+                                    action -= 3;
                                 }
-                                action.a.value |= nextSimultaneous;
+                                action |= nextSimultaneous;
                                 pushTwoAction(action);
                                 setNormalActions();
                                 break;
                             case 4:
-                                action.a.value |= nextSimultaneous;
+                                action |= nextSimultaneous;
                                 pushTwoAction(action);
                                 setNormalActions();
                                 break;
@@ -39196,7 +39187,7 @@ static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
 
 
 
-Boolean pushTwoAction(ActionAndState a) {
+Boolean pushTwoAction(uint8_t a) {
     if (expedited) {
         if (((expeditedWriteIndex+1)&(8 -1)) == expeditedReadIndex)
             return FALSE;
@@ -39217,7 +39208,7 @@ Boolean pushTwoAction(ActionAndState a) {
 
 
 
-ActionAndState * getTwoAction(void) {
+uint8_t getTwoAction(void) {
  return peekTwoActionQueue(0);
 }
 
@@ -39226,20 +39217,20 @@ ActionAndState * getTwoAction(void) {
 
 
 
-ActionAndState * popTwoAction(void) {
-    ActionAndState * ret;
+uint8_t popTwoAction(void) {
+    uint8_t ret;
 
  if (expeditedWriteIndex != expeditedReadIndex) {
 
-        ret = &(expeditedQueueBuf[expeditedReadIndex++]);
+        ret = expeditedQueueBuf[expeditedReadIndex++];
         if (expeditedReadIndex >= 8) expeditedReadIndex = 0;
         return ret;
     }
 
  if (normalWriteIndex == normalReadIndex) {
-        return ((void*)0);
+        return 0;
     }
- ret = &(normalQueueBuf[normalReadIndex++]);
+ ret = normalQueueBuf[normalReadIndex++];
  if (normalReadIndex >= 64) normalReadIndex = 0;
  return ret;
 }
@@ -39256,30 +39247,30 @@ void doneTwoAction(void) {
 
 
 
-ActionAndState * peekTwoActionQueue(uint8_t index) {
+uint8_t peekTwoActionQueue(uint8_t index) {
     uint8_t qty;
     qty = (expeditedWriteIndex - expeditedReadIndex) & (8 -1);
     if (index < qty) {
-        if (expeditedReadIndex == expeditedWriteIndex) return ((void*)0);
+        if (expeditedReadIndex == expeditedWriteIndex) return 0;
         index += expeditedReadIndex;
         if (index >= 8) {
             index -= 8;
         }
-        if (index == expeditedWriteIndex) return ((void*)0);
-        return &(expeditedQueueBuf[index]);
+        if (index == expeditedWriteIndex) return 0;
+        return expeditedQueueBuf[index];
     }
     index -= qty;
     qty = (normalWriteIndex - normalReadIndex) & (64 -1);
     if (index < qty) {
-        if (normalReadIndex == normalWriteIndex) return ((void*)0);
+        if (normalReadIndex == normalWriteIndex) return 0;
         index += normalReadIndex;
         if (index >= 64) {
             index -= 64;
         }
-        if (index == normalWriteIndex) return ((void*)0);
-        return &(normalQueueBuf[index]);
+        if (index == normalWriteIndex) return 0;
+        return normalQueueBuf[index];
     }
-    return ((void*)0);
+    return 0;
 }
 
 
@@ -39295,7 +39286,7 @@ void deleteTwoActionQueue(uint8_t index) {
             index -= 8;
         }
         if (index == expeditedWriteIndex) return;
-        expeditedQueueBuf[index].a.value = 0;
+        expeditedQueueBuf[index] = 0;
         return;
     }
     index -= qty;
@@ -39307,7 +39298,7 @@ void deleteTwoActionQueue(uint8_t index) {
             index -= 64;
         }
         if (index == normalWriteIndex) return;
-        normalQueueBuf[index].a.value = 0;
+        normalQueueBuf[index] = 0;
         return;
     }
 }

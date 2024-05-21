@@ -88,20 +88,12 @@ extern const Service eventConsumerService;
 #define Action unit16_t
 #endif
 
-typedef struct {
-    EventState state;
-    union {
-        Action value;
-        uint8_t bytes[ACTION_SIZE];
-    } a;
-} ActionAndState;
-
-extern ActionAndState * popTwoAction(void);
-extern Boolean pushTwoAction(ActionAndState a);
+extern Action popTwoAction(void);
+extern Boolean pushTwoAction(Action a);
 extern void deleteActionRange(Action action, uint8_t number);
 extern void setNormalActions(void);
 extern void setExpeditedActions(void);
-extern ActionAndState * peekTwoActionQueue(uint8_t index);
+extern Action peekTwoActionQueue(uint8_t index);
 
 #ifndef COMSUMER_EVS_AS_ACTIONS
 extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);

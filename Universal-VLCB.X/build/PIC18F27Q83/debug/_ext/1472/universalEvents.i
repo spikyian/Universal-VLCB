@@ -39017,7 +39017,7 @@ extern Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type);
 extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
-extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
+extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
 # 68 "../universalEvents.c" 2
 
 
@@ -39154,41 +39154,41 @@ void clearEvents(uint8_t io) {
 void processActions(void) {
     uint8_t io;
     uint8_t type;
-    ActionAndState * action = getTwoAction();
+    uint8_t action = getTwoAction();
     uint8_t ioAction;
     uint8_t simultaneous;
     uint8_t peekItem;
 
 
-    if (action->a.value == 0) {
+    if (action == 0) {
         doneTwoAction();
         return;
     }
 
-    if (action->a.value == 1) {
+    if (action == 1) {
 
         doSOD();
         doneTwoAction();
         return;
     }
-    if (action->a.value == 2) {
+    if (action == 2) {
         doWait(5);
         return;
     }
-    if (action->a.value == 3) {
+    if (action == 3) {
         doWait(10);
         return;
     }
-    if (action->a.value == 4) {
+    if (action == 4) {
         doWait(20);
         return;
     }
-    if (action->a.value == 5) {
+    if (action == 5) {
         doWait(50);
         return;
     }
-    simultaneous = action->a.value & 0x80;
-    ioAction = action->a.value&0x7F;
+    simultaneous = action & 0x80;
+    ioAction = action&0x7F;
     if ((ioAction >= 8) && (ioAction < (8 + 5 * 16))) {
 
 
@@ -39204,16 +39204,16 @@ void processActions(void) {
 
         peekItem = 1;
         while (simultaneous) {
-            ActionAndState * nextAction;
+            uint8_t nextAction;
             uint8_t nextIo;
             uint8_t nextType;
 
             nextAction = peekTwoActionQueue(peekItem);
 
-            if (nextAction->a.value == 0) break;
-            simultaneous = nextAction->a.value & 0x80;
-            nextAction->a.value &= 0x7F;
-            nextIo = (((nextAction->a.value)-8)/5);
+            if (nextAction == 0) break;
+            simultaneous = nextAction & 0x80;
+            nextAction &= 0x7F;
+            nextIo = (((nextAction)-8)/5);
             if (nextIo == io) {
 
 
@@ -39221,9 +39221,9 @@ void processActions(void) {
                 break;
             }
             nextType = (uint8_t)getNV((16 + 7*(io) + 0));
-            setOutputState(nextIo, nextAction->a.value, nextType);
-            if (needsStarting(nextIo, nextAction->a.value, nextType)) {
-                startOutput(nextIo, nextAction->a.value, nextType);
+            setOutputState(nextIo, nextAction, nextType);
+            if (needsStarting(nextIo, nextAction, nextType)) {
+                startOutput(nextIo, nextAction, nextType);
             }
             if (completed(nextIo, nextAction, nextType)) {
                 deleteTwoActionQueue(peekItem);

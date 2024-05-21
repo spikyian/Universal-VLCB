@@ -38923,10 +38923,11 @@ void eraseFlashBlock(void) {
     uint8_t interruptEnabled;
 
 
-    while (! APP_isSuitableTimeToWriteFlash());
+    while (! APP_isSuitableTimeToWriteFlash())
+        ;
 
     interruptEnabled = (INTCON0bits.GIE);
-# 337 "../../VLCBlib_PIC/nvm.c"
+# 338 "../../VLCBlib_PIC/nvm.c"
     while (NVMCON0bits.GO)
         ;
 
@@ -38963,13 +38964,18 @@ void flushFlashBlock(void) {
 
 
     if (! flashFlags.writeNeeded) return;
+
+
+    while (APP_isSuitableTimeToWriteFlash() == BAD_TIME)
+        ;
+
     if (flashFlags.eraseNeeded) {
         eraseFlashBlock();
     }
 
     interruptEnabled = (INTCON0bits.GIE);
     {INTCON0bits.GIE = 0;};
-# 404 "../../VLCBlib_PIC/nvm.c"
+# 410 "../../VLCBlib_PIC/nvm.c"
     while (NVMCON0bits.GO)
         ;
 
@@ -38997,7 +39003,7 @@ void flushFlashBlock(void) {
 
 
 void loadFlashBlock(void) {
-# 445 "../../VLCBlib_PIC/nvm.c"
+# 451 "../../VLCBlib_PIC/nvm.c"
     while (NVMCON0bits.GO)
         ;
 
@@ -39012,13 +39018,10 @@ void loadFlashBlock(void) {
 
     flashFlags.asByte = 0;
 }
-# 468 "../../VLCBlib_PIC/nvm.c"
+# 474 "../../VLCBlib_PIC/nvm.c"
 uint8_t FLASH_Write(flash_address_t index, flash_data_t value) {
     uint8_t oldValue;
-
-    while (APP_isSuitableTimeToWriteFlash() == BAD_TIME)
-        ;
-# 486 "../../VLCBlib_PIC/nvm.c"
+# 490 "../../VLCBlib_PIC/nvm.c"
     if ((index&(~((flash_address_t)(256U)-1))) != flashBlock) {
         if (flashBlock != 0) {
 
@@ -39041,7 +39044,7 @@ uint8_t FLASH_Write(flash_address_t index, flash_data_t value) {
     }
     return GRSP_OK;
 }
-# 516 "../../VLCBlib_PIC/nvm.c"
+# 520 "../../VLCBlib_PIC/nvm.c"
 uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value) {
     switch(type) {
         case EEPROM_NVM_TYPE:

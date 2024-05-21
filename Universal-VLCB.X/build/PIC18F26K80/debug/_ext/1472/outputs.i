@@ -21484,7 +21484,7 @@ extern Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type);
 extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
-extern Boolean completed(uint8_t io, ActionAndState * action, uint8_t type);
+extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
 # 51 "../outputs.c" 2
 
 
@@ -21614,7 +21614,7 @@ Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
 
 
 
-Boolean completed(uint8_t io, ActionAndState * action, uint8_t type) {
+Boolean completed(uint8_t io, uint8_t action, uint8_t type) {
     switch(type) {
         case 0:
 
