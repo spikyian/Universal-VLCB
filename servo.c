@@ -266,7 +266,7 @@ void __interrupt(irq(TMR3), base(IVT_BASE)) TMR3_ISR(void)
         /* there was a timer overflow */
         PIR5bits.TMR3IF = 0;
         T3CONbits.TMR3ON = 0;       // disable Timer1
-        setOutputPin(servoInBlock, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock)) & FLAG_OUTPUT_ACTION_INVERTED);  
+        setOutputPin(servoInBlock+SERVOS_IN_BLOCK, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock+SERVOS_IN_BLOCK)) & FLAG_OUTPUT_ACTION_INVERTED);  
     }
     return;
 }
