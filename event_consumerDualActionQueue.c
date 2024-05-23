@@ -222,11 +222,11 @@ static Processed consumer2QProcessMessage(Message *m) {
                             case TYPE_SERVO:
                             case TYPE_BOUNCE:
                                 if (ca == ACTION_IO_1) {
-                                    // action 1 (EV) must be converted to 2(ON)
+                                    // action 1 (Change) must be converted to 2(ON)
                                     action++;
                                 }
                                 if (ca == ACTION_IO_5) {
-                                    // action 5 (EV) must be converted to 3(OFF)
+                                    // action 5 (!Change) must be converted to 3(OFF)
                                     action-=2;
                                 }
                                 pushTwoAction(action);
@@ -291,11 +291,11 @@ static Processed consumer2QProcessMessage(Message *m) {
                             case TYPE_SERVO:
                             case TYPE_BOUNCE:
                                 if (ca == ACTION_IO_1) {
-                                    // action 1 (EV) must be converted to 3(OFF)
+                                    // action 1 (Change) must be converted to 3(OFF)
                                     action += 2;
                                 }
                                 if (ca == ACTION_IO_5) {
-                                    // action 5 (EV) must be converted to 3(ON)
+                                    // action 5 (!Change) must be converted to 3(ON)
                                     action -= 3;
                                 }
                                 action |= nextSimultaneous;

@@ -39180,7 +39180,7 @@ void __attribute__((picinterrupt(("irq(TMR3), base(0x900)")))) TMR3_ISR(void)
 
         PIR5bits.TMR3IF = 0;
         T3CONbits.TMR3ON = 0;
-        setOutputPin(servoInBlock, (uint8_t)getNV((16 + 7*(servoInBlock) + 1)) & 0x20);
+        setOutputPin(servoInBlock+8, (uint8_t)getNV((16 + 7*(servoInBlock+8) + 1)) & 0x20);
     }
     return;
 }

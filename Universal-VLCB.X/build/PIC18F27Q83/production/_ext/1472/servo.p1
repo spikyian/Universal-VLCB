@@ -4098,8 +4098,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../servo.c: 268:         T3CONbits.TMR3ON = 0;
 [e = . . _T3CONbits 1 0 -> -> 0 `i `uc ]
 "269
-[; ;../servo.c: 269:         setOutputPin(servoInBlock, (uint8_t)getNV((16 + 7*(servoInBlock) + 1)) & 0x20);
-[e ( _setOutputPin (2 , _servoInBlock -> & -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _servoInBlock `i -> 1 `i `uc `uc `i -> 32 `i `E22873 ]
+[; ;../servo.c: 269:         setOutputPin(servoInBlock+8, (uint8_t)getNV((16 + 7*(servoInBlock+8) + 1)) & 0x20);
+[e ( _setOutputPin (2 , -> + -> _servoInBlock `i -> 8 `i `uc -> & -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i + -> _servoInBlock `i -> 8 `i -> 1 `i `uc `uc `i -> 32 `i `E22873 ]
 "270
 [; ;../servo.c: 270:     }
 }
