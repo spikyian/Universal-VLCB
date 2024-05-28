@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F23031 `(v ~T0 @X0 0 tf ]
-[v F23033 `(v ~T0 @X0 0 tf ]
+[v F23032 `(v ~T0 @X0 0 tf ]
+[v F23034 `(v ~T0 @X0 0 tf ]
 "64 ../../VLCBlib_PIC/event_coe.c
 [; ;../../VLCBlib_PIC/event_coe.c: 64: const Service eventCoeService = {
 [c E22565 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
@@ -11,34 +11,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S3224 Message len opc bytes ]
 "64 ../../VLCBlib_PIC/event_coe.c
 [; ;../../VLCBlib_PIC/event_coe.c: 64: const Service eventCoeService = {
-[c E22955 0 1 .. ]
-[n E22955 Processed NOT_PROCESSED PROCESSED  ]
-[v F23035 `(E22955 ~T0 @X0 0 tf1`*S3224 ]
-[v F23038 `(v ~T0 @X0 0 tf ]
-[v F23040 `(uc ~T0 @X0 0 tf1`uc ]
-"158 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 158:     struct {
+[c E22956 0 1 .. ]
+[n E22956 Processed NOT_PROCESSED PROCESSED  ]
+[v F23036 `(E22956 ~T0 @X0 0 tf1`*S3224 ]
+[v F23039 `(v ~T0 @X0 0 tf ]
+[v F23041 `(uc ~T0 @X0 0 tf1`uc ]
+"159 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 159:     struct {
 [s S3228 `uc 1 `uc 1 ]
 [n S3228 . lo hi ]
-"155
-[; ;../../VLCBlib_PIC/vlcb.h: 155: typedef union DiagnosticVal {
+"156
+[; ;../../VLCBlib_PIC/vlcb.h: 156: typedef union DiagnosticVal {
 [u S3227 `us 1 `s 1 `S3228 1 ]
 [n S3227 DiagnosticVal asUint asInt asBytes ]
-[v F23043 `(*S3227 ~T0 @X0 0 tf1`uc ]
-"306
-[; ;../../VLCBlib_PIC/vlcb.h: 306: typedef struct Service {
-[s S3229 `uc 1 `uc 1 `*F23031 1 `*F23033 1 `*F23035 1 `*F23038 1 `*F23040 1 `*F23043 1 ]
+[v F23044 `(*S3227 ~T0 @X0 0 tf1`uc ]
+"307
+[; ;../../VLCBlib_PIC/vlcb.h: 307: typedef struct Service {
+[s S3229 `uc 1 `uc 1 `*F23032 1 `*F23034 1 `*F23036 1 `*F23039 1 `*F23041 1 `*F23044 1 ]
 [n S3229 Service serviceNo version factoryReset powerUp processMessage poll getESDdata getDiagnostic ]
 "64 ../../VLCBlib_PIC/event_coe.c
 [; ;../../VLCBlib_PIC/event_coe.c: 64: const Service eventCoeService = {
 [c E22772 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
 [n E22772 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
-[v F23082 `(v ~T0 @X0 0 tf ]
 [v F23083 `(v ~T0 @X0 0 tf ]
-[v F23084 `(E22955 ~T0 @X0 0 tf1`*S3224 ]
-[v F23086 `(v ~T0 @X0 0 tf ]
-[v F23087 `(uc ~T0 @X0 0 tf1`uc ]
-[v F23089 `(*S3227 ~T0 @X0 0 tf1`uc ]
+[v F23084 `(v ~T0 @X0 0 tf ]
+[v F23085 `(E22956 ~T0 @X0 0 tf1`*S3224 ]
+[v F23087 `(v ~T0 @X0 0 tf ]
+[v F23088 `(uc ~T0 @X0 0 tf1`uc ]
+[v F23090 `(*S3227 ~T0 @X0 0 tf1`uc ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");
 [; <" BOOTREG equ 038h ;# ">
@@ -3566,12 +3566,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 -> . `E22772 8 `uc
 -> -> 1 `i `uc
--> -> -> 0 `i `*v `*F23082
 -> -> -> 0 `i `*v `*F23083
 -> -> -> 0 `i `*v `*F23084
--> -> -> 0 `i `*v `*F23086
+-> -> -> 0 `i `*v `*F23085
 -> -> -> 0 `i `*v `*F23087
--> -> -> 0 `i `*v `*F23089
+-> -> -> 0 `i `*v `*F23088
+-> -> -> 0 `i `*v `*F23090
 ..
 ..
 ]

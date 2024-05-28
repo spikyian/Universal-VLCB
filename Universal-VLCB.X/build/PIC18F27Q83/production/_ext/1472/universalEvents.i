@@ -38556,10 +38556,11 @@ typedef union Word {
 
 
 typedef enum {
+    EVENT_UNKNOWN = 255,
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 155 "../../VLCBlib_PIC/vlcb.h"
+# 156 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -38592,7 +38593,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 197 "../../VLCBlib_PIC/vlcb.h"
+# 198 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -38635,17 +38636,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 247 "../../VLCBlib_PIC/vlcb.h"
+# 248 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 257 "../../VLCBlib_PIC/vlcb.h"
+# 258 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 268 "../../VLCBlib_PIC/vlcb.h"
+# 269 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 280 "../../VLCBlib_PIC/vlcb.h"
+# 281 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 293 "../../VLCBlib_PIC/vlcb.h"
+# 294 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 306 "../../VLCBlib_PIC/vlcb.h"
+# 307 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -38705,9 +38706,9 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 396 "../../VLCBlib_PIC/vlcb.h"
+# 397 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 406 "../../VLCBlib_PIC/vlcb.h"
+# 407 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
 
 
@@ -38735,9 +38736,9 @@ typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
 } Transport;
-# 441 "../../VLCBlib_PIC/vlcb.h"
+# 442 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 454 "../../VLCBlib_PIC/vlcb.h"
+# 455 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 57 "../universalEvents.c" 2
 
@@ -38882,9 +38883,43 @@ extern void updateModuleErrorStatus(void);
 extern TickValue pbTimer;
 # 62 "../universalEvents.c" 2
 
+# 1 "../../VLCBlib_PIC\\timedResponse.h" 1
+# 86 "../../VLCBlib_PIC\\timedResponse.h"
+typedef enum {
+    TIMED_RESPONSE_RESULT_FINISHED,
+    TIMED_RESPONSE_RESULT_RETRY,
+    TIMED_RESPONSE_RESULT_NEXT
+} TimedResponseResult;
+
+
+
+
+
+typedef TimedResponseResult (* TimedResponseCallback)(uint8_t type, const Service * service, uint8_t step);
+
+
+
+
+extern void initTimedResponse(void);
+
+
+
+
+
+
+
+extern void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponseResult (*callback)(uint8_t type, uint8_t si, uint8_t step));
+
+
+
+
+
+extern void pollTimedResponse(void);
+# 63 "../universalEvents.c" 2
+
 
 # 1 "../event_consumerDualActionQueue.h" 1
-# 64 "../universalEvents.c" 2
+# 65 "../universalEvents.c" 2
 
 # 1 "../universalNv.h" 1
 # 64 "../universalNv.h"
@@ -38992,7 +39027,7 @@ typedef struct {
 } ModuleNvDefs;
 
 extern void defaultNVs(uint8_t i, uint8_t type);
-# 65 "../universalEvents.c" 2
+# 66 "../universalEvents.c" 2
 
 # 1 "../universalEvents.h" 1
 # 173 "../universalEvents.h"
@@ -39007,10 +39042,10 @@ extern void processActions(void);
 extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
                                         Boolean can_send_on, Boolean can_send_off);
 extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-# 66 "../universalEvents.c" 2
+# 67 "../universalEvents.c" 2
 
 # 1 "../universalEEPROM.h" 1
-# 67 "../universalEvents.c" 2
+# 68 "../universalEvents.c" 2
 
 # 1 "../outputs.h" 1
 # 42 "../outputs.h"
@@ -39019,7 +39054,7 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
-# 68 "../universalEvents.c" 2
+# 69 "../universalEvents.c" 2
 
 
 # 1 "../analogue.h" 1
@@ -39042,7 +39077,7 @@ typedef struct {
     unsigned char portState:1;
 } AnalogueStates;
 extern AnalogueStates analogueState[16];
-# 70 "../universalEvents.c" 2
+# 71 "../universalEvents.c" 2
 
 
 
@@ -39057,6 +39092,7 @@ uint8_t getTwoAction(void);
 void doneTwoAction(void);
 uint8_t peekTwoActionQueue(uint8_t index);
 void deleteTwoActionQueue(uint8_t index);
+TimedResponseResult sodTRCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
 
 extern uint8_t outputState[16];
 extern uint8_t currentPos[16];
@@ -39130,11 +39166,11 @@ void defaultEvents(uint8_t io, uint8_t type) {
 
     }
 }
-# 170 "../universalEvents.c"
+# 172 "../universalEvents.c"
 uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
     if ((evNum == 0) && (evVal != 0))
     {
-# 185 "../universalEvents.c"
+# 187 "../universalEvents.c"
     }
     return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
 }
@@ -39273,7 +39309,7 @@ void doWait(uint16_t duration) {
         }
     }
 }
-# 334 "../universalEvents.c"
+# 336 "../universalEvents.c"
 Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
  EventState state_to_send = invert?!state:state;
  if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
@@ -39282,61 +39318,72 @@ Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean
   return TRUE;
  }
 }
-# 350 "../universalEvents.c"
+# 352 "../universalEvents.c"
 Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
     return sendProducedEvent(action, invert?!state:state);
 }
-# 510 "../universalEvents.c"
+
+
+
+
+
+
 void doSOD(void) {
-    uint8_t midway;
-    uint8_t state;
+    startTimedResponse(1, findServiceIndex(SERVICE_ID_PRODUCER), sodTRCallback);
+}
+# 377 "../universalEvents.c"
+TimedResponseResult sodTRCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     uint8_t io;
+    uint8_t happeningIndex;
+    Boolean disable_off;
+ Boolean send_on_ok;
+ Boolean send_off_ok;
+ Boolean event_inverted;
+    Boolean disable_SOD_response;
+    uint8_t flags;
+    EventState value;
 
 
-
-    for (io=0; io < 16; io++) {
-        uint8_t event_inverted = getNV((16 + 7*(io) + 1)) & 0x40;
-        switch(getNV((16 + 7*(io) + 0))) {
-            case 0:
-
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), outputState[io], event_inverted)) ;
-                break;
-            case 1:
-                state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state!=2, event_inverted));
-                break;
-
-            case 2:
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 2)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
-
-                midway = (uint8_t)(getNV((16 + 7*(io) + 3))/2 + getNV((16 + 7*(io) + 2))/2);
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] >= midway, event_inverted));
-                break;
-
-            case 3:
-                state = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), state, event_inverted));
-                break;
-
-
-            case 4:
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), currentPos[io] == getNV((16 + 7*(io) + 3)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), currentPos[io] == getNV((16 + 7*(io) + 4)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+2), currentPos[io] == getNV((16 + 7*(io) + 5)), event_inverted));
-                if (getNV((16 + 7*(io) + 2)) > 3) {
-                    while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+3), currentPos[io] == getNV((16 + 7*(io) + 6)), event_inverted));
-                }
-                break;
-
-
-
-            case 5:
-            case 6:
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+0), analogueState[io].eventState == 1, event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(((8 + 4*(io))+1), analogueState[io].eventState == 2, event_inverted));
-                break;
-
-        }
+    io = step/4;
+    if (io >= 16) {
+        return TIMED_RESPONSE_RESULT_FINISHED;
     }
+    happeningIndex = step%4;
+    flags = (uint8_t)getNV((16 + 7*(io) + 1));;
+    disable_SOD_response = flags & 0x20;
+
+    event_inverted = flags & 0x40;
+    disable_off = flags & 0x08;
+    send_on_ok = !( disable_off && event_inverted );
+    send_off_ok = !( disable_off && !event_inverted);
+
+    value = APP_GetEventState((8 + 4*(io))+happeningIndex);
+
+    switch((uint8_t)getNV((16 + 7*(io) + 0))) {
+        case 0:
+
+        case 5:
+        case 6:
+
+            if (disable_SOD_response) {
+                return TIMED_RESPONSE_RESULT_NEXT;
+            }
+            break;
+
+        case 2:
+
+        case 3:
+
+
+        case 4:
+
+            send_on_ok = TRUE;
+            send_off_ok = TRUE;
+            break;
+
+    }
+    if (value != EVENT_UNKNOWN) {
+        sendInvertedProducedEvent((8 + 4*(io))+happeningIndex, value, event_inverted, send_on_ok, send_off_ok);
+    }
+    return TIMED_RESPONSE_RESULT_NEXT;
 }

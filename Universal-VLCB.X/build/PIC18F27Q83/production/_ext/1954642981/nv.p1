@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"158 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 158:     struct {
+"159 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 159:     struct {
 [s S3228 `uc 1 `uc 1 ]
 [n S3228 . lo hi ]
-"155
-[; ;../../VLCBlib_PIC/vlcb.h: 155: typedef union DiagnosticVal {
+"156
+[; ;../../VLCBlib_PIC/vlcb.h: 156: typedef union DiagnosticVal {
 [u S3227 `us 1 `s 1 `S3228 1 ]
 [n S3227 DiagnosticVal asUint asInt asBytes ]
-[v F23031 `(v ~T0 @X0 0 tf ]
-[v F23033 `(v ~T0 @X0 0 tf ]
+[v F23032 `(v ~T0 @X0 0 tf ]
+[v F23034 `(v ~T0 @X0 0 tf ]
 "82 ../../VLCBlib_PIC/nv.c
 [; ;../../VLCBlib_PIC/nv.c: 82: const Service nvService = {
 [c E22565 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
@@ -19,15 +19,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S3224 Message len opc bytes ]
 "82 ../../VLCBlib_PIC/nv.c
 [; ;../../VLCBlib_PIC/nv.c: 82: const Service nvService = {
-[c E22955 0 1 .. ]
-[n E22955 Processed NOT_PROCESSED PROCESSED  ]
-[v F23035 `(E22955 ~T0 @X0 0 tf1`*S3224 ]
-[v F23038 `(v ~T0 @X0 0 tf ]
-[v F23040 `(uc ~T0 @X0 0 tf1`uc ]
-[v F23043 `(*S3227 ~T0 @X0 0 tf1`uc ]
-"306 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 306: typedef struct Service {
-[s S3229 `uc 1 `uc 1 `*F23031 1 `*F23033 1 `*F23035 1 `*F23038 1 `*F23040 1 `*F23043 1 ]
+[c E22956 0 1 .. ]
+[n E22956 Processed NOT_PROCESSED PROCESSED  ]
+[v F23036 `(E22956 ~T0 @X0 0 tf1`*S3224 ]
+[v F23039 `(v ~T0 @X0 0 tf ]
+[v F23041 `(uc ~T0 @X0 0 tf1`uc ]
+[v F23044 `(*S3227 ~T0 @X0 0 tf1`uc ]
+"307 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 307: typedef struct Service {
+[s S3229 `uc 1 `uc 1 `*F23032 1 `*F23034 1 `*F23036 1 `*F23039 1 `*F23041 1 `*F23044 1 ]
 [n S3229 Service serviceNo version factoryReset powerUp processMessage poll getESDdata getDiagnostic ]
 "82 ../../VLCBlib_PIC/nv.c
 [; ;../../VLCBlib_PIC/nv.c: 82: const Service nvService = {
@@ -41,8 +41,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _nvPowerUp `(v ~T0 @X0 0 sf ]
 "68
 [; ;../../VLCBlib_PIC/nv.c: 68: static Processed nvProcessMessage(Message *m);
-[v _nvProcessMessage `(E22955 ~T0 @X0 0 sf1`*S3224 ]
-[v F23147 `(v ~T0 @X0 0 tf ]
+[v _nvProcessMessage `(E22956 ~T0 @X0 0 sf1`*S3224 ]
+[v F23148 `(v ~T0 @X0 0 tf ]
 "69
 [; ;../../VLCBlib_PIC/nv.c: 69: static uint8_t nvGetESDdata(uint8_t id);
 [v _nvGetESDdata `(uc ~T0 @X0 0 sf1`uc ]
@@ -71,11 +71,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E22734 VlcbCmdErrs CMDERR_INV_CMD CMDERR_NOT_LRN CMDERR_NOT_SETUP CMDERR_TOO_MANY_EVENTS CMDERR_NO_EV CMDERR_INV_EV_IDX CMDERR_INVALID_EVENT CMDERR_INV_EN_IDX CMDERR_INV_PARAM_IDX CMDERR_INV_NV_IDX CMDERR_INV_EV_VALUE CMDERR_INV_NV_VALUE CMDERR_LRN_OTHER  ]
 "221
 [; ;../../VLCBlib_PIC/nv.c: 221:     if (APP_nvValidate(index, value) == INVALID) return CMDERR_INV_NV_VALUE;
-[c E23081 0 1 .. ]
-[n E23081 NvValidation INVALID VALID  ]
+[c E23082 0 1 .. ]
+[n E23082 NvValidation INVALID VALID  ]
 "103 ../../VLCBlib_PIC/nv.h
 [; ;../../VLCBlib_PIC/nv.h: 103: extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-[v _APP_nvValidate `(E23081 ~T0 @X0 0 ef2`uc`uc ]
+[v _APP_nvValidate `(E23082 ~T0 @X0 0 ef2`uc`uc ]
 "115 ../../VLCBlib_PIC/nv.c
 [; ;../../VLCBlib_PIC/nv.c: 115: extern void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue);
 [v _APP_nvValueChanged `(v ~T0 @X0 0 ef3`uc`uc`uc ]
@@ -90,31 +90,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "126 ../../VLCBlib_PIC/mns.h
 [; ;../../VLCBlib_PIC/mns.h: 126: extern Word nn;
 [v _nn `S3225 ~T0 @X0 0 e ]
-"238 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 238: void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
+"239 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 239: void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
 [v _sendMessage3 `(v ~T0 @X0 0 ef4`E22565`uc`uc`uc ]
-"257
-[; ;../../VLCBlib_PIC/vlcb.h: 257: void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
+"258
+[; ;../../VLCBlib_PIC/vlcb.h: 258: void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
 [v _sendMessage5 `(v ~T0 @X0 0 ef6`E22565`uc`uc`uc`uc`uc ]
-"247
-[; ;../../VLCBlib_PIC/vlcb.h: 247: void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
+"248
+[; ;../../VLCBlib_PIC/vlcb.h: 248: void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
 [v _sendMessage4 `(v ~T0 @X0 0 ef5`E22565`uc`uc`uc`uc ]
 "279 ../../VLCBlib_PIC/nv.c
 [; ;../../VLCBlib_PIC/nv.c: 279:                 startTimedResponse(6, findServiceIndex(SERVICE_ID_NV), nvTRnvrdCallback);
-[c E23104 0 1 2 .. ]
-[n E23104 . TIMED_RESPONSE_RESULT_FINISHED TIMED_RESPONSE_RESULT_RETRY TIMED_RESPONSE_RESULT_NEXT  ]
-[v F23116 `(E23104 ~T0 @X0 0 tf3`uc`uc`uc ]
+[c E23105 0 1 2 .. ]
+[n E23105 . TIMED_RESPONSE_RESULT_FINISHED TIMED_RESPONSE_RESULT_RETRY TIMED_RESPONSE_RESULT_NEXT  ]
+[v F23117 `(E23105 ~T0 @X0 0 tf3`uc`uc`uc ]
 "109 ../../VLCBlib_PIC/timedResponse.h
 [; ;../../VLCBlib_PIC/timedResponse.h: 109: extern void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponseResult (*callback)(uint8_t type, uint8_t si, uint8_t step));
-[v _startTimedResponse `(v ~T0 @X0 0 ef3`uc`uc`*F23116 ]
-"357 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 357: extern uint8_t findServiceIndex(uint8_t id);
+[v _startTimedResponse `(v ~T0 @X0 0 ef3`uc`uc`*F23117 ]
+"358 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 358: extern uint8_t findServiceIndex(uint8_t id);
 [v _findServiceIndex `(uc ~T0 @X0 0 ef1`uc ]
 "70 ../../VLCBlib_PIC/nv.c
 [; ;../../VLCBlib_PIC/nv.c: 70: TimedResponseResult nvTRnvrdCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
-[v _nvTRnvrdCallback `(E23104 ~T0 @X0 0 ef3`uc`uc`uc ]
-"230 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 230: void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
+[v _nvTRnvrdCallback `(E23105 ~T0 @X0 0 ef3`uc`uc`uc ]
+"231 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 231: void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 [v _sendMessage2 `(v ~T0 @X0 0 ef3`E22565`uc`uc ]
 "305 ../../VLCBlib_PIC/nv.c
 [; ;../../VLCBlib_PIC/nv.c: 305:             sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSET, SERVICE_ID_MNS, GRSP_OK);
@@ -3653,7 +3653,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U _nvFactoryReset
 &U _nvPowerUp
 &U _nvProcessMessage
--> -> -> 0 `i `*v `*F23147
+-> -> -> 0 `i `*v `*F23148
 &U _nvGetESDdata
 &U _nvGetDiagnostic
 ..
@@ -3869,7 +3869,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3252 ]
 "221
 [; ;../../VLCBlib_PIC/nv.c: 221:     if (APP_nvValidate(index, value) == INVALID) return CMDERR_INV_NV_VALUE;
-[e $ ! == -> ( _APP_nvValidate (2 , _index _value `ui -> . `E23081 0 `ui 3253  ]
+[e $ ! == -> ( _APP_nvValidate (2 , _index _value `ui -> . `E23082 0 `ui 3253  ]
 [e ) -> . `E22734 11 `uc ]
 [e $UE 3251  ]
 [e :U 3253 ]
@@ -3895,7 +3895,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "239
 [; ;../../VLCBlib_PIC/nv.c: 239: static Processed nvProcessMessage(Message * m) {
-[v _nvProcessMessage `(E22955 ~T0 @X0 1 sf1`*S3224 ]
+[v _nvProcessMessage `(E22956 ~T0 @X0 1 sf1`*S3224 ]
 {
 [e :U _nvProcessMessage ]
 [v _m `*S3224 ~T0 @X0 1 r1 ]
@@ -3909,7 +3909,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "243
 [; ;../../VLCBlib_PIC/nv.c: 243:         return NOT_PROCESSED;
-[e ) . `E22955 0 ]
+[e ) . `E22956 0 ]
 [e $UE 3254  ]
 "244
 [; ;../../VLCBlib_PIC/nv.c: 244:     }
@@ -3918,13 +3918,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "246
 [; ;../../VLCBlib_PIC/nv.c: 246:     if (m->bytes[0] != nn.bytes.hi) return NOT_PROCESSED;
 [e $ ! != -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . . _nn 0 1 `i 3256  ]
-[e ) . `E22955 0 ]
+[e ) . `E22956 0 ]
 [e $UE 3254  ]
 [e :U 3256 ]
 "247
 [; ;../../VLCBlib_PIC/nv.c: 247:     if (m->bytes[1] != nn.bytes.lo) return NOT_PROCESSED;
 [e $ ! != -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . . _nn 0 0 `i 3257  ]
-[e ) . `E22955 0 ]
+[e ) . `E22956 0 ]
 [e $UE 3254  ]
 [e :U 3257 ]
 "249
@@ -3949,7 +3949,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "259
 [; ;../../VLCBlib_PIC/nv.c: 259:                 return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "260
 [; ;../../VLCBlib_PIC/nv.c: 260:             }
@@ -3973,7 +3973,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "270
 [; ;../../VLCBlib_PIC/nv.c: 270:                 return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "271
 [; ;../../VLCBlib_PIC/nv.c: 271:             }
@@ -3998,7 +3998,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3263 ]
 "282
 [; ;../../VLCBlib_PIC/nv.c: 282:             return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "283
 [; ;../../VLCBlib_PIC/nv.c: 283:         case OPC_NVSET:
@@ -4015,7 +4015,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "292
 [; ;../../VLCBlib_PIC/nv.c: 292:                 return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "293
 [; ;../../VLCBlib_PIC/nv.c: 293:             }
@@ -4036,7 +4036,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "301
 [; ;../../VLCBlib_PIC/nv.c: 301:                 return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "302
 [; ;../../VLCBlib_PIC/nv.c: 302:             }
@@ -4050,7 +4050,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sendMessage5 (4 , , , , , . `E22565 89 . . _nn 0 1 . . _nn 0 0 -> . `E22565 75 `uc -> . `E22772 1 `uc -> . `E22749 0 `uc ]
 "307
 [; ;../../VLCBlib_PIC/nv.c: 307:             return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "309
 [; ;../../VLCBlib_PIC/nv.c: 309:         case OPC_NVSETRD:
@@ -4067,7 +4067,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "316
 [; ;../../VLCBlib_PIC/nv.c: 316:                 return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "317
 [; ;../../VLCBlib_PIC/nv.c: 317:             }
@@ -4091,7 +4091,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "325
 [; ;../../VLCBlib_PIC/nv.c: 325:                 return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "326
 [; ;../../VLCBlib_PIC/nv.c: 326:             }
@@ -4115,7 +4115,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "334
 [; ;../../VLCBlib_PIC/nv.c: 334:                 return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "335
 [; ;../../VLCBlib_PIC/nv.c: 335:             }
@@ -4129,14 +4129,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "340
 [; ;../../VLCBlib_PIC/nv.c: 340:             return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3254  ]
 "342
 [; ;../../VLCBlib_PIC/nv.c: 342:         default:
 [e :U 3271 ]
 "343
 [; ;../../VLCBlib_PIC/nv.c: 343:             return NOT_PROCESSED;
-[e ) . `E22955 0 ]
+[e ) . `E22956 0 ]
 [e $UE 3254  ]
 "344
 [; ;../../VLCBlib_PIC/nv.c: 344:     }
@@ -4187,7 +4187,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "370
 [; ;../../VLCBlib_PIC/nv.c: 370: TimedResponseResult nvTRnvrdCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
-[v _nvTRnvrdCallback `(E23104 ~T0 @X0 1 ef3`uc`uc`uc ]
+[v _nvTRnvrdCallback `(E23105 ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _nvTRnvrdCallback ]
 [v _type `uc ~T0 @X0 1 r1 ]
@@ -4203,7 +4203,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "373
 [; ;../../VLCBlib_PIC/nv.c: 373:         return TIMED_RESPONSE_RESULT_FINISHED;
-[e ) . `E23104 0 ]
+[e ) . `E23105 0 ]
 [e $UE 3277  ]
 "374
 [; ;../../VLCBlib_PIC/nv.c: 374:     }
@@ -4218,7 +4218,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "377
 [; ;../../VLCBlib_PIC/nv.c: 377:         return TIMED_RESPONSE_RESULT_FINISHED;
-[e ) . `E23104 0 ]
+[e ) . `E23105 0 ]
 [e $UE 3277  ]
 "378
 [; ;../../VLCBlib_PIC/nv.c: 378:     }
@@ -4232,7 +4232,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "383
 [; ;../../VLCBlib_PIC/nv.c: 383:     return TIMED_RESPONSE_RESULT_NEXT;
-[e ) . `E23104 2 ]
+[e ) . `E23105 2 ]
 [e $UE 3277  ]
 "384
 [; ;../../VLCBlib_PIC/nv.c: 384: }

@@ -142,8 +142,8 @@ extern "C" {
 #define HAPPENING_IO_MAGNETL(i)       (HAPPENING_IO_BASE(i)+HAPPENING_IO_1)
 #define HAPPENING_IO_MAGNETH(i)       (HAPPENING_IO_BASE(i)+HAPPENING_IO_2)
  
-#define HAPPENING(a)                  (((a)-HAPPENING_IO_BASE)%HAPPENINGS_PER_IO)
-#define HAPPENING_IO(a)               (((a)-HAPPENING_IO_BASE)/HAPPENINGS_PER_IO)
+#define HAPPENING(a)                  (((a)-BASE_HAPPENING_IO)%HAPPENINGS_PER_IO)
+#define HAPPENING_IO(a)               (((a)-BASE_HAPPENING_IO)/HAPPENINGS_PER_IO)
     
 /* CONSUMED actions*/
 #define ACTION_IO_OUTPUT_EV(i)     (ACTION_IO_BASE(i)+ACTION_IO_1)

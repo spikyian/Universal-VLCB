@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"158 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 158:     struct {
+"159 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 159:     struct {
 [s S3228 `uc 1 `uc 1 ]
 [n S3228 . lo hi ]
-"155
-[; ;../../VLCBlib_PIC/vlcb.h: 155: typedef union DiagnosticVal {
+"156
+[; ;../../VLCBlib_PIC/vlcb.h: 156: typedef union DiagnosticVal {
 [u S3227 `us 1 `s 1 `S3228 1 ]
 [n S3227 DiagnosticVal asUint asInt asBytes ]
-[v F23031 `(v ~T0 @X0 0 tf ]
-[v F23033 `(v ~T0 @X0 0 tf ]
+[v F23032 `(v ~T0 @X0 0 tf ]
+[v F23034 `(v ~T0 @X0 0 tf ]
 "76 ../event_consumerDualActionQueue.c
 [; ;../event_consumerDualActionQueue.c: 76: const Service eventConsumer2QService = {
 [c E22565 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
@@ -19,29 +19,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S3224 Message len opc bytes ]
 "76 ../event_consumerDualActionQueue.c
 [; ;../event_consumerDualActionQueue.c: 76: const Service eventConsumer2QService = {
-[c E22955 0 1 .. ]
-[n E22955 Processed NOT_PROCESSED PROCESSED  ]
-[v F23035 `(E22955 ~T0 @X0 0 tf1`*S3224 ]
-[v F23038 `(v ~T0 @X0 0 tf ]
-[v F23040 `(uc ~T0 @X0 0 tf1`uc ]
-[v F23043 `(*S3227 ~T0 @X0 0 tf1`uc ]
-"306 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 306: typedef struct Service {
-[s S3229 `uc 1 `uc 1 `*F23031 1 `*F23033 1 `*F23035 1 `*F23038 1 `*F23040 1 `*F23043 1 ]
+[c E22956 0 1 .. ]
+[n E22956 Processed NOT_PROCESSED PROCESSED  ]
+[v F23036 `(E22956 ~T0 @X0 0 tf1`*S3224 ]
+[v F23039 `(v ~T0 @X0 0 tf ]
+[v F23041 `(uc ~T0 @X0 0 tf1`uc ]
+[v F23044 `(*S3227 ~T0 @X0 0 tf1`uc ]
+"307 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 307: typedef struct Service {
+[s S3229 `uc 1 `uc 1 `*F23032 1 `*F23034 1 `*F23036 1 `*F23039 1 `*F23041 1 `*F23044 1 ]
 [n S3229 Service serviceNo version factoryReset powerUp processMessage poll getESDdata getDiagnostic ]
 "76 ../event_consumerDualActionQueue.c
 [; ;../event_consumerDualActionQueue.c: 76: const Service eventConsumer2QService = {
 [c E22772 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
 [n E22772 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
-[v F23257 `(v ~T0 @X0 0 tf ]
+[v F23258 `(v ~T0 @X0 0 tf ]
 "63
 [; ;../event_consumerDualActionQueue.c: 63: static void consumer2QPowerUp(void);
 [v _consumer2QPowerUp `(v ~T0 @X0 0 sf ]
 "64
 [; ;../event_consumerDualActionQueue.c: 64: static Processed consumer2QProcessMessage(Message * m);
-[v _consumer2QProcessMessage `(E22955 ~T0 @X0 0 sf1`*S3224 ]
-[v F23261 `(v ~T0 @X0 0 tf ]
-[v F23262 `(uc ~T0 @X0 0 tf1`uc ]
+[v _consumer2QProcessMessage `(E22956 ~T0 @X0 0 sf1`*S3224 ]
+[v F23262 `(v ~T0 @X0 0 tf ]
+[v F23263 `(uc ~T0 @X0 0 tf1`uc ]
 "67
 [; ;../event_consumerDualActionQueue.c: 67: static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index);
 [v _consumer2QGetDiagnostic `(*S3227 ~T0 @X0 0 sf1`uc ]
@@ -3615,11 +3615,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 -> . `E22772 6 `uc
 -> -> 1 `i `uc
--> -> -> 0 `i `*v `*F23257
+-> -> -> 0 `i `*v `*F23258
 &U _consumer2QPowerUp
 &U _consumer2QProcessMessage
--> -> -> 0 `i `*v `*F23261
 -> -> -> 0 `i `*v `*F23262
+-> -> -> 0 `i `*v `*F23263
 &U _consumer2QGetDiagnostic
 ..
 ..
@@ -3672,7 +3672,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "133
 [; ;../event_consumerDualActionQueue.c: 133: static Processed consumer2QProcessMessage(Message *m) {
-[v _consumer2QProcessMessage `(E22955 ~T0 @X0 1 sf1`*S3224 ]
+[v _consumer2QProcessMessage `(E22956 ~T0 @X0 1 sf1`*S3224 ]
 {
 [e :U _consumer2QProcessMessage ]
 [v _m `*S3224 ~T0 @X0 1 r1 ]
@@ -3705,7 +3705,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "143
 [; ;../event_consumerDualActionQueue.c: 143:     if (m->len < 5) return NOT_PROCESSED;
 [e $ ! < -> . *U _m 0 `i -> 5 `i 3247  ]
-[e ) . `E22955 0 ]
+[e ) . `E22956 0 ]
 [e $UE 3246  ]
 [e :U 3247 ]
 "145
@@ -3714,7 +3714,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "146
 [; ;../event_consumerDualActionQueue.c: 146:     if (tableIndex == 0xff) return NOT_PROCESSED;
 [e $ ! == -> _tableIndex `i -> 255 `i 3248  ]
-[e ) . `E22955 0 ]
+[e ) . `E22956 0 ]
 [e $UE 3246  ]
 [e :U 3248 ]
 "148
@@ -3798,7 +3798,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3267 ]
 "182
 [; ;../event_consumerDualActionQueue.c: 182:             return NOT_PROCESSED;
-[e ) . `E22955 0 ]
+[e ) . `E22956 0 ]
 [e $UE 3246  ]
 "183
 [; ;../event_consumerDualActionQueue.c: 183:     }
@@ -3829,7 +3829,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "187
 [; ;../event_consumerDualActionQueue.c: 187:     if (tableIndex == 0xff) return NOT_PROCESSED;
 [e $ ! == -> _tableIndex `i -> 255 `i 3268  ]
-[e ) . `E22955 0 ]
+[e ) . `E22956 0 ]
 [e $UE 3246  ]
 [e :U 3268 ]
 "189
@@ -4230,7 +4230,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U + &U _consumer2QDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _consumer2QDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "322
 [; ;../event_consumerDualActionQueue.c: 322:     return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3246  ]
 "323
 [; ;../event_consumerDualActionQueue.c: 323: }

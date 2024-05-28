@@ -10,15 +10,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S3224 `uc 1 `E22565 1 `uc -> 7 `i ]
 [n S3224 Message len opc bytes ]
 "739 ../../VLCBlib_PIC/vlcb.c
-[c E23066 0 1 .. ]
-[n E23066 SendResult SEND_FAILED SEND_OK  ]
-[v F23072 `(E23066 ~T0 @X0 0 tf1`*S3224 ]
-[c E23062 0 1 .. ]
-[n E23062 MessageReceived NOT_RECEIVED RECEIVED  ]
-[v F23075 `(E23062 ~T0 @X0 0 tf1`*S3224 ]
-"429 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 429: typedef struct Transport {
-[s S3230 `*F23072 1 `*F23075 1 ]
+[c E23067 0 1 .. ]
+[n E23067 SendResult SEND_FAILED SEND_OK  ]
+[v F23073 `(E23067 ~T0 @X0 0 tf1`*S3224 ]
+[c E23063 0 1 .. ]
+[n E23063 MessageReceived NOT_RECEIVED RECEIVED  ]
+[v F23076 `(E23063 ~T0 @X0 0 tf1`*S3224 ]
+"430 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 430: typedef struct Transport {
+[s S3230 `*F23073 1 `*F23076 1 ]
 [n S3230 Transport sendMessage receiveMessage ]
 "216 ../../VLCBlib_PIC/ticktime.h
 [; ;../../VLCBlib_PIC/ticktime.h: 216:     {
@@ -32,37 +32,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/ticktime.h: 211: typedef union _TickValue {
 [u S3221 `ul 1 `S3222 1 `uc -> 4 `i `S3223 1 ]
 [n S3221 _TickValue val byte v word ]
-[v F23031 `(v ~T0 @X0 0 tf ]
-[v F23033 `(v ~T0 @X0 0 tf ]
+[v F23032 `(v ~T0 @X0 0 tf ]
+[v F23034 `(v ~T0 @X0 0 tf ]
 "807 ../../VLCBlib_PIC/vlcb.c
 [; ;../../VLCBlib_PIC/vlcb.c: 807: const Service * findService(uint8_t id) {
-[c E22955 0 1 .. ]
-[n E22955 Processed NOT_PROCESSED PROCESSED  ]
-[v F23035 `(E22955 ~T0 @X0 0 tf1`*S3224 ]
-[v F23038 `(v ~T0 @X0 0 tf ]
-[v F23040 `(uc ~T0 @X0 0 tf1`uc ]
-"158 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 158:     struct {
+[c E22956 0 1 .. ]
+[n E22956 Processed NOT_PROCESSED PROCESSED  ]
+[v F23036 `(E22956 ~T0 @X0 0 tf1`*S3224 ]
+[v F23039 `(v ~T0 @X0 0 tf ]
+[v F23041 `(uc ~T0 @X0 0 tf1`uc ]
+"159 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 159:     struct {
 [s S3228 `uc 1 `uc 1 ]
 [n S3228 . lo hi ]
-"155
-[; ;../../VLCBlib_PIC/vlcb.h: 155: typedef union DiagnosticVal {
+"156
+[; ;../../VLCBlib_PIC/vlcb.h: 156: typedef union DiagnosticVal {
 [u S3227 `us 1 `s 1 `S3228 1 ]
 [n S3227 DiagnosticVal asUint asInt asBytes ]
-[v F23043 `(*S3227 ~T0 @X0 0 tf1`uc ]
-"306
-[; ;../../VLCBlib_PIC/vlcb.h: 306: typedef struct Service {
-[s S3229 `uc 1 `uc 1 `*F23031 1 `*F23033 1 `*F23035 1 `*F23038 1 `*F23040 1 `*F23043 1 ]
+[v F23044 `(*S3227 ~T0 @X0 0 tf1`uc ]
+"307
+[; ;../../VLCBlib_PIC/vlcb.h: 307: typedef struct Service {
+[s S3229 `uc 1 `uc 1 `*F23032 1 `*F23034 1 `*F23036 1 `*F23039 1 `*F23041 1 `*F23044 1 ]
 [n S3229 Service serviceNo version factoryReset powerUp processMessage poll getESDdata getDiagnostic ]
-[v F23048 `*CS3229 ~T0 @X0 1 t ]
-"328
-[; ;../../VLCBlib_PIC/vlcb.h: 328: extern const Service * const services[];
+[v F23049 `*CS3229 ~T0 @X0 1 t ]
+"329
+[; ;../../VLCBlib_PIC/vlcb.h: 329: extern const Service * const services[];
 [v _services `C*CS3229 ~T0 @X0 -> 0 `x e ]
 "837 ../../VLCBlib_PIC/vlcb.c
 [; ;../../VLCBlib_PIC/vlcb.c: 837: ServicePresent have(uint8_t id) {
-[c E23049 0 1 .. ]
-[n E23049 ServicePresent NOT_PRESENT PRESENT  ]
-[v F23166 `(v ~T0 @X0 0 tf ]
+[c E23050 0 1 .. ]
+[n E23050 ServicePresent NOT_PRESENT PRESENT  ]
+[v F23167 `(v ~T0 @X0 0 tf ]
 "865
 [; ;../../VLCBlib_PIC/vlcb.c: 865:     writeNVM(EEPROM_NVM_TYPE, 0x200, 1);
 [c E22895 0 1 .. ]
@@ -80,7 +80,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _initTimedResponse `(v ~T0 @X0 0 ef ]
 "69 ../../VLCBlib_PIC/statusLeds.h
 [v _leds_powerUp `(v ~T0 @X0 0 ef ]
-[v F23183 `(v ~T0 @X0 0 tf ]
+[v F23184 `(v ~T0 @X0 0 tf ]
 "145 ../../VLCBlib_PIC/mns.h
 [; ;../../VLCBlib_PIC/mns.h: 145: extern TickValue pbTimer;
 [v _pbTimer `S3221 ~T0 @X0 0 e ]
@@ -111,13 +111,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "147 ../../VLCBlib_PIC/nvm.h
 [; ;../../VLCBlib_PIC/nvm.h: 147: extern void flushFlashBlock(void);
 [v _flushFlashBlock `(v ~T0 @X0 0 ef ]
-[v F23209 `(v ~T0 @X0 0 tf ]
-[v F23218 `(E23062 ~T0 @X0 0 tf1`*S3224 ]
+[v F23210 `(v ~T0 @X0 0 tf ]
+[v F23219 `(E23063 ~T0 @X0 0 tf1`*S3224 ]
 "761 ../../VLCBlib_PIC/vlcb.c
-[v _APP_preProcessMessage `(E22955 ~T0 @X0 0 ef1`*S3224 ]
-[v F23235 `(E22955 ~T0 @X0 0 tf1`*S3224 ]
+[v _APP_preProcessMessage `(E22956 ~T0 @X0 0 ef1`*S3224 ]
+[v F23236 `(E22956 ~T0 @X0 0 tf1`*S3224 ]
 "769
-[v _APP_postProcessMessage `(E22955 ~T0 @X0 0 ef1`*S3224 ]
+[v _APP_postProcessMessage `(E22956 ~T0 @X0 0 ef1`*S3224 ]
 "129 ../../VLCBlib_PIC/vlcb.h
 [; ;../../VLCBlib_PIC/vlcb.h: 129:     struct {
 [s S3226 `uc 1 `uc 1 ]
@@ -129,8 +129,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "126 ../../VLCBlib_PIC/mns.h
 [; ;../../VLCBlib_PIC/mns.h: 126: extern Word nn;
 [v _nn `S3225 ~T0 @X0 0 e ]
-"257 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 257: void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
+"258 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 258: void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
 [v _sendMessage5 `(v ~T0 @X0 0 ef6`E22565`uc`uc`uc`uc`uc ]
 "1099 ../../VLCBlib_PIC/vlcb.c
 [; ;../../VLCBlib_PIC/vlcb.c: 1099:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, m->opc, service, CMDERR_INV_CMD);
@@ -140,10 +140,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/vlcb.c: 1116: Boolean isEvent(uint8_t opc) {
 [c E22923 0 1 .. ]
 [n E22923 Boolean FALSE TRUE  ]
-"293 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 293: void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+"294 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 294: void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
 [v _sendMessage `(v ~T0 @X0 0 ef9`E22565`uc`uc`uc`uc`uc`uc`uc`uc ]
-[v F23306 `(E23066 ~T0 @X0 0 tf1`*S3224 ]
+[v F23307 `(E23067 ~T0 @X0 0 tf1`*S3224 ]
 [p mainexit ]
 "5343 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 5343:     struct {
@@ -4229,7 +4229,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "837
 [; ;../../VLCBlib_PIC/vlcb.c: 837: ServicePresent have(uint8_t id) {
-[v _have `(E23049 ~T0 @X0 1 ef1`uc ]
+[v _have `(E23050 ~T0 @X0 1 ef1`uc ]
 {
 [e :U _have ]
 [v _id `uc ~T0 @X0 1 r1 ]
@@ -4251,7 +4251,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "841
 [; ;../../VLCBlib_PIC/vlcb.c: 841:             return PRESENT;
-[e ) . `E23049 1 ]
+[e ) . `E23050 1 ]
 [e $UE 3241  ]
 "842
 [; ;../../VLCBlib_PIC/vlcb.c: 842:         }
@@ -4266,7 +4266,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "844
 [; ;../../VLCBlib_PIC/vlcb.c: 844:     return NOT_PRESENT;
-[e ) . `E23049 0 ]
+[e ) . `E23050 0 ]
 [e $UE 3241  ]
 "845
 [; ;../../VLCBlib_PIC/vlcb.c: 845: }
@@ -4291,7 +4291,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "860
 [; ;../../VLCBlib_PIC/vlcb.c: 860:         if ((services[i] != ((void*)0)) && (services[i]->factoryReset != ((void*)0))) {
-[e $ ! && != *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux -> -> -> 0 `i `*v `*CS3229 != . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 2 -> -> -> 0 `i `*v `*F23166 3250  ]
+[e $ ! && != *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux -> -> -> 0 `i `*v `*CS3229 != . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 2 -> -> -> 0 `i `*v `*F23167 3250  ]
 {
 "861
 [; ;../../VLCBlib_PIC/vlcb.c: 861:             services[i]->factoryReset();
@@ -4351,7 +4351,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "886
 [; ;../../VLCBlib_PIC/vlcb.c: 886:         if ((services[i] != ((void*)0)) && (services[i]->powerUp != ((void*)0))) {
-[e $ ! && != *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux -> -> -> 0 `i `*v `*CS3229 != . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 3 -> -> -> 0 `i `*v `*F23183 3255  ]
+[e $ ! && != *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux -> -> -> 0 `i `*v `*CS3229 != . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 3 -> -> -> 0 `i `*v `*F23184 3255  ]
 {
 "887
 [; ;../../VLCBlib_PIC/vlcb.c: 887:             services[i]->powerUp();
@@ -4576,7 +4576,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _m `S3224 ~T0 @X0 1 a ]
 "995
 [; ;../../VLCBlib_PIC/vlcb.c: 995:     Processed handled;
-[v _handled `E22955 ~T0 @X0 1 a ]
+[v _handled `E22956 ~T0 @X0 1 a ]
 "998
 [; ;../../VLCBlib_PIC/vlcb.c: 998:     if ((tickGet() - timedResponseTime.val) > (long)timedResponseDelay*(62500/1000)) {
 [e $ ! > - ( _tickGet ..  . _timedResponseTime 0 -> * -> _timedResponseDelay `l / -> 62500 `l -> -> 1000 `i `l `ul 3277  ]
@@ -4615,7 +4615,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1008
 [; ;../../VLCBlib_PIC/vlcb.c: 1008:         if ((services[i] != ((void*)0)) && (services[i]->poll != ((void*)0))) {
-[e $ ! && != *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux -> -> -> 0 `i `*v `*CS3229 != . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 5 -> -> -> 0 `i `*v `*F23209 3282  ]
+[e $ ! && != *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux -> -> -> 0 `i `*v `*CS3229 != . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 5 -> -> -> 0 `i `*v `*F23210 3282  ]
 {
 "1009
 [; ;../../VLCBlib_PIC/vlcb.c: 1009:             services[i]->poll();
@@ -4636,14 +4636,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _leds_poll ..  ]
 "1016
 [; ;../../VLCBlib_PIC/vlcb.c: 1016:     handled = NOT_PROCESSED;
-[e = _handled . `E22955 0 ]
+[e = _handled . `E22956 0 ]
 "1017
 [; ;../../VLCBlib_PIC/vlcb.c: 1017:     if (transport != ((void*)0)) {
 [e $ ! != _transport -> -> -> 0 `i `*v `*CS3230 3283  ]
 {
 "1018
 [; ;../../VLCBlib_PIC/vlcb.c: 1018:         if (transport->receiveMessage != ((void*)0)) {
-[e $ ! != . *U _transport 1 -> -> -> 0 `i `*v `*F23218 3284  ]
+[e $ ! != . *U _transport 1 -> -> -> 0 `i `*v `*F23219 3284  ]
 {
 "1019
 [; ;../../VLCBlib_PIC/vlcb.c: 1019:             if (transport->receiveMessage(&m)) {
@@ -4661,7 +4661,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _handled ( _APP_preProcessMessage (1 &U _m ]
 "1023
 [; ;../../VLCBlib_PIC/vlcb.c: 1023:                     if (handled == NOT_PROCESSED) {
-[e $ ! == -> _handled `ui -> . `E22955 0 `ui 3287  ]
+[e $ ! == -> _handled `ui -> . `E22956 0 `ui 3287  ]
 {
 "1024
 [; ;../../VLCBlib_PIC/vlcb.c: 1024:                         for (i=0; i<9; i++) {
@@ -4673,15 +4673,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1025
 [; ;../../VLCBlib_PIC/vlcb.c: 1025:                             if ((services[i] != ((void*)0)) && (services[i]->processMessage != ((void*)0))) {
-[e $ ! && != *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux -> -> -> 0 `i `*v `*CS3229 != . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 4 -> -> -> 0 `i `*v `*F23235 3291  ]
+[e $ ! && != *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux -> -> -> 0 `i `*v `*CS3229 != . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 4 -> -> -> 0 `i `*v `*F23236 3291  ]
 {
 "1026
 [; ;../../VLCBlib_PIC/vlcb.c: 1026:                                 if (services[i]->processMessage(&m) == PROCESSED) {
-[e $ ! == -> ( *U . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 4 (1 &U _m `ui -> . `E22955 1 `ui 3292  ]
+[e $ ! == -> ( *U . *U *U + &U _services * -> _i `ux -> -> # *U &U _services `ui `ux 4 (1 &U _m `ui -> . `E22956 1 `ui 3292  ]
 {
 "1027
 [; ;../../VLCBlib_PIC/vlcb.c: 1027:                                     handled = PROCESSED;
-[e = _handled . `E22955 1 ]
+[e = _handled . `E22956 1 ]
 "1028
 [; ;../../VLCBlib_PIC/vlcb.c: 1028:                                     break;
 [e $U 3289  ]
@@ -4702,7 +4702,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1032
 [; ;../../VLCBlib_PIC/vlcb.c: 1032:                         if (handled == NOT_PROCESSED) {
-[e $ ! == -> _handled `ui -> . `E22955 0 `ui 3293  ]
+[e $ ! == -> _handled `ui -> . `E22956 0 `ui 3293  ]
 {
 "1033
 [; ;../../VLCBlib_PIC/vlcb.c: 1033:                             handled = APP_postProcessMessage(&m);
@@ -4748,7 +4748,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1094
 [; ;../../VLCBlib_PIC/vlcb.c: 1094: Processed checkLen(Message * m, uint8_t needed, uint8_t service) {
-[v _checkLen `(E22955 ~T0 @X0 1 ef3`*S3224`uc`uc ]
+[v _checkLen `(E22956 ~T0 @X0 1 ef3`*S3224`uc`uc ]
 {
 [e :U _checkLen ]
 [v _m `*S3224 ~T0 @X0 1 r1 ]
@@ -4780,7 +4780,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3297 ]
 "1103
 [; ;../../VLCBlib_PIC/vlcb.c: 1103:         return PROCESSED;
-[e ) . `E22955 1 ]
+[e ) . `E22956 1 ]
 [e $UE 3295  ]
 "1104
 [; ;../../VLCBlib_PIC/vlcb.c: 1104:     }
@@ -4788,7 +4788,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3296 ]
 "1105
 [; ;../../VLCBlib_PIC/vlcb.c: 1105:     return NOT_PROCESSED;
-[e ) . `E22955 0 ]
+[e ) . `E22956 0 ]
 [e $UE 3295  ]
 "1106
 [; ;../../VLCBlib_PIC/vlcb.c: 1106: }
@@ -4997,7 +4997,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1235
 [; ;../../VLCBlib_PIC/vlcb.c: 1235:         if (transport->sendMessage != ((void*)0)) {
-[e $ ! != . *U _transport 0 -> -> -> 0 `i `*v `*F23306 3310  ]
+[e $ ! != . *U _transport 0 -> -> -> 0 `i `*v `*F23307 3310  ]
 {
 "1236
 [; ;../../VLCBlib_PIC/vlcb.c: 1236:             transport->sendMessage(&tmpMessage);

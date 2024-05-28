@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "81 ../bounce.c
 [; ;../bounce.c: 81: BounceState bounceState[16];
-[c E13046 0 1 2 3 .. ]
-[n E13046 . STATE_FIRST_PULL STATE_PAUSE STATE_SECOND_PULL STATE_DONE  ]
+[c E13047 0 1 2 3 .. ]
+[n E13047 . STATE_FIRST_PULL STATE_PAUSE STATE_SECOND_PULL STATE_DONE  ]
 "65
 [; ;../bounce.c: 65: extern int speed[16];
 [v _speed `i ~T0 @X0 -> 0 `x e ]
@@ -1395,7 +1395,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "81 ../bounce.c
 [; ;../bounce.c: 81: BounceState bounceState[16];
-[v _bounceState `E13046 ~T0 @X0 -> 16 `i e ]
+[v _bounceState `E13047 ~T0 @X0 -> 16 `i e ]
 "89
 [; ;../bounce.c: 89: void initBounce(uint8_t io) {
 [v _initBounce `(v ~T0 @X0 1 ef1`uc ]
@@ -1405,7 +1405,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "90
 [; ;../bounce.c: 90:     bounceState[io] = STATE_FIRST_PULL;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13046 0 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13047 0 ]
 "91
 [; ;../bounce.c: 91:     speed[io] = 0;
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 0 `i ]
@@ -1556,7 +1556,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "172
 [; ;../bounce.c: 172:                 bounceState[io] = STATE_PAUSE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13046 1 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13047 1 ]
 "173
 [; ;../bounce.c: 173:                 speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `uc `i ]
@@ -1579,7 +1579,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "178
 [; ;../bounce.c: 178:                 bounceState[io] = STATE_PAUSE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13046 1 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13047 1 ]
 "179
 [; ;../bounce.c: 179:                 speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `uc `i ]
@@ -1600,7 +1600,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "185
 [; ;../bounce.c: 185:         if (speed[io] == 0) bounceState[io] = STATE_SECOND_PULL;
 [e $ ! == *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 0 `i 1566  ]
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13046 2 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13047 2 ]
 [e :U 1566 ]
 "186
 [; ;../bounce.c: 186:         speed[io]--;
@@ -1624,7 +1624,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "193
 [; ;../bounce.c: 193:                 bounceState[io] = STATE_DONE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13046 3 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13047 3 ]
 "194
 [; ;../bounce.c: 194:                 return TRUE;
 [e ) . `E12700 1 ]
@@ -1648,7 +1648,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "199
 [; ;../bounce.c: 199:                 bounceState[io] = STATE_DONE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13046 3 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E13047 3 ]
 "200
 [; ;../bounce.c: 200:                 return TRUE;
 [e ) . `E12700 1 ]
@@ -1675,10 +1675,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1558  ]
 [e :U 1559 ]
-[e [\ -> *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux `ui , $ -> . `E13046 0 `ui 1560
- , $ -> . `E13046 1 `ui 1565
- , $ -> . `E13046 2 `ui 1567
- , $ -> . `E13046 3 `ui 1572
+[e [\ -> *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux `ui , $ -> . `E13047 0 `ui 1560
+ , $ -> . `E13047 1 `ui 1565
+ , $ -> . `E13047 2 `ui 1567
+ , $ -> . `E13047 3 `ui 1572
  1558 ]
 [e :U 1558 ]
 "207

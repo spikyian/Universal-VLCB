@@ -11,8 +11,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S3231 `*S3224 1 `uc 1 `uc 1 `uc 1 ]
 [n S3231 MessageQueue messages readIndex writeIndex size ]
 "58 ../../VLCBlib_PIC/messageQueue.c
-[c E23086 0 1 .. ]
-[n E23086 Qresult QUEUE_FAIL QUEUE_SUCCESS  ]
+[c E23087 0 1 .. ]
+[n E23087 Qresult QUEUE_FAIL QUEUE_SUCCESS  ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");
 [; <" BOOTREG equ 038h ;# ">
@@ -3535,7 +3535,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51 ../../VLCBlib_PIC/messageQueue.c
 [p n 1498 ]
 "58
-[v _push `(E23086 ~T0 @X0 1 ef2`*S3231`*S3224 ]
+[v _push `(E23087 ~T0 @X0 1 ef2`*S3231`*S3224 ]
 {
 [e :U _push ]
 [v _q `*S3231 ~T0 @X0 1 r1 ]
@@ -3543,7 +3543,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "59
 [e $ ! == & + -> . *U _q 2 `i -> 1 `i - -> . *U _q 3 `i -> 1 `i -> . *U _q 1 `i 3233  ]
-[e ) . `E23086 0 ]
+[e ) . `E23087 0 ]
 [e $UE 3232  ]
 [e :U 3233 ]
 "60
@@ -3571,7 +3571,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _q 2 -> -> 0 `i `uc ]
 [e :U 3234 ]
 "72
-[e ) . `E23086 1 ]
+[e ) . `E23087 1 ]
 [e $UE 3232  ]
 "73
 [e :UE 3232 ]

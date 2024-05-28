@@ -198,6 +198,8 @@ const Service * const services[] = {
     &eventAckService
 };
 
+extern uint8_t outputState[NUM_IO];
+
 /**
  * Called at first run to initialise all the non volatile memory. 
  * Also called if the PB hold down special sequence at power up is done.
@@ -400,8 +402,101 @@ Processed APP_postProcessMessage(Message * m) {
  * This is needed by the library to get the current event state. 
  */
 EventState APP_GetEventState(Happening h) {
-    return EVENT_OFF;
+    uint8_t flags;
+    uint8_t happeningIndex;
+    Boolean disable_off;
+    
+    io = HAPPENING_IO(h);
+    if (io >= NUM_IO) {
+        return EVENT_UNKNOWN;
+    }
+    happeningIndex = HAPPENING(h);
+    flags = (uint8_t)getNV(NV_IO_FLAGS(io));
+    disable_off = flags & FLAG_DISABLE_OFF;
+        
+    switch((uint8_t)getNV(NV_IO_TYPE(io))) {
+        case TYPE_INPUT:
+            switch (happeningIndex) {
+                case HAPPENING_IO_1:
+                    // The TRIGGER_INVERTED has already been taken into account when saved in outputState. No need to check again
+                    return outputState[io]?EVENT_ON:EVENT_OFF;
+                case HAPPENING_IO_2:
+                    // TWO_ON is only sent if DISABLE_OFF is set GP//
+                    if (disable_off) {
+                        return (outputState[io]==0)?EVENT_ON:EVENT_OFF;
+                    }
+                    break;
+            }
+            break;
+        case TYPE_OUTPUT:
+            switch (happeningIndex) {
+                case HAPPENING_IO_1:
+                    return (readNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io)!=ACTION_IO_3)?EVENT_ON:EVENT_OFF;
+            }
+            break;
+#ifdef SERVO
+        case TYPE_SERVO:
+            switch (happeningIndex) {
+                case HAPPENING_IO_1:
+                    return (currentPos[io] == (uint8_t)getNV(NV_IO_SERVO_START_POS(io)))?EVENT_ON:EVENT_OFF;
+                case HAPPENING_IO_3:
+                    return (currentPos[io] == (uint8_t)getNV(NV_IO_SERVO_END_POS(io)))?EVENT_ON:EVENT_OFF;
+                    // send the last mid
+                case HAPPENING_IO_2:
+                    return (currentPos[io] >= ((uint8_t)getNV(NV_IO_SERVO_END_POS(io)))/2 + 
+                         ((uint8_t)getNV(NV_IO_SERVO_START_POS(io)))/2)?EVENT_ON:EVENT_OFF;
+            }
+            break;
+#ifdef BOUNCE
+        case TYPE_BOUNCE:
+            switch (happeningIndex) {
+                case HAPPENING_IO_1:
+                    return ((uint8_t)readNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io))?EVENT_ON:EVENT_OFF;
+            }
+            break;
+#endif
+#ifdef MULTI
+        case TYPE_MULTI:
+            switch (happeningIndex) {
+                case HAPPENING_IO_1:
+                    return (currentPos[io] == getNV(NV_IO_MULTI_POS1(io)))?EVENT_ON:EVENT_OFF;
+                case HAPPENING_IO_2:
+                    return (currentPos[io] == getNV(NV_IO_MULTI_POS2(io)))?EVENT_ON:EVENT_OFF;
+                // it is more logical to use servo rather than multi with <3 positions but check anyway GP//
+                case HAPPENING_IO_3:
+                    if (getNV(NV_IO_MULTI_NUM_POS(io)) > 2) { 
+                        return (currentPos[io] == getNV(NV_IO_MULTI_POS3(io)))?EVENT_ON:EVENT_OFF;
+                    }
+                    break;
+                case HAPPENING_IO_4:
+                    if (getNV(NV_IO_MULTI_NUM_POS(io)) > 3) {
+                        return (currentPos[io] == getNV(NV_IO_MULTI_POS4(io)))?EVENT_ON:EVENT_OFF;
+                    }
+                    break;
+            }
+            break;
+#endif
+#endif
+#ifdef ANALOGUE
+        case TYPE_ANALOGUE_IN:
+        case TYPE_MAGNET:
+            switch (happeningIndex) {
+                case HAPPENING_IO_1:
+                    return (analogueState[io].eventState == ANALOGUE_EVENT_LOWER)?EVENT_ON:EVENT_OFF;
+                case HAPPENING_IO_2:
+                    return (analogueState[io].eventState == ANALOGUE_EVENT_UPPER)?EVENT_ON:EVENT_OFF;
+            }
+            break;
+#endif
+    }
+    return EVENT_UNKNOWN;
 }
+
+
+
+
+
+
 
 
 

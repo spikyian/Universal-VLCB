@@ -60,6 +60,7 @@
 #include "event_producer.h"
 #include "event_consumer.h"
 #include "mns.h"
+#include "timedResponse.h"
 
 #include "event_consumerDualActionQueue.h"
 #include "universalNv.h"
@@ -81,6 +82,7 @@ Action getTwoAction(void);
 void doneTwoAction(void);
 Action peekTwoActionQueue(uint8_t index);
 void deleteTwoActionQueue(uint8_t index);
+TimedResponseResult sodTRCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
 
 extern uint8_t outputState[NUM_IO];
 extern uint8_t currentPos[NUM_IO];
@@ -351,28 +353,28 @@ Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Bool
     return sendProducedEvent(action, invert?!state:state);
 }
 
-#ifdef TIMED_RESPONSE
 /**
  * Do the consumed SOD. 
  * This sets things up so that timedResponse will call back into APP_doSOD() whenever another response is
  * required.
  */
 void doSOD(void) {
-    timedResponse = TIMED_RESPONSE_SOD;
-    timedResponseStep = 0;
+    startTimedResponse(TIMED_RESPONSE_SOD, findServiceIndex(SERVICE_ID_PRODUCER), sodTRCallback);
 }
 
 /**
  * Send one response CBUS message and increment the step counter ready for the next call.
- * Although I agreed with Pete that SOD is only applicable to EV#2 I actually allow it at any EV#
  * 
  * Here I use step 0 to 63 for 16 channels of 4 happenings so that channel is step/16.
  * I could have used step as happening but that seemed to use slightly more maths but very little in it. May change at a later time.
  * 
- * @param step the timed response step
- * @return the status of sending SoD responses
+ * This is the callback used by the service discovery responses.
+ * @param type always set to TIMED_RESPONSE_NVRD
+ * @param serviceIndex indicates the service requesting the responses
+ * @param step loops through each service to be discovered
+ * @return whether all of the responses have been sent yet.
  */
-uint8_t APP_doSOD(uint8_t step) {
+TimedResponseResult sodTRCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     uint8_t io;
     uint8_t happeningIndex;
     Boolean disable_off;
@@ -381,13 +383,12 @@ uint8_t APP_doSOD(uint8_t step) {
 	Boolean event_inverted;
     Boolean disable_SOD_response;
     uint8_t flags;
-    uint8_t value;
-
+    EventState value;
 
     // The step is used to index through the events and the channels
     io = step/HAPPENINGS_PER_IO;
     if (io >= NUM_IO) {     // finished?
-        return TIMED_RESPONSE_APP_FINISHED;
+        return TIMED_RESPONSE_RESULT_FINISHED;
     }
     happeningIndex = step%HAPPENINGS_PER_IO;
     flags = (uint8_t)getNV(NV_IO_FLAGS(io));;
@@ -397,113 +398,38 @@ uint8_t APP_doSOD(uint8_t step) {
     disable_off = flags & FLAG_DISABLE_OFF;
     send_on_ok  = !( disable_off && event_inverted );
     send_off_ok = !( disable_off && !event_inverted);
-    value = 255;    // indicates no response at this step
-                    
-    switch((uint8_t)getNV(NV_IO_TYPE(io));) {
+
+    value = APP_GetEventState(HAPPENING_IO_BASE(io)+happeningIndex);
+             
+    switch((uint8_t)getNV(NV_IO_TYPE(io))) {
         case TYPE_INPUT:
+#ifdef ANALOGUE
+        case TYPE_ANALOGUE_IN:
+        case TYPE_MAGNET:
+#endif
             if (disable_SOD_response) {
-                return TIMED_RESPONSE_APP_NEXT;
-            }
-            switch (happeningIndex) {
-                case HAPPENING_IO_1:
-                    // The TRIGGER_INVERTED has already been taken into account when saved in outputState. No need to check again
-                    value = outputState[io];
-                    break;
-                case HAPPENING_IO_2:
-                    // TWO_ON is only sent if DISABLE_OFF is set GP//
-                    if (disable_off) {
-                        value = (outputState[io]==0);
-                    }
-                    break;
-            }
-            break;
-        case TYPE_OUTPUT:
-            switch (happeningIndex) {
-                case HAPPENING_IO_1:
-                    value = (ee_read(EE_OP_STATE+io)!=ACTION_IO_3);
-                    break;
+                return TIMED_RESPONSE_RESULT_NEXT;
             }
             break;
 #ifdef SERVO
         case TYPE_SERVO:
-            switch (happeningIndex) {
-                case HAPPENING_IO_1:
-                    value = (currentPos[io] == (uint8_t)getNV(NV_IO_SERVO_START_POS(io));
-                    break;
-                case HAPPENING_IO_3:
-                    value = (currentPos[io] == (uint8_t)getNV(NV_IO_SERVO_END_POS(io));
-                    break;
-                    // send the last mid
-                case HAPPENING_IO_2:
-                    value = (currentPos[io] >= ((uint8_t)getNV(NV_IO_SERVO_END_POS(io)))/2 + 
-                         ((uint8_t)getNV(NV_IO_SERVO_START_POS(io)))/2);
-                    break;
-            }
-            send_on_ok = TRUE;
-            send_off_ok = TRUE;
-            break;
 #ifdef BOUNCE
         case TYPE_BOUNCE:
-            switch (happeningIndex) {
-                case HAPPENING_IO_1:
-                    value = ee_read(EE_OP_STATE+io);
-                    break;
-            }
-            send_on_ok = TRUE;
-            send_off_ok = TRUE;
-            break;
 #endif
 #ifdef MULTI
         case TYPE_MULTI:
-            switch (happeningIndex) {
-                case HAPPENING_IO_1:
-                    value = (currentPos[io] == getNV(NV_IO_MULTI_POS1(io));
-                    break;
-                case HAPPENING_IO_2:
-                    value = (currentPos[io] == getNV(NV_IO_MULTI_POS2(io));
-                    break;
-                // it is more logical to use servo rather than multi with <3 positions but check anyway GP//
-                case HAPPENING_IO_3:
-                    if (getNV(NV_IO_MULTI_NUM_POS(io)) > 2) { 
-                        value = (currentPos[io] == getNV(NV_IO_MULTI_POS3(io));
-                    }
-                    break;
-                case HAPPENING_IO_4:
-                    if (getNV(NV_IO_MULTI_NUM_POS(io)) > 3) {
-                        value = (currentPos[io] == getNV(NV_IO_MULTI_POS4(io));
-                    }
-                    break;
-            }
+#endif
             send_on_ok = TRUE;
             send_off_ok = TRUE;
             break;
 #endif
-#endif
-#ifdef ANALOGUE
-        case TYPE_ANALOGUE_IN:
-        case TYPE_MAGNET:
-            if (disable_SOD_response) {
-                    return TIMED_RESPONSE_APP_NEXT;
-            }
-            switch (happeningIndex) {
-                case HAPPENING_IO_1:
-                    value = (analogueState[io].eventState == ANALOGUE_EVENT_LOWER);
-                    break;
-                case HAPPENING_IO_2:
-                    value = (analogueState[io].eventState == ANALOGUE_EVENT_UPPER);
-                    break;
-            }
-            break;
-#endif
-        }
-    if (value != 255) {
-        if (!sendInvertedProducedEvent(HAPPENING_IO_BASE(io)+happeningIndex, value, event_inverted, send_on_ok, send_off_ok)) {
-            return TIMED_RESPONSE_APP_RETRY;
-        }
     }
-    return TIMED_RESPONSE_APP_NEXT;
+    if (value != EVENT_UNKNOWN) {
+        sendInvertedProducedEvent(HAPPENING_IO_BASE(io)+happeningIndex, value, event_inverted, send_on_ok, send_off_ok);
+    }
+    return TIMED_RESPONSE_RESULT_NEXT;
 }
-#else
+#ifdef NEVER
 /**
  * Do the consumed SOD action. This sends events to indicate current state of the system.
  */
@@ -519,33 +445,33 @@ void doSOD(void) {
         switch(getNV(NV_IO_TYPE(io))) {
             case TYPE_INPUT:
                 /* The TRIGGER_INVERTED has already been taken into account when saved in outputState. No need to check again */
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_INPUT(io), outputState[io], event_inverted)) ;
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_INPUT(io), outputState[io], event_inverted);
                 break;
             case TYPE_OUTPUT:
                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io);
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_OUTPUT(io), state!=ACTION_IO_3, event_inverted));
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_OUTPUT(io), state!=ACTION_IO_3, event_inverted);
                 break;
 #ifdef SERVO
             case TYPE_SERVO:
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_SERVO_START(io), currentPos[io] == getNV(NV_IO_SERVO_START_POS(io)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_SERVO_END(io), currentPos[io] == getNV(NV_IO_SERVO_END_POS(io)), event_inverted));
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_SERVO_START(io), currentPos[io] == getNV(NV_IO_SERVO_START_POS(io)), event_inverted);
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_SERVO_END(io), currentPos[io] == getNV(NV_IO_SERVO_END_POS(io)), event_inverted);
                 // send the last mid
                 midway = (uint8_t)(getNV(NV_IO_SERVO_END_POS(io))/2 + getNV(NV_IO_SERVO_START_POS(io))/2);
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_SERVO_MID(io), currentPos[io] >= midway, event_inverted));
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_SERVO_MID(io), currentPos[io] >= midway, event_inverted);
                 break;
 #ifdef BOUNCE
             case TYPE_BOUNCE:
                 state = (uint8_t)readNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io);
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_BOUNCE(io), state, event_inverted));
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_BOUNCE(io), state, event_inverted);
                 break;
 #endif
 #ifdef MULTI
             case TYPE_MULTI:
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MULTI_AT1(io), currentPos[io] == getNV(NV_IO_MULTI_POS1(io)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MULTI_AT2(io), currentPos[io] == getNV(NV_IO_MULTI_POS2(io)), event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MULTI_AT3(io), currentPos[io] == getNV(NV_IO_MULTI_POS3(io)), event_inverted));
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_MULTI_AT1(io), currentPos[io] == getNV(NV_IO_MULTI_POS1(io)), event_inverted);
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_MULTI_AT2(io), currentPos[io] == getNV(NV_IO_MULTI_POS2(io)), event_inverted);
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_MULTI_AT3(io), currentPos[io] == getNV(NV_IO_MULTI_POS3(io)), event_inverted);
                 if (getNV(NV_IO_MULTI_NUM_POS(io)) > 3) {
-                    while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MULTI_AT4(io), currentPos[io] == getNV(NV_IO_MULTI_POS4(io)), event_inverted));
+                    alwaysSendInvertedProducedEvent(HAPPENING_IO_MULTI_AT4(io), currentPos[io] == getNV(NV_IO_MULTI_POS4(io)), event_inverted);
                 }
                 break;
 #endif
@@ -553,8 +479,8 @@ void doSOD(void) {
 #ifdef ANALOGUE
             case TYPE_ANALOGUE_IN:
             case TYPE_MAGNET:
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MAGNETL(io), analogueState[io].eventState == ANALOGUE_EVENT_LOWER, event_inverted));
-                while ( ! alwaysSendInvertedProducedEvent(HAPPENING_IO_MAGNETH(io), analogueState[io].eventState == ANALOGUE_EVENT_UPPER, event_inverted));
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_MAGNETL(io), analogueState[io].eventState == ANALOGUE_EVENT_LOWER, event_inverted);
+                alwaysSendInvertedProducedEvent(HAPPENING_IO_MAGNETH(io), analogueState[io].eventState == ANALOGUE_EVENT_UPPER, event_inverted);
                 break;
 #endif
         }

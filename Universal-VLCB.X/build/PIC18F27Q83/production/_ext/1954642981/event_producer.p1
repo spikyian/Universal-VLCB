@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"158 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 158:     struct {
+"159 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 159:     struct {
 [s S3225 `uc 1 `uc 1 ]
 [n S3225 . lo hi ]
-"155
-[; ;../../VLCBlib_PIC/vlcb.h: 155: typedef union DiagnosticVal {
+"156
+[; ;../../VLCBlib_PIC/vlcb.h: 156: typedef union DiagnosticVal {
 [u S3224 `us 1 `s 1 `S3225 1 ]
 [n S3224 DiagnosticVal asUint asInt asBytes ]
-[v F22981 `(v ~T0 @X0 0 tf ]
-[v F22983 `(v ~T0 @X0 0 tf ]
+[v F22982 `(v ~T0 @X0 0 tf ]
+[v F22984 `(v ~T0 @X0 0 tf ]
 "80 ../../VLCBlib_PIC/event_producer.c
 [; ;../../VLCBlib_PIC/event_producer.c: 80: const Service eventProducerService = {
 [c E22515 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
@@ -19,34 +19,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S3221 Message len opc bytes ]
 "80 ../../VLCBlib_PIC/event_producer.c
 [; ;../../VLCBlib_PIC/event_producer.c: 80: const Service eventProducerService = {
-[c E22905 0 1 .. ]
-[n E22905 Processed NOT_PROCESSED PROCESSED  ]
-[v F22985 `(E22905 ~T0 @X0 0 tf1`*S3221 ]
-[v F22988 `(v ~T0 @X0 0 tf ]
-[v F22990 `(uc ~T0 @X0 0 tf1`uc ]
-[v F22993 `(*S3224 ~T0 @X0 0 tf1`uc ]
-"306 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 306: typedef struct Service {
-[s S3226 `uc 1 `uc 1 `*F22981 1 `*F22983 1 `*F22985 1 `*F22988 1 `*F22990 1 `*F22993 1 ]
+[c E22906 0 1 .. ]
+[n E22906 Processed NOT_PROCESSED PROCESSED  ]
+[v F22986 `(E22906 ~T0 @X0 0 tf1`*S3221 ]
+[v F22989 `(v ~T0 @X0 0 tf ]
+[v F22991 `(uc ~T0 @X0 0 tf1`uc ]
+[v F22994 `(*S3224 ~T0 @X0 0 tf1`uc ]
+"307 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 307: typedef struct Service {
+[s S3226 `uc 1 `uc 1 `*F22982 1 `*F22984 1 `*F22986 1 `*F22989 1 `*F22991 1 `*F22994 1 ]
 [n S3226 Service serviceNo version factoryReset powerUp processMessage poll getESDdata getDiagnostic ]
 "80 ../../VLCBlib_PIC/event_producer.c
 [; ;../../VLCBlib_PIC/event_producer.c: 80: const Service eventProducerService = {
 [c E22722 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
 [n E22722 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
-[v F23163 `(v ~T0 @X0 0 tf ]
+[v F23164 `(v ~T0 @X0 0 tf ]
 "69
 [; ;../../VLCBlib_PIC/event_producer.c: 69: static void producerPowerUp(void);
 [v _producerPowerUp `(v ~T0 @X0 0 sf ]
 "67
 [; ;../../VLCBlib_PIC/event_producer.c: 67: static Processed producerProcessMessage(Message *m);
-[v _producerProcessMessage `(E22905 ~T0 @X0 0 sf1`*S3221 ]
-[v F23167 `(v ~T0 @X0 0 tf ]
-[v F23168 `(uc ~T0 @X0 0 tf1`uc ]
+[v _producerProcessMessage `(E22906 ~T0 @X0 0 sf1`*S3221 ]
+[v F23168 `(v ~T0 @X0 0 tf ]
+[v F23169 `(uc ~T0 @X0 0 tf1`uc ]
 "70
 [; ;../../VLCBlib_PIC/event_producer.c: 70: static DiagnosticVal * producerGetDiagnostic(uint8_t index);
 [v _producerGetDiagnostic `(*S3224 ~T0 @X0 0 sf1`uc ]
-"238 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 238: void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
+"239 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 239: void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
 [v _sendMessage3 `(v ~T0 @X0 0 ef4`E22515`uc`uc`uc ]
 "129
 [; ;../../VLCBlib_PIC/vlcb.h: 129:     struct {
@@ -71,13 +71,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _getEv `(s ~T0 @X0 0 ef2`uc`uc ]
 "150 ../../VLCBlib_PIC/event_producer.c
 [; ;../../VLCBlib_PIC/event_producer.c: 150:                 if (APP_GetEventState(h) == EVENT_ON) {
-[c E22893 0 1 .. ]
-[n E22893 . EVENT_OFF EVENT_ON  ]
+[c E22893 255 0 1 .. ]
+[n E22893 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
 "96 ../../VLCBlib_PIC/event_producer.h
 [; ;../../VLCBlib_PIC/event_producer.h: 96: extern EventState APP_GetEventState(Happening h);
 [v _APP_GetEventState `(E22893 ~T0 @X0 0 ef1`uc ]
-"247 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 247: void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
+"248 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 248: void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
 [v _sendMessage4 `(v ~T0 @X0 0 ef5`E22515`uc`uc`uc`uc ]
 "194 ../../VLCBlib_PIC/event_producer.c
 [; ;../../VLCBlib_PIC/event_producer.c: 194: Boolean sendProducedEvent(Happening happening, EventState onOff) {
@@ -3652,11 +3652,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 -> . `E22722 5 `uc
 -> -> 1 `i `uc
--> -> -> 0 `i `*v `*F23163
+-> -> -> 0 `i `*v `*F23164
 &U _producerPowerUp
 &U _producerProcessMessage
--> -> -> 0 `i `*v `*F23167
 -> -> -> 0 `i `*v `*F23168
+-> -> -> 0 `i `*v `*F23169
 &U _producerGetDiagnostic
 ..
 ..
@@ -3694,7 +3694,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "119
 [; ;../../VLCBlib_PIC/event_producer.c: 119: static Processed producerProcessMessage(Message *m) {
-[v _producerProcessMessage `(E22905 ~T0 @X0 1 sf1`*S3221 ]
+[v _producerProcessMessage `(E22906 ~T0 @X0 1 sf1`*S3221 ]
 {
 [e :U _producerProcessMessage ]
 [v _m `*S3221 ~T0 @X0 1 r1 ]
@@ -3727,7 +3727,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sendMessage3 (4 , , , . `E22515 52 . . _nn 0 1 . . _nn 0 0 -> . `E22684 0 `uc ]
 "129
 [; ;../../VLCBlib_PIC/event_producer.c: 129:                 return PROCESSED;
-[e ) . `E22905 1 ]
+[e ) . `E22906 1 ]
 [e $UE 3239  ]
 "130
 [; ;../../VLCBlib_PIC/event_producer.c: 130:             }
@@ -3738,8 +3738,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> . *U _m 1 `ui -> . `E22515 71 `ui 3245  ]
 {
 "132
-[; ;../../VLCBlib_PIC/event_producer.c: 132:                 index = findEvent((m->bytes[0]<<8)&(m->bytes[1]), (m->bytes[2]<<8)&(m->bytes[3]));
-[e = _index ( _findEvent (2 , -> & << -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us -> & << -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us ]
+[; ;../../VLCBlib_PIC/event_producer.c: 132:                 index = findEvent((uint16_t)((m->bytes[0]<<8)|(m->bytes[1])), (uint16_t)((m->bytes[2]<<8)|(m->bytes[3])));
+[e = _index ( _findEvent (2 , -> | << -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us -> | << -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us ]
 "133
 [; ;../../VLCBlib_PIC/event_producer.c: 133:             } else {
 }
@@ -3747,8 +3747,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3245 ]
 {
 "134
-[; ;../../VLCBlib_PIC/event_producer.c: 134:                 index = findEvent(0, (m->bytes[2]<<8)&(m->bytes[3]));
-[e = _index ( _findEvent (2 , -> -> 0 `i `us -> & << -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us ]
+[; ;../../VLCBlib_PIC/event_producer.c: 134:                 index = findEvent(0, (uint16_t)((m->bytes[2]<<8)|(m->bytes[3])));
+[e = _index ( _findEvent (2 , -> -> 0 `i `us -> | << -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us ]
 "135
 [; ;../../VLCBlib_PIC/event_producer.c: 135:             }
 }
@@ -3756,16 +3756,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "136
 [; ;../../VLCBlib_PIC/event_producer.c: 136:             if (index == 0xff) return PROCESSED;
 [e $ ! == -> _index `i -> 255 `i 3247  ]
-[e ) . `E22905 1 ]
+[e ) . `E22906 1 ]
 [e $UE 3239  ]
 [e :U 3247 ]
 "138
 [; ;../../VLCBlib_PIC/event_producer.c: 138:             ev = getEv(index, 0);
 [e = _ev ( _getEv (2 , _index -> -> 0 `i `uc ]
 "139
-[; ;../../VLCBlib_PIC/event_producer.c: 139:             if (ev < 0) return PROCESSED;
-[e $ ! < -> _ev `i -> 0 `i 3248  ]
-[e ) . `E22905 1 ]
+[; ;../../VLCBlib_PIC/event_producer.c: 139:             if (ev <= 0) return PROCESSED;
+[e $ ! <= -> _ev `i -> 0 `i 3248  ]
+[e ) . `E22906 1 ]
 [e $UE 3239  ]
 [e :U 3248 ]
 "141
@@ -3777,7 +3777,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "150
 [; ;../../VLCBlib_PIC/event_producer.c: 150:                 if (APP_GetEventState(h) == EVENT_ON) {
-[e $ ! == -> ( _APP_GetEventState (1 _h `ui -> . `E22893 1 `ui 3250  ]
+[e $ ! == -> ( _APP_GetEventState (1 _h `ui -> . `E22893 2 `ui 3250  ]
 {
 "151
 [; ;../../VLCBlib_PIC/event_producer.c: 151:                     sendMessage4(OPC_ARON, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
@@ -3803,7 +3803,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "156
 [; ;../../VLCBlib_PIC/event_producer.c: 156:                 if (APP_GetEventState(h) == EVENT_ON) {
-[e $ ! == -> ( _APP_GetEventState (1 _h `ui -> . `E22893 1 `ui 3253  ]
+[e $ ! == -> ( _APP_GetEventState (1 _h `ui -> . `E22893 2 `ui 3253  ]
 {
 "157
 [; ;../../VLCBlib_PIC/event_producer.c: 157:                     sendMessage4(OPC_ARSON, nn.bytes.hi, nn.bytes.lo, m->bytes[2], m->bytes[3]);
@@ -3827,7 +3827,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3252 ]
 "162
 [; ;../../VLCBlib_PIC/event_producer.c: 162:             return PROCESSED;
-[e ) . `E22905 1 ]
+[e ) . `E22906 1 ]
 [e $UE 3239  ]
 "163
 [; ;../../VLCBlib_PIC/event_producer.c: 163:         default:
@@ -3846,7 +3846,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3240 ]
 "166
 [; ;../../VLCBlib_PIC/event_producer.c: 166:     return NOT_PROCESSED;
-[e ) . `E22905 0 ]
+[e ) . `E22906 0 ]
 [e $UE 3239  ]
 "167
 [; ;../../VLCBlib_PIC/event_producer.c: 167: }
@@ -3914,7 +3914,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "231
 [; ;../../VLCBlib_PIC/event_producer.c: 231:                     if (onOff == EVENT_ON) {
-[e $ ! == -> _onOff `ui -> . `E22893 1 `ui 3261  ]
+[e $ ! == -> _onOff `ui -> . `E22893 2 `ui 3261  ]
 {
 "232
 [; ;../../VLCBlib_PIC/event_producer.c: 232:                         opc = OPC_ASON;
@@ -3943,7 +3943,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "239
 [; ;../../VLCBlib_PIC/event_producer.c: 239:                     if (onOff == EVENT_ON) {
-[e $ ! == -> _onOff `ui -> . `E22893 1 `ui 3264  ]
+[e $ ! == -> _onOff `ui -> . `E22893 2 `ui 3264  ]
 {
 "240
 [; ;../../VLCBlib_PIC/event_producer.c: 240:                         opc = OPC_ACON;

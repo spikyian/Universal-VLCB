@@ -21078,10 +21078,11 @@ typedef union Word {
 
 
 typedef enum {
+    EVENT_UNKNOWN = 255,
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 155 "../../VLCBlib_PIC/vlcb.h"
+# 156 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -21114,7 +21115,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 197 "../../VLCBlib_PIC/vlcb.h"
+# 198 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -21157,17 +21158,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 247 "../../VLCBlib_PIC/vlcb.h"
+# 248 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 257 "../../VLCBlib_PIC/vlcb.h"
+# 258 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 268 "../../VLCBlib_PIC/vlcb.h"
+# 269 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 280 "../../VLCBlib_PIC/vlcb.h"
+# 281 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 293 "../../VLCBlib_PIC/vlcb.h"
+# 294 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 306 "../../VLCBlib_PIC/vlcb.h"
+# 307 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -21227,9 +21228,9 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 396 "../../VLCBlib_PIC/vlcb.h"
+# 397 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 406 "../../VLCBlib_PIC/vlcb.h"
+# 407 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
 
 
@@ -21257,9 +21258,9 @@ typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
 } Transport;
-# 441 "../../VLCBlib_PIC/vlcb.h"
+# 442 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 454 "../../VLCBlib_PIC/vlcb.h"
+# 455 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 57 "../../VLCBlib_PIC/can18_ecan.c" 2
 
@@ -21511,40 +21512,27 @@ static void canPowerUp(void) {
     CIOCON = 0b00100000;
 
 
+
     RXM0SIDH = 0;
     RXM0SIDL = 0x08;
     RXM0EIDH = 0;
     RXM0EIDL = 0;
-    RXM1SIDH = 0;
-    RXM1SIDL = 0x08;
-    RXM1EIDH = 0;
-    RXM1EIDL = 0;
 
-
-    RXF0SIDL = 0x80;
-
+    RXF0SIDL = 0x00;
 
     RXFBCON0 = 0;
-    RXFBCON1 = 0;
-    RXFBCON2 = 0;
-    RXFBCON3 = 0;
-    RXFBCON4 = 0;
-    RXFBCON5 = 0;
-    RXFBCON6 = 0;
-    RXFBCON7 = 0;
-
 
     MSEL0 = 0;
-    MSEL1 = 0;
-    MSEL2 = 0;
-    MSEL3 = 0;
+
+    RXFCON0 = 1;
 
 
 
 
 
-    RXB0CON = 0x20;
-    RXB1CON = 0x20;
+
+    RXB0CON = 0x00;
+    RXB1CON = 0x00;
     B0CON = 0;
     B1CON = 0;
     B2CON = 0;
@@ -21556,8 +21544,10 @@ static void canPowerUp(void) {
     TXBIEbits.TXB0IE = 1;
     TXBIEbits.TXB1IE = 0;
     TXBIEbits.TXB2IE = 0;
+
     CANCON = 0;
 
+    while (CANSTATbits.OPMODE2 != 0);
 
 
     TXB0CON = 0;
@@ -21598,7 +21588,7 @@ static void canPowerUp(void) {
     PIE5bits.TXBnIE = 1;
     PIE5bits.ERRIE = 1;
 }
-# 379 "../../VLCBlib_PIC/can18_ecan.c"
+# 368 "../../VLCBlib_PIC/can18_ecan.c"
 static Processed canProcessMessage(Message * m) {
 
     if (m->len < 3) return NOT_PROCESSED;
@@ -21656,14 +21646,14 @@ uint8_t canEsdData(uint8_t id) {
             return 0;
     }
 }
-# 444 "../../VLCBlib_PIC/can18_ecan.c"
+# 433 "../../VLCBlib_PIC/can18_ecan.c"
 static DiagnosticVal * canGetDiagnostic(uint8_t index) {
     if ((index<1) || (index>16)) {
         return ((void*)0);
     }
     return &(canDiagnostics[index-1]);
 }
-# 459 "../../VLCBlib_PIC/can18_ecan.c"
+# 448 "../../VLCBlib_PIC/can18_ecan.c"
 static SendResult canSendMessage(Message * mp) {
 
     Message * m;
@@ -21740,7 +21730,7 @@ static SendResult canSendMessage(Message * mp) {
     PIE5bits.TXBnIE = 1;
     return SEND_OK;
 }
-# 545 "../../VLCBlib_PIC/can18_ecan.c"
+# 534 "../../VLCBlib_PIC/can18_ecan.c"
 static MessageReceived canReceiveMessage(Message * m){
     Message * mp;
     uint8_t * p;
@@ -21765,6 +21755,9 @@ static MessageReceived canReceiveMessage(Message * m){
                 return NOT_RECEIVED;
             }
             PIR5bits.RXBnIF = 0;
+
+            if (p[2] & 0x08) return NOT_RECEIVED;
+
             if (handleSelfEnumeration(p) == RECEIVED) {
 
 
@@ -21998,30 +21991,32 @@ static void canFillRxFifo(void) {
         if (COMSTATbits.RXB1OVFL) {
             COMSTATbits.RXB1OVFL = 0;
         }
+        if ((ptr[2] & 0x08) == 0) {
 
 
-        m = getNextWriteMessage(&rxQueue);
-        if (m == ((void*)0)) {
+            m = getNextWriteMessage(&rxQueue);
+            if (m == ((void*)0)) {
 
-            canDiagnostics[0x07].asUint++;
-            updateModuleErrorStatus();
+                canDiagnostics[0x07].asUint++;
+                updateModuleErrorStatus();
 
 
-            if (PIR5bits.IRXIF) {
-                PIR5bits.IRXIF = 0;
+                if (PIR5bits.IRXIF) {
+                    PIR5bits.IRXIF = 0;
+                }
+                return;
+            } else {
+
+                m->opc = ptr[6];
+                m->bytes[0] = ptr[7];
+                m->bytes[1] = ptr[8];
+                m->bytes[2] = ptr[9];
+                m->bytes[3] = ptr[10];
+                m->bytes[4] = ptr[11];
+                m->bytes[5] = ptr[12];
+                m->bytes[6] = ptr[13];
+                m->len = ptr[5]&0xF;
             }
-            return;
-        } else {
-
-            m->opc = ptr[6];
-            m->bytes[0] = ptr[7];
-            m->bytes[1] = ptr[8];
-            m->bytes[2] = ptr[9];
-            m->bytes[3] = ptr[10];
-            m->bytes[4] = ptr[11];
-            m->bytes[5] = ptr[12];
-            m->bytes[6] = ptr[13];
-            m->len = ptr[5]&0xF;
         }
 
         if (PIR5bits.IRXIF) {

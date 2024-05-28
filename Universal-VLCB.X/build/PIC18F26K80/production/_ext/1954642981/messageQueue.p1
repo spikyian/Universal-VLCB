@@ -11,8 +11,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S1536 `*S1529 1 `uc 1 `uc 1 `uc 1 ]
 [n S1536 MessageQueue messages readIndex writeIndex size ]
 "58 ../../VLCBlib_PIC/messageQueue.c
-[c E12917 0 1 .. ]
-[n E12917 Qresult QUEUE_FAIL QUEUE_SUCCESS  ]
+[c E12918 0 1 .. ]
+[n E12918 Qresult QUEUE_FAIL QUEUE_SUCCESS  ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1390,7 +1390,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51 ../../VLCBlib_PIC/messageQueue.c
 [p n 1498 ]
 "58
-[v _push `(E12917 ~T0 @X0 1 ef2`*S1536`*S1529 ]
+[v _push `(E12918 ~T0 @X0 1 ef2`*S1536`*S1529 ]
 {
 [e :U _push ]
 [v _q `*S1536 ~T0 @X0 1 r1 ]
@@ -1398,7 +1398,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "59
 [e $ ! == & + -> . *U _q 2 `i -> 1 `i - -> . *U _q 3 `i -> 1 `i -> . *U _q 1 `i 1538  ]
-[e ) . `E12917 0 ]
+[e ) . `E12918 0 ]
 [e $UE 1537  ]
 [e :U 1538 ]
 "60
@@ -1426,7 +1426,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _q 2 -> -> 0 `i `uc ]
 [e :U 1539 ]
 "72
-[e ) . `E12917 1 ]
+[e ) . `E12918 1 ]
 [e $UE 1537  ]
 "73
 [e :UE 1537 ]

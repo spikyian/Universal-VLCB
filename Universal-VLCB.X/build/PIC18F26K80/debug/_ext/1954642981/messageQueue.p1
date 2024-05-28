@@ -1,18 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "58 ../../VLCBlib_PIC/messageQueue.c
-[c E12342 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
-[n E12342 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
-"105 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 105: typedef struct Message {
-[s S1526 `uc 1 `E12342 1 `uc -> 7 `i ]
-[n S1526 Message len opc bytes ]
+[c E12392 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
+[n E12392 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
+"119 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 119: typedef struct Message {
+[s S1529 `uc 1 `E12392 1 `uc -> 7 `i ]
+[n S1529 Message len opc bytes ]
 "54 ../../VLCBlib_PIC/messageQueue.h
 [; ;../../VLCBlib_PIC/messageQueue.h: 54: typedef struct MessageQueue {
-[s S1533 `*S1526 1 `uc 1 `uc 1 `uc 1 ]
-[n S1533 MessageQueue messages readIndex writeIndex size ]
+[s S1536 `*S1529 1 `uc 1 `uc 1 `uc 1 ]
+[n S1536 MessageQueue messages readIndex writeIndex size ]
 "58 ../../VLCBlib_PIC/messageQueue.c
-[c E12867 0 1 .. ]
-[n E12867 Qresult QUEUE_FAIL QUEUE_SUCCESS  ]
+[c E12918 0 1 .. ]
+[n E12918 Qresult QUEUE_FAIL QUEUE_SUCCESS  ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1390,17 +1390,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51 ../../VLCBlib_PIC/messageQueue.c
 [p n 1498 ]
 "58
-[v _push `(E12867 ~T0 @X0 1 ef2`*S1533`*S1526 ]
+[v _push `(E12918 ~T0 @X0 1 ef2`*S1536`*S1529 ]
 {
 [e :U _push ]
-[v _q `*S1533 ~T0 @X0 1 r1 ]
-[v _m `*S1526 ~T0 @X0 1 r2 ]
+[v _q `*S1536 ~T0 @X0 1 r1 ]
+[v _m `*S1529 ~T0 @X0 1 r2 ]
 [f ]
 "59
-[e $ ! == & + -> . *U _q 2 `i -> 1 `i - -> . *U _q 3 `i -> 1 `i -> . *U _q 1 `i 1535  ]
-[e ) . `E12867 0 ]
-[e $UE 1534  ]
-[e :U 1535 ]
+[e $ ! == & + -> . *U _q 2 `i -> 1 `i - -> . *U _q 3 `i -> 1 `i -> . *U _q 1 `i 1538  ]
+[e ) . `E12918 0 ]
+[e $UE 1537  ]
+[e :U 1538 ]
 "60
 [e = . *U + . *U _q 0 * -> . *U _q 2 `ux -> -> # *U . *U _q 0 `ui `ux 1 . *U _m 1 ]
 "61
@@ -1422,100 +1422,100 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69
 [e ++ . *U _q 2 -> -> 1 `i `uc ]
 "71
-[e $ ! >= -> . *U _q 2 `i -> . *U _q 3 `i 1536  ]
+[e $ ! >= -> . *U _q 2 `i -> . *U _q 3 `i 1539  ]
 [e = . *U _q 2 -> -> 0 `i `uc ]
-[e :U 1536 ]
+[e :U 1539 ]
 "72
-[e ) . `E12867 1 ]
-[e $UE 1534  ]
+[e ) . `E12918 1 ]
+[e $UE 1537  ]
 "73
-[e :UE 1534 ]
+[e :UE 1537 ]
 }
 "80
-[v _getNextWriteMessage `(*S1526 ~T0 @X0 1 ef1`*S1533 ]
+[v _getNextWriteMessage `(*S1529 ~T0 @X0 1 ef1`*S1536 ]
 {
 [e :U _getNextWriteMessage ]
-[v _q `*S1533 ~T0 @X0 1 r1 ]
+[v _q `*S1536 ~T0 @X0 1 r1 ]
 [f ]
 "81
 [v _wr `uc ~T0 @X0 1 a ]
 "82
-[e $ ! == & + -> . *U _q 2 `i -> 1 `i - -> . *U _q 3 `i -> 1 `i -> . *U _q 1 `i 1538  ]
-[e ) -> -> -> 0 `i `*v `*S1526 ]
-[e $UE 1537  ]
-[e :U 1538 ]
+[e $ ! == & + -> . *U _q 2 `i -> 1 `i - -> . *U _q 3 `i -> 1 `i -> . *U _q 1 `i 1541  ]
+[e ) -> -> -> 0 `i `*v `*S1529 ]
+[e $UE 1540  ]
+[e :U 1541 ]
 "83
 [e = _wr . *U _q 2 ]
 "84
 [e ++ . *U _q 2 -> -> 1 `i `uc ]
 "85
-[e $ ! >= -> . *U _q 2 `i -> . *U _q 3 `i 1539  ]
+[e $ ! >= -> . *U _q 2 `i -> . *U _q 3 `i 1542  ]
 [e = . *U _q 2 -> -> 0 `i `uc ]
-[e :U 1539 ]
+[e :U 1542 ]
 "86
 [e ) &U *U + . *U _q 0 * -> _wr `ux -> -> # *U . *U _q 0 `ui `ux ]
-[e $UE 1537  ]
+[e $UE 1540  ]
 "87
-[e :UE 1537 ]
+[e :UE 1540 ]
 }
 "96
 [; ;../../VLCBlib_PIC/messageQueue.c: 96: Message * pop(MessageQueue * q) {
-[v _pop `(*S1526 ~T0 @X0 1 ef1`*S1533 ]
+[v _pop `(*S1529 ~T0 @X0 1 ef1`*S1536 ]
 {
 [e :U _pop ]
-[v _q `*S1533 ~T0 @X0 1 r1 ]
+[v _q `*S1536 ~T0 @X0 1 r1 ]
 [f ]
 "97
 [; ;../../VLCBlib_PIC/messageQueue.c: 97:     Message * ret;
-[v _ret `*S1526 ~T0 @X0 1 a ]
+[v _ret `*S1529 ~T0 @X0 1 a ]
 "98
 [; ;../../VLCBlib_PIC/messageQueue.c: 98:  if (q->writeIndex == q->readIndex) {
-[e $ ! == -> . *U _q 2 `i -> . *U _q 1 `i 1541  ]
+[e $ ! == -> . *U _q 2 `i -> . *U _q 1 `i 1544  ]
 {
 "99
 [; ;../../VLCBlib_PIC/messageQueue.c: 99:         return ((void*)0);
-[e ) -> -> -> 0 `i `*v `*S1526 ]
-[e $UE 1540  ]
+[e ) -> -> -> 0 `i `*v `*S1529 ]
+[e $UE 1543  ]
 "100
 [; ;../../VLCBlib_PIC/messageQueue.c: 100:     }
 }
-[e :U 1541 ]
+[e :U 1544 ]
 "101
 [; ;../../VLCBlib_PIC/messageQueue.c: 101:  ret = &(q->messages[q->readIndex++]);
 [e = _ret &U *U + . *U _q 0 * -> ++ . *U _q 1 -> -> 1 `i `uc `ux -> -> # *U . *U _q 0 `ui `ux ]
 "102
 [; ;../../VLCBlib_PIC/messageQueue.c: 102:  if (q->readIndex >= q->size) q->readIndex = 0;
-[e $ ! >= -> . *U _q 1 `i -> . *U _q 3 `i 1542  ]
+[e $ ! >= -> . *U _q 1 `i -> . *U _q 3 `i 1545  ]
 [e = . *U _q 1 -> -> 0 `i `uc ]
-[e :U 1542 ]
+[e :U 1545 ]
 "103
 [; ;../../VLCBlib_PIC/messageQueue.c: 103:  return ret;
 [e ) _ret ]
-[e $UE 1540  ]
+[e $UE 1543  ]
 "104
 [; ;../../VLCBlib_PIC/messageQueue.c: 104: }
-[e :UE 1540 ]
+[e :UE 1543 ]
 }
 "113
 [; ;../../VLCBlib_PIC/messageQueue.c: 113: Message * peek(MessageQueue * q, uint8_t index) {
-[v _peek `(*S1526 ~T0 @X0 1 ef2`*S1533`uc ]
+[v _peek `(*S1529 ~T0 @X0 1 ef2`*S1536`uc ]
 {
 [e :U _peek ]
-[v _q `*S1533 ~T0 @X0 1 r1 ]
+[v _q `*S1536 ~T0 @X0 1 r1 ]
 [v _index `uc ~T0 @X0 1 r2 ]
 [f ]
 "114
 [; ;../../VLCBlib_PIC/messageQueue.c: 114:     if (q->readIndex == q->writeIndex) return ((void*)0);
-[e $ ! == -> . *U _q 1 `i -> . *U _q 2 `i 1544  ]
-[e ) -> -> -> 0 `i `*v `*S1526 ]
-[e $UE 1543  ]
-[e :U 1544 ]
+[e $ ! == -> . *U _q 1 `i -> . *U _q 2 `i 1547  ]
+[e ) -> -> -> 0 `i `*v `*S1529 ]
+[e $UE 1546  ]
+[e :U 1547 ]
 "115
 [; ;../../VLCBlib_PIC/messageQueue.c: 115:     index += q->readIndex;
 [e =+ _index -> . *U _q 1 `uc ]
 "117
 [; ;../../VLCBlib_PIC/messageQueue.c: 117:     if (index >= q->size) {
-[e $ ! >= -> _index `i -> . *U _q 3 `i 1545  ]
+[e $ ! >= -> _index `i -> . *U _q 3 `i 1548  ]
 {
 "118
 [; ;../../VLCBlib_PIC/messageQueue.c: 118:         index -= q->size;
@@ -1523,33 +1523,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 "119
 [; ;../../VLCBlib_PIC/messageQueue.c: 119:     }
 }
-[e :U 1545 ]
+[e :U 1548 ]
 "120
 [; ;../../VLCBlib_PIC/messageQueue.c: 120:     if (index == q->writeIndex) return ((void*)0);
-[e $ ! == -> _index `i -> . *U _q 2 `i 1546  ]
-[e ) -> -> -> 0 `i `*v `*S1526 ]
-[e $UE 1543  ]
-[e :U 1546 ]
+[e $ ! == -> _index `i -> . *U _q 2 `i 1549  ]
+[e ) -> -> -> 0 `i `*v `*S1529 ]
+[e $UE 1546  ]
+[e :U 1549 ]
 "121
 [; ;../../VLCBlib_PIC/messageQueue.c: 121:     return &(q->messages[index]);
 [e ) &U *U + . *U _q 0 * -> _index `ux -> -> # *U . *U _q 0 `ui `ux ]
-[e $UE 1543  ]
+[e $UE 1546  ]
 "122
 [; ;../../VLCBlib_PIC/messageQueue.c: 122: }
-[e :UE 1543 ]
+[e :UE 1546 ]
 }
 "130
 [; ;../../VLCBlib_PIC/messageQueue.c: 130: uint8_t quantity(MessageQueue * q) {
-[v _quantity `(uc ~T0 @X0 1 ef1`*S1533 ]
+[v _quantity `(uc ~T0 @X0 1 ef1`*S1536 ]
 {
 [e :U _quantity ]
-[v _q `*S1533 ~T0 @X0 1 r1 ]
+[v _q `*S1536 ~T0 @X0 1 r1 ]
 [f ]
 "131
 [; ;../../VLCBlib_PIC/messageQueue.c: 131:     return (q->writeIndex - q->readIndex) & (q->size -1);
 [e ) -> & - -> . *U _q 2 `i -> . *U _q 1 `i - -> . *U _q 3 `i -> 1 `i `uc ]
-[e $UE 1547  ]
+[e $UE 1550  ]
 "132
 [; ;../../VLCBlib_PIC/messageQueue.c: 132: }
-[e :UE 1547 ]
+[e :UE 1550 ]
 }

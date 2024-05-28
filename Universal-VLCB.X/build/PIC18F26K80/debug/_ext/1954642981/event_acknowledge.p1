@@ -1,90 +1,90 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F12808 `(v ~T0 @X0 0 tf ]
-[v F12810 `(v ~T0 @X0 0 tf ]
-"68 ../../VLCBlib_PIC/event_acknowledge.c
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 68: const Service eventAckService = {
-[c E12342 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
-[n E12342 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
-"105 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 105: typedef struct Message {
-[s S1526 `uc 1 `E12342 1 `uc -> 7 `i ]
-[n S1526 Message len opc bytes ]
-"68 ../../VLCBlib_PIC/event_acknowledge.c
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 68: const Service eventAckService = {
-[c E12732 0 1 .. ]
-[n E12732 Processed NOT_PROCESSED PROCESSED  ]
-[v F12812 `(E12732 ~T0 @X0 0 tf1`*S1526 ]
-[v F12815 `(v ~T0 @X0 0 tf ]
-[v F12817 `(v ~T0 @X0 0 tf ]
-[v F12819 `(v ~T0 @X0 0 tf ]
-[v F12821 `(uc ~T0 @X0 0 tf1`uc ]
-"143 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 143:     struct {
-[s S1530 `uc 1 `uc 1 ]
-[n S1530 . lo hi ]
-"140
-[; ;../../VLCBlib_PIC/vlcb.h: 140: typedef union DiagnosticVal {
-[u S1529 `us 1 `s 1 `S1530 1 ]
-[n S1529 DiagnosticVal asUint asInt asBytes ]
-[v F12824 `(*S1529 ~T0 @X0 0 tf1`uc ]
-"289
-[; ;../../VLCBlib_PIC/vlcb.h: 289: typedef struct Service {
-[s S1531 `uc 1 `uc 1 `*F12808 1 `*F12810 1 `*F12812 1 `*F12815 1 `*F12817 1 `*F12819 1 `*F12821 1 `*F12824 1 ]
-[n S1531 Service serviceNo version factoryReset powerUp processMessage poll highIsr lowIsr getESDdata getDiagnostic ]
-"68 ../../VLCBlib_PIC/event_acknowledge.c
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 68: const Service eventAckService = {
-[c E12549 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
-[n E12549 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
-[v F13013 `(v ~T0 @X0 0 tf ]
+"159 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 159:     struct {
+[s S1533 `uc 1 `uc 1 ]
+[n S1533 . lo hi ]
+"156
+[; ;../../VLCBlib_PIC/vlcb.h: 156: typedef union DiagnosticVal {
+[u S1532 `us 1 `s 1 `S1533 1 ]
+[n S1532 DiagnosticVal asUint asInt asBytes ]
+[v F12859 `(v ~T0 @X0 0 tf ]
+[v F12861 `(v ~T0 @X0 0 tf ]
+"71 ../../VLCBlib_PIC/event_acknowledge.c
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 71: const Service eventAckService = {
+[c E12392 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
+[n E12392 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
+"119 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 119: typedef struct Message {
+[s S1529 `uc 1 `E12392 1 `uc -> 7 `i ]
+[n S1529 Message len opc bytes ]
+"71 ../../VLCBlib_PIC/event_acknowledge.c
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 71: const Service eventAckService = {
+[c E12783 0 1 .. ]
+[n E12783 Processed NOT_PROCESSED PROCESSED  ]
+[v F12863 `(E12783 ~T0 @X0 0 tf1`*S1529 ]
+[v F12866 `(v ~T0 @X0 0 tf ]
+[v F12868 `(v ~T0 @X0 0 tf ]
+[v F12870 `(v ~T0 @X0 0 tf ]
+[v F12872 `(uc ~T0 @X0 0 tf1`uc ]
+[v F12875 `(*S1532 ~T0 @X0 0 tf1`uc ]
+"307 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 307: typedef struct Service {
+[s S1534 `uc 1 `uc 1 `*F12859 1 `*F12861 1 `*F12863 1 `*F12866 1 `*F12868 1 `*F12870 1 `*F12872 1 `*F12875 1 ]
+[n S1534 Service serviceNo version factoryReset powerUp processMessage poll highIsr lowIsr getESDdata getDiagnostic ]
+"71 ../../VLCBlib_PIC/event_acknowledge.c
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 71: const Service eventAckService = {
+[c E12599 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
+[n E12599 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
+[v F12989 `(v ~T0 @X0 0 tf ]
 "57
 [; ;../../VLCBlib_PIC/event_acknowledge.c: 57: static void ackPowerUp(void);
 [v _ackPowerUp `(v ~T0 @X0 0 sf ]
 "58
 [; ;../../VLCBlib_PIC/event_acknowledge.c: 58: static Processed ackEventProcessMessage(Message * m);
-[v _ackEventProcessMessage `(E12732 ~T0 @X0 0 sf1`*S1526 ]
-[v F13017 `(v ~T0 @X0 0 tf ]
-[v F13018 `(v ~T0 @X0 0 tf ]
-[v F13019 `(v ~T0 @X0 0 tf ]
-[v F13020 `(uc ~T0 @X0 0 tf1`uc ]
-"60
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 60: static DiagnosticVal * ackGetDiagnostic(uint8_t code);
-[v _ackGetDiagnostic `(*S1529 ~T0 @X0 0 sf1`uc ]
-"115 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 115:     struct {
-[s S1528 `uc 1 `uc 1 ]
-[n S1528 . lo hi ]
-"114
-[; ;../../VLCBlib_PIC/vlcb.h: 114: typedef union Word {
-[u S1527 `S1528 1 `us 1 ]
-[n S1527 Word bytes word ]
+[v _ackEventProcessMessage `(E12783 ~T0 @X0 0 sf1`*S1529 ]
+[v F12993 `(v ~T0 @X0 0 tf ]
+[v F12994 `(v ~T0 @X0 0 tf ]
+[v F12995 `(v ~T0 @X0 0 tf ]
+[v F12996 `(uc ~T0 @X0 0 tf1`uc ]
+"61
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 61: static DiagnosticVal * ackGetDiagnostic(uint8_t code);
+[v _ackGetDiagnostic `(*S1532 ~T0 @X0 0 sf1`uc ]
+"129 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 129:     struct {
+[s S1531 `uc 1 `uc 1 ]
+[n S1531 . lo hi ]
+"128
+[; ;../../VLCBlib_PIC/vlcb.h: 128: typedef union Word {
+[u S1530 `S1531 1 `us 1 ]
+[n S1530 Word bytes word ]
 "59 ../../VLCBlib_PIC/event_acknowledge.c
 [; ;../../VLCBlib_PIC/event_acknowledge.c: 59: static Processed ackEventCheckLen(Message * m, uint8_t needed);
-[v _ackEventCheckLen `(E12732 ~T0 @X0 0 sf2`*S1526`uc ]
+[v _ackEventCheckLen `(E12783 ~T0 @X0 0 sf2`*S1529`uc ]
 "126 ../../VLCBlib_PIC/mns.h
 [; ;../../VLCBlib_PIC/mns.h: 126: extern Word nn;
-[v _nn `S1527 ~T0 @X0 0 e ]
-"105 ../../VLCBlib_PIC/event_acknowledge.c
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 105:             if (m->bytes[2] == MODE_EVENT_ACK_ON) {
-[c E12598 255 0 1 8 9 10 11 12 13 14 .. ]
-[n E12598 VlcbModeParams MODE_UNINITIALISED MODE_SETUP MODE_NORMAL MODE_LEARN_ON MODE_LEARN_OFF MODE_EVENT_ACK_ON MODE_EVENT_ACK_OFF MODE_HEARTBEAT_ON MODE_HEARTBEAT_OFF MODE_BOOT  ]
+[v _nn `S1530 ~T0 @X0 0 e ]
+"117 ../../VLCBlib_PIC/event_acknowledge.c
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 117:             if (m->bytes[2] == MODE_EVENT_ACK_ON) {
+[c E12648 255 0 1 8 9 10 11 12 13 14 .. ]
+[n E12648 VlcbModeParams MODE_UNINITIALISED MODE_SETUP MODE_NORMAL MODE_LEARN_ON MODE_LEARN_OFF MODE_EVENT_ACK_ON MODE_EVENT_ACK_OFF MODE_HEARTBEAT_ON MODE_HEARTBEAT_OFF MODE_BOOT  ]
 "135 ../../VLCBlib_PIC/mns.h
 [; ;../../VLCBlib_PIC/mns.h: 135: extern uint8_t mode_flags;
 [v _mode_flags `uc ~T0 @X0 0 e ]
-"322 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 322: extern const Service * findService(uint8_t id);
-[v _findService `(*CS1531 ~T0 @X0 0 ef1`uc ]
+"344 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 344: extern const Service * findService(uint8_t id);
+[v _findService `(*CS1534 ~T0 @X0 0 ef1`uc ]
 "119 ../../VLCBlib_PIC/event_teach.h
 [; ;../../VLCBlib_PIC/event_teach.h: 119: extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
 [v _findEvent `(uc ~T0 @X0 0 ef2`us`us ]
 "113
 [; ;../../VLCBlib_PIC/event_teach.h: 113: extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
 [v _getEv `(s ~T0 @X0 0 ef2`uc`uc ]
-"263 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 263: void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-[v _sendMessage7 `(v ~T0 @X0 0 ef8`E12342`uc`uc`uc`uc`uc`uc`uc ]
-"180
-[; ;../../VLCBlib_PIC/vlcb.h: 180: extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
-[v _checkLen `(E12732 ~T0 @X0 0 ef3`*S1526`uc`uc ]
+"281 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 281: void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
+[v _sendMessage7 `(v ~T0 @X0 0 ef8`E12392`uc`uc`uc`uc`uc`uc`uc ]
+"198
+[; ;../../VLCBlib_PIC/vlcb.h: 198: extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
+[v _checkLen `(E12783 ~T0 @X0 0 ef3`*S1529`uc`uc ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1459,299 +1459,299 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37211
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 37211: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"68 ../../VLCBlib_PIC/event_acknowledge.c
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 68: const Service eventAckService = {
-[v _eventAckService `CS1531 ~T0 @X0 1 e ]
+"62 ../../VLCBlib_PIC/event_acknowledge.c
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 62: static DiagnosticVal ackDiagnostics[1];
+[v _ackDiagnostics `S1532 ~T0 @X0 -> -> 1 `i `ux s ]
+"71
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 71: const Service eventAckService = {
+[v _eventAckService `CS1534 ~T0 @X0 1 e ]
 [i _eventAckService
 :U ..
 :U ..
--> . `E12549 9 `uc
+-> . `E12599 9 `uc
 -> -> 1 `i `uc
--> -> -> 0 `i `*v `*F13013
+-> -> -> 0 `i `*v `*F12989
 &U _ackPowerUp
 &U _ackEventProcessMessage
--> -> -> 0 `i `*v `*F13017
--> -> -> 0 `i `*v `*F13018
--> -> -> 0 `i `*v `*F13019
--> -> -> 0 `i `*v `*F13020
+-> -> -> 0 `i `*v `*F12993
+-> -> -> 0 `i `*v `*F12994
+-> -> -> 0 `i `*v `*F12995
+-> -> -> 0 `i `*v `*F12996
 &U _ackGetDiagnostic
 ..
 ..
 ]
-"83
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 83: static DiagnosticVal ackDiagnostics[1];
-[v _ackDiagnostics `S1529 ~T0 @X0 -> -> 1 `i `ux s ]
-"85
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 85: static void ackPowerUp(void) {
+"95
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 95: static void ackPowerUp(void) {
 [v _ackPowerUp `(v ~T0 @X0 1 sf ]
 {
 [e :U _ackPowerUp ]
 [f ]
-"86
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 86:     uint8_t i;
+"96
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 96:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"89
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 89:     for (i=0; i< 1; i++) {
+"99
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 99:     for (i=0; i< 1; i++) {
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 1 `i 1541  ]
 [e $U 1542  ]
 [e :U 1541 ]
 {
-"90
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 90:         ackDiagnostics[i].asInt = 0;
+"100
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 100:         ackDiagnostics[i].asInt = 0;
 [e = . *U + &U _ackDiagnostics * -> _i `ux -> -> # *U &U _ackDiagnostics `ui `ux 1 -> -> 0 `i `s ]
-"91
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 91:     }
+"101
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 101:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 1 `i 1541  ]
 [e :U 1542 ]
 }
-"92
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 92: }
+"102
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 102: }
 [e :UE 1540 ]
 }
-"97
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 97: static Processed ackEventProcessMessage(Message * m) {
-[v _ackEventProcessMessage `(E12732 ~T0 @X0 1 sf1`*S1526 ]
+"108
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 108: static Processed ackEventProcessMessage(Message * m) {
+[v _ackEventProcessMessage `(E12783 ~T0 @X0 1 sf1`*S1529 ]
 {
 [e :U _ackEventProcessMessage ]
-[v _m `*S1526 ~T0 @X0 1 r1 ]
+[v _m `*S1529 ~T0 @X0 1 r1 ]
 [f ]
-"98
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 98:     Word eventNN, eventEN;
-[v _eventNN `S1527 ~T0 @X0 1 a ]
-[v _eventEN `S1527 ~T0 @X0 1 a ]
-"99
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 99:     uint8_t eventIndex;
+"109
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 109:     Word eventNN, eventEN;
+[v _eventNN `S1530 ~T0 @X0 1 a ]
+[v _eventEN `S1530 ~T0 @X0 1 a ]
+"110
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 110:     uint8_t eventIndex;
 [v _eventIndex `uc ~T0 @X0 1 a ]
-"100
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 100:     int16_t ev;
+"111
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 111:     int16_t ev;
 [v _ev `s ~T0 @X0 1 a ]
-"102
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 102:     if (m->opc == OPC_MODE) {
-[e $ ! == -> . *U _m 1 `ui -> . `E12342 59 `ui 1545  ]
+"114
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 114:     if (m->opc == OPC_MODE) {
+[e $ ! == -> . *U _m 1 `ui -> . `E12392 59 `ui 1545  ]
 {
-"103
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 103:         if (ackEventCheckLen(m, 4) == PROCESSED) return PROCESSED;
-[e $ ! == -> ( _ackEventCheckLen (2 , _m -> -> 4 `i `uc `ui -> . `E12732 1 `ui 1546  ]
-[e ) . `E12732 1 ]
+"115
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 115:         if (ackEventCheckLen(m, 4) == PROCESSED) return PROCESSED;
+[e $ ! == -> ( _ackEventCheckLen (2 , _m -> -> 4 `i `uc `ui -> . `E12783 1 `ui 1546  ]
+[e ) . `E12783 1 ]
 [e $UE 1544  ]
 [e :U 1546 ]
-"104
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 104:         if ((m->bytes[0] == nn.bytes.hi) && (m->bytes[1] == nn.bytes.lo)) {
+"116
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 116:         if ((m->bytes[0] == nn.bytes.hi) && (m->bytes[1] == nn.bytes.lo)) {
 [e $ ! && == -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . . _nn 0 1 `i == -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . . _nn 0 0 `i 1547  ]
 {
-"105
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 105:             if (m->bytes[2] == MODE_EVENT_ACK_ON) {
-[e $ ! == -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . `E12598 5 `i 1548  ]
+"117
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 117:             if (m->bytes[2] == MODE_EVENT_ACK_ON) {
+[e $ ! == -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . `E12648 5 `i 1548  ]
 {
-"107
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 107:                 mode_flags |= 1;
+"119
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 119:                 mode_flags |= 1;
 [e =| _mode_flags -> -> 1 `i `uc ]
-"108
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 108:                 return PROCESSED;
-[e ) . `E12732 1 ]
+"120
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 120:                 return PROCESSED;
+[e ) . `E12783 1 ]
 [e $UE 1544  ]
-"109
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 109:             } else if (m->bytes[2] == MODE_EVENT_ACK_OFF) {
+"121
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 121:             } else if (m->bytes[2] == MODE_EVENT_ACK_OFF) {
 }
 [e $U 1549  ]
 [e :U 1548 ]
-[e $ ! == -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . `E12598 6 `i 1550  ]
+[e $ ! == -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . `E12648 6 `i 1550  ]
 {
-"111
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 111:                 mode_flags &= ~1;
+"123
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 123:                 mode_flags &= ~1;
 [e =& _mode_flags -> ~ -> 1 `i `uc ]
-"112
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 112:                 return PROCESSED;
-[e ) . `E12732 1 ]
+"124
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 124:                 return PROCESSED;
+[e ) . `E12783 1 ]
 [e $UE 1544  ]
-"113
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 113:             }
+"125
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 125:             }
 }
 [e :U 1550 ]
 [e :U 1549 ]
-"114
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 114:         }
+"126
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 126:         }
 }
 [e :U 1547 ]
-"115
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 115:         return NOT_PROCESSED;
-[e ) . `E12732 0 ]
-[e $UE 1544  ]
-"116
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 116:     }
-}
-[e :U 1545 ]
-"119
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 119:     if (! (mode_flags & 2)) {
-[e $ ! ! != & -> _mode_flags `i -> 2 `i -> 0 `i 1551  ]
-{
-"120
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 120:         return NOT_PROCESSED;
-[e ) . `E12732 0 ]
-[e $UE 1544  ]
-"121
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 121:     }
-}
-[e :U 1551 ]
-"123
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 123:     if (findService(SERVICE_ID_CONSUMER) == ((void*)0)) {
-[e $ ! == ( _findService (1 -> . `E12549 6 `uc -> -> -> 0 `i `*v `*CS1531 1552  ]
-{
-"124
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 124:         return NOT_PROCESSED;
-[e ) . `E12732 0 ]
-[e $UE 1544  ]
-"125
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 125:     }
-}
-[e :U 1552 ]
-"126
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 126:     if (m->len < 5) {
-[e $ ! < -> . *U _m 0 `i -> 5 `i 1553  ]
-{
 "127
 [; ;../../VLCBlib_PIC/event_acknowledge.c: 127:         return NOT_PROCESSED;
-[e ) . `E12732 0 ]
+[e ) . `E12783 0 ]
 [e $UE 1544  ]
 "128
 [; ;../../VLCBlib_PIC/event_acknowledge.c: 128:     }
 }
-[e :U 1553 ]
-"129
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 129:     eventNN.bytes.hi = m->bytes[0];
-[e = . . _eventNN 0 1 *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
-"130
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 130:     eventNN.bytes.lo = m->bytes[1];
-[e = . . _eventNN 0 0 *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
-"131
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 131:     eventEN.bytes.hi = m->bytes[2];
-[e = . . _eventEN 0 1 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[e :U 1545 ]
 "132
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 132:     eventEN.bytes.lo = m->bytes[3];
-[e = . . _eventEN 0 0 *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 132:     if (! (mode_flags & 2)) {
+[e $ ! ! != & -> _mode_flags `i -> 2 `i -> 0 `i 1551  ]
+{
+"133
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 133:         return NOT_PROCESSED;
+[e ) . `E12783 0 ]
+[e $UE 1544  ]
 "134
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 134:     switch (m->opc) {
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 134:     }
+}
+[e :U 1551 ]
+"136
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 136:     if (findService(SERVICE_ID_CONSUMER) == ((void*)0)) {
+[e $ ! == ( _findService (1 -> . `E12599 6 `uc -> -> -> 0 `i `*v `*CS1534 1552  ]
+{
+"137
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 137:         return NOT_PROCESSED;
+[e ) . `E12783 0 ]
+[e $UE 1544  ]
+"138
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 138:     }
+}
+[e :U 1552 ]
+"139
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 139:     if (m->len < 5) {
+[e $ ! < -> . *U _m 0 `i -> 5 `i 1553  ]
+{
+"140
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 140:         return NOT_PROCESSED;
+[e ) . `E12783 0 ]
+[e $UE 1544  ]
+"141
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 141:     }
+}
+[e :U 1553 ]
+"142
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 142:     eventNN.bytes.hi = m->bytes[0];
+[e = . . _eventNN 0 1 *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+"143
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 143:     eventNN.bytes.lo = m->bytes[1];
+[e = . . _eventNN 0 0 *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+"144
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 144:     eventEN.bytes.hi = m->bytes[2];
+[e = . . _eventEN 0 1 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+"145
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 145:     eventEN.bytes.lo = m->bytes[3];
+[e = . . _eventEN 0 0 *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+"147
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 147:     switch (m->opc) {
 [e $U 1555  ]
 {
-"135
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 135:         case OPC_ACON:
+"148
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 148:         case OPC_ACON:
 [e :U 1556 ]
-"136
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 136:         case OPC_ACOF:
+"149
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 149:         case OPC_ACOF:
 [e :U 1557 ]
-"138
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 138:             eventIndex = findEvent(eventNN.word, eventNN.word);
+"151
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 151:             eventIndex = findEvent(eventNN.word, eventNN.word);
 [e = _eventIndex ( _findEvent (2 , . _eventNN 1 . _eventNN 1 ]
-"139
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 139:             break;
+"152
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 152:             break;
 [e $U 1554  ]
-"140
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 140:         case OPC_ASON:
+"153
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 153:         case OPC_ASON:
 [e :U 1558 ]
-"141
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 141:         case OPC_ASOF:
+"154
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 154:         case OPC_ASOF:
 [e :U 1559 ]
-"143
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 143:             eventIndex = findEvent(0, eventNN.word);
+"156
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 156:             eventIndex = findEvent(0, eventNN.word);
 [e = _eventIndex ( _findEvent (2 , -> -> 0 `i `us . _eventNN 1 ]
-"144
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 144:             break;
+"157
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 157:             break;
 [e $U 1554  ]
-"145
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 145:         default:
+"158
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 158:         default:
 [e :U 1560 ]
-"146
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 146:             return NOT_PROCESSED;
-[e ) . `E12732 0 ]
+"159
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 159:             return NOT_PROCESSED;
+[e ) . `E12783 0 ]
 [e $UE 1544  ]
-"147
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 147:     }
+"160
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 160:     }
 }
 [e $U 1554  ]
 [e :U 1555 ]
-[e [\ -> . *U _m 1 `ui , $ -> . `E12342 69 `ui 1556
- , $ -> . `E12342 70 `ui 1557
- , $ -> . `E12342 77 `ui 1558
- , $ -> . `E12342 78 `ui 1559
+[e [\ -> . *U _m 1 `ui , $ -> . `E12392 69 `ui 1556
+ , $ -> . `E12392 70 `ui 1557
+ , $ -> . `E12392 77 `ui 1558
+ , $ -> . `E12392 78 `ui 1559
  1560 ]
 [e :U 1554 ]
-"148
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 148:     if (eventIndex != 0xff) {
+"161
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 161:     if (eventIndex != 0xff) {
 [e $ ! != -> _eventIndex `i -> 255 `i 1561  ]
 {
-"151
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 151:         ev = getEv(eventIndex, 1);
+"164
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 164:         ev = getEv(eventIndex, 1);
 [e = _ev ( _getEv (2 , _eventIndex -> -> 1 `i `uc ]
-"152
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 152:         if (ev >= 0) {
+"165
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 165:         if (ev >= 0) {
 [e $ ! >= -> _ev `i -> 0 `i 1562  ]
 {
-"154
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 154:             sendMessage7(OPC_ENACK, nn.bytes.hi, nn.bytes.lo, m->opc, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
-[e ( _sendMessage7 (4 , , , , , , , . `E12342 122 . . _nn 0 1 . . _nn 0 0 -> . *U _m 1 `uc *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
-"155
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 155:             ackDiagnostics[0x00].asInt++;
+"167
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 167:             sendMessage7(OPC_ENACK, nn.bytes.hi, nn.bytes.lo, m->opc, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
+[e ( _sendMessage7 (4 , , , , , , , . `E12392 122 . . _nn 0 1 . . _nn 0 0 -> . *U _m 1 `uc *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+"169
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 169:             ackDiagnostics[0x00].asInt++;
 [e ++ . *U + &U _ackDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _ackDiagnostics `ui `ux 1 -> -> 1 `i `s ]
-"156
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 156:         }
+"171
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 171:         }
 }
 [e :U 1562 ]
-"157
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 157:     }
+"172
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 172:     }
 }
 [e :U 1561 ]
-"158
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 158:     return NOT_PROCESSED;
-[e ) . `E12732 0 ]
+"173
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 173:     return NOT_PROCESSED;
+[e ) . `E12783 0 ]
 [e $UE 1544  ]
-"159
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 159: }
+"174
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 174: }
 [e :UE 1544 ]
 }
-"167
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 167: static Processed ackEventCheckLen(Message * m, uint8_t needed) {
-[v _ackEventCheckLen `(E12732 ~T0 @X0 1 sf2`*S1526`uc ]
+"182
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 182: static Processed ackEventCheckLen(Message * m, uint8_t needed) {
+[v _ackEventCheckLen `(E12783 ~T0 @X0 1 sf2`*S1529`uc ]
 {
 [e :U _ackEventCheckLen ]
-[v _m `*S1526 ~T0 @X0 1 r1 ]
+[v _m `*S1529 ~T0 @X0 1 r1 ]
 [v _needed `uc ~T0 @X0 1 r2 ]
 [f ]
-"168
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 168:     return checkLen(m, needed, SERVICE_ID_EVENTACK);
-[e ) ( _checkLen (3 , , _m _needed -> . `E12549 9 `uc ]
+"183
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 183:     return checkLen(m, needed, SERVICE_ID_EVENTACK);
+[e ) ( _checkLen (3 , , _m _needed -> . `E12599 9 `uc ]
 [e $UE 1563  ]
-"169
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 169: }
+"184
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 184: }
 [e :UE 1563 ]
 }
-"176
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 176: static DiagnosticVal * ackGetDiagnostic(uint8_t index) {
-[v _ackGetDiagnostic `(*S1529 ~T0 @X0 1 sf1`uc ]
+"192
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 192: static DiagnosticVal * ackGetDiagnostic(uint8_t index) {
+[v _ackGetDiagnostic `(*S1532 ~T0 @X0 1 sf1`uc ]
 {
 [e :U _ackGetDiagnostic ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"177
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 177:     if ((index<1) || (index>1)) {
+"193
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 193:     if ((index<1) || (index>1)) {
 [e $ ! || < -> _index `i -> 1 `i > -> _index `i -> 1 `i 1565  ]
 {
-"178
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 178:         return ((void*)0);
-[e ) -> -> -> 0 `i `*v `*S1529 ]
+"194
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 194:         return ((void*)0);
+[e ) -> -> -> 0 `i `*v `*S1532 ]
 [e $UE 1564  ]
-"179
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 179:     }
+"195
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 195:     }
 }
 [e :U 1565 ]
-"180
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 180:     return &(ackDiagnostics[index-1]);
+"196
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 196:     return &(ackDiagnostics[index-1]);
 [e ) &U *U + &U _ackDiagnostics * -> -> - -> _index `i -> 1 `i `ui `ux -> -> # *U &U _ackDiagnostics `ui `ux ]
 [e $UE 1564  ]
-"181
-[; ;../../VLCBlib_PIC/event_acknowledge.c: 181: }
+"197
+[; ;../../VLCBlib_PIC/event_acknowledge.c: 197: }
 [e :UE 1564 ]
 }

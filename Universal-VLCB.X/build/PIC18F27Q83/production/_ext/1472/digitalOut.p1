@@ -17,8 +17,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _writeNVM `(uc ~T0 @X0 0 ef3`E22382`um`uc ]
 "119 ../digitalOut.c
 [; ;../digitalOut.c: 119:         sendInvertedProducedEvent(((8 + 4*(io))+0), EVENT_ON,
-[c E22943 0 1 .. ]
-[n E22943 . EVENT_OFF EVENT_ON  ]
+[c E22943 255 0 1 .. ]
+[n E22943 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
 "188 ../universalEvents.h
 [; ;../universalEvents.h: 188: extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
 [v _sendInvertedProducedEvent `(E22923 ~T0 @X0 0 ef5`uc`E22943`E22923`E22923`E22923 ]
@@ -3630,7 +3630,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _writeNVM (3 , , . `E22382 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um _state ]
 "119
 [; ;../digitalOut.c: 119:         sendInvertedProducedEvent(((8 + 4*(io))+0), EVENT_ON,
-[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E22943 1 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22923 . `E22923 1 . `E22923 1 ]
+[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E22943 2 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22923 . `E22923 1 . `E22923 1 ]
 "121
 [; ;../digitalOut.c: 121:         return;
 [e $UE 3250  ]
@@ -3719,7 +3719,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "162
 [; ;../digitalOut.c: 162:             sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
-[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22943 1 . `E22943 0 `E22943 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22923 . `E22923 1 . `E22923 1 ]
+[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22943 2 . `E22943 1 `E22943 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22923 . `E22923 1 . `E22923 1 ]
 "164
 [; ;../digitalOut.c: 164:         }
 }
@@ -3732,7 +3732,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "167
 [; ;../digitalOut.c: 167:         sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
-[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22943 1 . `E22943 0 `E22943 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22923 . `E22923 1 . `E22923 1 ]
+[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22943 2 . `E22943 1 `E22943 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22923 . `E22923 1 . `E22923 1 ]
 "169
 [; ;../digitalOut.c: 169:     }
 }
