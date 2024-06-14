@@ -77,10 +77,9 @@
  * 
  * Timer usage:
  * TMR0 used in ticktime for symbol times. Used to trigger next set of servo pulses
- * TMR1 Servo outputs 0, 4, 8, 12
- * TMR2 Servo outputs 1, 5, 9, 13
- * TMR3 Servo outputs 2, 6, 10, 14
- * TMR4 Servo outputs 3, 7, 11, 15
+ * TMR1 Servo outputs 0,1,2,3,4,5,6,7
+ * TMR3 Servo outputs 8,9,10,11,12,13,14,15
+ * TMR2 CANCDU charge pump
  *
  * Created on 10 April 2017, 10:26
  */
@@ -96,7 +95,6 @@
 #include "devincs.h"
 #include <stddef.h>
 #include "module.h"
-#include "canmio.h"
 #include "config.h"
 #include "statusLeds.h"
 #include "inputs.h"
@@ -111,6 +109,9 @@
 #include "analogue.h"
 #endif
 #include "digitalOut.h"
+#ifdef CANCDU
+#include "cdu.h"
+#endif
 #include "outputs.h"
 #include "timedResponse.h"
 
@@ -159,8 +160,10 @@ const Config configs[NUM_IO] = {
     {26, 'B', 5, 0xFF},   //11
     {3,  'A', 1, 1},   //12
     {2,  'A', 0, 0},   //13
+#ifndef CANCDU
     {5,  'A', 3, 3},   //14
     {7,  'A', 5, 4}    //15
+#endif
 #endif
 };
 
@@ -181,6 +184,9 @@ static uint8_t        started;
 TickValue   lastServoStartTime;
 static TickValue   lastInputScanTime;
 static TickValue   lastActionPollTime;
+#ifdef CANCDU
+static TickValue   lastCduPollTime;
+#endif
 
 static uint8_t io;
 
@@ -323,6 +329,36 @@ void setup(void) {
         configIO(io);
     }
     initInputScan();
+#ifdef CANCDU
+    initCdus();
+    // start the charge pump clock
+    // Uses PWM4 and uses PPS to output to RA5
+
+    // PWM4 left aligned mode Slice 1 using LF INT running at 50% duty cycle 100Hz
+    PWM4CLKbits.CLK = 4;    // LF INT clock source
+    PWM4CPRE = 154;         // clock prescalar gets to 200Hz
+    PWM4PR = 4;             // period register
+    PWM4S1P1 = 2;           // Half period for square wave
+    PWM4CONbits.LD = 1;     // reload registers
+    
+    // set RA3 as output for the enable 
+    TRISAbits.TRISA3 = 0;
+    LATAbits.LATA3 = 0;
+    // set RA5 to input so that PWM4 can drive it as an output via PPS
+    /* According to datasheet:
+     With few exceptions, the port TRIS control associated with that pin
+     retains control over the pin output driver. Peripherals that control 
+     the pin output driver as part of the peripheral operation will override 
+     the TRIS control as needed.
+     * Very unhelpful.
+     */
+    TRISAbits.TRISA5 = 1;
+    // output PWM4 to pin RA5 channel 15
+    RA5PPS = 0x1E;  // 1E is PWM4S1P1_OUT
+    // enable the charge pump clock
+    PWM4CONbits.EN = 1;     // enable
+    LATAbits.LATA3 = 1;     // turn the charger on
+#endif
 
     // enable interrupts, all init now done
     ei(); 
@@ -331,6 +367,9 @@ void setup(void) {
     lastServoStartTime.val = startTime.val;
     lastInputScanTime.val = startTime.val;
     lastActionPollTime.val = startTime.val;
+#ifdef CANCDU
+    lastCduPollTime.val = startTime.val;
+#endif
 
     started = FALSE;
 }
@@ -358,9 +397,17 @@ void loop(void) {
             processOutputs();
             lastActionPollTime.val = tickGet();
         }
+        
+#ifdef CANCDU
+        if (tickTimeSince(lastCduPollTime) > 10*ONE_MILI_SECOND) {
+            processCdus();
+            lastCduPollTime.val = tickGet();
+        }
+#endif
 #ifdef ANALOGUE
         pollAnalogue();
 #endif
+
     }
 }
 
@@ -429,6 +476,9 @@ EventState APP_GetEventState(Happening h) {
             }
             break;
         case TYPE_OUTPUT:
+#ifdef CANCDU
+        case TYPE_CDU:
+#endif
             switch (happeningIndex) {
                 case HAPPENING_IO_1:
                     return (readNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io)!=ACTION_IO_3)?EVENT_ON:EVENT_OFF;
@@ -493,16 +543,6 @@ EventState APP_GetEventState(Happening h) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /**
  * Set the Type of the IO.
  * @param i the IO
@@ -565,6 +605,14 @@ void configIO(uint8_t i) {
 #endif
             // start with the polarity defined in flag PULLUP
             setDigitalOutput(i, getNV(NV_IO_FLAGS(i)) & FLAG_SERVO_START_PULLUP);
+            break;
+#endif
+#ifdef CANCDU
+        case TYPE_CDU:
+            action = (getNV(NV_IO_FLAGS(i)) & FLAG_OUTPUT_ACTION_INVERTED) ? ACTION_IO_2 : ACTION_IO_3;
+            setDigitalOutput(i, action);  // OFF
+            // save the current state of output as OFF so 
+            writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(EE_OP_STATE+i), action);       // Unsure if this is required or if it should be deleted. Therefore leaving it for now.
             break;
 #endif
     }

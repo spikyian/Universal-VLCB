@@ -21480,7 +21480,7 @@ static void mnsFactoryReset(void) {
 
 
     last_mode_flags = mode_flags = 0;
-    writeNVM(EEPROM_NVM_TYPE, 0x3FA, mode_flags);
+    writeNVM(EEPROM_NVM_TYPE, 0x3F9, mode_flags);
 }
 
 
@@ -21512,7 +21512,7 @@ static void mnsPowerUp(void) {
     } else {
         mode_state = (uint8_t)temp;
     }
-    temp = readNVM(EEPROM_NVM_TYPE, 0x3FA);
+    temp = readNVM(EEPROM_NVM_TYPE, 0x3F9);
     if (temp < 0) {
         mode_flags = 4;
     } else {
@@ -21838,7 +21838,7 @@ static void mnsPoll(void) {
 
 
     if (mode_flags != last_mode_flags) {
-        writeNVM(EEPROM_NVM_TYPE, 0x3FA, mode_flags);
+        writeNVM(EEPROM_NVM_TYPE, 0x3F9, mode_flags);
         last_mode_flags = mode_flags;
     }
     if (mode_state != last_mode_state) {

@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "47 ../config.h
 [; ;../config.h: 47: typedef struct {
-[s S1542 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S1542 . pin port no an ]
+[s S1539 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S1539 . pin port no an ]
 "216 ../../VLCBlib_PIC\ticktime.h
 [s S1534 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1534 TickBytes b0 b1 b2 b3 ]
@@ -12,8 +12,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "211
 [u S1533 `ul 1 `S1534 1 `uc -> 4 `i `S1535 1 ]
 [n S1533 _TickValue val byte v word ]
-[v F12809 `(v ~T0 @X0 0 tf ]
-[v F12811 `(v ~T0 @X0 0 tf ]
+[v F12819 `(v ~T0 @X0 0 tf ]
+[v F12821 `(v ~T0 @X0 0 tf ]
 "189 ../main.c
 [; ;../main.c: 189: const Service * const services[] = {
 [c E12342 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
@@ -23,22 +23,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S1526 Message len opc bytes ]
 "189 ../main.c
 [; ;../main.c: 189: const Service * const services[] = {
-[c E12733 0 1 .. ]
-[n E12733 Processed NOT_PROCESSED PROCESSED  ]
-[v F12813 `(E12733 ~T0 @X0 0 tf1`*S1526 ]
-[v F12816 `(v ~T0 @X0 0 tf ]
-[v F12818 `(v ~T0 @X0 0 tf ]
-[v F12820 `(v ~T0 @X0 0 tf ]
-[v F12822 `(uc ~T0 @X0 0 tf1`uc ]
+[c E12743 0 1 .. ]
+[n E12743 Processed NOT_PROCESSED PROCESSED  ]
+[v F12823 `(E12743 ~T0 @X0 0 tf1`*S1526 ]
+[v F12826 `(v ~T0 @X0 0 tf ]
+[v F12828 `(v ~T0 @X0 0 tf ]
+[v F12830 `(v ~T0 @X0 0 tf ]
+[v F12832 `(uc ~T0 @X0 0 tf1`uc ]
 "159 ../../VLCBlib_PIC\vlcb.h
 [s S1530 `uc 1 `uc 1 ]
 [n S1530 . lo hi ]
 "156
 [u S1529 `us 1 `s 1 `S1530 1 ]
 [n S1529 DiagnosticVal asUint asInt asBytes ]
-[v F12825 `(*S1529 ~T0 @X0 0 tf1`uc ]
+[v F12835 `(*S1529 ~T0 @X0 0 tf1`uc ]
 "307
-[s S1531 `uc 1 `uc 1 `*F12809 1 `*F12811 1 `*F12813 1 `*F12816 1 `*F12818 1 `*F12820 1 `*F12822 1 `*F12825 1 ]
+[s S1531 `uc 1 `uc 1 `*F12819 1 `*F12821 1 `*F12823 1 `*F12826 1 `*F12828 1 `*F12830 1 `*F12832 1 `*F12835 1 ]
 [n S1531 Service serviceNo version factoryReset powerUp processMessage poll highIsr lowIsr getESDdata getDiagnostic ]
 "85 ../../VLCBlib_PIC\can.h
 [; ;../../VLCBlib_PIC\can.h: 85: extern const Service canService;
@@ -52,13 +52,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "81 ../../VLCBlib_PIC\boot.h
 [; ;../../VLCBlib_PIC\boot.h: 81: extern const Service bootService;
 [v _bootService `CS1531 ~T0 @X0 0 e ]
-"98 ../../VLCBlib_PIC/event_teach.h
+"77 ../../VLCBlib_PIC/event_teach.h
 [v _eventTeachService `CS1531 ~T0 @X0 0 e ]
 "187 ../main.c
 [; ;../main.c: 187: extern const Service eventConsumer2QService;
 [v _eventConsumer2QService `CS1531 ~T0 @X0 0 e ]
-"76 ../../VLCBlib_PIC\event_producer.h
-[; ;../../VLCBlib_PIC\event_producer.h: 76: extern const Service eventProducerService;
+"82 ../../VLCBlib_PIC\event_producer.h
+[; ;../../VLCBlib_PIC\event_producer.h: 82: extern const Service eventProducerService;
 [v _eventProducerService `CS1531 ~T0 @X0 0 e ]
 "59 ../../VLCBlib_PIC\event_coe.h
 [; ;../../VLCBlib_PIC\event_coe.h: 59: extern const Service eventCoeService;
@@ -66,8 +66,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "62 ../../VLCBlib_PIC\event_acknowledge.h
 [; ;../../VLCBlib_PIC\event_acknowledge.h: 62: extern const Service eventAckService;
 [v _eventAckService `CS1531 ~T0 @X0 0 e ]
-"174 ../universalEvents.h
-[; ;../universalEvents.h: 174: extern void factoryResetGlobalEvents(void);
+"172 ../universalEvents.h
+[; ;../universalEvents.h: 172: extern void factoryResetGlobalEvents(void);
 [v _factoryResetGlobalEvents `(v ~T0 @X0 0 ef ]
 "174 ../main.c
 [; ;../main.c: 174: void setType(uint8_t i, uint8_t type);
@@ -76,14 +76,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _flushFlashBlock `(v ~T0 @X0 0 ef ]
 "235 ../main.c
 [; ;../main.c: 235:     transport = &canTransport;
-[c E12848 0 1 .. ]
-[n E12848 SendResult SEND_FAILED SEND_OK  ]
-[v F12854 `(E12848 ~T0 @X0 0 tf1`*S1526 ]
-[c E12844 0 1 .. ]
-[n E12844 MessageReceived NOT_RECEIVED RECEIVED  ]
-[v F12857 `(E12844 ~T0 @X0 0 tf1`*S1526 ]
+[c E12858 0 1 .. ]
+[n E12858 SendResult SEND_FAILED SEND_OK  ]
+[v F12864 `(E12858 ~T0 @X0 0 tf1`*S1526 ]
+[c E12854 0 1 .. ]
+[n E12854 MessageReceived NOT_RECEIVED RECEIVED  ]
+[v F12867 `(E12854 ~T0 @X0 0 tf1`*S1526 ]
 "430 ../../VLCBlib_PIC\vlcb.h
-[s S1532 `*F12854 1 `*F12857 1 ]
+[s S1532 `*F12864 1 `*F12867 1 ]
 [n S1532 Transport sendMessage receiveMessage ]
 "442
 [v _transport `*CS1532 ~T0 @X0 0 e ]
@@ -117,8 +117,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
 "210 ../../VLCBlib_PIC\vlcb.h
 [v _setTimedResponseDelay `(v ~T0 @X0 0 ef1`uc ]
-"173 ../universalEvents.h
-[; ;../universalEvents.h: 173: extern void universalEventsInit(void);
+"171 ../universalEvents.h
+[; ;../universalEvents.h: 171: extern void universalEventsInit(void);
 [v _universalEventsInit `(v ~T0 @X0 0 ef ]
 "26974 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 26974: extern volatile unsigned char ANCON0 __attribute__((address(0xF5D)));
@@ -161,43 +161,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _tickGet `(ul ~T0 @X0 0 ef ]
 "335 ../main.c
 [; ;../main.c: 335:     started = FALSE;
-[c E12700 0 1 .. ]
-[n E12700 Boolean FALSE TRUE  ]
+[c E12710 0 1 .. ]
+[n E12710 Boolean FALSE TRUE  ]
 "342
 [; ;../main.c: 342:         sendProducedEvent(1, EVENT_ON);
-[c E12720 255 0 1 .. ]
-[n E12720 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
-"86 ../../VLCBlib_PIC\event_producer.h
-[; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
-[v _sendProducedEvent `(E12700 ~T0 @X0 0 ef2`uc`E12720 ]
+[c E12730 255 0 1 .. ]
+[n E12730 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
+"92 ../../VLCBlib_PIC\event_producer.h
+[; ;../../VLCBlib_PIC\event_producer.h: 92: extern Boolean sendProducedEvent(Happening h, EventState state);
+[v _sendProducedEvent `(E12710 ~T0 @X0 0 ef2`uc`E12730 ]
 "53 ../servo.h
 [; ;../servo.h: 53: extern void startServos(void);
 [v _startServos `(v ~T0 @X0 0 ef ]
 "47 ../inputs.h
 [; ;../inputs.h: 47:     extern void inputScan(void);
 [v _inputScan `(v ~T0 @X0 0 ef ]
-"186 ../universalEvents.h
-[; ;../universalEvents.h: 186: extern void processActions(void);
+"184 ../universalEvents.h
+[; ;../universalEvents.h: 184: extern void processActions(void);
 [v _processActions `(v ~T0 @X0 0 ef ]
 "17 ../digitalOut.h
 [; ;../digitalOut.h: 17: extern void processOutputs(void);
 [v _processOutputs `(v ~T0 @X0 0 ef ]
 "379 ../main.c
 [; ;../main.c: 379: ValidTime APP_isSuitableTimeToWriteFlash(void){
-[c E12676 0 1 .. ]
-[n E12676 ValidTime BAD_TIME GOOD_TIME  ]
+[c E12686 0 1 .. ]
+[n E12686 ValidTime BAD_TIME GOOD_TIME  ]
 "71 ../servo.h
 [; ;../servo.h: 71: extern Boolean isNoServoPulses(void);
-[v _isNoServoPulses `(E12700 ~T0 @X0 0 ef ]
+[v _isNoServoPulses `(E12710 ~T0 @X0 0 ef ]
 "201 ../main.c
 [; ;../main.c: 201: extern uint8_t outputState[16];
 [v _outputState `uc ~T0 @X0 -> 0 `x e ]
 "434
 [; ;../main.c: 434:                     return (readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io)!=2)?EVENT_ON:EVENT_OFF;
-[c E12672 0 1 .. ]
-[n E12672 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
+[c E12682 0 1 .. ]
+[n E12682 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
 "160 ../../VLCBlib_PIC\nvm.h
-[v _readNVM `(s ~T0 @X0 0 ef2`E12672`um ]
+[v _readNVM `(s ~T0 @X0 0 ef2`E12682`um ]
 "48 ../servo.h
 [; ;../servo.h: 48: extern uint8_t currentPos[16];
 [v _currentPos `uc ~T0 @X0 -> 0 `x e ]
@@ -207,14 +207,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "248 ../universalNv.h
 [; ;../universalNv.h: 248: extern void defaultNVs(uint8_t i, uint8_t type);
 [v _defaultNVs `(v ~T0 @X0 0 ef2`uc`uc ]
-"175 ../universalEvents.h
-[; ;../universalEvents.h: 175: extern void defaultEvents(uint8_t i, uint8_t type);
+"173 ../universalEvents.h
+[; ;../universalEvents.h: 173: extern void defaultEvents(uint8_t i, uint8_t type);
 [v _defaultEvents `(v ~T0 @X0 0 ef2`uc`uc ]
 "19 ../digitalOut.h
 [; ;../digitalOut.h: 19: extern void setDigitalOutput(uint8_t io, uint8_t state);
 [v _setDigitalOutput `(v ~T0 @X0 0 ef2`uc`uc ]
 "169 ../../VLCBlib_PIC\nvm.h
-[v _writeNVM `(uc ~T0 @X0 0 ef3`E12672`um`uc ]
+[v _writeNVM `(uc ~T0 @X0 0 ef3`E12682`um`uc ]
 "30645 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 30645: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
@@ -1636,7 +1636,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "120 ../main.c
 [; ;../main.c: 120: const Config configs[16] = {
-[v _configs `CS1542 ~T0 @X0 -> 16 `i e ]
+[v _configs `CS1539 ~T0 @X0 -> 16 `i e ]
 [i _configs
 :U ..
 :U ..
@@ -1755,7 +1755,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "185
 [; ;../main.c: 185: static uint8_t io;
 [v _io `uc ~T0 @X0 1 s ]
-[v F13236 `*CS1531 ~T0 @X0 1 t ]
+[v F13226 `*CS1531 ~T0 @X0 1 t ]
 "189
 [; ;../main.c: 189: const Service * const services[] = {
 [v _services `C*CS1531 ~T0 @X0 -> 9 `i e ]
@@ -1788,9 +1788,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 213:     for (io=0; io<16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1554  ]
-[e $U 1555  ]
-[e :U 1554 ]
+[e $ < -> _io `i -> 16 `i 1551  ]
+[e $U 1552  ]
+[e :U 1551 ]
 {
 "214
 [; ;../main.c: 214:         setType(io, (io < 8) ? 0 : 0);
@@ -1799,15 +1799,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 215:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1554  ]
-[e :U 1555 ]
+[e $ < -> _io `i -> 16 `i 1551  ]
+[e :U 1552 ]
 }
 "216
 [; ;../main.c: 216:     flushFlashBlock();
 [e ( _flushFlashBlock ..  ]
 "217
 [; ;../main.c: 217: }
-[e :UE 1553 ]
+[e :UE 1550 ]
 }
 "223
 [; ;../main.c: 223: void APP_testMode(void) {
@@ -1817,7 +1817,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "225
 [; ;../main.c: 225: }
-[e :UE 1557 ]
+[e :UE 1554 ]
 }
 "230
 [; ;../main.c: 230: void setup(void) {
@@ -1856,9 +1856,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 322:     for (io=0; io< 16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1559  ]
-[e $U 1560  ]
-[e :U 1559 ]
+[e $ < -> _io `i -> 16 `i 1556  ]
+[e $U 1557  ]
+[e :U 1556 ]
 {
 "323
 [; ;../main.c: 323:         configIO(io);
@@ -1867,8 +1867,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 324:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1559  ]
-[e :U 1560 ]
+[e $ < -> _io `i -> 16 `i 1556  ]
+[e :U 1557 ]
 }
 "325
 [; ;../main.c: 325:     initInputScan();
@@ -1890,10 +1890,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _lastActionPollTime 0 . _startTime 0 ]
 "335
 [; ;../main.c: 335:     started = FALSE;
-[e = _started -> . `E12700 0 `uc ]
+[e = _started -> . `E12710 0 `uc ]
 "336
 [; ;../main.c: 336: }
-[e :UE 1558 ]
+[e :UE 1555 ]
 }
 "338
 [; ;../main.c: 338: void loop(void) {
@@ -1903,21 +1903,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "340
 [; ;../main.c: 340:     if (!started && ((tickGet() - startTime.val) > (getNV(1) * (62500/10)) + (62500*2))) {
-[e $ ! && ! != -> _started `i -> 0 `i > - ( _tickGet ..  . _startTime 0 -> + * -> ( _getNV (1 -> -> 1 `i `uc `l / -> 62500 `l -> -> 10 `i `l * -> 62500 `l -> -> 2 `i `l `ul 1563  ]
+[e $ ! && ! != -> _started `i -> 0 `i > - ( _tickGet ..  . _startTime 0 -> + * -> ( _getNV (1 -> -> 1 `i `uc `l / -> 62500 `l -> -> 10 `i `l * -> 62500 `l -> -> 2 `i `l `ul 1560  ]
 {
 "341
 [; ;../main.c: 341:         started = TRUE;
-[e = _started -> . `E12700 1 `uc ]
+[e = _started -> . `E12710 1 `uc ]
 "342
 [; ;../main.c: 342:         sendProducedEvent(1, EVENT_ON);
-[e ( _sendProducedEvent (2 , -> -> 1 `i `uc . `E12720 2 ]
+[e ( _sendProducedEvent (2 , -> -> 1 `i `uc . `E12730 2 ]
 "343
 [; ;../main.c: 343:     }
 }
-[e :U 1563 ]
+[e :U 1560 ]
 "346
 [; ;../main.c: 346:     if ((tickGet() - lastServoStartTime.val) > 5*(62500/2000)) {
-[e $ ! > - ( _tickGet ..  . _lastServoStartTime 0 -> * -> -> 5 `i `l / -> 62500 `l -> -> 2000 `i `l `ul 1564  ]
+[e $ ! > - ( _tickGet ..  . _lastServoStartTime 0 -> * -> -> 5 `i `l / -> 62500 `l -> -> 2000 `i `l `ul 1561  ]
 {
 "347
 [; ;../main.c: 347:         startServos();
@@ -1928,14 +1928,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "349
 [; ;../main.c: 349:     }
 }
-[e :U 1564 ]
+[e :U 1561 ]
 "351
 [; ;../main.c: 351:     if (started) {
-[e $ ! != -> _started `i -> 0 `i 1565  ]
+[e $ ! != -> _started `i -> 0 `i 1562  ]
 {
 "352
 [; ;../main.c: 352:         if ((tickGet() - lastInputScanTime.val) > 5*(62500/1000)) {
-[e $ ! > - ( _tickGet ..  . _lastInputScanTime 0 -> * -> -> 5 `i `l / -> 62500 `l -> -> 1000 `i `l `ul 1566  ]
+[e $ ! > - ( _tickGet ..  . _lastInputScanTime 0 -> * -> -> 5 `i `l / -> 62500 `l -> -> 1000 `i `l `ul 1563  ]
 {
 "353
 [; ;../main.c: 353:             inputScan();
@@ -1946,10 +1946,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "355
 [; ;../main.c: 355:         }
 }
-[e :U 1566 ]
+[e :U 1563 ]
 "356
 [; ;../main.c: 356:         if ((tickGet() - lastActionPollTime.val) > 100*(62500/1000)) {
-[e $ ! > - ( _tickGet ..  . _lastActionPollTime 0 -> * -> -> 100 `i `l / -> 62500 `l -> -> 1000 `i `l `ul 1567  ]
+[e $ ! > - ( _tickGet ..  . _lastActionPollTime 0 -> * -> -> 100 `i `l / -> 62500 `l -> -> 1000 `i `l `ul 1564  ]
 {
 "357
 [; ;../main.c: 357:             processActions();
@@ -1963,62 +1963,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 "360
 [; ;../main.c: 360:         }
 }
-[e :U 1567 ]
+[e :U 1564 ]
 "364
 [; ;../main.c: 364:     }
 }
-[e :U 1565 ]
+[e :U 1562 ]
 "365
 [; ;../main.c: 365: }
-[e :UE 1562 ]
+[e :UE 1559 ]
 }
 "379
 [; ;../main.c: 379: ValidTime APP_isSuitableTimeToWriteFlash(void){
-[v _APP_isSuitableTimeToWriteFlash `(E12676 ~T0 @X0 1 ef ]
+[v _APP_isSuitableTimeToWriteFlash `(E12686 ~T0 @X0 1 ef ]
 {
 [e :U _APP_isSuitableTimeToWriteFlash ]
 [f ]
 "381
 [; ;../main.c: 381:     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
-[e ) -> ? != -> ( _isNoServoPulses ..  `ui -> -> 0 `i `ui : . `E12676 1 . `E12676 0 `E12676 ]
-[e $UE 1568  ]
+[e ) -> ? != -> ( _isNoServoPulses ..  `ui -> -> 0 `i `ui : . `E12686 1 . `E12686 0 `E12686 ]
+[e $UE 1565  ]
 "385
 [; ;../main.c: 385: }
-[e :UE 1568 ]
+[e :UE 1565 ]
 }
 "390
 [; ;../main.c: 390: Processed APP_preProcessMessage(Message * m) {
-[v _APP_preProcessMessage `(E12733 ~T0 @X0 1 ef1`*S1526 ]
+[v _APP_preProcessMessage `(E12743 ~T0 @X0 1 ef1`*S1526 ]
 {
 [e :U _APP_preProcessMessage ]
 [v _m `*S1526 ~T0 @X0 1 r1 ]
 [f ]
 "391
 [; ;../main.c: 391:     return NOT_PROCESSED;
-[e ) . `E12733 0 ]
-[e $UE 1569  ]
+[e ) . `E12743 0 ]
+[e $UE 1566  ]
 "392
 [; ;../main.c: 392: }
-[e :UE 1569 ]
+[e :UE 1566 ]
 }
 "397
 [; ;../main.c: 397: Processed APP_postProcessMessage(Message * m) {
-[v _APP_postProcessMessage `(E12733 ~T0 @X0 1 ef1`*S1526 ]
+[v _APP_postProcessMessage `(E12743 ~T0 @X0 1 ef1`*S1526 ]
 {
 [e :U _APP_postProcessMessage ]
 [v _m `*S1526 ~T0 @X0 1 r1 ]
 [f ]
 "398
 [; ;../main.c: 398:     return NOT_PROCESSED;
-[e ) . `E12733 0 ]
-[e $UE 1570  ]
+[e ) . `E12743 0 ]
+[e $UE 1567  ]
 "399
 [; ;../main.c: 399: }
-[e :UE 1570 ]
+[e :UE 1567 ]
 }
 "404
 [; ;../main.c: 404: EventState APP_GetEventState(Happening h) {
-[v _APP_GetEventState `(E12720 ~T0 @X0 1 ef1`uc ]
+[v _APP_GetEventState `(E12730 ~T0 @X0 1 ef1`uc ]
 {
 [e :U _APP_GetEventState ]
 [v _h `uc ~T0 @X0 1 r1 ]
@@ -2031,22 +2031,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _happeningIndex `uc ~T0 @X0 1 a ]
 "407
 [; ;../main.c: 407:     Boolean disable_off;
-[v _disable_off `E12700 ~T0 @X0 1 a ]
+[v _disable_off `E12710 ~T0 @X0 1 a ]
 "409
 [; ;../main.c: 409:     io = (((h)-8)/4);
 [e = _io -> / - -> _h `i -> 8 `i -> 4 `i `uc ]
 "410
 [; ;../main.c: 410:     if (io >= 16) {
-[e $ ! >= -> _io `i -> 16 `i 1572  ]
+[e $ ! >= -> _io `i -> 16 `i 1569  ]
 {
 "411
 [; ;../main.c: 411:         return EVENT_UNKNOWN;
-[e ) . `E12720 0 ]
-[e $UE 1571  ]
+[e ) . `E12730 0 ]
+[e $UE 1568  ]
 "412
 [; ;../main.c: 412:     }
 }
-[e :U 1572 ]
+[e :U 1569 ]
 "413
 [; ;../main.c: 413:     happeningIndex = (((h)-8)%4);
 [e = _happeningIndex -> % - -> _h `i -> 8 `i -> 4 `i `uc ]
@@ -2055,236 +2055,236 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _flags -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `uc ]
 "415
 [; ;../main.c: 415:     disable_off = flags & 0x08;
-[e = _disable_off -> & -> _flags `i -> 8 `i `E12700 ]
+[e = _disable_off -> & -> _flags `i -> 8 `i `E12710 ]
 "417
 [; ;../main.c: 417:     switch((uint8_t)getNV((16 + 7*(io) + 0))) {
-[e $U 1574  ]
+[e $U 1571  ]
 {
 "418
 [; ;../main.c: 418:         case 0:
-[e :U 1575 ]
+[e :U 1572 ]
 "419
 [; ;../main.c: 419:             switch (happeningIndex) {
-[e $U 1577  ]
+[e $U 1574  ]
 {
 "420
 [; ;../main.c: 420:                 case 0:
-[e :U 1578 ]
+[e :U 1575 ]
 "422
 [; ;../main.c: 422:                     return outputState[io]?EVENT_ON:EVENT_OFF;
-[e ) -> ? != -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `i -> 0 `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? != -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `i -> 0 `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "423
 [; ;../main.c: 423:                 case 1:
-[e :U 1579 ]
+[e :U 1576 ]
 "425
 [; ;../main.c: 425:                     if (disable_off) {
-[e $ ! != -> _disable_off `ui -> -> 0 `i `ui 1580  ]
+[e $ ! != -> _disable_off `ui -> -> 0 `i `ui 1577  ]
 {
 "426
 [; ;../main.c: 426:                         return (outputState[io]==0)?EVENT_ON:EVENT_OFF;
-[e ) -> ? == -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `i -> 0 `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? == -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `i -> 0 `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "427
 [; ;../main.c: 427:                     }
 }
-[e :U 1580 ]
+[e :U 1577 ]
 "428
 [; ;../main.c: 428:                     break;
-[e $U 1576  ]
+[e $U 1573  ]
 "429
 [; ;../main.c: 429:             }
 }
-[e $U 1576  ]
-[e :U 1577 ]
-[e [\ _happeningIndex , $ -> 0 `i 1578
- , $ -> 1 `i 1579
- 1576 ]
-[e :U 1576 ]
+[e $U 1573  ]
+[e :U 1574 ]
+[e [\ _happeningIndex , $ -> 0 `i 1575
+ , $ -> 1 `i 1576
+ 1573 ]
+[e :U 1573 ]
 "430
 [; ;../main.c: 430:             break;
-[e $U 1573  ]
+[e $U 1570  ]
 "431
 [; ;../main.c: 431:         case 1:
-[e :U 1581 ]
+[e :U 1578 ]
 "432
 [; ;../main.c: 432:             switch (happeningIndex) {
-[e $U 1583  ]
+[e $U 1580  ]
 {
 "433
 [; ;../main.c: 433:                 case 0:
-[e :U 1584 ]
+[e :U 1581 ]
 "434
 [; ;../main.c: 434:                     return (readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io)!=2)?EVENT_ON:EVENT_OFF;
-[e ) -> ? != -> ( _readNVM (2 , . `E12672 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um `i -> 2 `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? != -> ( _readNVM (2 , . `E12682 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um `i -> 2 `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "435
 [; ;../main.c: 435:             }
 }
-[e $U 1582  ]
-[e :U 1583 ]
-[e [\ _happeningIndex , $ -> 0 `i 1584
- 1582 ]
-[e :U 1582 ]
+[e $U 1579  ]
+[e :U 1580 ]
+[e [\ _happeningIndex , $ -> 0 `i 1581
+ 1579 ]
+[e :U 1579 ]
 "436
 [; ;../main.c: 436:             break;
-[e $U 1573  ]
+[e $U 1570  ]
 "438
 [; ;../main.c: 438:         case 2:
-[e :U 1585 ]
+[e :U 1582 ]
 "439
 [; ;../main.c: 439:             switch (happeningIndex) {
-[e $U 1587  ]
+[e $U 1584  ]
 {
 "440
 [; ;../main.c: 440:                 case 0:
-[e :U 1588 ]
+[e :U 1585 ]
 "441
 [; ;../main.c: 441:                     return (currentPos[io] == (uint8_t)getNV((16 + 7*(io) + 2)))?EVENT_ON:EVENT_OFF;
-[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "442
 [; ;../main.c: 442:                 case 2:
-[e :U 1589 ]
+[e :U 1586 ]
 "443
 [; ;../main.c: 443:                     return (currentPos[io] == (uint8_t)getNV((16 + 7*(io) + 3)))?EVENT_ON:EVENT_OFF;
-[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "445
 [; ;../main.c: 445:                 case 1:
-[e :U 1590 ]
+[e :U 1587 ]
 "446
 [; ;../main.c: 446:                     return (currentPos[io] >= ((uint8_t)getNV((16 + 7*(io) + 3)))/2 +
-[e ) -> ? >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i + / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> 2 `i / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i -> 2 `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i + / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> 2 `i / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i -> 2 `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "448
 [; ;../main.c: 448:             }
 }
-[e $U 1586  ]
-[e :U 1587 ]
-[e [\ _happeningIndex , $ -> 0 `i 1588
- , $ -> 2 `i 1589
- , $ -> 1 `i 1590
- 1586 ]
-[e :U 1586 ]
+[e $U 1583  ]
+[e :U 1584 ]
+[e [\ _happeningIndex , $ -> 0 `i 1585
+ , $ -> 2 `i 1586
+ , $ -> 1 `i 1587
+ 1583 ]
+[e :U 1583 ]
 "449
 [; ;../main.c: 449:             break;
-[e $U 1573  ]
+[e $U 1570  ]
 "451
 [; ;../main.c: 451:         case 3:
-[e :U 1591 ]
+[e :U 1588 ]
 "452
 [; ;../main.c: 452:             switch (happeningIndex) {
-[e $U 1593  ]
+[e $U 1590  ]
 {
 "453
 [; ;../main.c: 453:                 case 0:
-[e :U 1594 ]
+[e :U 1591 ]
 "454
 [; ;../main.c: 454:                     return ((uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io))?EVENT_ON:EVENT_OFF;
-[e ) -> ? != -> -> ( _readNVM (2 , . `E12672 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um `uc `i -> 0 `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? != -> -> ( _readNVM (2 , . `E12682 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um `uc `i -> 0 `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "455
 [; ;../main.c: 455:             }
 }
-[e $U 1592  ]
-[e :U 1593 ]
-[e [\ _happeningIndex , $ -> 0 `i 1594
- 1592 ]
-[e :U 1592 ]
+[e $U 1589  ]
+[e :U 1590 ]
+[e [\ _happeningIndex , $ -> 0 `i 1591
+ 1589 ]
+[e :U 1589 ]
 "456
 [; ;../main.c: 456:             break;
-[e $U 1573  ]
+[e $U 1570  ]
 "459
 [; ;../main.c: 459:         case 4:
-[e :U 1595 ]
+[e :U 1592 ]
 "460
 [; ;../main.c: 460:             switch (happeningIndex) {
-[e $U 1597  ]
+[e $U 1594  ]
 {
 "461
 [; ;../main.c: 461:                 case 0:
-[e :U 1598 ]
+[e :U 1595 ]
 "462
 [; ;../main.c: 462:                     return (currentPos[io] == getNV((16 + 7*(io) + 3)))?EVENT_ON:EVENT_OFF;
-[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "463
 [; ;../main.c: 463:                 case 1:
-[e :U 1599 ]
+[e :U 1596 ]
 "464
 [; ;../main.c: 464:                     return (currentPos[io] == getNV((16 + 7*(io) + 4)))?EVENT_ON:EVENT_OFF;
-[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "466
 [; ;../main.c: 466:                 case 2:
-[e :U 1600 ]
+[e :U 1597 ]
 "467
 [; ;../main.c: 467:                     if (getNV((16 + 7*(io) + 2)) > 2) {
-[e $ ! > -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 2 `i 1601  ]
+[e $ ! > -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 2 `i 1598  ]
 {
 "468
 [; ;../main.c: 468:                         return (currentPos[io] == getNV((16 + 7*(io) + 5)))?EVENT_ON:EVENT_OFF;
-[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "469
 [; ;../main.c: 469:                     }
 }
-[e :U 1601 ]
+[e :U 1598 ]
 "470
 [; ;../main.c: 470:                     break;
-[e $U 1596  ]
+[e $U 1593  ]
 "471
 [; ;../main.c: 471:                 case 3:
-[e :U 1602 ]
+[e :U 1599 ]
 "472
 [; ;../main.c: 472:                     if (getNV((16 + 7*(io) + 2)) > 3) {
-[e $ ! > -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 3 `i 1603  ]
+[e $ ! > -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 3 `i 1600  ]
 {
 "473
 [; ;../main.c: 473:                         return (currentPos[io] == getNV((16 + 7*(io) + 6)))?EVENT_ON:EVENT_OFF;
-[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i : . `E12720 2 . `E12720 1 `E12720 ]
-[e $UE 1571  ]
+[e ) -> ? == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i : . `E12730 2 . `E12730 1 `E12730 ]
+[e $UE 1568  ]
 "474
 [; ;../main.c: 474:                     }
 }
-[e :U 1603 ]
+[e :U 1600 ]
 "475
 [; ;../main.c: 475:                     break;
-[e $U 1596  ]
+[e $U 1593  ]
 "476
 [; ;../main.c: 476:             }
 }
-[e $U 1596  ]
-[e :U 1597 ]
-[e [\ _happeningIndex , $ -> 0 `i 1598
- , $ -> 1 `i 1599
- , $ -> 2 `i 1600
- , $ -> 3 `i 1602
- 1596 ]
-[e :U 1596 ]
+[e $U 1593  ]
+[e :U 1594 ]
+[e [\ _happeningIndex , $ -> 0 `i 1595
+ , $ -> 1 `i 1596
+ , $ -> 2 `i 1597
+ , $ -> 3 `i 1599
+ 1593 ]
+[e :U 1593 ]
 "477
 [; ;../main.c: 477:             break;
-[e $U 1573  ]
+[e $U 1570  ]
 "491
 [; ;../main.c: 491:     }
 }
-[e $U 1573  ]
-[e :U 1574 ]
-[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `uc , $ -> 0 `i 1575
- , $ -> 1 `i 1581
- , $ -> 2 `i 1585
- , $ -> 3 `i 1591
- , $ -> 4 `i 1595
- 1573 ]
-[e :U 1573 ]
+[e $U 1570  ]
+[e :U 1571 ]
+[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `uc , $ -> 0 `i 1572
+ , $ -> 1 `i 1578
+ , $ -> 2 `i 1582
+ , $ -> 3 `i 1588
+ , $ -> 4 `i 1592
+ 1570 ]
+[e :U 1570 ]
 "492
 [; ;../main.c: 492:     return EVENT_UNKNOWN;
-[e ) . `E12720 0 ]
-[e $UE 1571  ]
+[e ) . `E12730 0 ]
+[e $UE 1568  ]
 "493
 [; ;../main.c: 493: }
-[e :UE 1571 ]
+[e :UE 1568 ]
 }
 "511
 [; ;../main.c: 511: void setType(uint8_t io, uint8_t type) {
@@ -2311,7 +2311,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _configIO (1 _io ]
 "523
 [; ;../main.c: 523:     if ((type == 2) || (type== 3) || (type == 4)) {
-[e $ ! || || == -> _type `i -> 2 `i == -> _type `i -> 3 `i == -> _type `i -> 4 `i 1605  ]
+[e $ ! || || == -> _type `i -> 2 `i == -> _type `i -> 3 `i == -> _type `i -> 4 `i 1602  ]
 {
 "524
 [; ;../main.c: 524:         currentPos[io] = 128;
@@ -2319,13 +2319,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "525
 [; ;../main.c: 525:     }
 }
-[e :U 1605 ]
+[e :U 1602 ]
 "528
 [; ;../main.c: 528:     defaultEvents(io, type);
 [e ( _defaultEvents (2 , _io _type ]
 "534
 [; ;../main.c: 534: }
-[e :UE 1604 ]
+[e :UE 1601 ]
 }
 "542
 [; ;../main.c: 542: void configIO(uint8_t i) {
@@ -2342,31 +2342,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _type `uc ~T0 @X0 1 a ]
 "546
 [; ;../main.c: 546:     if (i >= 16) return;
-[e $ ! >= -> _i `i -> 16 `i 1607  ]
-[e $UE 1606  ]
-[e :U 1607 ]
+[e $ ! >= -> _i `i -> 16 `i 1604  ]
+[e $UE 1603  ]
+[e :U 1604 ]
 "549
 [; ;../main.c: 549:     type = (uint8_t)getNV((16 + 7*(i) + 0));
 [e = _type -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _i `i -> 0 `i `uc `uc ]
 "550
 [; ;../main.c: 550:     switch (type) {
-[e $U 1609  ]
+[e $U 1606  ]
 {
 "551
 [; ;../main.c: 551:         case 1:
-[e :U 1610 ]
+[e :U 1607 ]
 "552
 [; ;../main.c: 552:             if (getNV((16 + 7*(i) + 1)) & 0x04) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _i `i -> 1 `i `uc `i -> 4 `i -> 0 `i 1611  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _i `i -> 1 `i `uc `i -> 4 `i -> 0 `i 1608  ]
 {
 "553
 [; ;../main.c: 553:                 setDigitalOutput(i, (uint8_t)readNVM(EEPROM_NVM_TYPE, (eeprom_address_t)((eeprom_address_t)((0x3FF -8))-25)+i));
-[e ( _setDigitalOutput (2 , _i -> ( _readNVM (2 , . `E12672 0 -> + -> -> - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui `us `ui -> _i `ui `um `uc ]
+[e ( _setDigitalOutput (2 , _i -> ( _readNVM (2 , . `E12682 0 -> + -> -> - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui `us `ui -> _i `ui `um `uc ]
 "554
 [; ;../main.c: 554:             } else {
 }
-[e $U 1612  ]
-[e :U 1611 ]
+[e $U 1609  ]
+[e :U 1608 ]
 {
 "555
 [; ;../main.c: 555:                 action = (getNV((16 + 7*(i) + 1)) & 0x20) ? 1 : 2;
@@ -2376,46 +2376,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setDigitalOutput (2 , _i _action ]
 "558
 [; ;../main.c: 558:                 writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(((eeprom_address_t)((0x3FF -8))-25)+i), action);
-[e ( _writeNVM (3 , , . `E12672 0 -> -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _i `ui `us `um _action ]
+[e ( _writeNVM (3 , , . `E12682 0 -> -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _i `ui `us `um _action ]
 "559
 [; ;../main.c: 559:             }
 }
-[e :U 1612 ]
+[e :U 1609 ]
 "560
 [; ;../main.c: 560:             break;
-[e $U 1608  ]
+[e $U 1605  ]
 "562
 [; ;../main.c: 562:         case 2:
-[e :U 1613 ]
+[e :U 1610 ]
 "564
 [; ;../main.c: 564:         case 3:
-[e :U 1614 ]
+[e :U 1611 ]
 "567
 [; ;../main.c: 567:             setDigitalOutput(i, getNV((16 + 7*(i) + 1)) & 0x10);
 [e ( _setDigitalOutput (2 , _i -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _i `i -> 1 `i `uc `i -> 16 `i `uc ]
 "568
 [; ;../main.c: 568:             break;
-[e $U 1608  ]
+[e $U 1605  ]
 "570
 [; ;../main.c: 570:     }
 }
-[e $U 1608  ]
-[e :U 1609 ]
-[e [\ _type , $ -> 1 `i 1610
- , $ -> 2 `i 1613
- , $ -> 3 `i 1614
- 1608 ]
-[e :U 1608 ]
+[e $U 1605  ]
+[e :U 1606 ]
+[e [\ _type , $ -> 1 `i 1607
+ , $ -> 2 `i 1610
+ , $ -> 3 `i 1611
+ 1605 ]
+[e :U 1605 ]
 "572
 [; ;../main.c: 572:     switch (configs[i].port) {
-[e $U 1616  ]
+[e $U 1613  ]
 {
 "573
 [; ;../main.c: 573:         case 'A':
-[e :U 1617 ]
+[e :U 1614 ]
 "574
 [; ;../main.c: 574:             if ((type == 0) || (type == 5) || (type == 6)) {
-[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1618  ]
+[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1615  ]
 {
 "575
 [; ;../main.c: 575:                 TRISA |= (1 << configs[i].no);
@@ -2423,8 +2423,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "576
 [; ;../main.c: 576:             } else {
 }
-[e $U 1619  ]
-[e :U 1618 ]
+[e $U 1616  ]
+[e :U 1615 ]
 {
 "577
 [; ;../main.c: 577:                 TRISA &= ~(1 << configs[i].no);
@@ -2432,16 +2432,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "578
 [; ;../main.c: 578:             }
 }
-[e :U 1619 ]
+[e :U 1616 ]
 "579
 [; ;../main.c: 579:             break;
-[e $U 1615  ]
+[e $U 1612  ]
 "580
 [; ;../main.c: 580:         case 'B':
-[e :U 1620 ]
+[e :U 1617 ]
 "581
 [; ;../main.c: 581:             if ((type == 0) || (type == 5) || (type == 6)) {
-[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1621  ]
+[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1618  ]
 {
 "582
 [; ;../main.c: 582:                 TRISB |= (1 << configs[i].no);
@@ -2449,8 +2449,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "583
 [; ;../main.c: 583:             } else {
 }
-[e $U 1622  ]
-[e :U 1621 ]
+[e $U 1619  ]
+[e :U 1618 ]
 {
 "584
 [; ;../main.c: 584:                 TRISB &= ~(1 << configs[i].no);
@@ -2458,16 +2458,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "585
 [; ;../main.c: 585:             }
 }
-[e :U 1622 ]
+[e :U 1619 ]
 "586
 [; ;../main.c: 586:             break;
-[e $U 1615  ]
+[e $U 1612  ]
 "587
 [; ;../main.c: 587:         case 'C':
-[e :U 1623 ]
+[e :U 1620 ]
 "588
 [; ;../main.c: 588:             if ((type == 0) || (type == 5) || (type == 6)) {
-[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1624  ]
+[e $ ! || || == -> _type `i -> 0 `i == -> _type `i -> 5 `i == -> _type `i -> 6 `i 1621  ]
 {
 "589
 [; ;../main.c: 589:                 TRISC |= (1 << configs[i].no);
@@ -2475,8 +2475,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "590
 [; ;../main.c: 590:             } else {
 }
-[e $U 1625  ]
-[e :U 1624 ]
+[e $U 1622  ]
+[e :U 1621 ]
 {
 "591
 [; ;../main.c: 591:                 TRISC &= ~(1 << configs[i].no);
@@ -2484,23 +2484,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "592
 [; ;../main.c: 592:             }
 }
-[e :U 1625 ]
+[e :U 1622 ]
 "593
 [; ;../main.c: 593:             break;
-[e $U 1615  ]
+[e $U 1612  ]
 "611
 [; ;../main.c: 611:     }
 }
-[e $U 1615  ]
-[e :U 1616 ]
-[e [\ . *U + &U _configs * -> _i `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 1617
- , $ -> -> 66 `ui `i 1620
- , $ -> -> 67 `ui `i 1623
- 1615 ]
-[e :U 1615 ]
+[e $U 1612  ]
+[e :U 1613 ]
+[e [\ . *U + &U _configs * -> _i `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 1614
+ , $ -> -> 66 `ui `i 1617
+ , $ -> -> 67 `ui `i 1620
+ 1612 ]
+[e :U 1612 ]
 "676
 [; ;../main.c: 676: }
-[e :UE 1606 ]
+[e :UE 1603 ]
 }
 "683
 [; ;../main.c: 683: void APP_lowIsr(void) {
@@ -2510,7 +2510,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "684
 [; ;../main.c: 684: }
-[e :UE 1626 ]
+[e :UE 1623 ]
 }
 "687
 [; ;../main.c: 687: void APP_highIsr(void) {
@@ -2520,7 +2520,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "690
 [; ;../main.c: 690:     if (PIR1bits.TMR1IF) {
-[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 1628  ]
+[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 1625  ]
 {
 "691
 [; ;../main.c: 691:         timer1DoneInterruptHandler();
@@ -2531,10 +2531,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "693
 [; ;../main.c: 693:     }
 }
-[e :U 1628 ]
+[e :U 1625 ]
 "694
 [; ;../main.c: 694:     if (PIR2bits.TMR3IF) {
-[e $ ! != -> . . _PIR2bits 0 1 `i -> 0 `i 1629  ]
+[e $ ! != -> . . _PIR2bits 0 1 `i -> 0 `i 1626  ]
 {
 "695
 [; ;../main.c: 695:         timer3DoneInterruptHandler();
@@ -2545,8 +2545,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "697
 [; ;../main.c: 697:     }
 }
-[e :U 1629 ]
+[e :U 1626 ]
 "699
 [; ;../main.c: 699: }
-[e :UE 1627 ]
+[e :UE 1624 ]
 }

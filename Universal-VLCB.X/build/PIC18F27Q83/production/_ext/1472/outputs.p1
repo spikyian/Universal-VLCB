@@ -28,11 +28,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _setServoPosition `(v ~T0 @X0 0 ef2`uc`uc ]
 "156 ../outputs.c
 [; ;../outputs.c: 156:             setOutputPin(io, getNV((16 + 7*(io) + 1) & 0x20)?TRUE:FALSE);
-[c E22873 0 1 .. ]
-[n E22873 Boolean FALSE TRUE  ]
+[c E22883 0 1 .. ]
+[n E22883 Boolean FALSE TRUE  ]
 "20 ../digitalOut.h
 [; ;../digitalOut.h: 20: extern void setOutputPin(uint8_t io, Boolean state);
-[v _setOutputPin `(v ~T0 @X0 0 ef2`uc`E22873 ]
+[v _setOutputPin `(v ~T0 @X0 0 ef2`uc`E22883 ]
 "115 ../../VLCBlib_PIC\nv.h
 [; ;../../VLCBlib_PIC\nv.h: 115: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
@@ -47,11 +47,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _currentPos `uc ~T0 @X0 -> 0 `x e ]
 "191 ../outputs.c
 [; ;../outputs.c: 191:             return (servoState[io] != SS_MOVING);
-[c E23261 0 1 2 3 .. ]
-[n E23261 . SS_OFF SS_STOPPED SS_MOVING SS_STARTING  ]
+[c E23265 0 1 2 3 .. ]
+[n E23265 . SS_OFF SS_STOPPED SS_MOVING SS_STARTING  ]
 "47 ../servo.h
 [; ;../servo.h: 47: extern ServoState servoState[16];
-[v _servoState `E23261 ~T0 @X0 -> 0 `x e ]
+[v _servoState `E23265 ~T0 @X0 -> 0 `x e ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");
 [; <" BOOTREG equ 038h ;# ">
@@ -3582,65 +3582,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "70
 [; ;../outputs.c: 70:     switch(type) {
-[e $U 3250  ]
+[e $U 3247  ]
 {
 "71
 [; ;../outputs.c: 71:         case 0:
-[e :U 3251 ]
+[e :U 3248 ]
 "73
 [; ;../outputs.c: 73:             return;
-[e $UE 3248  ]
+[e $UE 3245  ]
 "74
 [; ;../outputs.c: 74:         case 1:
-[e :U 3252 ]
+[e :U 3249 ]
 "75
 [; ;../outputs.c: 75:             startDigitalOutput(io, act);
 [e ( _startDigitalOutput (2 , _io _act ]
 "76
 [; ;../outputs.c: 76:             return;
-[e $UE 3248  ]
+[e $UE 3245  ]
 "78
 [; ;../outputs.c: 78:         case 3:
-[e :U 3253 ]
+[e :U 3250 ]
 "79
 [; ;../outputs.c: 79:             startBounceOutput(io, act);
 [e ( _startBounceOutput (2 , _io _act ]
 "80
 [; ;../outputs.c: 80:             return;
-[e $UE 3248  ]
+[e $UE 3245  ]
 "83
 [; ;../outputs.c: 83:         case 2:
-[e :U 3254 ]
+[e :U 3251 ]
 "84
 [; ;../outputs.c: 84:             startServoOutput(io, act);
 [e ( _startServoOutput (2 , _io _act ]
 "85
 [; ;../outputs.c: 85:             return;
-[e $UE 3248  ]
+[e $UE 3245  ]
 "88
 [; ;../outputs.c: 88:         case 4:
-[e :U 3255 ]
+[e :U 3252 ]
 "89
 [; ;../outputs.c: 89:             startMultiOutput(io, act);
 [e ( _startMultiOutput (2 , _io _act ]
 "90
 [; ;../outputs.c: 90:             return;
-[e $UE 3248  ]
+[e $UE 3245  ]
 "92
 [; ;../outputs.c: 92:     }
 }
-[e $U 3249  ]
-[e :U 3250 ]
-[e [\ _type , $ -> 0 `i 3251
- , $ -> 1 `i 3252
- , $ -> 3 `i 3253
- , $ -> 2 `i 3254
- , $ -> 4 `i 3255
- 3249 ]
-[e :U 3249 ]
+[e $U 3246  ]
+[e :U 3247 ]
+[e [\ _type , $ -> 0 `i 3248
+ , $ -> 1 `i 3249
+ , $ -> 3 `i 3250
+ , $ -> 2 `i 3251
+ , $ -> 4 `i 3252
+ 3246 ]
+[e :U 3246 ]
 "93
 [; ;../outputs.c: 93: }
-[e :UE 3248 ]
+[e :UE 3245 ]
 }
 "102
 [; ;../outputs.c: 102: void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
@@ -3653,70 +3653,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "103
 [; ;../outputs.c: 103:     switch(type) {
-[e $U 3258  ]
+[e $U 3255  ]
 {
 "104
 [; ;../outputs.c: 104:         case 0:
-[e :U 3259 ]
+[e :U 3256 ]
 "105
 [; ;../outputs.c: 105:         case 5:
-[e :U 3260 ]
+[e :U 3257 ]
 "106
 [; ;../outputs.c: 106:         case 6:
-[e :U 3261 ]
+[e :U 3258 ]
 "108
 [; ;../outputs.c: 108:             return;
-[e $UE 3256  ]
+[e $UE 3253  ]
 "109
 [; ;../outputs.c: 109:         case 1:
-[e :U 3262 ]
+[e :U 3259 ]
 "111
 [; ;../outputs.c: 111:             return;
-[e $UE 3256  ]
+[e $UE 3253  ]
 "113
 [; ;../outputs.c: 113:         case 3:
-[e :U 3263 ]
+[e :U 3260 ]
 "114
 [; ;../outputs.c: 114:             setBounceState(io, act);
 [e ( _setBounceState (2 , _io _act ]
 "115
 [; ;../outputs.c: 115:             return;
-[e $UE 3256  ]
+[e $UE 3253  ]
 "118
 [; ;../outputs.c: 118:         case 2:
-[e :U 3264 ]
+[e :U 3261 ]
 "119
 [; ;../outputs.c: 119:             setServoState(io, act);
 [e ( _setServoState (2 , _io _act ]
 "120
 [; ;../outputs.c: 120:             return;
-[e $UE 3256  ]
+[e $UE 3253  ]
 "123
 [; ;../outputs.c: 123:         case 4:
-[e :U 3265 ]
+[e :U 3262 ]
 "124
 [; ;../outputs.c: 124:             setMultiState(io, act);
 [e ( _setMultiState (2 , _io _act ]
 "125
 [; ;../outputs.c: 125:             return;
-[e $UE 3256  ]
+[e $UE 3253  ]
 "127
 [; ;../outputs.c: 127:     }
 }
-[e $U 3257  ]
-[e :U 3258 ]
-[e [\ _type , $ -> 0 `i 3259
- , $ -> 5 `i 3260
- , $ -> 6 `i 3261
- , $ -> 1 `i 3262
- , $ -> 3 `i 3263
- , $ -> 2 `i 3264
- , $ -> 4 `i 3265
- 3257 ]
-[e :U 3257 ]
+[e $U 3254  ]
+[e :U 3255 ]
+[e [\ _type , $ -> 0 `i 3256
+ , $ -> 5 `i 3257
+ , $ -> 6 `i 3258
+ , $ -> 1 `i 3259
+ , $ -> 3 `i 3260
+ , $ -> 2 `i 3261
+ , $ -> 4 `i 3262
+ 3254 ]
+[e :U 3254 ]
 "128
 [; ;../outputs.c: 128: }
-[e :UE 3256 ]
+[e :UE 3253 ]
 }
 "137
 [; ;../outputs.c: 137: void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type) {
@@ -3729,68 +3729,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "138
 [; ;../outputs.c: 138:     switch(type) {
-[e $U 3268  ]
+[e $U 3265  ]
 {
 "139
 [; ;../outputs.c: 139:         case 0:
-[e :U 3269 ]
+[e :U 3266 ]
 "140
 [; ;../outputs.c: 140:         case 5:
-[e :U 3270 ]
+[e :U 3267 ]
 "141
 [; ;../outputs.c: 141:         case 6:
-[e :U 3271 ]
+[e :U 3268 ]
 "143
 [; ;../outputs.c: 143:             return;
-[e $UE 3266  ]
+[e $UE 3263  ]
 "144
 [; ;../outputs.c: 144:         case 1:
-[e :U 3272 ]
+[e :U 3269 ]
 "145
 [; ;../outputs.c: 145:             setDigitalOutput(io, pos);
 [e ( _setDigitalOutput (2 , _io _pos ]
 "146
 [; ;../outputs.c: 146:             return;
-[e $UE 3266  ]
+[e $UE 3263  ]
 "148
 [; ;../outputs.c: 148:         case 3:
-[e :U 3273 ]
+[e :U 3270 ]
 "151
 [; ;../outputs.c: 151:         case 4:
-[e :U 3274 ]
+[e :U 3271 ]
 "154
 [; ;../outputs.c: 154:         case 2:
-[e :U 3275 ]
+[e :U 3272 ]
 "155
 [; ;../outputs.c: 155:             setServoPosition(io, pos);
 [e ( _setServoPosition (2 , _io _pos ]
 "156
 [; ;../outputs.c: 156:             setOutputPin(io, getNV((16 + 7*(io) + 1) & 0x20)?TRUE:FALSE);
-[e ( _setOutputPin (2 , _io -> ? != -> ( _getNV (1 -> & + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i -> 32 `i `uc `i -> 0 `i : . `E22873 1 . `E22873 0 `E22873 ]
+[e ( _setOutputPin (2 , _io -> ? != -> ( _getNV (1 -> & + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i -> 32 `i `uc `i -> 0 `i : . `E22883 1 . `E22883 0 `E22883 ]
 "157
 [; ;../outputs.c: 157:             return;
-[e $UE 3266  ]
+[e $UE 3263  ]
 "160
 [; ;../outputs.c: 160:     }
 }
-[e $U 3267  ]
-[e :U 3268 ]
-[e [\ _type , $ -> 0 `i 3269
- , $ -> 5 `i 3270
- , $ -> 6 `i 3271
- , $ -> 1 `i 3272
- , $ -> 3 `i 3273
- , $ -> 4 `i 3274
- , $ -> 2 `i 3275
- 3267 ]
-[e :U 3267 ]
+[e $U 3264  ]
+[e :U 3265 ]
+[e [\ _type , $ -> 0 `i 3266
+ , $ -> 5 `i 3267
+ , $ -> 6 `i 3268
+ , $ -> 1 `i 3269
+ , $ -> 3 `i 3270
+ , $ -> 4 `i 3271
+ , $ -> 2 `i 3272
+ 3264 ]
+[e :U 3264 ]
 "161
 [; ;../outputs.c: 161: }
-[e :UE 3266 ]
+[e :UE 3263 ]
 }
 "167
 [; ;../outputs.c: 167: Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
-[v _needsStarting `(E22873 ~T0 @X0 1 ef3`uc`uc`uc ]
+[v _needsStarting `(E22883 ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _needsStarting ]
 [v _io `uc ~T0 @X0 1 r1 ]
@@ -3799,70 +3799,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "168
 [; ;../outputs.c: 168:     switch(type) {
-[e $U 3278  ]
+[e $U 3275  ]
 {
 "169
 [; ;../outputs.c: 169:         case 0:
-[e :U 3279 ]
+[e :U 3276 ]
 "171
 [; ;../outputs.c: 171:             return FALSE;
-[e ) . `E22873 0 ]
-[e $UE 3276  ]
+[e ) . `E22883 0 ]
+[e $UE 3273  ]
 "172
 [; ;../outputs.c: 172:         case 1:
-[e :U 3280 ]
+[e :U 3277 ]
 "177
 [; ;../outputs.c: 177:             return (pulseDelays[io] == 0);
-[e ) -> -> == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 0 `i `i `E22873 ]
-[e $UE 3276  ]
+[e ) -> -> == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 0 `i `i `E22883 ]
+[e $UE 3273  ]
 "179
 [; ;../outputs.c: 179:         case 2:
-[e :U 3281 ]
+[e :U 3278 ]
 "182
 [; ;../outputs.c: 182:         case 3:
-[e :U 3282 ]
+[e :U 3279 ]
 "185
 [; ;../outputs.c: 185:         case 4:
-[e :U 3283 ]
+[e :U 3280 ]
 "187
 [; ;../outputs.c: 187:             if (targetPos[io] == currentPos[io]) {
-[e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3284  ]
+[e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3281  ]
 {
 "189
 [; ;../outputs.c: 189:                 return FALSE;
-[e ) . `E22873 0 ]
-[e $UE 3276  ]
+[e ) . `E22883 0 ]
+[e $UE 3273  ]
 "190
 [; ;../outputs.c: 190:             }
 }
-[e :U 3284 ]
+[e :U 3281 ]
 "191
 [; ;../outputs.c: 191:             return (servoState[io] != SS_MOVING);
-[e ) -> -> != -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23261 2 `ui `i `E22873 ]
-[e $UE 3276  ]
+[e ) -> -> != -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23265 2 `ui `i `E22883 ]
+[e $UE 3273  ]
 "193
 [; ;../outputs.c: 193:     }
 }
-[e $U 3277  ]
-[e :U 3278 ]
-[e [\ _type , $ -> 0 `i 3279
- , $ -> 1 `i 3280
- , $ -> 2 `i 3281
- , $ -> 3 `i 3282
- , $ -> 4 `i 3283
- 3277 ]
-[e :U 3277 ]
+[e $U 3274  ]
+[e :U 3275 ]
+[e [\ _type , $ -> 0 `i 3276
+ , $ -> 1 `i 3277
+ , $ -> 2 `i 3278
+ , $ -> 3 `i 3279
+ , $ -> 4 `i 3280
+ 3274 ]
+[e :U 3274 ]
 "194
 [; ;../outputs.c: 194:     return TRUE;
-[e ) . `E22873 1 ]
-[e $UE 3276  ]
+[e ) . `E22883 1 ]
+[e $UE 3273  ]
 "195
 [; ;../outputs.c: 195: }
-[e :UE 3276 ]
+[e :UE 3273 ]
 }
 "201
 [; ;../outputs.c: 201: Boolean completed(uint8_t io, uint8_t action, uint8_t type) {
-[v _completed `(E22873 ~T0 @X0 1 ef3`uc`uc`uc ]
+[v _completed `(E22883 ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _completed ]
 [v _io `uc ~T0 @X0 1 r1 ]
@@ -3871,52 +3871,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "202
 [; ;../outputs.c: 202:     switch(type) {
-[e $U 3287  ]
+[e $U 3284  ]
 {
 "203
 [; ;../outputs.c: 203:         case 0:
-[e :U 3288 ]
+[e :U 3285 ]
 "205
 [; ;../outputs.c: 205:             return TRUE;
-[e ) . `E22873 1 ]
-[e $UE 3285  ]
+[e ) . `E22883 1 ]
+[e $UE 3282  ]
 "206
 [; ;../outputs.c: 206:         case 1:
-[e :U 3289 ]
+[e :U 3286 ]
 "208
 [; ;../outputs.c: 208:             return pulseDelays[io] == 1;
-[e ) -> -> == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 1 `i `i `E22873 ]
-[e $UE 3285  ]
+[e ) -> -> == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 1 `i `i `E22883 ]
+[e $UE 3282  ]
 "210
 [; ;../outputs.c: 210:         case 2:
-[e :U 3290 ]
+[e :U 3287 ]
 "212
 [; ;../outputs.c: 212:         case 3:
-[e :U 3291 ]
+[e :U 3288 ]
 "215
 [; ;../outputs.c: 215:         case 4:
-[e :U 3292 ]
+[e :U 3289 ]
 "217
 [; ;../outputs.c: 217:             return (targetPos[io] == currentPos[io]) && ((servoState[io] == SS_STOPPED) || (servoState[io] == SS_OFF));
-[e ) -> -> && == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i || == -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23261 1 `ui == -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23261 0 `ui `i `E22873 ]
-[e $UE 3285  ]
+[e ) -> -> && == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i || == -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23265 1 `ui == -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23265 0 `ui `i `E22883 ]
+[e $UE 3282  ]
 "219
 [; ;../outputs.c: 219:     }
 }
-[e $U 3286  ]
-[e :U 3287 ]
-[e [\ _type , $ -> 0 `i 3288
- , $ -> 1 `i 3289
- , $ -> 2 `i 3290
- , $ -> 3 `i 3291
- , $ -> 4 `i 3292
- 3286 ]
-[e :U 3286 ]
+[e $U 3283  ]
+[e :U 3284 ]
+[e [\ _type , $ -> 0 `i 3285
+ , $ -> 1 `i 3286
+ , $ -> 2 `i 3287
+ , $ -> 3 `i 3288
+ , $ -> 4 `i 3289
+ 3283 ]
+[e :U 3283 ]
 "220
 [; ;../outputs.c: 220:     return TRUE;
-[e ) . `E22873 1 ]
-[e $UE 3285  ]
+[e ) . `E22883 1 ]
+[e $UE 3282  ]
 "221
 [; ;../outputs.c: 221: }
-[e :UE 3285 ]
+[e :UE 3282 ]
 }

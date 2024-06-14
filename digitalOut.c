@@ -64,15 +64,17 @@
 #include "config.h"
 #include "digitalOut.h"
 
-// Forward declarations
-uint8_t pulseDelays[NUM_IO];
 /* For pulsed outputs the array pulseDelays is used for the countdown timer. This
- * is also used for state i.e. a valus of 1 is used for COMPLETED and a value of 0 
- * no current pulse (needs starting). TODO Perhaps this state information should go into
+ * is also used for state i.e. a value of 1 is used for COMPLETED and a value of 0 
+ * no current pulse (needs starting). 
+ * TODO Perhaps this state information should go into
  * a generic channel state variable and combined with servoState, this would save 
  * a few bytes of RAM. 
  */
+uint8_t pulseDelays[NUM_IO];
 int8_t flashDelays[NUM_IO];
+
+// Forward declarations
 void setOutputPin(uint8_t io, Boolean state);
 
 // Externs
@@ -173,7 +175,6 @@ void startDigitalOutput(uint8_t io, uint8_t state) {
  * Called regularly to handle pulse and flash.
  */
 void processOutputs(void) {
-    Boolean state;
     uint8_t io;
     for (io=0; io<NUM_IO; io++) {
         if (getNV(NV_IO_TYPE(io)) == TYPE_OUTPUT) {
@@ -215,8 +216,7 @@ void processOutputs(void) {
 }
 
 /**
- * Set a digital output. Handles inverted outputs and pulsed outputs. Sends the
- * produced events.
+ * Update the state of a digital output based upon an Action request.
  * 
  * @param io
  * @param action

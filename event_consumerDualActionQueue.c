@@ -47,6 +47,9 @@
 #include "universalNv.h"
 #include "universalEvents.h"
 
+extern Boolean validStart(uint8_t tableIndex);
+extern void checkRemoveTableEntry(uint8_t tableIndex);
+
 /**
  * @file
  * Implementation of the VLCB Event Consumer service.
@@ -66,6 +69,7 @@ static Processed consumer2QProcessMessage(Message * m);
 static DiagnosticVal consumer2QDiagnostics[NUM_CONSUMER_DIAGNOSTICS];
 static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index);
 #endif
+static uint8_t consumer2QEsdData(uint8_t index);
         
 /**
  * The service descriptor for the eventConsumer service. The application must include this
@@ -85,7 +89,7 @@ const Service eventConsumer2QService = {
     NULL,               // lowIsr
 #endif
 #ifdef VLCB_SERVICE
-    NULL,               // Get ESD data
+    consumer2QEsdData,               // Get ESD data
 #endif
 #ifdef VLCB_DIAG
     consumer2QGetDiagnostic                // getDiagnostic
@@ -333,6 +337,24 @@ static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
         return NULL;
     }
     return &(consumer2QDiagnostics[index-1]);
+}
+#endif
+
+#ifdef VLCB_SERVICE
+/**
+ * Return the service extended definition bytes.
+ * @param id identifier for the extended service definition data
+ * @return the ESD data
+ */
+static uint8_t consumer2QEsdData(uint8_t index) {
+    switch (index){
+        case 0:
+            return CONSUMER_EV_ACTIONS;
+        case 1:
+            return ACTION_SIZE;
+        default:
+            return 0;
+    }
 }
 #endif
 

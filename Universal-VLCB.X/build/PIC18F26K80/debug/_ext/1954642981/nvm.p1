@@ -85,11 +85,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TABLAT `Vuc ~T0 @X0 0 e@4085 ]
 "319 ../../VLCBlib_PIC/nvm.c
 [; ;../../VLCBlib_PIC/nvm.c: 319:     while (! APP_isSuitableTimeToWriteFlash())
-[c E12726 0 1 .. ]
-[n E12726 ValidTime BAD_TIME GOOD_TIME  ]
+[c E12736 0 1 .. ]
+[n E12736 ValidTime BAD_TIME GOOD_TIME  ]
 "455 ../../VLCBlib_PIC/vlcb.h
 [; ;../../VLCBlib_PIC/vlcb.h: 455: extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-[v _APP_isSuitableTimeToWriteFlash `(E12726 ~T0 @X0 0 ef ]
+[v _APP_isSuitableTimeToWriteFlash `(E12736 ~T0 @X0 0 ef ]
 "29793 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 29793: extern volatile unsigned char EECON1 __attribute__((address(0xF7F)));
 [v _EECON1 `Vuc ~T0 @X0 0 e@3967 ]
@@ -98,8 +98,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p i ___nop ]
 "522 ../../VLCBlib_PIC/nvm.c
 [; ;../../VLCBlib_PIC/nvm.c: 522: uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value) {
-[c E12722 0 1 .. ]
-[n E12722 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
+[c E12732 0 1 .. ]
+[n E12732 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1839,7 +1839,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1571 ]
 "378
 [; ;../../VLCBlib_PIC/nvm.c: 378:     while (APP_isSuitableTimeToWriteFlash() == BAD_TIME)
-[e $ == -> ( _APP_isSuitableTimeToWriteFlash ..  `ui -> . `E12726 0 `ui 1572  ]
+[e $ == -> ( _APP_isSuitableTimeToWriteFlash ..  `ui -> . `E12736 0 `ui 1572  ]
 [e :U 1573 ]
 "381
 [; ;../../VLCBlib_PIC/nvm.c: 381:     if (flashFlags.eraseNeeded) {
@@ -2064,10 +2064,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "522
 [; ;../../VLCBlib_PIC/nvm.c: 522: uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value) {
-[v _writeNVM `(uc ~T0 @X0 1 ef3`E12722`um`uc ]
+[v _writeNVM `(uc ~T0 @X0 1 ef3`E12732`um`uc ]
 {
 [e :U _writeNVM ]
-[v _type `E12722 ~T0 @X0 1 r1 ]
+[v _type `E12732 ~T0 @X0 1 r1 ]
 [v _index `um ~T0 @X0 1 r2 ]
 [v _value `uc ~T0 @X0 1 r3 ]
 [f ]
@@ -2101,8 +2101,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1589  ]
 [e :U 1590 ]
-[e [\ -> _type `ui , $ -> . `E12722 0 `ui 1591
- , $ -> . `E12722 1 `ui 1592
+[e [\ -> _type `ui , $ -> . `E12732 0 `ui 1591
+ , $ -> . `E12732 1 `ui 1592
  1593 ]
 [e :U 1589 ]
 "531
@@ -2111,10 +2111,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "539
 [; ;../../VLCBlib_PIC/nvm.c: 539: int16_t readNVM(NVMtype type, uint24_t index) {
-[v _readNVM `(s ~T0 @X0 1 ef2`E12722`um ]
+[v _readNVM `(s ~T0 @X0 1 ef2`E12732`um ]
 {
 [e :U _readNVM ]
-[v _type `E12722 ~T0 @X0 1 r1 ]
+[v _type `E12732 ~T0 @X0 1 r1 ]
 [v _index `um ~T0 @X0 1 r2 ]
 [f ]
 "540
@@ -2147,8 +2147,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1595  ]
 [e :U 1596 ]
-[e [\ -> _type `ui , $ -> . `E12722 0 `ui 1597
- , $ -> . `E12722 1 `ui 1598
+[e [\ -> _type `ui , $ -> . `E12732 0 `ui 1597
+ , $ -> . `E12732 1 `ui 1598
  1599 ]
 [e :U 1595 ]
 "553

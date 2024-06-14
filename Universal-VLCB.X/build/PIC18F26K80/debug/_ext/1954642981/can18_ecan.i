@@ -20322,7 +20322,6 @@ typedef enum VlcbManufacturer
   MANU_VLCB = 250,
   MANU_SYSPIXIE = 249,
   MANU_RME = 248,
-
 } VlcbManufacturer;
 
 typedef enum VlcbMergModuleTypes
@@ -20427,7 +20426,6 @@ typedef enum VlcbMergModuleTypes
 
 
 
-
   MTYP_CAN_SW = 0xFF,
   MTYP_EMPTY = 0xFE,
   MTYP_CANUSB = 0xFD,
@@ -20448,7 +20446,6 @@ typedef enum VlcbSprogModuleTypes
   MTYP_CANSERVOIO = 50,
   MTYP_CANISB = 100,
   MTYP_CANSOLIO = 101,
-
 } VlcbSprogModuleTypes;
 
 typedef enum VlcbRocRailModuleTypes
@@ -20473,7 +20470,6 @@ typedef enum VlcbSpectrumModuleTypes
 
   MTYP_AMCTRLR = 1,
   MTYP_DUALCAB = 2,
-
 } VlcbSpectrumModuleTypes;
 
 typedef enum VlcbSysPixieModuleTypes
@@ -20482,7 +20478,6 @@ typedef enum VlcbSysPixieModuleTypes
 
 
   MTYP_CANPMSense = 1,
-
 } VlcbSysPixieModuleTypes;
 
 typedef enum VlcbOpCodes
@@ -20952,13 +20947,13 @@ typedef enum VlcbArmProcessors
   ARM1176JZF_S = 1,
   ARMCortex_A7 = 2,
   ARMCortex_A53 = 3,
-
-
-
 } VlcbArmProcessors;
 
 typedef enum VlcbCanHardware
 {
+
+
+
   CAN_HW_NOT_SPECIFIED = 0x00,
   CAN_HW_PIC_ECAN = 0x01,
   CAN_HW_PIC_CAN_2_0 = 0x02,
@@ -20966,9 +20961,29 @@ typedef enum VlcbCanHardware
   CAN_HW_MCP2515 = 0x04,
   CAN_HW_MCP2518 = 0x05,
   CAN_HW_ESP32_TWAI = 0x06,
-  CAN_HW_SAM3X8E = 0x06,
-  CAN_HW_PICO_PIO = 0x07,
+  CAN_HW_SAM3X8E = 0x07,
+  CAN_HW_PICO_PIO = 0x08,
 } VlcbCanHardware;
+
+typedef enum VlcbProducerEvUsage
+{
+
+
+
+  PRODUCER_EV_NOT_SPECIFIED = 0x00,
+  PRODUCER_EV_HAPPENING = 0x01,
+  PRODUCER_EV_SLOTS = 0x02,
+} VlcbProducerEvUsage;
+
+typedef enum VlcbConsumerEvUsage
+{
+
+
+
+  CONSUMER_EV_NOT_SPECIFIED = 0x00,
+  CONSUMER_EV_ACTIONS = 0x01,
+  CONSUMER_EV_SLOTS = 0x02,
+} VlcbConsumerEvUsage;
 # 39 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1

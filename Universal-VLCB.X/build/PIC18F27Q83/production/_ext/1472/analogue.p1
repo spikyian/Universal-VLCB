@@ -67,13 +67,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ADRESL `Vuc ~T0 @X0 0 e@1002 ]
 "125 ../analogue.c
 [; ;../analogue.c: 125:                             sendProducedEvent(((8 + 4*(portInProgress))+1), !(getNV((16 + 7*(portInProgress) + 1) ) & 0x40));
-[c E22893 255 0 1 .. ]
-[n E22893 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
-[c E22873 0 1 .. ]
-[n E22873 Boolean FALSE TRUE  ]
-"86 ../../VLCBlib_PIC\event_producer.h
-[; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
-[v _sendProducedEvent `(E22873 ~T0 @X0 0 ef2`uc`E22893 ]
+[c E22903 255 0 1 .. ]
+[n E22903 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
+[c E22883 0 1 .. ]
+[n E22883 Boolean FALSE TRUE  ]
+"92 ../../VLCBlib_PIC\event_producer.h
+[; ;../../VLCBlib_PIC\event_producer.h: 92: extern Boolean sendProducedEvent(Happening h, EventState state);
+[v _sendProducedEvent `(E22883 ~T0 @X0 0 ef2`uc`E22903 ]
 "162 ../analogue.c
 [; ;../analogue.c: 162:                 sendMessage7(OPC_ARSON3, nn.bytes.hi, nn.bytes.lo, 0, portInProgress + 1, portInProgress + 1, adc&0xff, adc>>8);
 [c E22515 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
@@ -3668,7 +3668,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _haveRequestedAdc -> -> 0 `i `uc ]
 "76
 [; ;../analogue.c: 76: }
-[e :UE 3247 ]
+[e :UE 3244 ]
 }
 "78
 [; ;../analogue.c: 78: void initAnaloguePort(unsigned char io) {
@@ -3685,7 +3685,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U + &U _analogueState * -> _io `ux -> -> # *U &U _analogueState `ui `ux 1 -> -> 0 `i `uc ]
 "81
 [; ;../analogue.c: 81: }
-[e :UE 3248 ]
+[e :UE 3245 ]
 }
 "84
 [; ;../analogue.c: 84: void pollAnalogue(void) {
@@ -3710,22 +3710,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _hhysteresis `s ~T0 @X0 1 a ]
 "92
 [; ;../analogue.c: 92:     if (ADCON0bits.GO) {
-[e $ ! != -> . . _ADCON0bits 0 0 `i -> 0 `i 3250  ]
+[e $ ! != -> . . _ADCON0bits 0 0 `i -> 0 `i 3247  ]
 {
 "94
 [; ;../analogue.c: 94:         return;
-[e $UE 3249  ]
+[e $UE 3246  ]
 "95
 [; ;../analogue.c: 95:     }
 }
-[e :U 3250 ]
+[e :U 3247 ]
 "99
 [; ;../analogue.c: 99:     if ((getNV((16 + 7*(portInProgress) + 0)) == 5) || (getNV((16 + 7*(portInProgress) + 0)) == 6)) {
-[e $ ! || == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 5 `i == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 6 `i 3251  ]
+[e $ ! || == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 5 `i == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 6 `i 3248  ]
 {
 "101
 [; ;../analogue.c: 101:         if (haveRequestedAdc) {
-[e $ ! != -> _haveRequestedAdc `i -> 0 `i 3252  ]
+[e $ ! != -> _haveRequestedAdc `i -> 0 `i 3249  ]
 {
 "103
 [; ;../analogue.c: 103:             adc = ADRESH;
@@ -3738,11 +3738,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =| _adc -> _ADRESL `us ]
 "109
 [; ;../analogue.c: 109:             if ((setupState == 0) || (portInProgress != setupIo)) {
-[e $ ! || == -> _setupState `i -> 0 `i != -> _portInProgress `i -> _setupIo `i 3253  ]
+[e $ ! || == -> _setupState `i -> 0 `i != -> _portInProgress `i -> _setupIo `i 3250  ]
 {
 "110
 [; ;../analogue.c: 110:                 if (getNV((16 + 7*(portInProgress) + 0)) == 6) {
-[e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 6 `i 3254  ]
+[e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 6 `i 3251  ]
 {
 "113
 [; ;../analogue.c: 113:                     lthreshold = getNV((16 + 7*(portInProgress) + 5));
@@ -3770,61 +3770,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _hhysteresis -> - -> _hthreshold `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 4 `i `uc `i `s ]
 "122
 [; ;../analogue.c: 122:                     if ((analogueState[portInProgress].eventState != 2) && (adc >= hthreshold)) {
-[e $ ! && != -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 2 `i >= -> _adc `ui -> _hthreshold `ui 3255  ]
+[e $ ! && != -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 2 `i >= -> _adc `ui -> _hthreshold `ui 3252  ]
 {
 "124
 [; ;../analogue.c: 124:                         if (analogueState[portInProgress].portState == 1) {
-[e $ ! == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 1 `i -> 1 `i 3256  ]
+[e $ ! == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 1 `i -> 1 `i 3253  ]
 {
 "125
 [; ;../analogue.c: 125:                             sendProducedEvent(((8 + 4*(portInProgress))+1), !(getNV((16 + 7*(portInProgress) + 1) ) & 0x40));
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _portInProgress `i -> 1 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E22893 ]
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _portInProgress `i -> 1 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E22903 ]
 "126
 [; ;../analogue.c: 126:                         }
 }
-[e :U 3256 ]
+[e :U 3253 ]
 "127
 [; ;../analogue.c: 127:                         analogueState[portInProgress].eventState = 2;
 [e = . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 -> -> 2 `i `uc ]
 "128
 [; ;../analogue.c: 128:                     } else if ((analogueState[portInProgress].eventState == 2) && (adc <= hhysteresis)) {
 }
-[e $U 3257  ]
-[e :U 3255 ]
-[e $ ! && == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 2 `i <= -> _adc `ui -> _hhysteresis `ui 3258  ]
+[e $U 3254  ]
+[e :U 3252 ]
+[e $ ! && == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 2 `i <= -> _adc `ui -> _hhysteresis `ui 3255  ]
 {
 "130
 [; ;../analogue.c: 130:                         if (analogueState[portInProgress].portState == 1) {
-[e $ ! == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 1 `i -> 1 `i 3259  ]
+[e $ ! == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 1 `i -> 1 `i 3256  ]
 {
 "131
 [; ;../analogue.c: 131:                             if (!(getNV((16 + 7*(portInProgress) + 1) ) & 0x08)) {
-[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 8 `i -> 0 `i 3260  ]
+[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 8 `i -> 0 `i 3257  ]
 {
 "132
 [; ;../analogue.c: 132:                                 sendProducedEvent(((8 + 4*(portInProgress))+1), getNV((16 + 7*(portInProgress) + 1) ) & 0x40);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _portInProgress `i -> 1 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 64 `i `E22893 ]
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _portInProgress `i -> 1 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 64 `i `E22903 ]
 "133
 [; ;../analogue.c: 133:                             }
 }
-[e :U 3260 ]
+[e :U 3257 ]
 "134
 [; ;../analogue.c: 134:                         }
 }
-[e :U 3259 ]
+[e :U 3256 ]
 "135
 [; ;../analogue.c: 135:                         analogueState[portInProgress].eventState = 0;
 [e = . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 -> -> 0 `i `uc ]
 "136
 [; ;../analogue.c: 136:                     }
 }
-[e :U 3258 ]
-[e :U 3257 ]
+[e :U 3255 ]
+[e :U 3254 ]
 "137
 [; ;../analogue.c: 137:                 } else {
 }
-[e $U 3261  ]
-[e :U 3254 ]
+[e $U 3258  ]
+[e :U 3251 ]
 {
 "140
 [; ;../analogue.c: 140:                     adc = adc >> 4;
@@ -3838,71 +3838,71 @@ Version 4.0 HI-TECH Software Intermediate Code
 "143
 [; ;../analogue.c: 143:                 }
 }
-[e :U 3261 ]
+[e :U 3258 ]
 "145
 [; ;../analogue.c: 145:                 if ((analogueState[portInProgress].eventState != 1) && (adc <= lthreshold)) {
-[e $ ! && != -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 1 `i <= -> _adc `ui -> _lthreshold `ui 3262  ]
+[e $ ! && != -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 1 `i <= -> _adc `ui -> _lthreshold `ui 3259  ]
 {
 "147
 [; ;../analogue.c: 147:                     if (analogueState[portInProgress].portState == 1) {
-[e $ ! == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 1 `i -> 1 `i 3263  ]
+[e $ ! == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 1 `i -> 1 `i 3260  ]
 {
 "148
 [; ;../analogue.c: 148:                         sendProducedEvent(((8 + 4*(portInProgress))+0), !(getNV((16 + 7*(portInProgress) + 1) ) & 0x40));
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _portInProgress `i -> 0 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E22893 ]
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _portInProgress `i -> 0 `i `uc -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 64 `i -> 0 `i `i `E22903 ]
 "149
 [; ;../analogue.c: 149:                     }
 }
-[e :U 3263 ]
+[e :U 3260 ]
 "150
 [; ;../analogue.c: 150:                     analogueState[portInProgress].eventState = 1;
 [e = . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 -> -> 1 `i `uc ]
 "151
 [; ;../analogue.c: 151:                 } else if ((analogueState[portInProgress].eventState == 1) && (adc >= lhysteresis)) {
 }
-[e $U 3264  ]
-[e :U 3262 ]
-[e $ ! && == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 1 `i >= -> _adc `ui -> _lhysteresis `ui 3265  ]
+[e $U 3261  ]
+[e :U 3259 ]
+[e $ ! && == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 `i -> 1 `i >= -> _adc `ui -> _lhysteresis `ui 3262  ]
 {
 "153
 [; ;../analogue.c: 153:                     if (analogueState[portInProgress].portState == 1) {
-[e $ ! == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 1 `i -> 1 `i 3266  ]
+[e $ ! == -> . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 1 `i -> 1 `i 3263  ]
 {
 "154
 [; ;../analogue.c: 154:                         if (!(getNV((16 + 7*(portInProgress) + 1) ) & 0x08)) {
-[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 8 `i -> 0 `i 3267  ]
+[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 8 `i -> 0 `i 3264  ]
 {
 "155
 [; ;../analogue.c: 155:                             sendProducedEvent(((8 + 4*(portInProgress))+0), getNV((16 + 7*(portInProgress) + 1) ) & 0x40);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _portInProgress `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 64 `i `E22893 ]
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _portInProgress `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 1 `i `uc `i -> 64 `i `E22903 ]
 "156
 [; ;../analogue.c: 156:                         }
 }
-[e :U 3267 ]
+[e :U 3264 ]
 "157
 [; ;../analogue.c: 157:                     }
 }
-[e :U 3266 ]
+[e :U 3263 ]
 "158
 [; ;../analogue.c: 158:                     analogueState[portInProgress].eventState = 0;
 [e = . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 0 -> -> 0 `i `uc ]
 "159
 [; ;../analogue.c: 159:                 }
 }
-[e :U 3265 ]
-[e :U 3264 ]
+[e :U 3262 ]
+[e :U 3261 ]
 "160
 [; ;../analogue.c: 160:             } else {
 }
-[e $U 3268  ]
-[e :U 3253 ]
+[e $U 3265  ]
+[e :U 3250 ]
 {
 "162
 [; ;../analogue.c: 162:                 sendMessage7(OPC_ARSON3, nn.bytes.hi, nn.bytes.lo, 0, portInProgress + 1, portInProgress + 1, adc&0xff, adc>>8);
 [e ( _sendMessage7 (4 , , , , , , , . `E22515 139 . . _nn 0 1 . . _nn 0 0 -> -> 0 `i `uc -> + -> _portInProgress `i -> 1 `i `uc -> + -> _portInProgress `i -> 1 `i `uc -> & -> _adc `ui -> -> 255 `i `ui `uc -> >> -> _adc `ui -> 8 `i `uc ]
 "163
 [; ;../analogue.c: 163:                 if (setupState == 2) {
-[e $ ! == -> _setupState `i -> 2 `i 3269  ]
+[e $ ! == -> _setupState `i -> 2 `i 3266  ]
 {
 "165
 [; ;../analogue.c: 165:                     saveNV((16 + 7*(portInProgress) + 5), adc&0xff);
@@ -3913,31 +3913,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "167
 [; ;../analogue.c: 167:                 }
 }
-[e :U 3269 ]
+[e :U 3266 ]
 "168
 [; ;../analogue.c: 168:                 setupState = 0;
 [e = _setupState -> -> 0 `i `uc ]
 "169
 [; ;../analogue.c: 169:             }
 }
-[e :U 3268 ]
+[e :U 3265 ]
 "170
 [; ;../analogue.c: 170:             analogueState[portInProgress].portState = 1;
 [e = . *U + &U _analogueState * -> _portInProgress `ux -> -> # *U &U _analogueState `ui `ux 1 -> -> 1 `i `uc ]
 "171
 [; ;../analogue.c: 171:         }
 }
-[e :U 3252 ]
+[e :U 3249 ]
 "172
 [; ;../analogue.c: 172:     }
 }
-[e :U 3251 ]
+[e :U 3248 ]
 "174
 [; ;../analogue.c: 174:     portInProgress++;
 [e ++ _portInProgress -> -> 1 `i `uc ]
 "175
 [; ;../analogue.c: 175:     if (portInProgress >= 16) {
-[e $ ! >= -> _portInProgress `i -> 16 `i 3270  ]
+[e $ ! >= -> _portInProgress `i -> 16 `i 3267  ]
 {
 "176
 [; ;../analogue.c: 176:         portInProgress = 0;
@@ -3945,10 +3945,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "177
 [; ;../analogue.c: 177:     }
 }
-[e :U 3270 ]
+[e :U 3267 ]
 "179
 [; ;../analogue.c: 179:     if ((getNV((16 + 7*(portInProgress) + 0)) == 5) || (getNV((16 + 7*(portInProgress) + 0)) == 6)) {
-[e $ ! || == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 5 `i == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 6 `i 3271  ]
+[e $ ! || == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 5 `i == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _portInProgress `i -> 0 `i `uc `i -> 6 `i 3268  ]
 {
 "185
 [; ;../analogue.c: 185:         ADPCH = (uint8_t)(((configs[portInProgress].port - 'A') << 3) | (configs[portInProgress].no));
@@ -3962,8 +3962,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "189
 [; ;../analogue.c: 189:     }
 }
-[e :U 3271 ]
+[e :U 3268 ]
 "190
 [; ;../analogue.c: 190: }
-[e :UE 3249 ]
+[e :UE 3246 ]
 }

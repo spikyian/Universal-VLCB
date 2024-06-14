@@ -37704,7 +37704,6 @@ typedef enum VlcbManufacturer
   MANU_VLCB = 250,
   MANU_SYSPIXIE = 249,
   MANU_RME = 248,
-
 } VlcbManufacturer;
 
 typedef enum VlcbMergModuleTypes
@@ -37809,7 +37808,6 @@ typedef enum VlcbMergModuleTypes
 
 
 
-
   MTYP_CAN_SW = 0xFF,
   MTYP_EMPTY = 0xFE,
   MTYP_CANUSB = 0xFD,
@@ -37830,7 +37828,6 @@ typedef enum VlcbSprogModuleTypes
   MTYP_CANSERVOIO = 50,
   MTYP_CANISB = 100,
   MTYP_CANSOLIO = 101,
-
 } VlcbSprogModuleTypes;
 
 typedef enum VlcbRocRailModuleTypes
@@ -37855,7 +37852,6 @@ typedef enum VlcbSpectrumModuleTypes
 
   MTYP_AMCTRLR = 1,
   MTYP_DUALCAB = 2,
-
 } VlcbSpectrumModuleTypes;
 
 typedef enum VlcbSysPixieModuleTypes
@@ -37864,7 +37860,6 @@ typedef enum VlcbSysPixieModuleTypes
 
 
   MTYP_CANPMSense = 1,
-
 } VlcbSysPixieModuleTypes;
 
 typedef enum VlcbOpCodes
@@ -38334,13 +38329,13 @@ typedef enum VlcbArmProcessors
   ARM1176JZF_S = 1,
   ARMCortex_A7 = 2,
   ARMCortex_A53 = 3,
-
-
-
 } VlcbArmProcessors;
 
 typedef enum VlcbCanHardware
 {
+
+
+
   CAN_HW_NOT_SPECIFIED = 0x00,
   CAN_HW_PIC_ECAN = 0x01,
   CAN_HW_PIC_CAN_2_0 = 0x02,
@@ -38348,9 +38343,29 @@ typedef enum VlcbCanHardware
   CAN_HW_MCP2515 = 0x04,
   CAN_HW_MCP2518 = 0x05,
   CAN_HW_ESP32_TWAI = 0x06,
-  CAN_HW_SAM3X8E = 0x06,
-  CAN_HW_PICO_PIO = 0x07,
+  CAN_HW_SAM3X8E = 0x07,
+  CAN_HW_PICO_PIO = 0x08,
 } VlcbCanHardware;
+
+typedef enum VlcbProducerEvUsage
+{
+
+
+
+  PRODUCER_EV_NOT_SPECIFIED = 0x00,
+  PRODUCER_EV_HAPPENING = 0x01,
+  PRODUCER_EV_SLOTS = 0x02,
+} VlcbProducerEvUsage;
+
+typedef enum VlcbConsumerEvUsage
+{
+
+
+
+  CONSUMER_EV_NOT_SPECIFIED = 0x00,
+  CONSUMER_EV_ACTIONS = 0x01,
+  CONSUMER_EV_SLOTS = 0x02,
+} VlcbConsumerEvUsage;
 # 39 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
@@ -38757,13 +38772,7 @@ extern const Config configs[16];
 
 
 # 1 "../universalNv.h" 1
-# 64 "../universalNv.h"
-# 1 "../canmio.h" 1
-# 44 "../canmio.h"
-# 1 "../../VLCBlib_PIC\\devincs.h" 1
-# 44 "../canmio.h" 2
-# 64 "../universalNv.h" 2
-
+# 65 "../universalNv.h"
 # 1 "../../VLCBlib_PIC\\nv.h" 1
 # 86 "../../VLCBlib_PIC\\nv.h"
 extern const Service nvService;
@@ -38799,7 +38808,7 @@ extern uint8_t setNV(uint8_t index, uint8_t value);
 
 extern void loadNvCache(void);
 # 65 "../universalNv.h" 2
-# 187 "../universalNv.h"
+# 188 "../universalNv.h"
 typedef struct {
     uint8_t type;
     uint8_t flags;
@@ -38857,7 +38866,11 @@ typedef struct {
         uint8_t servo_speed;
         uint8_t pullups;
         uint8_t responseDelay;
-        uint8_t spare[10];
+        uint8_t xio_pullupsL;
+        uint8_t xio_pullupsM;
+        uint8_t xio_pullupsH;
+        uint8_t cdu_chargePumpFreq;
+        uint8_t spare[6];
         NvIo io[16];
 } ModuleNvDefs;
 
@@ -38867,12 +38880,11 @@ extern void defaultNVs(uint8_t i, uint8_t type);
 # 1 "../universalEvents.h" 1
 # 74 "../universalEvents.h"
 # 1 "../../VLCBlib_PIC\\event_teach.h" 1
-# 98 "../../VLCBlib_PIC\\event_teach.h"
+# 77 "../../VLCBlib_PIC\\event_teach.h"
 extern const Service eventTeachService;
-# 110 "../../VLCBlib_PIC\\event_teach.h"
+# 89 "../../VLCBlib_PIC\\event_teach.h"
 extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
 
-extern Boolean validStart(uint8_t index);
 extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
 extern uint8_t getEVs(uint8_t tableIndex);
 extern uint8_t evs[20];
@@ -38880,19 +38892,11 @@ extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
 extern uint16_t getNN(uint8_t tableIndex);
 extern uint16_t getEN(uint8_t tableIndex);
 extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
-extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, uint8_t forceOwnNN);
+extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
+
 
 extern void rebuildHashtable(void);
 extern uint8_t getHash(uint16_t nodeNumber, uint16_t eventNumber);
-
-extern void checkRemoveTableEntry(uint8_t tableIndex);
-
-
-
-
-
-typedef uint8_t Happening;
-
 
 
 
@@ -38903,42 +38907,34 @@ typedef struct {
     uint16_t NN;
     uint16_t EN;
 } Event;
-
-
-
-
-
-typedef union
-{
-    struct
-    {
-        uint8_t eVsUsed:4;
-        uint8_t continued:1;
-        uint8_t continuation:1;
-        uint8_t forceOwnNN:1;
-        uint8_t freeEntry:1;
-    };
-    uint8_t asByte;
-} EventTableFlags;
-
-
-
-
-
-
-typedef struct {
-    EventTableFlags flags;
-    uint8_t next;
-    Event event;
-    uint8_t evs[10];
-} EventTable;
 # 74 "../universalEvents.h" 2
-# 173 "../universalEvents.h"
+
+# 1 "../../VLCBlib_PIC\\event_producer.h" 1
+# 79 "../../VLCBlib_PIC\\event_producer.h"
+typedef uint8_t Happening;
+
+
+extern const Service eventProducerService;
+
+
+extern uint8_t happening2Event[71 +1];
+
+
+
+
+
+
+extern Boolean sendProducedEvent(Happening h, EventState state);
+extern void deleteHappeningRange(Happening happening, uint8_t number);
+# 102 "../../VLCBlib_PIC\\event_producer.h"
+extern EventState APP_GetEventState(Happening h);
+# 75 "../universalEvents.h" 2
+# 171 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 185 "../universalEvents.h"
+# 183 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 

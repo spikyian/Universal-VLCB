@@ -1,127 +1,71 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"159 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 159:     struct {
-[s S3225 `uc 1 `uc 1 ]
-[n S3225 . lo hi ]
-"156
-[; ;../../VLCBlib_PIC/vlcb.h: 156: typedef union DiagnosticVal {
-[u S3224 `us 1 `s 1 `S3225 1 ]
-[n S3224 DiagnosticVal asUint asInt asBytes ]
-[v F22982 `(v ~T0 @X0 0 tf ]
-[v F22984 `(v ~T0 @X0 0 tf ]
-"80 ../../VLCBlib_PIC/event_producer.c
-[; ;../../VLCBlib_PIC/event_producer.c: 80: const Service eventProducerService = {
-[c E22515 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
-[n E22515 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
-"119 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 119: typedef struct Message {
-[s S3221 `uc 1 `E22515 1 `uc -> 7 `i ]
-[n S3221 Message len opc bytes ]
-"80 ../../VLCBlib_PIC/event_producer.c
-[; ;../../VLCBlib_PIC/event_producer.c: 80: const Service eventProducerService = {
-[c E22906 0 1 .. ]
-[n E22906 Processed NOT_PROCESSED PROCESSED  ]
-[v F22986 `(E22906 ~T0 @X0 0 tf1`*S3221 ]
-[v F22989 `(v ~T0 @X0 0 tf ]
-[v F22991 `(uc ~T0 @X0 0 tf1`uc ]
-[v F22994 `(*S3224 ~T0 @X0 0 tf1`uc ]
-"307 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 307: typedef struct Service {
-[s S3226 `uc 1 `uc 1 `*F22982 1 `*F22984 1 `*F22986 1 `*F22989 1 `*F22991 1 `*F22994 1 ]
-[n S3226 Service serviceNo version factoryReset powerUp processMessage poll getESDdata getDiagnostic ]
-"80 ../../VLCBlib_PIC/event_producer.c
-[; ;../../VLCBlib_PIC/event_producer.c: 80: const Service eventProducerService = {
-[c E22722 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
-[n E22722 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
-[v F23164 `(v ~T0 @X0 0 tf ]
-"69
-[; ;../../VLCBlib_PIC/event_producer.c: 69: static void producerPowerUp(void);
-[v _producerPowerUp `(v ~T0 @X0 0 sf ]
-"67
-[; ;../../VLCBlib_PIC/event_producer.c: 67: static Processed producerProcessMessage(Message *m);
-[v _producerProcessMessage `(E22906 ~T0 @X0 0 sf1`*S3221 ]
-[v F23168 `(v ~T0 @X0 0 tf ]
-[v F23169 `(uc ~T0 @X0 0 tf1`uc ]
-"70
-[; ;../../VLCBlib_PIC/event_producer.c: 70: static DiagnosticVal * producerGetDiagnostic(uint8_t index);
-[v _producerGetDiagnostic `(*S3224 ~T0 @X0 0 sf1`uc ]
-"239 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 239: void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-[v _sendMessage3 `(v ~T0 @X0 0 ef4`E22515`uc`uc`uc ]
-"129
-[; ;../../VLCBlib_PIC/vlcb.h: 129:     struct {
-[s S3223 `uc 1 `uc 1 ]
-[n S3223 . lo hi ]
-"128
-[; ;../../VLCBlib_PIC/vlcb.h: 128: typedef union Word {
-[u S3222 `S3223 1 `us 1 ]
-[n S3222 Word bytes word ]
-"126 ../../VLCBlib_PIC/mns.h
-[; ;../../VLCBlib_PIC/mns.h: 126: extern Word nn;
-[v _nn `S3222 ~T0 @X0 0 e ]
-"128 ../../VLCBlib_PIC/event_producer.c
-[; ;../../VLCBlib_PIC/event_producer.c: 128:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, CMDERR_INV_CMD);
-[c E22684 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
-[n E22684 VlcbCmdErrs CMDERR_INV_CMD CMDERR_NOT_LRN CMDERR_NOT_SETUP CMDERR_TOO_MANY_EVENTS CMDERR_NO_EV CMDERR_INV_EV_IDX CMDERR_INVALID_EVENT CMDERR_INV_EN_IDX CMDERR_INV_PARAM_IDX CMDERR_INV_NV_IDX CMDERR_INV_EV_VALUE CMDERR_INV_NV_VALUE CMDERR_LRN_OTHER  ]
-"119 ../../VLCBlib_PIC/event_teach.h
-[; ;../../VLCBlib_PIC/event_teach.h: 119: extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
-[v _findEvent `(uc ~T0 @X0 0 ef2`us`us ]
-"113
-[; ;../../VLCBlib_PIC/event_teach.h: 113: extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
-[v _getEv `(s ~T0 @X0 0 ef2`uc`uc ]
-"150 ../../VLCBlib_PIC/event_producer.c
-[; ;../../VLCBlib_PIC/event_producer.c: 150:                 if (APP_GetEventState(h) == EVENT_ON) {
-[c E22893 255 0 1 .. ]
-[n E22893 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
-"96 ../../VLCBlib_PIC/event_producer.h
-[; ;../../VLCBlib_PIC/event_producer.h: 96: extern EventState APP_GetEventState(Happening h);
-[v _APP_GetEventState `(E22893 ~T0 @X0 0 ef1`uc ]
-"248 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 248: void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-[v _sendMessage4 `(v ~T0 @X0 0 ef5`E22515`uc`uc`uc`uc ]
-"194 ../../VLCBlib_PIC/event_producer.c
-[; ;../../VLCBlib_PIC/event_producer.c: 194: Boolean sendProducedEvent(Happening happening, EventState onOff) {
-[c E22873 0 1 .. ]
-[n E22873 Boolean FALSE TRUE  ]
-"79 ../../VLCBlib_PIC/event_producer.h
-[; ;../../VLCBlib_PIC/event_producer.h: 79: extern uint8_t happening2Event[71 +1];
-[v _happening2Event `uc ~T0 @X0 -> 0 `x e ]
-"117 ../../VLCBlib_PIC/event_teach.h
-[; ;../../VLCBlib_PIC/event_teach.h: 117: extern uint16_t getNN(uint8_t tableIndex);
-[v _getNN `(us ~T0 @X0 0 ef1`uc ]
-"118
-[; ;../../VLCBlib_PIC/event_teach.h: 118: extern uint16_t getEN(uint8_t tableIndex);
-[v _getEN `(us ~T0 @X0 0 ef1`uc ]
-"112
-[; ;../../VLCBlib_PIC/event_teach.h: 112: extern Boolean validStart(uint8_t index);
-[v _validStart `(E22873 ~T0 @X0 0 ef1`uc ]
-"151
-[; ;../../VLCBlib_PIC/event_teach.h: 151:     {
-[s S3233 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S3233 . eVsUsed continued continuation forceOwnNN freeEntry ]
-"149
-[; ;../../VLCBlib_PIC/event_teach.h: 149: {
-[u S3232 `S3233 1 `uc 1 ]
-[n S3232 . . asByte ]
-"269 ../../VLCBlib_PIC/event_producer.c
-[; ;../../VLCBlib_PIC/event_producer.c: 269:             f.asByte = (uint8_t)readNVM(FLASH_NVM_TYPE,
-[c E22845 0 1 .. ]
-[n E22845 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
-"160 ../../VLCBlib_PIC/nvm.h
-[; ;../../VLCBlib_PIC/nvm.h: 160: extern int16_t readNVM(NVMtype type, uint24_t index);
-[v _readNVM `(s ~T0 @X0 0 ef2`E22845`um ]
-"116 ../../VLCBlib_PIC/event_teach.h
-[; ;../../VLCBlib_PIC/event_teach.h: 116: extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
-[v _writeEv `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
-"125
-[; ;../../VLCBlib_PIC/event_teach.h: 125: extern void checkRemoveTableEntry(uint8_t tableIndex);
-[v _checkRemoveTableEntry `(v ~T0 @X0 0 ef1`uc ]
-"147 ../../VLCBlib_PIC/nvm.h
-[; ;../../VLCBlib_PIC/nvm.h: 147: extern void flushFlashBlock(void);
-[v _flushFlashBlock `(v ~T0 @X0 0 ef ]
-"122 ../../VLCBlib_PIC/event_teach.h
-[; ;../../VLCBlib_PIC/event_teach.h: 122: extern void rebuildHashtable(void);
-[v _rebuildHashtable `(v ~T0 @X0 0 ef ]
+"60 ../../VLCBlib_PIC/statusLeds2.c
+[; ;../../VLCBlib_PIC/statusLeds2.c: 60: LedState ledState[2];
+[c E23075 0 1 2 3 4 5 6 7 8 9 .. ]
+[n E23075 . LED_OFF LED_ON LED_FLASH_50_2HZ LED_FLASH_50_1HZ LED_FLASH_50_HALF_HZ LED_SINGLE_FLICKER_OFF LED_SINGLE_FLICKER_ON LED_LONG_FLICKER_OFF LED_LONG_FLICKER_ON LED_OFF_1S  ]
+"216 ../../VLCBlib_PIC/ticktime.h
+[; ;../../VLCBlib_PIC/ticktime.h: 216:     {
+[s S3229 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S3229 TickBytes b0 b1 b2 b3 ]
+"225
+[; ;../../VLCBlib_PIC/ticktime.h: 225:     {
+[s S3230 `us 1 `us 1 ]
+[n S3230 TickWords w0 w1 ]
+"211
+[; ;../../VLCBlib_PIC/ticktime.h: 211: typedef union _TickValue {
+[u S3228 `ul 1 `S3229 1 `uc -> 4 `i `S3230 1 ]
+[n S3228 _TickValue val byte v word ]
+"58897 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 58897: extern volatile unsigned char ANSELA __attribute__((address(0x400)));
+[v _ANSELA `Vuc ~T0 @X0 0 e@1024 ]
+"59393
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 59393: extern volatile unsigned char ANSELB __attribute__((address(0x408)));
+[v _ANSELB `Vuc ~T0 @X0 0 e@1032 ]
+"2512
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 2512: } CM1PCHbits_t;
+[s S3114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3114 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"2511
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 2511:     };
+[u S3113 `S3114 1 ]
+[n S3113 . . ]
+"2523
+[v _TRISBbits `VS3113 ~T0 @X0 0 e@1223 ]
+"2450
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 2450:         unsigned C1NCH2 :1;
+[s S3112 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3112 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"2449
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 2449:         unsigned C1NCH1 :1;
+[u S3111 `S3112 1 ]
+[n S3111 . . ]
+"2461
+[v _TRISAbits `VS3111 ~T0 @X0 0 e@1222 ]
+"244 ../../VLCBlib_PIC/ticktime.h
+[; ;../../VLCBlib_PIC/ticktime.h: 244: uint32_t tickGet(void);
+[v _tickGet `(ul ~T0 @X0 0 ef ]
+"2326 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 2326:         unsigned EN :1;
+[s S3108 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3108 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"2325
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 2325:         unsigned OUT :1;
+[u S3107 `S3108 1 ]
+[n S3107 . . ]
+"2337
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 2337: } CM1CON0bits_t;
+[v _LATBbits `VS3107 ~T0 @X0 0 e@1215 ]
+"235 ../../VLCBlib_PIC/statusLeds2.c
+[; ;../../VLCBlib_PIC/statusLeds2.c: 235: void showStatus(StatusDisplay s) {
+[c E23060 0 1 2 3 4 5 6 7 8 9 10 11 12 .. ]
+[n E23060 StatusDisplay STATUS_OFF STATUS_UNINITIALISED STATUS_SETUP STATUS_NORMAL STATUS_RESET_WARNING STATUS_LEARN STATUS_BOOT STATUS_MESSAGE_RECEIVED STATUS_MESSAGE_ACTED STATUS_TRANSMIT_ERROR STATUS_RECEIVE_ERROR STATUS_MEMORY_FAULT STATUS_FATAL_ERROR  ]
+"56
+[; ;../../VLCBlib_PIC/statusLeds2.c: 56: extern uint8_t mode_state;
+[v _mode_state `uc ~T0 @X0 0 e ]
+"264
+[; ;../../VLCBlib_PIC/statusLeds2.c: 264:             if (mode_state == MODE_UNINITIALISED) {
+[c E22771 255 0 1 8 9 10 11 12 13 14 .. ]
+[n E22771 VlcbModeParams MODE_UNINITIALISED MODE_SETUP MODE_NORMAL MODE_LEARN_ON MODE_LEARN_OFF MODE_EVENT_ACK_ON MODE_EVENT_ACK_OFF MODE_HEARTBEAT_ON MODE_HEARTBEAT_OFF MODE_BOOT  ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");
 [; <" BOOTREG equ 038h ;# ">
@@ -3641,415 +3585,694 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"71 ../../VLCBlib_PIC/event_producer.c
-[; ;../../VLCBlib_PIC/event_producer.c: 71: static DiagnosticVal producerDiagnostics[1];
-[v _producerDiagnostics `S3224 ~T0 @X0 -> -> 1 `i `ux s ]
+"60 ../../VLCBlib_PIC/statusLeds2.c
+[; ;../../VLCBlib_PIC/statusLeds2.c: 60: LedState ledState[2];
+[v _ledState `E23075 ~T0 @X0 -> 2 `i e ]
+"70
+[; ;../../VLCBlib_PIC/statusLeds2.c: 70: static uint8_t flashCounter[2];
+[v _flashCounter `uc ~T0 @X0 -> 2 `i s ]
+"71
+[; ;../../VLCBlib_PIC/statusLeds2.c: 71: static TickValue ledTimer;
+[v _ledTimer `S3228 ~T0 @X0 1 s ]
+"77
+[; ;../../VLCBlib_PIC/statusLeds2.c: 77: void leds_powerUp(void) {
+[v _leds_powerUp `(v ~T0 @X0 1 ef ]
+{
+[e :U _leds_powerUp ]
+[f ]
+"79
+[; ;../../VLCBlib_PIC/statusLeds2.c: 79:     {ANSELA=ANSELB=0; TRISBbits.TRISB6=TRISBbits.TRISB7=0,TRISAbits.TRISA2=1;};
+{
+[e = _ANSELA = _ANSELB -> -> 0 `i `uc ]
+[e ; = . . _TRISBbits 0 6 = . . _TRISBbits 0 7 -> -> 0 `i `uc = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+}
 "80
-[; ;../../VLCBlib_PIC/event_producer.c: 80: const Service eventProducerService = {
-[v _eventProducerService `CS3226 ~T0 @X0 1 e ]
-[i _eventProducerService
-:U ..
-:U ..
--> . `E22722 5 `uc
--> -> 1 `i `uc
--> -> -> 0 `i `*v `*F23164
-&U _producerPowerUp
-&U _producerProcessMessage
--> -> -> 0 `i `*v `*F23168
--> -> -> 0 `i `*v `*F23169
-&U _producerGetDiagnostic
-..
-..
-]
-"104
-[; ;../../VLCBlib_PIC/event_producer.c: 104: static void producerPowerUp(void) {
-[v _producerPowerUp `(v ~T0 @X0 1 sf ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 80:     flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"81
+[; ;../../VLCBlib_PIC/statusLeds2.c: 81:     flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"82
+[; ;../../VLCBlib_PIC/statusLeds2.c: 82:     ledTimer.val = tickGet();
+[e = . _ledTimer 0 ( _tickGet ..  ]
+"83
+[; ;../../VLCBlib_PIC/statusLeds2.c: 83: }
+[e :UE 3231 ]
+}
+"89
+[; ;../../VLCBlib_PIC/statusLeds2.c: 89: void leds_poll(void) {
+[v _leds_poll `(v ~T0 @X0 1 ef ]
 {
-[e :U _producerPowerUp ]
+[e :U _leds_poll ]
 [f ]
-"105
-[; ;../../VLCBlib_PIC/event_producer.c: 105:     uint8_t i;
-[v _i `uc ~T0 @X0 1 a ]
-"106
-[; ;../../VLCBlib_PIC/event_producer.c: 106:     for (i=0; i<1; i++) {
+"90
+[; ;../../VLCBlib_PIC/statusLeds2.c: 90:     if ((tickGet() - ledTimer.val) > (62500/100)) {
+[e $ ! > - ( _tickGet ..  . _ledTimer 0 -> / -> 62500 `l -> -> 100 `i `l `ul 3233  ]
 {
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 1 `i 3236  ]
-[e $U 3237  ]
+"91
+[; ;../../VLCBlib_PIC/statusLeds2.c: 91:         flashCounter[0]++;
+[e ++ *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 1 `i `uc ]
+"92
+[; ;../../VLCBlib_PIC/statusLeds2.c: 92:         flashCounter[1]++;
+[e ++ *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 1 `i `uc ]
+"93
+[; ;../../VLCBlib_PIC/statusLeds2.c: 93:         ledTimer.val = tickGet();
+[e = . _ledTimer 0 ( _tickGet ..  ]
+"94
+[; ;../../VLCBlib_PIC/statusLeds2.c: 94:     }
+}
+[e :U 3233 ]
+"96
+[; ;../../VLCBlib_PIC/statusLeds2.c: 96:     switch (ledState[1]) {
+[e $U 3235  ]
+{
+"97
+[; ;../../VLCBlib_PIC/statusLeds2.c: 97:         case LED_ON:
 [e :U 3236 ]
-{
-"107
-[; ;../../VLCBlib_PIC/event_producer.c: 107:         producerDiagnostics[i].asInt = 0;
-[e = . *U + &U _producerDiagnostics * -> _i `ux -> -> # *U &U _producerDiagnostics `ui `ux 1 -> -> 0 `i `s ]
-"108
-[; ;../../VLCBlib_PIC/event_producer.c: 108:     }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 1 `i 3236  ]
+"98
+[; ;../../VLCBlib_PIC/statusLeds2.c: 98:             (LATBbits.LATB6=1);
+[e = . . _LATBbits 0 6 -> -> 1 `i `uc ]
+"99
+[; ;../../VLCBlib_PIC/statusLeds2.c: 99:             flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"100
+[; ;../../VLCBlib_PIC/statusLeds2.c: 100:             break;
+[e $U 3234  ]
+"101
+[; ;../../VLCBlib_PIC/statusLeds2.c: 101:         case LED_OFF:
 [e :U 3237 ]
-}
+"102
+[; ;../../VLCBlib_PIC/statusLeds2.c: 102:             (LATBbits.LATB6=0);
+[e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
+"103
+[; ;../../VLCBlib_PIC/statusLeds2.c: 103:             flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"104
+[; ;../../VLCBlib_PIC/statusLeds2.c: 104:             break;
+[e $U 3234  ]
+"105
+[; ;../../VLCBlib_PIC/statusLeds2.c: 105:         case LED_FLASH_50_2HZ:
+[e :U 3238 ]
+"107
+[; ;../../VLCBlib_PIC/statusLeds2.c: 107:             (LATBbits.LATB6=flashCounter[1]/25);
+[e = . . _LATBbits 0 6 -> / -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 25 `i `uc ]
+"108
+[; ;../../VLCBlib_PIC/statusLeds2.c: 108:             if (flashCounter[1] >= 50) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 50 `i 3239  ]
+{
 "109
-[; ;../../VLCBlib_PIC/event_producer.c: 109: }
-[e :UE 3235 ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 109:                 flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"110
+[; ;../../VLCBlib_PIC/statusLeds2.c: 110:             }
 }
+[e :U 3239 ]
+"111
+[; ;../../VLCBlib_PIC/statusLeds2.c: 111:             break;
+[e $U 3234  ]
+"112
+[; ;../../VLCBlib_PIC/statusLeds2.c: 112:         case LED_FLASH_50_1HZ:
+[e :U 3240 ]
+"114
+[; ;../../VLCBlib_PIC/statusLeds2.c: 114:             (LATBbits.LATB6=flashCounter[1]/50);
+[e = . . _LATBbits 0 6 -> / -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 50 `i `uc ]
+"115
+[; ;../../VLCBlib_PIC/statusLeds2.c: 115:             if (flashCounter[1] >= 100) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 100 `i 3241  ]
+{
+"116
+[; ;../../VLCBlib_PIC/statusLeds2.c: 116:                 flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"117
+[; ;../../VLCBlib_PIC/statusLeds2.c: 117:             }
+}
+[e :U 3241 ]
+"118
+[; ;../../VLCBlib_PIC/statusLeds2.c: 118:             break;
+[e $U 3234  ]
 "119
-[; ;../../VLCBlib_PIC/event_producer.c: 119: static Processed producerProcessMessage(Message *m) {
-[v _producerProcessMessage `(E22906 ~T0 @X0 1 sf1`*S3221 ]
-{
-[e :U _producerProcessMessage ]
-[v _m `*S3221 ~T0 @X0 1 r1 ]
-[f ]
-"120
-[; ;../../VLCBlib_PIC/event_producer.c: 120:     uint8_t index;
-[v _index `uc ~T0 @X0 1 a ]
-"121
-[; ;../../VLCBlib_PIC/event_producer.c: 121:     Happening h;
-[v _h `uc ~T0 @X0 1 a ]
-"122
-[; ;../../VLCBlib_PIC/event_producer.c: 122:     int16_t ev;
-[v _ev `s ~T0 @X0 1 a ]
-"124
-[; ;../../VLCBlib_PIC/event_producer.c: 124:     switch (m->opc) {
-[e $U 3241  ]
-{
-"125
-[; ;../../VLCBlib_PIC/event_producer.c: 125:         case OPC_AREQ:
+[; ;../../VLCBlib_PIC/statusLeds2.c: 119:         case LED_FLASH_50_HALF_HZ:
 [e :U 3242 ]
-"126
-[; ;../../VLCBlib_PIC/event_producer.c: 126:         case OPC_ASRQ:
+"120
+[; ;../../VLCBlib_PIC/statusLeds2.c: 120:             (LATBbits.LATB6=flashCounter[1]/100);
+[e = . . _LATBbits 0 6 -> / -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 100 `i `uc ]
+"121
+[; ;../../VLCBlib_PIC/statusLeds2.c: 121:             if (flashCounter[1] >= 200) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 200 `i 3243  ]
+{
+"122
+[; ;../../VLCBlib_PIC/statusLeds2.c: 122:                 flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"123
+[; ;../../VLCBlib_PIC/statusLeds2.c: 123:             }
+}
 [e :U 3243 ]
+"124
+[; ;../../VLCBlib_PIC/statusLeds2.c: 124:             break;
+[e $U 3234  ]
+"125
+[; ;../../VLCBlib_PIC/statusLeds2.c: 125:         case LED_SINGLE_FLICKER_ON:
+[e :U 3244 ]
+"126
+[; ;../../VLCBlib_PIC/statusLeds2.c: 126:             (LATBbits.LATB6=1);
+[e = . . _LATBbits 0 6 -> -> 1 `i `uc ]
 "127
-[; ;../../VLCBlib_PIC/event_producer.c: 127:             if (m->len < 5) {
-[e $ ! < -> . *U _m 0 `i -> 5 `i 3244  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 127:             if (flashCounter[1] >= 25) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 25 `i 3245  ]
 {
 "128
-[; ;../../VLCBlib_PIC/event_producer.c: 128:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, CMDERR_INV_CMD);
-[e ( _sendMessage3 (4 , , , . `E22515 52 . . _nn 0 1 . . _nn 0 0 -> . `E22684 0 `uc ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 128:                 flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
 "129
-[; ;../../VLCBlib_PIC/event_producer.c: 129:                 return PROCESSED;
-[e ) . `E22906 1 ]
-[e $UE 3239  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 129:                 ledState[1] = LED_OFF;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 0 ]
 "130
-[; ;../../VLCBlib_PIC/event_producer.c: 130:             }
+[; ;../../VLCBlib_PIC/statusLeds2.c: 130:             }
 }
-[e :U 3244 ]
-"131
-[; ;../../VLCBlib_PIC/event_producer.c: 131:             if (m->opc == OPC_AREQ) {
-[e $ ! == -> . *U _m 1 `ui -> . `E22515 71 `ui 3245  ]
-{
-"132
-[; ;../../VLCBlib_PIC/event_producer.c: 132:                 index = findEvent((uint16_t)((m->bytes[0]<<8)|(m->bytes[1])), (uint16_t)((m->bytes[2]<<8)|(m->bytes[3])));
-[e = _index ( _findEvent (2 , -> | << -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us -> | << -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us ]
-"133
-[; ;../../VLCBlib_PIC/event_producer.c: 133:             } else {
-}
-[e $U 3246  ]
 [e :U 3245 ]
-{
-"134
-[; ;../../VLCBlib_PIC/event_producer.c: 134:                 index = findEvent(0, (uint16_t)((m->bytes[2]<<8)|(m->bytes[3])));
-[e = _index ( _findEvent (2 , -> -> 0 `i `us -> | << -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us ]
-"135
-[; ;../../VLCBlib_PIC/event_producer.c: 135:             }
-}
+"131
+[; ;../../VLCBlib_PIC/statusLeds2.c: 131:             break;
+[e $U 3234  ]
+"132
+[; ;../../VLCBlib_PIC/statusLeds2.c: 132:         case LED_SINGLE_FLICKER_OFF:
 [e :U 3246 ]
+"133
+[; ;../../VLCBlib_PIC/statusLeds2.c: 133:             (LATBbits.LATB6=0);
+[e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
+"134
+[; ;../../VLCBlib_PIC/statusLeds2.c: 134:             if (flashCounter[1] >= 25) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 25 `i 3247  ]
+{
+"135
+[; ;../../VLCBlib_PIC/statusLeds2.c: 135:                 flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
 "136
-[; ;../../VLCBlib_PIC/event_producer.c: 136:             if (index == 0xff) return PROCESSED;
-[e $ ! == -> _index `i -> 255 `i 3247  ]
-[e ) . `E22906 1 ]
-[e $UE 3239  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 136:                 ledState[1] = LED_ON;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 1 ]
+"137
+[; ;../../VLCBlib_PIC/statusLeds2.c: 137:             }
+}
 [e :U 3247 ]
 "138
-[; ;../../VLCBlib_PIC/event_producer.c: 138:             ev = getEv(index, 0);
-[e = _ev ( _getEv (2 , _index -> -> 0 `i `uc ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 138:             break;
+[e $U 3234  ]
 "139
-[; ;../../VLCBlib_PIC/event_producer.c: 139:             if (ev <= 0) return PROCESSED;
-[e $ ! <= -> _ev `i -> 0 `i 3248  ]
-[e ) . `E22906 1 ]
-[e $UE 3239  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 139:         case LED_LONG_FLICKER_ON:
 [e :U 3248 ]
+"140
+[; ;../../VLCBlib_PIC/statusLeds2.c: 140:             (LATBbits.LATB6=1);
+[e = . . _LATBbits 0 6 -> -> 1 `i `uc ]
 "141
-[; ;../../VLCBlib_PIC/event_producer.c: 141:             h = (uint8_t)ev;
-[e = _h -> _ev `uc ]
-"149
-[; ;../../VLCBlib_PIC/event_producer.c: 149:             if (m->opc == OPC_AREQ) {
-[e $ ! == -> . *U _m 1 `ui -> . `E22515 71 `ui 3249  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 141:             if (flashCounter[1] >= 50) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 50 `i 3249  ]
 {
-"150
-[; ;../../VLCBlib_PIC/event_producer.c: 150:                 if (APP_GetEventState(h) == EVENT_ON) {
-[e $ ! == -> ( _APP_GetEventState (1 _h `ui -> . `E22893 2 `ui 3250  ]
-{
-"151
-[; ;../../VLCBlib_PIC/event_producer.c: 151:                     sendMessage4(OPC_ARON, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
-[e ( _sendMessage4 (4 , , , , . `E22515 72 *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
-"152
-[; ;../../VLCBlib_PIC/event_producer.c: 152:                 } else {
+"142
+[; ;../../VLCBlib_PIC/statusLeds2.c: 142:                 flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"143
+[; ;../../VLCBlib_PIC/statusLeds2.c: 143:                 ledState[1] = LED_OFF;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 0 ]
+"144
+[; ;../../VLCBlib_PIC/statusLeds2.c: 144:             }
 }
-[e $U 3251  ]
+[e :U 3249 ]
+"145
+[; ;../../VLCBlib_PIC/statusLeds2.c: 145:             break;
+[e $U 3234  ]
+"146
+[; ;../../VLCBlib_PIC/statusLeds2.c: 146:         case LED_LONG_FLICKER_OFF:
 [e :U 3250 ]
+"147
+[; ;../../VLCBlib_PIC/statusLeds2.c: 147:             (LATBbits.LATB6=0);
+[e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
+"148
+[; ;../../VLCBlib_PIC/statusLeds2.c: 148:             if (flashCounter[1] >= 50) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 50 `i 3251  ]
 {
-"153
-[; ;../../VLCBlib_PIC/event_producer.c: 153:                     sendMessage4(OPC_AROF, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
-[e ( _sendMessage4 (4 , , , , . `E22515 73 *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
-"154
-[; ;../../VLCBlib_PIC/event_producer.c: 154:                 }
+"149
+[; ;../../VLCBlib_PIC/statusLeds2.c: 149:                 flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"150
+[; ;../../VLCBlib_PIC/statusLeds2.c: 150:                 ledState[1] = LED_ON;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 1 ]
+"151
+[; ;../../VLCBlib_PIC/statusLeds2.c: 151:             }
 }
 [e :U 3251 ]
+"152
+[; ;../../VLCBlib_PIC/statusLeds2.c: 152:             break;
+[e $U 3234  ]
+"153
+[; ;../../VLCBlib_PIC/statusLeds2.c: 153:         case LED_OFF_1S:
+[e :U 3252 ]
+"154
+[; ;../../VLCBlib_PIC/statusLeds2.c: 154:             (LATBbits.LATB6=0);
+[e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
 "155
-[; ;../../VLCBlib_PIC/event_producer.c: 155:             } else {
-}
-[e $U 3252  ]
-[e :U 3249 ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 155:             if (flashCounter[1] >= 100) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 100 `i 3253  ]
 {
 "156
-[; ;../../VLCBlib_PIC/event_producer.c: 156:                 if (APP_GetEventState(h) == EVENT_ON) {
-[e $ ! == -> ( _APP_GetEventState (1 _h `ui -> . `E22893 2 `ui 3253  ]
-{
+[; ;../../VLCBlib_PIC/statusLeds2.c: 156:                 flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
 "157
-[; ;../../VLCBlib_PIC/event_producer.c: 157:                     sendMessage4(OPC_ARSON, nn.bytes.hi, nn.bytes.lo, m->bytes[2], m->bytes[3]);
-[e ( _sendMessage4 (4 , , , , . `E22515 82 . . _nn 0 1 . . _nn 0 0 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 157:                 ledState[1] = LED_ON;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 1 ]
 "158
-[; ;../../VLCBlib_PIC/event_producer.c: 158:                 } else {
+[; ;../../VLCBlib_PIC/statusLeds2.c: 158:             }
 }
-[e $U 3254  ]
 [e :U 3253 ]
-{
 "159
-[; ;../../VLCBlib_PIC/event_producer.c: 159:                     sendMessage4(OPC_ARSOF, nn.bytes.hi, nn.bytes.lo, m->bytes[2], m->bytes[3]);
-[e ( _sendMessage4 (4 , , , , . `E22515 83 . . _nn 0 1 . . _nn 0 0 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 159:             break;
+[e $U 3234  ]
 "160
-[; ;../../VLCBlib_PIC/event_producer.c: 160:                 }
+[; ;../../VLCBlib_PIC/statusLeds2.c: 160:     }
 }
-[e :U 3254 ]
-"161
-[; ;../../VLCBlib_PIC/event_producer.c: 161:             }
-}
-[e :U 3252 ]
+[e $U 3234  ]
+[e :U 3235 ]
+[e [\ -> *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux `ui , $ -> . `E23075 1 `ui 3236
+ , $ -> . `E23075 0 `ui 3237
+ , $ -> . `E23075 2 `ui 3238
+ , $ -> . `E23075 3 `ui 3240
+ , $ -> . `E23075 4 `ui 3242
+ , $ -> . `E23075 6 `ui 3244
+ , $ -> . `E23075 5 `ui 3246
+ , $ -> . `E23075 8 `ui 3248
+ , $ -> . `E23075 7 `ui 3250
+ , $ -> . `E23075 9 `ui 3252
+ 3234 ]
+[e :U 3234 ]
 "162
-[; ;../../VLCBlib_PIC/event_producer.c: 162:             return PROCESSED;
-[e ) . `E22906 1 ]
-[e $UE 3239  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 162:     switch (ledState[0]) {
+[e $U 3255  ]
+{
 "163
-[; ;../../VLCBlib_PIC/event_producer.c: 163:         default:
-[e :U 3255 ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 163:         case LED_ON:
+[e :U 3256 ]
 "164
-[; ;../../VLCBlib_PIC/event_producer.c: 164:             break;
-[e $U 3240  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 164:             (LATBbits.LATB7=1);
+[e = . . _LATBbits 0 7 -> -> 1 `i `uc ]
 "165
-[; ;../../VLCBlib_PIC/event_producer.c: 165:     }
-}
-[e $U 3240  ]
-[e :U 3241 ]
-[e [\ -> . *U _m 1 `ui , $ -> . `E22515 71 `ui 3242
- , $ -> . `E22515 79 `ui 3243
- 3255 ]
-[e :U 3240 ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 165:             flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
 "166
-[; ;../../VLCBlib_PIC/event_producer.c: 166:     return NOT_PROCESSED;
-[e ) . `E22906 0 ]
-[e $UE 3239  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 166:             break;
+[e $U 3254  ]
 "167
-[; ;../../VLCBlib_PIC/event_producer.c: 167: }
-[e :UE 3239 ]
-}
-"175
-[; ;../../VLCBlib_PIC/event_producer.c: 175: static DiagnosticVal * producerGetDiagnostic(uint8_t index) {
-[v _producerGetDiagnostic `(*S3224 ~T0 @X0 1 sf1`uc ]
-{
-[e :U _producerGetDiagnostic ]
-[v _index `uc ~T0 @X0 1 r1 ]
-[f ]
-"176
-[; ;../../VLCBlib_PIC/event_producer.c: 176:     if ((index<1) || (index>1)) {
-[e $ ! || < -> _index `i -> 1 `i > -> _index `i -> 1 `i 3257  ]
-{
-"177
-[; ;../../VLCBlib_PIC/event_producer.c: 177:         return ((void*)0);
-[e ) -> -> -> 0 `i `*v `*S3224 ]
-[e $UE 3256  ]
-"178
-[; ;../../VLCBlib_PIC/event_producer.c: 178:     }
-}
+[; ;../../VLCBlib_PIC/statusLeds2.c: 167:         case LED_OFF:
 [e :U 3257 ]
-"179
-[; ;../../VLCBlib_PIC/event_producer.c: 179:     return &(producerDiagnostics[index-1]);
-[e ) &U *U + &U _producerDiagnostics * -> -> - -> _index `i -> 1 `i `ui `ux -> -> # *U &U _producerDiagnostics `ui `ux ]
-[e $UE 3256  ]
-"180
-[; ;../../VLCBlib_PIC/event_producer.c: 180: }
-[e :UE 3256 ]
-}
-"194
-[; ;../../VLCBlib_PIC/event_producer.c: 194: Boolean sendProducedEvent(Happening happening, EventState onOff) {
-[v _sendProducedEvent `(E22873 ~T0 @X0 1 ef2`uc`E22893 ]
+"168
+[; ;../../VLCBlib_PIC/statusLeds2.c: 168:             (LATBbits.LATB7=0);
+[e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
+"169
+[; ;../../VLCBlib_PIC/statusLeds2.c: 169:             flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"170
+[; ;../../VLCBlib_PIC/statusLeds2.c: 170:             break;
+[e $U 3254  ]
+"171
+[; ;../../VLCBlib_PIC/statusLeds2.c: 171:         case LED_FLASH_50_2HZ:
+[e :U 3258 ]
+"173
+[; ;../../VLCBlib_PIC/statusLeds2.c: 173:             (LATBbits.LATB7=flashCounter[0]/25);
+[e = . . _LATBbits 0 7 -> / -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 25 `i `uc ]
+"174
+[; ;../../VLCBlib_PIC/statusLeds2.c: 174:             if (flashCounter[0] >= 50) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 50 `i 3259  ]
 {
-[e :U _sendProducedEvent ]
-[v _happening `uc ~T0 @X0 1 r1 ]
-[v _onOff `E22893 ~T0 @X0 1 r2 ]
-[f ]
-"195
-[; ;../../VLCBlib_PIC/event_producer.c: 195:     Word producedEventNN;
-[v _producedEventNN `S3222 ~T0 @X0 1 a ]
-"196
-[; ;../../VLCBlib_PIC/event_producer.c: 196:     Word producedEventEN;
-[v _producedEventEN `S3222 ~T0 @X0 1 a ]
-"197
-[; ;../../VLCBlib_PIC/event_producer.c: 197:     uint8_t opc;
-[v _opc `uc ~T0 @X0 1 a ]
-"203
-[; ;../../VLCBlib_PIC/event_producer.c: 203:     if (happening2Event[happening] == 0xff) return FALSE;
-[e $ ! == -> *U + &U _happening2Event * -> _happening `ux -> -> # *U &U _happening2Event `ui `ux `i -> 255 `i 3259  ]
-[e ) . `E22873 0 ]
-[e $UE 3258  ]
+"175
+[; ;../../VLCBlib_PIC/statusLeds2.c: 175:                 flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"176
+[; ;../../VLCBlib_PIC/statusLeds2.c: 176:             }
+}
 [e :U 3259 ]
-"204
-[; ;../../VLCBlib_PIC/event_producer.c: 204:     producedEventNN.word = getNN(happening2Event[happening]);
-[e = . _producedEventNN 1 ( _getNN (1 *U + &U _happening2Event * -> _happening `ux -> -> # *U &U _happening2Event `ui `ux ]
-"205
-[; ;../../VLCBlib_PIC/event_producer.c: 205:     producedEventEN.word = getEN(happening2Event[happening]);
-[e = . _producedEventEN 1 ( _getEN (1 *U + &U _happening2Event * -> _happening `ux -> -> # *U &U _happening2Event `ui `ux ]
-"229
-[; ;../../VLCBlib_PIC/event_producer.c: 229:                 if (producedEventNN.word == 0) {
-[e $ ! == -> . _producedEventNN 1 `ui -> -> 0 `i `ui 3260  ]
-{
-"231
-[; ;../../VLCBlib_PIC/event_producer.c: 231:                     if (onOff == EVENT_ON) {
-[e $ ! == -> _onOff `ui -> . `E22893 2 `ui 3261  ]
-{
-"232
-[; ;../../VLCBlib_PIC/event_producer.c: 232:                         opc = OPC_ASON;
-[e = _opc -> . `E22515 77 `uc ]
-"233
-[; ;../../VLCBlib_PIC/event_producer.c: 233:                     } else {
-}
-[e $U 3262  ]
-[e :U 3261 ]
-{
-"234
-[; ;../../VLCBlib_PIC/event_producer.c: 234:                         opc = OPC_ASOF;
-[e = _opc -> . `E22515 78 `uc ]
-"235
-[; ;../../VLCBlib_PIC/event_producer.c: 235:                     }
-}
-[e :U 3262 ]
-"236
-[; ;../../VLCBlib_PIC/event_producer.c: 236:                     producedEventNN.word = nn.word;
-[e = . _producedEventNN 1 . _nn 1 ]
-"237
-[; ;../../VLCBlib_PIC/event_producer.c: 237:                 } else {
-}
-[e $U 3263  ]
+"177
+[; ;../../VLCBlib_PIC/statusLeds2.c: 177:             break;
+[e $U 3254  ]
+"178
+[; ;../../VLCBlib_PIC/statusLeds2.c: 178:         case LED_FLASH_50_1HZ:
 [e :U 3260 ]
+"180
+[; ;../../VLCBlib_PIC/statusLeds2.c: 180:             (LATBbits.LATB7=flashCounter[0]/50);
+[e = . . _LATBbits 0 7 -> / -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 50 `i `uc ]
+"181
+[; ;../../VLCBlib_PIC/statusLeds2.c: 181:             if (flashCounter[0] >= 100) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 100 `i 3261  ]
 {
-"239
-[; ;../../VLCBlib_PIC/event_producer.c: 239:                     if (onOff == EVENT_ON) {
-[e $ ! == -> _onOff `ui -> . `E22893 2 `ui 3264  ]
-{
-"240
-[; ;../../VLCBlib_PIC/event_producer.c: 240:                         opc = OPC_ACON;
-[e = _opc -> . `E22515 69 `uc ]
-"241
-[; ;../../VLCBlib_PIC/event_producer.c: 241:                     } else {
+"182
+[; ;../../VLCBlib_PIC/statusLeds2.c: 182:                 flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"183
+[; ;../../VLCBlib_PIC/statusLeds2.c: 183:             }
 }
-[e $U 3265  ]
-[e :U 3264 ]
+[e :U 3261 ]
+"184
+[; ;../../VLCBlib_PIC/statusLeds2.c: 184:             break;
+[e $U 3254  ]
+"185
+[; ;../../VLCBlib_PIC/statusLeds2.c: 185:         case LED_FLASH_50_HALF_HZ:
+[e :U 3262 ]
+"186
+[; ;../../VLCBlib_PIC/statusLeds2.c: 186:             (LATBbits.LATB7=flashCounter[0]/100);
+[e = . . _LATBbits 0 7 -> / -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 100 `i `uc ]
+"187
+[; ;../../VLCBlib_PIC/statusLeds2.c: 187:             if (flashCounter[0] >= 200) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 200 `i 3263  ]
 {
-"242
-[; ;../../VLCBlib_PIC/event_producer.c: 242:                         opc = OPC_ACOF;
-[e = _opc -> . `E22515 70 `uc ]
-"243
-[; ;../../VLCBlib_PIC/event_producer.c: 243:                     }
-}
-[e :U 3265 ]
-"244
-[; ;../../VLCBlib_PIC/event_producer.c: 244:                 }
+"188
+[; ;../../VLCBlib_PIC/statusLeds2.c: 188:                 flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"189
+[; ;../../VLCBlib_PIC/statusLeds2.c: 189:             }
 }
 [e :U 3263 ]
-"245
-[; ;../../VLCBlib_PIC/event_producer.c: 245:                 sendMessage4(opc, producedEventNN.bytes.hi, producedEventNN.bytes.lo, producedEventEN.bytes.hi, producedEventEN.bytes.lo);
-[e ( _sendMessage4 (4 , , , , -> _opc `E22515 . . _producedEventNN 0 1 . . _producedEventNN 0 0 . . _producedEventEN 0 1 . . _producedEventEN 0 0 ]
-"247
-[; ;../../VLCBlib_PIC/event_producer.c: 247:                 producerDiagnostics[0].asUint++;
-[e ++ . *U + &U _producerDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _producerDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"249
-[; ;../../VLCBlib_PIC/event_producer.c: 249:                 return TRUE;
-[e ) . `E22873 1 ]
-[e $UE 3258  ]
-"255
-[; ;../../VLCBlib_PIC/event_producer.c: 255:     return FALSE;
-[e ) . `E22873 0 ]
-[e $UE 3258  ]
-"256
-[; ;../../VLCBlib_PIC/event_producer.c: 256: }
-[e :UE 3258 ]
+"190
+[; ;../../VLCBlib_PIC/statusLeds2.c: 190:             break;
+[e $U 3254  ]
+"191
+[; ;../../VLCBlib_PIC/statusLeds2.c: 191:         case LED_SINGLE_FLICKER_ON:
+[e :U 3264 ]
+"192
+[; ;../../VLCBlib_PIC/statusLeds2.c: 192:             (LATBbits.LATB7=1);
+[e = . . _LATBbits 0 7 -> -> 1 `i `uc ]
+"193
+[; ;../../VLCBlib_PIC/statusLeds2.c: 193:             if (flashCounter[0] >= 25) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 25 `i 3265  ]
+{
+"194
+[; ;../../VLCBlib_PIC/statusLeds2.c: 194:                 flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"195
+[; ;../../VLCBlib_PIC/statusLeds2.c: 195:                 ledState[0] = LED_OFF;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 0 ]
+"196
+[; ;../../VLCBlib_PIC/statusLeds2.c: 196:             }
 }
-"263
-[; ;../../VLCBlib_PIC/event_producer.c: 263: void deleteHappeningRange(Happening happening, uint8_t number) {
-[v _deleteHappeningRange `(v ~T0 @X0 1 ef2`uc`uc ]
+[e :U 3265 ]
+"197
+[; ;../../VLCBlib_PIC/statusLeds2.c: 197:             break;
+[e $U 3254  ]
+"198
+[; ;../../VLCBlib_PIC/statusLeds2.c: 198:         case LED_SINGLE_FLICKER_OFF:
+[e :U 3266 ]
+"199
+[; ;../../VLCBlib_PIC/statusLeds2.c: 199:             (LATBbits.LATB7=0);
+[e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
+"200
+[; ;../../VLCBlib_PIC/statusLeds2.c: 200:             if (flashCounter[0] >= 25) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 25 `i 3267  ]
 {
-[e :U _deleteHappeningRange ]
-[v _happening `uc ~T0 @X0 1 r1 ]
-[v _number `uc ~T0 @X0 1 r2 ]
-[f ]
-"264
-[; ;../../VLCBlib_PIC/event_producer.c: 264:     uint8_t tableIndex;
-[v _tableIndex `uc ~T0 @X0 1 a ]
-"265
-[; ;../../VLCBlib_PIC/event_producer.c: 265:     for (tableIndex=0; tableIndex < 255; tableIndex++) {
-{
-[e = _tableIndex -> -> 0 `i `uc ]
-[e $ < -> _tableIndex `i -> 255 `i 3267  ]
-[e $U 3268  ]
+"201
+[; ;../../VLCBlib_PIC/statusLeds2.c: 201:                 flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"202
+[; ;../../VLCBlib_PIC/statusLeds2.c: 202:                 ledState[0] = LED_ON;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 1 ]
+"203
+[; ;../../VLCBlib_PIC/statusLeds2.c: 203:             }
+}
 [e :U 3267 ]
+"204
+[; ;../../VLCBlib_PIC/statusLeds2.c: 204:             break;
+[e $U 3254  ]
+"205
+[; ;../../VLCBlib_PIC/statusLeds2.c: 205:         case LED_LONG_FLICKER_ON:
+[e :U 3268 ]
+"206
+[; ;../../VLCBlib_PIC/statusLeds2.c: 206:             (LATBbits.LATB7=1);
+[e = . . _LATBbits 0 7 -> -> 1 `i `uc ]
+"207
+[; ;../../VLCBlib_PIC/statusLeds2.c: 207:             if (flashCounter[0] >= 50) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 50 `i 3269  ]
 {
-"266
-[; ;../../VLCBlib_PIC/event_producer.c: 266:         if ( validStart(tableIndex)) {
-[e $ ! != -> ( _validStart (1 _tableIndex `ui -> -> 0 `i `ui 3270  ]
+"208
+[; ;../../VLCBlib_PIC/statusLeds2.c: 208:                 flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"209
+[; ;../../VLCBlib_PIC/statusLeds2.c: 209:                 ledState[0] = LED_OFF;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 0 ]
+"210
+[; ;../../VLCBlib_PIC/statusLeds2.c: 210:             }
+}
+[e :U 3269 ]
+"211
+[; ;../../VLCBlib_PIC/statusLeds2.c: 211:             break;
+[e $U 3254  ]
+"212
+[; ;../../VLCBlib_PIC/statusLeds2.c: 212:         case LED_LONG_FLICKER_OFF:
+[e :U 3270 ]
+"213
+[; ;../../VLCBlib_PIC/statusLeds2.c: 213:             (LATBbits.LATB7=0);
+[e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
+"214
+[; ;../../VLCBlib_PIC/statusLeds2.c: 214:             if (flashCounter[0] >= 50) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 50 `i 3271  ]
 {
-"267
-[; ;../../VLCBlib_PIC/event_producer.c: 267:             EventTableFlags f;
-[v _f `S3232 ~T0 @X0 1 a ]
-"268
-[; ;../../VLCBlib_PIC/event_producer.c: 268:             Happening h;
-[v _h `uc ~T0 @X0 1 a ]
-"269
-[; ;../../VLCBlib_PIC/event_producer.c: 269:             f.asByte = (uint8_t)readNVM(FLASH_NVM_TYPE,
-[e = . _f 1 -> ( _readNVM (2 , . `E22845 1 -> + + -> 122880 `l -> * -> 16 `i -> _tableIndex `i `l -> -> 0 `i `l `um `uc ]
-"271
-[; ;../../VLCBlib_PIC/event_producer.c: 271:             h = (Happening)readNVM(FLASH_NVM_TYPE,
-[e = _h -> ( _readNVM (2 , . `E22845 1 -> + + -> 122880 `l -> * -> 16 `i -> _tableIndex `i `l -> -> 6 `i `l `um `uc ]
-"273
-[; ;../../VLCBlib_PIC/event_producer.c: 273:             if ((h >= happening) && (h < happening+number)) {
-[e $ ! && >= -> _h `i -> _happening `i < -> _h `i + -> _happening `i -> _number `i 3271  ]
-{
-"274
-[; ;../../VLCBlib_PIC/event_producer.c: 274:                 writeEv(tableIndex, 0, 0);
-[e ( _writeEv (3 , , _tableIndex -> -> 0 `i `uc -> -> 0 `i `uc ]
-"275
-[; ;../../VLCBlib_PIC/event_producer.c: 275:                 checkRemoveTableEntry(tableIndex);
-[e ( _checkRemoveTableEntry (1 _tableIndex ]
-"276
-[; ;../../VLCBlib_PIC/event_producer.c: 276:             }
+"215
+[; ;../../VLCBlib_PIC/statusLeds2.c: 215:                 flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"216
+[; ;../../VLCBlib_PIC/statusLeds2.c: 216:                 ledState[0] = LED_ON;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 1 ]
+"217
+[; ;../../VLCBlib_PIC/statusLeds2.c: 217:             }
 }
 [e :U 3271 ]
+"218
+[; ;../../VLCBlib_PIC/statusLeds2.c: 218:             break;
+[e $U 3254  ]
+"219
+[; ;../../VLCBlib_PIC/statusLeds2.c: 219:         case LED_OFF_1S:
+[e :U 3272 ]
+"220
+[; ;../../VLCBlib_PIC/statusLeds2.c: 220:             (LATBbits.LATB7=0);
+[e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
+"221
+[; ;../../VLCBlib_PIC/statusLeds2.c: 221:             if (flashCounter[0] >= 100) {
+[e $ ! >= -> *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux `i -> 100 `i 3273  ]
+{
+"222
+[; ;../../VLCBlib_PIC/statusLeds2.c: 222:                 flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"223
+[; ;../../VLCBlib_PIC/statusLeds2.c: 223:                 ledState[0] = LED_ON;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 1 ]
+"224
+[; ;../../VLCBlib_PIC/statusLeds2.c: 224:             }
+}
+[e :U 3273 ]
+"225
+[; ;../../VLCBlib_PIC/statusLeds2.c: 225:             break;
+[e $U 3254  ]
+"226
+[; ;../../VLCBlib_PIC/statusLeds2.c: 226:     }
+}
+[e $U 3254  ]
+[e :U 3255 ]
+[e [\ -> *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux `ui , $ -> . `E23075 1 `ui 3256
+ , $ -> . `E23075 0 `ui 3257
+ , $ -> . `E23075 2 `ui 3258
+ , $ -> . `E23075 3 `ui 3260
+ , $ -> . `E23075 4 `ui 3262
+ , $ -> . `E23075 6 `ui 3264
+ , $ -> . `E23075 5 `ui 3266
+ , $ -> . `E23075 8 `ui 3268
+ , $ -> . `E23075 7 `ui 3270
+ , $ -> . `E23075 9 `ui 3272
+ 3254 ]
+[e :U 3254 ]
+"227
+[; ;../../VLCBlib_PIC/statusLeds2.c: 227: }
+[e :UE 3232 ]
+}
+"235
+[; ;../../VLCBlib_PIC/statusLeds2.c: 235: void showStatus(StatusDisplay s) {
+[v _showStatus `(v ~T0 @X0 1 ef1`E23060 ]
+{
+[e :U _showStatus ]
+[v _s `E23060 ~T0 @X0 1 r1 ]
+[f ]
+"236
+[; ;../../VLCBlib_PIC/statusLeds2.c: 236:     switch (s) {
+[e $U 3276  ]
+{
+"237
+[; ;../../VLCBlib_PIC/statusLeds2.c: 237:         case STATUS_OFF:
+[e :U 3277 ]
+"238
+[; ;../../VLCBlib_PIC/statusLeds2.c: 238:             ledState[0] = LED_OFF;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 0 ]
+"239
+[; ;../../VLCBlib_PIC/statusLeds2.c: 239:             ledState[1] = LED_OFF;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 0 ]
+"240
+[; ;../../VLCBlib_PIC/statusLeds2.c: 240:             break;
+[e $U 3275  ]
+"241
+[; ;../../VLCBlib_PIC/statusLeds2.c: 241:         case STATUS_UNINITIALISED:
+[e :U 3278 ]
+"242
+[; ;../../VLCBlib_PIC/statusLeds2.c: 242:             ledState[0] = LED_ON;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 1 ]
+"243
+[; ;../../VLCBlib_PIC/statusLeds2.c: 243:             ledState[1] = LED_OFF;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 0 ]
+"244
+[; ;../../VLCBlib_PIC/statusLeds2.c: 244:             break;
+[e $U 3275  ]
+"245
+[; ;../../VLCBlib_PIC/statusLeds2.c: 245:         case STATUS_SETUP:
+[e :U 3279 ]
+"246
+[; ;../../VLCBlib_PIC/statusLeds2.c: 246:             ledState[0] = LED_OFF;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 0 ]
+"247
+[; ;../../VLCBlib_PIC/statusLeds2.c: 247:             ledState[1] = LED_FLASH_50_1HZ;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 3 ]
+"248
+[; ;../../VLCBlib_PIC/statusLeds2.c: 248:             break;
+[e $U 3275  ]
+"249
+[; ;../../VLCBlib_PIC/statusLeds2.c: 249:         case STATUS_NORMAL:
+[e :U 3280 ]
+"250
+[; ;../../VLCBlib_PIC/statusLeds2.c: 250:         case STATUS_LEARN:
+[e :U 3281 ]
+"251
+[; ;../../VLCBlib_PIC/statusLeds2.c: 251:         case STATUS_BOOT:
+[e :U 3282 ]
+"252
+[; ;../../VLCBlib_PIC/statusLeds2.c: 252:         case STATUS_TRANSMIT_ERROR:
+[e :U 3283 ]
+"253
+[; ;../../VLCBlib_PIC/statusLeds2.c: 253:         case STATUS_RECEIVE_ERROR:
+[e :U 3284 ]
+"254
+[; ;../../VLCBlib_PIC/statusLeds2.c: 254:             ledState[0] = LED_OFF;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 0 ]
+"255
+[; ;../../VLCBlib_PIC/statusLeds2.c: 255:             ledState[1] = LED_ON;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 1 ]
+"256
+[; ;../../VLCBlib_PIC/statusLeds2.c: 256:             break;
+[e $U 3275  ]
+"257
+[; ;../../VLCBlib_PIC/statusLeds2.c: 257:         case STATUS_RESET_WARNING:
+[e :U 3285 ]
+"258
+[; ;../../VLCBlib_PIC/statusLeds2.c: 258:             flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
+"259
+[; ;../../VLCBlib_PIC/statusLeds2.c: 259:             flashCounter[0] = 25;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 25 `i `uc ]
+"260
+[; ;../../VLCBlib_PIC/statusLeds2.c: 260:             ledState[0] = LED_FLASH_50_2HZ;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 2 ]
+"261
+[; ;../../VLCBlib_PIC/statusLeds2.c: 261:             ledState[1] = LED_FLASH_50_2HZ;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 2 ]
+"262
+[; ;../../VLCBlib_PIC/statusLeds2.c: 262:             break;
+[e $U 3275  ]
+"263
+[; ;../../VLCBlib_PIC/statusLeds2.c: 263:         case STATUS_MESSAGE_RECEIVED:
+[e :U 3286 ]
+"264
+[; ;../../VLCBlib_PIC/statusLeds2.c: 264:             if (mode_state == MODE_UNINITIALISED) {
+[e $ ! == -> _mode_state `i -> . `E22771 0 `i 3287  ]
+{
+"265
+[; ;../../VLCBlib_PIC/statusLeds2.c: 265:                 ledState[1] = LED_SINGLE_FLICKER_ON;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 6 ]
+"266
+[; ;../../VLCBlib_PIC/statusLeds2.c: 266:             } else if (mode_state == MODE_NORMAL) {
+}
+[e $U 3288  ]
+[e :U 3287 ]
+[e $ ! == -> _mode_state `i -> . `E22771 2 `i 3289  ]
+{
+"267
+[; ;../../VLCBlib_PIC/statusLeds2.c: 267:                 ledState[0] = LED_SINGLE_FLICKER_ON;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 6 ]
+"268
+[; ;../../VLCBlib_PIC/statusLeds2.c: 268:             }
+}
+[e :U 3289 ]
+[e :U 3288 ]
+"269
+[; ;../../VLCBlib_PIC/statusLeds2.c: 269:             break;
+[e $U 3275  ]
+"270
+[; ;../../VLCBlib_PIC/statusLeds2.c: 270:         case STATUS_MESSAGE_ACTED:
+[e :U 3290 ]
+"271
+[; ;../../VLCBlib_PIC/statusLeds2.c: 271:             if (mode_state == MODE_UNINITIALISED) {
+[e $ ! == -> _mode_state `i -> . `E22771 0 `i 3291  ]
+{
+"272
+[; ;../../VLCBlib_PIC/statusLeds2.c: 272:                 ledState[1] = LED_LONG_FLICKER_ON;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 8 ]
+"273
+[; ;../../VLCBlib_PIC/statusLeds2.c: 273:             } else if (mode_state == MODE_NORMAL) {
+}
+[e $U 3292  ]
+[e :U 3291 ]
+[e $ ! == -> _mode_state `i -> . `E22771 2 `i 3293  ]
+{
+"274
+[; ;../../VLCBlib_PIC/statusLeds2.c: 274:                 ledState[0] = LED_LONG_FLICKER_ON;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 8 ]
+"275
+[; ;../../VLCBlib_PIC/statusLeds2.c: 275:             }
+}
+[e :U 3293 ]
+[e :U 3292 ]
+"276
+[; ;../../VLCBlib_PIC/statusLeds2.c: 276:             break;
+[e $U 3275  ]
 "277
-[; ;../../VLCBlib_PIC/event_producer.c: 277:         }
-}
-[e :U 3270 ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 277:         case STATUS_MEMORY_FAULT:
+[e :U 3294 ]
 "278
-[; ;../../VLCBlib_PIC/event_producer.c: 278:     }
-}
-[e ++ _tableIndex -> -> 1 `i `uc ]
-[e $ < -> _tableIndex `i -> 255 `i 3267  ]
-[e :U 3268 ]
-}
+[; ;../../VLCBlib_PIC/statusLeds2.c: 278:         case STATUS_FATAL_ERROR:
+[e :U 3295 ]
 "279
-[; ;../../VLCBlib_PIC/event_producer.c: 279:     flushFlashBlock();
-[e ( _flushFlashBlock ..  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 279:             flashCounter[1] = 0;
+[e = *U + &U _flashCounter * -> -> -> 1 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
 "280
-[; ;../../VLCBlib_PIC/event_producer.c: 280:     rebuildHashtable();
-[e ( _rebuildHashtable ..  ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 280:             flashCounter[0] = 0;
+[e = *U + &U _flashCounter * -> -> -> 0 `i `ui `ux -> -> # *U &U _flashCounter `ui `ux -> -> 0 `i `uc ]
 "281
-[; ;../../VLCBlib_PIC/event_producer.c: 281: }
-[e :UE 3266 ]
+[; ;../../VLCBlib_PIC/statusLeds2.c: 281:             ledState[0] = LED_FLASH_50_2HZ;
+[e = *U + &U _ledState * -> -> -> 0 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 2 ]
+"282
+[; ;../../VLCBlib_PIC/statusLeds2.c: 282:             ledState[1] = LED_FLASH_50_2HZ;
+[e = *U + &U _ledState * -> -> -> 1 `i `ui `ux -> -> # *U &U _ledState `ui `ux . `E23075 2 ]
+"283
+[; ;../../VLCBlib_PIC/statusLeds2.c: 283:             break;
+[e $U 3275  ]
+"284
+[; ;../../VLCBlib_PIC/statusLeds2.c: 284:     }
+}
+[e $U 3275  ]
+[e :U 3276 ]
+[e [\ -> _s `ui , $ -> . `E23060 0 `ui 3277
+ , $ -> . `E23060 1 `ui 3278
+ , $ -> . `E23060 2 `ui 3279
+ , $ -> . `E23060 3 `ui 3280
+ , $ -> . `E23060 5 `ui 3281
+ , $ -> . `E23060 6 `ui 3282
+ , $ -> . `E23060 9 `ui 3283
+ , $ -> . `E23060 10 `ui 3284
+ , $ -> . `E23060 4 `ui 3285
+ , $ -> . `E23060 7 `ui 3286
+ , $ -> . `E23060 8 `ui 3290
+ , $ -> . `E23060 11 `ui 3294
+ , $ -> . `E23060 12 `ui 3295
+ 3275 ]
+[e :U 3275 ]
+"285
+[; ;../../VLCBlib_PIC/statusLeds2.c: 285: }
+[e :UE 3274 ]
 }

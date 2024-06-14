@@ -1,4 +1,4 @@
-# 1 "../../VLCBlib_PIC/event_producer.c"
+# 1 "../../VLCBlib_PIC/nv.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../../VLCBlib_PIC/event_producer.c" 2
-# 59 "../../VLCBlib_PIC/event_producer.c"
+# 1 "../../VLCBlib_PIC/nv.c" 2
+# 53 "../../VLCBlib_PIC/nv.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -37671,8 +37671,10 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 59 "../../VLCBlib_PIC/event_producer.c" 2
+# 53 "../../VLCBlib_PIC/nv.c" 2
 
+# 1 "../../VLCBlib_PIC/vlcb.h" 1
+# 38 "../../VLCBlib_PIC/vlcb.h"
 # 1 "..\\module.h" 1
 
 
@@ -37684,8 +37686,92 @@ unsigned char __t3rd16on(void);
 # 1 "../../VLCBlib_PIC\\statusLeds.h" 1
 # 42 "../../VLCBlib_PIC\\statusLeds.h"
 # 1 "../../VLCBlib_PIC/vlcb.h" 1
-# 38 "../../VLCBlib_PIC/vlcb.h"
+# 42 "../../VLCBlib_PIC\\statusLeds.h" 2
+
+# 1 "../../VLCBlib_PIC/ticktime.h" 1
+# 211 "../../VLCBlib_PIC/ticktime.h"
+typedef union _TickValue {
+
+    uint32_t val;
+
+    struct TickBytes
+    {
+        uint8_t b0;
+        uint8_t b1;
+        uint8_t b2;
+        uint8_t b3;
+    } byte;
+    uint8_t v[4];
+
+    struct TickWords
+    {
+        uint16_t w0;
+        uint16_t w1;
+    } word;
+} TickValue;
+# 238 "../../VLCBlib_PIC/ticktime.h"
+void initTicker(uint8_t priority);
+
+
+
+
+
+uint32_t tickGet(void);
+
+
+
+
+
+
+
+extern volatile uint8_t timerExtension1;
+
+
+
+
+extern volatile uint8_t timerExtension2;
+# 43 "../../VLCBlib_PIC\\statusLeds.h" 2
+
 # 1 "..\\module.h" 1
+# 44 "../../VLCBlib_PIC\\statusLeds.h" 2
+
+# 1 "../../VLCBlib_PIC/statusDisplay.h" 1
+# 55 "../../VLCBlib_PIC/statusDisplay.h"
+typedef enum StatusDisplay {
+    STATUS_OFF,
+    STATUS_UNINITIALISED,
+    STATUS_SETUP,
+    STATUS_NORMAL,
+    STATUS_RESET_WARNING,
+    STATUS_LEARN,
+    STATUS_BOOT,
+    STATUS_MESSAGE_RECEIVED,
+    STATUS_MESSAGE_ACTED,
+    STATUS_TRANSMIT_ERROR,
+    STATUS_RECEIVE_ERROR,
+    STATUS_MEMORY_FAULT,
+    STATUS_FATAL_ERROR
+} StatusDisplay;
+# 45 "../../VLCBlib_PIC\\statusLeds.h" 2
+# 55 "../../VLCBlib_PIC\\statusLeds.h"
+typedef enum {
+    LED_OFF,
+    LED_ON,
+    LED_FLASH_50_2HZ,
+    LED_FLASH_50_1HZ,
+    LED_FLASH_50_HALF_HZ,
+    LED_SINGLE_FLICKER_OFF,
+    LED_SINGLE_FLICKER_ON,
+    LED_LONG_FLICKER_OFF,
+    LED_LONG_FLICKER_ON,
+    LED_OFF_1S
+} LedState;
+
+
+extern void leds_powerUp(void);
+extern void leds_poll(void);
+extern void showStatus(StatusDisplay s);
+# 8 "..\\module.h" 2
 # 38 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCB-defs\\vlcbdefs_enums.h" 1
@@ -37704,7 +37790,6 @@ typedef enum VlcbManufacturer
   MANU_VLCB = 250,
   MANU_SYSPIXIE = 249,
   MANU_RME = 248,
-
 } VlcbManufacturer;
 
 typedef enum VlcbMergModuleTypes
@@ -37809,7 +37894,6 @@ typedef enum VlcbMergModuleTypes
 
 
 
-
   MTYP_CAN_SW = 0xFF,
   MTYP_EMPTY = 0xFE,
   MTYP_CANUSB = 0xFD,
@@ -37830,7 +37914,6 @@ typedef enum VlcbSprogModuleTypes
   MTYP_CANSERVOIO = 50,
   MTYP_CANISB = 100,
   MTYP_CANSOLIO = 101,
-
 } VlcbSprogModuleTypes;
 
 typedef enum VlcbRocRailModuleTypes
@@ -37855,7 +37938,6 @@ typedef enum VlcbSpectrumModuleTypes
 
   MTYP_AMCTRLR = 1,
   MTYP_DUALCAB = 2,
-
 } VlcbSpectrumModuleTypes;
 
 typedef enum VlcbSysPixieModuleTypes
@@ -37864,7 +37946,6 @@ typedef enum VlcbSysPixieModuleTypes
 
 
   MTYP_CANPMSense = 1,
-
 } VlcbSysPixieModuleTypes;
 
 typedef enum VlcbOpCodes
@@ -38334,13 +38415,13 @@ typedef enum VlcbArmProcessors
   ARM1176JZF_S = 1,
   ARMCortex_A7 = 2,
   ARMCortex_A53 = 3,
-
-
-
 } VlcbArmProcessors;
 
 typedef enum VlcbCanHardware
 {
+
+
+
   CAN_HW_NOT_SPECIFIED = 0x00,
   CAN_HW_PIC_ECAN = 0x01,
   CAN_HW_PIC_CAN_2_0 = 0x02,
@@ -38348,9 +38429,29 @@ typedef enum VlcbCanHardware
   CAN_HW_MCP2515 = 0x04,
   CAN_HW_MCP2518 = 0x05,
   CAN_HW_ESP32_TWAI = 0x06,
-  CAN_HW_SAM3X8E = 0x06,
-  CAN_HW_PICO_PIO = 0x07,
+  CAN_HW_SAM3X8E = 0x07,
+  CAN_HW_PICO_PIO = 0x08,
 } VlcbCanHardware;
+
+typedef enum VlcbProducerEvUsage
+{
+
+
+
+  PRODUCER_EV_NOT_SPECIFIED = 0x00,
+  PRODUCER_EV_HAPPENING = 0x01,
+  PRODUCER_EV_SLOTS = 0x02,
+} VlcbProducerEvUsage;
+
+typedef enum VlcbConsumerEvUsage
+{
+
+
+
+  CONSUMER_EV_NOT_SPECIFIED = 0x00,
+  CONSUMER_EV_ACTIONS = 0x01,
+  CONSUMER_EV_SLOTS = 0x02,
+} VlcbConsumerEvUsage;
 # 39 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
@@ -38649,37 +38750,31 @@ typedef struct Transport {
 extern const Transport * transport;
 # 455 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 42 "../../VLCBlib_PIC\\statusLeds.h" 2
+# 54 "../../VLCBlib_PIC/nv.c" 2
 
-# 1 "../../VLCBlib_PIC/ticktime.h" 1
-# 211 "../../VLCBlib_PIC/ticktime.h"
-typedef union _TickValue {
 
-    uint32_t val;
+# 1 "../../VLCBlib_PIC/nv.h" 1
+# 86 "../../VLCBlib_PIC/nv.h"
+extern const Service nvService;
 
-    struct TickBytes
-    {
-        uint8_t b0;
-        uint8_t b1;
-        uint8_t b2;
-        uint8_t b3;
-    } byte;
-    uint8_t v[4];
 
-    struct TickWords
-    {
-        uint16_t w0;
-        uint16_t w1;
-    } word;
-} TickValue;
-# 238 "../../VLCBlib_PIC/ticktime.h"
-void initTicker(uint8_t priority);
+
+
+typedef enum NvValidation {
+    INVALID=0,
+    VALID=1
+} NvValidation;
+# 103 "../../VLCBlib_PIC/nv.h"
+extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
+# 115 "../../VLCBlib_PIC/nv.h"
+extern int16_t getNV(uint8_t index);
 
 
 
 
 
-uint32_t tickGet(void);
+
+extern void saveNV(uint8_t index, uint8_t value);
 
 
 
@@ -38687,142 +38782,12 @@ uint32_t tickGet(void);
 
 
 
-extern volatile uint8_t timerExtension1;
+extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
 
-
-extern volatile uint8_t timerExtension2;
-# 43 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-# 1 "..\\module.h" 1
-# 44 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-# 1 "../../VLCBlib_PIC/statusDisplay.h" 1
-# 55 "../../VLCBlib_PIC/statusDisplay.h"
-typedef enum StatusDisplay {
-    STATUS_OFF,
-    STATUS_UNINITIALISED,
-    STATUS_SETUP,
-    STATUS_NORMAL,
-    STATUS_RESET_WARNING,
-    STATUS_LEARN,
-    STATUS_BOOT,
-    STATUS_MESSAGE_RECEIVED,
-    STATUS_MESSAGE_ACTED,
-    STATUS_TRANSMIT_ERROR,
-    STATUS_RECEIVE_ERROR,
-    STATUS_MEMORY_FAULT,
-    STATUS_FATAL_ERROR
-} StatusDisplay;
-# 45 "../../VLCBlib_PIC\\statusLeds.h" 2
-# 55 "../../VLCBlib_PIC\\statusLeds.h"
-typedef enum {
-    LED_OFF,
-    LED_ON,
-    LED_FLASH_50_2HZ,
-    LED_FLASH_50_1HZ,
-    LED_FLASH_50_HALF_HZ,
-    LED_SINGLE_FLICKER_OFF,
-    LED_SINGLE_FLICKER_ON,
-    LED_LONG_FLICKER_OFF,
-    LED_LONG_FLICKER_ON,
-    LED_OFF_1S
-} LedState;
-
-
-extern void leds_powerUp(void);
-extern void leds_poll(void);
-extern void showStatus(StatusDisplay s);
-# 8 "..\\module.h" 2
-# 60 "../../VLCBlib_PIC/event_producer.c" 2
-
-
-# 1 "../../VLCBlib_PIC/event_teach.h" 1
-# 98 "../../VLCBlib_PIC/event_teach.h"
-extern const Service eventTeachService;
-# 110 "../../VLCBlib_PIC/event_teach.h"
-extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
-
-extern Boolean validStart(uint8_t index);
-extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
-extern uint8_t getEVs(uint8_t tableIndex);
-extern uint8_t evs[20];
-extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
-extern uint16_t getNN(uint8_t tableIndex);
-extern uint16_t getEN(uint8_t tableIndex);
-extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
-extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, uint8_t forceOwnNN);
-
-extern void rebuildHashtable(void);
-extern uint8_t getHash(uint16_t nodeNumber, uint16_t eventNumber);
-
-extern void checkRemoveTableEntry(uint8_t tableIndex);
-
-
-
-
-
-typedef uint8_t Happening;
-
-
-
-
-
-
-
-typedef struct {
-    uint16_t NN;
-    uint16_t EN;
-} Event;
-
-
-
-
-
-typedef union
-{
-    struct
-    {
-        uint8_t eVsUsed:4;
-        uint8_t continued:1;
-        uint8_t continuation:1;
-        uint8_t forceOwnNN:1;
-        uint8_t freeEntry:1;
-    };
-    uint8_t asByte;
-} EventTableFlags;
-
-
-
-
-
-
-typedef struct {
-    EventTableFlags flags;
-    uint8_t next;
-    Event event;
-    uint8_t evs[10];
-} EventTable;
-# 62 "../../VLCBlib_PIC/event_producer.c" 2
-
-# 1 "../../VLCBlib_PIC/event_producer.h" 1
-# 76 "../../VLCBlib_PIC/event_producer.h"
-extern const Service eventProducerService;
-
-
-extern uint8_t happening2Event[71 +1];
-
-
-
-
-
-
-extern Boolean sendProducedEvent(Happening h, EventState state);
-extern void deleteHappeningRange(Happening happening, uint8_t number);
-# 96 "../../VLCBlib_PIC/event_producer.h"
-extern EventState APP_GetEventState(Happening h);
-# 63 "../../VLCBlib_PIC/event_producer.c" 2
+extern void loadNvCache(void);
+# 56 "../../VLCBlib_PIC/nv.c" 2
 
 # 1 "../../VLCBlib_PIC/mns.h" 1
 # 111 "../../VLCBlib_PIC/mns.h"
@@ -38848,150 +38813,130 @@ extern void updateModuleErrorStatus(void);
 
 
 extern TickValue pbTimer;
-# 64 "../../VLCBlib_PIC/event_producer.c" 2
+# 57 "../../VLCBlib_PIC/nv.c" 2
+
+
+# 1 "../../VLCBlib_PIC/timedResponse.h" 1
+# 86 "../../VLCBlib_PIC/timedResponse.h"
+typedef enum {
+    TIMED_RESPONSE_RESULT_FINISHED,
+    TIMED_RESPONSE_RESULT_RETRY,
+    TIMED_RESPONSE_RESULT_NEXT
+} TimedResponseResult;
 
 
 
-static Processed producerProcessMessage(Message *m);
 
-static void producerPowerUp(void);
-static DiagnosticVal * producerGetDiagnostic(uint8_t index);
-static DiagnosticVal producerDiagnostics[1];
-# 80 "../../VLCBlib_PIC/event_producer.c"
-const Service eventProducerService = {
-    SERVICE_ID_PRODUCER,
+
+typedef TimedResponseResult (* TimedResponseCallback)(uint8_t type, const Service * service, uint8_t step);
+
+
+
+
+extern void initTimedResponse(void);
+
+
+
+
+
+
+
+extern void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponseResult (*callback)(uint8_t type, uint8_t si, uint8_t step));
+
+
+
+
+
+extern void pollTimedResponse(void);
+# 59 "../../VLCBlib_PIC/nv.c" 2
+
+
+
+
+
+
+void loadNvCache(void);
+static void nvFactoryReset(void);
+static void nvPowerUp(void);
+static Processed nvProcessMessage(Message *m);
+static uint8_t nvGetESDdata(uint8_t id);
+TimedResponseResult nvTRnvrdCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
+
+static DiagnosticVal * nvGetDiagnostic(uint8_t index);
+static DiagnosticVal nvDiagnostics[2];
+# 82 "../../VLCBlib_PIC/nv.c"
+const Service nvService = {
+    SERVICE_ID_NV,
     1,
-    ((void*)0),
-
-    producerPowerUp,
-
-
-
-    producerProcessMessage,
+    nvFactoryReset,
+    nvPowerUp,
+    nvProcessMessage,
     ((void*)0),
 
 
 
 
 
-    ((void*)0),
+    nvGetESDdata,
 
 
-    producerGetDiagnostic
+    nvGetDiagnostic
 
 };
 
 
-static void producerPowerUp(void) {
+
+
+
+
+
+static uint8_t nvCache[127 +1];
+
+
+
+
+
+
+
+extern void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue);
+
+
+
+
+extern uint8_t APP_nvDefault(uint8_t index);
+
+
+
+
+
+static void nvFactoryReset(void) {
     uint8_t i;
-    for (i=0; i<1; i++) {
-        producerDiagnostics[i].asInt = 0;
+    for (i=1; i<= 127; i++) {
+        writeNVM(EEPROM_NVM_TYPE, 0x200 +i, APP_nvDefault(i));
     }
 }
-# 119 "../../VLCBlib_PIC/event_producer.c"
-static Processed producerProcessMessage(Message *m) {
-    uint8_t index;
-    Happening h;
-    int16_t ev;
-
-    switch (m->opc) {
-        case OPC_AREQ:
-        case OPC_ASRQ:
-            if (m->len < 5) {
-                sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, CMDERR_INV_CMD);
-                return PROCESSED;
-            }
-            if (m->opc == OPC_AREQ) {
-                index = findEvent((uint16_t)((m->bytes[0]<<8)|(m->bytes[1])), (uint16_t)((m->bytes[2]<<8)|(m->bytes[3])));
-            } else {
-                index = findEvent(0, (uint16_t)((m->bytes[2]<<8)|(m->bytes[3])));
-            }
-            if (index == 0xff) return PROCESSED;
-
-            ev = getEv(index, 0);
-            if (ev <= 0) return PROCESSED;
-
-            h = (uint8_t)ev;
 
 
 
 
+static void nvPowerUp(void) {
 
-
-
-            if (m->opc == OPC_AREQ) {
-                if (APP_GetEventState(h) == EVENT_ON) {
-                    sendMessage4(OPC_ARON, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
-                } else {
-                    sendMessage4(OPC_AROF, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
-                }
-            } else {
-                if (APP_GetEventState(h) == EVENT_ON) {
-                    sendMessage4(OPC_ARSON, nn.bytes.hi, nn.bytes.lo, m->bytes[2], m->bytes[3]);
-                } else {
-                    sendMessage4(OPC_ARSOF, nn.bytes.hi, nn.bytes.lo, m->bytes[2], m->bytes[3]);
-                }
-            }
-            return PROCESSED;
-        default:
-            break;
+    uint8_t i;
+    for (i=0; i<2; i++) {
+        nvDiagnostics[i].asUint = 0;
     }
-    return NOT_PROCESSED;
+
+
+    loadNvCache();
+
 }
 
 
-
-
-
-
-
-static DiagnosticVal * producerGetDiagnostic(uint8_t index) {
-    if ((index<1) || (index>1)) {
+static DiagnosticVal * nvGetDiagnostic(uint8_t index) {
+    if ((index<1) || (index>2)) {
         return ((void*)0);
     }
-    return &(producerDiagnostics[index-1]);
-}
-# 194 "../../VLCBlib_PIC/event_producer.c"
-Boolean sendProducedEvent(Happening happening, EventState onOff) {
-    Word producedEventNN;
-    Word producedEventEN;
-    uint8_t opc;
-
-
-
-
-
-    if (happening2Event[happening] == 0xff) return FALSE;
-    producedEventNN.word = getNN(happening2Event[happening]);
-    producedEventEN.word = getEN(happening2Event[happening]);
-# 229 "../../VLCBlib_PIC/event_producer.c"
-                if (producedEventNN.word == 0) {
-
-                    if (onOff == EVENT_ON) {
-                        opc = OPC_ASON;
-                    } else {
-                        opc = OPC_ASOF;
-                    }
-                    producedEventNN.word = nn.word;
-                } else {
-
-                    if (onOff == EVENT_ON) {
-                        opc = OPC_ACON;
-                    } else {
-                        opc = OPC_ACOF;
-                    }
-                }
-                sendMessage4(opc, producedEventNN.bytes.hi, producedEventNN.bytes.lo, producedEventEN.bytes.hi, producedEventEN.bytes.lo);
-
-                producerDiagnostics[0].asUint++;
-
-                return TRUE;
-
-
-
-
-
-    return FALSE;
+    return &(nvDiagnostics[index-1]);
 }
 
 
@@ -38999,22 +38944,192 @@ Boolean sendProducedEvent(Happening happening, EventState onOff) {
 
 
 
-void deleteHappeningRange(Happening happening, uint8_t number) {
-    uint8_t tableIndex;
-    for (tableIndex=0; tableIndex < 255; tableIndex++) {
-        if ( validStart(tableIndex)) {
-            EventTableFlags f;
-            Happening h;
-            f.asByte = (uint8_t)readNVM(FLASH_NVM_TYPE,
-                    0x1E000 + 16*tableIndex+0);
-            h = (Happening)readNVM(FLASH_NVM_TYPE,
-                    0x1E000 + 16*tableIndex+6);
-            if ((h >= happening) && (h < happening+number)) {
-                writeEv(tableIndex, 0, 0);
-                checkRemoveTableEntry(tableIndex);
-            }
+void loadNvCache(void) {
+    uint8_t i;
+    int16_t temp;
+
+    for (i=1; i<= 127; i++) {
+        temp = readNVM(EEPROM_NVM_TYPE, 0x200 +i);
+        if (temp < 0) {
+
+        } else {
+            nvCache[i] = (uint8_t)temp;
         }
     }
-    flushFlashBlock();
-    rebuildHashtable();
+}
+
+
+
+
+
+
+
+int16_t getNV(uint8_t index) {
+    if (index == 0) return 127;
+    if (index > 127) return -CMDERR_INV_NV_IDX;
+
+    return nvCache[index];
+
+
+
+}
+# 198 "../../VLCBlib_PIC/nv.c"
+void saveNV(uint8_t index, uint8_t value) {
+
+    nvCache[index] = value;
+
+    writeNVM(EEPROM_NVM_TYPE, 0x200 +index, value);
+}
+# 217 "../../VLCBlib_PIC/nv.c"
+uint8_t setNV(uint8_t index, uint8_t value) {
+    uint8_t oldValue;
+
+    if (index > 127) return CMDERR_INV_NV_IDX;
+    if (APP_nvValidate(index, value) == INVALID) return CMDERR_INV_NV_VALUE;
+
+    oldValue = nvCache[index];
+    nvCache[index] = value;
+    writeNVM(EEPROM_NVM_TYPE, 0x200 +index, value);
+
+
+
+
+    APP_nvValueChanged(index, value, oldValue);
+    return 0;
+}
+
+
+
+
+
+
+static Processed nvProcessMessage(Message * m) {
+    int16_t valueOrError;
+
+    if (m->len < 3) {
+        return NOT_PROCESSED;
+    }
+
+    if (m->bytes[0] != nn.bytes.hi) return NOT_PROCESSED;
+    if (m->bytes[1] != nn.bytes.lo) return NOT_PROCESSED;
+
+    switch (m->opc) {
+        case OPC_NVRD:
+            if (m->len < 4) {
+                sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, CMDERR_INV_CMD);
+
+                sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
+
+
+                nvDiagnostics[0x01].asUint++;
+
+                return PROCESSED;
+            }
+            valueOrError = getNV(m->bytes[2]);
+            if (valueOrError < 0) {
+                sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(-valueOrError));
+
+                sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, (uint8_t)(-valueOrError));
+
+
+                nvDiagnostics[0x01].asUint++;
+
+                return PROCESSED;
+            }
+
+            nvDiagnostics[0x00].asUint++;
+
+            sendMessage4(OPC_NVANS, nn.bytes.hi, nn.bytes.lo, m->bytes[2], (uint8_t)(valueOrError));
+
+            if (m->bytes[2] == 0) {
+
+                startTimedResponse(6, findServiceIndex(SERVICE_ID_NV), nvTRnvrdCallback);
+            }
+
+            return PROCESSED;
+        case OPC_NVSET:
+            if (m->len < 5) {
+
+
+                sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSET, SERVICE_ID_MNS, CMDERR_INV_CMD);
+
+
+                nvDiagnostics[0x01].asUint++;
+
+                return PROCESSED;
+            }
+            valueOrError = setNV(m->bytes[2], m->bytes[3]);
+            if (valueOrError >0) {
+                sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(valueOrError));
+
+
+                nvDiagnostics[0x01].asUint++;
+
+                return PROCESSED;
+            }
+            sendMessage2(OPC_WRACK, nn.bytes.hi, nn.bytes.lo);
+
+            sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSET, SERVICE_ID_MNS, GRSP_OK);
+
+            return PROCESSED;
+
+        case OPC_NVSETRD:
+            if (m->len < 5) {
+
+                sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSETRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
+
+                nvDiagnostics[0x01].asUint++;
+
+                return PROCESSED;
+            }
+            valueOrError = setNV(m->bytes[2], m->bytes[3]);
+            if (valueOrError >0) {
+                sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(valueOrError));
+                sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSETRD, SERVICE_ID_MNS, (uint8_t)(valueOrError));
+
+                nvDiagnostics[0x01].asUint++;
+
+                return PROCESSED;
+            }
+            valueOrError = getNV(m->bytes[2]);
+            if (valueOrError < 0) {
+                sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(-valueOrError));
+                sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSETRD, SERVICE_ID_MNS, (uint8_t)(-valueOrError));
+
+                nvDiagnostics[0x01].asUint++;
+
+                return PROCESSED;
+            }
+            sendMessage4(OPC_NVANS, nn.bytes.hi, nn.bytes.lo, m->bytes[2], (uint8_t)(valueOrError));
+
+            nvDiagnostics[0x00].asUint++;
+
+            return PROCESSED;
+
+        default:
+            return NOT_PROCESSED;
+    }
+}
+# 354 "../../VLCBlib_PIC/nv.c"
+static uint8_t nvGetESDdata(uint8_t id) {
+    switch (id) {
+        case 1: return 127;
+        default: return 0;
+    }
+}
+# 370 "../../VLCBlib_PIC/nv.c"
+TimedResponseResult nvTRnvrdCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
+    int16_t valueOrError;
+    if (step > 127) {
+        return TIMED_RESPONSE_RESULT_FINISHED;
+    }
+    valueOrError = getNV(step+1);
+    if (valueOrError < 0) {
+        return TIMED_RESPONSE_RESULT_FINISHED;
+    }
+    sendMessage4(OPC_NVANS, nn.bytes.hi, nn.bytes.lo, step+1, (uint8_t)(valueOrError));
+
+    nvDiagnostics[0x00].asUint++;
+
+    return TIMED_RESPONSE_RESULT_NEXT;
 }

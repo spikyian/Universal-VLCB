@@ -1599,7 +1599,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> . *U _m 1 `ui -> . `E12342 71 `ui 1550  ]
 {
 "132
-[; ;../../VLCBlib_PIC/event_producer.c: 132:                 index = findEvent((m->bytes[0]<<8)|(m->bytes[1]), (m->bytes[2]<<8)|(m->bytes[3]));
+[; ;../../VLCBlib_PIC/event_producer.c: 132:                 index = findEvent((uint16_t)((m->bytes[0]<<8)|(m->bytes[1])), (uint16_t)((m->bytes[2]<<8)|(m->bytes[3])));
 [e = _index ( _findEvent (2 , -> | << -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us -> | << -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us ]
 "133
 [; ;../../VLCBlib_PIC/event_producer.c: 133:             } else {
@@ -1608,7 +1608,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1550 ]
 {
 "134
-[; ;../../VLCBlib_PIC/event_producer.c: 134:                 index = findEvent(0, (m->bytes[2]<<8)|(m->bytes[3]));
+[; ;../../VLCBlib_PIC/event_producer.c: 134:                 index = findEvent(0, (uint16_t)((m->bytes[2]<<8)|(m->bytes[3])));
 [e = _index ( _findEvent (2 , -> -> 0 `i `us -> | << -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 8 `i -> *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i `us ]
 "135
 [; ;../../VLCBlib_PIC/event_producer.c: 135:             }
@@ -1624,8 +1624,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/event_producer.c: 138:             ev = getEv(index, 0);
 [e = _ev ( _getEv (2 , _index -> -> 0 `i `uc ]
 "139
-[; ;../../VLCBlib_PIC/event_producer.c: 139:             if (ev < 0) return PROCESSED;
-[e $ ! < -> _ev `i -> 0 `i 1553  ]
+[; ;../../VLCBlib_PIC/event_producer.c: 139:             if (ev <= 0) return PROCESSED;
+[e $ ! <= -> _ev `i -> 0 `i 1553  ]
 [e ) . `E12733 1 ]
 [e $UE 1544  ]
 [e :U 1553 ]

@@ -21703,7 +21703,7 @@ void factoryReset(void) {
         }
     }
 
-    writeNVM(FLASH_NVM_TYPE, 0xFF80, 1);
+    writeNVM(EEPROM_NVM_TYPE, 0x3FA, 1);
 
     APP_factoryReset();
 }
@@ -21970,7 +21970,7 @@ void main(void) {
 # 1291 "../../VLCBlib_PIC/vlcb.c"
     initRomOps();
 
-    if (readNVM(FLASH_NVM_TYPE, 0xFF80) != 1) {
+    if (readNVM(EEPROM_NVM_TYPE, 0x3FA) != 1) {
         factoryReset();
     }
 

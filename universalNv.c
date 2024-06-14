@@ -63,10 +63,8 @@ static const uint8_t channelDefaultNVs[11][NVS_PER_IO] = {
     {4,6,3,128,128,128,0},    // MULTI
     {5,6,128,16,0,0,0},       // ANALOGUE
     {6,6,0,123,32,7,255},     // MAGNET
-    {7,0,0,0,0,0,0},          // CDU
-    {8,0,0,0,0,0,0},          // VDOUBLER
-    {9,0,0,0,0,0,0},          // CHGCNTROL
-    {10,0,0,0,0,0,0},          // RAILCOM
+    {7,6,5,0,0,0,0},          // CDU
+    {8,0,0,0,0,0,0},          // RAILCOM
 };
 
 /**
@@ -90,6 +88,8 @@ uint8_t APP_nvDefault(uint8_t index) {
             case NV_MID_CHANNELS_PULLUPS:
             case NV_TOP_CHANNELS_PULLUPS:
                 return 0xFF;
+            case NV_CDU_CHARGE_TIME:
+                return 20;
             default:
                 return 0;
         }
@@ -299,11 +299,16 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
 NvValidation APP_nvValidate(uint8_t index, uint8_t value)  {
     uint8_t io;
     if ((index >= NV_IO_START) && IS_NV_TYPE(index)) {
+        io = IO_NV(index);
+#ifdef CANCDU
+        if (io < NUM_IO_MAIN) {
+            return INVALID;
+        }
+#endif
         switch (value) {
 #ifdef ANALOGUE
             case TYPE_ANALOGUE_IN:
             case TYPE_MAGNET:
-                io = IO_NV(index);
                 if (configs[io].an == 0xFF) return INVALID;
                 break;
 #endif

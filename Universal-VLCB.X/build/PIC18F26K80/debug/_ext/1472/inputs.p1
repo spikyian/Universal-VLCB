@@ -1,11 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "78 ../inputs.c
 [; ;../inputs.c: 78:         uint8_t input = readInput(io);
-[c E12701 0 1 .. ]
-[n E12701 Boolean FALSE TRUE  ]
+[c E12711 0 1 .. ]
+[n E12711 Boolean FALSE TRUE  ]
 "66
 [; ;../inputs.c: 66: Boolean readInput(uint8_t io);
-[v _readInput `(E12701 ~T0 @X0 0 ef1`uc ]
+[v _readInput `(E12711 ~T0 @X0 0 ef1`uc ]
 "115 ../../VLCBlib_PIC\nv.h
 [; ;../../VLCBlib_PIC\nv.h: 115: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
@@ -19,21 +19,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _writeNVM `(uc ~T0 @X0 0 ef3`E12210`um`uc ]
 "140 ../inputs.c
 [; ;../inputs.c: 140:                                 sendProducedEvent(((8 + 4*(io))+0), EVENT_OFF);
-[c E12721 255 0 1 .. ]
-[n E12721 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
-"86 ../../VLCBlib_PIC\event_producer.h
-[; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
-[v _sendProducedEvent `(E12701 ~T0 @X0 0 ef2`uc`E12721 ]
+[c E12731 255 0 1 .. ]
+[n E12731 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
+"92 ../../VLCBlib_PIC\event_producer.h
+[; ;../../VLCBlib_PIC\event_producer.h: 92: extern Boolean sendProducedEvent(Happening h, EventState state);
+[v _sendProducedEvent `(E12711 ~T0 @X0 0 ef2`uc`E12731 ]
 "29859 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 29859: extern volatile unsigned char PORTA __attribute__((address(0xF80)));
 [v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
 "47 ../config.h
 [; ;../config.h: 47: typedef struct {
-[s S1550 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S1550 . pin port no an ]
+[s S1547 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S1547 . pin port no an ]
 "54
 [; ;../config.h: 54: extern const Config configs[16];
-[v _configs `CS1550 ~T0 @X0 -> 0 `x e ]
+[v _configs `CS1547 ~T0 @X0 -> 0 `x e ]
 "29938 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 29938: extern volatile unsigned char PORTB __attribute__((address(0xF81)));
 [v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
@@ -1436,9 +1436,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../inputs.c: 77:     for (io=0; io<16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1552  ]
-[e $U 1553  ]
-[e :U 1552 ]
+[e $ < -> _io `i -> 16 `i 1549  ]
+[e $U 1550  ]
+[e :U 1549 ]
 {
 "78
 [; ;../inputs.c: 78:         uint8_t input = readInput(io);
@@ -1449,7 +1449,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _inputState * -> _io `ux -> -> # *U &U _inputState `ui `ux _input ]
 "80
 [; ;../inputs.c: 80:         if (!(getNV((16 + 7*(io) + 1)) & 0x01)) {
-[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1555  ]
+[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1552  ]
 {
 "81
 [; ;../inputs.c: 81:             input = !input;
@@ -1457,13 +1457,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;../inputs.c: 82:         }
 }
-[e :U 1555 ]
+[e :U 1552 ]
 "83
 [; ;../inputs.c: 83:         outputState[io] = input;
 [e = *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux _input ]
 "84
 [; ;../inputs.c: 84:         if (getNV((16 + 7*(io) + 1)) & 0x10) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 16 `i -> 0 `i 1556  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 16 `i -> 0 `i 1553  ]
 {
 "85
 [; ;../inputs.c: 85:             outputState[io] = (uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io);
@@ -1471,7 +1471,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "86
 [; ;../inputs.c: 86:         }
 }
-[e :U 1556 ]
+[e :U 1553 ]
 "87
 [; ;../inputs.c: 87:         delayCount[io] = 0;
 [e = *U + &U _delayCount * -> _io `ux -> -> # *U &U _delayCount `ui `ux -> -> 0 `i `uc ]
@@ -1479,12 +1479,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../inputs.c: 88:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1552  ]
-[e :U 1553 ]
+[e $ < -> _io `i -> 16 `i 1549  ]
+[e :U 1550 ]
 }
 "89
 [; ;../inputs.c: 89: }
-[e :UE 1551 ]
+[e :UE 1548 ]
 }
 "101
 [; ;../inputs.c: 101: void inputScan(void) {
@@ -1496,13 +1496,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../inputs.c: 102:     for (io=0; io< 16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1558  ]
-[e $U 1559  ]
-[e :U 1558 ]
+[e $ < -> _io `i -> 16 `i 1555  ]
+[e $U 1556  ]
+[e :U 1555 ]
 {
 "103
 [; ;../inputs.c: 103:         if (getNV((16 + 7*(io) + 0)) == 0) {
-[e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i -> 0 `i 1561  ]
+[e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i -> 0 `i 1558  ]
 {
 "104
 [; ;../inputs.c: 104:             uint8_t input = readInput(io);
@@ -1510,37 +1510,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _input -> ( _readInput (1 _io `uc ]
 "105
 [; ;../inputs.c: 105:             if (input != inputState[io]) {
-[e $ ! != -> _input `i -> *U + &U _inputState * -> _io `ux -> -> # *U &U _inputState `ui `ux `i 1562  ]
+[e $ ! != -> _input `i -> *U + &U _inputState * -> _io `ux -> -> # *U &U _inputState `ui `ux `i 1559  ]
 {
 "106
 [; ;../inputs.c: 106:                 Boolean change = FALSE;
-[v _change `E12701 ~T0 @X0 1 a ]
-[e = _change . `E12701 0 ]
+[v _change `E12711 ~T0 @X0 1 a ]
+[e = _change . `E12711 0 ]
 "108
 [; ;../inputs.c: 108:                 if (inputState[io] && (delayCount[io] == getNV((16 + 7*(io) + 2)))) {
-[e $ ! && != -> *U + &U _inputState * -> _io `ux -> -> # *U &U _inputState `ui `ux `i -> 0 `i == -> *U + &U _delayCount * -> _io `ux -> -> # *U &U _delayCount `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i 1563  ]
+[e $ ! && != -> *U + &U _inputState * -> _io `ux -> -> # *U &U _inputState `ui `ux `i -> 0 `i == -> *U + &U _delayCount * -> _io `ux -> -> # *U &U _delayCount `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i 1560  ]
 {
 "109
 [; ;../inputs.c: 109:                     change = TRUE;
-[e = _change . `E12701 1 ]
+[e = _change . `E12711 1 ]
 "110
 [; ;../inputs.c: 110:                 }
 }
-[e :U 1563 ]
+[e :U 1560 ]
 "111
 [; ;../inputs.c: 111:                 if (!inputState[io] && (delayCount[io] == getNV((16 + 7*(io) + 3)))) {
-[e $ ! && ! != -> *U + &U _inputState * -> _io `ux -> -> # *U &U _inputState `ui `ux `i -> 0 `i == -> *U + &U _delayCount * -> _io `ux -> -> # *U &U _delayCount `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i 1564  ]
+[e $ ! && ! != -> *U + &U _inputState * -> _io `ux -> -> # *U &U _inputState `ui `ux `i -> 0 `i == -> *U + &U _delayCount * -> _io `ux -> -> # *U &U _delayCount `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i 1561  ]
 {
 "112
 [; ;../inputs.c: 112:                     change = TRUE;
-[e = _change . `E12701 1 ]
+[e = _change . `E12711 1 ]
 "113
 [; ;../inputs.c: 113:                 }
 }
-[e :U 1564 ]
+[e :U 1561 ]
 "114
 [; ;../inputs.c: 114:                 if (change) {
-[e $ ! != -> _change `ui -> -> 0 `i `ui 1565  ]
+[e $ ! != -> _change `ui -> -> 0 `i `ui 1562  ]
 {
 "116
 [; ;../inputs.c: 116:                     delayCount[io] = 0;
@@ -1550,7 +1550,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _inputState * -> _io `ux -> -> # *U &U _inputState `ui `ux _input ]
 "119
 [; ;../inputs.c: 119:                     if (!(getNV((16 + 7*(io) + 1)) & 0x01)) {
-[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1566  ]
+[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1563  ]
 {
 "120
 [; ;../inputs.c: 120:                         input = !input;
@@ -1558,14 +1558,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121
 [; ;../inputs.c: 121:                     }
 }
-[e :U 1566 ]
+[e :U 1563 ]
 "123
 [; ;../inputs.c: 123:                     if (getNV((16 + 7*(io) + 1)) & 0x10) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 16 `i -> 0 `i 1567  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 16 `i -> 0 `i 1564  ]
 {
 "124
 [; ;../inputs.c: 124:                         if (input) {
-[e $ ! != -> _input `i -> 0 `i 1568  ]
+[e $ ! != -> _input `i -> 0 `i 1565  ]
 {
 "125
 [; ;../inputs.c: 125:                             outputState[io] = ! outputState[io];
@@ -1573,24 +1573,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "126
 [; ;../inputs.c: 126:                         } else {
 }
-[e $U 1569  ]
-[e :U 1568 ]
+[e $U 1566  ]
+[e :U 1565 ]
 {
 "127
 [; ;../inputs.c: 127:                             continue;
-[e $U 1560  ]
+[e $U 1557  ]
 "128
 [; ;../inputs.c: 128:                         }
 }
-[e :U 1569 ]
+[e :U 1566 ]
 "129
 [; ;../inputs.c: 129:                         writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, outputState[io]);
 [e ( _writeNVM (3 , , . `E12210 0 -> + - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui -> _io `ui `um *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux ]
 "130
 [; ;../inputs.c: 130:                      } else {
 }
-[e $U 1570  ]
-[e :U 1567 ]
+[e $U 1567  ]
+[e :U 1564 ]
 {
 "131
 [; ;../inputs.c: 131:                         outputState[io] = input;
@@ -1598,100 +1598,100 @@ Version 4.0 HI-TECH Software Intermediate Code
 "132
 [; ;../inputs.c: 132:                     }
 }
-[e :U 1570 ]
+[e :U 1567 ]
 "135
 [; ;../inputs.c: 135:                     if (getNV((16 + 7*(io) + 1)) & 0x08) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 8 `i -> 0 `i 1571  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 8 `i -> 0 `i 1568  ]
 {
 "136
 [; ;../inputs.c: 136:                         if (outputState[io]) {
-[e $ ! != -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `i -> 0 `i 1572  ]
+[e $ ! != -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `i -> 0 `i 1569  ]
 {
 "139
 [; ;../inputs.c: 139:                             if (getNV((16 + 7*(io) + 1)) & 0x40) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i 1573  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i 1570  ]
 {
 "140
 [; ;../inputs.c: 140:                                 sendProducedEvent(((8 + 4*(io))+0), EVENT_OFF);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E12721 1 ]
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E12731 1 ]
 "141
 [; ;../inputs.c: 141:                             } else {
+}
+[e $U 1571  ]
+[e :U 1570 ]
+{
+"142
+[; ;../inputs.c: 142:                                 sendProducedEvent(((8 + 4*(io))+0), EVENT_ON);
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E12731 2 ]
+"143
+[; ;../inputs.c: 143:                             }
+}
+[e :U 1571 ]
+"144
+[; ;../inputs.c: 144:                         } else {
+}
+[e $U 1572  ]
+[e :U 1569 ]
+{
+"145
+[; ;../inputs.c: 145:                             if (getNV((16 + 7*(io) + 1)) & 0x40) {
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i 1573  ]
+{
+"146
+[; ;../inputs.c: 146:                                 sendProducedEvent(((8 + 4*(io))+1), EVENT_OFF);
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc . `E12731 1 ]
+"147
+[; ;../inputs.c: 147:                             } else {
 }
 [e $U 1574  ]
 [e :U 1573 ]
 {
-"142
-[; ;../inputs.c: 142:                                 sendProducedEvent(((8 + 4*(io))+0), EVENT_ON);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E12721 2 ]
-"143
-[; ;../inputs.c: 143:                             }
+"148
+[; ;../inputs.c: 148:                                 sendProducedEvent(((8 + 4*(io))+1), EVENT_ON);
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc . `E12731 2 ]
+"149
+[; ;../inputs.c: 149:                             }
 }
 [e :U 1574 ]
-"144
-[; ;../inputs.c: 144:                         } else {
+"150
+[; ;../inputs.c: 150:                         }
+}
+[e :U 1572 ]
+"151
+[; ;../inputs.c: 151:                     } else {
 }
 [e $U 1575  ]
-[e :U 1572 ]
+[e :U 1568 ]
 {
-"145
-[; ;../inputs.c: 145:                             if (getNV((16 + 7*(io) + 1)) & 0x40) {
+"153
+[; ;../inputs.c: 153:                         if (getNV((16 + 7*(io) + 1)) & 0x40) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i 1576  ]
 {
-"146
-[; ;../inputs.c: 146:                                 sendProducedEvent(((8 + 4*(io))+1), EVENT_OFF);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc . `E12721 1 ]
-"147
-[; ;../inputs.c: 147:                             } else {
+"154
+[; ;../inputs.c: 154:                             sendProducedEvent(((8 + 4*(io))+0), !outputState[io]);
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> ! != -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `i -> 0 `i `i `E12731 ]
+"155
+[; ;../inputs.c: 155:                         } else {
 }
 [e $U 1577  ]
 [e :U 1576 ]
 {
-"148
-[; ;../inputs.c: 148:                                 sendProducedEvent(((8 + 4*(io))+1), EVENT_ON);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 1 `i `uc . `E12721 2 ]
-"149
-[; ;../inputs.c: 149:                             }
-}
-[e :U 1577 ]
-"150
-[; ;../inputs.c: 150:                         }
-}
-[e :U 1575 ]
-"151
-[; ;../inputs.c: 151:                     } else {
-}
-[e $U 1578  ]
-[e :U 1571 ]
-{
-"153
-[; ;../inputs.c: 153:                         if (getNV((16 + 7*(io) + 1)) & 0x40) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i -> 0 `i 1579  ]
-{
-"154
-[; ;../inputs.c: 154:                             sendProducedEvent(((8 + 4*(io))+0), !outputState[io]);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> -> ! != -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `i -> 0 `i `i `E12721 ]
-"155
-[; ;../inputs.c: 155:                         } else {
-}
-[e $U 1580  ]
-[e :U 1579 ]
-{
 "156
 [; ;../inputs.c: 156:                             sendProducedEvent(((8 + 4*(io))+0), outputState[io]);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `E12721 ]
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> *U + &U _outputState * -> _io `ux -> -> # *U &U _outputState `ui `ux `E12731 ]
 "157
 [; ;../inputs.c: 157:                         }
 }
-[e :U 1580 ]
+[e :U 1577 ]
 "158
 [; ;../inputs.c: 158:                     }
 }
-[e :U 1578 ]
+[e :U 1575 ]
 "159
 [; ;../inputs.c: 159:                 } else {
 }
-[e $U 1581  ]
-[e :U 1565 ]
+[e $U 1578  ]
+[e :U 1562 ]
 {
 "160
 [; ;../inputs.c: 160:                     delayCount[io]++;
@@ -1699,12 +1699,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "161
 [; ;../inputs.c: 161:                 }
 }
-[e :U 1581 ]
+[e :U 1578 ]
 "162
 [; ;../inputs.c: 162:             } else {
 }
-[e $U 1582  ]
-[e :U 1562 ]
+[e $U 1579  ]
+[e :U 1559 ]
 {
 "163
 [; ;../inputs.c: 163:                 delayCount[io] = 0;
@@ -1712,78 +1712,78 @@ Version 4.0 HI-TECH Software Intermediate Code
 "164
 [; ;../inputs.c: 164:             }
 }
-[e :U 1582 ]
+[e :U 1579 ]
 "165
 [; ;../inputs.c: 165:         }
 }
-[e :U 1561 ]
+[e :U 1558 ]
 "166
 [; ;../inputs.c: 166:     }
 }
-[e :U 1560 ]
+[e :U 1557 ]
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1558  ]
-[e :U 1559 ]
+[e $ < -> _io `i -> 16 `i 1555  ]
+[e :U 1556 ]
 }
 "167
 [; ;../inputs.c: 167: }
-[e :UE 1557 ]
+[e :UE 1554 ]
 }
 "174
 [; ;../inputs.c: 174: Boolean readInput(uint8_t io) {
-[v _readInput `(E12701 ~T0 @X0 1 ef1`uc ]
+[v _readInput `(E12711 ~T0 @X0 1 ef1`uc ]
 {
 [e :U _readInput ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [f ]
 "175
 [; ;../inputs.c: 175:     if (getNV((16 + 7*(io) + 0)) == 0) {
-[e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i -> 0 `i 1584  ]
+[e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i -> 0 `i 1581  ]
 {
 "176
 [; ;../inputs.c: 176:             switch(configs[io].port) {
-[e $U 1586  ]
+[e $U 1583  ]
 {
 "177
 [; ;../inputs.c: 177:             case 'A':
-[e :U 1587 ]
+[e :U 1584 ]
 "178
 [; ;../inputs.c: 178:                 return PORTA & (1<<configs[io].no);
-[e ) -> & -> _PORTA `i << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `E12701 ]
-[e $UE 1583  ]
+[e ) -> & -> _PORTA `i << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `E12711 ]
+[e $UE 1580  ]
 "179
 [; ;../inputs.c: 179:             case 'B':
-[e :U 1588 ]
+[e :U 1585 ]
 "180
 [; ;../inputs.c: 180:                 return PORTB & (1<<configs[io].no);
-[e ) -> & -> _PORTB `i << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `E12701 ]
-[e $UE 1583  ]
+[e ) -> & -> _PORTB `i << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `E12711 ]
+[e $UE 1580  ]
 "181
 [; ;../inputs.c: 181:             case 'C':
-[e :U 1589 ]
+[e :U 1586 ]
 "182
 [; ;../inputs.c: 182:                 return PORTC & (1<<configs[io].no);
-[e ) -> & -> _PORTC `i << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `E12701 ]
-[e $UE 1583  ]
+[e ) -> & -> _PORTC `i << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `E12711 ]
+[e $UE 1580  ]
 "189
 [; ;../inputs.c: 189:             }
 }
-[e $U 1585  ]
-[e :U 1586 ]
-[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 1587
- , $ -> -> 66 `ui `i 1588
- , $ -> -> 67 `ui `i 1589
- 1585 ]
-[e :U 1585 ]
+[e $U 1582  ]
+[e :U 1583 ]
+[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 1584
+ , $ -> -> 66 `ui `i 1585
+ , $ -> -> 67 `ui `i 1586
+ 1582 ]
+[e :U 1582 ]
 "190
 [; ;../inputs.c: 190:         }
 }
-[e :U 1584 ]
+[e :U 1581 ]
 "191
 [; ;../inputs.c: 191:     return FALSE;
-[e ) . `E12701 0 ]
-[e $UE 1583  ]
+[e ) . `E12711 0 ]
+[e $UE 1580  ]
 "192
 [; ;../inputs.c: 192: }
-[e :UE 1583 ]
+[e :UE 1580 ]
 }

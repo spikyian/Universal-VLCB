@@ -153,7 +153,14 @@ void defaultEvents(uint8_t io, uint8_t type) {
             addEvent(nn.word, en, 0, HAPPENING_IO_MAGNETH(io), TRUE);
             addEvent(nn.word, 100+en, 0, HAPPENING_IO_MAGNETL(io), TRUE);
             break;
-#endif 
+#endif
+#ifdef CANCDU
+        case TYPE_CDU:    
+            // Consume ACON/ASON and ACOF/ASOF events with en as port number
+            addEvent(nn.word, en, 1, ACTION_IO_CDU_EV(io), TRUE);
+            addEvent(nn.word, en, 2, ACTION_IO_CDU_NOT_EV(io ^ 1), TRUE);
+            break;
+#endif
     }
 }
 
@@ -252,7 +259,6 @@ void processActions(void) {
             ioAction = ACTION(ioAction);
             type = (uint8_t)getNV(NV_IO_TYPE(io));
 
-            // check if a simultaneous action needs to be started
             setOutputState(io, ioAction, type);
             if (needsStarting(io, ioAction, type)) {
                 startOutput(io, ioAction, type);

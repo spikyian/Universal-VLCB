@@ -37704,7 +37704,6 @@ typedef enum VlcbManufacturer
   MANU_VLCB = 250,
   MANU_SYSPIXIE = 249,
   MANU_RME = 248,
-
 } VlcbManufacturer;
 
 typedef enum VlcbMergModuleTypes
@@ -37809,7 +37808,6 @@ typedef enum VlcbMergModuleTypes
 
 
 
-
   MTYP_CAN_SW = 0xFF,
   MTYP_EMPTY = 0xFE,
   MTYP_CANUSB = 0xFD,
@@ -37830,7 +37828,6 @@ typedef enum VlcbSprogModuleTypes
   MTYP_CANSERVOIO = 50,
   MTYP_CANISB = 100,
   MTYP_CANSOLIO = 101,
-
 } VlcbSprogModuleTypes;
 
 typedef enum VlcbRocRailModuleTypes
@@ -37855,7 +37852,6 @@ typedef enum VlcbSpectrumModuleTypes
 
   MTYP_AMCTRLR = 1,
   MTYP_DUALCAB = 2,
-
 } VlcbSpectrumModuleTypes;
 
 typedef enum VlcbSysPixieModuleTypes
@@ -37864,7 +37860,6 @@ typedef enum VlcbSysPixieModuleTypes
 
 
   MTYP_CANPMSense = 1,
-
 } VlcbSysPixieModuleTypes;
 
 typedef enum VlcbOpCodes
@@ -38334,13 +38329,13 @@ typedef enum VlcbArmProcessors
   ARM1176JZF_S = 1,
   ARMCortex_A7 = 2,
   ARMCortex_A53 = 3,
-
-
-
 } VlcbArmProcessors;
 
 typedef enum VlcbCanHardware
 {
+
+
+
   CAN_HW_NOT_SPECIFIED = 0x00,
   CAN_HW_PIC_ECAN = 0x01,
   CAN_HW_PIC_CAN_2_0 = 0x02,
@@ -38348,9 +38343,29 @@ typedef enum VlcbCanHardware
   CAN_HW_MCP2515 = 0x04,
   CAN_HW_MCP2518 = 0x05,
   CAN_HW_ESP32_TWAI = 0x06,
-  CAN_HW_SAM3X8E = 0x06,
-  CAN_HW_PICO_PIO = 0x07,
+  CAN_HW_SAM3X8E = 0x07,
+  CAN_HW_PICO_PIO = 0x08,
 } VlcbCanHardware;
+
+typedef enum VlcbProducerEvUsage
+{
+
+
+
+  PRODUCER_EV_NOT_SPECIFIED = 0x00,
+  PRODUCER_EV_HAPPENING = 0x01,
+  PRODUCER_EV_SLOTS = 0x02,
+} VlcbProducerEvUsage;
+
+typedef enum VlcbConsumerEvUsage
+{
+
+
+
+  CONSUMER_EV_NOT_SPECIFIED = 0x00,
+  CONSUMER_EV_ACTIONS = 0x01,
+  CONSUMER_EV_SLOTS = 0x02,
+} VlcbConsumerEvUsage;
 # 39 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
@@ -38849,12 +38864,11 @@ extern const Service bootService;
 # 50 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_teach.h" 1
-# 98 "../../VLCBlib_PIC\\event_teach.h"
+# 77 "../../VLCBlib_PIC\\event_teach.h"
 extern const Service eventTeachService;
-# 110 "../../VLCBlib_PIC\\event_teach.h"
+# 89 "../../VLCBlib_PIC\\event_teach.h"
 extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
 
-extern Boolean validStart(uint8_t index);
 extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
 extern uint8_t getEVs(uint8_t tableIndex);
 extern uint8_t evs[20];
@@ -38862,19 +38876,11 @@ extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
 extern uint16_t getNN(uint8_t tableIndex);
 extern uint16_t getEN(uint8_t tableIndex);
 extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
-extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, uint8_t forceOwnNN);
+extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
+
 
 extern void rebuildHashtable(void);
 extern uint8_t getHash(uint16_t nodeNumber, uint16_t eventNumber);
-
-extern void checkRemoveTableEntry(uint8_t tableIndex);
-
-
-
-
-
-typedef uint8_t Happening;
-
 
 
 
@@ -38885,35 +38891,6 @@ typedef struct {
     uint16_t NN;
     uint16_t EN;
 } Event;
-
-
-
-
-
-typedef union
-{
-    struct
-    {
-        uint8_t eVsUsed:4;
-        uint8_t continued:1;
-        uint8_t continuation:1;
-        uint8_t forceOwnNN:1;
-        uint8_t freeEntry:1;
-    };
-    uint8_t asByte;
-} EventTableFlags;
-
-
-
-
-
-
-typedef struct {
-    EventTableFlags flags;
-    uint8_t next;
-    Event event;
-    uint8_t evs[10];
-} EventTable;
 # 51 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_consumer.h" 1
@@ -38944,7 +38921,10 @@ extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
 # 52 "../main.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_producer.h" 1
-# 76 "../../VLCBlib_PIC\\event_producer.h"
+# 79 "../../VLCBlib_PIC\\event_producer.h"
+typedef uint8_t Happening;
+
+
 extern const Service eventProducerService;
 
 
@@ -38957,7 +38937,7 @@ extern uint8_t happening2Event[71 +1];
 
 extern Boolean sendProducedEvent(Happening h, EventState state);
 extern void deleteHappeningRange(Happening happening, uint8_t number);
-# 96 "../../VLCBlib_PIC\\event_producer.h"
+# 102 "../../VLCBlib_PIC\\event_producer.h"
 extern EventState APP_GetEventState(Happening h);
 # 53 "../main.c" 2
 
@@ -39006,9 +38986,9 @@ extern void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponse
 
 extern void pollTimedResponse(void);
 # 58 "../main.c" 2
-# 96 "../main.c"
+# 95 "../main.c"
 # 1 "../../VLCBlib_PIC\\devincs.h" 1
-# 96 "../main.c" 2
+# 95 "../main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 1 3
 # 19 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 3
@@ -39016,11 +38996,8 @@ extern void pollTimedResponse(void);
 # 138 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef int ptrdiff_t;
 # 20 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stddef.h" 2 3
-# 97 "../main.c" 2
+# 96 "../main.c" 2
 
-
-# 1 "../canmio.h" 1
-# 99 "../main.c" 2
 
 # 1 "../config.h" 1
 # 47 "../config.h"
@@ -39032,20 +39009,20 @@ typedef struct {
 } Config;
 
 extern const Config configs[16];
-# 100 "../main.c" 2
+# 98 "../main.c" 2
 
 
 # 1 "../inputs.h" 1
 # 46 "../inputs.h"
     extern void initInputScan(void);
     extern void inputScan(void);
-# 102 "../main.c" 2
+# 100 "../main.c" 2
 
 # 1 "../universalEEPROM.h" 1
-# 103 "../main.c" 2
+# 101 "../main.c" 2
 
 # 1 "../universalNv.h" 1
-# 187 "../universalNv.h"
+# 188 "../universalNv.h"
 typedef struct {
     uint8_t type;
     uint8_t flags;
@@ -39103,28 +39080,32 @@ typedef struct {
         uint8_t servo_speed;
         uint8_t pullups;
         uint8_t responseDelay;
-        uint8_t spare[10];
+        uint8_t xio_pullupsL;
+        uint8_t xio_pullupsM;
+        uint8_t xio_pullupsH;
+        uint8_t cdu_chargePumpFreq;
+        uint8_t spare[6];
         NvIo io[16];
 } ModuleNvDefs;
 
 extern void defaultNVs(uint8_t i, uint8_t type);
-# 104 "../main.c" 2
+# 102 "../main.c" 2
 
 
 # 1 "../universalEvents.h" 1
-# 173 "../universalEvents.h"
+# 171 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 185 "../universalEvents.h"
+# 183 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
 extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
                                         Boolean can_send_on, Boolean can_send_off);
 extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-# 106 "../main.c" 2
+# 104 "../main.c" 2
 
 
 # 1 "../servo.h" 1
@@ -39161,7 +39142,7 @@ extern void startBounceOutput(uint8_t io, uint8_t action);
 extern void startMultiOutput(uint8_t io, uint8_t action);
 
 extern Boolean isNoServoPulses(void);
-# 108 "../main.c" 2
+# 106 "../main.c" 2
 
 
 
@@ -39185,7 +39166,7 @@ typedef struct {
     unsigned char portState:1;
 } AnalogueStates;
 extern AnalogueStates analogueState[16];
-# 111 "../main.c" 2
+# 109 "../main.c" 2
 
 
 # 1 "../digitalOut.h" 1
@@ -39195,7 +39176,7 @@ extern void processOutputs(void);
 extern void startDigitalOutput(uint8_t io, uint8_t state);
 extern void setDigitalOutput(uint8_t io, uint8_t state);
 extern void setOutputPin(uint8_t io, Boolean state);
-# 113 "../main.c" 2
+# 111 "../main.c" 2
 
 # 1 "../outputs.h" 1
 # 42 "../outputs.h"
@@ -39204,7 +39185,7 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
-# 114 "../main.c" 2
+# 112 "../main.c" 2
 
 
 
@@ -39212,7 +39193,7 @@ extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
 
 
 const Config configs[16] = {
-# 148 "../main.c"
+# 146 "../main.c"
     {11, 'C', 0, 0xFF},
     {12, 'C', 1, 0xFF},
     {13, 'C', 2, 0xFF},
@@ -39227,8 +39208,10 @@ const Config configs[16] = {
     {26, 'B', 5, 0xFF},
     {3, 'A', 1, 1},
     {2, 'A', 0, 0},
+
     {5, 'A', 3, 3},
     {7, 'A', 5, 4}
+
 
 };
 
@@ -39367,8 +39350,7 @@ void setup(void) {
         configIO(io);
     }
     initInputScan();
-
-
+# 347 "../main.c"
     (INTCON0bits.GIE = 1);
 
     startTime.val = tickGet();
@@ -39407,7 +39389,7 @@ void loop(void) {
 
     }
 }
-# 379 "../main.c"
+# 398 "../main.c"
 ValidTime APP_isSuitableTimeToWriteFlash(void){
 
     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
@@ -39523,7 +39505,13 @@ EventState APP_GetEventState(Happening h) {
     }
     return EVENT_UNKNOWN;
 }
-# 511 "../main.c"
+
+
+
+
+
+
+
 void setType(uint8_t io, uint8_t type) {
     uint8_t index;
 
@@ -39583,6 +39571,11 @@ void configIO(uint8_t i) {
             setDigitalOutput(i, getNV((16 + 7*(i) + 1)) & 0x10);
             break;
 
+
+
+
+
+
     }
 
     switch (configs[i].port) {
@@ -39607,9 +39600,9 @@ void configIO(uint8_t i) {
                 TRISC &= ~(1 << configs[i].no);
             }
             break;
-# 611 "../main.c"
+# 625 "../main.c"
     }
-# 631 "../main.c"
+# 645 "../main.c"
     if ((type == 5) || (type == 6)) {
 
         switch (configs[i].port) {
@@ -39622,7 +39615,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC |= (1 << configs[i].no);
                 break;
-# 651 "../main.c"
+# 665 "../main.c"
         }
     } else {
 
@@ -39636,7 +39629,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC &= ~(1 << configs[i].no);
                 break;
-# 672 "../main.c"
+# 686 "../main.c"
         }
     }
 

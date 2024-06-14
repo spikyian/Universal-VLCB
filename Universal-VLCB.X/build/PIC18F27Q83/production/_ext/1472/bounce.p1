@@ -1,15 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "81 ../bounce.c
 [; ;../bounce.c: 81: BounceState bounceState[16];
-[c E23214 0 1 2 3 .. ]
-[n E23214 . STATE_FIRST_PULL STATE_PAUSE STATE_SECOND_PULL STATE_DONE  ]
+[c E23228 0 1 2 3 .. ]
+[n E23228 . STATE_FIRST_PULL STATE_PAUSE STATE_SECOND_PULL STATE_DONE  ]
 "65
 [; ;../bounce.c: 65: extern int speed[16];
 [v _speed `i ~T0 @X0 -> 0 `x e ]
 "103
 [; ;../bounce.c: 103: Boolean bounceDown(uint8_t io) {
-[c E22873 0 1 .. ]
-[n E22873 Boolean FALSE TRUE  ]
+[c E22883 0 1 .. ]
+[n E22883 Boolean FALSE TRUE  ]
 "63
 [; ;../bounce.c: 63: extern uint8_t currentPos[16];
 [v _currentPos `uc ~T0 @X0 -> 0 `x e ]
@@ -3540,7 +3540,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "81 ../bounce.c
 [; ;../bounce.c: 81: BounceState bounceState[16];
-[v _bounceState `E23214 ~T0 @X0 -> 16 `i e ]
+[v _bounceState `E23228 ~T0 @X0 -> 16 `i e ]
 "89
 [; ;../bounce.c: 89: void initBounce(uint8_t io) {
 [v _initBounce `(v ~T0 @X0 1 ef1`uc ]
@@ -3550,7 +3550,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "90
 [; ;../bounce.c: 90:     bounceState[io] = STATE_FIRST_PULL;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23214 0 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23228 0 ]
 "91
 [; ;../bounce.c: 91:     speed[io] = 0;
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 0 `i ]
@@ -3560,7 +3560,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "103
 [; ;../bounce.c: 103: Boolean bounceDown(uint8_t io) {
-[v _bounceDown `(E22873 ~T0 @X0 1 ef1`uc ]
+[v _bounceDown `(E22883 ~T0 @X0 1 ef1`uc ]
 {
 [e :U _bounceDown ]
 [v _io `uc ~T0 @X0 1 r1 ]
@@ -3571,8 +3571,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "106
 [; ;../bounce.c: 106:         Boolean reversed = ((uint8_t)getNV((16 + 7*(io) + 3)) > (uint8_t)getNV((16 + 7*(io) + 2)));
-[v _reversed `E22873 ~T0 @X0 1 a ]
-[e = _reversed -> -> > -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i `i `E22873 ]
+[v _reversed `E22883 ~T0 @X0 1 a ]
+[e = _reversed -> -> > -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i `i `E22883 ]
 "107
 [; ;../bounce.c: 107:         int tmp;
 [v _tmp `i ~T0 @X0 1 a ]
@@ -3650,7 +3650,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3249 ]
 "147
 [; ;../bounce.c: 147:         return FALSE;
-[e ) . `E22873 0 ]
+[e ) . `E22883 0 ]
 [e $UE 3244  ]
 "148
 [; ;../bounce.c: 148:     }
@@ -3658,7 +3658,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 3245 ]
 "149
 [; ;../bounce.c: 149:     return TRUE;
-[e ) . `E22873 1 ]
+[e ) . `E22883 1 ]
 [e $UE 3244  ]
 "150
 [; ;../bounce.c: 150: }
@@ -3666,15 +3666,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "161
 [; ;../bounce.c: 161: Boolean bounceUp(uint8_t io) {
-[v _bounceUp `(E22873 ~T0 @X0 1 ef1`uc ]
+[v _bounceUp `(E22883 ~T0 @X0 1 ef1`uc ]
 {
 [e :U _bounceUp ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [f ]
 "162
 [; ;../bounce.c: 162:     Boolean reversed = ((uint8_t)getNV((16 + 7*(io) + 3)) > (uint8_t)getNV((16 + 7*(io) + 2)));
-[v _reversed `E22873 ~T0 @X0 1 a ]
-[e = _reversed -> -> > -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i `i `E22873 ]
+[v _reversed `E22883 ~T0 @X0 1 a ]
+[e = _reversed -> -> > -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i `i `E22883 ]
 "163
 [; ;../bounce.c: 163:     uint8_t midway;
 [v _midway `uc ~T0 @X0 1 a ]
@@ -3701,7 +3701,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "172
 [; ;../bounce.c: 172:                 bounceState[io] = STATE_PAUSE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23214 1 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23228 1 ]
 "173
 [; ;../bounce.c: 173:                 speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `uc `i ]
@@ -3724,7 +3724,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "178
 [; ;../bounce.c: 178:                 bounceState[io] = STATE_PAUSE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23214 1 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23228 1 ]
 "179
 [; ;../bounce.c: 179:                 speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `uc `i ]
@@ -3745,7 +3745,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "185
 [; ;../bounce.c: 185:         if (speed[io] == 0) bounceState[io] = STATE_SECOND_PULL;
 [e $ ! == *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 0 `i 3261  ]
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23214 2 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23228 2 ]
 [e :U 3261 ]
 "186
 [; ;../bounce.c: 186:         speed[io]--;
@@ -3769,10 +3769,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "193
 [; ;../bounce.c: 193:                 bounceState[io] = STATE_DONE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23214 3 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23228 3 ]
 "194
 [; ;../bounce.c: 194:                 return TRUE;
-[e ) . `E22873 1 ]
+[e ) . `E22883 1 ]
 [e $UE 3252  ]
 "195
 [; ;../bounce.c: 195:             }
@@ -3793,10 +3793,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "199
 [; ;../bounce.c: 199:                 bounceState[io] = STATE_DONE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23214 3 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23228 3 ]
 "200
 [; ;../bounce.c: 200:                 return TRUE;
-[e ) . `E22873 1 ]
+[e ) . `E22883 1 ]
 [e $UE 3252  ]
 "201
 [; ;../bounce.c: 201:             }
@@ -3820,15 +3820,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 3253  ]
 [e :U 3254 ]
-[e [\ -> *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux `ui , $ -> . `E23214 0 `ui 3255
- , $ -> . `E23214 1 `ui 3260
- , $ -> . `E23214 2 `ui 3262
- , $ -> . `E23214 3 `ui 3267
+[e [\ -> *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux `ui , $ -> . `E23228 0 `ui 3255
+ , $ -> . `E23228 1 `ui 3260
+ , $ -> . `E23228 2 `ui 3262
+ , $ -> . `E23228 3 `ui 3267
  3253 ]
 [e :U 3253 ]
 "207
 [; ;../bounce.c: 207:     return FALSE;
-[e ) . `E22873 0 ]
+[e ) . `E22883 0 ]
 [e $UE 3252  ]
 "208
 [; ;../bounce.c: 208: }

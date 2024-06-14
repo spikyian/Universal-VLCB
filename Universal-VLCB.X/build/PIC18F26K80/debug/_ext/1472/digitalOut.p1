@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "106 ../digitalOut.c
 [; ;../digitalOut.c: 106:     Boolean pinState;
-[c E12750 0 1 .. ]
-[n E12750 Boolean FALSE TRUE  ]
+[c E12760 0 1 .. ]
+[n E12760 Boolean FALSE TRUE  ]
 "115 ../../VLCBlib_PIC\nv.h
 [; ;../../VLCBlib_PIC\nv.h: 115: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
 "76 ../digitalOut.c
 [; ;../digitalOut.c: 76: void setOutputPin(uint8_t io, Boolean state);
-[v _setOutputPin `(v ~T0 @X0 0 ef2`uc`E12750 ]
+[v _setOutputPin `(v ~T0 @X0 0 ef2`uc`E12760 ]
 "118
 [; ;../digitalOut.c: 118:         writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)((eeprom_address_t)((0x3FF -8))-25)+io, state);
 [c E12209 0 1 .. ]
@@ -17,24 +17,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _writeNVM `(uc ~T0 @X0 0 ef3`E12209`um`uc ]
 "119 ../digitalOut.c
 [; ;../digitalOut.c: 119:         sendInvertedProducedEvent(((8 + 4*(io))+0), EVENT_ON,
-[c E12770 255 0 1 .. ]
-[n E12770 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
-"188 ../universalEvents.h
-[; ;../universalEvents.h: 188: extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
-[v _sendInvertedProducedEvent `(E12750 ~T0 @X0 0 ef5`uc`E12770`E12750`E12750`E12750 ]
-"86 ../../VLCBlib_PIC\event_producer.h
-[; ;../../VLCBlib_PIC\event_producer.h: 86: extern Boolean sendProducedEvent(Happening h, EventState state);
-[v _sendProducedEvent `(E12750 ~T0 @X0 0 ef2`uc`E12770 ]
+[c E12780 255 0 1 .. ]
+[n E12780 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
+"186 ../universalEvents.h
+[; ;../universalEvents.h: 186: extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
+[v _sendInvertedProducedEvent `(E12760 ~T0 @X0 0 ef5`uc`E12780`E12760`E12760`E12760 ]
+"92 ../../VLCBlib_PIC\event_producer.h
+[; ;../../VLCBlib_PIC\event_producer.h: 92: extern Boolean sendProducedEvent(Happening h, EventState state);
+[v _sendProducedEvent `(E12760 ~T0 @X0 0 ef2`uc`E12780 ]
 "30225 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 30225: extern volatile unsigned char LATA __attribute__((address(0xF89)));
 [v _LATA `Vuc ~T0 @X0 0 e@3977 ]
 "47 ../config.h
 [; ;../config.h: 47: typedef struct {
-[s S1550 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S1550 . pin port no an ]
+[s S1547 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S1547 . pin port no an ]
 "54
 [; ;../config.h: 54: extern const Config configs[16];
-[v _configs `CS1550 ~T0 @X0 -> 0 `x e ]
+[v _configs `CS1547 ~T0 @X0 -> 0 `x e ]
 "30327 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f26k80.h: 30327: extern volatile unsigned char LATB __attribute__((address(0xF8A)));
 [v _LATB `Vuc ~T0 @X0 0 e@3978 ]
@@ -1434,9 +1434,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../digitalOut.c: 87:     for (io=0; io<16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1552  ]
-[e $U 1553  ]
-[e :U 1552 ]
+[e $ < -> _io `i -> 16 `i 1549  ]
+[e $U 1550  ]
+[e :U 1549 ]
 {
 "88
 [; ;../digitalOut.c: 88:        pulseDelays[io] = 0;
@@ -1448,12 +1448,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../digitalOut.c: 90:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1552  ]
-[e :U 1553 ]
+[e $ < -> _io `i -> 16 `i 1549  ]
+[e :U 1550 ]
 }
 "91
 [; ;../digitalOut.c: 91: }
-[e :UE 1551 ]
+[e :UE 1548 ]
 }
 "105
 [; ;../digitalOut.c: 105: void startDigitalOutput(uint8_t io, uint8_t state) {
@@ -1465,13 +1465,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "106
 [; ;../digitalOut.c: 106:     Boolean pinState;
-[v _pinState `E12750 ~T0 @X0 1 a ]
+[v _pinState `E12760 ~T0 @X0 1 a ]
 "107
 [; ;../digitalOut.c: 107:     Boolean actionState;
-[v _actionState `E12750 ~T0 @X0 1 a ]
+[v _actionState `E12760 ~T0 @X0 1 a ]
 "114
 [; ;../digitalOut.c: 114:     if (state == 3) {
-[e $ ! == -> _state `i -> 3 `i 1556  ]
+[e $ ! == -> _state `i -> 3 `i 1553  ]
 {
 "115
 [; ;../digitalOut.c: 115:         flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
@@ -1481,51 +1481,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> -> 1 `i `uc ]
 "117
 [; ;../digitalOut.c: 117:         setOutputPin(io, ! getNV((16 + 7*(io) + 1) & 0x20));
-[e ( _setOutputPin (2 , _io -> -> ! != -> ( _getNV (1 -> & + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i -> 32 `i `uc `i -> 0 `i `i `E12750 ]
+[e ( _setOutputPin (2 , _io -> -> ! != -> ( _getNV (1 -> & + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i -> 32 `i `uc `i -> 0 `i `i `E12760 ]
 "118
 [; ;../digitalOut.c: 118:         writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)((eeprom_address_t)((0x3FF -8))-25)+io, state);
 [e ( _writeNVM (3 , , . `E12209 0 -> + -> -> - -> -> - -> 1023 `i -> 8 `i `us `ui -> -> 25 `i `ui `us `ui -> _io `ui `um _state ]
 "119
 [; ;../digitalOut.c: 119:         sendInvertedProducedEvent(((8 + 4*(io))+0), EVENT_ON,
-[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E12770 2 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12750 . `E12750 1 . `E12750 1 ]
+[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc . `E12780 2 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12760 . `E12760 1 . `E12760 1 ]
 "121
 [; ;../digitalOut.c: 121:         return;
-[e $UE 1555  ]
+[e $UE 1552  ]
 "122
 [; ;../digitalOut.c: 122:     }
 }
-[e :U 1556 ]
+[e :U 1553 ]
 "123
 [; ;../digitalOut.c: 123:     flashDelays[io] = 0;
 [e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -> 0 `i `c ]
 "125
 [; ;../digitalOut.c: 125:     actionState = (state == 1);
-[e = _actionState -> -> == -> _state `i -> 1 `i `i `E12750 ]
+[e = _actionState -> -> == -> _state `i -> 1 `i `i `E12760 ]
 "128
 [; ;../digitalOut.c: 128:     if (getNV((16 + 7*(io) + 1)) & 0x01) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1557  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 1554  ]
 {
 "129
 [; ;../digitalOut.c: 129:         actionState = !actionState;
-[e = _actionState -> -> ! != -> _actionState `ui -> -> 0 `i `ui `i `E12750 ]
+[e = _actionState -> -> ! != -> _actionState `ui -> -> 0 `i `ui `i `E12760 ]
 "130
 [; ;../digitalOut.c: 130:     }
 }
-[e :U 1557 ]
+[e :U 1554 ]
 "133
 [; ;../digitalOut.c: 133:     if (( ! actionState) && getNV((16 + 7*(io) + 2))) {
-[e $ ! && ! != -> _actionState `ui -> -> 0 `i `ui != -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 0 `i 1558  ]
+[e $ ! && ! != -> _actionState `ui -> -> 0 `i `ui != -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 0 `i 1555  ]
 {
 "134
 [; ;../digitalOut.c: 134:         return;
-[e $UE 1555  ]
+[e $UE 1552  ]
 "135
 [; ;../digitalOut.c: 135:     }
 }
-[e :U 1558 ]
+[e :U 1555 ]
 "139
 [; ;../digitalOut.c: 139:     if ((actionState) && getNV((16 + 7*(io) + 2)) && (pulseDelays[io] == 0)) {
-[e $ ! && && != -> _actionState `ui -> -> 0 `i `ui != -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 0 `i == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 0 `i 1559  ]
+[e $ ! && && != -> _actionState `ui -> -> 0 `i `ui != -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 0 `i == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 0 `i 1556  ]
 {
 "140
 [; ;../digitalOut.c: 140:         pulseDelays[io] = (uint8_t)getNV((16 + 7*(io) + 2));
@@ -1536,8 +1536,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "144
 [; ;../digitalOut.c: 144:     } else {
 }
-[e $U 1560  ]
-[e :U 1559 ]
+[e $U 1557  ]
+[e :U 1556 ]
 {
 "145
 [; ;../digitalOut.c: 145:         pulseDelays[io] = 1;
@@ -1548,55 +1548,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 "147
 [; ;../digitalOut.c: 147:     }
 }
-[e :U 1560 ]
+[e :U 1557 ]
 "149
 [; ;../digitalOut.c: 149:     pinState = actionState;
 [e = _pinState _actionState ]
 "150
 [; ;../digitalOut.c: 150:     if (getNV((16 + 7*(io) + 1)) & 0x20) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 1561  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 1558  ]
 {
 "151
 [; ;../digitalOut.c: 151:         pinState = !pinState;
-[e = _pinState -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E12750 ]
+[e = _pinState -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E12760 ]
 "152
 [; ;../digitalOut.c: 152:     }
 }
-[e :U 1561 ]
+[e :U 1558 ]
 "153
 [; ;../digitalOut.c: 153:     setOutputPin(io, pinState);
 [e ( _setOutputPin (2 , _io _pinState ]
 "158
 [; ;../digitalOut.c: 158:     if (getNV((16 + 7*(io) + 1)) & 0x08) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 8 `i -> 0 `i 1562  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 8 `i -> 0 `i 1559  ]
 {
 "159
 [; ;../digitalOut.c: 159:         if (actionState) {
-[e $ ! != -> _actionState `ui -> -> 0 `i `ui 1563  ]
+[e $ ! != -> _actionState `ui -> -> 0 `i `ui 1560  ]
 {
 "162
 [; ;../digitalOut.c: 162:             sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
-[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E12770 2 . `E12770 1 `E12770 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12750 . `E12750 1 . `E12750 1 ]
+[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E12780 2 . `E12780 1 `E12780 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12760 . `E12760 1 . `E12760 1 ]
 "164
 [; ;../digitalOut.c: 164:         }
 }
-[e :U 1563 ]
+[e :U 1560 ]
 "165
 [; ;../digitalOut.c: 165:     } else {
 }
-[e $U 1564  ]
-[e :U 1562 ]
+[e $U 1561  ]
+[e :U 1559 ]
 {
 "167
 [; ;../digitalOut.c: 167:         sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
-[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E12770 2 . `E12770 1 `E12770 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12750 . `E12750 1 . `E12750 1 ]
+[e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E12780 2 . `E12780 1 `E12780 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12760 . `E12760 1 . `E12760 1 ]
 "169
 [; ;../digitalOut.c: 169:     }
 }
-[e :U 1564 ]
+[e :U 1561 ]
 "170
 [; ;../digitalOut.c: 170: }
-[e :UE 1555 ]
+[e :UE 1552 ]
 }
 "175
 [; ;../digitalOut.c: 175: void processOutputs(void) {
@@ -1606,7 +1606,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "176
 [; ;../digitalOut.c: 176:     Boolean state;
-[v _state `E12750 ~T0 @X0 1 a ]
+[v _state `E12760 ~T0 @X0 1 a ]
 "177
 [; ;../digitalOut.c: 177:     uint8_t io;
 [v _io `uc ~T0 @X0 1 a ]
@@ -1614,21 +1614,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../digitalOut.c: 178:     for (io=0; io<16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1566  ]
-[e $U 1567  ]
-[e :U 1566 ]
+[e $ < -> _io `i -> 16 `i 1563  ]
+[e $U 1564  ]
+[e :U 1563 ]
 {
 "179
 [; ;../digitalOut.c: 179:         if (getNV((16 + 7*(io) + 0)) == 1) {
-[e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i -> 1 `i 1569  ]
+[e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i -> 1 `i 1566  ]
 {
 "181
 [; ;../digitalOut.c: 181:             if (flashDelays[io] == 1) {
-[e $ ! == -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -> 1 `i 1570  ]
+[e $ ! == -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -> 1 `i 1567  ]
 {
 "182
 [; ;../digitalOut.c: 182:                 setOutputPin(io, getNV((16 + 7*(io) + 1)) & 0x20);
-[e ( _setOutputPin (2 , _io -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i `E12750 ]
+[e ( _setOutputPin (2 , _io -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i `E12760 ]
 "183
 [; ;../digitalOut.c: 183:                 flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
@@ -1638,24 +1638,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "185
 [; ;../digitalOut.c: 185:             }
 }
-[e :U 1570 ]
+[e :U 1567 ]
 "186
 [; ;../digitalOut.c: 186:             if (flashDelays[io] == -1) {
-[e $ ! == -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -U -> 1 `i 1571  ]
+[e $ ! == -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -U -> 1 `i 1568  ]
 {
 "187
 [; ;../digitalOut.c: 187:                 setOutputPin(io, ! (getNV((16 + 7*(io) + 1)) & 0x20));
-[e ( _setOutputPin (2 , _io -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i `i `E12750 ]
+[e ( _setOutputPin (2 , _io -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i `i `E12760 ]
 "188
 [; ;../digitalOut.c: 188:                 flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
 "189
 [; ;../digitalOut.c: 189:             }
 }
-[e :U 1571 ]
+[e :U 1568 ]
 "190
 [; ;../digitalOut.c: 190:             if (flashDelays[io] > 1) {
-[e $ ! > -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -> 1 `i 1572  ]
+[e $ ! > -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -> 1 `i 1569  ]
 {
 "191
 [; ;../digitalOut.c: 191:                 flashDelays[io]--;
@@ -1663,9 +1663,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "192
 [; ;../digitalOut.c: 192:             } else if (flashDelays[io] < -1) {
 }
-[e $U 1573  ]
-[e :U 1572 ]
-[e $ ! < -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -U -> 1 `i 1574  ]
+[e $U 1570  ]
+[e :U 1569 ]
+[e $ ! < -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -U -> 1 `i 1571  ]
 {
 "193
 [; ;../digitalOut.c: 193:                 flashDelays[io]++;
@@ -1673,72 +1673,72 @@ Version 4.0 HI-TECH Software Intermediate Code
 "194
 [; ;../digitalOut.c: 194:             }
 }
-[e :U 1574 ]
-[e :U 1573 ]
+[e :U 1571 ]
+[e :U 1570 ]
 "195
 [; ;../digitalOut.c: 195:             if (pulseDelays[io] != 0) {
-[e $ ! != -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 0 `i 1575  ]
+[e $ ! != -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 0 `i 1572  ]
 {
 "196
 [; ;../digitalOut.c: 196:                 pulseDelays[io]--;
 [e -- *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> -> 1 `i `uc ]
 "199
 [; ;../digitalOut.c: 199:                 if (pulseDelays[io] == 1) {
-[e $ ! == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 1 `i 1576  ]
+[e $ ! == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 1 `i 1573  ]
 {
 "201
 [; ;../digitalOut.c: 201:                     if (getNV((16 + 7*(io) + 1)) & 0x20) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 1577  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 1574  ]
 {
 "202
 [; ;../digitalOut.c: 202:                         setOutputPin(io, TRUE);
-[e ( _setOutputPin (2 , _io . `E12750 1 ]
+[e ( _setOutputPin (2 , _io . `E12760 1 ]
 "203
 [; ;../digitalOut.c: 203:                     } else {
 }
-[e $U 1578  ]
-[e :U 1577 ]
+[e $U 1575  ]
+[e :U 1574 ]
 {
 "204
 [; ;../digitalOut.c: 204:                         setOutputPin(io, FALSE);
-[e ( _setOutputPin (2 , _io . `E12750 0 ]
+[e ( _setOutputPin (2 , _io . `E12760 0 ]
 "205
 [; ;../digitalOut.c: 205:                     }
 }
-[e :U 1578 ]
+[e :U 1575 ]
 "207
 [; ;../digitalOut.c: 207:                     if ( ! (getNV((16 + 7*(io) + 1)) & 0x08)) {
-[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 8 `i -> 0 `i 1579  ]
+[e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 8 `i -> 0 `i 1576  ]
 {
 "209
 [; ;../digitalOut.c: 209:                         sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
-[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12770 ]
+[e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E12780 ]
 "210
 [; ;../digitalOut.c: 210:                     }
 }
-[e :U 1579 ]
+[e :U 1576 ]
 "211
 [; ;../digitalOut.c: 211:                 }
 }
-[e :U 1576 ]
+[e :U 1573 ]
 "212
 [; ;../digitalOut.c: 212:             }
 }
-[e :U 1575 ]
+[e :U 1572 ]
 "213
 [; ;../digitalOut.c: 213:         }
 }
-[e :U 1569 ]
+[e :U 1566 ]
 "214
 [; ;../digitalOut.c: 214:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 1566  ]
-[e :U 1567 ]
+[e $ < -> _io `i -> 16 `i 1563  ]
+[e :U 1564 ]
 }
 "215
 [; ;../digitalOut.c: 215: }
-[e :UE 1565 ]
+[e :UE 1562 ]
 }
 "224
 [; ;../digitalOut.c: 224: void setDigitalOutput(uint8_t io, uint8_t state) {
@@ -1750,38 +1750,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "225
 [; ;../digitalOut.c: 225:     Boolean pinState;
-[v _pinState `E12750 ~T0 @X0 1 a ]
+[v _pinState `E12760 ~T0 @X0 1 a ]
 "226
 [; ;../digitalOut.c: 226:     switch (state) {
-[e $U 1582  ]
+[e $U 1579  ]
 {
 "227
 [; ;../digitalOut.c: 227:         default:
-[e :U 1583 ]
+[e :U 1580 ]
 "228
 [; ;../digitalOut.c: 228:             state = 2;
 [e = _state -> -> 2 `i `uc ]
 "230
 [; ;../digitalOut.c: 230:         case 1:
-[e :U 1584 ]
+[e :U 1581 ]
 "231
 [; ;../digitalOut.c: 231:         case 2:
-[e :U 1585 ]
+[e :U 1582 ]
 "232
 [; ;../digitalOut.c: 232:             pinState = (state == 1);
-[e = _pinState -> -> == -> _state `i -> 1 `i `i `E12750 ]
+[e = _pinState -> -> == -> _state `i -> 1 `i `i `E12760 ]
 "236
 [; ;../digitalOut.c: 236:             if (getNV((16 + 7*(io) + 1)) & 0x20) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 1586  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 1583  ]
 {
 "237
 [; ;../digitalOut.c: 237:                 setOutputPin(io, ! pinState);
-[e ( _setOutputPin (2 , _io -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E12750 ]
+[e ( _setOutputPin (2 , _io -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E12760 ]
 "238
 [; ;../digitalOut.c: 238:             } else {
 }
-[e $U 1587  ]
-[e :U 1586 ]
+[e $U 1584  ]
+[e :U 1583 ]
 {
 "239
 [; ;../digitalOut.c: 239:                 setOutputPin(io, pinState);
@@ -1789,54 +1789,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "240
 [; ;../digitalOut.c: 240:             }
 }
-[e :U 1587 ]
+[e :U 1584 ]
 "241
 [; ;../digitalOut.c: 241:             break;
-[e $U 1581  ]
+[e $U 1578  ]
 "242
 [; ;../digitalOut.c: 242:         case 3:
-[e :U 1588 ]
+[e :U 1585 ]
 "243
 [; ;../digitalOut.c: 243:             flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
 "244
 [; ;../digitalOut.c: 244:             setOutputPin(io, TRUE);
-[e ( _setOutputPin (2 , _io . `E12750 1 ]
+[e ( _setOutputPin (2 , _io . `E12760 1 ]
 "245
 [; ;../digitalOut.c: 245:             break;
-[e $U 1581  ]
+[e $U 1578  ]
 "246
 [; ;../digitalOut.c: 246:     }
 }
-[e $U 1581  ]
-[e :U 1582 ]
-[e [\ _state , $ -> 1 `i 1584
- , $ -> 2 `i 1585
- , $ -> 3 `i 1588
- 1583 ]
-[e :U 1581 ]
+[e $U 1578  ]
+[e :U 1579 ]
+[e [\ _state , $ -> 1 `i 1581
+ , $ -> 2 `i 1582
+ , $ -> 3 `i 1585
+ 1580 ]
+[e :U 1578 ]
 "247
 [; ;../digitalOut.c: 247: }
-[e :UE 1580 ]
+[e :UE 1577 ]
 }
 "254
 [; ;../digitalOut.c: 254: void setOutputPin(uint8_t io, Boolean state) {
-[v _setOutputPin `(v ~T0 @X0 1 ef2`uc`E12750 ]
+[v _setOutputPin `(v ~T0 @X0 1 ef2`uc`E12760 ]
 {
 [e :U _setOutputPin ]
 [v _io `uc ~T0 @X0 1 r1 ]
-[v _state `E12750 ~T0 @X0 1 r2 ]
+[v _state `E12760 ~T0 @X0 1 r2 ]
 [f ]
 "255
 [; ;../digitalOut.c: 255:     switch (configs[io].port) {
-[e $U 1591  ]
+[e $U 1588  ]
 {
 "256
 [; ;../digitalOut.c: 256:         case 'A':
-[e :U 1592 ]
+[e :U 1589 ]
 "257
 [; ;../digitalOut.c: 257:             if (state) {
-[e $ ! != -> _state `ui -> -> 0 `i `ui 1593  ]
+[e $ ! != -> _state `ui -> -> 0 `i `ui 1590  ]
 {
 "259
 [; ;../digitalOut.c: 259:                LATA |= (1<<configs[io].no);
@@ -1844,8 +1844,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "260
 [; ;../digitalOut.c: 260:             } else {
 }
-[e $U 1594  ]
-[e :U 1593 ]
+[e $U 1591  ]
+[e :U 1590 ]
 {
 "262
 [; ;../digitalOut.c: 262:                 LATA &= ~(1<<configs[io].no);
@@ -1853,16 +1853,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "263
 [; ;../digitalOut.c: 263:             }
 }
-[e :U 1594 ]
+[e :U 1591 ]
 "264
 [; ;../digitalOut.c: 264:             break;
-[e $U 1590  ]
+[e $U 1587  ]
 "265
 [; ;../digitalOut.c: 265:         case 'B':
-[e :U 1595 ]
+[e :U 1592 ]
 "266
 [; ;../digitalOut.c: 266:             if (state) {
-[e $ ! != -> _state `ui -> -> 0 `i `ui 1596  ]
+[e $ ! != -> _state `ui -> -> 0 `i `ui 1593  ]
 {
 "268
 [; ;../digitalOut.c: 268:                 LATB |= (1<<configs[io].no);
@@ -1870,8 +1870,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "269
 [; ;../digitalOut.c: 269:             } else {
 }
-[e $U 1597  ]
-[e :U 1596 ]
+[e $U 1594  ]
+[e :U 1593 ]
 {
 "271
 [; ;../digitalOut.c: 271:                 LATB &= ~(1<<configs[io].no);
@@ -1879,16 +1879,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "272
 [; ;../digitalOut.c: 272:             }
 }
-[e :U 1597 ]
+[e :U 1594 ]
 "273
 [; ;../digitalOut.c: 273:             break;
-[e $U 1590  ]
+[e $U 1587  ]
 "274
 [; ;../digitalOut.c: 274:         case 'C':
-[e :U 1598 ]
+[e :U 1595 ]
 "275
 [; ;../digitalOut.c: 275:             if (state) {
-[e $ ! != -> _state `ui -> -> 0 `i `ui 1599  ]
+[e $ ! != -> _state `ui -> -> 0 `i `ui 1596  ]
 {
 "277
 [; ;../digitalOut.c: 277:                 LATC |= (1<<configs[io].no);
@@ -1896,8 +1896,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "278
 [; ;../digitalOut.c: 278:             } else {
 }
-[e $U 1600  ]
-[e :U 1599 ]
+[e $U 1597  ]
+[e :U 1596 ]
 {
 "280
 [; ;../digitalOut.c: 280:                 LATC &= ~(1<<configs[io].no);
@@ -1905,21 +1905,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "281
 [; ;../digitalOut.c: 281:             }
 }
-[e :U 1600 ]
+[e :U 1597 ]
 "282
 [; ;../digitalOut.c: 282:             break;
-[e $U 1590  ]
+[e $U 1587  ]
 "303
 [; ;../digitalOut.c: 303:     }
 }
-[e $U 1590  ]
-[e :U 1591 ]
-[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 1592
- , $ -> -> 66 `ui `i 1595
- , $ -> -> 67 `ui `i 1598
- 1590 ]
-[e :U 1590 ]
+[e $U 1587  ]
+[e :U 1588 ]
+[e [\ . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 1 , $ -> -> 65 `ui `i 1589
+ , $ -> -> 66 `ui `i 1592
+ , $ -> -> 67 `ui `i 1595
+ 1587 ]
+[e :U 1587 ]
 "304
 [; ;../digitalOut.c: 304: }
-[e :UE 1589 ]
+[e :UE 1586 ]
 }

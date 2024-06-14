@@ -67,7 +67,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E12881 ServicePresent NOT_PRESENT PRESENT  ]
 [v F12998 `(v ~T0 @X0 0 tf ]
 "865
-[; ;../../VLCBlib_PIC/vlcb.c: 865:     writeNVM(FLASH_NVM_TYPE, 0xFF80, 1);
+[; ;../../VLCBlib_PIC/vlcb.c: 865:     writeNVM(EEPROM_NVM_TYPE, 0x3FA, 1);
 [c E12722 0 1 .. ]
 [n E12722 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
 "169 ../../VLCBlib_PIC/nvm.h
@@ -2143,8 +2143,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1553 ]
 }
 "865
-[; ;../../VLCBlib_PIC/vlcb.c: 865:     writeNVM(FLASH_NVM_TYPE, 0xFF80, 1);
-[e ( _writeNVM (3 , , . `E12722 1 -> -> 65408 `ui `um -> -> 1 `i `uc ]
+[; ;../../VLCBlib_PIC/vlcb.c: 865:     writeNVM(EEPROM_NVM_TYPE, 0x3FA, 1);
+[e ( _writeNVM (3 , , . `E12722 0 -> -> -> 1018 `i `m `um -> -> 1 `i `uc ]
 "867
 [; ;../../VLCBlib_PIC/vlcb.c: 867:     APP_factoryReset();
 [e ( _APP_factoryReset ..  ]
@@ -2953,8 +2953,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/vlcb.c: 1291:     initRomOps();
 [e ( _initRomOps ..  ]
 "1293
-[; ;../../VLCBlib_PIC/vlcb.c: 1293:     if (readNVM(FLASH_NVM_TYPE, 0xFF80) != 1) {
-[e $ ! != -> ( _readNVM (2 , . `E12722 1 -> -> 65408 `ui `um `i -> 1 `i 1627  ]
+[; ;../../VLCBlib_PIC/vlcb.c: 1293:     if (readNVM(EEPROM_NVM_TYPE, 0x3FA) != 1) {
+[e $ ! != -> ( _readNVM (2 , . `E12722 0 -> -> -> 1018 `i `m `um `i -> 1 `i 1627  ]
 {
 "1294
 [; ;../../VLCBlib_PIC/vlcb.c: 1294:         factoryReset();
