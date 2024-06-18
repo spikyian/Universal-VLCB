@@ -39023,16 +39023,19 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
+extern void finaliseOutput(uint8_t io, uint8_t type);
 # 51 "../outputs.c" 2
 
 
 # 1 "../cdu.h" 1
 # 15 "../cdu.h"
 extern void initCdus(void);
-extern void processCdus(void);
+extern void processCduPulses(void);
+extern void processCduRecharges(void);
 extern void startCduOutput(uint8_t io, uint8_t state);
 extern void setCduState(uint8_t io, uint8_t act);
 extern void setCduOutput(uint8_t io, uint8_t pos);
+extern void finaliseCduOutput(uint8_t io);
 # 53 "../outputs.c" 2
 
 
@@ -39204,4 +39207,18 @@ Boolean completed(uint8_t io, uint8_t action, uint8_t type) {
 
     }
     return TRUE;
+}
+# 253 "../outputs.c"
+void finaliseOutput(uint8_t io, uint8_t type) {
+    switch(type) {
+        case 1:
+            return;
+
+        case 7:
+            finaliseCduOutput(io);
+            return;
+
+        default:
+            return;
+    }
 }

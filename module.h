@@ -91,7 +91,7 @@
 #define NO_ACTION           0
 
 #if defined(_18FXXQ83_FAMILY_)
-#define EVENT_TABLE_ADDRESS               0x1E000
+#define EVENT_TABLE_ADDRESS               0x1F000
 #endif
 #if defined(_18F66K80_FAMILY_)
 #ifdef __18F25K80

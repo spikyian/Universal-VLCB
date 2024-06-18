@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "../cdu.c" 2
-# 45 "../cdu.c"
+# 53 "../cdu.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -37671,7 +37671,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 45 "../cdu.c" 2
+# 53 "../cdu.c" 2
 
 
 # 1 "../../VLCBlib_PIC\\nvm.h" 1
@@ -37734,7 +37734,7 @@ extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 47 "../cdu.c" 2
+# 55 "../cdu.c" 2
 
 # 1 "../../VLCBlib_PIC\\nv.h" 1
 # 42 "../../VLCBlib_PIC\\nv.h"
@@ -38787,7 +38787,7 @@ extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
 extern void loadNvCache(void);
-# 48 "../cdu.c" 2
+# 56 "../cdu.c" 2
 
 
 
@@ -38859,7 +38859,7 @@ typedef struct {
 } ModuleNvDefs;
 
 extern void defaultNVs(uint8_t i, uint8_t type);
-# 51 "../cdu.c" 2
+# 59 "../cdu.c" 2
 
 # 1 "../universalEvents.h" 1
 # 74 "../universalEvents.h"
@@ -38925,7 +38925,7 @@ extern void processActions(void);
 extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
                                         Boolean can_send_on, Boolean can_send_off);
 extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-# 52 "../cdu.c" 2
+# 60 "../cdu.c" 2
 
 # 1 "../digitalOut.h" 1
 # 16 "../digitalOut.h"
@@ -38934,30 +38934,47 @@ extern void processOutputs(void);
 extern void startDigitalOutput(uint8_t io, uint8_t state);
 extern void setDigitalOutput(uint8_t io, uint8_t state);
 extern void setOutputPin(uint8_t io, Boolean state);
-# 53 "../cdu.c" 2
+# 61 "../cdu.c" 2
 
 # 1 "../cdu.h" 1
 # 15 "../cdu.h"
 extern void initCdus(void);
-extern void processCdus(void);
+extern void processCduPulses(void);
+extern void processCduRecharges(void);
 extern void startCduOutput(uint8_t io, uint8_t state);
 extern void setCduState(uint8_t io, uint8_t act);
 extern void setCduOutput(uint8_t io, uint8_t pos);
-# 54 "../cdu.c" 2
-
-
-
-
-
-
-
+extern void finaliseCduOutput(uint8_t io);
+# 62 "../cdu.c" 2
+# 77 "../cdu.c"
 extern uint8_t pulseDelays[14];
 extern int8_t flashDelays[14];
-# 73 "../cdu.c"
+extern void doneTwoAction(void);
+# 90 "../cdu.c"
 void initCdus(void){
 
+
+
+
+    PWM4CLKbits.CLK = 4;
+    PWM4CPRE = 162;
+    PWM4PR = 1;
+    PWM4S1P1 = 1;
+    PWM4S1P2 = 1;
+    PWM4CONbits.LD = 1;
+
+
+    TRISAbits.TRISA3 = 0;
+    LATAbits.LATA3 = 0;
+# 113 "../cdu.c"
+    TRISAbits.TRISA5 = 0;
+
+    RA5PPS = 0x1E;
+
+    PWM4CONbits.EN = 1;
+    LATAbits.LATA3 = 1;
 }
-# 84 "../cdu.c"
+# 128 "../cdu.c"
 void startCduOutput(uint8_t io, uint8_t state){
 
 
@@ -38966,6 +38983,8 @@ void startCduOutput(uint8_t io, uint8_t state){
 
     if ((state == 1) || (state == 2)) {
         LATAbits.LATA3 = 0;
+
+
         startDigitalOutput(io, state);
     }
 }
@@ -38986,12 +39005,11 @@ void setCduOutput(uint8_t io, uint8_t action){
 
 
 
-
-void processCdus(void) {
+void processCduPulses(void) {
     uint8_t io;
     for (io=0; io<14; io++) {
         if (getNV((16 + 7*(io) + 0)) == 7) {
-            if (pulseDelays[io] != 0) {
+            if (pulseDelays[io] > 1) {
                 pulseDelays[io]--;
 
 
@@ -39002,22 +39020,27 @@ void processCdus(void) {
                     } else {
                         setOutputPin(io, FALSE);
                     }
-                    flashDelays[io] = (int8_t)getNV(9);
+
 
                     if ( ! (getNV((16 + 7*(io) + 1)) & 0x08)) {
 
                         sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
                     }
                     LATAbits.LATA3 = 1;
+
+                    flashDelays[io] = (int8_t)(getNV(9)+1)/10 +1;
                 }
             }
-            if (flashDelays[io] != 0) {
+
+
+
+            if (flashDelays[io] > 1) {
                 flashDelays[io]--;
-
-                if (flashDelays[io] == 1) {
-
-                }
             }
         }
     }
+}
+
+void finaliseCduOutput(uint8_t io) {
+    pulseDelays[io] = flashDelays[io] = 0;
 }

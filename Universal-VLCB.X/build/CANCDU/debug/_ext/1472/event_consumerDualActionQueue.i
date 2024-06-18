@@ -38914,7 +38914,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[(7+14*4)+1];
 
 
 
@@ -38926,12 +38926,12 @@ extern void deleteHappeningRange(Happening happening, uint8_t number);
 # 102 "../../VLCBlib_PIC\\event_producer.h"
 extern EventState APP_GetEventState(Happening h);
 # 75 "../universalEvents.h" 2
-# 178 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 190 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -39008,9 +39008,6 @@ static Processed consumer2QProcessMessage(Message *m) {
 
     if (m->len < 5) return NOT_PROCESSED;
 
-    tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
-    if (tableIndex == 0xff) return NOT_PROCESSED;
-
     switch (m->opc) {
         case OPC_ACON:
 
@@ -39081,6 +39078,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = (((masked_action)-8)%5);
                         switch (getNV((16 + 7*(io) + 0))) {
                             case 1:
+
+                            case 7:
+
                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
                                     setExpeditedActions();
                                 }
@@ -39146,6 +39146,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = (((action)-8)%5);
                         switch (getNV((16 + 7*(io) + 0))) {
                             case 1:
+
+                            case 7:
+
                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
                                     setExpeditedActions();
                                 }
@@ -39200,7 +39203,7 @@ static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
     }
     return &(consumer2QDiagnostics[index-1]);
 }
-# 349 "../event_consumerDualActionQueue.c"
+# 352 "../event_consumerDualActionQueue.c"
 static uint8_t consumer2QEsdData(uint8_t index) {
     switch (index){
         case 0:
@@ -39376,6 +39379,6 @@ void deleteActionRange(uint8_t action, uint8_t number) {
     }
     flushFlashBlock();
 
-
+    rebuildHashtable();
 
 }

@@ -38928,7 +38928,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[(7+14*4)+1];
 
 
 
@@ -39093,12 +39093,12 @@ extern void defaultNVs(uint8_t i, uint8_t type);
 
 
 # 1 "../universalEvents.h" 1
-# 178 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 190 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -39182,10 +39182,12 @@ extern void setOutputPin(uint8_t io, Boolean state);
 # 1 "../cdu.h" 1
 # 15 "../cdu.h"
 extern void initCdus(void);
-extern void processCdus(void);
+extern void processCduPulses(void);
+extern void processCduRecharges(void);
 extern void startCduOutput(uint8_t io, uint8_t state);
 extern void setCduState(uint8_t io, uint8_t act);
 extern void setCduOutput(uint8_t io, uint8_t pos);
+extern void finaliseCduOutput(uint8_t io);
 # 113 "../main.c" 2
 
 
@@ -39196,6 +39198,7 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
+extern void finaliseOutput(uint8_t io, uint8_t type);
 # 115 "../main.c" 2
 
 
@@ -39243,6 +39246,9 @@ static uint8_t started;
 TickValue lastServoStartTime;
 static TickValue lastInputScanTime;
 static TickValue lastActionPollTime;
+
+static TickValue lastCduPollTime;
+
 
 static uint8_t io;
 
@@ -39295,7 +39301,7 @@ void setup(void) {
 
 
     transport = &canTransport;
-# 251 "../main.c"
+# 254 "../main.c"
     pu = 0xFF;
     for (io=0; io<14; io++) {
         if (io == 0) {
@@ -39326,7 +39332,7 @@ void setup(void) {
                 else
                     WPUC &= ~(1<<(configs[io].no));
                 break;
-# 295 "../main.c"
+# 298 "../main.c"
         }
     }
 
@@ -39366,32 +39372,15 @@ void setup(void) {
 
 
 
-
-    PWM4CLKbits.CLK = 4;
-    PWM4CPRE = 154;
-    PWM4PR = 4;
-    PWM4S1P1 = 2;
-    PWM4CONbits.LD = 1;
-
-
-    TRISAbits.TRISA3 = 0;
-    LATAbits.LATA3 = 0;
-# 352 "../main.c"
-    TRISAbits.TRISA5 = 1;
-
-    RA5PPS = 0x1E;
-
-    PWM4CONbits.EN = 1;
-    LATAbits.LATA3 = 1;
-
-
-
     (INTCON0bits.GIE = 1);
 
     startTime.val = tickGet();
     lastServoStartTime.val = startTime.val;
     lastInputScanTime.val = startTime.val;
     lastActionPollTime.val = startTime.val;
+
+    lastCduPollTime.val = startTime.val;
+
 
     started = FALSE;
 }
@@ -39420,11 +39409,19 @@ void loop(void) {
             lastActionPollTime.val = tickGet();
         }
 
+
+        if ((tickGet() - lastCduPollTime.val) > 10*(62500/1000)) {
+            processCduPulses();
+            lastCduPollTime.val = tickGet();
+        }
+
+
+
         pollAnalogue();
 
     }
 }
-# 412 "../main.c"
+# 399 "../main.c"
 ValidTime APP_isSuitableTimeToWriteFlash(void){
 
     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
@@ -39478,6 +39475,9 @@ EventState APP_GetEventState(Happening h) {
             }
             break;
         case 1:
+
+        case 7:
+
             switch (happeningIndex) {
                 case 0:
                     return (readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io)!=2)?EVENT_ON:EVENT_OFF;
@@ -39608,7 +39608,10 @@ void configIO(uint8_t i) {
 
 
         case 7:
-            setDigitalOutput(i, 0);
+            action = (getNV((16 + 7*(i) + 1)) & 0x20) ? 1 : 2;
+            setDigitalOutput(i, action);
+
+            writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(((eeprom_address_t)((0x3FF -8))-25)+i), action);
             break;
 
     }
@@ -39635,9 +39638,9 @@ void configIO(uint8_t i) {
                 TRISC &= ~(1 << configs[i].no);
             }
             break;
-# 639 "../main.c"
+# 632 "../main.c"
     }
-# 659 "../main.c"
+# 652 "../main.c"
     if ((type == 5) || (type == 6)) {
 
         switch (configs[i].port) {
@@ -39650,7 +39653,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC |= (1 << configs[i].no);
                 break;
-# 679 "../main.c"
+# 672 "../main.c"
         }
     } else {
 
@@ -39664,7 +39667,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC &= ~(1 << configs[i].no);
                 break;
-# 700 "../main.c"
+# 693 "../main.c"
         }
     }
 

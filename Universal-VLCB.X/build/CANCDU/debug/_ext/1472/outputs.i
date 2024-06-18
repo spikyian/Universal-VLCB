@@ -38917,7 +38917,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[(7+14*4)+1];
 
 
 
@@ -38929,12 +38929,12 @@ extern void deleteHappeningRange(Happening happening, uint8_t number);
 # 102 "../../VLCBlib_PIC\\event_producer.h"
 extern EventState APP_GetEventState(Happening h);
 # 75 "../universalEvents.h" 2
-# 178 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 190 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -39023,16 +39023,19 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
+extern void finaliseOutput(uint8_t io, uint8_t type);
 # 51 "../outputs.c" 2
 
 
 # 1 "../cdu.h" 1
 # 15 "../cdu.h"
 extern void initCdus(void);
-extern void processCdus(void);
+extern void processCduPulses(void);
+extern void processCduRecharges(void);
 extern void startCduOutput(uint8_t io, uint8_t state);
 extern void setCduState(uint8_t io, uint8_t act);
 extern void setCduOutput(uint8_t io, uint8_t pos);
+extern void finaliseCduOutput(uint8_t io);
 # 53 "../outputs.c" 2
 
 
@@ -39044,6 +39047,7 @@ extern void setCduOutput(uint8_t io, uint8_t pos);
 extern void setOuputPin(uint8_t io, Boolean state);
 
 extern uint8_t pulseDelays[14];
+extern int8_t flashDelays[14];
 # 72 "../outputs.c"
 void startOutput(uint8_t io, uint8_t act, uint8_t type) {
     switch(type) {
@@ -39085,6 +39089,8 @@ void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
             return;
         case 1:
 
+        case 7:
+
             return;
 
         case 3:
@@ -39102,13 +39108,9 @@ void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
             return;
 
 
-        case 7:
-            setCduState(io, act);
-            return;
-
     }
 }
-# 150 "../outputs.c"
+# 148 "../outputs.c"
 void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type) {
     switch(type) {
         case 0:
@@ -39150,6 +39152,9 @@ Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
             return FALSE;
         case 1:
 
+        case 7:
+
+
 
 
 
@@ -39168,11 +39173,6 @@ Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
                 return FALSE;
             }
             return (servoState[io] != SS_MOVING);
-
-
-        case 7:
-
-            return ;
 
     }
     return TRUE;
@@ -39200,6 +39200,25 @@ Boolean completed(uint8_t io, uint8_t action, uint8_t type) {
 
             return (targetPos[io] == currentPos[io]) && ((servoState[io] == SS_STOPPED) || (servoState[io] == SS_OFF));
 
+
+        case 7:
+
+            return flashDelays[io] == 1;
+
     }
     return TRUE;
+}
+# 253 "../outputs.c"
+void finaliseOutput(uint8_t io, uint8_t type) {
+    switch(type) {
+        case 1:
+            return;
+
+        case 7:
+            finaliseCduOutput(io);
+            return;
+
+        default:
+            return;
+    }
 }

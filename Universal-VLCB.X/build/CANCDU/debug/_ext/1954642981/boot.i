@@ -38827,7 +38827,7 @@ const uint8_t paramBlock[] __attribute__((address(0x820))) = {
     MTYP_CANCDU,
     255,
     20,
-    127,
+    (15+7*14),
     1,
     0x08
 
@@ -38855,8 +38855,8 @@ const uint8_t paramBlock[] __attribute__((address(0x820))) = {
     0x08,
     0,
     0,
-    ((MANU_MERG+'a'+MTYP_CANCDU+255 +20 +127 +1 +(8) +P18F26K80+(8)+CPUM_MICROCHIP+1 +(20)+(0x48)+(0x08)+1 +2 +PB_CAN)&0xFF),
-    ((MANU_MERG+'a'+MTYP_CANCDU+255 +20 +127 +1 +(8) +P18F26K80+(8)+CPUM_MICROCHIP+1 +(20)+(0x48)+(0x08)+1 +2 +PB_CAN)>>8)
+    ((MANU_MERG+'a'+MTYP_CANCDU+255 +20 +(15+7*14)+1 +(8) +P18F26K80+(8)+CPUM_MICROCHIP+1 +(20)+(0x48)+(0x08)+1 +2 +PB_CAN)&0xFF),
+    ((MANU_MERG+'a'+MTYP_CANCDU+255 +20 +(15+7*14)+1 +(8) +P18F26K80+(8)+CPUM_MICROCHIP+1 +(20)+(0x48)+(0x08)+1 +2 +PB_CAN)>>8)
 };
 # 180 "../../VLCBlib_PIC/boot.c"
 static Processed bootProcessMessage(Message * m) {

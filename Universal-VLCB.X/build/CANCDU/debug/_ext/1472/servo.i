@@ -38899,7 +38899,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[(7+14*4)+1];
 
 
 
@@ -38911,12 +38911,12 @@ extern void deleteHappeningRange(Happening happening, uint8_t number);
 # 102 "../../VLCBlib_PIC\\event_producer.h"
 extern EventState APP_GetEventState(Happening h);
 # 75 "../universalEvents.h" 2
-# 178 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 190 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -39023,6 +39023,7 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
+extern void finaliseOutput(uint8_t io, uint8_t type);
 # 71 "../servo.c" 2
 # 89 "../servo.c"
 void setupTimer1(uint8_t io);

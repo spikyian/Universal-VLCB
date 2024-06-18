@@ -90,7 +90,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [c E22883 0 1 .. ]
 [n E22883 Boolean FALSE TRUE  ]
 "85 ../../VLCBlib_PIC/event_producer.h
-[; ;../../VLCBlib_PIC/event_producer.h: 85: extern uint8_t happening2Event[71 +1];
+[; ;../../VLCBlib_PIC/event_producer.h: 85: extern uint8_t happening2Event[(7+14*4)+1];
 [v _happening2Event `uc ~T0 @X0 -> 0 `x e ]
 "95 ../../VLCBlib_PIC/event_teach.h
 [; ;../../VLCBlib_PIC/event_teach.h: 95: extern uint16_t getNN(uint8_t tableIndex);
@@ -4065,10 +4065,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _h `uc ~T0 @X0 1 a ]
 "291
 [; ;../../VLCBlib_PIC/event_producer_happening.c: 291:             f.asByte = (uint8_t)readNVM(FLASH_NVM_TYPE,
-[e = . _f 1 -> ( _readNVM (2 , . `E22855 1 -> + + -> 122880 `l -> * -> 16 `i -> _tableIndex `i `l -> -> 0 `i `l `um `uc ]
+[e = . _f 1 -> ( _readNVM (2 , . `E22855 1 -> + + -> 126976 `l -> * -> 16 `i -> _tableIndex `i `l -> -> 0 `i `l `um `uc ]
 "293
 [; ;../../VLCBlib_PIC/event_producer_happening.c: 293:             h = (Happening)readNVM(FLASH_NVM_TYPE,
-[e = _h -> ( _readNVM (2 , . `E22855 1 -> + + -> 122880 `l -> * -> 16 `i -> _tableIndex `i `l -> -> 6 `i `l `um `uc ]
+[e = _h -> ( _readNVM (2 , . `E22855 1 -> + + -> 126976 `l -> * -> 16 `i -> _tableIndex `i `l -> -> 6 `i `l `um `uc ]
 "295
 [; ;../../VLCBlib_PIC/event_producer_happening.c: 295:             if ((h >= happening) && (h < happening+number)) {
 [e $ ! && >= -> _h `i -> _happening `i < -> _h `i + -> _happening `i -> _number `i 3277  ]

@@ -1,5 +1,48 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"2264 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
+"65283 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 65283:     struct {
+[s S3005 :8 `uc 1 ]
+[n S3005 . CLK ]
+"65286
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 65286:     struct {
+[s S3006 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3006 . CLK0 CLK1 CLK2 CLK3 CLK4 CLK5 CLK6 CLK7 ]
+"65282
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 65282: typedef union {
+[u S3004 `S3005 1 `S3006 1 ]
+[n S3004 . . . ]
+"65297
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 65297: extern volatile PWM4CLKbits_t PWM4CLKbits __attribute__((address(0x48E)));
+[v _PWM4CLKbits `VS3004 ~T0 @X0 0 e@1166 ]
+"65464
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 65464: extern volatile unsigned char PWM4CPRE __attribute__((address(0x492)));
+[v _PWM4CPRE `Vuc ~T0 @X0 0 e@1170 ]
+"65417
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 65417: extern volatile unsigned short PWM4PR __attribute__((address(0x490)));
+[v _PWM4PR `Vus ~T0 @X0 0 e@1168 ]
+"118
+[v _PWM4S1P1 `Vus ~T0 @X0 0 e@1176 ]
+"165
+[v _PWM4S1P2 `Vus ~T0 @X0 0 e@1178 ]
+"26
+[s S3023 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
+[n S3023 . ERSNOW ERSPOL LD . EN ]
+"25
+[u S3022 `S3023 1 ]
+[n S3022 . . ]
+"34
+[v _PWM4CONbits `VS3022 ~T0 @X0 0 e@1174 ]
+"2450
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 2450:         unsigned C1NCH2 :1;
+[s S3112 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3112 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"2449
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 2449:         unsigned C1NCH1 :1;
+[u S3111 `S3112 1 ]
+[n S3111 . . ]
+"2461
+[v _TRISAbits `VS3111 ~T0 @X0 0 e@1222 ]
+"2264
 [s S3106 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S3106 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
 "2263
@@ -7,6 +50,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S3105 . . ]
 "2275
 [v _LATAbits `VS3105 ~T0 @X0 0 e@1214 ]
+"23703
+[; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 23703: extern volatile unsigned char RA5PPS __attribute__((address(0x206)));
+[v _RA5PPS `Vuc ~T0 @X0 0 e@518 ]
 "18 ../digitalOut.h
 [; ;../digitalOut.h: 18: extern void startDigitalOutput(uint8_t io, uint8_t state);
 [v _startDigitalOutput `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -16,26 +62,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "115 ../../VLCBlib_PIC\nv.h
 [; ;../../VLCBlib_PIC\nv.h: 115: extern int16_t getNV(uint8_t index);
 [v _getNV `(s ~T0 @X0 0 ef1`uc ]
-"61 ../cdu.c
-[; ;../cdu.c: 61: extern uint8_t pulseDelays[14];
+"77 ../cdu.c
+[; ;../cdu.c: 77: extern uint8_t pulseDelays[14];
 [v _pulseDelays `uc ~T0 @X0 -> 0 `x e ]
-"124
-[; ;../cdu.c: 124:                         setOutputPin(io, TRUE);
+"169
+[; ;../cdu.c: 169:                         setOutputPin(io, TRUE);
 [c E22933 0 1 .. ]
 [n E22933 Boolean FALSE TRUE  ]
 "20 ../digitalOut.h
 [; ;../digitalOut.h: 20: extern void setOutputPin(uint8_t io, Boolean state);
 [v _setOutputPin `(v ~T0 @X0 0 ef2`uc`E22933 ]
-"62 ../cdu.c
-[; ;../cdu.c: 62: extern int8_t flashDelays[14];
-[v _flashDelays `c ~T0 @X0 -> 0 `x e ]
-"132
-[; ;../cdu.c: 132:                         sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+"177 ../cdu.c
+[; ;../cdu.c: 177:                         sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
 [c E22953 255 0 1 .. ]
 [n E22953 . EVENT_UNKNOWN EVENT_OFF EVENT_ON  ]
 "92 ../../VLCBlib_PIC\event_producer.h
 [; ;../../VLCBlib_PIC\event_producer.h: 92: extern Boolean sendProducedEvent(Happening h, EventState state);
 [v _sendProducedEvent `(E22933 ~T0 @X0 0 ef2`uc`E22953 ]
+"78 ../cdu.c
+[; ;../cdu.c: 78: extern int8_t flashDelays[14];
+[v _flashDelays `c ~T0 @X0 -> 0 `x e ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");
 [; <" BOOTREG equ 038h ;# ">
@@ -3555,173 +3601,215 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"73 ../cdu.c
-[; ;../cdu.c: 73: void initCdus(void){
+"90 ../cdu.c
+[; ;../cdu.c: 90: void initCdus(void){
 [v _initCdus `(v ~T0 @X0 1 ef ]
 {
 [e :U _initCdus ]
 [f ]
-"75
-[; ;../cdu.c: 75: }
+"95
+[; ;../cdu.c: 95:     PWM4CLKbits.CLK = 4;
+[e = . . _PWM4CLKbits 0 0 -> -> 4 `i `uc ]
+"96
+[; ;../cdu.c: 96:     PWM4CPRE = 162;
+[e = _PWM4CPRE -> -> 162 `i `uc ]
+"97
+[; ;../cdu.c: 97:     PWM4PR = 1;
+[e = _PWM4PR -> -> 1 `i `us ]
+"98
+[; ;../cdu.c: 98:     PWM4S1P1 = 1;
+[e = _PWM4S1P1 -> -> 1 `i `us ]
+"99
+[; ;../cdu.c: 99:     PWM4S1P2 = 1;
+[e = _PWM4S1P2 -> -> 1 `i `us ]
+"100
+[; ;../cdu.c: 100:     PWM4CONbits.LD = 1;
+[e = . . _PWM4CONbits 0 2 -> -> 1 `i `uc ]
+"103
+[; ;../cdu.c: 103:     TRISAbits.TRISA3 = 0;
+[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
+"104
+[; ;../cdu.c: 104:     LATAbits.LATA3 = 0;
+[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+"113
+[; ;../cdu.c: 113:     TRISAbits.TRISA5 = 0;
+[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
+"115
+[; ;../cdu.c: 115:     RA5PPS = 0x1E;
+[e = _RA5PPS -> -> 30 `i `uc ]
+"117
+[; ;../cdu.c: 117:     PWM4CONbits.EN = 1;
+[e = . . _PWM4CONbits 0 4 -> -> 1 `i `uc ]
+"118
+[; ;../cdu.c: 118:     LATAbits.LATA3 = 1;
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+"119
+[; ;../cdu.c: 119: }
 [e :UE 3242 ]
 }
-"84
-[; ;../cdu.c: 84: void startCduOutput(uint8_t io, uint8_t state){
+"128
+[; ;../cdu.c: 128: void startCduOutput(uint8_t io, uint8_t state){
 [v _startCduOutput `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _startCduOutput ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _state `uc ~T0 @X0 1 r2 ]
 [f ]
-"90
-[; ;../cdu.c: 90:     if ((state == 1) || (state == 2)) {
+"134
+[; ;../cdu.c: 134:     if ((state == 1) || (state == 2)) {
 [e $ ! || == -> _state `i -> 1 `i == -> _state `i -> 2 `i 3244  ]
 {
-"91
-[; ;../cdu.c: 91:         LATAbits.LATA3 = 0;
+"135
+[; ;../cdu.c: 135:         LATAbits.LATA3 = 0;
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-"92
-[; ;../cdu.c: 92:         startDigitalOutput(io, state);
+"138
+[; ;../cdu.c: 138:         startDigitalOutput(io, state);
 [e ( _startDigitalOutput (2 , _io _state ]
-"93
-[; ;../cdu.c: 93:     }
+"139
+[; ;../cdu.c: 139:     }
 }
 [e :U 3244 ]
-"94
-[; ;../cdu.c: 94: }
+"140
+[; ;../cdu.c: 140: }
 [e :UE 3243 ]
 }
-"102
-[; ;../cdu.c: 102: void setCduOutput(uint8_t io, uint8_t action){
+"148
+[; ;../cdu.c: 148: void setCduOutput(uint8_t io, uint8_t action){
 [v _setCduOutput `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _setCduOutput ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _action `uc ~T0 @X0 1 r2 ]
 [f ]
-"103
-[; ;../cdu.c: 103:     if ((action == 1) || (action == 2)) {
+"149
+[; ;../cdu.c: 149:     if ((action == 1) || (action == 2)) {
 [e $ ! || == -> _action `i -> 1 `i == -> _action `i -> 2 `i 3246  ]
 {
-"104
-[; ;../cdu.c: 104:         setDigitalOutput(io, action);
+"150
+[; ;../cdu.c: 150:         setDigitalOutput(io, action);
 [e ( _setDigitalOutput (2 , _io _action ]
-"105
-[; ;../cdu.c: 105:     }
+"151
+[; ;../cdu.c: 151:     }
 }
 [e :U 3246 ]
-"106
-[; ;../cdu.c: 106: }
+"152
+[; ;../cdu.c: 152: }
 [e :UE 3245 ]
 }
-"113
-[; ;../cdu.c: 113: void processCdus(void) {
-[v _processCdus `(v ~T0 @X0 1 ef ]
+"158
+[; ;../cdu.c: 158: void processCduPulses(void) {
+[v _processCduPulses `(v ~T0 @X0 1 ef ]
 {
-[e :U _processCdus ]
+[e :U _processCduPulses ]
 [f ]
-"114
-[; ;../cdu.c: 114:     uint8_t io;
+"159
+[; ;../cdu.c: 159:     uint8_t io;
 [v _io `uc ~T0 @X0 1 a ]
-"115
-[; ;../cdu.c: 115:     for (io=0; io<14; io++) {
+"160
+[; ;../cdu.c: 160:     for (io=0; io<14; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
 [e $ < -> _io `i -> 14 `i 3248  ]
 [e $U 3249  ]
 [e :U 3248 ]
 {
-"116
-[; ;../cdu.c: 116:         if (getNV((16 + 7*(io) + 0)) == 7) {
+"161
+[; ;../cdu.c: 161:         if (getNV((16 + 7*(io) + 0)) == 7) {
 [e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i -> 7 `i 3251  ]
 {
-"117
-[; ;../cdu.c: 117:             if (pulseDelays[io] != 0) {
-[e $ ! != -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 0 `i 3252  ]
+"162
+[; ;../cdu.c: 162:             if (pulseDelays[io] > 1) {
+[e $ ! > -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 1 `i 3252  ]
 {
-"118
-[; ;../cdu.c: 118:                 pulseDelays[io]--;
+"163
+[; ;../cdu.c: 163:                 pulseDelays[io]--;
 [e -- *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> -> 1 `i `uc ]
-"121
-[; ;../cdu.c: 121:                 if (pulseDelays[io] == 1) {
+"166
+[; ;../cdu.c: 166:                 if (pulseDelays[io] == 1) {
 [e $ ! == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 1 `i 3253  ]
 {
-"123
-[; ;../cdu.c: 123:                     if (getNV((16 + 7*(io) + 1)) & 0x20) {
+"168
+[; ;../cdu.c: 168:                     if (getNV((16 + 7*(io) + 1)) & 0x20) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 3254  ]
 {
-"124
-[; ;../cdu.c: 124:                         setOutputPin(io, TRUE);
+"169
+[; ;../cdu.c: 169:                         setOutputPin(io, TRUE);
 [e ( _setOutputPin (2 , _io . `E22933 1 ]
-"125
-[; ;../cdu.c: 125:                     } else {
+"170
+[; ;../cdu.c: 170:                     } else {
 }
 [e $U 3255  ]
 [e :U 3254 ]
 {
-"126
-[; ;../cdu.c: 126:                         setOutputPin(io, FALSE);
+"171
+[; ;../cdu.c: 171:                         setOutputPin(io, FALSE);
 [e ( _setOutputPin (2 , _io . `E22933 0 ]
-"127
-[; ;../cdu.c: 127:                     }
+"172
+[; ;../cdu.c: 172:                     }
 }
 [e :U 3255 ]
-"128
-[; ;../cdu.c: 128:                     flashDelays[io] = (int8_t)getNV(9);
-[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> -> 9 `i `uc `c ]
-"130
-[; ;../cdu.c: 130:                     if ( ! (getNV((16 + 7*(io) + 1)) & 0x08)) {
+"175
+[; ;../cdu.c: 175:                     if ( ! (getNV((16 + 7*(io) + 1)) & 0x08)) {
 [e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 8 `i -> 0 `i 3256  ]
 {
-"132
-[; ;../cdu.c: 132:                         sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+"177
+[; ;../cdu.c: 177:                         sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22953 ]
-"133
-[; ;../cdu.c: 133:                     }
+"178
+[; ;../cdu.c: 178:                     }
 }
 [e :U 3256 ]
-"134
-[; ;../cdu.c: 134:                     LATAbits.LATA3 = 1;
+"179
+[; ;../cdu.c: 179:                     LATAbits.LATA3 = 1;
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-"135
-[; ;../cdu.c: 135:                 }
+"181
+[; ;../cdu.c: 181:                     flashDelays[io] = (int8_t)(getNV(9)+1)/10 +1;
+[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> + / -> -> + -> ( _getNV (1 -> -> 9 `i `uc `i -> 1 `i `c `i -> 10 `i -> 1 `i `c ]
+"182
+[; ;../cdu.c: 182:                 }
 }
 [e :U 3253 ]
-"136
-[; ;../cdu.c: 136:             }
+"183
+[; ;../cdu.c: 183:             }
 }
 [e :U 3252 ]
-"137
-[; ;../cdu.c: 137:             if (flashDelays[io] != 0) {
-[e $ ! != -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -> 0 `i 3257  ]
+"187
+[; ;../cdu.c: 187:             if (flashDelays[io] > 1) {
+[e $ ! > -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -> 1 `i 3257  ]
 {
-"138
-[; ;../cdu.c: 138:                 flashDelays[io]--;
+"188
+[; ;../cdu.c: 188:                 flashDelays[io]--;
 [e -- *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -> 1 `i `c ]
-"140
-[; ;../cdu.c: 140:                 if (flashDelays[io] == 1) {
-[e $ ! == -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -> 1 `i 3258  ]
-{
-"142
-[; ;../cdu.c: 142:                 }
-}
-[e :U 3258 ]
-"143
-[; ;../cdu.c: 143:             }
+"189
+[; ;../cdu.c: 189:             }
 }
 [e :U 3257 ]
-"144
-[; ;../cdu.c: 144:         }
+"190
+[; ;../cdu.c: 190:         }
 }
 [e :U 3251 ]
-"145
-[; ;../cdu.c: 145:     }
+"191
+[; ;../cdu.c: 191:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
 [e $ < -> _io `i -> 14 `i 3248  ]
 [e :U 3249 ]
 }
-"146
-[; ;../cdu.c: 146: }
+"192
+[; ;../cdu.c: 192: }
 [e :UE 3247 ]
+}
+"194
+[; ;../cdu.c: 194: void finaliseCduOutput(uint8_t io) {
+[v _finaliseCduOutput `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _finaliseCduOutput ]
+[v _io `uc ~T0 @X0 1 r1 ]
+[f ]
+"195
+[; ;../cdu.c: 195:     pulseDelays[io] = flashDelays[io] = 0;
+[e = *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -> 0 `i `c `uc ]
+"196
+[; ;../cdu.c: 196: }
+[e :UE 3258 ]
 }

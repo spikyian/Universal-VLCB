@@ -38902,7 +38902,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[(7+14*4)+1];
 
 
 
@@ -38914,12 +38914,12 @@ extern void deleteHappeningRange(Happening happening, uint8_t number);
 # 102 "../../VLCBlib_PIC\\event_producer.h"
 extern EventState APP_GetEventState(Happening h);
 # 75 "../universalEvents.h" 2
-# 178 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 190 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -39044,10 +39044,8 @@ static const uint8_t channelDefaultNVs[11][7] = {
     {4,6,3,128,128,128,0},
     {5,6,128,16,0,0,0},
     {6,6,0,123,32,7,255},
-    {7,6,50,0,0,0,0},
+    {7,6,5,0,0,0,0},
     {8,0,0,0,0,0,0},
-    {9,0,0,0,0,0,0},
-    {10,0,0,0,0,0,0},
 };
 
 
@@ -39072,7 +39070,7 @@ uint8_t APP_nvDefault(uint8_t index) {
             case 8:
                 return 0xFF;
             case 9:
-                return 100;
+                return 20;
             default:
                 return 0;
         }
@@ -39154,7 +39152,7 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
             }
         }
     }
-# 217 "../universalNv.c"
+# 215 "../universalNv.c"
     if (index >= 16) {
         io = ((uint8_t)((index-16)/7));
         nv = ((uint8_t)((index-16) % 7));

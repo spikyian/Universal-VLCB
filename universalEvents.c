@@ -59,6 +59,7 @@
 #include "module.h"
 #include "event_producer.h"
 #include "event_consumer.h"
+#include "event_teach_large.h"
 #include "mns.h"
 #include "timedResponse.h"
 
@@ -108,8 +109,18 @@ void factoryResetGlobalEvents(void) {
  */
 void defaultEvents(uint8_t io, uint8_t type) {
     uint16_t en = io+1;
-    clearEvents(io); 
+    uint8_t b;
 
+#ifdef CANCDU
+    // The CDU type has Actions for both the current channel and its pair 
+    // partner. If this isn't conditional then when the partner's default events
+    // are added then it removed the Action from the first of the pair.
+    if (type != TYPE_CDU) {
+#endif
+        clearEvents(io);
+#ifdef CANCDU
+    }
+#endif
     // add the module's default events for this io
     switch(type) {
         
@@ -158,7 +169,12 @@ void defaultEvents(uint8_t io, uint8_t type) {
         case TYPE_CDU:    
             // Consume ACON/ASON and ACOF/ASOF events with en as port number
             addEvent(nn.word, en, 1, ACTION_IO_CDU_EV(io), TRUE);
-            addEvent(nn.word, en, 2, ACTION_IO_CDU_NOT_EV(io ^ 1), TRUE);
+            // The cast below shouldn't be necessary but there seems to be a bug 
+            // in the code generation of XC8. The result of an XOR is not of the  
+            // correct type but the compiler thinks it is so the function  
+            // parameter stack gets corrupted.
+            b=ACTION_IO_CDU_NOT_EV(io ^ 1);
+            addEvent(nn.word, en, 2, b, TRUE);
             break;
 #endif
     }
@@ -180,7 +196,7 @@ uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, u
     if ((evNum == 0) && (evVal != NO_ACTION))
     {
         // this is a Happening
-#ifdef HASH_TABLE       // This generates compile errors if hash table not defined, because producer events are not supported if hash table turned off 
+#ifdef EVENT_HASH_TABLE       // This generates compile errors if hash table not defined, because producer events are not supported if hash table turned off 
         uint8_t tableIndex = happening2Event[evVal-HAPPENING_BASE];
         if (tableIndex != NO_INDEX) {
             // Happening already exists
@@ -290,12 +306,14 @@ void processActions(void) {
                 }
                 if (completed(nextIo, nextAction, nextType)) {
                     deleteTwoActionQueue(peekItem);
+                    finaliseOutput(io, type);
                 }
                 peekItem++;
             }
             // check if this current action has been completed
             if (completed(io, action, type)) {
                 doneTwoAction();
+                finaliseOutput(io, type);
             } else {
                 // If the current action hasn't yet completed return so other stuff
                 // can get done before we get called back on next poll.

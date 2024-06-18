@@ -145,9 +145,6 @@ static Processed consumer2QProcessMessage(Message *m) {
     uint8_t io;
     
     if (m->len < 5) return NOT_PROCESSED;
-    
-    tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
-    if (tableIndex == NO_INDEX) return NOT_PROCESSED;
 
     switch (m->opc) {
         case OPC_ACON:
@@ -219,6 +216,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = ACTION(masked_action);
                         switch (getNV(NV_IO_TYPE(io))) {
                             case TYPE_OUTPUT:
+#ifdef CANCDU
+                            case TYPE_CDU:
+#endif
                                 if (getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_EXPEDITED) {
                                     setExpeditedActions();
                                 }
@@ -284,6 +284,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = ACTION(action);
                         switch (getNV(NV_IO_TYPE(io))) {
                             case TYPE_OUTPUT:
+#ifdef CANCDU
+                            case TYPE_CDU:
+#endif
                                 if (getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_EXPEDITED) {
                                     setExpeditedActions();
                                 }
@@ -520,7 +523,7 @@ void deleteActionRange(Action action, uint8_t number) {
         }
     }
     flushFlashBlock();
-#ifdef HASH_TABLE
+#ifdef EVENT_HASH_TABLE
     rebuildHashtable();                
 #endif
 }

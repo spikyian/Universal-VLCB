@@ -38890,7 +38890,7 @@ const Service nvService = {
 
 
 
-static uint8_t nvCache[127 +1];
+static uint8_t nvCache[(15+7*14)+1];
 
 
 
@@ -38911,7 +38911,7 @@ extern uint8_t APP_nvDefault(uint8_t index);
 
 static void nvFactoryReset(void) {
     uint8_t i;
-    for (i=1; i<= 127; i++) {
+    for (i=1; i<= (15+7*14); i++) {
         writeNVM(EEPROM_NVM_TYPE, 0x200 +i, APP_nvDefault(i));
     }
 }
@@ -38948,7 +38948,7 @@ void loadNvCache(void) {
     uint8_t i;
     int16_t temp;
 
-    for (i=1; i<= 127; i++) {
+    for (i=1; i<= (15+7*14); i++) {
         temp = readNVM(EEPROM_NVM_TYPE, 0x200 +i);
         if (temp < 0) {
 
@@ -38965,8 +38965,8 @@ void loadNvCache(void) {
 
 
 int16_t getNV(uint8_t index) {
-    if (index == 0) return 127;
-    if (index > 127) return -CMDERR_INV_NV_IDX;
+    if (index == 0) return (15+7*14);
+    if (index > (15+7*14)) return -CMDERR_INV_NV_IDX;
 
     return nvCache[index];
 
@@ -38984,7 +38984,7 @@ void saveNV(uint8_t index, uint8_t value) {
 uint8_t setNV(uint8_t index, uint8_t value) {
     uint8_t oldValue;
 
-    if (index > 127) return CMDERR_INV_NV_IDX;
+    if (index > (15+7*14)) return CMDERR_INV_NV_IDX;
     if (APP_nvValidate(index, value) == INVALID) return CMDERR_INV_NV_VALUE;
 
     oldValue = nvCache[index];
@@ -39113,14 +39113,14 @@ static Processed nvProcessMessage(Message * m) {
 # 354 "../../VLCBlib_PIC/nv.c"
 static uint8_t nvGetESDdata(uint8_t id) {
     switch (id) {
-        case 1: return 127;
+        case 1: return (15+7*14);
         default: return 0;
     }
 }
 # 370 "../../VLCBlib_PIC/nv.c"
 TimedResponseResult nvTRnvrdCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     int16_t valueOrError;
-    if (step > 127) {
+    if (step > (15+7*14)) {
         return TIMED_RESPONSE_RESULT_FINISHED;
     }
     valueOrError = getNV(step+1);

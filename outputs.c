@@ -63,7 +63,7 @@ extern uint8_t pulseDelays[NUM_IO];
 extern int8_t flashDelays[NUM_IO];
 
 /**
- * Set an output to the requested state.
+ * Start the processing of an Action.
  *  
  * @param i the IO
  * @param state on/off or position
@@ -241,4 +241,25 @@ Boolean completed(uint8_t io, Action action, uint8_t type) {
 #endif
     }
     return TRUE;
+}
+
+/**
+ * Tidy up after completing an Action and the Action is marked as Done.
+ *  
+ * @param i the IO
+ * @param state on/off or position
+ * @param type type of output
+ */
+void finaliseOutput(uint8_t io, uint8_t type) {
+    switch(type) {
+        case TYPE_OUTPUT:
+            return;
+#ifdef CANCDU
+        case TYPE_CDU:
+            finaliseCduOutput(io);
+            return;
+#endif
+        default:
+            return;
+    }
 }

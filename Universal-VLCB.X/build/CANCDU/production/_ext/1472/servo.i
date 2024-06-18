@@ -39023,6 +39023,7 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
+extern void finaliseOutput(uint8_t io, uint8_t type);
 # 71 "../servo.c" 2
 # 89 "../servo.c"
 void setupTimer1(uint8_t io);

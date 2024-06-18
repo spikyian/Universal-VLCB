@@ -66,7 +66,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/nvm.h: 160: extern int16_t readNVM(NVMtype type, uint24_t index);
 [v _readNVM `(s ~T0 @X0 0 ef2`E22905`um ]
 "183 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 183:     if (index > 127) return -CMDERR_INV_NV_IDX;
+[; ;../../VLCBlib_PIC/nv.c: 183:     if (index > (15+7*14)) return -CMDERR_INV_NV_IDX;
 [c E22734 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
 [n E22734 VlcbCmdErrs CMDERR_INV_CMD CMDERR_NOT_LRN CMDERR_NOT_SETUP CMDERR_TOO_MANY_EVENTS CMDERR_NO_EV CMDERR_INV_EV_IDX CMDERR_INVALID_EVENT CMDERR_INV_EN_IDX CMDERR_INV_PARAM_IDX CMDERR_INV_NV_IDX CMDERR_INV_EV_VALUE CMDERR_INV_NV_VALUE CMDERR_LRN_OTHER  ]
 "221
@@ -3660,8 +3660,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "107
-[; ;../../VLCBlib_PIC/nv.c: 107: static uint8_t nvCache[127 +1];
-[v _nvCache `uc ~T0 @X0 -> 128 `i s ]
+[; ;../../VLCBlib_PIC/nv.c: 107: static uint8_t nvCache[(15+7*14)+1];
+[v _nvCache `uc ~T0 @X0 -> 114 `i s ]
 "126
 [; ;../../VLCBlib_PIC/nv.c: 126: static void nvFactoryReset(void) {
 [v _nvFactoryReset `(v ~T0 @X0 1 sf ]
@@ -3672,10 +3672,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/nv.c: 127:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
 "128
-[; ;../../VLCBlib_PIC/nv.c: 128:     for (i=1; i<= 127; i++) {
+[; ;../../VLCBlib_PIC/nv.c: 128:     for (i=1; i<= (15+7*14); i++) {
 {
 [e = _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 127 `i 3232  ]
+[e $ <= -> _i `i + -> 15 `i * -> 7 `i -> 14 `i 3232  ]
 [e $U 3233  ]
 [e :U 3232 ]
 {
@@ -3686,7 +3686,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/nv.c: 130:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 127 `i 3232  ]
+[e $ <= -> _i `i + -> 15 `i * -> 7 `i -> 14 `i 3232  ]
 [e :U 3233 ]
 }
 "131
@@ -3767,10 +3767,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/nv.c: 163:     int16_t temp;
 [v _temp `s ~T0 @X0 1 a ]
 "165
-[; ;../../VLCBlib_PIC/nv.c: 165:     for (i=1; i<= 127; i++) {
+[; ;../../VLCBlib_PIC/nv.c: 165:     for (i=1; i<= (15+7*14); i++) {
 {
 [e = _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 127 `i 3242  ]
+[e $ <= -> _i `i + -> 15 `i * -> 7 `i -> 14 `i 3242  ]
 [e $U 3243  ]
 [e :U 3242 ]
 {
@@ -3798,7 +3798,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/nv.c: 172:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 127 `i 3242  ]
+[e $ <= -> _i `i + -> 15 `i * -> 7 `i -> 14 `i 3242  ]
 [e :U 3243 ]
 }
 "173
@@ -3813,14 +3813,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
 "182
-[; ;../../VLCBlib_PIC/nv.c: 182:     if (index == 0) return 127;
+[; ;../../VLCBlib_PIC/nv.c: 182:     if (index == 0) return (15+7*14);
 [e $ ! == -> _index `i -> 0 `i 3248  ]
-[e ) -> -> 127 `i `s ]
+[e ) -> + -> 15 `i * -> 7 `i -> 14 `i `s ]
 [e $UE 3247  ]
 [e :U 3248 ]
 "183
-[; ;../../VLCBlib_PIC/nv.c: 183:     if (index > 127) return -CMDERR_INV_NV_IDX;
-[e $ ! > -> _index `i -> 127 `i 3249  ]
+[; ;../../VLCBlib_PIC/nv.c: 183:     if (index > (15+7*14)) return -CMDERR_INV_NV_IDX;
+[e $ ! > -> _index `i + -> 15 `i * -> 7 `i -> 14 `i 3249  ]
 [e ) -> -U -> . `E22734 9 `i `s ]
 [e $UE 3247  ]
 [e :U 3249 ]
@@ -3862,8 +3862,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/nv.c: 218:     uint8_t oldValue;
 [v _oldValue `uc ~T0 @X0 1 a ]
 "220
-[; ;../../VLCBlib_PIC/nv.c: 220:     if (index > 127) return CMDERR_INV_NV_IDX;
-[e $ ! > -> _index `i -> 127 `i 3252  ]
+[; ;../../VLCBlib_PIC/nv.c: 220:     if (index > (15+7*14)) return CMDERR_INV_NV_IDX;
+[e $ ! > -> _index `i + -> 15 `i * -> 7 `i -> 14 `i 3252  ]
 [e ) -> . `E22734 9 `uc ]
 [e $UE 3251  ]
 [e :U 3252 ]
@@ -4164,9 +4164,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 3274  ]
 {
 "356
-[; ;../../VLCBlib_PIC/nv.c: 356:         case 1: return 127;
+[; ;../../VLCBlib_PIC/nv.c: 356:         case 1: return (15+7*14);
 [e :U 3275 ]
-[e ) -> -> 127 `i `uc ]
+[e ) -> + -> 15 `i * -> 7 `i -> 14 `i `uc ]
 [e $UE 3272  ]
 "357
 [; ;../../VLCBlib_PIC/nv.c: 357:         default: return 0;
@@ -4198,8 +4198,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../../VLCBlib_PIC/nv.c: 371:     int16_t valueOrError;
 [v _valueOrError `s ~T0 @X0 1 a ]
 "372
-[; ;../../VLCBlib_PIC/nv.c: 372:     if (step > 127) {
-[e $ ! > -> _step `i -> 127 `i 3278  ]
+[; ;../../VLCBlib_PIC/nv.c: 372:     if (step > (15+7*14)) {
+[e $ ! > -> _step `i + -> 15 `i * -> 7 `i -> 14 `i 3278  ]
 {
 "373
 [; ;../../VLCBlib_PIC/nv.c: 373:         return TIMED_RESPONSE_RESULT_FINISHED;

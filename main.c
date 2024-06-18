@@ -331,33 +331,6 @@ void setup(void) {
     initInputScan();
 #ifdef CANCDU
     initCdus();
-    // start the charge pump clock
-    // Uses PWM4 and uses PPS to output to RA5
-
-    // PWM4 left aligned mode Slice 1 using LF INT running at 50% duty cycle 100Hz
-    PWM4CLKbits.CLK = 4;    // LF INT clock source
-    PWM4CPRE = 154;         // clock prescalar gets to 200Hz
-    PWM4PR = 4;             // period register
-    PWM4S1P1 = 2;           // Half period for square wave
-    PWM4CONbits.LD = 1;     // reload registers
-    
-    // set RA3 as output for the enable 
-    TRISAbits.TRISA3 = 0;
-    LATAbits.LATA3 = 0;
-    // set RA5 to input so that PWM4 can drive it as an output via PPS
-    /* According to datasheet:
-     With few exceptions, the port TRIS control associated with that pin
-     retains control over the pin output driver. Peripherals that control 
-     the pin output driver as part of the peripheral operation will override 
-     the TRIS control as needed.
-     * Very unhelpful.
-     */
-    TRISAbits.TRISA5 = 1;
-    // output PWM4 to pin RA5 channel 15
-    RA5PPS = 0x1E;  // 1E is PWM4S1P1_OUT
-    // enable the charge pump clock
-    PWM4CONbits.EN = 1;     // enable
-    LATAbits.LATA3 = 1;     // turn the charger on
 #endif
 
     // enable interrupts, all init now done
@@ -400,14 +373,14 @@ void loop(void) {
         
 #ifdef CANCDU
         if (tickTimeSince(lastCduPollTime) > 10*ONE_MILI_SECOND) {
-            processCdus();
+            processCduPulses();
             lastCduPollTime.val = tickGet();
         }
 #endif
+        
 #ifdef ANALOGUE
         pollAnalogue();
 #endif
-
     }
 }
 

@@ -39182,10 +39182,12 @@ extern void setOutputPin(uint8_t io, Boolean state);
 # 1 "../cdu.h" 1
 # 15 "../cdu.h"
 extern void initCdus(void);
-extern void processCdus(void);
+extern void processCduPulses(void);
+extern void processCduRecharges(void);
 extern void startCduOutput(uint8_t io, uint8_t state);
 extern void setCduState(uint8_t io, uint8_t act);
 extern void setCduOutput(uint8_t io, uint8_t pos);
+extern void finaliseCduOutput(uint8_t io);
 # 113 "../main.c" 2
 
 
@@ -39196,6 +39198,7 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
+extern void finaliseOutput(uint8_t io, uint8_t type);
 # 115 "../main.c" 2
 
 
@@ -39369,26 +39372,6 @@ void setup(void) {
 
 
 
-
-    PWM4CLKbits.CLK = 4;
-    PWM4CPRE = 154;
-    PWM4PR = 4;
-    PWM4S1P1 = 2;
-    PWM4CONbits.LD = 1;
-
-
-    TRISAbits.TRISA3 = 0;
-    LATAbits.LATA3 = 0;
-# 355 "../main.c"
-    TRISAbits.TRISA5 = 1;
-
-    RA5PPS = 0x1E;
-
-    PWM4CONbits.EN = 1;
-    LATAbits.LATA3 = 1;
-
-
-
     (INTCON0bits.GIE = 1);
 
     startTime.val = tickGet();
@@ -39428,17 +39411,17 @@ void loop(void) {
 
 
         if ((tickGet() - lastCduPollTime.val) > 10*(62500/1000)) {
-            processCdus();
+            processCduPulses();
             lastCduPollTime.val = tickGet();
         }
 
 
-        pollAnalogue();
 
+        pollAnalogue();
 
     }
 }
-# 426 "../main.c"
+# 399 "../main.c"
 ValidTime APP_isSuitableTimeToWriteFlash(void){
 
     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
@@ -39655,9 +39638,9 @@ void configIO(uint8_t i) {
                 TRISC &= ~(1 << configs[i].no);
             }
             break;
-# 659 "../main.c"
+# 632 "../main.c"
     }
-# 679 "../main.c"
+# 652 "../main.c"
     if ((type == 5) || (type == 6)) {
 
         switch (configs[i].port) {
@@ -39670,7 +39653,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC |= (1 << configs[i].no);
                 break;
-# 699 "../main.c"
+# 672 "../main.c"
         }
     } else {
 
@@ -39684,7 +39667,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC &= ~(1 << configs[i].no);
                 break;
-# 720 "../main.c"
+# 693 "../main.c"
         }
     }
 
