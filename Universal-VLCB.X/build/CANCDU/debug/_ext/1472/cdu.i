@@ -38981,11 +38981,25 @@ void startCduOutput(uint8_t io, uint8_t state){
 
 
 
+    Boolean actionState;
+
     if ((state == 1) || (state == 2)) {
-        LATAbits.LATA3 = 0;
+
+        actionState = (state == 1);
 
 
-        startDigitalOutput(io, state);
+        if (getNV((16 + 7*(io) + 1)) & 0x01) {
+            actionState = !actionState;
+        }
+        if (actionState) {
+            LATAbits.LATA3 = 0;
+
+
+            startDigitalOutput(io, state);
+        } else {
+
+            flashDelays[io] = 1;
+        }
     }
 }
 

@@ -131,11 +131,25 @@ void startCduOutput(uint8_t io, uint8_t state){
     // State ACTION_IO_3 is OFF
     // State ACTION_IO_4 is Flash
     // State ACTION_IO_5 is Change inverted. This is not used here and state will have been changed to on or off
+    Boolean actionState;
+    
     if ((state == ACTION_IO_2) || (state == ACTION_IO_3)) {
-        LATAbits.LATA3 = 0; //  disable the charger
-        // this will set the pulseDelays[] to the required time
-        //and also set flashDelays[] to 0
-        startDigitalOutput(io, state);
+        // state is either ACTION_IO_2(on) or ACTION_IO_3(off))
+        actionState = (state == ACTION_IO_2);
+  
+        // Check if the input event is inverted
+        if (getNV(NV_IO_FLAGS(io)) & FLAG_TRIGGER_INVERTED) {
+            actionState = !actionState;
+        }
+        if (actionState) {
+            LATAbits.LATA3 = 0; //  disable the charger
+            // this will set the pulseDelays[] to the required time
+            //and also set flashDelays[] to 0
+            startDigitalOutput(io, state);
+        } else {
+            // An OFF Action should complete immediately
+            flashDelays[io] = COMPLETED;
+        }
     }
 }
 

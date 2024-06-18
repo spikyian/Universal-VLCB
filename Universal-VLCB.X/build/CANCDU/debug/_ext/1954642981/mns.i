@@ -38897,6 +38897,8 @@ extern EventState APP_GetEventState(Happening h);
 Boolean sendProducedEvent(Happening happening, EventState onOff);
 
 
+extern void rebuildHashtable(void);
+
 void setLEDsByMode(void);
 
 
@@ -38966,13 +38968,13 @@ static TickValue heartbeatTimer;
 
 
 static TickValue uptimeTimer;
-# 222 "../../VLCBlib_PIC/mns.c"
+# 224 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
-# 231 "../../VLCBlib_PIC/mns.c"
+# 233 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
-# 240 "../../VLCBlib_PIC/mns.c"
+# 242 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRrqnpnCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
-# 263 "../../VLCBlib_PIC/mns.c"
+# 265 "../../VLCBlib_PIC/mns.c"
 static uint8_t getParameterFlags(void);
 
 
@@ -39045,7 +39047,7 @@ static void mnsPowerUp(void) {
     heartbeatTimer.val = 0;
     uptimeTimer.val = 0;
 }
-# 344 "../../VLCBlib_PIC/mns.c"
+# 346 "../../VLCBlib_PIC/mns.c"
 static Processed mnsProcessMessage(Message * m) {
     uint8_t i;
     uint8_t flags;
@@ -39069,6 +39071,9 @@ static Processed mnsProcessMessage(Message * m) {
                     writeNVM(EEPROM_NVM_TYPE, 0x3FC +1, nn.bytes.lo);
 
                     mode_state = MODE_NORMAL;
+
+
+                    rebuildHashtable();
 
 
                     sendMessage2(OPC_NNACK, nn.bytes.hi, nn.bytes.lo);
@@ -39392,7 +39397,7 @@ static void mnsPoll(void) {
             }
             break;
         case MODE_SETUP:
-# 703 "../../VLCBlib_PIC/mns.c"
+# 708 "../../VLCBlib_PIC/mns.c"
             if ((!(PORTAbits.RA2)) == 0) {
 
 
@@ -39441,7 +39446,7 @@ static void mnsPoll(void) {
             }
     }
 }
-# 778 "../../VLCBlib_PIC/mns.c"
+# 783 "../../VLCBlib_PIC/mns.c"
 static DiagnosticVal * mnsGetDiagnostic(uint8_t index) {
     if ((index<1) || (index>6)) {
         return ((void*)0);
@@ -39526,7 +39531,7 @@ static uint8_t getParameter(uint8_t idx) {
         return 0;
     }
 }
-# 871 "../../VLCBlib_PIC/mns.c"
+# 876 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (step >= 9) {
         return TIMED_RESPONSE_RESULT_FINISHED;
@@ -39536,7 +39541,7 @@ TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceI
 
     return TIMED_RESPONSE_RESULT_NEXT;
 }
-# 890 "../../VLCBlib_PIC/mns.c"
+# 895 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (services[serviceIndex]->getDiagnostic == ((void*)0)) {
         return TIMED_RESPONSE_RESULT_FINISHED;
@@ -39550,7 +39555,7 @@ TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceInd
     sendMessage6(OPC_DGN, nn.bytes.hi, nn.bytes.lo, serviceIndex+1, step+1, d->asBytes.hi, d->asBytes.lo);
     return TIMED_RESPONSE_RESULT_NEXT;
 }
-# 913 "../../VLCBlib_PIC/mns.c"
+# 918 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRrqnpnCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (step >= 20) {
         return TIMED_RESPONSE_RESULT_FINISHED;
