@@ -58,7 +58,7 @@
 #include "nvm.h"
 #include "module.h"
 #include "event_producer.h"
-#include "event_consumer.h"
+#include "event_consumerDualActionQueue.h"
 #include "event_teach_large.h"
 #include "mns.h"
 #include "timedResponse.h"
@@ -193,21 +193,23 @@ void defaultEvents(uint8_t io, uint8_t type) {
  * @return error number or 0 for success
  */
 uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
+#ifdef EVENT_HASH_TABLE       // This generates compile errors if hash table not defined, because producer events are not supported if hash table turned off 
     if ((evNum == 0) && (evVal != NO_ACTION))
     {
         // this is a Happening
-#ifdef EVENT_HASH_TABLE       // This generates compile errors if hash table not defined, because producer events are not supported if hash table turned off 
-        uint8_t tableIndex = happening2Event[evVal-HAPPENING_BASE];
-        if (tableIndex != NO_INDEX) {
-            // Happening already exists
-            // remove it
-            writeEv(tableIndex, 0, NO_ACTION);
-            checkRemoveTableEntry(tableIndex);
+        if ((evVal >= HAPPENING_BASE) && (evVal <= MAX_HAPPENING)) {
+            uint8_t tableIndex = happening2Event[evVal-HAPPENING_BASE];
+            if (tableIndex != NO_INDEX) {
+                // Happening already exists
+                // remove it
+                writeEv(tableIndex, 0, NO_ACTION);
+                checkRemoveTableEntry(tableIndex);
 
-            rebuildHashtable();         
+                rebuildHashtable();         
+            }
         }
-#endif  
     }
+#endif  
     return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
 }
 
@@ -218,8 +220,8 @@ uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, u
  * @param i the IO number
  */
 void clearEvents(uint8_t io) {
-    deleteActionRange(ACTION_IO_BASE(io),                       ACTIONS_PER_IO);
-    deleteActionRange(ACTION_IO_BASE(io) | ACTION_SIMULTANEOUS, ACTIONS_PER_IO);
+    deleteActionRange((Action)(uint8_t)ACTION_IO_BASE(io),                       ACTIONS_PER_IO);
+    deleteActionRange((Action)(uint8_t)(ACTION_IO_BASE(io) | ACTION_SIMULTANEOUS), ACTIONS_PER_IO);
     deleteHappeningRange(HAPPENING_IO_BASE(io),                 HAPPENINGS_PER_IO);
 }
 

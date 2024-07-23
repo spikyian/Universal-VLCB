@@ -1,4 +1,4 @@
-# 1 "../outputs.c"
+# 1 "../cdu.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,20 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../outputs.c" 2
-# 40 "../outputs.c"
-# 1 "../module.h" 1
-
-
-
-
-
-
-
-# 1 "../../VLCBlib_PIC\\statusLeds.h" 1
-# 42 "../../VLCBlib_PIC\\statusLeds.h"
-# 1 "../../VLCBlib_PIC/vlcb.h" 1
-# 37 "../../VLCBlib_PIC/vlcb.h"
+# 1 "../cdu.c" 2
+# 53 "../cdu.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -37683,9 +37671,172 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 37 "../../VLCBlib_PIC/vlcb.h" 2
+# 53 "../cdu.c" 2
+
+
+# 1 "../../VLCBlib_PIC\\nvm.h" 1
+# 68 "../../VLCBlib_PIC\\nvm.h"
+typedef enum {
+    EEPROM_NVM_TYPE,
+    FLASH_NVM_TYPE
+} NVMtype;
+
+
+
+
+typedef enum ValidTime {
+    BAD_TIME=0,
+    GOOD_TIME=1
+} ValidTime;
+
+
+
+
+
+
+typedef uint8_t flash_data_t;
+
+
+
+
+typedef uint24_t flash_address_t;
+
+
+
+
+
+typedef uint8_t eeprom_data_t;
+
+
+
+
+typedef uint24_t eeprom_address_t;
+# 147 "../../VLCBlib_PIC\\nvm.h"
+extern void flushFlashBlock(void);
+
+
+
+
+extern void initRomOps(void);
+
+
+
+
+
+
+
+extern int16_t readNVM(NVMtype type, uint24_t index);
+# 169 "../../VLCBlib_PIC\\nvm.h"
+extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
+
+
+
+
+
+extern ValidTime APP_isSuitableTimeToWriteFlash(void);
+# 55 "../cdu.c" 2
+
+# 1 "../../VLCBlib_PIC\\nv.h" 1
+# 42 "../../VLCBlib_PIC\\nv.h"
+# 1 "../../VLCBlib_PIC/vlcb.h" 1
+# 38 "../../VLCBlib_PIC/vlcb.h"
+# 1 "..\\module.h" 1
+
+
+
+
+
+
+
+# 1 "../../VLCBlib_PIC\\statusLeds.h" 1
+# 42 "../../VLCBlib_PIC\\statusLeds.h"
+# 1 "../../VLCBlib_PIC/vlcb.h" 1
+# 42 "../../VLCBlib_PIC\\statusLeds.h" 2
+
+# 1 "../../VLCBlib_PIC/ticktime.h" 1
+# 211 "../../VLCBlib_PIC/ticktime.h"
+typedef union _TickValue {
+
+    uint32_t val;
+
+    struct TickBytes
+    {
+        uint8_t b0;
+        uint8_t b1;
+        uint8_t b2;
+        uint8_t b3;
+    } byte;
+    uint8_t v[4];
+
+    struct TickWords
+    {
+        uint16_t w0;
+        uint16_t w1;
+    } word;
+} TickValue;
+# 238 "../../VLCBlib_PIC/ticktime.h"
+void initTicker(uint8_t priority);
+
+
+
+
+
+uint32_t tickGet(void);
+
+
+
+
+
+
+
+extern volatile uint8_t timerExtension1;
+
+
+
+
+extern volatile uint8_t timerExtension2;
+# 43 "../../VLCBlib_PIC\\statusLeds.h" 2
 
 # 1 "..\\module.h" 1
+# 44 "../../VLCBlib_PIC\\statusLeds.h" 2
+
+# 1 "../../VLCBlib_PIC/statusDisplay.h" 1
+# 55 "../../VLCBlib_PIC/statusDisplay.h"
+typedef enum StatusDisplay {
+    STATUS_OFF,
+    STATUS_UNINITIALISED,
+    STATUS_SETUP,
+    STATUS_NORMAL,
+    STATUS_RESET_WARNING,
+    STATUS_LEARN,
+    STATUS_BOOT,
+    STATUS_MESSAGE_RECEIVED,
+    STATUS_MESSAGE_ACTED,
+    STATUS_TRANSMIT_ERROR,
+    STATUS_RECEIVE_ERROR,
+    STATUS_MEMORY_FAULT,
+    STATUS_FATAL_ERROR
+} StatusDisplay;
+# 45 "../../VLCBlib_PIC\\statusLeds.h" 2
+# 55 "../../VLCBlib_PIC\\statusLeds.h"
+typedef enum {
+    LED_OFF,
+    LED_ON,
+    LED_FLASH_50_2HZ,
+    LED_FLASH_50_1HZ,
+    LED_FLASH_50_HALF_HZ,
+    LED_SINGLE_FLICKER_OFF,
+    LED_SINGLE_FLICKER_ON,
+    LED_LONG_FLICKER_OFF,
+    LED_LONG_FLICKER_ON,
+    LED_OFF_1S
+} LedState;
+
+
+extern void leds_powerUp(void);
+extern void leds_poll(void);
+extern void showStatus(StatusDisplay s);
+# 8 "..\\module.h" 2
 # 38 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCB-defs\\vlcbdefs_enums.h" 1
@@ -38367,68 +38518,6 @@ typedef enum VlcbConsumerEvUsage
   CONSUMER_EV_SLOTS = 0x02,
 } VlcbConsumerEvUsage;
 # 39 "../../VLCBlib_PIC/vlcb.h" 2
-
-# 1 "../../VLCBlib_PIC/nvm.h" 1
-# 68 "../../VLCBlib_PIC/nvm.h"
-typedef enum {
-    EEPROM_NVM_TYPE,
-    FLASH_NVM_TYPE
-} NVMtype;
-
-
-
-
-typedef enum ValidTime {
-    BAD_TIME=0,
-    GOOD_TIME=1
-} ValidTime;
-
-
-
-
-
-
-typedef uint8_t flash_data_t;
-
-
-
-
-typedef uint24_t flash_address_t;
-
-
-
-
-
-typedef uint8_t eeprom_data_t;
-
-
-
-
-typedef uint24_t eeprom_address_t;
-# 147 "../../VLCBlib_PIC/nvm.h"
-extern void flushFlashBlock(void);
-
-
-
-
-extern void initRomOps(void);
-
-
-
-
-
-
-
-extern int16_t readNVM(NVMtype type, uint24_t index);
-# 169 "../../VLCBlib_PIC/nvm.h"
-extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
-
-
-
-
-
-extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 40 "../../VLCBlib_PIC/vlcb.h" 2
 # 91 "../../VLCBlib_PIC/vlcb.h"
 typedef enum Priority {
     pLOW=0,
@@ -38664,116 +38753,7 @@ typedef struct Transport {
 extern const Transport * transport;
 # 455 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 42 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-# 1 "../../VLCBlib_PIC/ticktime.h" 1
-# 211 "../../VLCBlib_PIC/ticktime.h"
-typedef union _TickValue {
-
-    uint32_t val;
-
-    struct TickBytes
-    {
-        uint8_t b0;
-        uint8_t b1;
-        uint8_t b2;
-        uint8_t b3;
-    } byte;
-    uint8_t v[4];
-
-    struct TickWords
-    {
-        uint16_t w0;
-        uint16_t w1;
-    } word;
-} TickValue;
-# 238 "../../VLCBlib_PIC/ticktime.h"
-void initTicker(uint8_t priority);
-
-
-
-
-
-uint32_t tickGet(void);
-
-
-
-
-
-
-
-extern volatile uint8_t timerExtension1;
-
-
-
-
-extern volatile uint8_t timerExtension2;
-# 43 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-# 1 "..\\module.h" 1
-# 44 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-# 1 "../../VLCBlib_PIC/statusDisplay.h" 1
-# 55 "../../VLCBlib_PIC/statusDisplay.h"
-typedef enum StatusDisplay {
-    STATUS_OFF,
-    STATUS_UNINITIALISED,
-    STATUS_SETUP,
-    STATUS_NORMAL,
-    STATUS_RESET_WARNING,
-    STATUS_LEARN,
-    STATUS_BOOT,
-    STATUS_MESSAGE_RECEIVED,
-    STATUS_MESSAGE_ACTED,
-    STATUS_TRANSMIT_ERROR,
-    STATUS_RECEIVE_ERROR,
-    STATUS_MEMORY_FAULT,
-    STATUS_FATAL_ERROR
-} StatusDisplay;
-# 45 "../../VLCBlib_PIC\\statusLeds.h" 2
-# 55 "../../VLCBlib_PIC\\statusLeds.h"
-typedef enum {
-    LED_OFF,
-    LED_ON,
-    LED_FLASH_50_2HZ,
-    LED_FLASH_50_1HZ,
-    LED_FLASH_50_HALF_HZ,
-    LED_SINGLE_FLICKER_OFF,
-    LED_SINGLE_FLICKER_ON,
-    LED_LONG_FLICKER_OFF,
-    LED_LONG_FLICKER_ON,
-    LED_OFF_1S
-} LedState;
-
-
-extern void leds_powerUp(void);
-extern void leds_poll(void);
-extern void showStatus(StatusDisplay s);
-# 8 "..\\module.h" 2
-# 40 "../outputs.c" 2
-
-
-# 1 "../config.h" 1
-# 47 "../config.h"
-typedef struct {
-    unsigned char pin;
-    char port;
-    unsigned char no;
-    unsigned char an;
-} Config;
-
-extern const Config configs[16];
-# 42 "../outputs.c" 2
-
-
-
-# 1 "../universalEEPROM.h" 1
-# 45 "../outputs.c" 2
-
-
-# 1 "../universalNv.h" 1
-# 65 "../universalNv.h"
-# 1 "../../VLCBlib_PIC\\nv.h" 1
+# 42 "../../VLCBlib_PIC\\nv.h" 2
 # 86 "../../VLCBlib_PIC\\nv.h"
 extern const Service nvService;
 
@@ -38807,7 +38787,11 @@ extern uint8_t setNV(uint8_t index, uint8_t value);
 
 
 extern void loadNvCache(void);
-# 65 "../universalNv.h" 2
+# 56 "../cdu.c" 2
+
+
+
+# 1 "../universalNv.h" 1
 # 188 "../universalNv.h"
 typedef struct {
     uint8_t type;
@@ -38875,7 +38859,7 @@ typedef struct {
 } ModuleNvDefs;
 
 extern void defaultNVs(uint8_t i, uint8_t type);
-# 47 "../outputs.c" 2
+# 59 "../cdu.c" 2
 
 # 1 "../universalEvents.h" 1
 # 74 "../universalEvents.h"
@@ -38941,59 +38925,7 @@ extern void processActions(void);
 extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
                                         Boolean can_send_on, Boolean can_send_off);
 extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-# 48 "../outputs.c" 2
-
-# 1 "../servo.h" 1
-# 38 "../servo.h"
-# 1 "../event_consumerDualActionQueue.h" 1
-# 79 "../event_consumerDualActionQueue.h"
-extern const Service eventConsumerService;
-# 91 "../event_consumerDualActionQueue.h"
-extern uint8_t popTwoAction(void);
-extern Boolean pushTwoAction(uint8_t a);
-extern void deleteActionRange(uint8_t action, uint8_t number);
-extern void setNormalActions(void);
-extern void setExpeditedActions(void);
-extern uint8_t peekTwoActionQueue(uint8_t index);
-
-
-extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
-# 38 "../servo.h" 2
-
-
-typedef enum {
-    SS_OFF,
-    SS_STOPPED,
-    SS_MOVING,
-    SS_STARTING
-} ServoState;
-
-extern ServoState servoState[16];
-extern uint8_t currentPos[16];
-extern uint8_t targetPos[16];
-extern uint8_t stepsPerPollSpeed[16];
-extern int speed[16];
-
-extern void startServos(void);
-extern void initServos(void);
-extern void pollServos(void);
-
-
-
-
-
-extern void setServoState(uint8_t io, uint8_t action);
-extern void setBounceState(uint8_t io, uint8_t action);
-extern void setMultiState(uint8_t io, uint8_t action);
-
-extern void setServoPosition(uint8_t io, uint8_t pos);
-
-extern void startServoOutput(uint8_t io, uint8_t action);
-extern void startBounceOutput(uint8_t io, uint8_t action);
-extern void startMultiOutput(uint8_t io, uint8_t action);
-
-extern Boolean isNoServoPulses(void);
-# 49 "../outputs.c" 2
+# 60 "../cdu.c" 2
 
 # 1 "../digitalOut.h" 1
 # 16 "../digitalOut.h"
@@ -39002,112 +38934,72 @@ extern void processOutputs(void);
 extern void startDigitalOutput(uint8_t io, uint8_t state);
 extern void setDigitalOutput(uint8_t io, uint8_t state);
 extern void setOutputPin(uint8_t io, Boolean state);
-# 50 "../outputs.c" 2
+# 61 "../cdu.c" 2
 
-# 1 "../outputs.h" 1
-# 42 "../outputs.h"
-extern Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type);
-extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
-extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
-extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
-extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
-extern void finaliseOutput(uint8_t io, uint8_t type);
-# 51 "../outputs.c" 2
-# 60 "../outputs.c"
-extern void setOuputPin(uint8_t io, Boolean state);
-
+# 1 "../cdu.h" 1
+# 15 "../cdu.h"
+extern void initCdus(void);
+extern void processCduPulses(void);
+extern void processCduRecharges(void);
+extern void startCduOutput(uint8_t io, uint8_t state);
+extern void setCduState(uint8_t io, uint8_t act);
+extern void setCduOutput(uint8_t io, uint8_t pos);
+extern void finaliseCduOutput(uint8_t io);
+# 62 "../cdu.c" 2
+# 77 "../cdu.c"
 extern uint8_t pulseDelays[16];
 extern int8_t flashDelays[16];
-# 72 "../outputs.c"
-void startOutput(uint8_t io, uint8_t act, uint8_t type) {
-    switch(type) {
-        case 0:
-
-            return;
-        case 1:
-            startDigitalOutput(io, act);
-            return;
-
-        case 3:
-            startBounceOutput(io, act);
-            return;
-
-
-        case 2:
-            startServoOutput(io, act);
-            return;
-
-
-        case 4:
-            startMultiOutput(io, act);
-            return;
+extern void doneTwoAction(void);
+# 90 "../cdu.c"
+void initCdus(void){
 
 
 
 
+    PWM4CLKbits.CLK = 4;
+    PWM4CPRE = 162;
+    PWM4PR = 1;
+    PWM4S1P1 = 1;
+    PWM4S1P2 = 1;
+    PWM4CONbits.LD = 1;
 
 
-    }
+    TRISAbits.TRISA3 = 0;
+    LATAbits.LATA3 = 0;
+# 113 "../cdu.c"
+    TRISAbits.TRISA5 = 0;
+
+    RA5PPS = 0x1E;
+
+    PWM4CONbits.EN = 1;
+    LATAbits.LATA3 = 1;
 }
-# 110 "../outputs.c"
-void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
-    switch(type) {
-        case 0:
-        case 5:
-        case 6:
-
-            return;
-        case 1:
-
-
-
-            return;
-
-        case 3:
-            setBounceState(io, act);
-            return;
-
-
-        case 2:
-            setServoState(io, act);
-            return;
-
-
-        case 4:
-            setMultiState(io, act);
-            return;
-
-
-    }
-}
-# 148 "../outputs.c"
-void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type) {
-    switch(type) {
-        case 0:
-        case 5:
-        case 6:
-
-            return;
-        case 1:
-            setDigitalOutput(io, pos);
-            return;
-
-        case 3:
-
-
-        case 4:
-
-
-        case 2:
-            setServoPosition(io, pos);
-            setOutputPin(io, getNV((16 + 7*(io) + 1) & 0x20)?TRUE:FALSE);
-            return;
+# 128 "../cdu.c"
+void startCduOutput(uint8_t io, uint8_t state){
 
 
 
 
 
+    Boolean actionState;
 
+    if ((state == 1) || (state == 2)) {
+
+        actionState = (state == 1);
+
+
+        if (getNV((16 + 7*(io) + 1)) & 0x01) {
+            actionState = !actionState;
+        }
+        if (actionState) {
+            LATAbits.LATA3 = 0;
+
+
+            startDigitalOutput(io, state);
+        } else {
+
+            flashDelays[io] = 1;
+        }
     }
 }
 
@@ -39115,80 +39007,54 @@ void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type) {
 
 
 
-Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
-    switch(type) {
-        case 0:
-
-            return FALSE;
-        case 1:
 
 
-
+void setCduOutput(uint8_t io, uint8_t action){
+    if ((action == 1) || (action == 2)) {
+        setDigitalOutput(io, action);
+    }
+}
 
 
 
 
-            return (pulseDelays[io] == 0);
 
-        case 2:
+void processCduPulses(void) {
+    uint8_t io;
+    for (io=0; io<16; io++) {
+        if (getNV((16 + 7*(io) + 0)) == 7) {
+            if (pulseDelays[io] > 1) {
+                pulseDelays[io]--;
 
 
-        case 3:
+                if (pulseDelays[io] == 1) {
+
+                    if (getNV((16 + 7*(io) + 1)) & 0x20) {
+                        setOutputPin(io, TRUE);
+                    } else {
+                        setOutputPin(io, FALSE);
+                    }
 
 
-        case 4:
+                    if ( ! (getNV((16 + 7*(io) + 1)) & 0x08)) {
 
-            if (targetPos[io] == currentPos[io]) {
+                        sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+                    }
+                    LATAbits.LATA3 = 1;
 
-                return FALSE;
+                    flashDelays[io] = (int8_t)(getNV(9)+1)/10 +1;
+                }
             }
-            return (servoState[io] != SS_MOVING);
 
+
+
+            if (flashDelays[io] > 1) {
+                flashDelays[io]--;
+            }
+        }
     }
-    return TRUE;
 }
 
-
-
-
-
-Boolean completed(uint8_t io, uint8_t action, uint8_t type) {
-    switch(type) {
-        case 0:
-
-            return TRUE;
-        case 1:
-
-            return pulseDelays[io] == 1;
-
-        case 2:
-
-        case 3:
-
-
-        case 4:
-
-            return (targetPos[io] == currentPos[io]) && ((servoState[io] == SS_STOPPED) || (servoState[io] == SS_OFF));
-
-
-
-
-
-
-    }
-    return TRUE;
-}
-# 253 "../outputs.c"
-void finaliseOutput(uint8_t io, uint8_t type) {
-    switch(type) {
-        case 1:
-            return;
-
-
-
-
-
-        default:
-            return;
-    }
+void finaliseCduOutput(uint8_t io) {
+    pulseDelays[io] = flashDelays[io] = 0;
 }

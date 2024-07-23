@@ -38828,7 +38828,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[1+(7+16*4)-1];
 
 
 
@@ -38916,12 +38916,12 @@ extern void defaultNVs(uint8_t i, uint8_t type);
 # 61 "../digitalOut.c" 2
 
 # 1 "../universalEvents.h" 1
-# 171 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 183 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -38951,17 +38951,11 @@ extern void startDigitalOutput(uint8_t io, uint8_t state);
 extern void setDigitalOutput(uint8_t io, uint8_t state);
 extern void setOutputPin(uint8_t io, Boolean state);
 # 65 "../digitalOut.c" 2
-
-
-
+# 74 "../digitalOut.c"
 uint8_t pulseDelays[16];
-
-
-
-
-
-
 int8_t flashDelays[16];
+
+
 void setOutputPin(uint8_t io, Boolean state);
 
 
@@ -38978,7 +38972,7 @@ void initOutputs(void) {
        flashDelays[io] = 0;
     }
 }
-# 105 "../digitalOut.c"
+# 107 "../digitalOut.c"
 void startDigitalOutput(uint8_t io, uint8_t state) {
     Boolean pinState;
     Boolean actionState;
@@ -39050,7 +39044,6 @@ void startDigitalOutput(uint8_t io, uint8_t state) {
 
 
 void processOutputs(void) {
-    Boolean state;
     uint8_t io;
     for (io=0; io<16; io++) {
         if (getNV((16 + 7*(io) + 0)) == 1) {
@@ -39090,7 +39083,13 @@ void processOutputs(void) {
         }
     }
 }
-# 224 "../digitalOut.c"
+
+
+
+
+
+
+
 void setDigitalOutput(uint8_t io, uint8_t state) {
     Boolean pinState;
     switch (state) {

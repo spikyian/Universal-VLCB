@@ -38899,7 +38899,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[1+(7+16*4)-1];
 
 
 
@@ -38911,12 +38911,12 @@ extern void deleteHappeningRange(Happening happening, uint8_t number);
 # 102 "../../VLCBlib_PIC\\event_producer.h"
 extern EventState APP_GetEventState(Happening h);
 # 75 "../universalEvents.h" 2
-# 171 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 183 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -38945,28 +38945,16 @@ extern const Config configs[16];
 
 # 1 "../servo.h" 1
 # 38 "../servo.h"
-# 1 "../../VLCBlib_PIC\\event_consumer.h" 1
-# 80 "../../VLCBlib_PIC\\event_consumer.h"
+# 1 "../event_consumerDualActionQueue.h" 1
+# 79 "../event_consumerDualActionQueue.h"
 extern const Service eventConsumerService;
-# 96 "../../VLCBlib_PIC\\event_consumer.h"
-typedef struct {
-
-    EventState state;
-    union {
-
-        uint8_t value;
-
-        uint8_t bytes[1];
-    } a;
-} ActionAndState;
-
-extern ActionAndState * popAction(void);
-extern Boolean pushAction(ActionAndState a);
+# 91 "../event_consumerDualActionQueue.h"
+extern uint8_t popTwoAction(void);
+extern Boolean pushTwoAction(uint8_t a);
 extern void deleteActionRange(uint8_t action, uint8_t number);
-
-
-
-
+extern void setNormalActions(void);
+extern void setExpeditedActions(void);
+extern uint8_t peekTwoActionQueue(uint8_t index);
 
 
 extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
@@ -39023,6 +39011,7 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
+extern void finaliseOutput(uint8_t io, uint8_t type);
 # 71 "../servo.c" 2
 # 89 "../servo.c"
 void setupTimer1(uint8_t io);

@@ -38862,28 +38862,16 @@ extern void defaultNVs(uint8_t i, uint8_t type);
 
 # 1 "../servo.h" 1
 # 38 "../servo.h"
-# 1 "../../VLCBlib_PIC\\event_consumer.h" 1
-# 80 "../../VLCBlib_PIC\\event_consumer.h"
+# 1 "../event_consumerDualActionQueue.h" 1
+# 79 "../event_consumerDualActionQueue.h"
 extern const Service eventConsumerService;
-# 96 "../../VLCBlib_PIC\\event_consumer.h"
-typedef struct {
-
-    EventState state;
-    union {
-
-        uint8_t value;
-
-        uint8_t bytes[1];
-    } a;
-} ActionAndState;
-
-extern ActionAndState * popAction(void);
-extern Boolean pushAction(ActionAndState a);
+# 91 "../event_consumerDualActionQueue.h"
+extern uint8_t popTwoAction(void);
+extern Boolean pushTwoAction(uint8_t a);
 extern void deleteActionRange(uint8_t action, uint8_t number);
-
-
-
-
+extern void setNormalActions(void);
+extern void setExpeditedActions(void);
+extern uint8_t peekTwoActionQueue(uint8_t index);
 
 
 extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);

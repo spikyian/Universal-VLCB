@@ -38797,7 +38797,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[1+(7+16*4)-1];
 
 
 
@@ -38810,32 +38810,51 @@ extern void deleteHappeningRange(Happening happening, uint8_t number);
 extern EventState APP_GetEventState(Happening h);
 # 60 "../universalEvents.c" 2
 
-# 1 "../../VLCBlib_PIC\\event_consumer.h" 1
-# 80 "../../VLCBlib_PIC\\event_consumer.h"
+# 1 "../event_consumerDualActionQueue.h" 1
+# 79 "../event_consumerDualActionQueue.h"
 extern const Service eventConsumerService;
-# 96 "../../VLCBlib_PIC\\event_consumer.h"
-typedef struct {
-
-    EventState state;
-    union {
-
-        uint8_t value;
-
-        uint8_t bytes[1];
-    } a;
-} ActionAndState;
-
-extern ActionAndState * popAction(void);
-extern Boolean pushAction(ActionAndState a);
+# 91 "../event_consumerDualActionQueue.h"
+extern uint8_t popTwoAction(void);
+extern Boolean pushTwoAction(uint8_t a);
 extern void deleteActionRange(uint8_t action, uint8_t number);
-
-
-
-
+extern void setNormalActions(void);
+extern void setExpeditedActions(void);
+extern uint8_t peekTwoActionQueue(uint8_t index);
 
 
 extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
 # 61 "../universalEvents.c" 2
+
+# 1 "../../VLCBlib_PIC\\event_teach_large.h" 1
+# 60 "../../VLCBlib_PIC\\event_teach_large.h"
+typedef union
+{
+    struct
+    {
+        uint8_t eVsUsed:4;
+        uint8_t continued:1;
+        uint8_t continuation:1;
+        uint8_t forceOwnNN:1;
+        uint8_t freeEntry:1;
+    };
+    uint8_t asByte;
+} EventTableFlags;
+
+
+
+
+
+
+typedef struct {
+    EventTableFlags flags;
+    uint8_t next;
+    Event event;
+    uint8_t evs[10];
+} EventTable;
+# 98 "../../VLCBlib_PIC\\event_teach_large.h"
+extern Boolean validStart(uint8_t index);
+extern void checkRemoveTableEntry(uint8_t tableIndex);
+# 62 "../universalEvents.c" 2
 
 # 1 "../../VLCBlib_PIC\\mns.h" 1
 # 111 "../../VLCBlib_PIC\\mns.h"
@@ -38861,7 +38880,7 @@ extern void updateModuleErrorStatus(void);
 
 
 extern TickValue pbTimer;
-# 62 "../universalEvents.c" 2
+# 63 "../universalEvents.c" 2
 
 # 1 "../../VLCBlib_PIC\\timedResponse.h" 1
 # 86 "../../VLCBlib_PIC\\timedResponse.h"
@@ -38895,11 +38914,9 @@ extern void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponse
 
 
 extern void pollTimedResponse(void);
-# 63 "../universalEvents.c" 2
+# 64 "../universalEvents.c" 2
 
 
-# 1 "../event_consumerDualActionQueue.h" 1
-# 65 "../universalEvents.c" 2
 
 # 1 "../universalNv.h" 1
 # 65 "../universalNv.h"
@@ -39005,25 +39022,25 @@ typedef struct {
 } ModuleNvDefs;
 
 extern void defaultNVs(uint8_t i, uint8_t type);
-# 66 "../universalEvents.c" 2
+# 67 "../universalEvents.c" 2
 
 # 1 "../universalEvents.h" 1
-# 171 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 183 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
 extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert,
                                         Boolean can_send_on, Boolean can_send_off);
 extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
-# 67 "../universalEvents.c" 2
+# 68 "../universalEvents.c" 2
 
 # 1 "../universalEEPROM.h" 1
-# 68 "../universalEvents.c" 2
+# 69 "../universalEvents.c" 2
 
 # 1 "../outputs.h" 1
 # 42 "../outputs.h"
@@ -39032,7 +39049,8 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
-# 69 "../universalEvents.c" 2
+extern void finaliseOutput(uint8_t io, uint8_t type);
+# 70 "../universalEvents.c" 2
 
 
 # 1 "../analogue.h" 1
@@ -39055,7 +39073,7 @@ typedef struct {
     unsigned char portState:1;
 } AnalogueStates;
 extern AnalogueStates analogueState[16];
-# 71 "../universalEvents.c" 2
+# 72 "../universalEvents.c" 2
 
 
 
@@ -39096,7 +39114,17 @@ void factoryResetGlobalEvents(void) {
 
 void defaultEvents(uint8_t io, uint8_t type) {
     uint16_t en = io+1;
-    clearEvents(io);
+    uint8_t b;
+
+
+
+
+
+
+
+        clearEvents(io);
+
+
 
 
     switch(type) {
@@ -39141,15 +39169,28 @@ void defaultEvents(uint8_t io, uint8_t type) {
             addEvent(nn.word, en, 0, ((8 + 4*(io))+1), TRUE);
             addEvent(nn.word, 100+en, 0, ((8 + 4*(io))+0), TRUE);
             break;
-
+# 180 "../universalEvents.c"
     }
 }
-# 172 "../universalEvents.c"
+# 195 "../universalEvents.c"
 uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN) {
+
     if ((evNum == 0) && (evVal != 0))
     {
-# 187 "../universalEvents.c"
+
+        if ((evVal >= 1) && (evVal <= (7+16*4))) {
+            uint8_t tableIndex = happening2Event[evVal-1];
+            if (tableIndex != 0xff) {
+
+
+                writeEv(tableIndex, 0, 0);
+                checkRemoveTableEntry(tableIndex);
+
+                rebuildHashtable();
+            }
+        }
     }
+
     return addEvent(nodeNumber, eventNumber, evNum, evVal, forceOwnNN);
 }
 
@@ -39160,8 +39201,8 @@ uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, u
 
 
 void clearEvents(uint8_t io) {
-    deleteActionRange((8 + 5*(io)), 5);
-    deleteActionRange((8 + 5*(io)) | 0x80, 5);
+    deleteActionRange((uint8_t)(uint8_t)(8 + 5*(io)), 5);
+    deleteActionRange((uint8_t)(uint8_t)((8 + 5*(io)) | 0x80), 5);
     deleteHappeningRange((8 + 4*(io)), 4);
 }
 
@@ -39217,7 +39258,6 @@ void processActions(void) {
             ioAction = (((ioAction)-8)%5);
             type = (uint8_t)getNV((16 + 7*(io) + 0));
 
-
             setOutputState(io, ioAction, type);
             if (needsStarting(io, ioAction, type)) {
                 startOutput(io, ioAction, type);
@@ -39249,12 +39289,14 @@ void processActions(void) {
                 }
                 if (completed(nextIo, nextAction, nextType)) {
                     deleteTwoActionQueue(peekItem);
+                    finaliseOutput(io, type);
                 }
                 peekItem++;
             }
 
             if (completed(io, action, type)) {
                 doneTwoAction();
+                finaliseOutput(io, type);
             } else {
 
 
@@ -39287,7 +39329,7 @@ void doWait(uint16_t duration) {
         }
     }
 }
-# 336 "../universalEvents.c"
+# 362 "../universalEvents.c"
 Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean invert, Boolean can_send_on, Boolean can_send_off) {
  EventState state_to_send = invert?!state:state;
  if ((state_to_send && can_send_on) || (!state_to_send && can_send_off)) {
@@ -39296,7 +39338,7 @@ Boolean sendInvertedProducedEvent(Happening happening, EventState state, Boolean
   return TRUE;
  }
 }
-# 352 "../universalEvents.c"
+# 378 "../universalEvents.c"
 Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert) {
     return sendProducedEvent(action, invert?!state:state);
 }
@@ -39309,7 +39351,7 @@ Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Bool
 void doSOD(void) {
     startTimedResponse(1, findServiceIndex(SERVICE_ID_PRODUCER), sodTRCallback);
 }
-# 377 "../universalEvents.c"
+# 403 "../universalEvents.c"
 TimedResponseResult sodTRCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     uint8_t io;
     uint8_t happeningIndex;

@@ -49,7 +49,7 @@
 #include "can.h"
 #include "boot.h"
 #include "event_teach.h"
-#include "event_consumer.h"
+#include "event_consumerDualActionQueue.h"
 #include "event_producer.h"
 #include "event_acknowledge.h"
 #include "event_coe.h"

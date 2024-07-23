@@ -38914,7 +38914,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[1+(7+16*4)-1];
 
 
 
@@ -38926,12 +38926,12 @@ extern void deleteHappeningRange(Happening happening, uint8_t number);
 # 102 "../../VLCBlib_PIC\\event_producer.h"
 extern EventState APP_GetEventState(Happening h);
 # 75 "../universalEvents.h" 2
-# 171 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 183 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -39005,40 +39005,44 @@ static Processed consumer2QProcessMessage(Message *m) {
     uint8_t masked_action;
     uint8_t ca;
     uint8_t io;
+    uint16_t enn;
 
     if (m->len < 5) return NOT_PROCESSED;
 
-    tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
-    if (tableIndex == 0xff) return NOT_PROCESSED;
+    enn = ((uint16_t)m->bytes[0])*256+m->bytes[1];
 
     switch (m->opc) {
-        case OPC_ACON:
-
-        case OPC_ACON1:
-        case OPC_ACON2:
-        case OPC_ACON3:
-
         case OPC_ASON:
 
         case OPC_ASON1:
         case OPC_ASON2:
         case OPC_ASON3:
 
+            enn = 0;
+
+        case OPC_ACON:
+
+        case OPC_ACON1:
+        case OPC_ACON2:
+        case OPC_ACON3:
+
             start = 1;
             end = 20;
             change = 1;
             break;
-        case OPC_ACOF:
-
-        case OPC_ACOF1:
-        case OPC_ACOF2:
-        case OPC_ACOF3:
-
         case OPC_ASOF:
 
         case OPC_ASOF1:
         case OPC_ASOF2:
         case OPC_ASOF3:
+
+            enn = 0;
+
+        case OPC_ACOF:
+
+        case OPC_ACOF1:
+        case OPC_ACOF2:
+        case OPC_ACOF3:
 
             start = 20 -1;
             end = 1 -1;
@@ -39049,7 +39053,7 @@ static Processed consumer2QProcessMessage(Message *m) {
     }
 
 
-    tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
+    tableIndex = findEvent(enn, ((uint16_t)m->bytes[2])*256+m->bytes[3]);
     if (tableIndex == 0xff) return NOT_PROCESSED;
 
     uint8_t opc = getEVs(tableIndex);
@@ -39081,6 +39085,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = (((masked_action)-8)%5);
                         switch (getNV((16 + 7*(io) + 0))) {
                             case 1:
+
+
+
                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
                                     setExpeditedActions();
                                 }
@@ -39146,6 +39153,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = (((action)-8)%5);
                         switch (getNV((16 + 7*(io) + 0))) {
                             case 1:
+
+
+
                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
                                     setExpeditedActions();
                                 }
@@ -39200,7 +39210,7 @@ static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
     }
     return &(consumer2QDiagnostics[index-1]);
 }
-# 349 "../event_consumerDualActionQueue.c"
+# 359 "../event_consumerDualActionQueue.c"
 static uint8_t consumer2QEsdData(uint8_t index) {
     switch (index){
         case 0:
@@ -39353,6 +39363,7 @@ void setNormalActions(void) {
 
 
 
+
 void deleteActionRange(uint8_t action, uint8_t number) {
     uint8_t tableIndex;
     for (tableIndex=0; tableIndex < 255; tableIndex++) {
@@ -39376,6 +39387,6 @@ void deleteActionRange(uint8_t action, uint8_t number) {
     }
     flushFlashBlock();
 
-
+    rebuildHashtable();
 
 }

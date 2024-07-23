@@ -143,37 +143,44 @@ static Processed consumer2QProcessMessage(Message *m) {
     uint8_t masked_action;
     uint8_t ca;
     uint8_t io;
+    uint16_t enn;
     
     if (m->len < 5) return NOT_PROCESSED;
+    
+    enn = ((uint16_t)m->bytes[0])*256+m->bytes[1];
 
     switch (m->opc) {
-        case OPC_ACON:
-#ifdef HANDLE_DATA_EVENTS
-        case OPC_ACON1:
-        case OPC_ACON2:
-        case OPC_ACON3:
-#endif
         case OPC_ASON:
 #ifdef HANDLE_DATA_EVENTS
         case OPC_ASON1:
         case OPC_ASON2:
         case OPC_ASON3:
 #endif
+            enn = 0;
+            // fall through
+        case OPC_ACON:
+#ifdef HANDLE_DATA_EVENTS
+        case OPC_ACON1:
+        case OPC_ACON2:
+        case OPC_ACON3:
+#endif
             start = HAPPENING_SIZE;
             end = PARAM_NUM_EV_EVENT;
             change = ACTION_SIZE;
             break;
-        case OPC_ACOF:
-#ifdef HANDLE_DATA_EVENTS
-        case OPC_ACOF1:
-        case OPC_ACOF2:
-        case OPC_ACOF3:
-#endif
         case OPC_ASOF:
 #ifdef HANDLE_DATA_EVENTS
         case OPC_ASOF1:
         case OPC_ASOF2:
         case OPC_ASOF3:
+#endif
+            enn = 0;
+            // fall through
+        case OPC_ACOF:
+#ifdef HANDLE_DATA_EVENTS
+        case OPC_ACOF1:
+        case OPC_ACOF2:
+        case OPC_ACOF3:
 #endif
             start = PARAM_NUM_EV_EVENT-ACTION_SIZE;
             end = HAPPENING_SIZE-1;
@@ -184,7 +191,7 @@ static Processed consumer2QProcessMessage(Message *m) {
     }
     
     // get the list of actions ready to the action queue
-    tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
+    tableIndex = findEvent(enn, ((uint16_t)m->bytes[2])*256+m->bytes[3]);
     if (tableIndex == NO_INDEX) return NOT_PROCESSED;
 
     uint8_t opc = getEVs(tableIndex);
@@ -499,6 +506,7 @@ void setNormalActions(void) {
 
 /**
  * Delete all occurrences of the consumer action.
+ * TODO. Currently only works for when Action == uint8_t
  * @param action
  */
 void deleteActionRange(Action action, uint8_t number) {

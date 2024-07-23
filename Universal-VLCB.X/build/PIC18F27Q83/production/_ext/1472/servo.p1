@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "99 ../servo.c
-[c E23265 0 1 2 3 .. ]
-[n E23265 . SS_OFF SS_STOPPED SS_MOVING SS_STARTING  ]
+[c E23262 0 1 2 3 .. ]
+[n E23262 . SS_OFF SS_STOPPED SS_MOVING SS_STARTING  ]
 "216 ../../VLCBlib_PIC\ticktime.h
 [s S3229 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S3229 TickBytes b0 b1 b2 b3 ]
@@ -3806,7 +3806,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
 "99 ../servo.c
-[v _servoState `E23265 ~T0 @X0 -> 16 `i e ]
+[v _servoState `E23262 ~T0 @X0 -> 16 `i e ]
 "100
 [v _currentPos `uc ~T0 @X0 -> 16 `i e ]
 "101
@@ -3836,49 +3836,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 "125
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 16 `i 3246  ]
-[e $U 3247  ]
-[e :U 3246 ]
+[e $ < -> _io `i -> 16 `i 3244  ]
+[e $U 3245  ]
+[e :U 3244 ]
 {
 "127
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 4 `i -> 0 `i 3249  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 4 `i -> 0 `i 3247  ]
 {
 "129
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 1 ]
 "130
 }
-[e $U 3250  ]
-[e :U 3249 ]
+[e $U 3248  ]
+[e :U 3247 ]
 {
 "131
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 0 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 0 ]
 "132
 }
-[e :U 3250 ]
+[e :U 3248 ]
 "133
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
 "134
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 4 `i -> 0 `i 3251  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 4 `i -> 0 `i 3249  ]
 {
 "135
 [e ( _setOutputPosition (3 , , _io -> ( _readNVM (2 , . `E22855 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um `uc -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `uc ]
 "136
 }
-[e $U 3252  ]
-[e :U 3251 ]
+[e $U 3250  ]
+[e :U 3249 ]
 {
 "137
 [e ( _setOutputPosition (3 , , _io -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `uc ]
 "138
 }
-[e :U 3252 ]
+[e :U 3250 ]
 "139
 [e = *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> -> 0 `i `uc ]
 "140
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 3246  ]
-[e :U 3247 ]
+[e $ < -> _io `i -> 16 `i 3244  ]
+[e :U 3245 ]
 }
 "159
 [; ;../servo.c: 159:     T1GCONbits.GE = 0;
@@ -3927,7 +3927,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _servoInBlock -> - -> _io `i -> 1 `i `uc ]
 "176
 [; ;../servo.c: 176: }
-[e :UE 3245 ]
+[e :UE 3243 ]
 }
 "182
 [; ;../servo.c: 182: void startServos(void) {
@@ -3943,7 +3943,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _servoInBlock -> -> 1 `i `uc ]
 "187
 [; ;../servo.c: 187:     if (servoInBlock >= 8) {
-[e $ ! >= -> _servoInBlock `i -> 8 `i 3254  ]
+[e $ ! >= -> _servoInBlock `i -> 8 `i 3252  ]
 {
 "188
 [; ;../servo.c: 188:         servoInBlock = 0;
@@ -3954,42 +3954,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 "190
 [; ;../servo.c: 190:     }
 }
-[e :U 3254 ]
+[e :U 3252 ]
 "191
 [; ;../servo.c: 191:     type = (uint8_t)getNV((16 + 7*(servoInBlock) + 0));
 [e = _type -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _servoInBlock `i -> 0 `i `uc `uc ]
 "192
 [; ;../servo.c: 192:     if ((type == 2) || (type == 3) || (type == 4)) {
-[e $ ! || || == -> _type `i -> 2 `i == -> _type `i -> 3 `i == -> _type `i -> 4 `i 3255  ]
+[e $ ! || || == -> _type `i -> 2 `i == -> _type `i -> 3 `i == -> _type `i -> 4 `i 3253  ]
 {
 "193
 [; ;../servo.c: 193:         if (servoState[servoInBlock] != SS_OFF) setupTimer1(servoInBlock);
-[e $ ! != -> *U + &U _servoState * -> _servoInBlock `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23265 0 `ui 3256  ]
+[e $ ! != -> *U + &U _servoState * -> _servoInBlock `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23262 0 `ui 3254  ]
 [e ( _setupTimer1 (1 _servoInBlock ]
-[e :U 3256 ]
+[e :U 3254 ]
 "194
 [; ;../servo.c: 194:     }
 }
-[e :U 3255 ]
+[e :U 3253 ]
 "195
 [; ;../servo.c: 195:     type = (uint8_t)getNV((16 + 7*(servoInBlock+8) + 0));
 [e = _type -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i + -> _servoInBlock `i -> 8 `i -> 0 `i `uc `uc ]
 "196
 [; ;../servo.c: 196:     if ((type == 2) || (type == 3) || (type == 4)) {
-[e $ ! || || == -> _type `i -> 2 `i == -> _type `i -> 3 `i == -> _type `i -> 4 `i 3257  ]
+[e $ ! || || == -> _type `i -> 2 `i == -> _type `i -> 3 `i == -> _type `i -> 4 `i 3255  ]
 {
 "197
 [; ;../servo.c: 197:         if (servoState[servoInBlock+8] != SS_OFF) setupTimer3(servoInBlock+8);
-[e $ ! != -> *U + &U _servoState * -> -> + -> _servoInBlock `i -> 8 `i `ui `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23265 0 `ui 3258  ]
+[e $ ! != -> *U + &U _servoState * -> -> + -> _servoInBlock `i -> 8 `i `ui `ux -> -> # *U &U _servoState `ui `ux `ui -> . `E23262 0 `ui 3256  ]
 [e ( _setupTimer3 (1 -> + -> _servoInBlock `i -> 8 `i `uc ]
-[e :U 3258 ]
+[e :U 3256 ]
 "198
 [; ;../servo.c: 198:     }
 }
-[e :U 3257 ]
+[e :U 3255 ]
 "199
 [; ;../servo.c: 199: }
-[e :UE 3253 ]
+[e :UE 3251 ]
 }
 "206
 [; ;../servo.c: 206: void setupTimer1(uint8_t io) {
@@ -4016,7 +4016,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
 "216
 [; ;../servo.c: 216: }
-[e :UE 3259 ]
+[e :UE 3257 ]
 }
 "217
 [; ;../servo.c: 217: void setupTimer3(uint8_t io) {
@@ -4043,7 +4043,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
 "227
 [; ;../servo.c: 227: }
-[e :UE 3260 ]
+[e :UE 3258 ]
 }
 [v $root$_TMR1_ISR `(v ~T0 @X0 0 e ]
 "249
@@ -4056,7 +4056,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "253
 [; ;../servo.c: 253:     if(PIR3bits.TMR1IF) {
-[e $ ! != -> . . _PIR3bits 0 4 `i -> 0 `i 3262  ]
+[e $ ! != -> . . _PIR3bits 0 4 `i -> 0 `i 3260  ]
 {
 "255
 [; ;../servo.c: 255:         PIR3bits.TMR1IF = 0;
@@ -4070,13 +4070,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "258
 [; ;../servo.c: 258:     }
 }
-[e :U 3262 ]
+[e :U 3260 ]
 "259
 [; ;../servo.c: 259:     return;
-[e $UE 3261  ]
+[e $UE 3259  ]
 "260
 [; ;../servo.c: 260: }
-[e :UE 3261 ]
+[e :UE 3259 ]
 }
 [v $root$_TMR3_ISR `(v ~T0 @X0 0 e ]
 "261
@@ -4089,7 +4089,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "265
 [; ;../servo.c: 265:     if(PIR5bits.TMR3IF) {
-[e $ ! != -> . . _PIR5bits 0 4 `i -> 0 `i 3264  ]
+[e $ ! != -> . . _PIR5bits 0 4 `i -> 0 `i 3262  ]
 {
 "267
 [; ;../servo.c: 267:         PIR5bits.TMR3IF = 0;
@@ -4103,13 +4103,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "270
 [; ;../servo.c: 270:     }
 }
-[e :U 3264 ]
+[e :U 3262 ]
 "271
 [; ;../servo.c: 271:     return;
-[e $UE 3263  ]
+[e $UE 3261  ]
 "272
 [; ;../servo.c: 272: }
-[e :UE 3263 ]
+[e :UE 3261 ]
 }
 "284
 [; ;../servo.c: 284: void pollServos(void) {
@@ -4133,17 +4133,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../servo.c: 290:     for (io=0; io<16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
-[e $ < -> _io `i -> 16 `i 3266  ]
-[e $U 3267  ]
-[e :U 3266 ]
+[e $ < -> _io `i -> 16 `i 3264  ]
+[e $U 3265  ]
+[e :U 3264 ]
 {
 "291
 [; ;../servo.c: 291:         switch (getNV((16 + 7*(io) + 0))) {
-[e $U 3270  ]
+[e $U 3268  ]
 {
 "292
 [; ;../servo.c: 292:             case 2:
-[e :U 3271 ]
+[e :U 3269 ]
 "293
 [; ;../servo.c: 293:                 midway = ((uint8_t)getNV((16 + 7*(io) + 3)))/2 +
 [e = _midway -> + / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> 2 `i / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i -> 2 `i `uc ]
@@ -4152,14 +4152,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _beforeMidway . `E22883 0 ]
 "296
 [; ;../servo.c: 296:                 switch (servoState[io]) {
-[e $U 3273  ]
+[e $U 3271  ]
 {
 "297
 [; ;../servo.c: 297:                     case SS_STARTING:
-[e :U 3274 ]
+[e :U 3272 ]
 "298
 [; ;../servo.c: 298:                         if (currentPos[io]==getNV((16 + 7*(io) + 2))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i 3275  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i 3273  ]
 {
 "299
 [; ;../servo.c: 299:                             sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
@@ -4167,8 +4167,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "300
 [; ;../servo.c: 300:                         } else {
 }
-[e $U 3276  ]
-[e :U 3275 ]
+[e $U 3274  ]
+[e :U 3273 ]
 {
 "301
 [; ;../servo.c: 301:                             sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
@@ -4176,20 +4176,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "302
 [; ;../servo.c: 302:                         }
 }
-[e :U 3276 ]
+[e :U 3274 ]
 "303
 [; ;../servo.c: 303:                         servoState[io] = SS_MOVING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 2 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 2 ]
 "305
 [; ;../servo.c: 305:                     case SS_MOVING:
-[e :U 3277 ]
+[e :U 3275 ]
 "306
 [; ;../servo.c: 306:                         if (targetPos[io] > currentPos[io]) {
-[e $ ! > -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3278  ]
+[e $ ! > -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3276  ]
 {
 "307
 [; ;../servo.c: 307:                             if (currentPos[io] < midway) {
-[e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 3279  ]
+[e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 3277  ]
 {
 "308
 [; ;../servo.c: 308:                                 beforeMidway = TRUE;
@@ -4197,14 +4197,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "309
 [; ;../servo.c: 309:                             }
 }
-[e :U 3279 ]
+[e :U 3277 ]
 "311
 [; ;../servo.c: 311:                             if (stepsPerPollSpeed[io]) {
-[e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 3280  ]
+[e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 3278  ]
 {
 "312
 [; ;../servo.c: 312:                                 if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
-[e $ ! < + -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3281  ]
+[e $ ! < + -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3279  ]
 {
 "314
 [; ;../servo.c: 314:                                     currentPos[io] =255;
@@ -4212,8 +4212,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "315
 [; ;../servo.c: 315:                                 } else {
 }
-[e $U 3282  ]
-[e :U 3281 ]
+[e $U 3280  ]
+[e :U 3279 ]
 {
 "316
 [; ;../servo.c: 316:                                     currentPos[io] += stepsPerPollSpeed[io];
@@ -4221,19 +4221,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "317
 [; ;../servo.c: 317:                                 }
 }
-[e :U 3282 ]
+[e :U 3280 ]
 "318
 [; ;../servo.c: 318:                             } else {
 }
-[e $U 3283  ]
-[e :U 3280 ]
+[e $U 3281  ]
+[e :U 3278 ]
 {
 "319
 [; ;../servo.c: 319:                                 pollCount[io]--;
 [e -- *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
 "320
 [; ;../servo.c: 320:                                 if (pollCount[io] == 0) {
-[e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 3284  ]
+[e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 3282  ]
 {
 "321
 [; ;../servo.c: 321:                                     currentPos[io]++;
@@ -4244,14 +4244,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "323
 [; ;../servo.c: 323:                                 }
 }
-[e :U 3284 ]
+[e :U 3282 ]
 "324
 [; ;../servo.c: 324:                             }
 }
-[e :U 3283 ]
+[e :U 3281 ]
 "326
 [; ;../servo.c: 326:                             if (currentPos[io] > targetPos[io]) {
-[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 3285  ]
+[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 3283  ]
 {
 "327
 [; ;../servo.c: 327:                                 currentPos[io] = targetPos[io];
@@ -4259,10 +4259,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "328
 [; ;../servo.c: 328:                             }
 }
-[e :U 3285 ]
+[e :U 3283 ]
 "329
 [; ;../servo.c: 329:                             if ((currentPos[io] >= midway) && beforeMidway) {
-[e $ ! && >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i != -> _beforeMidway `ui -> -> 0 `i `ui 3286  ]
+[e $ ! && >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i != -> _beforeMidway `ui -> -> 0 `i `ui 3284  ]
 {
 "333
 [; ;../servo.c: 333:                                 sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
@@ -4270,17 +4270,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "334
 [; ;../servo.c: 334:                             }
 }
-[e :U 3286 ]
+[e :U 3284 ]
 "335
 [; ;../servo.c: 335:                         } else if (targetPos[io] < currentPos[io]) {
 }
-[e $U 3287  ]
-[e :U 3278 ]
-[e $ ! < -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3288  ]
+[e $U 3285  ]
+[e :U 3276 ]
+[e $ ! < -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3286  ]
 {
 "336
 [; ;../servo.c: 336:                             if (currentPos[io] > midway) {
-[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 3289  ]
+[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 3287  ]
 {
 "337
 [; ;../servo.c: 337:                                 beforeMidway = TRUE;
@@ -4288,14 +4288,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "338
 [; ;../servo.c: 338:                             }
 }
-[e :U 3289 ]
+[e :U 3287 ]
 "340
 [; ;../servo.c: 340:                             if (stepsPerPollSpeed[io]) {
-[e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 3290  ]
+[e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 3288  ]
 {
 "341
 [; ;../servo.c: 341:                                 if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
-[e $ ! > - -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3291  ]
+[e $ ! > - -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3289  ]
 {
 "343
 [; ;../servo.c: 343:                                     currentPos[io] = 0;
@@ -4303,8 +4303,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "344
 [; ;../servo.c: 344:                                 } else {
 }
-[e $U 3292  ]
-[e :U 3291 ]
+[e $U 3290  ]
+[e :U 3289 ]
 {
 "345
 [; ;../servo.c: 345:                                     currentPos[io] -= stepsPerPollSpeed[io];
@@ -4312,19 +4312,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "346
 [; ;../servo.c: 346:                                 }
 }
-[e :U 3292 ]
+[e :U 3290 ]
 "347
 [; ;../servo.c: 347:                             } else {
 }
-[e $U 3293  ]
-[e :U 3290 ]
+[e $U 3291  ]
+[e :U 3288 ]
 {
 "348
 [; ;../servo.c: 348:                                 pollCount[io]--;
 [e -- *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
 "349
 [; ;../servo.c: 349:                                 if (pollCount[io] == 0) {
-[e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 3294  ]
+[e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 3292  ]
 {
 "350
 [; ;../servo.c: 350:                                     currentPos[io]--;
@@ -4335,14 +4335,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "352
 [; ;../servo.c: 352:                                 }
 }
-[e :U 3294 ]
+[e :U 3292 ]
 "353
 [; ;../servo.c: 353:                             }
 }
-[e :U 3293 ]
+[e :U 3291 ]
 "355
 [; ;../servo.c: 355:                             if (currentPos[io] < targetPos[io]) {
-[e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 3295  ]
+[e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 3293  ]
 {
 "356
 [; ;../servo.c: 356:                                 currentPos[io] = targetPos[io];
@@ -4350,10 +4350,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "357
 [; ;../servo.c: 357:                             }
 }
-[e :U 3295 ]
+[e :U 3293 ]
 "358
 [; ;../servo.c: 358:                             if ((currentPos[io] <= midway) && beforeMidway) {
-[e $ ! && <= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i != -> _beforeMidway `ui -> -> 0 `i `ui 3296  ]
+[e $ ! && <= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i != -> _beforeMidway `ui -> -> 0 `i `ui 3294  ]
 {
 "360
 [; ;../servo.c: 360:                                 sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
@@ -4361,25 +4361,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "361
 [; ;../servo.c: 361:                             }
 }
-[e :U 3296 ]
+[e :U 3294 ]
 "362
 [; ;../servo.c: 362:                         }
 }
-[e :U 3288 ]
-[e :U 3287 ]
+[e :U 3286 ]
+[e :U 3285 ]
 "363
 [; ;../servo.c: 363:                         if (targetPos[io] == currentPos[io]) {
-[e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3297  ]
+[e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3295  ]
 {
 "364
 [; ;../servo.c: 364:                             servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 1 ]
 "365
 [; ;../servo.c: 365:                             ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
 "367
 [; ;../servo.c: 367:                             if (currentPos[io] == getNV((16 + 7*(io) + 2))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i 3298  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i 3296  ]
 {
 "368
 [; ;../servo.c: 368:                                 sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
@@ -4387,8 +4387,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "369
 [; ;../servo.c: 369:                             } else {
 }
-[e $U 3299  ]
-[e :U 3298 ]
+[e $U 3297  ]
+[e :U 3296 ]
 {
 "370
 [; ;../servo.c: 370:                                 sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
@@ -4396,72 +4396,72 @@ Version 4.0 HI-TECH Software Intermediate Code
 "371
 [; ;../servo.c: 371:                             }
 }
-[e :U 3299 ]
+[e :U 3297 ]
 "372
 [; ;../servo.c: 372:                             writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
 [e ( _writeNVM (3 , , . `E22855 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux ]
 "373
 [; ;../servo.c: 373:                         }
 }
-[e :U 3297 ]
+[e :U 3295 ]
 "374
 [; ;../servo.c: 374:                         break;
-[e $U 3272  ]
+[e $U 3270  ]
 "375
 [; ;../servo.c: 375:                     case SS_STOPPED:
-[e :U 3300 ]
+[e :U 3298 ]
 "376
 [; ;../servo.c: 376:                     case SS_OFF:
-[e :U 3301 ]
+[e :U 3299 ]
 "377
 [; ;../servo.c: 377:                         break;
-[e $U 3272  ]
+[e $U 3270  ]
 "378
 [; ;../servo.c: 378:                 }
 }
-[e $U 3272  ]
-[e :U 3273 ]
-[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23265 3 `ui 3274
- , $ -> . `E23265 2 `ui 3277
- , $ -> . `E23265 1 `ui 3300
- , $ -> . `E23265 0 `ui 3301
- 3272 ]
-[e :U 3272 ]
+[e $U 3270  ]
+[e :U 3271 ]
+[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23262 3 `ui 3272
+ , $ -> . `E23262 2 `ui 3275
+ , $ -> . `E23262 1 `ui 3298
+ , $ -> . `E23262 0 `ui 3299
+ 3270 ]
+[e :U 3270 ]
 "379
 [; ;../servo.c: 379:                 break;
-[e $U 3269  ]
+[e $U 3267  ]
 "380
 [; ;../servo.c: 380:             case 3:
-[e :U 3302 ]
+[e :U 3300 ]
 "381
 [; ;../servo.c: 381:                 switch (servoState[io]) {
-[e $U 3304  ]
+[e $U 3302  ]
 {
 "382
 [; ;../servo.c: 382:                     case SS_STARTING:
-[e :U 3305 ]
+[e :U 3303 ]
 "383
 [; ;../servo.c: 383:                         initBounce(io);
 [e ( _initBounce (1 _io ]
 "384
 [; ;../servo.c: 384:                         servoState[io] = SS_MOVING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 2 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 2 ]
 "385
 [; ;../servo.c: 385:                         loopCount[io] = 0;
 [e = *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux -> -> 0 `i `uc ]
 "388
 [; ;../servo.c: 388:                     case SS_MOVING:
-[e :U 3306 ]
+[e :U 3304 ]
 "389
 [; ;../servo.c: 389:                         loopCount[io]++;
 [e ++ *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux -> -> 1 `i `uc ]
 "390
 [; ;../servo.c: 390:                         if (loopCount[io] >= 255) {
-[e $ ! >= -> *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux `i -> 255 `i 3307  ]
+[e $ ! >= -> *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux `i -> 255 `i 3305  ]
 {
 "391
 [; ;../servo.c: 391:                             servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 1 ]
 "392
 [; ;../servo.c: 392:                             ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
@@ -4476,25 +4476,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _writeNVM (3 , , . `E22855 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux ]
 "396
 [; ;../servo.c: 396:                             break;
-[e $U 3303  ]
+[e $U 3301  ]
 "397
 [; ;../servo.c: 397:                         }
 }
-[e :U 3307 ]
+[e :U 3305 ]
 "399
 [; ;../servo.c: 399:                         target = (uint8_t)getNV((16 + 7*(io) + 2));
 [e = _target -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc ]
 "403
 [; ;../servo.c: 403:                         if (targetPos[io] == target) {
-[e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> _target `i 3308  ]
+[e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> _target `i 3306  ]
 {
 "404
 [; ;../servo.c: 404:                             if (bounceUp(io)) {
-[e $ ! != -> ( _bounceUp (1 _io `ui -> -> 0 `i `ui 3309  ]
+[e $ ! != -> ( _bounceUp (1 _io `ui -> -> 0 `i `ui 3307  ]
 {
 "405
 [; ;../servo.c: 405:                                 servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 1 ]
 "406
 [; ;../servo.c: 406:                                 ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
@@ -4510,20 +4510,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "410
 [; ;../servo.c: 410:                             }
 }
-[e :U 3309 ]
+[e :U 3307 ]
 "411
 [; ;../servo.c: 411:                         } else {
 }
-[e $U 3310  ]
-[e :U 3308 ]
+[e $U 3308  ]
+[e :U 3306 ]
 {
 "412
 [; ;../servo.c: 412:                             if (bounceDown(io)) {
-[e $ ! != -> ( _bounceDown (1 _io `ui -> -> 0 `i `ui 3311  ]
+[e $ ! != -> ( _bounceDown (1 _io `ui -> -> 0 `i `ui 3309  ]
 {
 "413
 [; ;../servo.c: 413:                                 servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 1 ]
 "414
 [; ;../servo.c: 414:                                 ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
@@ -4539,50 +4539,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 "418
 [; ;../servo.c: 418:                             }
 }
-[e :U 3311 ]
+[e :U 3309 ]
 "419
 [; ;../servo.c: 419:                         }
 }
-[e :U 3310 ]
+[e :U 3308 ]
 "420
 [; ;../servo.c: 420:                         break;
-[e $U 3303  ]
+[e $U 3301  ]
 "421
 [; ;../servo.c: 421:                     case SS_STOPPED:
-[e :U 3312 ]
+[e :U 3310 ]
 "422
 [; ;../servo.c: 422:                     case SS_OFF:
-[e :U 3313 ]
+[e :U 3311 ]
 "423
 [; ;../servo.c: 423:                         break;
-[e $U 3303  ]
+[e $U 3301  ]
 "424
 [; ;../servo.c: 424:                 }
 }
-[e $U 3303  ]
-[e :U 3304 ]
-[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23265 3 `ui 3305
- , $ -> . `E23265 2 `ui 3306
- , $ -> . `E23265 1 `ui 3312
- , $ -> . `E23265 0 `ui 3313
- 3303 ]
-[e :U 3303 ]
+[e $U 3301  ]
+[e :U 3302 ]
+[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23262 3 `ui 3303
+ , $ -> . `E23262 2 `ui 3304
+ , $ -> . `E23262 1 `ui 3310
+ , $ -> . `E23262 0 `ui 3311
+ 3301 ]
+[e :U 3301 ]
 "425
 [; ;../servo.c: 425:                 break;
-[e $U 3269  ]
+[e $U 3267  ]
 "426
 [; ;../servo.c: 426:             case 4:
-[e :U 3314 ]
+[e :U 3312 ]
 "427
 [; ;../servo.c: 427:                 switch (servoState[io]) {
-[e $U 3316  ]
+[e $U 3314  ]
 {
 "428
 [; ;../servo.c: 428:                     case SS_STARTING:
-[e :U 3317 ]
+[e :U 3315 ]
 "429
 [; ;../servo.c: 429:                         if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i 3318  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i 3316  ]
 {
 "430
 [; ;../servo.c: 430:                             sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
@@ -4590,10 +4590,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "431
 [; ;../servo.c: 431:                         }
 }
-[e :U 3318 ]
+[e :U 3316 ]
 "432
 [; ;../servo.c: 432:                         if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i 3319  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i 3317  ]
 {
 "433
 [; ;../servo.c: 433:                             sendProducedEvent(((8 + 4*(io))+1), getNV((16 + 7*(io) + 1)) & 0x40);
@@ -4601,10 +4601,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "434
 [; ;../servo.c: 434:                         }
 }
-[e :U 3319 ]
+[e :U 3317 ]
 "435
 [; ;../servo.c: 435:                         if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i 3320  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i 3318  ]
 {
 "436
 [; ;../servo.c: 436:                             sendProducedEvent(((8 + 4*(io))+2), getNV((16 + 7*(io) + 1)) & 0x40);
@@ -4612,10 +4612,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "437
 [; ;../servo.c: 437:                         }
 }
-[e :U 3320 ]
+[e :U 3318 ]
 "438
 [; ;../servo.c: 438:                         if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i 3321  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i 3319  ]
 {
 "439
 [; ;../servo.c: 439:                             sendProducedEvent(((8 + 4*(io))+3), getNV((16 + 7*(io) + 1)) & 0x40);
@@ -4623,24 +4623,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "440
 [; ;../servo.c: 440:                         }
 }
-[e :U 3321 ]
+[e :U 3319 ]
 "441
 [; ;../servo.c: 441:                         servoState[io] = SS_MOVING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 2 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 2 ]
 "443
 [; ;../servo.c: 443:                     case SS_MOVING:
-[e :U 3322 ]
+[e :U 3320 ]
 "444
 [; ;../servo.c: 444:                         if (targetPos[io] > currentPos[io]) {
-[e $ ! > -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3323  ]
+[e $ ! > -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3321  ]
 {
 "445
 [; ;../servo.c: 445:                             if (stepsPerPollSpeed[io]) {
-[e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 3324  ]
+[e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 3322  ]
 {
 "446
 [; ;../servo.c: 446:                                 if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
-[e $ ! < + -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3325  ]
+[e $ ! < + -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3323  ]
 {
 "448
 [; ;../servo.c: 448:                                     currentPos[io] =255;
@@ -4648,8 +4648,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "449
 [; ;../servo.c: 449:                                 } else {
 }
-[e $U 3326  ]
-[e :U 3325 ]
+[e $U 3324  ]
+[e :U 3323 ]
 {
 "450
 [; ;../servo.c: 450:                                     currentPos[io] += stepsPerPollSpeed[io];
@@ -4657,19 +4657,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "451
 [; ;../servo.c: 451:                                 }
 }
-[e :U 3326 ]
+[e :U 3324 ]
 "452
 [; ;../servo.c: 452:                             } else {
 }
-[e $U 3327  ]
-[e :U 3324 ]
+[e $U 3325  ]
+[e :U 3322 ]
 {
 "453
 [; ;../servo.c: 453:                                 pollCount[io]--;
 [e -- *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
 "454
 [; ;../servo.c: 454:                                 if (pollCount[io] == 0) {
-[e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 3328  ]
+[e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 3326  ]
 {
 "455
 [; ;../servo.c: 455:                                     currentPos[io]++;
@@ -4680,14 +4680,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "457
 [; ;../servo.c: 457:                                 }
 }
-[e :U 3328 ]
+[e :U 3326 ]
 "458
 [; ;../servo.c: 458:                             }
 }
-[e :U 3327 ]
+[e :U 3325 ]
 "459
 [; ;../servo.c: 459:                             if (currentPos[io] > targetPos[io]) {
-[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 3329  ]
+[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 3327  ]
 {
 "460
 [; ;../servo.c: 460:                                 currentPos[io] = targetPos[io];
@@ -4695,21 +4695,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "461
 [; ;../servo.c: 461:                             }
 }
-[e :U 3329 ]
+[e :U 3327 ]
 "462
 [; ;../servo.c: 462:                         } else if (targetPos[io] < currentPos[io]) {
 }
-[e $U 3330  ]
-[e :U 3323 ]
-[e $ ! < -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3331  ]
+[e $U 3328  ]
+[e :U 3321 ]
+[e $ ! < -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3329  ]
 {
 "464
 [; ;../servo.c: 464:                             if (stepsPerPollSpeed[io]) {
-[e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 3332  ]
+[e $ ! != -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 0 `i 3330  ]
 {
 "465
 [; ;../servo.c: 465:                                 if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
-[e $ ! > - -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3333  ]
+[e $ ! > - -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3331  ]
 {
 "467
 [; ;../servo.c: 467:                                     currentPos[io] = 0;
@@ -4717,8 +4717,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "468
 [; ;../servo.c: 468:                                 } else {
 }
-[e $U 3334  ]
-[e :U 3333 ]
+[e $U 3332  ]
+[e :U 3331 ]
 {
 "469
 [; ;../servo.c: 469:                                     currentPos[io] -= stepsPerPollSpeed[io];
@@ -4726,19 +4726,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "470
 [; ;../servo.c: 470:                                 }
 }
-[e :U 3334 ]
+[e :U 3332 ]
 "471
 [; ;../servo.c: 471:                             } else {
 }
-[e $U 3335  ]
-[e :U 3332 ]
+[e $U 3333  ]
+[e :U 3330 ]
 {
 "472
 [; ;../servo.c: 472:                                 pollCount[io]--;
 [e -- *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux -> -> 1 `i `uc ]
 "473
 [; ;../servo.c: 473:                                 if (pollCount[io] == 0) {
-[e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 3336  ]
+[e $ ! == -> *U + &U _pollCount * -> _io `ux -> -> # *U &U _pollCount `ui `ux `i -> 0 `i 3334  ]
 {
 "474
 [; ;../servo.c: 474:                                     currentPos[io]--;
@@ -4749,14 +4749,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "476
 [; ;../servo.c: 476:                                 }
 }
-[e :U 3336 ]
+[e :U 3334 ]
 "477
 [; ;../servo.c: 477:                             }
 }
-[e :U 3335 ]
+[e :U 3333 ]
 "478
 [; ;../servo.c: 478:                             if (currentPos[io] < targetPos[io]) {
-[e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 3337  ]
+[e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i 3335  ]
 {
 "479
 [; ;../servo.c: 479:                                 currentPos[io] = targetPos[io];
@@ -4764,25 +4764,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "480
 [; ;../servo.c: 480:                             }
 }
-[e :U 3337 ]
+[e :U 3335 ]
 "481
 [; ;../servo.c: 481:                         }
 }
-[e :U 3331 ]
-[e :U 3330 ]
+[e :U 3329 ]
+[e :U 3328 ]
 "482
 [; ;../servo.c: 482:                         if (targetPos[io] == currentPos[io]) {
-[e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3338  ]
+[e $ ! == -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i 3336  ]
 {
 "483
 [; ;../servo.c: 483:                             servoState[io] = SS_STOPPED;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 1 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 1 ]
 "484
 [; ;../servo.c: 484:                             ticksWhenStopped[io].val = tickGet();
 [e = . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 ( _tickGet ..  ]
 "486
 [; ;../servo.c: 486:                             if (currentPos[io] == getNV((16 + 7*(io) + 3))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i 3339  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `i 3337  ]
 {
 "487
 [; ;../servo.c: 487:                                 sendProducedEvent(((8 + 4*(io))+0), !(getNV((16 + 7*(io) + 1)) & 0x40));
@@ -4790,10 +4790,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "488
 [; ;../servo.c: 488:                             }
 }
-[e :U 3339 ]
+[e :U 3337 ]
 "489
 [; ;../servo.c: 489:                             if (currentPos[io] == getNV((16 + 7*(io) + 4))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i 3340  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `i 3338  ]
 {
 "490
 [; ;../servo.c: 490:                                 sendProducedEvent(((8 + 4*(io))+1), !(getNV((16 + 7*(io) + 1)) & 0x40));
@@ -4801,10 +4801,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "491
 [; ;../servo.c: 491:                             }
 }
-[e :U 3340 ]
+[e :U 3338 ]
 "492
 [; ;../servo.c: 492:                             if (currentPos[io] == getNV((16 + 7*(io) + 5))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i 3341  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `i 3339  ]
 {
 "493
 [; ;../servo.c: 493:                                 sendProducedEvent(((8 + 4*(io))+2), !(getNV((16 + 7*(io) + 1)) & 0x40));
@@ -4812,10 +4812,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "494
 [; ;../servo.c: 494:                             }
 }
-[e :U 3341 ]
+[e :U 3339 ]
 "495
 [; ;../servo.c: 495:                             if (currentPos[io] == getNV((16 + 7*(io) + 6))) {
-[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i 3342  ]
+[e $ ! == -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `i 3340  ]
 {
 "496
 [; ;../servo.c: 496:                                 sendProducedEvent(((8 + 4*(io))+3), !(getNV((16 + 7*(io) + 1)) & 0x40));
@@ -4823,115 +4823,115 @@ Version 4.0 HI-TECH Software Intermediate Code
 "497
 [; ;../servo.c: 497:                             }
 }
-[e :U 3342 ]
+[e :U 3340 ]
 "498
 [; ;../servo.c: 498:                             writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, currentPos[io]);
 [e ( _writeNVM (3 , , . `E22855 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux ]
 "499
 [; ;../servo.c: 499:                         }
 }
-[e :U 3338 ]
+[e :U 3336 ]
 "500
 [; ;../servo.c: 500:                         break;
-[e $U 3315  ]
+[e $U 3313  ]
 "501
 [; ;../servo.c: 501:                     case SS_STOPPED:
-[e :U 3343 ]
+[e :U 3341 ]
 "502
 [; ;../servo.c: 502:                     case SS_OFF:
-[e :U 3344 ]
+[e :U 3342 ]
 "503
 [; ;../servo.c: 503:                         break;
-[e $U 3315  ]
+[e $U 3313  ]
 "504
 [; ;../servo.c: 504:                 }
 }
-[e $U 3315  ]
-[e :U 3316 ]
-[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23265 3 `ui 3317
- , $ -> . `E23265 2 `ui 3322
- , $ -> . `E23265 1 `ui 3343
- , $ -> . `E23265 0 `ui 3344
- 3315 ]
-[e :U 3315 ]
+[e $U 3313  ]
+[e :U 3314 ]
+[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23262 3 `ui 3315
+ , $ -> . `E23262 2 `ui 3320
+ , $ -> . `E23262 1 `ui 3341
+ , $ -> . `E23262 0 `ui 3342
+ 3313 ]
+[e :U 3313 ]
 "505
 [; ;../servo.c: 505:                 break;
-[e $U 3269  ]
+[e $U 3267  ]
 "506
 [; ;../servo.c: 506:         }
 }
-[e $U 3269  ]
-[e :U 3270 ]
-[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 2 `i 3271
- , $ -> 3 `i 3302
- , $ -> 4 `i 3314
- 3269 ]
-[e :U 3269 ]
+[e $U 3267  ]
+[e :U 3268 ]
+[e [\ -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i , $ -> 2 `i 3269
+ , $ -> 3 `i 3300
+ , $ -> 4 `i 3312
+ 3267 ]
+[e :U 3267 ]
 "507
 [; ;../servo.c: 507:         switch (servoState[io]) {
-[e $U 3346  ]
+[e $U 3344  ]
 {
 "508
 [; ;../servo.c: 508:             case SS_STARTING:
-[e :U 3347 ]
+[e :U 3345 ]
 "509
 [; ;../servo.c: 509:             case SS_MOVING:
-[e :U 3348 ]
+[e :U 3346 ]
 "510
 [; ;../servo.c: 510:                 break;
-[e $U 3345  ]
+[e $U 3343  ]
 "511
 [; ;../servo.c: 511:             case SS_STOPPED:
-[e :U 3349 ]
+[e :U 3347 ]
 "514
 [; ;../servo.c: 514:                 if (getNV((16 + 7*(io) + 1)) & 0x02) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 2 `i -> 0 `i 3350  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 2 `i -> 0 `i 3348  ]
 {
 "515
 [; ;../servo.c: 515:                     if ((tickGet() - ticksWhenStopped[io].val) > 62500) {
-[e $ ! > - ( _tickGet ..  . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 -> -> 62500 `l `ul 3351  ]
+[e $ ! > - ( _tickGet ..  . *U + &U _ticksWhenStopped * -> _io `ux -> -> # *U &U _ticksWhenStopped `ui `ux 0 -> -> 62500 `l `ul 3349  ]
 {
 "516
 [; ;../servo.c: 516:                         servoState[io] = SS_OFF;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 0 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 0 ]
 "517
 [; ;../servo.c: 517:                     }
 }
-[e :U 3351 ]
+[e :U 3349 ]
 "518
 [; ;../servo.c: 518:                 }
 }
-[e :U 3350 ]
+[e :U 3348 ]
 "519
 [; ;../servo.c: 519:                 break;
-[e $U 3345  ]
+[e $U 3343  ]
 "520
 [; ;../servo.c: 520:             case SS_OFF:
-[e :U 3352 ]
+[e :U 3350 ]
 "524
 [; ;../servo.c: 524:                 break;
-[e $U 3345  ]
+[e $U 3343  ]
 "525
 [; ;../servo.c: 525:         }
 }
-[e $U 3345  ]
-[e :U 3346 ]
-[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23265 3 `ui 3347
- , $ -> . `E23265 2 `ui 3348
- , $ -> . `E23265 1 `ui 3349
- , $ -> . `E23265 0 `ui 3352
- 3345 ]
-[e :U 3345 ]
+[e $U 3343  ]
+[e :U 3344 ]
+[e [\ -> *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux `ui , $ -> . `E23262 3 `ui 3345
+ , $ -> . `E23262 2 `ui 3346
+ , $ -> . `E23262 1 `ui 3347
+ , $ -> . `E23262 0 `ui 3350
+ 3343 ]
+[e :U 3343 ]
 "526
 [; ;../servo.c: 526:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
-[e $ < -> _io `i -> 16 `i 3266  ]
-[e :U 3267 ]
+[e $ < -> _io `i -> 16 `i 3264  ]
+[e :U 3265 ]
 }
 "527
 [; ;../servo.c: 527: }
-[e :UE 3265 ]
+[e :UE 3263 ]
 }
 "538
 [; ;../servo.c: 538: void startServoOutput(uint8_t io, uint8_t action) {
@@ -4943,38 +4943,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "539
 [; ;../servo.c: 539:     switch (action) {
-[e $U 3355  ]
+[e $U 3353  ]
 {
 "540
 [; ;../servo.c: 540:         case 2:
-[e :U 3356 ]
+[e :U 3354 ]
 "541
 [; ;../servo.c: 541:             stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 5));
 [e = *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `uc ]
 "542
 [; ;../servo.c: 542:             break;
-[e $U 3354  ]
+[e $U 3352  ]
 "543
 [; ;../servo.c: 543:         case 1:
-[e :U 3357 ]
+[e :U 3355 ]
 "544
 [; ;../servo.c: 544:             stepsPerPollSpeed[io] = (uint8_t)getNV((16 + 7*(io) + 4));
 [e = *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `uc ]
 "545
 [; ;../servo.c: 545:             break;
-[e $U 3354  ]
+[e $U 3352  ]
 "546
 [; ;../servo.c: 546:     }
 }
-[e $U 3354  ]
-[e :U 3355 ]
-[e [\ _action , $ -> 2 `i 3356
- , $ -> 1 `i 3357
- 3354 ]
-[e :U 3354 ]
+[e $U 3352  ]
+[e :U 3353 ]
+[e [\ _action , $ -> 2 `i 3354
+ , $ -> 1 `i 3355
+ 3352 ]
+[e :U 3352 ]
 "547
 [; ;../servo.c: 547:     if (stepsPerPollSpeed[io] > 234) {
-[e $ ! > -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 234 `i 3358  ]
+[e $ ! > -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 234 `i 3356  ]
 {
 "548
 [; ;../servo.c: 548:         stepsPerPollSpeed[io] -= 234;
@@ -4985,8 +4985,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "550
 [; ;../servo.c: 550:     } else {
 }
-[e $U 3359  ]
-[e :U 3358 ]
+[e $U 3357  ]
+[e :U 3356 ]
 {
 "551
 [; ;../servo.c: 551:         pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
@@ -5000,13 +5000,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "554
 [; ;../servo.c: 554:     }
 }
-[e :U 3359 ]
+[e :U 3357 ]
 "555
 [; ;../servo.c: 555:     servoState[io] = SS_STARTING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 3 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 3 ]
 "556
 [; ;../servo.c: 556: }
-[e :UE 3353 ]
+[e :UE 3351 ]
 }
 "566
 [; ;../servo.c: 566: void startBounceOutput(uint8_t io, uint8_t action) {
@@ -5018,44 +5018,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "567
 [; ;../servo.c: 567:     switch (action) {
-[e $U 3362  ]
+[e $U 3360  ]
 {
 "568
 [; ;../servo.c: 568:         case 2:
-[e :U 3363 ]
+[e :U 3361 ]
 "569
 [; ;../servo.c: 569:             speed[io] = 0;
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 0 `i ]
 "570
 [; ;../servo.c: 570:             break;
-[e $U 3361  ]
+[e $U 3359  ]
 "571
 [; ;../servo.c: 571:         case 1:
-[e :U 3364 ]
+[e :U 3362 ]
 "572
 [; ;../servo.c: 572:             speed[io] = 12;
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 12 `i ]
 "573
 [; ;../servo.c: 573:             break;
-[e $U 3361  ]
+[e $U 3359  ]
 "574
 [; ;../servo.c: 574:     }
 }
-[e $U 3361  ]
-[e :U 3362 ]
-[e [\ _action , $ -> 2 `i 3363
- , $ -> 1 `i 3364
- 3361 ]
-[e :U 3361 ]
+[e $U 3359  ]
+[e :U 3360 ]
+[e [\ _action , $ -> 2 `i 3361
+ , $ -> 1 `i 3362
+ 3359 ]
+[e :U 3359 ]
 "575
 [; ;../servo.c: 575:     servoState[io] = SS_STARTING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 3 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 3 ]
 "576
 [; ;../servo.c: 576:     loopCount[io] = 0;
 [e = *U + &U _loopCount * -> _io `ux -> -> # *U &U _loopCount `ui `ux -> -> 0 `i `uc ]
 "577
 [; ;../servo.c: 577: }
-[e :UE 3360 ]
+[e :UE 3358 ]
 }
 "584
 [; ;../servo.c: 584: void startMultiOutput(uint8_t io, uint8_t action) {
@@ -5070,7 +5070,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux -> ( _getNV (1 -> -> 3 `i `uc `uc ]
 "587
 [; ;../servo.c: 587:     if (stepsPerPollSpeed[io] > 234) {
-[e $ ! > -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 234 `i 3366  ]
+[e $ ! > -> *U + &U _stepsPerPollSpeed * -> _io `ux -> -> # *U &U _stepsPerPollSpeed `ui `ux `i -> 234 `i 3364  ]
 {
 "588
 [; ;../servo.c: 588:         stepsPerPollSpeed[io] -= 234;
@@ -5081,8 +5081,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "590
 [; ;../servo.c: 590:     } else {
 }
-[e $U 3367  ]
-[e :U 3366 ]
+[e $U 3365  ]
+[e :U 3364 ]
 {
 "591
 [; ;../servo.c: 591:         pollsPerStepSpeed[io] = 234 - stepsPerPollSpeed[io] +1;
@@ -5096,13 +5096,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "594
 [; ;../servo.c: 594:     }
 }
-[e :U 3367 ]
+[e :U 3365 ]
 "595
 [; ;../servo.c: 595:     servoState[io] = SS_STARTING;
-[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23265 3 ]
+[e = *U + &U _servoState * -> _io `ux -> -> # *U &U _servoState `ui `ux . `E23262 3 ]
 "596
 [; ;../servo.c: 596: }
-[e :UE 3365 ]
+[e :UE 3363 ]
 }
 "606
 [; ;../servo.c: 606: void setServoState(uint8_t io, uint8_t action) {
@@ -5114,14 +5114,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "607
 [; ;../servo.c: 607:     switch (action) {
-[e $U 3370  ]
+[e $U 3368  ]
 {
 "608
 [; ;../servo.c: 608:         case 2:
-[e :U 3371 ]
+[e :U 3369 ]
 "609
 [; ;../servo.c: 609:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 3372  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 3370  ]
 {
 "610
 [; ;../servo.c: 610:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
@@ -5129,8 +5129,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "611
 [; ;../servo.c: 611:             } else {
 }
-[e $U 3373  ]
-[e :U 3372 ]
+[e $U 3371  ]
+[e :U 3370 ]
 {
 "612
 [; ;../servo.c: 612:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
@@ -5138,16 +5138,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "613
 [; ;../servo.c: 613:             }
 }
-[e :U 3373 ]
+[e :U 3371 ]
 "614
 [; ;../servo.c: 614:             break;
-[e $U 3369  ]
+[e $U 3367  ]
 "615
 [; ;../servo.c: 615:         case 1:
-[e :U 3374 ]
+[e :U 3372 ]
 "616
 [; ;../servo.c: 616:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 3375  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 3373  ]
 {
 "617
 [; ;../servo.c: 617:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
@@ -5155,8 +5155,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "618
 [; ;../servo.c: 618:             } else {
 }
-[e $U 3376  ]
-[e :U 3375 ]
+[e $U 3374  ]
+[e :U 3373 ]
 {
 "619
 [; ;../servo.c: 619:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
@@ -5164,22 +5164,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "620
 [; ;../servo.c: 620:             }
 }
-[e :U 3376 ]
+[e :U 3374 ]
 "621
 [; ;../servo.c: 621:             break;
-[e $U 3369  ]
+[e $U 3367  ]
 "622
 [; ;../servo.c: 622:     }
 }
-[e $U 3369  ]
-[e :U 3370 ]
-[e [\ _action , $ -> 2 `i 3371
- , $ -> 1 `i 3374
- 3369 ]
-[e :U 3369 ]
+[e $U 3367  ]
+[e :U 3368 ]
+[e [\ _action , $ -> 2 `i 3369
+ , $ -> 1 `i 3372
+ 3367 ]
+[e :U 3367 ]
 "623
 [; ;../servo.c: 623: }
-[e :UE 3368 ]
+[e :UE 3366 ]
 }
 "633
 [; ;../servo.c: 633: void setBounceState(uint8_t io, uint8_t action) {
@@ -5191,14 +5191,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "634
 [; ;../servo.c: 634:     switch (action) {
-[e $U 3379  ]
+[e $U 3377  ]
 {
 "635
 [; ;../servo.c: 635:         case 2:
-[e :U 3380 ]
+[e :U 3378 ]
 "636
 [; ;../servo.c: 636:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 3381  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 3379  ]
 {
 "637
 [; ;../servo.c: 637:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
@@ -5206,8 +5206,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "638
 [; ;../servo.c: 638:             } else {
 }
-[e $U 3382  ]
-[e :U 3381 ]
+[e $U 3380  ]
+[e :U 3379 ]
 {
 "639
 [; ;../servo.c: 639:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
@@ -5215,16 +5215,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "640
 [; ;../servo.c: 640:             }
 }
-[e :U 3382 ]
+[e :U 3380 ]
 "641
 [; ;../servo.c: 641:             break;
-[e $U 3378  ]
+[e $U 3376  ]
 "642
 [; ;../servo.c: 642:         case 1:
-[e :U 3383 ]
+[e :U 3381 ]
 "643
 [; ;../servo.c: 643:             if (getNV((16 + 7*(io) + 1)) & 0x01) {
-[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 3384  ]
+[e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 1 `i -> 0 `i 3382  ]
 {
 "644
 [; ;../servo.c: 644:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
@@ -5232,8 +5232,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "645
 [; ;../servo.c: 645:             } else {
 }
-[e $U 3385  ]
-[e :U 3384 ]
+[e $U 3383  ]
+[e :U 3382 ]
 {
 "646
 [; ;../servo.c: 646:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 2));
@@ -5241,22 +5241,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "647
 [; ;../servo.c: 647:             }
 }
-[e :U 3385 ]
+[e :U 3383 ]
 "648
 [; ;../servo.c: 648:             break;
-[e $U 3378  ]
+[e $U 3376  ]
 "649
 [; ;../servo.c: 649:     }
 }
-[e $U 3378  ]
-[e :U 3379 ]
-[e [\ _action , $ -> 2 `i 3380
- , $ -> 1 `i 3383
- 3378 ]
-[e :U 3378 ]
+[e $U 3376  ]
+[e :U 3377 ]
+[e [\ _action , $ -> 2 `i 3378
+ , $ -> 1 `i 3381
+ 3376 ]
+[e :U 3376 ]
 "650
 [; ;../servo.c: 650: }
-[e :UE 3377 ]
+[e :UE 3375 ]
 }
 "657
 [; ;../servo.c: 657: void setMultiState(uint8_t io, uint8_t action) {
@@ -5268,32 +5268,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "658
 [; ;../servo.c: 658:     switch (action) {
-[e $U 3388  ]
+[e $U 3386  ]
 {
 "659
 [; ;../servo.c: 659:         case 0:
-[e :U 3389 ]
+[e :U 3387 ]
 "660
 [; ;../servo.c: 660:             targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 3));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc ]
 "661
 [; ;../servo.c: 661:             break;
-[e $U 3387  ]
+[e $U 3385  ]
 "662
 [; ;../servo.c: 662:         case 1:
-[e :U 3390 ]
+[e :U 3388 ]
 "663
 [; ;../servo.c: 663:             targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 4));
 [e = *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 4 `i `uc `uc ]
 "664
 [; ;../servo.c: 664:             break;
-[e $U 3387  ]
+[e $U 3385  ]
 "665
 [; ;../servo.c: 665:         case 2:
-[e :U 3391 ]
+[e :U 3389 ]
 "666
 [; ;../servo.c: 666:             if (getNV((16 + 7*(io) + 2)) >= 3) {
-[e $ ! >= -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 3 `i 3392  ]
+[e $ ! >= -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 3 `i 3390  ]
 {
 "667
 [; ;../servo.c: 667:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 5));
@@ -5301,16 +5301,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "668
 [; ;../servo.c: 668:             }
 }
-[e :U 3392 ]
+[e :U 3390 ]
 "669
 [; ;../servo.c: 669:             break;
-[e $U 3387  ]
+[e $U 3385  ]
 "670
 [; ;../servo.c: 670:         case 3:
-[e :U 3393 ]
+[e :U 3391 ]
 "671
 [; ;../servo.c: 671:             if (getNV((16 + 7*(io) + 2)) >= 4) {
-[e $ ! >= -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 4 `i 3394  ]
+[e $ ! >= -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 4 `i 3392  ]
 {
 "672
 [; ;../servo.c: 672:                 targetPos[io] = (uint8_t)getNV((16 + 7*(io) + 6));
@@ -5318,24 +5318,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "673
 [; ;../servo.c: 673:             }
 }
-[e :U 3394 ]
+[e :U 3392 ]
 "674
 [; ;../servo.c: 674:             break;
-[e $U 3387  ]
+[e $U 3385  ]
 "675
 [; ;../servo.c: 675:     }
 }
-[e $U 3387  ]
-[e :U 3388 ]
-[e [\ _action , $ -> 0 `i 3389
- , $ -> 1 `i 3390
- , $ -> 2 `i 3391
- , $ -> 3 `i 3393
- 3387 ]
-[e :U 3387 ]
+[e $U 3385  ]
+[e :U 3386 ]
+[e [\ _action , $ -> 0 `i 3387
+ , $ -> 1 `i 3388
+ , $ -> 2 `i 3389
+ , $ -> 3 `i 3391
+ 3385 ]
+[e :U 3385 ]
 "676
 [; ;../servo.c: 676: }
-[e :UE 3386 ]
+[e :UE 3384 ]
 }
 "683
 [; ;../servo.c: 683: void setServoPosition(uint8_t io, uint8_t pos) {
@@ -5353,7 +5353,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux _pos ]
 "686
 [; ;../servo.c: 686: }
-[e :UE 3395 ]
+[e :UE 3393 ]
 }
 "694
 [; ;../servo.c: 694: Boolean isNoServoPulses(void){
@@ -5363,21 +5363,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "696
 [; ;../servo.c: 696:     if (T1CONbits.TMR1ON) return FALSE;
-[e $ ! != -> . . _T1CONbits 1 0 `i -> 0 `i 3397  ]
+[e $ ! != -> . . _T1CONbits 1 0 `i -> 0 `i 3395  ]
 [e ) . `E22883 0 ]
-[e $UE 3396  ]
-[e :U 3397 ]
+[e $UE 3394  ]
+[e :U 3395 ]
 "697
 [; ;../servo.c: 697:     if (T3CONbits.TMR3ON) return FALSE;
-[e $ ! != -> . . _T3CONbits 1 0 `i -> 0 `i 3398  ]
+[e $ ! != -> . . _T3CONbits 1 0 `i -> 0 `i 3396  ]
 [e ) . `E22883 0 ]
-[e $UE 3396  ]
-[e :U 3398 ]
+[e $UE 3394  ]
+[e :U 3396 ]
 "699
 [; ;../servo.c: 699:     return TRUE;
 [e ) . `E22883 1 ]
-[e $UE 3396  ]
+[e $UE 3394  ]
 "700
 [; ;../servo.c: 700: }
-[e :UE 3396 ]
+[e :UE 3394 ]
 }

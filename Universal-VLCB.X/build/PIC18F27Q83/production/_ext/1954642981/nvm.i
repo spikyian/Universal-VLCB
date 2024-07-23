@@ -38795,10 +38795,11 @@ static union
 
 
 
+
  flash_data_t * flashBuffer = (flash_data_t *)(0x3700U);
 
 static flash_address_t flashBlock;
-# 147 "../../VLCBlib_PIC/nvm.c"
+# 148 "../../VLCBlib_PIC/nvm.c"
 void initRomOps(void) {
     flashFlags.asByte = 0;
     flashBlock = 0x0000;
@@ -38815,7 +38816,7 @@ void initRomOps(void) {
 
 
 eeprom_data_t EEPROM_Read(eeprom_address_t index) {
-# 182 "../../VLCBlib_PIC/nvm.c"
+# 183 "../../VLCBlib_PIC/nvm.c"
     while (NVMCON0bits.GO)
         ;
 
@@ -38845,7 +38846,7 @@ uint8_t EEPROM_Write(eeprom_address_t index, eeprom_data_t value) {
     uint8_t interruptEnabled;
     interruptEnabled = (INTCON0bits.GIE);
     do {
-# 236 "../../VLCBlib_PIC/nvm.c"
+# 237 "../../VLCBlib_PIC/nvm.c"
         while (NVMCON0bits.GO)
             ;
 
@@ -38888,14 +38889,14 @@ uint8_t EEPROM_Write(eeprom_address_t index, eeprom_data_t value) {
     } while (1);
     return GRSP_OK;
 }
-# 286 "../../VLCBlib_PIC/nvm.c"
+# 287 "../../VLCBlib_PIC/nvm.c"
 static flash_data_t FLASH_Read(flash_address_t address) {
 
     if ((address&(~((flash_address_t)(256U)-1))) == flashBlock) {
 
         return flashBuffer[(address&((256U)-1))];
     } else {
-# 300 "../../VLCBlib_PIC/nvm.c"
+# 301 "../../VLCBlib_PIC/nvm.c"
         TBLPTRU = (uint8_t) (address >> 16);
         TBLPTRH = (uint8_t) (address >> 8);
         TBLPTRL = (uint8_t) address;
@@ -38919,7 +38920,7 @@ void eraseFlashBlock(void) {
         ;
 
     interruptEnabled = (INTCON0bits.GIE);
-# 340 "../../VLCBlib_PIC/nvm.c"
+# 341 "../../VLCBlib_PIC/nvm.c"
     while (NVMCON0bits.GO)
         ;
 
@@ -38967,13 +38968,14 @@ void flushFlashBlock(void) {
 
     interruptEnabled = (INTCON0bits.GIE);
     {INTCON0bits.GIE = 0;};
-# 412 "../../VLCBlib_PIC/nvm.c"
+# 413 "../../VLCBlib_PIC/nvm.c"
     while (NVMCON0bits.GO)
         ;
 
-    NVMADRU = (uint8_t) (flashBlock >> 16);
-    NVMADRH = (uint8_t) (flashBlock >> 8);
-    NVMADRL = (uint8_t) flashBlock;
+
+
+
+    NVMADR = flashBlock;
 
     NVMCON1bits.NVMCMD = 0x05;
 
@@ -38981,6 +38983,7 @@ void flushFlashBlock(void) {
     NVMLOCK = 0xAA;
     NVMCON0bits.GO = 1;
     while (NVMCON0bits.GO)
+
         ;
     NVMCON1bits.NVMCMD = 0x00;
 
@@ -38995,7 +38998,7 @@ void flushFlashBlock(void) {
 
 
 void loadFlashBlock(void) {
-# 453 "../../VLCBlib_PIC/nvm.c"
+# 456 "../../VLCBlib_PIC/nvm.c"
     while (NVMCON0bits.GO)
         ;
 
@@ -39010,10 +39013,10 @@ void loadFlashBlock(void) {
 
     flashFlags.asByte = 0;
 }
-# 476 "../../VLCBlib_PIC/nvm.c"
+# 479 "../../VLCBlib_PIC/nvm.c"
 uint8_t FLASH_Write(flash_address_t index, flash_data_t value) {
     uint8_t oldValue;
-# 492 "../../VLCBlib_PIC/nvm.c"
+# 495 "../../VLCBlib_PIC/nvm.c"
     if ((index&(~((flash_address_t)(256U)-1))) != flashBlock) {
         if (flashBlock != 0) {
 
@@ -39036,7 +39039,7 @@ uint8_t FLASH_Write(flash_address_t index, flash_data_t value) {
     }
     return GRSP_OK;
 }
-# 522 "../../VLCBlib_PIC/nvm.c"
+# 525 "../../VLCBlib_PIC/nvm.c"
 uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value) {
     switch(type) {
         case EEPROM_NVM_TYPE:

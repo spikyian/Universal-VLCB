@@ -38893,28 +38893,16 @@ typedef struct {
 } Event;
 # 51 "../main.c" 2
 
-# 1 "../../VLCBlib_PIC\\event_consumer.h" 1
-# 80 "../../VLCBlib_PIC\\event_consumer.h"
+# 1 "../event_consumerDualActionQueue.h" 1
+# 79 "../event_consumerDualActionQueue.h"
 extern const Service eventConsumerService;
-# 96 "../../VLCBlib_PIC\\event_consumer.h"
-typedef struct {
-
-    EventState state;
-    union {
-
-        uint8_t value;
-
-        uint8_t bytes[1];
-    } a;
-} ActionAndState;
-
-extern ActionAndState * popAction(void);
-extern Boolean pushAction(ActionAndState a);
+# 91 "../event_consumerDualActionQueue.h"
+extern uint8_t popTwoAction(void);
+extern Boolean pushTwoAction(uint8_t a);
 extern void deleteActionRange(uint8_t action, uint8_t number);
-
-
-
-
+extern void setNormalActions(void);
+extern void setExpeditedActions(void);
+extern uint8_t peekTwoActionQueue(uint8_t index);
 
 
 extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
@@ -38928,7 +38916,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[1+(7+16*4)-1];
 
 
 
@@ -39093,12 +39081,12 @@ extern void defaultNVs(uint8_t i, uint8_t type);
 
 
 # 1 "../universalEvents.h" 1
-# 171 "../universalEvents.h"
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 183 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -39178,6 +39166,9 @@ extern void setDigitalOutput(uint8_t io, uint8_t state);
 extern void setOutputPin(uint8_t io, Boolean state);
 # 111 "../main.c" 2
 
+
+
+
 # 1 "../outputs.h" 1
 # 42 "../outputs.h"
 extern Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type);
@@ -39185,7 +39176,8 @@ extern void startOutput(uint8_t io, uint8_t act, uint8_t type);
 extern void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type);
 extern void setOutputState(uint8_t io, uint8_t action, uint8_t type);
 extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
-# 112 "../main.c" 2
+extern void finaliseOutput(uint8_t io, uint8_t type);
+# 115 "../main.c" 2
 
 
 
@@ -39193,7 +39185,7 @@ extern Boolean completed(uint8_t io, uint8_t action, uint8_t type);
 
 
 const Config configs[16] = {
-# 146 "../main.c"
+# 149 "../main.c"
     {11, 'C', 0, 0xFF},
     {12, 'C', 1, 0xFF},
     {13, 'C', 2, 0xFF},
@@ -39232,6 +39224,9 @@ static uint8_t started;
 TickValue lastServoStartTime;
 static TickValue lastInputScanTime;
 static TickValue lastActionPollTime;
+
+
+
 
 static uint8_t io;
 
@@ -39284,7 +39279,7 @@ void setup(void) {
 
 
     transport = &canTransport;
-# 248 "../main.c"
+# 254 "../main.c"
     pu = 0xFF;
     for (io=0; io<16; io++) {
         if (io == 0) {
@@ -39315,7 +39310,7 @@ void setup(void) {
                 else
                     WPUC &= ~(1<<(configs[io].no));
                 break;
-# 292 "../main.c"
+# 298 "../main.c"
         }
     }
 
@@ -39350,13 +39345,20 @@ void setup(void) {
         configIO(io);
     }
     initInputScan();
-# 347 "../main.c"
+
+
+
+
+
     (INTCON0bits.GIE = 1);
 
     startTime.val = tickGet();
     lastServoStartTime.val = startTime.val;
     lastInputScanTime.val = startTime.val;
     lastActionPollTime.val = startTime.val;
+
+
+
 
     started = FALSE;
 }
@@ -39384,12 +39386,12 @@ void loop(void) {
             processOutputs();
             lastActionPollTime.val = tickGet();
         }
-
+# 382 "../main.c"
         pollAnalogue();
 
     }
 }
-# 398 "../main.c"
+# 399 "../main.c"
 ValidTime APP_isSuitableTimeToWriteFlash(void){
 
     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
@@ -39443,6 +39445,9 @@ EventState APP_GetEventState(Happening h) {
             }
             break;
         case 1:
+
+
+
             switch (happeningIndex) {
                 case 0:
                     return (readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io)!=2)?EVENT_ON:EVENT_OFF;
@@ -39570,12 +39575,7 @@ void configIO(uint8_t i) {
 
             setDigitalOutput(i, getNV((16 + 7*(i) + 1)) & 0x10);
             break;
-
-
-
-
-
-
+# 591 "../main.c"
     }
 
     switch (configs[i].port) {
@@ -39600,9 +39600,9 @@ void configIO(uint8_t i) {
                 TRISC &= ~(1 << configs[i].no);
             }
             break;
-# 625 "../main.c"
+# 632 "../main.c"
     }
-# 645 "../main.c"
+# 652 "../main.c"
     if ((type == 5) || (type == 6)) {
 
         switch (configs[i].port) {
@@ -39615,7 +39615,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC |= (1 << configs[i].no);
                 break;
-# 665 "../main.c"
+# 672 "../main.c"
         }
     } else {
 
@@ -39629,7 +39629,7 @@ void configIO(uint8_t i) {
             case 'C':
                 ANSELC &= ~(1 << configs[i].no);
                 break;
-# 686 "../main.c"
+# 693 "../main.c"
         }
     }
 

@@ -110,15 +110,15 @@
 #define EVENT_HASH_TABLE
 // These are chosen so we don't use too much memory 32*20 = 640 bytes.
 // Used to size the hash table used to lookup events in the events2actions table.
-#define EVENT_HASH_LENGTH  32
-#define EVENT_CHAIN_LENGTH    20
-#define MAX_HAPPENING       (7+NUM_IO*4)
+#define EVENT_HASH_LENGTH   32
+#define EVENT_CHAIN_LENGTH  20
 #define CONSUMED_EVENTS
-
 //
 // EVENT PRODUCER SERVICE
 #define PRODUCED_EVENTS
-#define HAPPENING_SIZE  1   // Happenings are 1 byte
+#define HAPPENING_SIZE      1   // Happenings are 1 byte
+#define HAPPENING_BASE      1   // start at 1
+#define MAX_HAPPENING       (7+NUM_IO*4)
 //
 // EVENT CONSUMER2Q SERVICE
 #define HANDLE_DATA_EVENTS

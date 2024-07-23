@@ -38791,7 +38791,7 @@ typedef uint8_t Happening;
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[1+(7+16*4)-1];
 
 
 
@@ -39038,9 +39038,9 @@ void deleteHappeningRange(Happening happening, uint8_t number) {
             EventTableFlags f;
             Happening h;
             f.asByte = (uint8_t)readNVM(FLASH_NVM_TYPE,
-                    0x1E000 + 16*tableIndex+0);
+                    0x1F000 + 16*tableIndex+0);
             h = (Happening)readNVM(FLASH_NVM_TYPE,
-                    0x1E000 + 16*tableIndex+6);
+                    0x1F000 + 16*tableIndex+6);
             if ((h >= happening) && (h < happening+number)) {
                 writeEv(tableIndex, 0, 0);
                 checkRemoveTableEntry(tableIndex);
