@@ -3023,7 +3023,7 @@ PRODUCER_EV_SLOTS 2
 FALSE 0
 TRUE 1
 ]
-"291
+"292
 [e E22855 . `uc
 EEPROM_NVM_TYPE 0
 FLASH_NVM_TYPE 1
@@ -3094,7 +3094,7 @@ FLASH_NVM_TYPE 1
 [v _producerEsdData producerEsdData `(uc  1 s 1 producerEsdData ]
 "216
 [v _sendProducedEvent sendProducedEvent `(E22883  1 e 1 0 ]
-"285
+"286
 [v _deleteHappeningRange deleteHappeningRange `(v  1 e 1 0 ]
 "352 C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 [v _teachFactoryReset teachFactoryReset `(v  1 s 1 teachFactoryReset ]
@@ -3331,11 +3331,11 @@ FLASH_NVM_TYPE 1
 [v _initOutputs initOutputs `(v  1 e 1 0 ]
 "107
 [v _startDigitalOutput startDigitalOutput `(v  1 e 1 0 ]
-"177
+"178
 [v _processOutputs processOutputs `(v  1 e 1 0 ]
-"224
+"226
 [v _setDigitalOutput setDigitalOutput `(v  1 e 1 0 ]
-"254
+"256
 [v _setOutputPin setOutputPin `(v  1 e 1 0 ]
 [v i2_setOutputPin setOutputPin `(v  1 e 1 0 ]
 "109 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
@@ -5604,12 +5604,12 @@ FLASH_NVM_TYPE 1
 [v bounceDown@io io `uc  1 a 1 45 ]
 "150
 } 0
-"177 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
+"178 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
 [v _processOutputs processOutputs `(v  1 e 1 0 ]
 {
-"178
+"179
 [v processOutputs@io io `uc  1 a 1 22 ]
-"216
+"218
 } 0
 "233 C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 [v _processActions processActions `(v  1 e 1 0 ]
@@ -5676,7 +5676,7 @@ FLASH_NVM_TYPE 1
 [v startDigitalOutput@state state `uc  1 p 1 29 ]
 "116
 [v startDigitalOutput@io io `uc  1 a 1 37 ]
-"172
+"173
 } 0
 "362 C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 [v _sendInvertedProducedEvent sendInvertedProducedEvent `(E22933  1 e 1 0 ]
@@ -5883,7 +5883,7 @@ FLASH_NVM_TYPE 1
 [s S198 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
 "217
 [u S1084 Word 2 `S198 1 bytes 2 0 `us 1 word 2 0 ]
-[v sendProducedEvent@producedEventNN producedEventNN `S1084  1 a 2 19 ]
+[v sendProducedEvent@producedEventNN producedEventNN `S1084  1 a 2 18 ]
 "218
 [v sendProducedEvent@producedEventEN producedEventEN `S1084  1 a 2 16 ]
 "219
@@ -5892,8 +5892,8 @@ FLASH_NVM_TYPE 1
 [v sendProducedEvent@happening happening `uc  1 a 1 wreg ]
 [v sendProducedEvent@onOff onOff `E22903  1 p 1 13 ]
 "225
-[v sendProducedEvent@happening happening `uc  1 a 1 18 ]
-"278
+[v sendProducedEvent@happening happening `uc  1 a 1 20 ]
+"279
 } 0
 "1166 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _sendMessage4 sendMessage4 `(v  1 e 1 0 ]
@@ -6231,20 +6231,20 @@ FLASH_NVM_TYPE 1
 [v clearEvents@io io `uc  1 a 1 57 ]
 "226
 } 0
-"285 C:\Users\ianwh\github/VLCBlib_PIC/event_producer_happening.c
+"286 C:\Users\ianwh\github/VLCBlib_PIC/event_producer_happening.c
 [v _deleteHappeningRange deleteHappeningRange `(v  1 e 1 0 ]
 {
 [v deleteHappeningRange@happening happening `uc  1 a 1 wreg ]
-"290
+"291
 [v deleteHappeningRange@h h `uc  1 a 1 54 ]
-"286
+"287
 [v deleteHappeningRange@tableIndex tableIndex `uc  1 a 1 55 ]
-"285
+"286
 [v deleteHappeningRange@happening happening `uc  1 a 1 wreg ]
 [v deleteHappeningRange@number number `uc  1 p 1 47 ]
-"287
+"288
 [v deleteHappeningRange@happening happening `uc  1 a 1 53 ]
-"303
+"304
 } 0
 "512 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [v _deleteActionRange deleteActionRange `(v  1 e 1 0 ]
@@ -6572,26 +6572,26 @@ FLASH_NVM_TYPE 1
 {
 "631
 } 0
-"224 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
+"226 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
 [v _setDigitalOutput setDigitalOutput `(v  1 e 1 0 ]
 {
 [v setDigitalOutput@io io `uc  1 a 1 wreg ]
-"225
+"227
 [v setDigitalOutput@pinState pinState `E22933  1 a 1 37 ]
-"224
+"226
 [v setDigitalOutput@io io `uc  1 a 1 wreg ]
 [v setDigitalOutput@state state `uc  1 p 1 36 ]
 [v setDigitalOutput@io io `uc  1 a 1 38 ]
-"247
+"249
 } 0
-"254
+"256
 [v _setOutputPin setOutputPin `(v  1 e 1 0 ]
 {
 [v setOutputPin@io io `uc  1 a 1 wreg ]
 [v setOutputPin@io io `uc  1 a 1 wreg ]
 [v setOutputPin@state state `E22933  1 p 1 28 ]
 [v setOutputPin@io io `uc  1 a 1 31 ]
-"304
+"306
 } 0
 "181 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _getNV getNV `(s  1 e 2 0 ]
@@ -6637,14 +6637,14 @@ FLASH_NVM_TYPE 1
 {
 "260
 } 0
-"254 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
+"256 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
 [v i2_setOutputPin setOutputPin `(v  1 e 1 0 ]
 {
 [v i2setOutputPin@io io `uc  1 a 1 wreg ]
 [v i2setOutputPin@io io `uc  1 a 1 wreg ]
 [v i2setOutputPin@state state `E22933  1 p 1 16 ]
 [v i2setOutputPin@io io `uc  1 a 1 19 ]
-"304
+"306
 } 0
 "181 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v i2_getNV getNV `(s  1 e 2 0 ]

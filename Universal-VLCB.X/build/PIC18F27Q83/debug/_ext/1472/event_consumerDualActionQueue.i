@@ -37790,7 +37790,6 @@ typedef enum VlcbManufacturer
   MANU_VLCB = 250,
   MANU_SYSPIXIE = 249,
   MANU_RME = 248,
-
 } VlcbManufacturer;
 
 typedef enum VlcbMergModuleTypes
@@ -37895,7 +37894,6 @@ typedef enum VlcbMergModuleTypes
 
 
 
-
   MTYP_CAN_SW = 0xFF,
   MTYP_EMPTY = 0xFE,
   MTYP_CANUSB = 0xFD,
@@ -37916,7 +37914,6 @@ typedef enum VlcbSprogModuleTypes
   MTYP_CANSERVOIO = 50,
   MTYP_CANISB = 100,
   MTYP_CANSOLIO = 101,
-
 } VlcbSprogModuleTypes;
 
 typedef enum VlcbRocRailModuleTypes
@@ -37941,7 +37938,6 @@ typedef enum VlcbSpectrumModuleTypes
 
   MTYP_AMCTRLR = 1,
   MTYP_DUALCAB = 2,
-
 } VlcbSpectrumModuleTypes;
 
 typedef enum VlcbSysPixieModuleTypes
@@ -37950,7 +37946,6 @@ typedef enum VlcbSysPixieModuleTypes
 
 
   MTYP_CANPMSense = 1,
-
 } VlcbSysPixieModuleTypes;
 
 typedef enum VlcbOpCodes
@@ -38420,13 +38415,13 @@ typedef enum VlcbArmProcessors
   ARM1176JZF_S = 1,
   ARMCortex_A7 = 2,
   ARMCortex_A53 = 3,
-
-
-
 } VlcbArmProcessors;
 
 typedef enum VlcbCanHardware
 {
+
+
+
   CAN_HW_NOT_SPECIFIED = 0x00,
   CAN_HW_PIC_ECAN = 0x01,
   CAN_HW_PIC_CAN_2_0 = 0x02,
@@ -38434,9 +38429,29 @@ typedef enum VlcbCanHardware
   CAN_HW_MCP2515 = 0x04,
   CAN_HW_MCP2518 = 0x05,
   CAN_HW_ESP32_TWAI = 0x06,
-  CAN_HW_SAM3X8E = 0x06,
-  CAN_HW_PICO_PIO = 0x07,
+  CAN_HW_SAM3X8E = 0x07,
+  CAN_HW_PICO_PIO = 0x08,
 } VlcbCanHardware;
+
+typedef enum VlcbProducerEvUsage
+{
+
+
+
+  PRODUCER_EV_NOT_SPECIFIED = 0x00,
+  PRODUCER_EV_HAPPENING = 0x01,
+  PRODUCER_EV_SLOTS = 0x02,
+} VlcbProducerEvUsage;
+
+typedef enum VlcbConsumerEvUsage
+{
+
+
+
+  CONSUMER_EV_NOT_SPECIFIED = 0x00,
+  CONSUMER_EV_ACTIONS = 0x01,
+  CONSUMER_EV_SLOTS = 0x02,
+} VlcbConsumerEvUsage;
 # 39 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
@@ -38551,10 +38566,11 @@ typedef union Word {
 
 
 typedef enum {
+    EVENT_UNKNOWN = 255,
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 155 "../../VLCBlib_PIC/vlcb.h"
+# 156 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -38587,7 +38603,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 197 "../../VLCBlib_PIC/vlcb.h"
+# 198 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -38630,17 +38646,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 247 "../../VLCBlib_PIC/vlcb.h"
+# 248 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 257 "../../VLCBlib_PIC/vlcb.h"
+# 258 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 268 "../../VLCBlib_PIC/vlcb.h"
+# 269 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 280 "../../VLCBlib_PIC/vlcb.h"
+# 281 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 293 "../../VLCBlib_PIC/vlcb.h"
+# 294 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 306 "../../VLCBlib_PIC/vlcb.h"
+# 307 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -38700,9 +38716,9 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 396 "../../VLCBlib_PIC/vlcb.h"
+# 397 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 406 "../../VLCBlib_PIC/vlcb.h"
+# 407 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
 
 
@@ -38730,9 +38746,9 @@ typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
 } Transport;
-# 441 "../../VLCBlib_PIC/vlcb.h"
+# 442 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 454 "../../VLCBlib_PIC/vlcb.h"
+# 455 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
 # 43 "../event_consumerDualActionQueue.c" 2
 
@@ -38752,12 +38768,11 @@ extern void APP_processConsumedEvent(uint8_t tableIndex, Message * m);
 # 44 "../event_consumerDualActionQueue.c" 2
 
 # 1 "../../VLCBlib_PIC\\event_teach.h" 1
-# 98 "../../VLCBlib_PIC\\event_teach.h"
+# 77 "../../VLCBlib_PIC\\event_teach.h"
 extern const Service eventTeachService;
-# 110 "../../VLCBlib_PIC\\event_teach.h"
+# 89 "../../VLCBlib_PIC\\event_teach.h"
 extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
 
-extern Boolean validStart(uint8_t index);
 extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
 extern uint8_t getEVs(uint8_t tableIndex);
 extern uint8_t evs[20];
@@ -38765,19 +38780,11 @@ extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
 extern uint16_t getNN(uint8_t tableIndex);
 extern uint16_t getEN(uint8_t tableIndex);
 extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
-extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, uint8_t forceOwnNN);
+extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
+
 
 extern void rebuildHashtable(void);
 extern uint8_t getHash(uint16_t nodeNumber, uint16_t eventNumber);
-
-extern void checkRemoveTableEntry(uint8_t tableIndex);
-
-
-
-
-
-typedef uint8_t Happening;
-
 
 
 
@@ -38788,46 +38795,11 @@ typedef struct {
     uint16_t NN;
     uint16_t EN;
 } Event;
-
-
-
-
-
-typedef union
-{
-    struct
-    {
-        uint8_t eVsUsed:4;
-        uint8_t continued:1;
-        uint8_t continuation:1;
-        uint8_t forceOwnNN:1;
-        uint8_t freeEntry:1;
-    };
-    uint8_t asByte;
-} EventTableFlags;
-
-
-
-
-
-
-typedef struct {
-    EventTableFlags flags;
-    uint8_t next;
-    Event event;
-    uint8_t evs[10];
-} EventTable;
 # 45 "../event_consumerDualActionQueue.c" 2
 
 
 # 1 "../universalNv.h" 1
-# 64 "../universalNv.h"
-# 1 "../canmio.h" 1
-# 44 "../canmio.h"
-# 1 "../../VLCBlib_PIC\\devincs.h" 1
-# 44 "../canmio.h" 2
-# 64 "../universalNv.h" 2
-
+# 65 "../universalNv.h"
 # 1 "../../VLCBlib_PIC\\nv.h" 1
 # 86 "../../VLCBlib_PIC\\nv.h"
 extern const Service nvService;
@@ -38863,7 +38835,7 @@ extern uint8_t setNV(uint8_t index, uint8_t value);
 
 extern void loadNvCache(void);
 # 65 "../universalNv.h" 2
-# 187 "../universalNv.h"
+# 188 "../universalNv.h"
 typedef struct {
     uint8_t type;
     uint8_t flags;
@@ -38921,7 +38893,11 @@ typedef struct {
         uint8_t servo_speed;
         uint8_t pullups;
         uint8_t responseDelay;
-        uint8_t spare[10];
+        uint8_t xio_pullupsL;
+        uint8_t xio_pullupsM;
+        uint8_t xio_pullupsH;
+        uint8_t cdu_chargePumpFreq;
+        uint8_t spare[6];
         NvIo io[16];
 } ModuleNvDefs;
 
@@ -38929,12 +38905,33 @@ extern void defaultNVs(uint8_t i, uint8_t type);
 # 47 "../event_consumerDualActionQueue.c" 2
 
 # 1 "../universalEvents.h" 1
-# 173 "../universalEvents.h"
+# 75 "../universalEvents.h"
+# 1 "../../VLCBlib_PIC\\event_producer.h" 1
+# 79 "../../VLCBlib_PIC\\event_producer.h"
+typedef uint8_t Happening;
+
+
+extern const Service eventProducerService;
+
+
+extern uint8_t happening2Event[1+(7+16*4)-1];
+
+
+
+
+
+
+extern Boolean sendProducedEvent(Happening h, EventState state);
+extern void deleteHappeningRange(Happening happening, uint8_t number);
+# 102 "../../VLCBlib_PIC\\event_producer.h"
+extern EventState APP_GetEventState(Happening h);
+# 75 "../universalEvents.h" 2
+# 179 "../universalEvents.h"
 extern void universalEventsInit(void);
 extern void factoryResetGlobalEvents(void);
 extern void defaultEvents(uint8_t i, uint8_t type);
 extern void clearEvents(uint8_t i);
-# 185 "../universalEvents.h"
+# 191 "../universalEvents.h"
 extern void processEvent(uint8_t eventIndex, uint8_t* message);
 extern void processActions(void);
 
@@ -38942,13 +38939,25 @@ extern Boolean sendInvertedProducedEvent(Happening happening, EventState state, 
                                         Boolean can_send_on, Boolean can_send_off);
 extern Boolean alwaysSendInvertedProducedEvent(Happening action, EventState state, Boolean invert);
 # 48 "../event_consumerDualActionQueue.c" 2
-# 63 "../event_consumerDualActionQueue.c"
+
+
+extern Boolean validStart(uint8_t tableIndex);
+extern void checkRemoveTableEntry(uint8_t tableIndex);
+# 66 "../event_consumerDualActionQueue.c"
 static void consumer2QPowerUp(void);
 static Processed consumer2QProcessMessage(Message * m);
 
 static DiagnosticVal consumer2QDiagnostics[1];
 static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index);
-# 76 "../event_consumerDualActionQueue.c"
+
+static uint8_t consumer2QEsdData(uint8_t index);
+
+
+
+
+
+
+
 const Service eventConsumer2QService = {
     SERVICE_ID_CONSUMER,
     1,
@@ -38961,7 +38970,7 @@ const Service eventConsumer2QService = {
 
 
 
-    ((void*)0),
+    consumer2QEsdData,
 
 
     consumer2QGetDiagnostic
@@ -38986,7 +38995,7 @@ static void consumer2QPowerUp(void) {
 
     expedited = FALSE;
 }
-# 133 "../event_consumerDualActionQueue.c"
+# 137 "../event_consumerDualActionQueue.c"
 static Processed consumer2QProcessMessage(Message *m) {
     uint8_t start, end;
     uint8_t tableIndex;
@@ -38996,40 +39005,44 @@ static Processed consumer2QProcessMessage(Message *m) {
     uint8_t masked_action;
     uint8_t ca;
     uint8_t io;
+    uint16_t enn;
 
     if (m->len < 5) return NOT_PROCESSED;
 
-    tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
-    if (tableIndex == 0xff) return NOT_PROCESSED;
+    enn = ((uint16_t)m->bytes[0])*256+m->bytes[1];
 
     switch (m->opc) {
-        case OPC_ACON:
-
-        case OPC_ACON1:
-        case OPC_ACON2:
-        case OPC_ACON3:
-
         case OPC_ASON:
 
         case OPC_ASON1:
         case OPC_ASON2:
         case OPC_ASON3:
 
+            enn = 0;
+
+        case OPC_ACON:
+
+        case OPC_ACON1:
+        case OPC_ACON2:
+        case OPC_ACON3:
+
             start = 1;
             end = 20;
             change = 1;
             break;
-        case OPC_ACOF:
-
-        case OPC_ACOF1:
-        case OPC_ACOF2:
-        case OPC_ACOF3:
-
         case OPC_ASOF:
 
         case OPC_ASOF1:
         case OPC_ASOF2:
         case OPC_ASOF3:
+
+            enn = 0;
+
+        case OPC_ACOF:
+
+        case OPC_ACOF1:
+        case OPC_ACOF2:
+        case OPC_ACOF3:
 
             start = 20 -1;
             end = 1 -1;
@@ -39040,7 +39053,7 @@ static Processed consumer2QProcessMessage(Message *m) {
     }
 
 
-    tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
+    tableIndex = findEvent(enn, ((uint16_t)m->bytes[2])*256+m->bytes[3]);
     if (tableIndex == 0xff) return NOT_PROCESSED;
 
     uint8_t opc = getEVs(tableIndex);
@@ -39072,6 +39085,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = (((masked_action)-8)%5);
                         switch (getNV((16 + 7*(io) + 0))) {
                             case 1:
+
+
+
                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
                                     setExpeditedActions();
                                 }
@@ -39137,6 +39153,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = (((action)-8)%5);
                         switch (getNV((16 + 7*(io) + 0))) {
                             case 1:
+
+
+
                                 if (getNV((16 + 7*(io) + 1)) & 0x80) {
                                     setExpeditedActions();
                                 }
@@ -39190,6 +39209,17 @@ static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
         return ((void*)0);
     }
     return &(consumer2QDiagnostics[index-1]);
+}
+# 359 "../event_consumerDualActionQueue.c"
+static uint8_t consumer2QEsdData(uint8_t index) {
+    switch (index){
+        case 0:
+            return CONSUMER_EV_ACTIONS;
+        case 1:
+            return 1;
+        default:
+            return 0;
+    }
 }
 
 
@@ -39333,6 +39363,7 @@ void setNormalActions(void) {
 
 
 
+
 void deleteActionRange(uint8_t action, uint8_t number) {
     uint8_t tableIndex;
     for (tableIndex=0; tableIndex < 255; tableIndex++) {
@@ -39356,6 +39387,6 @@ void deleteActionRange(uint8_t action, uint8_t number) {
     }
     flushFlashBlock();
 
-
+    rebuildHashtable();
 
 }

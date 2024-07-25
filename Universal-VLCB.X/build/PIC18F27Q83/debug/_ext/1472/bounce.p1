@@ -1,15 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "81 ../bounce.c
 [; ;../bounce.c: 81: BounceState bounceState[16];
-[c E23222 0 1 2 3 .. ]
-[n E23222 . STATE_FIRST_PULL STATE_PAUSE STATE_SECOND_PULL STATE_DONE  ]
+[c E23225 0 1 2 3 .. ]
+[n E23225 . STATE_FIRST_PULL STATE_PAUSE STATE_SECOND_PULL STATE_DONE  ]
 "65
 [; ;../bounce.c: 65: extern int speed[16];
 [v _speed `i ~T0 @X0 -> 0 `x e ]
 "103
 [; ;../bounce.c: 103: Boolean bounceDown(uint8_t io) {
-[c E22873 0 1 .. ]
-[n E22873 Boolean FALSE TRUE  ]
+[c E22883 0 1 .. ]
+[n E22883 Boolean FALSE TRUE  ]
 "63
 [; ;../bounce.c: 63: extern uint8_t currentPos[16];
 [v _currentPos `uc ~T0 @X0 -> 0 `x e ]
@@ -3540,7 +3540,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "81 ../bounce.c
 [; ;../bounce.c: 81: BounceState bounceState[16];
-[v _bounceState `E23222 ~T0 @X0 -> 16 `i e ]
+[v _bounceState `E23225 ~T0 @X0 -> 16 `i e ]
 "89
 [; ;../bounce.c: 89: void initBounce(uint8_t io) {
 [v _initBounce `(v ~T0 @X0 1 ef1`uc ]
@@ -3550,39 +3550,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "90
 [; ;../bounce.c: 90:     bounceState[io] = STATE_FIRST_PULL;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23222 0 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23225 0 ]
 "91
 [; ;../bounce.c: 91:     speed[io] = 0;
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 0 `i ]
 "92
 [; ;../bounce.c: 92: }
-[e :UE 3243 ]
+[e :UE 3241 ]
 }
 "103
 [; ;../bounce.c: 103: Boolean bounceDown(uint8_t io) {
-[v _bounceDown `(E22873 ~T0 @X0 1 ef1`uc ]
+[v _bounceDown `(E22883 ~T0 @X0 1 ef1`uc ]
 {
 [e :U _bounceDown ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [f ]
 "105
 [; ;../bounce.c: 105:     if ((currentPos[io]>targetPos[io]+3) || (currentPos[io]<targetPos[io]-3) || (speed[io]>3) || (speed[io]<-3)) {
-[e $ ! || || || > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i + -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> 3 `i < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i - -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> 3 `i > *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 3 `i < *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -U -> 3 `i 3245  ]
+[e $ ! || || || > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i + -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> 3 `i < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i - -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> 3 `i > *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 3 `i < *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -U -> 3 `i 3243  ]
 {
 "106
 [; ;../bounce.c: 106:         Boolean reversed = ((uint8_t)getNV((16 + 7*(io) + 3)) > (uint8_t)getNV((16 + 7*(io) + 2)));
-[v _reversed `E22873 ~T0 @X0 1 a ]
-[e = _reversed -> -> > -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i `i `E22873 ]
+[v _reversed `E22883 ~T0 @X0 1 a ]
+[e = _reversed -> -> > -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i `i `E22883 ]
 "107
 [; ;../bounce.c: 107:         int tmp;
 [v _tmp `i ~T0 @X0 1 a ]
 "109
 [; ;../bounce.c: 109:         if (! reversed) {
-[e $ ! ! != -> _reversed `ui -> -> 0 `i `ui 3246  ]
+[e $ ! ! != -> _reversed `ui -> -> 0 `i `ui 3244  ]
 {
 "112
 [; ;../bounce.c: 112:             if (currentPos[io] < (uint8_t)getNV((16 + 7*(io) + 3)) + speed[io]/30) {
-[e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i + -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i / *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 30 `i 3247  ]
+[e $ ! < -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i + -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i / *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 30 `i 3245  ]
 {
 "115
 [; ;../bounce.c: 115:                 speed[io] = (-speed[io]*getNV((16 + 7*(io) + 4)))/100;
@@ -3596,8 +3596,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121
 [; ;../bounce.c: 121:             } else {
 }
-[e $U 3248  ]
-[e :U 3247 ]
+[e $U 3246  ]
+[e :U 3245 ]
 {
 "124
 [; ;../bounce.c: 124:                 speed[io] += 3;
@@ -3608,16 +3608,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "126
 [; ;../bounce.c: 126:             }
 }
-[e :U 3248 ]
+[e :U 3246 ]
 "127
 [; ;../bounce.c: 127:         } else {
 }
-[e $U 3249  ]
-[e :U 3246 ]
+[e $U 3247  ]
+[e :U 3244 ]
 {
 "130
 [; ;../bounce.c: 130:             if (currentPos[io] > (uint8_t)getNV((16 + 7*(io) + 3)) - speed[io]/30) {
-[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i - -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i / *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 30 `i 3250  ]
+[e $ ! > -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i - -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i / *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 30 `i 3248  ]
 {
 "133
 [; ;../bounce.c: 133:                 speed[io] = (-speed[io]*getNV((16 + 7*(io) + 4)))/100;
@@ -3631,8 +3631,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "139
 [; ;../bounce.c: 139:             } else {
 }
-[e $U 3251  ]
-[e :U 3250 ]
+[e $U 3249  ]
+[e :U 3248 ]
 {
 "142
 [; ;../bounce.c: 142:                 speed[io] += 3;
@@ -3643,194 +3643,194 @@ Version 4.0 HI-TECH Software Intermediate Code
 "144
 [; ;../bounce.c: 144:             }
 }
-[e :U 3251 ]
+[e :U 3249 ]
 "145
 [; ;../bounce.c: 145:         }
 }
-[e :U 3249 ]
+[e :U 3247 ]
 "147
 [; ;../bounce.c: 147:         return FALSE;
-[e ) . `E22873 0 ]
-[e $UE 3244  ]
+[e ) . `E22883 0 ]
+[e $UE 3242  ]
 "148
 [; ;../bounce.c: 148:     }
 }
-[e :U 3245 ]
+[e :U 3243 ]
 "149
 [; ;../bounce.c: 149:     return TRUE;
-[e ) . `E22873 1 ]
-[e $UE 3244  ]
+[e ) . `E22883 1 ]
+[e $UE 3242  ]
 "150
 [; ;../bounce.c: 150: }
-[e :UE 3244 ]
+[e :UE 3242 ]
 }
 "161
 [; ;../bounce.c: 161: Boolean bounceUp(uint8_t io) {
-[v _bounceUp `(E22873 ~T0 @X0 1 ef1`uc ]
+[v _bounceUp `(E22883 ~T0 @X0 1 ef1`uc ]
 {
 [e :U _bounceUp ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [f ]
 "162
 [; ;../bounce.c: 162:     Boolean reversed = ((uint8_t)getNV((16 + 7*(io) + 3)) > (uint8_t)getNV((16 + 7*(io) + 2)));
-[v _reversed `E22873 ~T0 @X0 1 a ]
-[e = _reversed -> -> > -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i `i `E22873 ]
+[v _reversed `E22883 ~T0 @X0 1 a ]
+[e = _reversed -> -> > -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i `i `E22883 ]
 "163
 [; ;../bounce.c: 163:     uint8_t midway;
 [v _midway `uc ~T0 @X0 1 a ]
 "164
 [; ;../bounce.c: 164:     switch(bounceState[io]) {
-[e $U 3254  ]
+[e $U 3252  ]
 {
 "165
 [; ;../bounce.c: 165:     case STATE_FIRST_PULL:
-[e :U 3255 ]
+[e :U 3253 ]
 "167
 [; ;../bounce.c: 167:         midway = ((uint8_t)getNV((16 + 7*(io) + 3)))/2 +
 [e = _midway -> + / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `uc `i -> 2 `i / -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc `i -> 2 `i `uc ]
 "169
 [; ;../bounce.c: 169:         if (reversed) {
-[e $ ! != -> _reversed `ui -> -> 0 `i `ui 3256  ]
+[e $ ! != -> _reversed `ui -> -> 0 `i `ui 3254  ]
 {
 "170
 [; ;../bounce.c: 170:             currentPos[io] -= (uint8_t)getNV((16 + 7*(io) + 5));
 [e =- *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `uc `uc ]
 "171
 [; ;../bounce.c: 171:             if (currentPos[io] <= midway) {
-[e $ ! <= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 3257  ]
+[e $ ! <= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 3255  ]
 {
 "172
 [; ;../bounce.c: 172:                 bounceState[io] = STATE_PAUSE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23222 1 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23225 1 ]
 "173
 [; ;../bounce.c: 173:                 speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `uc `i ]
 "174
 [; ;../bounce.c: 174:             }
 }
-[e :U 3257 ]
+[e :U 3255 ]
 "175
 [; ;../bounce.c: 175:         } else {
 }
-[e $U 3258  ]
-[e :U 3256 ]
+[e $U 3256  ]
+[e :U 3254 ]
 {
 "176
 [; ;../bounce.c: 176:             currentPos[io] += (uint8_t)getNV((16 + 7*(io) + 5));
 [e =+ *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `uc `uc ]
 "177
 [; ;../bounce.c: 177:             if (currentPos[io] >= midway) {
-[e $ ! >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 3259  ]
+[e $ ! >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i -> _midway `i 3257  ]
 {
 "178
 [; ;../bounce.c: 178:                 bounceState[io] = STATE_PAUSE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23222 1 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23225 1 ]
 "179
 [; ;../bounce.c: 179:                 speed[io] = (uint8_t)getNV((16 + 7*(io) + 6));
 [e = *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 6 `i `uc `uc `i ]
 "180
 [; ;../bounce.c: 180:             }
 }
-[e :U 3259 ]
+[e :U 3257 ]
 "181
 [; ;../bounce.c: 181:         }
 }
-[e :U 3258 ]
+[e :U 3256 ]
 "182
 [; ;../bounce.c: 182:         break;
-[e $U 3253  ]
+[e $U 3251  ]
 "183
 [; ;../bounce.c: 183:     case STATE_PAUSE:
-[e :U 3260 ]
+[e :U 3258 ]
 "185
 [; ;../bounce.c: 185:         if (speed[io] == 0) bounceState[io] = STATE_SECOND_PULL;
-[e $ ! == *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 0 `i 3261  ]
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23222 2 ]
-[e :U 3261 ]
+[e $ ! == *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 0 `i 3259  ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23225 2 ]
+[e :U 3259 ]
 "186
 [; ;../bounce.c: 186:         speed[io]--;
 [e -- *U + &U _speed * -> _io `ux -> -> # *U &U _speed `ui `ux -> 1 `i ]
 "187
 [; ;../bounce.c: 187:         break;
-[e $U 3253  ]
+[e $U 3251  ]
 "188
 [; ;../bounce.c: 188:     case STATE_SECOND_PULL:
-[e :U 3262 ]
+[e :U 3260 ]
 "190
 [; ;../bounce.c: 190:         if (reversed) {
-[e $ ! != -> _reversed `ui -> -> 0 `i `ui 3263  ]
+[e $ ! != -> _reversed `ui -> -> 0 `i `ui 3261  ]
 {
 "191
 [; ;../bounce.c: 191:             currentPos[io] -= (uint8_t)getNV((16 + 7*(io) + 5));
 [e =- *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `uc `uc ]
 "192
 [; ;../bounce.c: 192:             if (currentPos[io]<=targetPos[io]-3) {
-[e $ ! <= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i - -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> 3 `i 3264  ]
+[e $ ! <= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i - -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> 3 `i 3262  ]
 {
 "193
 [; ;../bounce.c: 193:                 bounceState[io] = STATE_DONE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23222 3 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23225 3 ]
 "194
 [; ;../bounce.c: 194:                 return TRUE;
-[e ) . `E22873 1 ]
-[e $UE 3252  ]
+[e ) . `E22883 1 ]
+[e $UE 3250  ]
 "195
 [; ;../bounce.c: 195:             }
 }
-[e :U 3264 ]
+[e :U 3262 ]
 "196
 [; ;../bounce.c: 196:         } else {
 }
-[e $U 3265  ]
-[e :U 3263 ]
+[e $U 3263  ]
+[e :U 3261 ]
 {
 "197
 [; ;../bounce.c: 197:             currentPos[io] += (uint8_t)getNV((16 + 7*(io) + 5));
 [e =+ *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux -> -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 5 `i `uc `uc `uc ]
 "198
 [; ;../bounce.c: 198:             if (currentPos[io]>=targetPos[io]-3) {
-[e $ ! >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i - -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> 3 `i 3266  ]
+[e $ ! >= -> *U + &U _currentPos * -> _io `ux -> -> # *U &U _currentPos `ui `ux `i - -> *U + &U _targetPos * -> _io `ux -> -> # *U &U _targetPos `ui `ux `i -> 3 `i 3264  ]
 {
 "199
 [; ;../bounce.c: 199:                 bounceState[io] = STATE_DONE;
-[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23222 3 ]
+[e = *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux . `E23225 3 ]
 "200
 [; ;../bounce.c: 200:                 return TRUE;
-[e ) . `E22873 1 ]
-[e $UE 3252  ]
+[e ) . `E22883 1 ]
+[e $UE 3250  ]
 "201
 [; ;../bounce.c: 201:             }
 }
-[e :U 3266 ]
+[e :U 3264 ]
 "202
 [; ;../bounce.c: 202:         }
 }
-[e :U 3265 ]
+[e :U 3263 ]
 "203
 [; ;../bounce.c: 203:         break;
-[e $U 3253  ]
+[e $U 3251  ]
 "204
 [; ;../bounce.c: 204:     case STATE_DONE:
-[e :U 3267 ]
+[e :U 3265 ]
 "205
 [; ;../bounce.c: 205:             break;
-[e $U 3253  ]
+[e $U 3251  ]
 "206
 [; ;../bounce.c: 206:     }
 }
-[e $U 3253  ]
-[e :U 3254 ]
-[e [\ -> *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux `ui , $ -> . `E23222 0 `ui 3255
- , $ -> . `E23222 1 `ui 3260
- , $ -> . `E23222 2 `ui 3262
- , $ -> . `E23222 3 `ui 3267
- 3253 ]
-[e :U 3253 ]
+[e $U 3251  ]
+[e :U 3252 ]
+[e [\ -> *U + &U _bounceState * -> _io `ux -> -> # *U &U _bounceState `ui `ux `ui , $ -> . `E23225 0 `ui 3253
+ , $ -> . `E23225 1 `ui 3258
+ , $ -> . `E23225 2 `ui 3260
+ , $ -> . `E23225 3 `ui 3265
+ 3251 ]
+[e :U 3251 ]
 "207
 [; ;../bounce.c: 207:     return FALSE;
-[e ) . `E22873 0 ]
-[e $UE 3252  ]
+[e ) . `E22883 0 ]
+[e $UE 3250  ]
 "208
 [; ;../bounce.c: 208: }
-[e :UE 3252 ]
+[e :UE 3250 ]
 }

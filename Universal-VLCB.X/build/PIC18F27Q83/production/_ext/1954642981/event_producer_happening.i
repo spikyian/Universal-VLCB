@@ -38993,10 +38993,11 @@ Boolean sendProducedEvent(Happening happening, EventState onOff) {
 
 
 
-    if (happening2Event[happening] == 0xff) return FALSE;
-    producedEventNN.word = getNN(happening2Event[happening]);
-    producedEventEN.word = getEN(happening2Event[happening]);
-# 251 "../../VLCBlib_PIC/event_producer_happening.c"
+    if ((happening < 1) || (happening > (7+16*4))) return FALSE;
+    if (happening2Event[happening-1] == 0xff) return FALSE;
+    producedEventNN.word = getNN(happening2Event[happening-1]);
+    producedEventEN.word = getEN(happening2Event[happening-1]);
+# 252 "../../VLCBlib_PIC/event_producer_happening.c"
                 if (producedEventNN.word == 0) {
 
                     if (onOff == EVENT_ON) {

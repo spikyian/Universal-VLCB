@@ -133,6 +133,7 @@ void startDigitalOutput(uint8_t io, uint8_t state) {
     
     // ignore OFF on pulse outputs
     if (( ! actionState) && getNV(NV_IO_OUTPUT_PULSE_DURATION(io))) {
+        pulseDelays[io] = COMPLETED;
         return;
     }
     
@@ -193,10 +194,11 @@ void processOutputs(void) {
             } else if (flashDelays[io] < -1) {
                 flashDelays[io]++;
             }
+            // Handle PULSEd outputs
             if (pulseDelays[io] != NEEDS_STARTING) {
                 pulseDelays[io]--;
             
-                // Handle PULSEd outputs
+                // PULSE finished
                 if (pulseDelays[io] == COMPLETED) {
                     // time to go off
                     if (getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED) {

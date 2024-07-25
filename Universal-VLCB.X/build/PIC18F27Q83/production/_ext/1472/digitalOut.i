@@ -39002,6 +39002,7 @@ void startDigitalOutput(uint8_t io, uint8_t state) {
 
 
     if (( ! actionState) && getNV((16 + 7*(io) + 2))) {
+        pulseDelays[io] = 1;
         return;
     }
 
@@ -39062,6 +39063,7 @@ void processOutputs(void) {
             } else if (flashDelays[io] < -1) {
                 flashDelays[io]++;
             }
+
             if (pulseDelays[io] != 0) {
                 pulseDelays[io]--;
 
@@ -39149,6 +39151,6 @@ void setOutputPin(uint8_t io, Boolean state) {
                 LATC &= ~(1<<configs[io].no);
             }
             break;
-# 303 "../digitalOut.c"
+# 305 "../digitalOut.c"
     }
 }

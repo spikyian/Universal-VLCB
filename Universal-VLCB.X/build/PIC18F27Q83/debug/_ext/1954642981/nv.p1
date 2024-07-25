@@ -1,38 +1,38 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F22981 `(v ~T0 @X0 0 tf ]
-[v F22983 `(v ~T0 @X0 0 tf ]
-"79 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 79: const Service nvService = {
-[c E22515 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
-[n E22515 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
-"105 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 105: typedef struct Message {
-[s S3221 `uc 1 `E22515 1 `uc -> 7 `i ]
-[n S3221 Message len opc bytes ]
-"79 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 79: const Service nvService = {
-[c E22905 0 1 .. ]
-[n E22905 Processed NOT_PROCESSED PROCESSED  ]
-[v F22985 `(E22905 ~T0 @X0 0 tf1`*S3221 ]
-[v F22988 `(v ~T0 @X0 0 tf ]
-[v F22990 `(uc ~T0 @X0 0 tf1`uc ]
-"143 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 143:     struct {
-[s S3225 `uc 1 `uc 1 ]
-[n S3225 . lo hi ]
-"140
-[; ;../../VLCBlib_PIC/vlcb.h: 140: typedef union DiagnosticVal {
-[u S3224 `us 1 `s 1 `S3225 1 ]
-[n S3224 DiagnosticVal asUint asInt asBytes ]
-[v F22993 `(*S3224 ~T0 @X0 0 tf1`uc ]
-"289
-[; ;../../VLCBlib_PIC/vlcb.h: 289: typedef struct Service {
-[s S3226 `uc 1 `uc 1 `*F22981 1 `*F22983 1 `*F22985 1 `*F22988 1 `*F22990 1 `*F22993 1 ]
-[n S3226 Service serviceNo version factoryReset powerUp processMessage poll getESDdata getDiagnostic ]
-"79 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 79: const Service nvService = {
-[c E22722 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
-[n E22722 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
+"159 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 159:     struct {
+[s S3228 `uc 1 `uc 1 ]
+[n S3228 . lo hi ]
+"156
+[; ;../../VLCBlib_PIC/vlcb.h: 156: typedef union DiagnosticVal {
+[u S3227 `us 1 `s 1 `S3228 1 ]
+[n S3227 DiagnosticVal asUint asInt asBytes ]
+[v F23042 `(v ~T0 @X0 0 tf ]
+[v F23044 `(v ~T0 @X0 0 tf ]
+"82 ../../VLCBlib_PIC/nv.c
+[; ;../../VLCBlib_PIC/nv.c: 82: const Service nvService = {
+[c E22565 0 1 2 3 4 5 6 7 8 9 10 12 13 16 17 33 34 35 48 63 64 65 66 67 68 69 70 71 72 73 74 76 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 99 111 112 113 114 115 116 117 118 120 127 128 130 131 132 133 135 142 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 162 171 172 175 176 177 178 179 180 181 182 184 185 189 190 191 192 193 194 199 207 208 209 210 211 212 213 216 217 221 222 223 224 225 226 227 230 231 233 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 164 .. ]
+[n E22565 VlcbOpCodes OPC_ACK OPC_NAK OPC_HLT OPC_BON OPC_TOF OPC_TON OPC_ESTOP OPC_ARST OPC_RTOF OPC_RTON OPC_RESTP OPC_RSTAT OPC_QNN OPC_RQNP OPC_RQMN OPC_KLOC OPC_QLOC OPC_DKEEP OPC_DBG1 OPC_EXTC OPC_RLOC OPC_QCON OPC_SNN OPC_ALOC OPC_STMOD OPC_PCON OPC_KCON OPC_DSPD OPC_DFLG OPC_DFNON OPC_DFNOF OPC_SSTAT OPC_NNRSM OPC_RQNN OPC_NNREL OPC_NNACK OPC_NNLRN OPC_NNULN OPC_NNCLR OPC_NNEVN OPC_NERD OPC_RQEVN OPC_WRACK OPC_RQDAT OPC_RQDDS OPC_BOOT OPC_ENUM OPC_NNRST OPC_EXTC1 OPC_DFUN OPC_GLOC OPC_ERR OPC_CMDERR OPC_EVNLF OPC_NVRD OPC_NENRD OPC_RQNPN OPC_NUMEV OPC_CANID OPC_MODE OPC_RQSD OPC_EXTC2 OPC_RDCC3 OPC_WCVO OPC_WCVB OPC_QCVS OPC_PCVS OPC_RDGN OPC_NVSETRD OPC_ACON OPC_ACOF OPC_AREQ OPC_ARON OPC_AROF OPC_EVULN OPC_NVSET OPC_NVANS OPC_ASON OPC_ASOF OPC_ASRQ OPC_PARAN OPC_REVAL OPC_ARSON OPC_ARSOF OPC_EXTC3 OPC_RDCC4 OPC_WCVS OPC_HEARTB OPC_SD OPC_GRSP OPC_ACON1 OPC_ACOF1 OPC_REQEV OPC_ARON1 OPC_AROF1 OPC_NEVAL OPC_PNN OPC_ASON1 OPC_ASOF1 OPC_ARSON1 OPC_ARSOF1 OPC_EXTC4 OPC_RDCC5 OPC_WCVOA OPC_CABDAT OPC_DGN OPC_FCLK OPC_ACON2 OPC_ACOF2 OPC_EVLRN OPC_EVANS OPC_ARON2 OPC_AROF2 OPC_ASON2 OPC_ASOF2 OPC_ARSON2 OPC_ARSOF2 OPC_EXTC5 OPC_RDCC6 OPC_PLOC OPC_NAME OPC_STAT OPC_ENACK OPC_ESD OPC_DTXC OPC_PARAMS OPC_ACON3 OPC_ACOF3 OPC_ENRSP OPC_ARON3 OPC_AROF3 OPC_EVLRNI OPC_ACDAT OPC_ARDAT OPC_ASON3 OPC_ASOF3 OPC_DDES OPC_DDRS OPC_DDWS OPC_ARSON3 OPC_ARSOF3 OPC_EXTC6 OPC_VCVS  ]
+"119 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 119: typedef struct Message {
+[s S3224 `uc 1 `E22565 1 `uc -> 7 `i ]
+[n S3224 Message len opc bytes ]
+"82 ../../VLCBlib_PIC/nv.c
+[; ;../../VLCBlib_PIC/nv.c: 82: const Service nvService = {
+[c E22966 0 1 .. ]
+[n E22966 Processed NOT_PROCESSED PROCESSED  ]
+[v F23046 `(E22966 ~T0 @X0 0 tf1`*S3224 ]
+[v F23049 `(v ~T0 @X0 0 tf ]
+[v F23051 `(uc ~T0 @X0 0 tf1`uc ]
+[v F23054 `(*S3227 ~T0 @X0 0 tf1`uc ]
+"307 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 307: typedef struct Service {
+[s S3229 `uc 1 `uc 1 `*F23042 1 `*F23044 1 `*F23046 1 `*F23049 1 `*F23051 1 `*F23054 1 ]
+[n S3229 Service serviceNo version factoryReset powerUp processMessage poll getESDdata getDiagnostic ]
+"82 ../../VLCBlib_PIC/nv.c
+[; ;../../VLCBlib_PIC/nv.c: 82: const Service nvService = {
+[c E22772 0 1 2 3 4 5 6 7 8 9 10 17 .. ]
+[n E22772 VlcbServiceTypes SERVICE_ID_NONE SERVICE_ID_MNS SERVICE_ID_NV SERVICE_ID_CAN SERVICE_ID_OLD_TEACH SERVICE_ID_PRODUCER SERVICE_ID_CONSUMER SERVICE_ID_TEACH SERVICE_ID_CONSUME_OWN_EVENTS SERVICE_ID_EVENTACK SERVICE_ID_BOOT SERVICE_ID_STREAMING  ]
 "66
 [; ;../../VLCBlib_PIC/nv.c: 66: static void nvFactoryReset(void);
 [v _nvFactoryReset `(v ~T0 @X0 0 sf ]
@@ -41,85 +41,85 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _nvPowerUp `(v ~T0 @X0 0 sf ]
 "68
 [; ;../../VLCBlib_PIC/nv.c: 68: static Processed nvProcessMessage(Message *m);
-[v _nvProcessMessage `(E22905 ~T0 @X0 0 sf1`*S3221 ]
-[v F23155 `(v ~T0 @X0 0 tf ]
+[v _nvProcessMessage `(E22966 ~T0 @X0 0 sf1`*S3224 ]
+[v F23158 `(v ~T0 @X0 0 tf ]
 "69
 [; ;../../VLCBlib_PIC/nv.c: 69: static uint8_t nvGetESDdata(uint8_t id);
 [v _nvGetESDdata `(uc ~T0 @X0 0 sf1`uc ]
-"71
-[; ;../../VLCBlib_PIC/nv.c: 71: static DiagnosticVal * nvGetDiagnostic(uint8_t index);
-[v _nvGetDiagnostic `(*S3224 ~T0 @X0 0 sf1`uc ]
-"122
-[; ;../../VLCBlib_PIC/nv.c: 122:         writeNVM(EEPROM_NVM_TYPE, 0x200 +i, APP_nvDefault(i));
-[c E22845 0 1 .. ]
-[n E22845 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
+"72
+[; ;../../VLCBlib_PIC/nv.c: 72: static DiagnosticVal * nvGetDiagnostic(uint8_t index);
+[v _nvGetDiagnostic `(*S3227 ~T0 @X0 0 sf1`uc ]
+"129
+[; ;../../VLCBlib_PIC/nv.c: 129:         writeNVM(EEPROM_NVM_TYPE, 0x200 +i, APP_nvDefault(i));
+[c E22905 0 1 .. ]
+[n E22905 . EEPROM_NVM_TYPE FLASH_NVM_TYPE  ]
 "169 ../../VLCBlib_PIC/nvm.h
 [; ;../../VLCBlib_PIC/nvm.h: 169: extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
-[v _writeNVM `(uc ~T0 @X0 0 ef3`E22845`um`uc ]
-"113 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 113: extern uint8_t APP_nvDefault(uint8_t index);
+[v _writeNVM `(uc ~T0 @X0 0 ef3`E22905`um`uc ]
+"120 ../../VLCBlib_PIC/nv.c
+[; ;../../VLCBlib_PIC/nv.c: 120: extern uint8_t APP_nvDefault(uint8_t index);
 [v _APP_nvDefault `(uc ~T0 @X0 0 ef1`uc ]
 "65
 [; ;../../VLCBlib_PIC/nv.c: 65: void loadNvCache(void);
 [v _loadNvCache `(v ~T0 @X0 0 ef ]
 "160 ../../VLCBlib_PIC/nvm.h
 [; ;../../VLCBlib_PIC/nvm.h: 160: extern int16_t readNVM(NVMtype type, uint24_t index);
-[v _readNVM `(s ~T0 @X0 0 ef2`E22845`um ]
-"173 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 173:     if (index > 127) return -CMDERR_INV_NV_IDX;
-[c E22684 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
-[n E22684 VlcbCmdErrs CMDERR_INV_CMD CMDERR_NOT_LRN CMDERR_NOT_SETUP CMDERR_TOO_MANY_EVENTS CMDERR_NO_EV CMDERR_INV_EV_IDX CMDERR_INVALID_EVENT CMDERR_INV_EN_IDX CMDERR_INV_PARAM_IDX CMDERR_INV_NV_IDX CMDERR_INV_EV_VALUE CMDERR_INV_NV_VALUE CMDERR_LRN_OTHER  ]
-"211
-[; ;../../VLCBlib_PIC/nv.c: 211:     if (APP_nvValidate(index, value) == INVALID) return CMDERR_INV_NV_VALUE;
-[c E23031 0 1 .. ]
-[n E23031 NvValidation INVALID VALID  ]
-"38 ..\module.h
-[; ;..\module.h: 38: extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-[v _APP_nvValidate `(E23031 ~T0 @X0 0 ef2`uc`uc ]
-"108 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 108: extern void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue);
+[v _readNVM `(s ~T0 @X0 0 ef2`E22905`um ]
+"183 ../../VLCBlib_PIC/nv.c
+[; ;../../VLCBlib_PIC/nv.c: 183:     if (index > (15+7*16)) return -CMDERR_INV_NV_IDX;
+[c E22734 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
+[n E22734 VlcbCmdErrs CMDERR_INV_CMD CMDERR_NOT_LRN CMDERR_NOT_SETUP CMDERR_TOO_MANY_EVENTS CMDERR_NO_EV CMDERR_INV_EV_IDX CMDERR_INVALID_EVENT CMDERR_INV_EN_IDX CMDERR_INV_PARAM_IDX CMDERR_INV_NV_IDX CMDERR_INV_EV_VALUE CMDERR_INV_NV_VALUE CMDERR_LRN_OTHER  ]
+"221
+[; ;../../VLCBlib_PIC/nv.c: 221:     if (APP_nvValidate(index, value) == INVALID) return CMDERR_INV_NV_VALUE;
+[c E23092 0 1 .. ]
+[n E23092 NvValidation INVALID VALID  ]
+"103 ../../VLCBlib_PIC/nv.h
+[; ;../../VLCBlib_PIC/nv.h: 103: extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
+[v _APP_nvValidate `(E23092 ~T0 @X0 0 ef2`uc`uc ]
+"115 ../../VLCBlib_PIC/nv.c
+[; ;../../VLCBlib_PIC/nv.c: 115: extern void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue);
 [v _APP_nvValueChanged `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"115 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 115:     struct {
-[s S3223 `uc 1 `uc 1 ]
-[n S3223 . lo hi ]
-"114
-[; ;../../VLCBlib_PIC/vlcb.h: 114: typedef union Word {
-[u S3222 `S3223 1 `us 1 ]
-[n S3222 Word bytes word ]
+"129 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 129:     struct {
+[s S3226 `uc 1 `uc 1 ]
+[n S3226 . lo hi ]
+"128
+[; ;../../VLCBlib_PIC/vlcb.h: 128: typedef union Word {
+[u S3225 `S3226 1 `us 1 ]
+[n S3225 Word bytes word ]
 "126 ../../VLCBlib_PIC/mns.h
 [; ;../../VLCBlib_PIC/mns.h: 126: extern Word nn;
-[v _nn `S3222 ~T0 @X0 0 e ]
-"221 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 221: void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-[v _sendMessage3 `(v ~T0 @X0 0 ef4`E22515`uc`uc`uc ]
-"240
-[; ;../../VLCBlib_PIC/vlcb.h: 240: void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-[v _sendMessage5 `(v ~T0 @X0 0 ef6`E22515`uc`uc`uc`uc`uc ]
-"230
-[; ;../../VLCBlib_PIC/vlcb.h: 230: void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-[v _sendMessage4 `(v ~T0 @X0 0 ef5`E22515`uc`uc`uc`uc ]
-"258 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 258:                 startTimedResponse(6, findServiceIndex(SERVICE_ID_NV), nvTRnvrdCallback);
-[c E23113 0 1 2 .. ]
-[n E23113 . TIMED_RESPONSE_RESULT_FINISHED TIMED_RESPONSE_RESULT_RETRY TIMED_RESPONSE_RESULT_NEXT  ]
-[v F23125 `(E23113 ~T0 @X0 0 tf3`uc`uc`uc ]
+[v _nn `S3225 ~T0 @X0 0 e ]
+"239 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 239: void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
+[v _sendMessage3 `(v ~T0 @X0 0 ef4`E22565`uc`uc`uc ]
+"258
+[; ;../../VLCBlib_PIC/vlcb.h: 258: void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
+[v _sendMessage5 `(v ~T0 @X0 0 ef6`E22565`uc`uc`uc`uc`uc ]
+"248
+[; ;../../VLCBlib_PIC/vlcb.h: 248: void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
+[v _sendMessage4 `(v ~T0 @X0 0 ef5`E22565`uc`uc`uc`uc ]
+"279 ../../VLCBlib_PIC/nv.c
+[; ;../../VLCBlib_PIC/nv.c: 279:                 startTimedResponse(6, findServiceIndex(SERVICE_ID_NV), nvTRnvrdCallback);
+[c E23115 0 1 2 .. ]
+[n E23115 . TIMED_RESPONSE_RESULT_FINISHED TIMED_RESPONSE_RESULT_RETRY TIMED_RESPONSE_RESULT_NEXT  ]
+[v F23127 `(E23115 ~T0 @X0 0 tf3`uc`uc`uc ]
 "109 ../../VLCBlib_PIC/timedResponse.h
 [; ;../../VLCBlib_PIC/timedResponse.h: 109: extern void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponseResult (*callback)(uint8_t type, uint8_t si, uint8_t step));
-[v _startTimedResponse `(v ~T0 @X0 0 ef3`uc`uc`*F23125 ]
-"336 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 336: extern uint8_t findServiceIndex(uint8_t id);
+[v _startTimedResponse `(v ~T0 @X0 0 ef3`uc`uc`*F23127 ]
+"358 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 358: extern uint8_t findServiceIndex(uint8_t id);
 [v _findServiceIndex `(uc ~T0 @X0 0 ef1`uc ]
 "70 ../../VLCBlib_PIC/nv.c
 [; ;../../VLCBlib_PIC/nv.c: 70: TimedResponseResult nvTRnvrdCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
-[v _nvTRnvrdCallback `(E23113 ~T0 @X0 0 ef3`uc`uc`uc ]
-"213 ../../VLCBlib_PIC/vlcb.h
-[; ;../../VLCBlib_PIC/vlcb.h: 213: void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
-[v _sendMessage2 `(v ~T0 @X0 0 ef3`E22515`uc`uc ]
-"276 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 276:             sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSET, SERVICE_ID_MNS, GRSP_OK);
-[c E22699 0 254 253 252 251 250 .. ]
-[n E22699 VlcbGrspCodes GRSP_OK GRSP_UNKNOWN_NVM_TYPE GRSP_INVALID_DIAGNOSTIC GRSP_INVALID_SERVICE GRSP_INVALID_COMMAND_PARAMETER GRSP_INVALID_MODE  ]
+[v _nvTRnvrdCallback `(E23115 ~T0 @X0 0 ef3`uc`uc`uc ]
+"231 ../../VLCBlib_PIC/vlcb.h
+[; ;../../VLCBlib_PIC/vlcb.h: 231: void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
+[v _sendMessage2 `(v ~T0 @X0 0 ef3`E22565`uc`uc ]
+"305 ../../VLCBlib_PIC/nv.c
+[; ;../../VLCBlib_PIC/nv.c: 305:             sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSET, SERVICE_ID_MNS, GRSP_OK);
+[c E22749 0 254 253 252 251 250 .. ]
+[n E22749 VlcbGrspCodes GRSP_OK GRSP_UNKNOWN_NVM_TYPE GRSP_INVALID_DIAGNOSTIC GRSP_INVALID_SERVICE GRSP_INVALID_COMMAND_PARAMETER GRSP_INVALID_MODE  ]
 "364 C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 364: __asm("BOOTREG equ 038h");
 [; <" BOOTREG equ 038h ;# ">
@@ -3639,602 +3639,602 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69656
 [; ;C:/Users/ianwh/.mchp_packs/Microchip/PIC18F-Q_DFP/1.25.433/xc8\pic\include\proc\pic18f27q83.h: 69656: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"79 ../../VLCBlib_PIC/nv.c
-[; ;../../VLCBlib_PIC/nv.c: 79: const Service nvService = {
-[v _nvService `CS3226 ~T0 @X0 1 e ]
+"73 ../../VLCBlib_PIC/nv.c
+[; ;../../VLCBlib_PIC/nv.c: 73: static DiagnosticVal nvDiagnostics[2];
+[v _nvDiagnostics `S3227 ~T0 @X0 -> 2 `i s ]
+"82
+[; ;../../VLCBlib_PIC/nv.c: 82: const Service nvService = {
+[v _nvService `CS3229 ~T0 @X0 1 e ]
 [i _nvService
 :U ..
 :U ..
--> . `E22722 2 `uc
+-> . `E22772 2 `uc
 -> -> 1 `i `uc
 &U _nvFactoryReset
 &U _nvPowerUp
 &U _nvProcessMessage
--> -> -> 0 `i `*v `*F23155
+-> -> -> 0 `i `*v `*F23158
 &U _nvGetESDdata
 &U _nvGetDiagnostic
 ..
 ..
 ]
-"94
-[; ;../../VLCBlib_PIC/nv.c: 94: static DiagnosticVal nvDiagnostics[2];
-[v _nvDiagnostics `S3224 ~T0 @X0 -> 2 `i s ]
-"100
-[; ;../../VLCBlib_PIC/nv.c: 100: static uint8_t nvCache[127 +1];
+"107
+[; ;../../VLCBlib_PIC/nv.c: 107: static uint8_t nvCache[(15+7*16)+1];
 [v _nvCache `uc ~T0 @X0 -> 128 `i s ]
-"119
-[; ;../../VLCBlib_PIC/nv.c: 119: static void nvFactoryReset(void) {
+"126
+[; ;../../VLCBlib_PIC/nv.c: 126: static void nvFactoryReset(void) {
 [v _nvFactoryReset `(v ~T0 @X0 1 sf ]
 {
 [e :U _nvFactoryReset ]
 [f ]
-"120
-[; ;../../VLCBlib_PIC/nv.c: 120:     uint8_t i;
+"127
+[; ;../../VLCBlib_PIC/nv.c: 127:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"121
-[; ;../../VLCBlib_PIC/nv.c: 121:     for (i=1; i<= 127; i++) {
+"128
+[; ;../../VLCBlib_PIC/nv.c: 128:     for (i=1; i<= (15+7*16); i++) {
 {
 [e = _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 127 `i 3232  ]
+[e $ <= -> _i `i + -> 15 `i * -> 7 `i -> 16 `i 3232  ]
 [e $U 3233  ]
 [e :U 3232 ]
 {
-"122
-[; ;../../VLCBlib_PIC/nv.c: 122:         writeNVM(EEPROM_NVM_TYPE, 0x200 +i, APP_nvDefault(i));
-[e ( _writeNVM (3 , , . `E22845 0 -> -> + -> 512 `i -> _i `i `m `um ( _APP_nvDefault (1 _i ]
-"123
-[; ;../../VLCBlib_PIC/nv.c: 123:     }
+"129
+[; ;../../VLCBlib_PIC/nv.c: 129:         writeNVM(EEPROM_NVM_TYPE, 0x200 +i, APP_nvDefault(i));
+[e ( _writeNVM (3 , , . `E22905 0 -> -> + -> 512 `i -> _i `i `m `um ( _APP_nvDefault (1 _i ]
+"130
+[; ;../../VLCBlib_PIC/nv.c: 130:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 127 `i 3232  ]
+[e $ <= -> _i `i + -> 15 `i * -> 7 `i -> 16 `i 3232  ]
 [e :U 3233 ]
 }
-"124
-[; ;../../VLCBlib_PIC/nv.c: 124: }
+"131
+[; ;../../VLCBlib_PIC/nv.c: 131: }
 [e :UE 3231 ]
 }
-"129
-[; ;../../VLCBlib_PIC/nv.c: 129: static void nvPowerUp(void) {
+"136
+[; ;../../VLCBlib_PIC/nv.c: 136: static void nvPowerUp(void) {
 [v _nvPowerUp `(v ~T0 @X0 1 sf ]
 {
 [e :U _nvPowerUp ]
 [f ]
-"130
-[; ;../../VLCBlib_PIC/nv.c: 130:     uint8_t i;
+"138
+[; ;../../VLCBlib_PIC/nv.c: 138:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"131
-[; ;../../VLCBlib_PIC/nv.c: 131:     for (i=0; i<2; i++) {
+"139
+[; ;../../VLCBlib_PIC/nv.c: 139:     for (i=0; i<2; i++) {
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 2 `i 3236  ]
 [e $U 3237  ]
 [e :U 3236 ]
 {
-"132
-[; ;../../VLCBlib_PIC/nv.c: 132:         nvDiagnostics[i].asUint = 0;
+"140
+[; ;../../VLCBlib_PIC/nv.c: 140:         nvDiagnostics[i].asUint = 0;
 [e = . *U + &U _nvDiagnostics * -> _i `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 0 `i `us ]
-"133
-[; ;../../VLCBlib_PIC/nv.c: 133:     }
+"141
+[; ;../../VLCBlib_PIC/nv.c: 141:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 2 `i 3236  ]
 [e :U 3237 ]
 }
-"135
-[; ;../../VLCBlib_PIC/nv.c: 135:     loadNvCache();
+"144
+[; ;../../VLCBlib_PIC/nv.c: 144:     loadNvCache();
 [e ( _loadNvCache ..  ]
-"137
-[; ;../../VLCBlib_PIC/nv.c: 137: }
+"146
+[; ;../../VLCBlib_PIC/nv.c: 146: }
 [e :UE 3235 ]
 }
-"139
-[; ;../../VLCBlib_PIC/nv.c: 139: static DiagnosticVal * nvGetDiagnostic(uint8_t index) {
-[v _nvGetDiagnostic `(*S3224 ~T0 @X0 1 sf1`uc ]
+"149
+[; ;../../VLCBlib_PIC/nv.c: 149: static DiagnosticVal * nvGetDiagnostic(uint8_t index) {
+[v _nvGetDiagnostic `(*S3227 ~T0 @X0 1 sf1`uc ]
 {
 [e :U _nvGetDiagnostic ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"140
-[; ;../../VLCBlib_PIC/nv.c: 140:     if ((index<1) || (index>2)) {
+"150
+[; ;../../VLCBlib_PIC/nv.c: 150:     if ((index<1) || (index>2)) {
 [e $ ! || < -> _index `i -> 1 `i > -> _index `i -> 2 `i 3240  ]
 {
-"141
-[; ;../../VLCBlib_PIC/nv.c: 141:         return ((void*)0);
-[e ) -> -> -> 0 `i `*v `*S3224 ]
+"151
+[; ;../../VLCBlib_PIC/nv.c: 151:         return ((void*)0);
+[e ) -> -> -> 0 `i `*v `*S3227 ]
 [e $UE 3239  ]
-"142
-[; ;../../VLCBlib_PIC/nv.c: 142:     }
+"152
+[; ;../../VLCBlib_PIC/nv.c: 152:     }
 }
 [e :U 3240 ]
-"143
-[; ;../../VLCBlib_PIC/nv.c: 143:     return &(nvDiagnostics[index-1]);
+"153
+[; ;../../VLCBlib_PIC/nv.c: 153:     return &(nvDiagnostics[index-1]);
 [e ) &U *U + &U _nvDiagnostics * -> -> - -> _index `i -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux ]
 [e $UE 3239  ]
-"144
-[; ;../../VLCBlib_PIC/nv.c: 144: }
+"154
+[; ;../../VLCBlib_PIC/nv.c: 154: }
 [e :UE 3239 ]
 }
-"151
-[; ;../../VLCBlib_PIC/nv.c: 151: void loadNvCache(void) {
+"161
+[; ;../../VLCBlib_PIC/nv.c: 161: void loadNvCache(void) {
 [v _loadNvCache `(v ~T0 @X0 1 ef ]
 {
 [e :U _loadNvCache ]
 [f ]
-"152
-[; ;../../VLCBlib_PIC/nv.c: 152:     uint8_t i;
+"162
+[; ;../../VLCBlib_PIC/nv.c: 162:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"153
-[; ;../../VLCBlib_PIC/nv.c: 153:     int16_t temp;
+"163
+[; ;../../VLCBlib_PIC/nv.c: 163:     int16_t temp;
 [v _temp `s ~T0 @X0 1 a ]
-"155
-[; ;../../VLCBlib_PIC/nv.c: 155:     for (i=1; i<= 127; i++) {
+"165
+[; ;../../VLCBlib_PIC/nv.c: 165:     for (i=1; i<= (15+7*16); i++) {
 {
 [e = _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 127 `i 3242  ]
+[e $ <= -> _i `i + -> 15 `i * -> 7 `i -> 16 `i 3242  ]
 [e $U 3243  ]
 [e :U 3242 ]
 {
-"156
-[; ;../../VLCBlib_PIC/nv.c: 156:         temp = readNVM(EEPROM_NVM_TYPE, 0x200 +i);
-[e = _temp ( _readNVM (2 , . `E22845 0 -> -> + -> 512 `i -> _i `i `m `um ]
-"157
-[; ;../../VLCBlib_PIC/nv.c: 157:         if (temp < 0) {
+"166
+[; ;../../VLCBlib_PIC/nv.c: 166:         temp = readNVM(EEPROM_NVM_TYPE, 0x200 +i);
+[e = _temp ( _readNVM (2 , . `E22905 0 -> -> + -> 512 `i -> _i `i `m `um ]
+"167
+[; ;../../VLCBlib_PIC/nv.c: 167:         if (temp < 0) {
 [e $ ! < -> _temp `i -> 0 `i 3245  ]
 {
-"159
-[; ;../../VLCBlib_PIC/nv.c: 159:         } else {
+"169
+[; ;../../VLCBlib_PIC/nv.c: 169:         } else {
 }
 [e $U 3246  ]
 [e :U 3245 ]
 {
-"160
-[; ;../../VLCBlib_PIC/nv.c: 160:             nvCache[i] = (uint8_t)temp;
+"170
+[; ;../../VLCBlib_PIC/nv.c: 170:             nvCache[i] = (uint8_t)temp;
 [e = *U + &U _nvCache * -> _i `ux -> -> # *U &U _nvCache `ui `ux -> _temp `uc ]
-"161
-[; ;../../VLCBlib_PIC/nv.c: 161:         }
+"171
+[; ;../../VLCBlib_PIC/nv.c: 171:         }
 }
 [e :U 3246 ]
-"162
-[; ;../../VLCBlib_PIC/nv.c: 162:     }
+"172
+[; ;../../VLCBlib_PIC/nv.c: 172:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 127 `i 3242  ]
+[e $ <= -> _i `i + -> 15 `i * -> 7 `i -> 16 `i 3242  ]
 [e :U 3243 ]
 }
-"163
-[; ;../../VLCBlib_PIC/nv.c: 163: }
+"173
+[; ;../../VLCBlib_PIC/nv.c: 173: }
 [e :UE 3241 ]
 }
-"171
-[; ;../../VLCBlib_PIC/nv.c: 171: int16_t getNV(uint8_t index) {
+"181
+[; ;../../VLCBlib_PIC/nv.c: 181: int16_t getNV(uint8_t index) {
 [v _getNV `(s ~T0 @X0 1 ef1`uc ]
 {
 [e :U _getNV ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [f ]
-"172
-[; ;../../VLCBlib_PIC/nv.c: 172:     if (index == 0) return 127;
+"182
+[; ;../../VLCBlib_PIC/nv.c: 182:     if (index == 0) return (15+7*16);
 [e $ ! == -> _index `i -> 0 `i 3248  ]
-[e ) -> -> 127 `i `s ]
+[e ) -> + -> 15 `i * -> 7 `i -> 16 `i `s ]
 [e $UE 3247  ]
 [e :U 3248 ]
-"173
-[; ;../../VLCBlib_PIC/nv.c: 173:     if (index > 127) return -CMDERR_INV_NV_IDX;
-[e $ ! > -> _index `i -> 127 `i 3249  ]
-[e ) -> -U -> . `E22684 9 `i `s ]
+"183
+[; ;../../VLCBlib_PIC/nv.c: 183:     if (index > (15+7*16)) return -CMDERR_INV_NV_IDX;
+[e $ ! > -> _index `i + -> 15 `i * -> 7 `i -> 16 `i 3249  ]
+[e ) -> -U -> . `E22734 9 `i `s ]
 [e $UE 3247  ]
 [e :U 3249 ]
-"175
-[; ;../../VLCBlib_PIC/nv.c: 175:     return nvCache[index];
+"185
+[; ;../../VLCBlib_PIC/nv.c: 185:     return nvCache[index];
 [e ) -> *U + &U _nvCache * -> _index `ux -> -> # *U &U _nvCache `ui `ux `s ]
 [e $UE 3247  ]
-"179
-[; ;../../VLCBlib_PIC/nv.c: 179: }
+"189
+[; ;../../VLCBlib_PIC/nv.c: 189: }
 [e :UE 3247 ]
 }
-"188
-[; ;../../VLCBlib_PIC/nv.c: 188: void saveNV(uint8_t index, uint8_t value) {
+"198
+[; ;../../VLCBlib_PIC/nv.c: 198: void saveNV(uint8_t index, uint8_t value) {
 [v _saveNV `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _saveNV ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [v _value `uc ~T0 @X0 1 r2 ]
 [f ]
-"190
-[; ;../../VLCBlib_PIC/nv.c: 190:     nvCache[index] = value;
+"200
+[; ;../../VLCBlib_PIC/nv.c: 200:     nvCache[index] = value;
 [e = *U + &U _nvCache * -> _index `ux -> -> # *U &U _nvCache `ui `ux _value ]
-"192
-[; ;../../VLCBlib_PIC/nv.c: 192:     writeNVM(EEPROM_NVM_TYPE, 0x200 +index, value);
-[e ( _writeNVM (3 , , . `E22845 0 -> -> + -> 512 `i -> _index `i `m `um _value ]
-"193
-[; ;../../VLCBlib_PIC/nv.c: 193: }
+"202
+[; ;../../VLCBlib_PIC/nv.c: 202:     writeNVM(EEPROM_NVM_TYPE, 0x200 +index, value);
+[e ( _writeNVM (3 , , . `E22905 0 -> -> + -> 512 `i -> _index `i `m `um _value ]
+"203
+[; ;../../VLCBlib_PIC/nv.c: 203: }
 [e :UE 3250 ]
 }
-"207
-[; ;../../VLCBlib_PIC/nv.c: 207: uint8_t setNV(uint8_t index, uint8_t value) {
+"217
+[; ;../../VLCBlib_PIC/nv.c: 217: uint8_t setNV(uint8_t index, uint8_t value) {
 [v _setNV `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _setNV ]
 [v _index `uc ~T0 @X0 1 r1 ]
 [v _value `uc ~T0 @X0 1 r2 ]
 [f ]
-"208
-[; ;../../VLCBlib_PIC/nv.c: 208:     uint8_t oldValue;
+"218
+[; ;../../VLCBlib_PIC/nv.c: 218:     uint8_t oldValue;
 [v _oldValue `uc ~T0 @X0 1 a ]
-"210
-[; ;../../VLCBlib_PIC/nv.c: 210:     if (index > 127) return CMDERR_INV_NV_IDX;
-[e $ ! > -> _index `i -> 127 `i 3252  ]
-[e ) -> . `E22684 9 `uc ]
+"220
+[; ;../../VLCBlib_PIC/nv.c: 220:     if (index > (15+7*16)) return CMDERR_INV_NV_IDX;
+[e $ ! > -> _index `i + -> 15 `i * -> 7 `i -> 16 `i 3252  ]
+[e ) -> . `E22734 9 `uc ]
 [e $UE 3251  ]
 [e :U 3252 ]
-"211
-[; ;../../VLCBlib_PIC/nv.c: 211:     if (APP_nvValidate(index, value) == INVALID) return CMDERR_INV_NV_VALUE;
-[e $ ! == -> ( _APP_nvValidate (2 , _index _value `ui -> . `E23031 0 `ui 3253  ]
-[e ) -> . `E22684 11 `uc ]
+"221
+[; ;../../VLCBlib_PIC/nv.c: 221:     if (APP_nvValidate(index, value) == INVALID) return CMDERR_INV_NV_VALUE;
+[e $ ! == -> ( _APP_nvValidate (2 , _index _value `ui -> . `E23092 0 `ui 3253  ]
+[e ) -> . `E22734 11 `uc ]
 [e $UE 3251  ]
 [e :U 3253 ]
-"213
-[; ;../../VLCBlib_PIC/nv.c: 213:     oldValue = nvCache[index];
+"223
+[; ;../../VLCBlib_PIC/nv.c: 223:     oldValue = nvCache[index];
 [e = _oldValue *U + &U _nvCache * -> _index `ux -> -> # *U &U _nvCache `ui `ux ]
-"214
-[; ;../../VLCBlib_PIC/nv.c: 214:     nvCache[index] = value;
+"224
+[; ;../../VLCBlib_PIC/nv.c: 224:     nvCache[index] = value;
 [e = *U + &U _nvCache * -> _index `ux -> -> # *U &U _nvCache `ui `ux _value ]
-"215
-[; ;../../VLCBlib_PIC/nv.c: 215:     writeNVM(EEPROM_NVM_TYPE, 0x200 +index, value);
-[e ( _writeNVM (3 , , . `E22845 0 -> -> + -> 512 `i -> _index `i `m `um _value ]
-"220
-[; ;../../VLCBlib_PIC/nv.c: 220:     APP_nvValueChanged(index, value, oldValue);
+"225
+[; ;../../VLCBlib_PIC/nv.c: 225:     writeNVM(EEPROM_NVM_TYPE, 0x200 +index, value);
+[e ( _writeNVM (3 , , . `E22905 0 -> -> + -> 512 `i -> _index `i `m `um _value ]
+"230
+[; ;../../VLCBlib_PIC/nv.c: 230:     APP_nvValueChanged(index, value, oldValue);
 [e ( _APP_nvValueChanged (3 , , _index _value _oldValue ]
-"221
-[; ;../../VLCBlib_PIC/nv.c: 221:     return 0;
+"231
+[; ;../../VLCBlib_PIC/nv.c: 231:     return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 3251  ]
-"222
-[; ;../../VLCBlib_PIC/nv.c: 222: }
+"232
+[; ;../../VLCBlib_PIC/nv.c: 232: }
 [e :UE 3251 ]
 }
-"229
-[; ;../../VLCBlib_PIC/nv.c: 229: static Processed nvProcessMessage(Message * m) {
-[v _nvProcessMessage `(E22905 ~T0 @X0 1 sf1`*S3221 ]
+"239
+[; ;../../VLCBlib_PIC/nv.c: 239: static Processed nvProcessMessage(Message * m) {
+[v _nvProcessMessage `(E22966 ~T0 @X0 1 sf1`*S3224 ]
 {
 [e :U _nvProcessMessage ]
-[v _m `*S3221 ~T0 @X0 1 r1 ]
+[v _m `*S3224 ~T0 @X0 1 r1 ]
 [f ]
-"230
-[; ;../../VLCBlib_PIC/nv.c: 230:     int16_t valueOrError;
+"240
+[; ;../../VLCBlib_PIC/nv.c: 240:     int16_t valueOrError;
 [v _valueOrError `s ~T0 @X0 1 a ]
-"232
-[; ;../../VLCBlib_PIC/nv.c: 232:     if (m->len < 3) {
+"242
+[; ;../../VLCBlib_PIC/nv.c: 242:     if (m->len < 3) {
 [e $ ! < -> . *U _m 0 `i -> 3 `i 3255  ]
 {
-"233
-[; ;../../VLCBlib_PIC/nv.c: 233:         return NOT_PROCESSED;
-[e ) . `E22905 0 ]
+"243
+[; ;../../VLCBlib_PIC/nv.c: 243:         return NOT_PROCESSED;
+[e ) . `E22966 0 ]
 [e $UE 3254  ]
-"234
-[; ;../../VLCBlib_PIC/nv.c: 234:     }
+"244
+[; ;../../VLCBlib_PIC/nv.c: 244:     }
 }
 [e :U 3255 ]
-"236
-[; ;../../VLCBlib_PIC/nv.c: 236:     if (m->bytes[0] != nn.bytes.hi) return NOT_PROCESSED;
+"246
+[; ;../../VLCBlib_PIC/nv.c: 246:     if (m->bytes[0] != nn.bytes.hi) return NOT_PROCESSED;
 [e $ ! != -> *U + &U . *U _m 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . . _nn 0 1 `i 3256  ]
-[e ) . `E22905 0 ]
+[e ) . `E22966 0 ]
 [e $UE 3254  ]
 [e :U 3256 ]
-"237
-[; ;../../VLCBlib_PIC/nv.c: 237:     if (m->bytes[1] != nn.bytes.lo) return NOT_PROCESSED;
+"247
+[; ;../../VLCBlib_PIC/nv.c: 247:     if (m->bytes[1] != nn.bytes.lo) return NOT_PROCESSED;
 [e $ ! != -> *U + &U . *U _m 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> . . _nn 0 0 `i 3257  ]
-[e ) . `E22905 0 ]
+[e ) . `E22966 0 ]
 [e $UE 3254  ]
 [e :U 3257 ]
-"239
-[; ;../../VLCBlib_PIC/nv.c: 239:     switch (m->opc) {
+"249
+[; ;../../VLCBlib_PIC/nv.c: 249:     switch (m->opc) {
 [e $U 3259  ]
 {
-"240
-[; ;../../VLCBlib_PIC/nv.c: 240:         case OPC_NVRD:
+"250
+[; ;../../VLCBlib_PIC/nv.c: 250:         case OPC_NVRD:
 [e :U 3260 ]
-"241
-[; ;../../VLCBlib_PIC/nv.c: 241:             if (m->len < 4) {
+"251
+[; ;../../VLCBlib_PIC/nv.c: 251:             if (m->len < 4) {
 [e $ ! < -> . *U _m 0 `i -> 4 `i 3261  ]
 {
-"242
-[; ;../../VLCBlib_PIC/nv.c: 242:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, CMDERR_INV_CMD);
-[e ( _sendMessage3 (4 , , , . `E22515 52 . . _nn 0 1 . . _nn 0 0 -> . `E22684 0 `uc ]
-"243
-[; ;../../VLCBlib_PIC/nv.c: 243:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
-[e ( _sendMessage5 (4 , , , , , . `E22515 89 . . _nn 0 1 . . _nn 0 0 -> . `E22515 54 `uc -> . `E22722 1 `uc -> . `E22684 0 `uc ]
-"244
-[; ;../../VLCBlib_PIC/nv.c: 244:                 nvDiagnostics[0x01].asUint++;
+"252
+[; ;../../VLCBlib_PIC/nv.c: 252:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, CMDERR_INV_CMD);
+[e ( _sendMessage3 (4 , , , . `E22565 52 . . _nn 0 1 . . _nn 0 0 -> . `E22734 0 `uc ]
+"254
+[; ;../../VLCBlib_PIC/nv.c: 254:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
+[e ( _sendMessage5 (4 , , , , , . `E22565 89 . . _nn 0 1 . . _nn 0 0 -> . `E22565 54 `uc -> . `E22772 1 `uc -> . `E22734 0 `uc ]
+"257
+[; ;../../VLCBlib_PIC/nv.c: 257:                 nvDiagnostics[0x01].asUint++;
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"245
-[; ;../../VLCBlib_PIC/nv.c: 245:                 return PROCESSED;
-[e ) . `E22905 1 ]
+"259
+[; ;../../VLCBlib_PIC/nv.c: 259:                 return PROCESSED;
+[e ) . `E22966 1 ]
 [e $UE 3254  ]
-"246
-[; ;../../VLCBlib_PIC/nv.c: 246:             }
+"260
+[; ;../../VLCBlib_PIC/nv.c: 260:             }
 }
 [e :U 3261 ]
-"247
-[; ;../../VLCBlib_PIC/nv.c: 247:             valueOrError = getNV(m->bytes[2]);
+"261
+[; ;../../VLCBlib_PIC/nv.c: 261:             valueOrError = getNV(m->bytes[2]);
 [e = _valueOrError ( _getNV (1 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
-"248
-[; ;../../VLCBlib_PIC/nv.c: 248:             if (valueOrError < 0) {
+"262
+[; ;../../VLCBlib_PIC/nv.c: 262:             if (valueOrError < 0) {
 [e $ ! < -> _valueOrError `i -> 0 `i 3262  ]
 {
-"249
-[; ;../../VLCBlib_PIC/nv.c: 249:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(-valueOrError));
-[e ( _sendMessage3 (4 , , , . `E22515 52 . . _nn 0 1 . . _nn 0 0 -> -U -> _valueOrError `i `uc ]
-"250
-[; ;../../VLCBlib_PIC/nv.c: 250:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, (uint8_t)(-valueOrError));
-[e ( _sendMessage5 (4 , , , , , . `E22515 89 . . _nn 0 1 . . _nn 0 0 -> . `E22515 54 `uc -> . `E22722 1 `uc -> -U -> _valueOrError `i `uc ]
-"251
-[; ;../../VLCBlib_PIC/nv.c: 251:                 nvDiagnostics[0x01].asUint++;
+"263
+[; ;../../VLCBlib_PIC/nv.c: 263:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(-valueOrError));
+[e ( _sendMessage3 (4 , , , . `E22565 52 . . _nn 0 1 . . _nn 0 0 -> -U -> _valueOrError `i `uc ]
+"265
+[; ;../../VLCBlib_PIC/nv.c: 265:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, (uint8_t)(-valueOrError));
+[e ( _sendMessage5 (4 , , , , , . `E22565 89 . . _nn 0 1 . . _nn 0 0 -> . `E22565 54 `uc -> . `E22772 1 `uc -> -U -> _valueOrError `i `uc ]
+"268
+[; ;../../VLCBlib_PIC/nv.c: 268:                 nvDiagnostics[0x01].asUint++;
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"252
-[; ;../../VLCBlib_PIC/nv.c: 252:                 return PROCESSED;
-[e ) . `E22905 1 ]
+"270
+[; ;../../VLCBlib_PIC/nv.c: 270:                 return PROCESSED;
+[e ) . `E22966 1 ]
 [e $UE 3254  ]
-"253
-[; ;../../VLCBlib_PIC/nv.c: 253:             }
+"271
+[; ;../../VLCBlib_PIC/nv.c: 271:             }
 }
 [e :U 3262 ]
-"254
-[; ;../../VLCBlib_PIC/nv.c: 254:             nvDiagnostics[0x00].asUint++;
+"273
+[; ;../../VLCBlib_PIC/nv.c: 273:             nvDiagnostics[0x00].asUint++;
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"255
-[; ;../../VLCBlib_PIC/nv.c: 255:             sendMessage4(OPC_NVANS, nn.bytes.hi, nn.bytes.lo, m->bytes[2], (uint8_t)(valueOrError));
-[e ( _sendMessage4 (4 , , , , . `E22515 76 . . _nn 0 1 . . _nn 0 0 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux -> _valueOrError `uc ]
-"256
-[; ;../../VLCBlib_PIC/nv.c: 256:             if (m->bytes[2] == 0) {
+"275
+[; ;../../VLCBlib_PIC/nv.c: 275:             sendMessage4(OPC_NVANS, nn.bytes.hi, nn.bytes.lo, m->bytes[2], (uint8_t)(valueOrError));
+[e ( _sendMessage4 (4 , , , , . `E22565 76 . . _nn 0 1 . . _nn 0 0 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux -> _valueOrError `uc ]
+"277
+[; ;../../VLCBlib_PIC/nv.c: 277:             if (m->bytes[2] == 0) {
 [e $ ! == -> *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `i -> 0 `i 3263  ]
 {
-"258
-[; ;../../VLCBlib_PIC/nv.c: 258:                 startTimedResponse(6, findServiceIndex(SERVICE_ID_NV), nvTRnvrdCallback);
-[e ( _startTimedResponse (3 , , -> -> 6 `i `uc ( _findServiceIndex (1 -> . `E22722 2 `uc &U _nvTRnvrdCallback ]
-"259
-[; ;../../VLCBlib_PIC/nv.c: 259:             }
+"279
+[; ;../../VLCBlib_PIC/nv.c: 279:                 startTimedResponse(6, findServiceIndex(SERVICE_ID_NV), nvTRnvrdCallback);
+[e ( _startTimedResponse (3 , , -> -> 6 `i `uc ( _findServiceIndex (1 -> . `E22772 2 `uc &U _nvTRnvrdCallback ]
+"280
+[; ;../../VLCBlib_PIC/nv.c: 280:             }
 }
 [e :U 3263 ]
-"260
-[; ;../../VLCBlib_PIC/nv.c: 260:             return PROCESSED;
-[e ) . `E22905 1 ]
+"282
+[; ;../../VLCBlib_PIC/nv.c: 282:             return PROCESSED;
+[e ) . `E22966 1 ]
 [e $UE 3254  ]
-"261
-[; ;../../VLCBlib_PIC/nv.c: 261:         case OPC_NVSET:
+"283
+[; ;../../VLCBlib_PIC/nv.c: 283:         case OPC_NVSET:
 [e :U 3264 ]
-"262
-[; ;../../VLCBlib_PIC/nv.c: 262:             if (m->len < 5) {
+"284
+[; ;../../VLCBlib_PIC/nv.c: 284:             if (m->len < 5) {
 [e $ ! < -> . *U _m 0 `i -> 5 `i 3265  ]
 {
-"264
-[; ;../../VLCBlib_PIC/nv.c: 264:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSET, SERVICE_ID_MNS, CMDERR_INV_CMD);
-[e ( _sendMessage5 (4 , , , , , . `E22515 89 . . _nn 0 1 . . _nn 0 0 -> . `E22515 75 `uc -> . `E22722 1 `uc -> . `E22684 0 `uc ]
-"265
-[; ;../../VLCBlib_PIC/nv.c: 265:                 nvDiagnostics[0x01].asUint++;
+"287
+[; ;../../VLCBlib_PIC/nv.c: 287:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSET, SERVICE_ID_MNS, CMDERR_INV_CMD);
+[e ( _sendMessage5 (4 , , , , , . `E22565 89 . . _nn 0 1 . . _nn 0 0 -> . `E22565 75 `uc -> . `E22772 1 `uc -> . `E22734 0 `uc ]
+"290
+[; ;../../VLCBlib_PIC/nv.c: 290:                 nvDiagnostics[0x01].asUint++;
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"266
-[; ;../../VLCBlib_PIC/nv.c: 266:                 return PROCESSED;
-[e ) . `E22905 1 ]
+"292
+[; ;../../VLCBlib_PIC/nv.c: 292:                 return PROCESSED;
+[e ) . `E22966 1 ]
 [e $UE 3254  ]
-"267
-[; ;../../VLCBlib_PIC/nv.c: 267:             }
+"293
+[; ;../../VLCBlib_PIC/nv.c: 293:             }
 }
 [e :U 3265 ]
-"268
-[; ;../../VLCBlib_PIC/nv.c: 268:             valueOrError = setNV(m->bytes[2], m->bytes[3]);
+"294
+[; ;../../VLCBlib_PIC/nv.c: 294:             valueOrError = setNV(m->bytes[2], m->bytes[3]);
 [e = _valueOrError -> ( _setNV (2 , *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `s ]
-"269
-[; ;../../VLCBlib_PIC/nv.c: 269:             if (valueOrError >0) {
+"295
+[; ;../../VLCBlib_PIC/nv.c: 295:             if (valueOrError >0) {
 [e $ ! > -> _valueOrError `i -> 0 `i 3266  ]
 {
-"270
-[; ;../../VLCBlib_PIC/nv.c: 270:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(valueOrError));
-[e ( _sendMessage3 (4 , , , . `E22515 52 . . _nn 0 1 . . _nn 0 0 -> _valueOrError `uc ]
-"272
-[; ;../../VLCBlib_PIC/nv.c: 272:                 nvDiagnostics[0x01].asUint++;
-[e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"273
-[; ;../../VLCBlib_PIC/nv.c: 273:                 return PROCESSED;
-[e ) . `E22905 1 ]
-[e $UE 3254  ]
-"274
-[; ;../../VLCBlib_PIC/nv.c: 274:             }
-}
-[e :U 3266 ]
-"275
-[; ;../../VLCBlib_PIC/nv.c: 275:             sendMessage2(OPC_WRACK, nn.bytes.hi, nn.bytes.lo);
-[e ( _sendMessage2 (3 , , . `E22515 42 . . _nn 0 1 . . _nn 0 0 ]
-"276
-[; ;../../VLCBlib_PIC/nv.c: 276:             sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSET, SERVICE_ID_MNS, GRSP_OK);
-[e ( _sendMessage5 (4 , , , , , . `E22515 89 . . _nn 0 1 . . _nn 0 0 -> . `E22515 75 `uc -> . `E22722 1 `uc -> . `E22699 0 `uc ]
-"277
-[; ;../../VLCBlib_PIC/nv.c: 277:             return PROCESSED;
-[e ) . `E22905 1 ]
-[e $UE 3254  ]
-"278
-[; ;../../VLCBlib_PIC/nv.c: 278:         case OPC_NVSETRD:
-[e :U 3267 ]
-"279
-[; ;../../VLCBlib_PIC/nv.c: 279:             if (m->len < 5) {
-[e $ ! < -> . *U _m 0 `i -> 5 `i 3268  ]
-{
-"281
-[; ;../../VLCBlib_PIC/nv.c: 281:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSETRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
-[e ( _sendMessage5 (4 , , , , , . `E22515 89 . . _nn 0 1 . . _nn 0 0 -> . `E22515 68 `uc -> . `E22722 1 `uc -> . `E22684 0 `uc ]
-"282
-[; ;../../VLCBlib_PIC/nv.c: 282:                 nvDiagnostics[0x01].asUint++;
-[e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"283
-[; ;../../VLCBlib_PIC/nv.c: 283:                 return PROCESSED;
-[e ) . `E22905 1 ]
-[e $UE 3254  ]
-"284
-[; ;../../VLCBlib_PIC/nv.c: 284:             }
-}
-[e :U 3268 ]
-"285
-[; ;../../VLCBlib_PIC/nv.c: 285:             valueOrError = setNV(m->bytes[2], m->bytes[3]);
-[e = _valueOrError -> ( _setNV (2 , *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `s ]
-"286
-[; ;../../VLCBlib_PIC/nv.c: 286:             if (valueOrError >0) {
-[e $ ! > -> _valueOrError `i -> 0 `i 3269  ]
-{
-"287
-[; ;../../VLCBlib_PIC/nv.c: 287:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(valueOrError));
-[e ( _sendMessage3 (4 , , , . `E22515 52 . . _nn 0 1 . . _nn 0 0 -> _valueOrError `uc ]
-"288
-[; ;../../VLCBlib_PIC/nv.c: 288:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSETRD, SERVICE_ID_MNS, (uint8_t)(valueOrError));
-[e ( _sendMessage5 (4 , , , , , . `E22515 89 . . _nn 0 1 . . _nn 0 0 -> . `E22515 68 `uc -> . `E22722 1 `uc -> _valueOrError `uc ]
-"289
-[; ;../../VLCBlib_PIC/nv.c: 289:                 nvDiagnostics[0x01].asUint++;
-[e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"290
-[; ;../../VLCBlib_PIC/nv.c: 290:                 return PROCESSED;
-[e ) . `E22905 1 ]
-[e $UE 3254  ]
-"291
-[; ;../../VLCBlib_PIC/nv.c: 291:             }
-}
-[e :U 3269 ]
-"292
-[; ;../../VLCBlib_PIC/nv.c: 292:             valueOrError = getNV(m->bytes[2]);
-[e = _valueOrError ( _getNV (1 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
-"293
-[; ;../../VLCBlib_PIC/nv.c: 293:             if (valueOrError < 0) {
-[e $ ! < -> _valueOrError `i -> 0 `i 3270  ]
-{
-"294
-[; ;../../VLCBlib_PIC/nv.c: 294:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(-valueOrError));
-[e ( _sendMessage3 (4 , , , . `E22515 52 . . _nn 0 1 . . _nn 0 0 -> -U -> _valueOrError `i `uc ]
-"295
-[; ;../../VLCBlib_PIC/nv.c: 295:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSETRD, SERVICE_ID_MNS, (uint8_t)(-valueOrError));
-[e ( _sendMessage5 (4 , , , , , . `E22515 89 . . _nn 0 1 . . _nn 0 0 -> . `E22515 68 `uc -> . `E22722 1 `uc -> -U -> _valueOrError `i `uc ]
 "296
-[; ;../../VLCBlib_PIC/nv.c: 296:                 nvDiagnostics[0x01].asUint++;
-[e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"297
-[; ;../../VLCBlib_PIC/nv.c: 297:                 return PROCESSED;
-[e ) . `E22905 1 ]
-[e $UE 3254  ]
-"298
-[; ;../../VLCBlib_PIC/nv.c: 298:             }
-}
-[e :U 3270 ]
+[; ;../../VLCBlib_PIC/nv.c: 296:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(valueOrError));
+[e ( _sendMessage3 (4 , , , . `E22565 52 . . _nn 0 1 . . _nn 0 0 -> _valueOrError `uc ]
 "299
-[; ;../../VLCBlib_PIC/nv.c: 299:             sendMessage4(OPC_NVANS, nn.bytes.hi, nn.bytes.lo, m->bytes[2], (uint8_t)(valueOrError));
-[e ( _sendMessage4 (4 , , , , . `E22515 76 . . _nn 0 1 . . _nn 0 0 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux -> _valueOrError `uc ]
-"300
-[; ;../../VLCBlib_PIC/nv.c: 300:             nvDiagnostics[0x00].asUint++;
-[e ++ . *U + &U _nvDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+[; ;../../VLCBlib_PIC/nv.c: 299:                 nvDiagnostics[0x01].asUint++;
+[e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
 "301
-[; ;../../VLCBlib_PIC/nv.c: 301:             return PROCESSED;
-[e ) . `E22905 1 ]
+[; ;../../VLCBlib_PIC/nv.c: 301:                 return PROCESSED;
+[e ) . `E22966 1 ]
 [e $UE 3254  ]
 "302
-[; ;../../VLCBlib_PIC/nv.c: 302:         default:
-[e :U 3271 ]
+[; ;../../VLCBlib_PIC/nv.c: 302:             }
+}
+[e :U 3266 ]
 "303
-[; ;../../VLCBlib_PIC/nv.c: 303:             return NOT_PROCESSED;
-[e ) . `E22905 0 ]
+[; ;../../VLCBlib_PIC/nv.c: 303:             sendMessage2(OPC_WRACK, nn.bytes.hi, nn.bytes.lo);
+[e ( _sendMessage2 (3 , , . `E22565 42 . . _nn 0 1 . . _nn 0 0 ]
+"305
+[; ;../../VLCBlib_PIC/nv.c: 305:             sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSET, SERVICE_ID_MNS, GRSP_OK);
+[e ( _sendMessage5 (4 , , , , , . `E22565 89 . . _nn 0 1 . . _nn 0 0 -> . `E22565 75 `uc -> . `E22772 1 `uc -> . `E22749 0 `uc ]
+"307
+[; ;../../VLCBlib_PIC/nv.c: 307:             return PROCESSED;
+[e ) . `E22966 1 ]
 [e $UE 3254  ]
-"304
-[; ;../../VLCBlib_PIC/nv.c: 304:     }
+"309
+[; ;../../VLCBlib_PIC/nv.c: 309:         case OPC_NVSETRD:
+[e :U 3267 ]
+"310
+[; ;../../VLCBlib_PIC/nv.c: 310:             if (m->len < 5) {
+[e $ ! < -> . *U _m 0 `i -> 5 `i 3268  ]
+{
+"312
+[; ;../../VLCBlib_PIC/nv.c: 312:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSETRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
+[e ( _sendMessage5 (4 , , , , , . `E22565 89 . . _nn 0 1 . . _nn 0 0 -> . `E22565 68 `uc -> . `E22772 1 `uc -> . `E22734 0 `uc ]
+"314
+[; ;../../VLCBlib_PIC/nv.c: 314:                 nvDiagnostics[0x01].asUint++;
+[e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+"316
+[; ;../../VLCBlib_PIC/nv.c: 316:                 return PROCESSED;
+[e ) . `E22966 1 ]
+[e $UE 3254  ]
+"317
+[; ;../../VLCBlib_PIC/nv.c: 317:             }
+}
+[e :U 3268 ]
+"318
+[; ;../../VLCBlib_PIC/nv.c: 318:             valueOrError = setNV(m->bytes[2], m->bytes[3]);
+[e = _valueOrError -> ( _setNV (2 , *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux *U + &U . *U _m 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux `s ]
+"319
+[; ;../../VLCBlib_PIC/nv.c: 319:             if (valueOrError >0) {
+[e $ ! > -> _valueOrError `i -> 0 `i 3269  ]
+{
+"320
+[; ;../../VLCBlib_PIC/nv.c: 320:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(valueOrError));
+[e ( _sendMessage3 (4 , , , . `E22565 52 . . _nn 0 1 . . _nn 0 0 -> _valueOrError `uc ]
+"321
+[; ;../../VLCBlib_PIC/nv.c: 321:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSETRD, SERVICE_ID_MNS, (uint8_t)(valueOrError));
+[e ( _sendMessage5 (4 , , , , , . `E22565 89 . . _nn 0 1 . . _nn 0 0 -> . `E22565 68 `uc -> . `E22772 1 `uc -> _valueOrError `uc ]
+"323
+[; ;../../VLCBlib_PIC/nv.c: 323:                 nvDiagnostics[0x01].asUint++;
+[e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+"325
+[; ;../../VLCBlib_PIC/nv.c: 325:                 return PROCESSED;
+[e ) . `E22966 1 ]
+[e $UE 3254  ]
+"326
+[; ;../../VLCBlib_PIC/nv.c: 326:             }
+}
+[e :U 3269 ]
+"327
+[; ;../../VLCBlib_PIC/nv.c: 327:             valueOrError = getNV(m->bytes[2]);
+[e = _valueOrError ( _getNV (1 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux ]
+"328
+[; ;../../VLCBlib_PIC/nv.c: 328:             if (valueOrError < 0) {
+[e $ ! < -> _valueOrError `i -> 0 `i 3270  ]
+{
+"329
+[; ;../../VLCBlib_PIC/nv.c: 329:                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, (uint8_t)(-valueOrError));
+[e ( _sendMessage3 (4 , , , . `E22565 52 . . _nn 0 1 . . _nn 0 0 -> -U -> _valueOrError `i `uc ]
+"330
+[; ;../../VLCBlib_PIC/nv.c: 330:                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVSETRD, SERVICE_ID_MNS, (uint8_t)(-valueOrError));
+[e ( _sendMessage5 (4 , , , , , . `E22565 89 . . _nn 0 1 . . _nn 0 0 -> . `E22565 68 `uc -> . `E22772 1 `uc -> -U -> _valueOrError `i `uc ]
+"332
+[; ;../../VLCBlib_PIC/nv.c: 332:                 nvDiagnostics[0x01].asUint++;
+[e ++ . *U + &U _nvDiagnostics * -> -> -> 1 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+"334
+[; ;../../VLCBlib_PIC/nv.c: 334:                 return PROCESSED;
+[e ) . `E22966 1 ]
+[e $UE 3254  ]
+"335
+[; ;../../VLCBlib_PIC/nv.c: 335:             }
+}
+[e :U 3270 ]
+"336
+[; ;../../VLCBlib_PIC/nv.c: 336:             sendMessage4(OPC_NVANS, nn.bytes.hi, nn.bytes.lo, m->bytes[2], (uint8_t)(valueOrError));
+[e ( _sendMessage4 (4 , , , , . `E22565 76 . . _nn 0 1 . . _nn 0 0 *U + &U . *U _m 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _m 2 `ui `ux -> _valueOrError `uc ]
+"338
+[; ;../../VLCBlib_PIC/nv.c: 338:             nvDiagnostics[0x00].asUint++;
+[e ++ . *U + &U _nvDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
+"340
+[; ;../../VLCBlib_PIC/nv.c: 340:             return PROCESSED;
+[e ) . `E22966 1 ]
+[e $UE 3254  ]
+"342
+[; ;../../VLCBlib_PIC/nv.c: 342:         default:
+[e :U 3271 ]
+"343
+[; ;../../VLCBlib_PIC/nv.c: 343:             return NOT_PROCESSED;
+[e ) . `E22966 0 ]
+[e $UE 3254  ]
+"344
+[; ;../../VLCBlib_PIC/nv.c: 344:     }
 }
 [e $U 3258  ]
 [e :U 3259 ]
-[e [\ -> . *U _m 1 `ui , $ -> . `E22515 54 `ui 3260
- , $ -> . `E22515 75 `ui 3264
- , $ -> . `E22515 68 `ui 3267
+[e [\ -> . *U _m 1 `ui , $ -> . `E22565 54 `ui 3260
+ , $ -> . `E22565 75 `ui 3264
+ , $ -> . `E22565 68 `ui 3267
  3271 ]
 [e :U 3258 ]
-"305
-[; ;../../VLCBlib_PIC/nv.c: 305: }
+"345
+[; ;../../VLCBlib_PIC/nv.c: 345: }
 [e :UE 3254 ]
 }
-"313
-[; ;../../VLCBlib_PIC/nv.c: 313: static uint8_t nvGetESDdata(uint8_t id) {
+"354
+[; ;../../VLCBlib_PIC/nv.c: 354: static uint8_t nvGetESDdata(uint8_t id) {
 [v _nvGetESDdata `(uc ~T0 @X0 1 sf1`uc ]
 {
 [e :U _nvGetESDdata ]
 [v _id `uc ~T0 @X0 1 r1 ]
 [f ]
-"314
-[; ;../../VLCBlib_PIC/nv.c: 314:     switch (id) {
+"355
+[; ;../../VLCBlib_PIC/nv.c: 355:     switch (id) {
 [e $U 3274  ]
 {
-"315
-[; ;../../VLCBlib_PIC/nv.c: 315:         case 1: return 127;
+"356
+[; ;../../VLCBlib_PIC/nv.c: 356:         case 1: return (15+7*16);
 [e :U 3275 ]
-[e ) -> -> 127 `i `uc ]
+[e ) -> + -> 15 `i * -> 7 `i -> 16 `i `uc ]
 [e $UE 3272  ]
-"316
-[; ;../../VLCBlib_PIC/nv.c: 316:         default: return 0;
+"357
+[; ;../../VLCBlib_PIC/nv.c: 357:         default: return 0;
 [e :U 3276 ]
 [e ) -> -> 0 `i `uc ]
 [e $UE 3272  ]
-"317
-[; ;../../VLCBlib_PIC/nv.c: 317:     }
+"358
+[; ;../../VLCBlib_PIC/nv.c: 358:     }
 }
 [e $U 3273  ]
 [e :U 3274 ]
 [e [\ _id , $ -> 1 `i 3275
  3276 ]
 [e :U 3273 ]
-"318
-[; ;../../VLCBlib_PIC/nv.c: 318: }
+"359
+[; ;../../VLCBlib_PIC/nv.c: 359: }
 [e :UE 3272 ]
 }
-"327
-[; ;../../VLCBlib_PIC/nv.c: 327: TimedResponseResult nvTRnvrdCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
-[v _nvTRnvrdCallback `(E23113 ~T0 @X0 1 ef3`uc`uc`uc ]
+"370
+[; ;../../VLCBlib_PIC/nv.c: 370: TimedResponseResult nvTRnvrdCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
+[v _nvTRnvrdCallback `(E23115 ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _nvTRnvrdCallback ]
 [v _type `uc ~T0 @X0 1 r1 ]
 [v _serviceIndex `uc ~T0 @X0 1 r2 ]
 [v _step `uc ~T0 @X0 1 r3 ]
 [f ]
-"328
-[; ;../../VLCBlib_PIC/nv.c: 328:     int16_t valueOrError;
+"371
+[; ;../../VLCBlib_PIC/nv.c: 371:     int16_t valueOrError;
 [v _valueOrError `s ~T0 @X0 1 a ]
-"329
-[; ;../../VLCBlib_PIC/nv.c: 329:     if (step > 127) {
-[e $ ! > -> _step `i -> 127 `i 3278  ]
+"372
+[; ;../../VLCBlib_PIC/nv.c: 372:     if (step > (15+7*16)) {
+[e $ ! > -> _step `i + -> 15 `i * -> 7 `i -> 16 `i 3278  ]
 {
-"330
-[; ;../../VLCBlib_PIC/nv.c: 330:         return TIMED_RESPONSE_RESULT_FINISHED;
-[e ) . `E23113 0 ]
+"373
+[; ;../../VLCBlib_PIC/nv.c: 373:         return TIMED_RESPONSE_RESULT_FINISHED;
+[e ) . `E23115 0 ]
 [e $UE 3277  ]
-"331
-[; ;../../VLCBlib_PIC/nv.c: 331:     }
+"374
+[; ;../../VLCBlib_PIC/nv.c: 374:     }
 }
 [e :U 3278 ]
-"332
-[; ;../../VLCBlib_PIC/nv.c: 332:     valueOrError = getNV(step+1);
+"375
+[; ;../../VLCBlib_PIC/nv.c: 375:     valueOrError = getNV(step+1);
 [e = _valueOrError ( _getNV (1 -> + -> _step `i -> 1 `i `uc ]
-"333
-[; ;../../VLCBlib_PIC/nv.c: 333:     if (valueOrError < 0) {
+"376
+[; ;../../VLCBlib_PIC/nv.c: 376:     if (valueOrError < 0) {
 [e $ ! < -> _valueOrError `i -> 0 `i 3279  ]
 {
-"334
-[; ;../../VLCBlib_PIC/nv.c: 334:         return TIMED_RESPONSE_RESULT_FINISHED;
-[e ) . `E23113 0 ]
+"377
+[; ;../../VLCBlib_PIC/nv.c: 377:         return TIMED_RESPONSE_RESULT_FINISHED;
+[e ) . `E23115 0 ]
 [e $UE 3277  ]
-"335
-[; ;../../VLCBlib_PIC/nv.c: 335:     }
+"378
+[; ;../../VLCBlib_PIC/nv.c: 378:     }
 }
 [e :U 3279 ]
-"336
-[; ;../../VLCBlib_PIC/nv.c: 336:     sendMessage4(OPC_NVANS, nn.bytes.hi, nn.bytes.lo, step+1, (uint8_t)(valueOrError));
-[e ( _sendMessage4 (4 , , , , . `E22515 76 . . _nn 0 1 . . _nn 0 0 -> + -> _step `i -> 1 `i `uc -> _valueOrError `uc ]
-"337
-[; ;../../VLCBlib_PIC/nv.c: 337:     nvDiagnostics[0x00].asUint++;
+"379
+[; ;../../VLCBlib_PIC/nv.c: 379:     sendMessage4(OPC_NVANS, nn.bytes.hi, nn.bytes.lo, step+1, (uint8_t)(valueOrError));
+[e ( _sendMessage4 (4 , , , , . `E22565 76 . . _nn 0 1 . . _nn 0 0 -> + -> _step `i -> 1 `i `uc -> _valueOrError `uc ]
+"381
+[; ;../../VLCBlib_PIC/nv.c: 381:     nvDiagnostics[0x00].asUint++;
 [e ++ . *U + &U _nvDiagnostics * -> -> -> 0 `i `ui `ux -> -> # *U &U _nvDiagnostics `ui `ux 0 -> -> 1 `i `us ]
-"338
-[; ;../../VLCBlib_PIC/nv.c: 338:     return TIMED_RESPONSE_RESULT_NEXT;
-[e ) . `E23113 2 ]
+"383
+[; ;../../VLCBlib_PIC/nv.c: 383:     return TIMED_RESPONSE_RESULT_NEXT;
+[e ) . `E23115 2 ]
 [e $UE 3277  ]
-"339
-[; ;../../VLCBlib_PIC/nv.c: 339: }
+"384
+[; ;../../VLCBlib_PIC/nv.c: 384: }
 [e :UE 3277 ]
 }

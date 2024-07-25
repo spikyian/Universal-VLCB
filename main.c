@@ -38,7 +38,7 @@
  */ 
 /**
  * @copyright Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
- */
+ */ 
 
 #include <xc.h>
 #include "module.h"

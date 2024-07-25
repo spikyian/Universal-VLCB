@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "../../VLCBlib_PIC/mns.c" 2
-# 101 "../../VLCBlib_PIC/mns.c"
+# 107 "../../VLCBlib_PIC/mns.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -37671,11 +37671,110 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 101 "../../VLCBlib_PIC/mns.c" 2
+# 107 "../../VLCBlib_PIC/mns.c" 2
 
 
 # 1 "../../VLCBlib_PIC/vlcb.h" 1
-# 37 "../../VLCBlib_PIC/vlcb.h"
+# 38 "../../VLCBlib_PIC/vlcb.h"
+# 1 "..\\module.h" 1
+
+
+
+
+
+
+
+# 1 "../../VLCBlib_PIC\\statusLeds.h" 1
+# 42 "../../VLCBlib_PIC\\statusLeds.h"
+# 1 "../../VLCBlib_PIC/vlcb.h" 1
+# 42 "../../VLCBlib_PIC\\statusLeds.h" 2
+
+# 1 "../../VLCBlib_PIC/ticktime.h" 1
+# 211 "../../VLCBlib_PIC/ticktime.h"
+typedef union _TickValue {
+
+    uint32_t val;
+
+    struct TickBytes
+    {
+        uint8_t b0;
+        uint8_t b1;
+        uint8_t b2;
+        uint8_t b3;
+    } byte;
+    uint8_t v[4];
+
+    struct TickWords
+    {
+        uint16_t w0;
+        uint16_t w1;
+    } word;
+} TickValue;
+# 238 "../../VLCBlib_PIC/ticktime.h"
+void initTicker(uint8_t priority);
+
+
+
+
+
+uint32_t tickGet(void);
+
+
+
+
+
+
+
+extern volatile uint8_t timerExtension1;
+
+
+
+
+extern volatile uint8_t timerExtension2;
+# 43 "../../VLCBlib_PIC\\statusLeds.h" 2
+
+# 1 "..\\module.h" 1
+# 44 "../../VLCBlib_PIC\\statusLeds.h" 2
+
+# 1 "../../VLCBlib_PIC/statusDisplay.h" 1
+# 55 "../../VLCBlib_PIC/statusDisplay.h"
+typedef enum StatusDisplay {
+    STATUS_OFF,
+    STATUS_UNINITIALISED,
+    STATUS_SETUP,
+    STATUS_NORMAL,
+    STATUS_RESET_WARNING,
+    STATUS_LEARN,
+    STATUS_BOOT,
+    STATUS_MESSAGE_RECEIVED,
+    STATUS_MESSAGE_ACTED,
+    STATUS_TRANSMIT_ERROR,
+    STATUS_RECEIVE_ERROR,
+    STATUS_MEMORY_FAULT,
+    STATUS_FATAL_ERROR
+} StatusDisplay;
+# 45 "../../VLCBlib_PIC\\statusLeds.h" 2
+# 55 "../../VLCBlib_PIC\\statusLeds.h"
+typedef enum {
+    LED_OFF,
+    LED_ON,
+    LED_FLASH_50_2HZ,
+    LED_FLASH_50_1HZ,
+    LED_FLASH_50_HALF_HZ,
+    LED_SINGLE_FLICKER_OFF,
+    LED_SINGLE_FLICKER_ON,
+    LED_LONG_FLICKER_OFF,
+    LED_LONG_FLICKER_ON,
+    LED_OFF_1S
+} LedState;
+
+
+extern void leds_powerUp(void);
+extern void leds_poll(void);
+extern void showStatus(StatusDisplay s);
+# 8 "..\\module.h" 2
+# 38 "../../VLCBlib_PIC/vlcb.h" 2
+
 # 1 "../../VLCB-defs\\vlcbdefs_enums.h" 1
 # 15 "../../VLCB-defs\\vlcbdefs_enums.h"
 typedef enum VlcbManufacturer
@@ -37692,7 +37791,6 @@ typedef enum VlcbManufacturer
   MANU_VLCB = 250,
   MANU_SYSPIXIE = 249,
   MANU_RME = 248,
-
 } VlcbManufacturer;
 
 typedef enum VlcbMergModuleTypes
@@ -37797,7 +37895,6 @@ typedef enum VlcbMergModuleTypes
 
 
 
-
   MTYP_CAN_SW = 0xFF,
   MTYP_EMPTY = 0xFE,
   MTYP_CANUSB = 0xFD,
@@ -37818,7 +37915,6 @@ typedef enum VlcbSprogModuleTypes
   MTYP_CANSERVOIO = 50,
   MTYP_CANISB = 100,
   MTYP_CANSOLIO = 101,
-
 } VlcbSprogModuleTypes;
 
 typedef enum VlcbRocRailModuleTypes
@@ -37843,7 +37939,6 @@ typedef enum VlcbSpectrumModuleTypes
 
   MTYP_AMCTRLR = 1,
   MTYP_DUALCAB = 2,
-
 } VlcbSpectrumModuleTypes;
 
 typedef enum VlcbSysPixieModuleTypes
@@ -37852,7 +37947,6 @@ typedef enum VlcbSysPixieModuleTypes
 
 
   MTYP_CANPMSense = 1,
-
 } VlcbSysPixieModuleTypes;
 
 typedef enum VlcbOpCodes
@@ -38322,13 +38416,13 @@ typedef enum VlcbArmProcessors
   ARM1176JZF_S = 1,
   ARMCortex_A7 = 2,
   ARMCortex_A53 = 3,
-
-
-
 } VlcbArmProcessors;
 
 typedef enum VlcbCanHardware
 {
+
+
+
   CAN_HW_NOT_SPECIFIED = 0x00,
   CAN_HW_PIC_ECAN = 0x01,
   CAN_HW_PIC_CAN_2_0 = 0x02,
@@ -38336,10 +38430,30 @@ typedef enum VlcbCanHardware
   CAN_HW_MCP2515 = 0x04,
   CAN_HW_MCP2518 = 0x05,
   CAN_HW_ESP32_TWAI = 0x06,
-  CAN_HW_SAM3X8E = 0x06,
-  CAN_HW_PICO_PIO = 0x07,
+  CAN_HW_SAM3X8E = 0x07,
+  CAN_HW_PICO_PIO = 0x08,
 } VlcbCanHardware;
-# 37 "../../VLCBlib_PIC/vlcb.h" 2
+
+typedef enum VlcbProducerEvUsage
+{
+
+
+
+  PRODUCER_EV_NOT_SPECIFIED = 0x00,
+  PRODUCER_EV_HAPPENING = 0x01,
+  PRODUCER_EV_SLOTS = 0x02,
+} VlcbProducerEvUsage;
+
+typedef enum VlcbConsumerEvUsage
+{
+
+
+
+  CONSUMER_EV_NOT_SPECIFIED = 0x00,
+  CONSUMER_EV_ACTIONS = 0x01,
+  CONSUMER_EV_SLOTS = 0x02,
+} VlcbConsumerEvUsage;
+# 39 "../../VLCBlib_PIC/vlcb.h" 2
 
 # 1 "../../VLCBlib_PIC/nvm.h" 1
 # 68 "../../VLCBlib_PIC/nvm.h"
@@ -38401,8 +38515,8 @@ extern uint8_t writeNVM(NVMtype type, uint24_t index, uint8_t value);
 
 
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 38 "../../VLCBlib_PIC/vlcb.h" 2
-# 77 "../../VLCBlib_PIC/vlcb.h"
+# 40 "../../VLCBlib_PIC/vlcb.h" 2
+# 91 "../../VLCBlib_PIC/vlcb.h"
 typedef enum Priority {
     pLOW=0,
     pNORMAL=1,
@@ -38453,10 +38567,11 @@ typedef union Word {
 
 
 typedef enum {
+    EVENT_UNKNOWN = 255,
     EVENT_OFF=0,
     EVENT_ON=1
 } EventState;
-# 140 "../../VLCBlib_PIC/vlcb.h"
+# 156 "../../VLCBlib_PIC/vlcb.h"
 typedef union DiagnosticVal {
     uint16_t asUint;
     int16_t asInt;
@@ -38465,6 +38580,8 @@ typedef union DiagnosticVal {
         uint8_t hi;
     } asBytes;
 } DiagnosticVal;
+
+
 
 
 
@@ -38487,7 +38604,7 @@ typedef enum Mode_state {
 
 
 extern const Priority priorities[256];
-# 180 "../../VLCBlib_PIC/vlcb.h"
+# 198 "../../VLCBlib_PIC/vlcb.h"
 extern Processed checkLen(Message * m, uint8_t needed, uint8_t service);
 
 
@@ -38530,17 +38647,17 @@ void sendMessage2(VlcbOpCodes opc, uint8_t data1, uint8_t data2);
 
 
 void sendMessage3(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3);
-# 230 "../../VLCBlib_PIC/vlcb.h"
+# 248 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage4(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
-# 240 "../../VLCBlib_PIC/vlcb.h"
+# 258 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage5(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5);
-# 251 "../../VLCBlib_PIC/vlcb.h"
+# 269 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage6(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6);
-# 263 "../../VLCBlib_PIC/vlcb.h"
+# 281 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage7(VlcbOpCodes opc, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 276 "../../VLCBlib_PIC/vlcb.h"
+# 294 "../../VLCBlib_PIC/vlcb.h"
 void sendMessage(VlcbOpCodes opc, uint8_t len, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4, uint8_t data5, uint8_t data6, uint8_t data7);
-# 289 "../../VLCBlib_PIC/vlcb.h"
+# 307 "../../VLCBlib_PIC/vlcb.h"
 typedef struct Service {
     uint8_t serviceNo;
     uint8_t version;
@@ -38552,8 +38669,12 @@ typedef struct Service {
 
 
 
+
     uint8_t (* getESDdata)(uint8_t id);
+
+
     DiagnosticVal * (* getDiagnostic)(uint8_t index);
+
 } Service;
 
 
@@ -38596,9 +38717,9 @@ extern uint8_t findServiceIndex(uint8_t id);
 
 
 extern void factoryReset(void);
-# 375 "../../VLCBlib_PIC/vlcb.h"
+# 397 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_highIsr(void);
-# 385 "../../VLCBlib_PIC/vlcb.h"
+# 407 "../../VLCBlib_PIC/vlcb.h"
 extern void APP_lowIsr(void);
 
 
@@ -38626,146 +38747,15 @@ typedef struct Transport {
     SendResult (* sendMessage)(Message * m);
     MessageReceived (* receiveMessage)(Message * m);
 } Transport;
-# 420 "../../VLCBlib_PIC/vlcb.h"
+# 442 "../../VLCBlib_PIC/vlcb.h"
 extern const Transport * transport;
-# 433 "../../VLCBlib_PIC/vlcb.h"
+# 455 "../../VLCBlib_PIC/vlcb.h"
 extern ValidTime APP_isSuitableTimeToWriteFlash(void);
-# 103 "../../VLCBlib_PIC/mns.c" 2
+# 109 "../../VLCBlib_PIC/mns.c" 2
 
-# 1 "..\\module.h" 1
-
-
-
-# 1 "../../VLCBlib_PIC\\nv.h" 1
-# 86 "../../VLCBlib_PIC\\nv.h"
-extern const Service nvService;
-
-
-
-
-typedef enum NvValidation {
-    INVALID=0,
-    VALID=1
-} NvValidation;
-# 103 "../../VLCBlib_PIC\\nv.h"
-extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-# 115 "../../VLCBlib_PIC\\nv.h"
-extern int16_t getNV(uint8_t index);
-
-
-
-
-
-
-extern void saveNV(uint8_t index, uint8_t value);
-
-
-
-
-
-
-
-extern uint8_t setNV(uint8_t index, uint8_t value);
-
-
-
-extern void loadNvCache(void);
-# 4 "..\\module.h" 2
-
-# 1 "../../VLCBlib_PIC\\statusLeds.h" 1
-# 43 "../../VLCBlib_PIC\\statusLeds.h"
-# 1 "../../VLCBlib_PIC/ticktime.h" 1
-# 211 "../../VLCBlib_PIC/ticktime.h"
-typedef union _TickValue {
-
-    uint32_t val;
-
-    struct TickBytes
-    {
-        uint8_t b0;
-        uint8_t b1;
-        uint8_t b2;
-        uint8_t b3;
-    } byte;
-    uint8_t v[4];
-
-    struct TickWords
-    {
-        uint16_t w0;
-        uint16_t w1;
-    } word;
-} TickValue;
-# 238 "../../VLCBlib_PIC/ticktime.h"
-void initTicker(uint8_t priority);
-
-
-
-
-
-uint32_t tickGet(void);
-
-
-
-
-
-
-
-extern volatile uint8_t timerExtension1;
-
-
-
-
-extern volatile uint8_t timerExtension2;
-# 43 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-# 1 "..\\module.h" 1
-# 44 "../../VLCBlib_PIC\\statusLeds.h" 2
-
-# 1 "../../VLCBlib_PIC/statusDisplay.h" 1
-# 55 "../../VLCBlib_PIC/statusDisplay.h"
-typedef enum StatusDisplay {
-    STATUS_OFF,
-    STATUS_UNINITIALISED,
-    STATUS_SETUP,
-    STATUS_NORMAL,
-    STATUS_RESET_WARNING,
-    STATUS_LEARN,
-    STATUS_BOOT,
-    STATUS_MESSAGE_RECEIVED,
-    STATUS_MESSAGE_ACTED,
-    STATUS_TRANSMIT_ERROR,
-    STATUS_RECEIVE_ERROR,
-    STATUS_MEMORY_FAULT,
-    STATUS_FATAL_ERROR
-} StatusDisplay;
-# 45 "../../VLCBlib_PIC\\statusLeds.h" 2
-# 55 "../../VLCBlib_PIC\\statusLeds.h"
-typedef enum {
-    LED_OFF,
-    LED_ON,
-    LED_FLASH_50_2HZ,
-    LED_FLASH_50_1HZ,
-    LED_FLASH_50_HALF_HZ,
-    LED_SINGLE_FLICKER_OFF,
-    LED_SINGLE_FLICKER_ON,
-    LED_LONG_FLICKER_OFF,
-    LED_LONG_FLICKER_ON,
-    LED_OFF_1S
-} LedState;
-
-
-extern void leds_powerUp(void);
-extern void leds_poll(void);
-extern void showStatus(StatusDisplay s);
-# 5 "..\\module.h" 2
-# 37 "..\\module.h"
-extern uint8_t APP_nvDefault(uint8_t index);
-extern NvValidation APP_nvValidate(uint8_t index, uint8_t value);
-extern void APP_nvValueChanged(uint8_t index, uint8_t newValue, uint8_t oldValue);
-# 104 "../../VLCBlib_PIC/mns.c" 2
 
 # 1 "../../VLCBlib_PIC/devincs.h" 1
-# 105 "../../VLCBlib_PIC/mns.c" 2
+# 111 "../../VLCBlib_PIC/mns.c" 2
 
 
 # 1 "../../VLCBlib_PIC/mns.h" 1
@@ -38786,12 +38776,13 @@ extern uint8_t mode_flags;
 
 
 
-extern DiagnosticVal mnsDiagnostics[6];
 
+extern DiagnosticVal mnsDiagnostics[6];
 extern void updateModuleErrorStatus(void);
 
+
 extern TickValue pbTimer;
-# 107 "../../VLCBlib_PIC/mns.c" 2
+# 113 "../../VLCBlib_PIC/mns.c" 2
 
 
 
@@ -38827,7 +38818,7 @@ extern void startTimedResponse(uint8_t type, uint8_t serviceIndex, TimedResponse
 
 
 extern void pollTimedResponse(void);
-# 110 "../../VLCBlib_PIC/mns.c" 2
+# 116 "../../VLCBlib_PIC/mns.c" 2
 
 
 
@@ -38841,18 +38832,23 @@ static void mnsPowerUp(void);
 static void mnsPoll(void);
 static Processed mnsProcessMessage(Message * m);
 static void mnsLowIsr(void);
-static DiagnosticVal * mnsGetDiagnostic(uint8_t index);
 static uint8_t getParameter(uint8_t);
+
+static DiagnosticVal * mnsGetDiagnostic(uint8_t index);
+
+
+
+DiagnosticVal mnsDiagnostics[6];
+
 
 
 
 # 1 "../../VLCBlib_PIC/event_teach.h" 1
-# 98 "../../VLCBlib_PIC/event_teach.h"
+# 77 "../../VLCBlib_PIC/event_teach.h"
 extern const Service eventTeachService;
-# 110 "../../VLCBlib_PIC/event_teach.h"
+# 89 "../../VLCBlib_PIC/event_teach.h"
 extern uint8_t APP_addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
 
-extern Boolean validStart(uint8_t index);
 extern int16_t getEv(uint8_t tableIndex, uint8_t evIndex);
 extern uint8_t getEVs(uint8_t tableIndex);
 extern uint8_t evs[20];
@@ -38860,19 +38856,11 @@ extern uint8_t writeEv(uint8_t tableIndex, uint8_t evNum, uint8_t evVal);
 extern uint16_t getNN(uint8_t tableIndex);
 extern uint16_t getEN(uint8_t tableIndex);
 extern uint8_t findEvent(uint16_t nodeNumber, uint16_t eventNumber);
-extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, uint8_t forceOwnNN);
+extern uint8_t addEvent(uint16_t nodeNumber, uint16_t eventNumber, uint8_t evNum, uint8_t evVal, Boolean forceOwnNN);
+
 
 extern void rebuildHashtable(void);
 extern uint8_t getHash(uint16_t nodeNumber, uint16_t eventNumber);
-
-extern void checkRemoveTableEntry(uint8_t tableIndex);
-
-
-
-
-
-typedef uint8_t Happening;
-
 
 
 
@@ -38883,43 +38871,17 @@ typedef struct {
     uint16_t NN;
     uint16_t EN;
 } Event;
-
-
-
-
-
-typedef union
-{
-    struct
-    {
-        uint8_t eVsUsed:4;
-        uint8_t continued:1;
-        uint8_t continuation:1;
-        uint8_t forceOwnNN:1;
-        uint8_t freeEntry:1;
-    };
-    uint8_t asByte;
-} EventTableFlags;
-
-
-
-
-
-
-typedef struct {
-    EventTableFlags flags;
-    uint8_t next;
-    Event event;
-    uint8_t evs[10];
-} EventTable;
-# 127 "../../VLCBlib_PIC/mns.c" 2
+# 139 "../../VLCBlib_PIC/mns.c" 2
 
 # 1 "../../VLCBlib_PIC/event_producer.h" 1
-# 76 "../../VLCBlib_PIC/event_producer.h"
+# 79 "../../VLCBlib_PIC/event_producer.h"
+typedef uint8_t Happening;
+
+
 extern const Service eventProducerService;
 
 
-extern uint8_t happening2Event[71 +1];
+extern uint8_t happening2Event[1+(7+16*4)-1];
 
 
 
@@ -38928,12 +38890,14 @@ extern uint8_t happening2Event[71 +1];
 
 extern Boolean sendProducedEvent(Happening h, EventState state);
 extern void deleteHappeningRange(Happening happening, uint8_t number);
-# 96 "../../VLCBlib_PIC/event_producer.h"
+# 102 "../../VLCBlib_PIC/event_producer.h"
 extern EventState APP_GetEventState(Happening h);
-# 128 "../../VLCBlib_PIC/mns.c" 2
+# 140 "../../VLCBlib_PIC/mns.c" 2
 
 Boolean sendProducedEvent(Happening happening, EventState onOff);
 
+
+extern void rebuildHashtable(void);
 
 void setLEDsByMode(void);
 
@@ -38951,8 +38915,12 @@ const Service mnsService = {
 
 
 
+
     ((void*)0),
+
+
     mnsGetDiagnostic
+
 };
 
 
@@ -38995,21 +38963,18 @@ TickValue pbTimer;
 
 
 
-DiagnosticVal mnsDiagnostics[6];
-
-
 static uint8_t heartbeatSequence;
 static TickValue heartbeatTimer;
 
 
 static TickValue uptimeTimer;
-# 209 "../../VLCBlib_PIC/mns.c"
+# 224 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
-# 218 "../../VLCBlib_PIC/mns.c"
+# 233 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
-# 227 "../../VLCBlib_PIC/mns.c"
+# 242 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRrqnpnCallback(uint8_t type, uint8_t serviceIndex, uint8_t step);
-# 250 "../../VLCBlib_PIC/mns.c"
+# 265 "../../VLCBlib_PIC/mns.c"
 static uint8_t getParameterFlags(void);
 
 
@@ -39029,7 +38994,7 @@ static void mnsFactoryReset(void) {
 
 
     last_mode_flags = mode_flags = 0;
-    writeNVM(EEPROM_NVM_TYPE, 0x3FA, mode_flags);
+    writeNVM(EEPROM_NVM_TYPE, 0x3F9, mode_flags);
 }
 
 
@@ -39061,7 +39026,7 @@ static void mnsPowerUp(void) {
     } else {
         mode_state = (uint8_t)temp;
     }
-    temp = readNVM(EEPROM_NVM_TYPE, 0x3FA);
+    temp = readNVM(EEPROM_NVM_TYPE, 0x3F9);
     if (temp < 0) {
         mode_flags = 4;
     } else {
@@ -39073,14 +39038,16 @@ static void mnsPowerUp(void) {
     pbTimer.val = tickGet();
 
 
+
     for (i=0; i< 6; i++) {
         mnsDiagnostics[i].asInt = 0;
     }
+
     heartbeatSequence = 0;
     heartbeatTimer.val = 0;
     uptimeTimer.val = 0;
 }
-# 329 "../../VLCBlib_PIC/mns.c"
+# 346 "../../VLCBlib_PIC/mns.c"
 static Processed mnsProcessMessage(Message * m) {
     uint8_t i;
     uint8_t flags;
@@ -39094,7 +39061,9 @@ static Processed mnsProcessMessage(Message * m) {
         switch (m->opc) {
             case OPC_SNN:
                 if (m->len < 3) {
+
                     sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
+
                 } else {
                     nn.bytes.hi = m->bytes[0];
                     nn.bytes.lo = m->bytes[1];
@@ -39104,8 +39073,13 @@ static Processed mnsProcessMessage(Message * m) {
                     mode_state = MODE_NORMAL;
 
 
+                    rebuildHashtable();
+
+
                     sendMessage2(OPC_NNACK, nn.bytes.hi, nn.bytes.lo);
+
                     mnsDiagnostics[0x04].asUint++;
+
 
                     setLEDsByMode();
                 }
@@ -39113,7 +39087,7 @@ static Processed mnsProcessMessage(Message * m) {
             case OPC_RQNP:
                 sendMessage7(OPC_PARAMS, MANU_MERG, 'e',
                         MTYP_CANMIO, 255, 20,
-                        127, 3);
+                        (15+7*16), 3);
                 return PROCESSED;
             case OPC_RQMN:
                 sendMessage7(OPC_NAME, name[0], name[1], name[2], name[3],
@@ -39132,6 +39106,7 @@ static Processed mnsProcessMessage(Message * m) {
         case OPC_QNN:
             sendMessage5(OPC_PNN, nn.bytes.hi,nn.bytes.lo, MANU_MERG, MTYP_CANMIO, getParameterFlags());
             return PROCESSED;
+
         case OPC_MODE:
             if (m->len < 4) {
                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_MODE, SERVICE_ID_MNS, CMDERR_INV_CMD);
@@ -39151,6 +39126,7 @@ static Processed mnsProcessMessage(Message * m) {
                 }
             }
             break;
+
         default:
             break;
     }
@@ -39164,19 +39140,25 @@ static Processed mnsProcessMessage(Message * m) {
     switch (m->opc) {
         case OPC_RQNPN:
             if (m->len < 4) {
+
                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_RQNPN, SERVICE_ID_MNS, CMDERR_INV_CMD);
+
                 return PROCESSED;
             }
             if (m->bytes[2] > 20) {
                 sendMessage3(OPC_CMDERR, nn.bytes.hi, nn.bytes.lo, CMDERR_INV_PARAM_IDX);
+
                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_RQNPN, SERVICE_ID_MNS, CMDERR_INV_PARAM_IDX);
+
                 return PROCESSED;
             }
             i = getParameter(m->bytes[2]);
             sendMessage4(OPC_PARAN, nn.bytes.hi, nn.bytes.lo, m->bytes[2], i);
+
             if (m->bytes[2] == 0) {
                 startTimedResponse(7, findServiceIndex(SERVICE_ID_MNS), mnsTRrqnpnCallback);
             }
+
             return PROCESSED;
         case OPC_NNRSM:
             previousNN.word = nn.word;
@@ -39185,6 +39167,7 @@ static Processed mnsProcessMessage(Message * m) {
                 sendMessage2(OPC_NNREL, previousNN.bytes.hi, previousNN.bytes.lo);
             }
             return PROCESSED;
+
         case OPC_RDGN:
             if (m->len < 5) {
                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_RDGN, SERVICE_ID_MNS, CMDERR_INV_CMD);
@@ -39219,6 +39202,8 @@ static Processed mnsProcessMessage(Message * m) {
                 }
             }
             return PROCESSED;
+
+
         case OPC_RQSD:
             if (m->len < 4) {
                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_RQSD, SERVICE_ID_MNS, CMDERR_INV_CMD);
@@ -39244,6 +39229,8 @@ static Processed mnsProcessMessage(Message * m) {
                 }
             }
             return PROCESSED;
+
+
         case OPC_MODE:
             if (m->len < 4) {
                 sendMessage5(OPC_GRSP, nn.bytes.hi, nn.bytes.lo, OPC_MODE, SERVICE_ID_MNS, CMDERR_INV_CMD);
@@ -39298,6 +39285,7 @@ static Processed mnsProcessMessage(Message * m) {
                 return PROCESSED;
             }
             return NOT_PROCESSED;
+
         case OPC_NNRST:
             __asm("reset");
             return PROCESSED;
@@ -39320,16 +39308,22 @@ static uint8_t getParameterFlags() {
     if (have(SERVICE_ID_PRODUCER)) {
         flags |= 2;
     }
-    if (flags == (2 & 1)) flags |= 16;
+    if (flags == (2 | 1)) flags |= 16;
     if (have(SERVICE_ID_BOOT)) {
         flags |= 8;
     }
     if (mode_flags & 1) {
         flags |= 32;
     }
+    if (mode_state == MODE_NORMAL) {
+        flags |= 4;
+    }
+
     flags |= 64;
+
     return flags;
 }
+
 
 
 
@@ -39345,7 +39339,9 @@ void updateModuleErrorStatus(void) {
 
 
 
+
 static void mnsPoll(void) {
+
 
     if (mode_state == MODE_NORMAL) {
         if ((tickGet() - heartbeatTimer.val) > 5*62500) {
@@ -39360,8 +39356,9 @@ static void mnsPoll(void) {
     }
 
 
+
     if (mode_flags != last_mode_flags) {
-        writeNVM(EEPROM_NVM_TYPE, 0x3FA, mode_flags);
+        writeNVM(EEPROM_NVM_TYPE, 0x3F9, mode_flags);
         last_mode_flags = mode_flags;
     }
     if (mode_state != last_mode_state) {
@@ -39378,7 +39375,6 @@ static void mnsPoll(void) {
         }
     }
 
-    setLEDsByMode();
 
 
     switch(mode_state) {
@@ -39396,11 +39392,12 @@ static void mnsPoll(void) {
                     pbTimer.val = tickGet();
 
                     sendMessage2(OPC_RQNN, nn.bytes.hi, nn.bytes.lo);
+                    setLEDsByMode();
                 }
             }
             break;
         case MODE_SETUP:
-# 661 "../../VLCBlib_PIC/mns.c"
+# 708 "../../VLCBlib_PIC/mns.c"
             if ((!(PORTAbits.RA2)) == 0) {
 
 
@@ -39411,8 +39408,11 @@ static void mnsPoll(void) {
                     if (mode_state == MODE_NORMAL) {
                         nn.word = previousNN.word;
                         sendMessage2(OPC_NNACK, nn.bytes.hi, nn.bytes.lo);
+
                         mnsDiagnostics[0x04].asUint++;
+
                     }
+                    setLEDsByMode();
                 } else if ((tickGet() - pbTimer.val) > 62500) {
 
                     if (nn.word != 0) {
@@ -39420,6 +39420,7 @@ static void mnsPoll(void) {
                     }
                     nn.word = 0;
                     mode_state = MODE_UNINITIALISED;
+                    setLEDsByMode();
                 }
                 pbTimer.val = tickGet();
             }
@@ -39439,18 +39440,20 @@ static void mnsPoll(void) {
                     pbTimer.val = tickGet();
 
                     sendMessage2(OPC_RQNN, previousNN.bytes.hi, previousNN.bytes.lo);
+                    setLEDsByMode();
                 }
                 pbTimer.val = tickGet();
             }
     }
 }
-# 730 "../../VLCBlib_PIC/mns.c"
+# 783 "../../VLCBlib_PIC/mns.c"
 static DiagnosticVal * mnsGetDiagnostic(uint8_t index) {
     if ((index<1) || (index>6)) {
         return ((void*)0);
     }
     return &(mnsDiagnostics[index-1]);
 }
+
 
 
 
@@ -39490,7 +39493,7 @@ static uint8_t getParameter(uint8_t idx) {
     case PAR_EVNUM:
         return 20;
     case PAR_NVNUM:
-        return 127;
+        return (15+7*16);
     case PAR_MAJVER:
         return 3;
     case PAR_FLAGS:
@@ -39528,7 +39531,7 @@ static uint8_t getParameter(uint8_t idx) {
         return 0;
     }
 }
-# 821 "../../VLCBlib_PIC/mns.c"
+# 876 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (step >= 9) {
         return TIMED_RESPONSE_RESULT_FINISHED;
@@ -39538,7 +39541,7 @@ TimedResponseResult mnsTRserviceDiscoveryCallback(uint8_t type, uint8_t serviceI
 
     return TIMED_RESPONSE_RESULT_NEXT;
 }
-# 838 "../../VLCBlib_PIC/mns.c"
+# 895 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (services[serviceIndex]->getDiagnostic == ((void*)0)) {
         return TIMED_RESPONSE_RESULT_FINISHED;
@@ -39552,7 +39555,7 @@ TimedResponseResult mnsTRallDiagnosticsCallback(uint8_t type, uint8_t serviceInd
     sendMessage6(OPC_DGN, nn.bytes.hi, nn.bytes.lo, serviceIndex+1, step+1, d->asBytes.hi, d->asBytes.lo);
     return TIMED_RESPONSE_RESULT_NEXT;
 }
-# 859 "../../VLCBlib_PIC/mns.c"
+# 918 "../../VLCBlib_PIC/mns.c"
 TimedResponseResult mnsTRrqnpnCallback(uint8_t type, uint8_t serviceIndex, uint8_t step) {
     if (step >= 20) {
         return TIMED_RESPONSE_RESULT_FINISHED;

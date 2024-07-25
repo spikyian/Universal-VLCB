@@ -3660,293 +3660,296 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && ! != -> _actionState `ui -> -> 0 `i `ui != -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 0 `i 3250  ]
 {
 "136
-[; ;../digitalOut.c: 136:         return;
-[e $UE 3247  ]
+[; ;../digitalOut.c: 136:         pulseDelays[io] = 1;
+[e = *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> -> 1 `i `uc ]
 "137
-[; ;../digitalOut.c: 137:     }
+[; ;../digitalOut.c: 137:         return;
+[e $UE 3247  ]
+"138
+[; ;../digitalOut.c: 138:     }
 }
 [e :U 3250 ]
-"141
-[; ;../digitalOut.c: 141:     if ((actionState) && getNV((16 + 7*(io) + 2)) && (pulseDelays[io] == 0)) {
+"142
+[; ;../digitalOut.c: 142:     if ((actionState) && getNV((16 + 7*(io) + 2)) && (pulseDelays[io] == 0)) {
 [e $ ! && && != -> _actionState `ui -> -> 0 `i `ui != -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `i -> 0 `i == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 0 `i 3251  ]
 {
-"142
-[; ;../digitalOut.c: 142:         pulseDelays[io] = (uint8_t)getNV((16 + 7*(io) + 2));
+"143
+[; ;../digitalOut.c: 143:         pulseDelays[io] = (uint8_t)getNV((16 + 7*(io) + 2));
 [e = *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 2 `i `uc `uc ]
-"145
-[; ;../digitalOut.c: 145:         writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, 2);
-[e ( _writeNVM (3 , , . `E22382 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um -> -> 2 `i `uc ]
 "146
-[; ;../digitalOut.c: 146:     } else {
+[; ;../digitalOut.c: 146:         writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, 2);
+[e ( _writeNVM (3 , , . `E22382 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um -> -> 2 `i `uc ]
+"147
+[; ;../digitalOut.c: 147:     } else {
 }
 [e $U 3252  ]
 [e :U 3251 ]
 {
-"147
-[; ;../digitalOut.c: 147:         pulseDelays[io] = 1;
-[e = *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> -> 1 `i `uc ]
 "148
-[; ;../digitalOut.c: 148:         writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, actionState?1:2);
-[e ( _writeNVM (3 , , . `E22382 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um -> ? != -> _actionState `ui -> -> 0 `i `ui : -> 1 `i -> 2 `i `uc ]
+[; ;../digitalOut.c: 148:         pulseDelays[io] = 1;
+[e = *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> -> 1 `i `uc ]
 "149
-[; ;../digitalOut.c: 149:     }
+[; ;../digitalOut.c: 149:         writeNVM(EEPROM_NVM_TYPE, ((eeprom_address_t)((0x3FF -8))-25)+io, actionState?1:2);
+[e ( _writeNVM (3 , , . `E22382 0 + - -> - -> 1023 `i -> 8 `i `um -> -> -> 25 `i `m `um -> _io `um -> ? != -> _actionState `ui -> -> 0 `i `ui : -> 1 `i -> 2 `i `uc ]
+"150
+[; ;../digitalOut.c: 150:     }
 }
 [e :U 3252 ]
-"151
-[; ;../digitalOut.c: 151:     pinState = actionState;
-[e = _pinState _actionState ]
 "152
-[; ;../digitalOut.c: 152:     if (getNV((16 + 7*(io) + 1)) & 0x20) {
+[; ;../digitalOut.c: 152:     pinState = actionState;
+[e = _pinState _actionState ]
+"153
+[; ;../digitalOut.c: 153:     if (getNV((16 + 7*(io) + 1)) & 0x20) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 3253  ]
 {
-"153
-[; ;../digitalOut.c: 153:         pinState = !pinState;
-[e = _pinState -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E22933 ]
 "154
-[; ;../digitalOut.c: 154:     }
+[; ;../digitalOut.c: 154:         pinState = !pinState;
+[e = _pinState -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E22933 ]
+"155
+[; ;../digitalOut.c: 155:     }
 }
 [e :U 3253 ]
-"155
-[; ;../digitalOut.c: 155:     setOutputPin(io, pinState);
+"156
+[; ;../digitalOut.c: 156:     setOutputPin(io, pinState);
 [e ( _setOutputPin (2 , _io _pinState ]
-"160
-[; ;../digitalOut.c: 160:     if (getNV((16 + 7*(io) + 1)) & 0x08) {
+"161
+[; ;../digitalOut.c: 161:     if (getNV((16 + 7*(io) + 1)) & 0x08) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 8 `i -> 0 `i 3254  ]
 {
-"161
-[; ;../digitalOut.c: 161:         if (actionState) {
+"162
+[; ;../digitalOut.c: 162:         if (actionState) {
 [e $ ! != -> _actionState `ui -> -> 0 `i `ui 3255  ]
 {
-"164
-[; ;../digitalOut.c: 164:             sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
+"165
+[; ;../digitalOut.c: 165:             sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
 [e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22953 2 . `E22953 1 `E22953 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22933 . `E22933 1 . `E22933 1 ]
-"166
-[; ;../digitalOut.c: 166:         }
+"167
+[; ;../digitalOut.c: 167:         }
 }
 [e :U 3255 ]
-"167
-[; ;../digitalOut.c: 167:     } else {
+"168
+[; ;../digitalOut.c: 168:     } else {
 }
 [e $U 3256  ]
 [e :U 3254 ]
 {
-"169
-[; ;../digitalOut.c: 169:         sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
+"170
+[; ;../digitalOut.c: 170:         sendInvertedProducedEvent(((8 + 4*(io))+0), actionState?EVENT_ON:EVENT_OFF,
 [e ( _sendInvertedProducedEvent (4 , , , , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> ? != -> _actionState `ui -> -> 0 `i `ui : . `E22953 2 . `E22953 1 `E22953 -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22933 . `E22933 1 . `E22933 1 ]
-"171
-[; ;../digitalOut.c: 171:     }
+"172
+[; ;../digitalOut.c: 172:     }
 }
 [e :U 3256 ]
-"172
-[; ;../digitalOut.c: 172: }
+"173
+[; ;../digitalOut.c: 173: }
 [e :UE 3247 ]
 }
-"177
-[; ;../digitalOut.c: 177: void processOutputs(void) {
+"178
+[; ;../digitalOut.c: 178: void processOutputs(void) {
 [v _processOutputs `(v ~T0 @X0 1 ef ]
 {
 [e :U _processOutputs ]
 [f ]
-"178
-[; ;../digitalOut.c: 178:     uint8_t io;
-[v _io `uc ~T0 @X0 1 a ]
 "179
-[; ;../digitalOut.c: 179:     for (io=0; io<16; io++) {
+[; ;../digitalOut.c: 179:     uint8_t io;
+[v _io `uc ~T0 @X0 1 a ]
+"180
+[; ;../digitalOut.c: 180:     for (io=0; io<16; io++) {
 {
 [e = _io -> -> 0 `i `uc ]
 [e $ < -> _io `i -> 16 `i 3258  ]
 [e $U 3259  ]
 [e :U 3258 ]
 {
-"180
-[; ;../digitalOut.c: 180:         if (getNV((16 + 7*(io) + 0)) == 1) {
+"181
+[; ;../digitalOut.c: 181:         if (getNV((16 + 7*(io) + 0)) == 1) {
 [e $ ! == -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 0 `i `uc `i -> 1 `i 3261  ]
 {
-"182
-[; ;../digitalOut.c: 182:             if (flashDelays[io] == 1) {
+"183
+[; ;../digitalOut.c: 183:             if (flashDelays[io] == 1) {
 [e $ ! == -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -> 1 `i 3262  ]
 {
-"183
-[; ;../digitalOut.c: 183:                 setOutputPin(io, getNV((16 + 7*(io) + 1)) & 0x20);
-[e ( _setOutputPin (2 , _io -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i `E22933 ]
 "184
-[; ;../digitalOut.c: 184:                 flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
-[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
+[; ;../digitalOut.c: 184:                 setOutputPin(io, getNV((16 + 7*(io) + 1)) & 0x20);
+[e ( _setOutputPin (2 , _io -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i `E22933 ]
 "185
-[; ;../digitalOut.c: 185:                 flashDelays[io] = - flashDelays[io];
-[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -U -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i `c ]
+[; ;../digitalOut.c: 185:                 flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
+[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
 "186
-[; ;../digitalOut.c: 186:             }
+[; ;../digitalOut.c: 186:                 flashDelays[io] = - flashDelays[io];
+[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -U -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i `c ]
+"187
+[; ;../digitalOut.c: 187:             }
 }
 [e :U 3262 ]
-"187
-[; ;../digitalOut.c: 187:             if (flashDelays[io] == -1) {
+"188
+[; ;../digitalOut.c: 188:             if (flashDelays[io] == -1) {
 [e $ ! == -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -U -> 1 `i 3263  ]
 {
-"188
-[; ;../digitalOut.c: 188:                 setOutputPin(io, ! (getNV((16 + 7*(io) + 1)) & 0x20));
-[e ( _setOutputPin (2 , _io -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i `i `E22933 ]
 "189
-[; ;../digitalOut.c: 189:                 flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
-[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
+[; ;../digitalOut.c: 189:                 setOutputPin(io, ! (getNV((16 + 7*(io) + 1)) & 0x20));
+[e ( _setOutputPin (2 , _io -> -> ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i `i `E22933 ]
 "190
-[; ;../digitalOut.c: 190:             }
+[; ;../digitalOut.c: 190:                 flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
+[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
+"191
+[; ;../digitalOut.c: 191:             }
 }
 [e :U 3263 ]
-"191
-[; ;../digitalOut.c: 191:             if (flashDelays[io] > 1) {
+"192
+[; ;../digitalOut.c: 192:             if (flashDelays[io] > 1) {
 [e $ ! > -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -> 1 `i 3264  ]
 {
-"192
-[; ;../digitalOut.c: 192:                 flashDelays[io]--;
-[e -- *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -> 1 `i `c ]
 "193
-[; ;../digitalOut.c: 193:             } else if (flashDelays[io] < -1) {
+[; ;../digitalOut.c: 193:                 flashDelays[io]--;
+[e -- *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -> 1 `i `c ]
+"194
+[; ;../digitalOut.c: 194:             } else if (flashDelays[io] < -1) {
 }
 [e $U 3265  ]
 [e :U 3264 ]
 [e $ ! < -> *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux `i -U -> 1 `i 3266  ]
 {
-"194
-[; ;../digitalOut.c: 194:                 flashDelays[io]++;
-[e ++ *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -> 1 `i `c ]
 "195
-[; ;../digitalOut.c: 195:             }
+[; ;../digitalOut.c: 195:                 flashDelays[io]++;
+[e ++ *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> -> 1 `i `c ]
+"196
+[; ;../digitalOut.c: 196:             }
 }
 [e :U 3266 ]
 [e :U 3265 ]
-"196
-[; ;../digitalOut.c: 196:             if (pulseDelays[io] != 0) {
+"198
+[; ;../digitalOut.c: 198:             if (pulseDelays[io] != 0) {
 [e $ ! != -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 0 `i 3267  ]
 {
-"197
-[; ;../digitalOut.c: 197:                 pulseDelays[io]--;
+"199
+[; ;../digitalOut.c: 199:                 pulseDelays[io]--;
 [e -- *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux -> -> 1 `i `uc ]
-"200
-[; ;../digitalOut.c: 200:                 if (pulseDelays[io] == 1) {
+"202
+[; ;../digitalOut.c: 202:                 if (pulseDelays[io] == 1) {
 [e $ ! == -> *U + &U _pulseDelays * -> _io `ux -> -> # *U &U _pulseDelays `ui `ux `i -> 1 `i 3268  ]
 {
-"202
-[; ;../digitalOut.c: 202:                     if (getNV((16 + 7*(io) + 1)) & 0x20) {
+"204
+[; ;../digitalOut.c: 204:                     if (getNV((16 + 7*(io) + 1)) & 0x20) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 3269  ]
 {
-"203
-[; ;../digitalOut.c: 203:                         setOutputPin(io, TRUE);
+"205
+[; ;../digitalOut.c: 205:                         setOutputPin(io, TRUE);
 [e ( _setOutputPin (2 , _io . `E22933 1 ]
-"204
-[; ;../digitalOut.c: 204:                     } else {
+"206
+[; ;../digitalOut.c: 206:                     } else {
 }
 [e $U 3270  ]
 [e :U 3269 ]
 {
-"205
-[; ;../digitalOut.c: 205:                         setOutputPin(io, FALSE);
+"207
+[; ;../digitalOut.c: 207:                         setOutputPin(io, FALSE);
 [e ( _setOutputPin (2 , _io . `E22933 0 ]
-"206
-[; ;../digitalOut.c: 206:                     }
+"208
+[; ;../digitalOut.c: 208:                     }
 }
 [e :U 3270 ]
-"208
-[; ;../digitalOut.c: 208:                     if ( ! (getNV((16 + 7*(io) + 1)) & 0x08)) {
+"210
+[; ;../digitalOut.c: 210:                     if ( ! (getNV((16 + 7*(io) + 1)) & 0x08)) {
 [e $ ! ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 8 `i -> 0 `i 3271  ]
 {
-"210
-[; ;../digitalOut.c: 210:                         sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
+"212
+[; ;../digitalOut.c: 212:                         sendProducedEvent(((8 + 4*(io))+0), getNV((16 + 7*(io) + 1)) & 0x40);
 [e ( _sendProducedEvent (2 , -> + + -> 8 `i * -> 4 `i -> _io `i -> 0 `i `uc -> & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 64 `i `E22953 ]
-"211
-[; ;../digitalOut.c: 211:                     }
+"213
+[; ;../digitalOut.c: 213:                     }
 }
 [e :U 3271 ]
-"212
-[; ;../digitalOut.c: 212:                 }
+"214
+[; ;../digitalOut.c: 214:                 }
 }
 [e :U 3268 ]
-"213
-[; ;../digitalOut.c: 213:             }
+"215
+[; ;../digitalOut.c: 215:             }
 }
 [e :U 3267 ]
-"214
-[; ;../digitalOut.c: 214:         }
+"216
+[; ;../digitalOut.c: 216:         }
 }
 [e :U 3261 ]
-"215
-[; ;../digitalOut.c: 215:     }
+"217
+[; ;../digitalOut.c: 217:     }
 }
 [e ++ _io -> -> 1 `i `uc ]
 [e $ < -> _io `i -> 16 `i 3258  ]
 [e :U 3259 ]
 }
-"216
-[; ;../digitalOut.c: 216: }
+"218
+[; ;../digitalOut.c: 218: }
 [e :UE 3257 ]
 }
-"224
-[; ;../digitalOut.c: 224: void setDigitalOutput(uint8_t io, uint8_t state) {
+"226
+[; ;../digitalOut.c: 226: void setDigitalOutput(uint8_t io, uint8_t state) {
 [v _setDigitalOutput `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _setDigitalOutput ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _state `uc ~T0 @X0 1 r2 ]
 [f ]
-"225
-[; ;../digitalOut.c: 225:     Boolean pinState;
+"227
+[; ;../digitalOut.c: 227:     Boolean pinState;
 [v _pinState `E22933 ~T0 @X0 1 a ]
-"226
-[; ;../digitalOut.c: 226:     switch (state) {
+"228
+[; ;../digitalOut.c: 228:     switch (state) {
 [e $U 3274  ]
 {
-"227
-[; ;../digitalOut.c: 227:         default:
+"229
+[; ;../digitalOut.c: 229:         default:
 [e :U 3275 ]
-"228
-[; ;../digitalOut.c: 228:             state = 2;
-[e = _state -> -> 2 `i `uc ]
 "230
-[; ;../digitalOut.c: 230:         case 1:
-[e :U 3276 ]
-"231
-[; ;../digitalOut.c: 231:         case 2:
-[e :U 3277 ]
+[; ;../digitalOut.c: 230:             state = 2;
+[e = _state -> -> 2 `i `uc ]
 "232
-[; ;../digitalOut.c: 232:             pinState = (state == 1);
+[; ;../digitalOut.c: 232:         case 1:
+[e :U 3276 ]
+"233
+[; ;../digitalOut.c: 233:         case 2:
+[e :U 3277 ]
+"234
+[; ;../digitalOut.c: 234:             pinState = (state == 1);
 [e = _pinState -> -> == -> _state `i -> 1 `i `i `E22933 ]
-"236
-[; ;../digitalOut.c: 236:             if (getNV((16 + 7*(io) + 1)) & 0x20) {
+"238
+[; ;../digitalOut.c: 238:             if (getNV((16 + 7*(io) + 1)) & 0x20) {
 [e $ ! != & -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 1 `i `uc `i -> 32 `i -> 0 `i 3278  ]
 {
-"237
-[; ;../digitalOut.c: 237:                 setOutputPin(io, ! pinState);
+"239
+[; ;../digitalOut.c: 239:                 setOutputPin(io, ! pinState);
 [e ( _setOutputPin (2 , _io -> -> ! != -> _pinState `ui -> -> 0 `i `ui `i `E22933 ]
-"238
-[; ;../digitalOut.c: 238:             } else {
+"240
+[; ;../digitalOut.c: 240:             } else {
 }
 [e $U 3279  ]
 [e :U 3278 ]
 {
-"239
-[; ;../digitalOut.c: 239:                 setOutputPin(io, pinState);
+"241
+[; ;../digitalOut.c: 241:                 setOutputPin(io, pinState);
 [e ( _setOutputPin (2 , _io _pinState ]
-"240
-[; ;../digitalOut.c: 240:             }
+"242
+[; ;../digitalOut.c: 242:             }
 }
 [e :U 3279 ]
-"241
-[; ;../digitalOut.c: 241:             break;
-[e $U 3273  ]
-"242
-[; ;../digitalOut.c: 242:         case 3:
-[e :U 3280 ]
 "243
-[; ;../digitalOut.c: 243:             flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
-[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
-"244
-[; ;../digitalOut.c: 244:             setOutputPin(io, TRUE);
-[e ( _setOutputPin (2 , _io . `E22933 1 ]
-"245
-[; ;../digitalOut.c: 245:             break;
+[; ;../digitalOut.c: 243:             break;
 [e $U 3273  ]
+"244
+[; ;../digitalOut.c: 244:         case 3:
+[e :U 3280 ]
+"245
+[; ;../digitalOut.c: 245:             flashDelays[io] = (int8_t)getNV((16 + 7*(io) + 3));
+[e = *U + &U _flashDelays * -> _io `ux -> -> # *U &U _flashDelays `ui `ux -> ( _getNV (1 -> + + -> 16 `i * -> 7 `i -> _io `i -> 3 `i `uc `c ]
 "246
-[; ;../digitalOut.c: 246:     }
+[; ;../digitalOut.c: 246:             setOutputPin(io, TRUE);
+[e ( _setOutputPin (2 , _io . `E22933 1 ]
+"247
+[; ;../digitalOut.c: 247:             break;
+[e $U 3273  ]
+"248
+[; ;../digitalOut.c: 248:     }
 }
 [e $U 3273  ]
 [e :U 3274 ]
@@ -3955,102 +3958,102 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 3280
  3275 ]
 [e :U 3273 ]
-"247
-[; ;../digitalOut.c: 247: }
+"249
+[; ;../digitalOut.c: 249: }
 [e :UE 3272 ]
 }
-"254
-[; ;../digitalOut.c: 254: void setOutputPin(uint8_t io, Boolean state) {
+"256
+[; ;../digitalOut.c: 256: void setOutputPin(uint8_t io, Boolean state) {
 [v _setOutputPin `(v ~T0 @X0 1 ef2`uc`E22933 ]
 {
 [e :U _setOutputPin ]
 [v _io `uc ~T0 @X0 1 r1 ]
 [v _state `E22933 ~T0 @X0 1 r2 ]
 [f ]
-"255
-[; ;../digitalOut.c: 255:     switch (configs[io].port) {
+"257
+[; ;../digitalOut.c: 257:     switch (configs[io].port) {
 [e $U 3283  ]
 {
-"256
-[; ;../digitalOut.c: 256:         case 'A':
+"258
+[; ;../digitalOut.c: 258:         case 'A':
 [e :U 3284 ]
-"257
-[; ;../digitalOut.c: 257:             if (state) {
+"259
+[; ;../digitalOut.c: 259:             if (state) {
 [e $ ! != -> _state `ui -> -> 0 `i `ui 3285  ]
 {
-"259
-[; ;../digitalOut.c: 259:                LATA |= (1<<configs[io].no);
+"261
+[; ;../digitalOut.c: 261:                LATA |= (1<<configs[io].no);
 [e =| _LATA -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-"260
-[; ;../digitalOut.c: 260:             } else {
+"262
+[; ;../digitalOut.c: 262:             } else {
 }
 [e $U 3286  ]
 [e :U 3285 ]
 {
-"262
-[; ;../digitalOut.c: 262:                 LATA &= ~(1<<configs[io].no);
+"264
+[; ;../digitalOut.c: 264:                 LATA &= ~(1<<configs[io].no);
 [e =& _LATA -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-"263
-[; ;../digitalOut.c: 263:             }
+"265
+[; ;../digitalOut.c: 265:             }
 }
 [e :U 3286 ]
-"264
-[; ;../digitalOut.c: 264:             break;
-[e $U 3282  ]
-"265
-[; ;../digitalOut.c: 265:         case 'B':
-[e :U 3287 ]
 "266
-[; ;../digitalOut.c: 266:             if (state) {
+[; ;../digitalOut.c: 266:             break;
+[e $U 3282  ]
+"267
+[; ;../digitalOut.c: 267:         case 'B':
+[e :U 3287 ]
+"268
+[; ;../digitalOut.c: 268:             if (state) {
 [e $ ! != -> _state `ui -> -> 0 `i `ui 3288  ]
 {
-"268
-[; ;../digitalOut.c: 268:                 LATB |= (1<<configs[io].no);
+"270
+[; ;../digitalOut.c: 270:                 LATB |= (1<<configs[io].no);
 [e =| _LATB -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-"269
-[; ;../digitalOut.c: 269:             } else {
+"271
+[; ;../digitalOut.c: 271:             } else {
 }
 [e $U 3289  ]
 [e :U 3288 ]
 {
-"271
-[; ;../digitalOut.c: 271:                 LATB &= ~(1<<configs[io].no);
+"273
+[; ;../digitalOut.c: 273:                 LATB &= ~(1<<configs[io].no);
 [e =& _LATB -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-"272
-[; ;../digitalOut.c: 272:             }
+"274
+[; ;../digitalOut.c: 274:             }
 }
 [e :U 3289 ]
-"273
-[; ;../digitalOut.c: 273:             break;
-[e $U 3282  ]
-"274
-[; ;../digitalOut.c: 274:         case 'C':
-[e :U 3290 ]
 "275
-[; ;../digitalOut.c: 275:             if (state) {
+[; ;../digitalOut.c: 275:             break;
+[e $U 3282  ]
+"276
+[; ;../digitalOut.c: 276:         case 'C':
+[e :U 3290 ]
+"277
+[; ;../digitalOut.c: 277:             if (state) {
 [e $ ! != -> _state `ui -> -> 0 `i `ui 3291  ]
 {
-"277
-[; ;../digitalOut.c: 277:                 LATC |= (1<<configs[io].no);
+"279
+[; ;../digitalOut.c: 279:                 LATC |= (1<<configs[io].no);
 [e =| _LATC -> << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-"278
-[; ;../digitalOut.c: 278:             } else {
+"280
+[; ;../digitalOut.c: 280:             } else {
 }
 [e $U 3292  ]
 [e :U 3291 ]
 {
-"280
-[; ;../digitalOut.c: 280:                 LATC &= ~(1<<configs[io].no);
+"282
+[; ;../digitalOut.c: 282:                 LATC &= ~(1<<configs[io].no);
 [e =& _LATC -> ~ << -> 1 `i -> . *U + &U _configs * -> _io `ux -> -> # *U &U _configs `ui `ux 2 `i `Vuc ]
-"281
-[; ;../digitalOut.c: 281:             }
+"283
+[; ;../digitalOut.c: 283:             }
 }
 [e :U 3292 ]
-"282
-[; ;../digitalOut.c: 282:             break;
+"284
+[; ;../digitalOut.c: 284:             break;
 [e $U 3282  ]
-"303
-[; ;../digitalOut.c: 303:     }
+"305
+[; ;../digitalOut.c: 305:     }
 }
 [e $U 3282  ]
 [e :U 3283 ]
@@ -4059,7 +4062,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> -> 67 `ui `i 3290
  3282 ]
 [e :U 3282 ]
-"304
-[; ;../digitalOut.c: 304: }
+"306
+[; ;../digitalOut.c: 306: }
 [e :UE 3281 ]
 }
