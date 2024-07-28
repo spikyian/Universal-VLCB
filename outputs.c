@@ -49,6 +49,9 @@
 #include "servo.h"
 #include "digitalOut.h"
 #include "outputs.h"
+#ifdef CANCDU
+#include "cdu.h"
+#endif
 
 // Forward declarations
 
@@ -57,10 +60,10 @@
 extern void setOuputPin(uint8_t io, Boolean state);
 
 extern uint8_t pulseDelays[NUM_IO];
-
+extern int8_t flashDelays[NUM_IO];
 
 /**
- * Set an output to the requested state.
+ * Start the processing of an Action.
  *  
  * @param i the IO
  * @param state on/off or position
@@ -89,6 +92,11 @@ void startOutput(uint8_t io, uint8_t act, uint8_t type) {
             startMultiOutput(io, act);
             return;
 #endif
+#ifdef CANCDU
+        case TYPE_CDU:
+            startCduOutput(io, act);
+            return;
+#endif
     }
 }
 
@@ -107,7 +115,9 @@ void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
             // this should never happen
             return;
         case TYPE_OUTPUT:
-//            setDigitalOutput(io, act);
+#ifdef CANCDU
+        case TYPE_CDU:
+#endif
             return;
 #ifdef BOUNCE
         case TYPE_BOUNCE:
@@ -124,6 +134,7 @@ void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
             setMultiState(io, act);
             return;
 #endif
+
     }
 }
 
@@ -131,7 +142,7 @@ void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
  * Set an output to the requested position Called during initialisation
  *  
  * @param i the IO
- * @param state on/off or position
+ * @param pos on/off or position
  * @param type type of output
  */
 void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type) {
@@ -156,7 +167,11 @@ void setOutputPosition(uint8_t io, uint8_t pos, uint8_t type) {
             setOutputPin(io, getNV(NV_IO_FLAGS(io) & FLAG_OUTPUT_ACTION_INVERTED)?TRUE:FALSE);
             return;
 #endif
-
+#ifdef CANCDU
+        case TYPE_CDU:
+            setCduOutput(io, pos);
+            return;
+#endif
     }
 }
 
@@ -170,6 +185,9 @@ Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
             // this should never happen
             return FALSE;
         case TYPE_OUTPUT:
+#ifdef CANCDU
+        case TYPE_CDU:      // we reuse a lot of the output code
+#endif
             // Normal outputs will complete immediately.
             // Flashing outputs will complete immediately
             // pulsed output will complete after pulse has finished
@@ -216,6 +234,32 @@ Boolean completed(uint8_t io, Action action, uint8_t type) {
 #endif
             return (targetPos[io] == currentPos[io]) && ((servoState[io] == SS_STOPPED) || (servoState[io] == SS_OFF));
 #endif
+#ifdef CANCDU
+        case TYPE_CDU:
+            // wait for the recharge to complete. 
+            return flashDelays[io] == COMPLETED;
+#endif
     }
     return TRUE;
+}
+
+/**
+ * Tidy up after completing an Action and the Action is marked as Done.
+ *  
+ * @param i the IO
+ * @param state on/off or position
+ * @param type type of output
+ */
+void finaliseOutput(uint8_t io, uint8_t type) {
+    switch(type) {
+        case TYPE_OUTPUT:
+            return;
+#ifdef CANCDU
+        case TYPE_CDU:
+            finaliseCduOutput(io);
+            return;
+#endif
+        default:
+            return;
+    }
 }

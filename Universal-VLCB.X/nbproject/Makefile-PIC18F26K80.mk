@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../main.c ../digitalOut.c ../inputs.c ../event_consumerDualActionQueue.c ../universalEvents.c ../universalNv.c ../outputs.c ../servo.c ../bounce.c ../analogue.c ../../VLCBlib_PIC/boot.c ../../VLCBlib_PIC/event_acknowledge.c ../../VLCBlib_PIC/event_coe.c ../../VLCBlib_PIC/event_producer.c ../../VLCBlib_PIC/event_teach.c ../../VLCBlib_PIC/mns.c ../../VLCBlib_PIC/nv.c ../../VLCBlib_PIC/statusLeds2.c ../../VLCBlib_PIC/ticktime.c ../../VLCBlib_PIC/timedResponse.c ../../VLCBlib_PIC/vlcb.c ../../VLCBlib_PIC/messageQueue.c ../../VLCBlib_PIC/nvm.c ../../VLCBlib_PIC/can18_ecan.c
+SOURCEFILES_QUOTED_IF_SPACED=../main.c ../digitalOut.c ../inputs.c ../event_consumerDualActionQueue.c ../universalEvents.c ../universalNv.c ../outputs.c ../servo.c ../bounce.c ../analogue.c ../../VLCBlib_PIC/boot.c ../../VLCBlib_PIC/event_acknowledge.c ../../VLCBlib_PIC/event_coe.c ../../VLCBlib_PIC/mns.c ../../VLCBlib_PIC/nv.c ../../VLCBlib_PIC/statusLeds2.c ../../VLCBlib_PIC/ticktime.c ../../VLCBlib_PIC/timedResponse.c ../../VLCBlib_PIC/vlcb.c ../../VLCBlib_PIC/messageQueue.c ../../VLCBlib_PIC/nvm.c ../../VLCBlib_PIC/can18_ecan.c ../../VLCBlib_PIC/event_teach_large.c ../../VLCBlib_PIC/event_producer_happening.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/digitalOut.p1 ${OBJECTDIR}/_ext/1472/inputs.p1 ${OBJECTDIR}/_ext/1472/event_consumerDualActionQueue.p1 ${OBJECTDIR}/_ext/1472/universalEvents.p1 ${OBJECTDIR}/_ext/1472/universalNv.p1 ${OBJECTDIR}/_ext/1472/outputs.p1 ${OBJECTDIR}/_ext/1472/servo.p1 ${OBJECTDIR}/_ext/1472/bounce.p1 ${OBJECTDIR}/_ext/1472/analogue.p1 ${OBJECTDIR}/_ext/1954642981/boot.p1 ${OBJECTDIR}/_ext/1954642981/event_acknowledge.p1 ${OBJECTDIR}/_ext/1954642981/event_coe.p1 ${OBJECTDIR}/_ext/1954642981/event_producer.p1 ${OBJECTDIR}/_ext/1954642981/event_teach.p1 ${OBJECTDIR}/_ext/1954642981/mns.p1 ${OBJECTDIR}/_ext/1954642981/nv.p1 ${OBJECTDIR}/_ext/1954642981/statusLeds2.p1 ${OBJECTDIR}/_ext/1954642981/ticktime.p1 ${OBJECTDIR}/_ext/1954642981/timedResponse.p1 ${OBJECTDIR}/_ext/1954642981/vlcb.p1 ${OBJECTDIR}/_ext/1954642981/messageQueue.p1 ${OBJECTDIR}/_ext/1954642981/nvm.p1 ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/main.p1.d ${OBJECTDIR}/_ext/1472/digitalOut.p1.d ${OBJECTDIR}/_ext/1472/inputs.p1.d ${OBJECTDIR}/_ext/1472/event_consumerDualActionQueue.p1.d ${OBJECTDIR}/_ext/1472/universalEvents.p1.d ${OBJECTDIR}/_ext/1472/universalNv.p1.d ${OBJECTDIR}/_ext/1472/outputs.p1.d ${OBJECTDIR}/_ext/1472/servo.p1.d ${OBJECTDIR}/_ext/1472/bounce.p1.d ${OBJECTDIR}/_ext/1472/analogue.p1.d ${OBJECTDIR}/_ext/1954642981/boot.p1.d ${OBJECTDIR}/_ext/1954642981/event_acknowledge.p1.d ${OBJECTDIR}/_ext/1954642981/event_coe.p1.d ${OBJECTDIR}/_ext/1954642981/event_producer.p1.d ${OBJECTDIR}/_ext/1954642981/event_teach.p1.d ${OBJECTDIR}/_ext/1954642981/mns.p1.d ${OBJECTDIR}/_ext/1954642981/nv.p1.d ${OBJECTDIR}/_ext/1954642981/statusLeds2.p1.d ${OBJECTDIR}/_ext/1954642981/ticktime.p1.d ${OBJECTDIR}/_ext/1954642981/timedResponse.p1.d ${OBJECTDIR}/_ext/1954642981/vlcb.p1.d ${OBJECTDIR}/_ext/1954642981/messageQueue.p1.d ${OBJECTDIR}/_ext/1954642981/nvm.p1.d ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/digitalOut.p1 ${OBJECTDIR}/_ext/1472/inputs.p1 ${OBJECTDIR}/_ext/1472/event_consumerDualActionQueue.p1 ${OBJECTDIR}/_ext/1472/universalEvents.p1 ${OBJECTDIR}/_ext/1472/universalNv.p1 ${OBJECTDIR}/_ext/1472/outputs.p1 ${OBJECTDIR}/_ext/1472/servo.p1 ${OBJECTDIR}/_ext/1472/bounce.p1 ${OBJECTDIR}/_ext/1472/analogue.p1 ${OBJECTDIR}/_ext/1954642981/boot.p1 ${OBJECTDIR}/_ext/1954642981/event_acknowledge.p1 ${OBJECTDIR}/_ext/1954642981/event_coe.p1 ${OBJECTDIR}/_ext/1954642981/mns.p1 ${OBJECTDIR}/_ext/1954642981/nv.p1 ${OBJECTDIR}/_ext/1954642981/statusLeds2.p1 ${OBJECTDIR}/_ext/1954642981/ticktime.p1 ${OBJECTDIR}/_ext/1954642981/timedResponse.p1 ${OBJECTDIR}/_ext/1954642981/vlcb.p1 ${OBJECTDIR}/_ext/1954642981/messageQueue.p1 ${OBJECTDIR}/_ext/1954642981/nvm.p1 ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1 ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1 ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/main.p1.d ${OBJECTDIR}/_ext/1472/digitalOut.p1.d ${OBJECTDIR}/_ext/1472/inputs.p1.d ${OBJECTDIR}/_ext/1472/event_consumerDualActionQueue.p1.d ${OBJECTDIR}/_ext/1472/universalEvents.p1.d ${OBJECTDIR}/_ext/1472/universalNv.p1.d ${OBJECTDIR}/_ext/1472/outputs.p1.d ${OBJECTDIR}/_ext/1472/servo.p1.d ${OBJECTDIR}/_ext/1472/bounce.p1.d ${OBJECTDIR}/_ext/1472/analogue.p1.d ${OBJECTDIR}/_ext/1954642981/boot.p1.d ${OBJECTDIR}/_ext/1954642981/event_acknowledge.p1.d ${OBJECTDIR}/_ext/1954642981/event_coe.p1.d ${OBJECTDIR}/_ext/1954642981/mns.p1.d ${OBJECTDIR}/_ext/1954642981/nv.p1.d ${OBJECTDIR}/_ext/1954642981/statusLeds2.p1.d ${OBJECTDIR}/_ext/1954642981/ticktime.p1.d ${OBJECTDIR}/_ext/1954642981/timedResponse.p1.d ${OBJECTDIR}/_ext/1954642981/vlcb.p1.d ${OBJECTDIR}/_ext/1954642981/messageQueue.p1.d ${OBJECTDIR}/_ext/1954642981/nvm.p1.d ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1.d ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1.d ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/digitalOut.p1 ${OBJECTDIR}/_ext/1472/inputs.p1 ${OBJECTDIR}/_ext/1472/event_consumerDualActionQueue.p1 ${OBJECTDIR}/_ext/1472/universalEvents.p1 ${OBJECTDIR}/_ext/1472/universalNv.p1 ${OBJECTDIR}/_ext/1472/outputs.p1 ${OBJECTDIR}/_ext/1472/servo.p1 ${OBJECTDIR}/_ext/1472/bounce.p1 ${OBJECTDIR}/_ext/1472/analogue.p1 ${OBJECTDIR}/_ext/1954642981/boot.p1 ${OBJECTDIR}/_ext/1954642981/event_acknowledge.p1 ${OBJECTDIR}/_ext/1954642981/event_coe.p1 ${OBJECTDIR}/_ext/1954642981/event_producer.p1 ${OBJECTDIR}/_ext/1954642981/event_teach.p1 ${OBJECTDIR}/_ext/1954642981/mns.p1 ${OBJECTDIR}/_ext/1954642981/nv.p1 ${OBJECTDIR}/_ext/1954642981/statusLeds2.p1 ${OBJECTDIR}/_ext/1954642981/ticktime.p1 ${OBJECTDIR}/_ext/1954642981/timedResponse.p1 ${OBJECTDIR}/_ext/1954642981/vlcb.p1 ${OBJECTDIR}/_ext/1954642981/messageQueue.p1 ${OBJECTDIR}/_ext/1954642981/nvm.p1 ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/digitalOut.p1 ${OBJECTDIR}/_ext/1472/inputs.p1 ${OBJECTDIR}/_ext/1472/event_consumerDualActionQueue.p1 ${OBJECTDIR}/_ext/1472/universalEvents.p1 ${OBJECTDIR}/_ext/1472/universalNv.p1 ${OBJECTDIR}/_ext/1472/outputs.p1 ${OBJECTDIR}/_ext/1472/servo.p1 ${OBJECTDIR}/_ext/1472/bounce.p1 ${OBJECTDIR}/_ext/1472/analogue.p1 ${OBJECTDIR}/_ext/1954642981/boot.p1 ${OBJECTDIR}/_ext/1954642981/event_acknowledge.p1 ${OBJECTDIR}/_ext/1954642981/event_coe.p1 ${OBJECTDIR}/_ext/1954642981/mns.p1 ${OBJECTDIR}/_ext/1954642981/nv.p1 ${OBJECTDIR}/_ext/1954642981/statusLeds2.p1 ${OBJECTDIR}/_ext/1954642981/ticktime.p1 ${OBJECTDIR}/_ext/1954642981/timedResponse.p1 ${OBJECTDIR}/_ext/1954642981/vlcb.p1 ${OBJECTDIR}/_ext/1954642981/messageQueue.p1 ${OBJECTDIR}/_ext/1954642981/nvm.p1 ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1 ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1 ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1
 
 # Source Files
-SOURCEFILES=../main.c ../digitalOut.c ../inputs.c ../event_consumerDualActionQueue.c ../universalEvents.c ../universalNv.c ../outputs.c ../servo.c ../bounce.c ../analogue.c ../../VLCBlib_PIC/boot.c ../../VLCBlib_PIC/event_acknowledge.c ../../VLCBlib_PIC/event_coe.c ../../VLCBlib_PIC/event_producer.c ../../VLCBlib_PIC/event_teach.c ../../VLCBlib_PIC/mns.c ../../VLCBlib_PIC/nv.c ../../VLCBlib_PIC/statusLeds2.c ../../VLCBlib_PIC/ticktime.c ../../VLCBlib_PIC/timedResponse.c ../../VLCBlib_PIC/vlcb.c ../../VLCBlib_PIC/messageQueue.c ../../VLCBlib_PIC/nvm.c ../../VLCBlib_PIC/can18_ecan.c
+SOURCEFILES=../main.c ../digitalOut.c ../inputs.c ../event_consumerDualActionQueue.c ../universalEvents.c ../universalNv.c ../outputs.c ../servo.c ../bounce.c ../analogue.c ../../VLCBlib_PIC/boot.c ../../VLCBlib_PIC/event_acknowledge.c ../../VLCBlib_PIC/event_coe.c ../../VLCBlib_PIC/mns.c ../../VLCBlib_PIC/nv.c ../../VLCBlib_PIC/statusLeds2.c ../../VLCBlib_PIC/ticktime.c ../../VLCBlib_PIC/timedResponse.c ../../VLCBlib_PIC/vlcb.c ../../VLCBlib_PIC/messageQueue.c ../../VLCBlib_PIC/nvm.c ../../VLCBlib_PIC/can18_ecan.c ../../VLCBlib_PIC/event_teach_large.c ../../VLCBlib_PIC/event_producer_happening.c
 
 
 
@@ -192,22 +192,6 @@ ${OBJECTDIR}/_ext/1954642981/event_coe.p1: ../../VLCBlib_PIC/event_coe.c  nbproj
 	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_coe.d ${OBJECTDIR}/_ext/1954642981/event_coe.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_coe.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1954642981/event_producer.p1: ../../VLCBlib_PIC/event_producer.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
-	@${RM} ${OBJECTDIR}/_ext/1954642981/event_producer.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1954642981/event_producer.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/event_producer.p1 ../../VLCBlib_PIC/event_producer.c 
-	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_producer.d ${OBJECTDIR}/_ext/1954642981/event_producer.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_producer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1954642981/event_teach.p1: ../../VLCBlib_PIC/event_teach.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
-	@${RM} ${OBJECTDIR}/_ext/1954642981/event_teach.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1954642981/event_teach.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/event_teach.p1 ../../VLCBlib_PIC/event_teach.c 
-	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_teach.d ${OBJECTDIR}/_ext/1954642981/event_teach.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_teach.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/_ext/1954642981/mns.p1: ../../VLCBlib_PIC/mns.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
 	@${RM} ${OBJECTDIR}/_ext/1954642981/mns.p1.d 
@@ -279,6 +263,22 @@ ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1: ../../VLCBlib_PIC/can18_ecan.c  nbpr
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1 ../../VLCBlib_PIC/can18_ecan.c 
 	@-${MV} ${OBJECTDIR}/_ext/1954642981/can18_ecan.d ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1954642981/event_teach_large.p1: ../../VLCBlib_PIC/event_teach_large.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
+	@${RM} ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1 ../../VLCBlib_PIC/event_teach_large.c 
+	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_teach_large.d ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1: ../../VLCBlib_PIC/event_producer_happening.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
+	@${RM} ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1 ../../VLCBlib_PIC/event_producer_happening.c 
+	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_producer_happening.d ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk 
@@ -385,22 +385,6 @@ ${OBJECTDIR}/_ext/1954642981/event_coe.p1: ../../VLCBlib_PIC/event_coe.c  nbproj
 	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_coe.d ${OBJECTDIR}/_ext/1954642981/event_coe.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_coe.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1954642981/event_producer.p1: ../../VLCBlib_PIC/event_producer.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
-	@${RM} ${OBJECTDIR}/_ext/1954642981/event_producer.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1954642981/event_producer.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/event_producer.p1 ../../VLCBlib_PIC/event_producer.c 
-	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_producer.d ${OBJECTDIR}/_ext/1954642981/event_producer.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_producer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1954642981/event_teach.p1: ../../VLCBlib_PIC/event_teach.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
-	@${RM} ${OBJECTDIR}/_ext/1954642981/event_teach.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1954642981/event_teach.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/event_teach.p1 ../../VLCBlib_PIC/event_teach.c 
-	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_teach.d ${OBJECTDIR}/_ext/1954642981/event_teach.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_teach.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/_ext/1954642981/mns.p1: ../../VLCBlib_PIC/mns.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
 	@${RM} ${OBJECTDIR}/_ext/1954642981/mns.p1.d 
@@ -472,6 +456,22 @@ ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1: ../../VLCBlib_PIC/can18_ecan.c  nbpr
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1 ../../VLCBlib_PIC/can18_ecan.c 
 	@-${MV} ${OBJECTDIR}/_ext/1954642981/can18_ecan.d ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/can18_ecan.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1954642981/event_teach_large.p1: ../../VLCBlib_PIC/event_teach_large.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
+	@${RM} ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1 ../../VLCBlib_PIC/event_teach_large.c 
+	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_teach_large.d ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_teach_large.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1: ../../VLCBlib_PIC/event_producer_happening.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/1954642981" 
+	@${RM} ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -mrom=800-EF80 -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../" -I"../../VLCB-defs" -I"../../VLCBlib_PIC" -mwarn=-3 -Wa,-a -DXPRJ_PIC18F26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1 ../../VLCBlib_PIC/event_producer_happening.c 
+	@-${MV} ${OBJECTDIR}/_ext/1954642981/event_producer_happening.d ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1954642981/event_producer_happening.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

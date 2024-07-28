@@ -47,6 +47,9 @@
 #include "universalNv.h"
 #include "universalEvents.h"
 
+extern Boolean validStart(uint8_t tableIndex);
+extern void checkRemoveTableEntry(uint8_t tableIndex);
+
 /**
  * @file
  * Implementation of the VLCB Event Consumer service.
@@ -66,6 +69,7 @@ static Processed consumer2QProcessMessage(Message * m);
 static DiagnosticVal consumer2QDiagnostics[NUM_CONSUMER_DIAGNOSTICS];
 static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index);
 #endif
+static uint8_t consumer2QEsdData(uint8_t index);
         
 /**
  * The service descriptor for the eventConsumer service. The application must include this
@@ -85,7 +89,7 @@ const Service eventConsumer2QService = {
     NULL,               // lowIsr
 #endif
 #ifdef VLCB_SERVICE
-    NULL,               // Get ESD data
+    consumer2QEsdData,               // Get ESD data
 #endif
 #ifdef VLCB_DIAG
     consumer2QGetDiagnostic                // getDiagnostic
@@ -139,40 +143,44 @@ static Processed consumer2QProcessMessage(Message *m) {
     uint8_t masked_action;
     uint8_t ca;
     uint8_t io;
+    uint16_t enn;
     
     if (m->len < 5) return NOT_PROCESSED;
     
-    tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
-    if (tableIndex == NO_INDEX) return NOT_PROCESSED;
+    enn = ((uint16_t)m->bytes[0])*256+m->bytes[1];
 
     switch (m->opc) {
-        case OPC_ACON:
-#ifdef HANDLE_DATA_EVENTS
-        case OPC_ACON1:
-        case OPC_ACON2:
-        case OPC_ACON3:
-#endif
         case OPC_ASON:
 #ifdef HANDLE_DATA_EVENTS
         case OPC_ASON1:
         case OPC_ASON2:
         case OPC_ASON3:
 #endif
+            enn = 0;
+            // fall through
+        case OPC_ACON:
+#ifdef HANDLE_DATA_EVENTS
+        case OPC_ACON1:
+        case OPC_ACON2:
+        case OPC_ACON3:
+#endif
             start = HAPPENING_SIZE;
             end = PARAM_NUM_EV_EVENT;
             change = ACTION_SIZE;
             break;
-        case OPC_ACOF:
-#ifdef HANDLE_DATA_EVENTS
-        case OPC_ACOF1:
-        case OPC_ACOF2:
-        case OPC_ACOF3:
-#endif
         case OPC_ASOF:
 #ifdef HANDLE_DATA_EVENTS
         case OPC_ASOF1:
         case OPC_ASOF2:
         case OPC_ASOF3:
+#endif
+            enn = 0;
+            // fall through
+        case OPC_ACOF:
+#ifdef HANDLE_DATA_EVENTS
+        case OPC_ACOF1:
+        case OPC_ACOF2:
+        case OPC_ACOF3:
 #endif
             start = PARAM_NUM_EV_EVENT-ACTION_SIZE;
             end = HAPPENING_SIZE-1;
@@ -183,7 +191,7 @@ static Processed consumer2QProcessMessage(Message *m) {
     }
     
     // get the list of actions ready to the action queue
-    tableIndex = findEvent(((uint16_t)m->bytes[0])*256+m->bytes[1], ((uint16_t)m->bytes[2])*256+m->bytes[3]);
+    tableIndex = findEvent(enn, ((uint16_t)m->bytes[2])*256+m->bytes[3]);
     if (tableIndex == NO_INDEX) return NOT_PROCESSED;
 
     uint8_t opc = getEVs(tableIndex);
@@ -215,6 +223,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = ACTION(masked_action);
                         switch (getNV(NV_IO_TYPE(io))) {
                             case TYPE_OUTPUT:
+#ifdef CANCDU
+                            case TYPE_CDU:
+#endif
                                 if (getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_EXPEDITED) {
                                     setExpeditedActions();
                                 }
@@ -280,6 +291,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                         ca = ACTION(action);
                         switch (getNV(NV_IO_TYPE(io))) {
                             case TYPE_OUTPUT:
+#ifdef CANCDU
+                            case TYPE_CDU:
+#endif
                                 if (getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_EXPEDITED) {
                                     setExpeditedActions();
                                 }
@@ -333,6 +347,24 @@ static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
         return NULL;
     }
     return &(consumer2QDiagnostics[index-1]);
+}
+#endif
+
+#ifdef VLCB_SERVICE
+/**
+ * Return the service extended definition bytes.
+ * @param id identifier for the extended service definition data
+ * @return the ESD data
+ */
+static uint8_t consumer2QEsdData(uint8_t index) {
+    switch (index){
+        case 0:
+            return CONSUMER_EV_ACTIONS;
+        case 1:
+            return ACTION_SIZE;
+        default:
+            return 0;
+    }
 }
 #endif
 
@@ -474,6 +506,7 @@ void setNormalActions(void) {
 
 /**
  * Delete all occurrences of the consumer action.
+ * TODO. Currently only works for when Action == uint8_t
  * @param action
  */
 void deleteActionRange(Action action, uint8_t number) {
@@ -498,7 +531,7 @@ void deleteActionRange(Action action, uint8_t number) {
         }
     }
     flushFlashBlock();
-#ifdef HASH_TABLE
+#ifdef EVENT_HASH_TABLE
     rebuildHashtable();                
 #endif
 }

@@ -61,7 +61,7 @@
 extern "C" {
 #endif /* __cplusplus */
     
-#include "canmio.h"
+#include "module.h"
 #include "nv.h"
 
 #define FLASH_VERSION   0x02        // Version 2 introduced when Actions were changed to have 5 per channel
@@ -76,7 +76,7 @@ extern "C" {
 #define NV_LOW_CHANNELS_PULLUPS         6
 #define NV_MID_CHANNELS_PULLUPS         7
 #define NV_TOP_CHANNELS_PULLUPS         8
-#define NV_SPARE6                       9
+#define NV_CDU_CHARGE_TIME              9
 #define NV_SPARE7                       10
 #define NV_SPARE8                       11
 #define NV_SPARE9                       12
@@ -150,6 +150,9 @@ extern "C" {
 #define NV_IO_MAGNET_OFFSETH(i)       (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_OFFSET_H)
 #define NV_IO_MAGNET_OFFSETL(i)       (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_OFFSET_L)
     
+#define NV_IO_CDU_PLSE_TIME           2
+#define NV_IO_CDU_PULSE_TIME(i)       (NV_IO_START + NVS_PER_IO*(i) + NV_IO_CDU_PLSE_TIME)
+    
 #define IS_NV_TYPE(i)                   (((i-NV_IO_START) % NVS_PER_IO) == 0)
 #define IO_NV(i)                        ((uint8_t)((i-NV_IO_START)/NVS_PER_IO))
 #define NV_NV(i)                        ((uint8_t)((i-NV_IO_START) % NVS_PER_IO))
@@ -163,9 +166,7 @@ extern "C" {
 #define TYPE_ANALOGUE_IN            5
 #define TYPE_MAGNET                 6
 #define TYPE_CDU                    7
-#define TYPE_VDOUBLER               8   // For CANCDU only
-#define TYPE_CHGCNTROL              9   // For CANCDU only
-#define TYPE_RAILCOM                10
+#define TYPE_RAILCOM                8
 
 // the flags
 #define	FLAG_TRIGGER_INVERTED           0x01	// Whether the sense of this input or output inverted
@@ -235,13 +236,17 @@ typedef struct {
  * This structure is required by FLiM.h
  */
 typedef struct {
-        uint8_t nv_version;                // version of NV structure
-        uint8_t sendSodDelay;               // Time after start in 100mS (plus 2 seconds) to send an automatic SoD. Set to zero for no auto SoD
-        uint8_t hbDelay;                    // Interval in 100mS for automatic heartbeat. Set to zero for no heartbeat.
-        uint8_t servo_speed;               // default servo speed
-        uint8_t pullups;                   // weak pullup resistors
-        uint8_t responseDelay;             // timing of multiple responses
-        uint8_t spare[10];
+        uint8_t nv_version;                // 0 version of NV structure
+        uint8_t sendSodDelay;              // 1 Time after start in 100mS (plus 2 seconds) to send an automatic SoD. Set to zero for no auto SoD
+        uint8_t hbDelay;                   // 2 Interval in 100mS for automatic heartbeat. Set to zero for no heartbeat.
+        uint8_t servo_speed;               // 3 default servo speed
+        uint8_t pullups;                   // 4 weak pullup resistors
+        uint8_t responseDelay;             // 5 timing of multiple responses
+        uint8_t xio_pullupsL;               // 6 low pullups
+        uint8_t xio_pullupsM;               // 7 mid pullups
+        uint8_t xio_pullupsH;               // 8 top pullups
+        uint8_t cdu_chargePumpFreq;        // 9 CANCDU charge pump frequency
+        uint8_t spare[6];
         NvIo io[NUM_IO];                 // config for each IO
 } ModuleNvDefs;
 
@@ -253,10 +258,14 @@ extern void defaultNVs(uint8_t i, uint8_t type);
 #ifdef CANBIP
 #define TYPE_DEFAULT_MAIN   TYPE_OUTPUT
 #else
+#ifdef CANCDU
+#define TYPE_DEFAULT_MAIN   TYPE_CDU
+#else
 #define TYPE_DEFAULT_MAIN   TYPE_INPUT
 #endif
 
 #define TYPE_DEFAULT_EXP    TYPE_INPUT
+#endif
 #endif
 
 #ifdef	__cplusplus

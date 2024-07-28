@@ -43,7 +43,7 @@
 #include "nv.h"
 
 #include "universalNv.h"
-#include "canmio.h"
+#include "module.h"
 #include "config.h"
 #include "universalEvents.h"
 #include "universalEEPROM.h"

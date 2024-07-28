@@ -35,7 +35,7 @@
  * Created on 1 June 2017, 13:14
  */
 
-#include "event_consumer.h"
+#include "event_consumerDualActionQueue.h"
 
 typedef enum {
     SS_OFF,            // not generating any pulses
@@ -58,15 +58,15 @@ extern void timer1DoneInterruptHandler(void);
 extern void timer3DoneInterruptHandler(void);
 #endif
 
-extern void setServoState(uint8_t io, Action action);
-extern void setBounceState(uint8_t io, Action action);
-extern void setMultiState(uint8_t io, Action action);
+extern void setServoState(uint8_t io, uint8_t action);
+extern void setBounceState(uint8_t io, uint8_t action);
+extern void setMultiState(uint8_t io, uint8_t action);
 
 extern void setServoPosition(uint8_t io, uint8_t pos);
 
-extern void startServoOutput(uint8_t io, Action action);
-extern void startBounceOutput(uint8_t io, Action action);
-extern void startMultiOutput(uint8_t io, Action action);
+extern void startServoOutput(uint8_t io, uint8_t action);
+extern void startBounceOutput(uint8_t io, uint8_t action);
+extern void startMultiOutput(uint8_t io, uint8_t action);
 
 extern Boolean isNoServoPulses(void);
 

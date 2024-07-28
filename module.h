@@ -16,7 +16,23 @@
 
 // The hardware
 #define CANMIO
-#define NUM_IO 16
+/*******************************************************************
+ * IO pin configuration
+ */
+// Number of IO pins
+#ifdef CANXIO
+    #define NUM_IO 24
+    #define NUM_IO_MAIN 16  // pins on the main board
+#else
+#ifdef CANCDU
+    #define NUM_IO 14
+    #define NUM_IO_MAIN 8  // pins on the main board
+#else
+    #define NUM_IO 16
+    #define NUM_IO_MAIN 8  // pins on the main board
+#endif
+#endif
+
 #if defined(_18FXXQ83_FAMILY_)
 #define IVT_BASE      0x900
 #define IVT_BASE_U    0x00
@@ -27,7 +43,7 @@
 //
 // NV service
 //
-#define NV_NUM  127
+#define NV_NUM  (15+7*NUM_IO)
 #if defined(_18F66K80_FAMILY_)
 #define NV_ADDRESS  0xFF80
 #define NV_NVM_TYPE FLASH_NVM_TYPE
@@ -75,7 +91,7 @@
 #define NO_ACTION           0
 
 #if defined(_18FXXQ83_FAMILY_)
-#define EVENT_TABLE_ADDRESS               0x1E000
+#define EVENT_TABLE_ADDRESS               0x1F000
 #endif
 #if defined(_18F66K80_FAMILY_)
 #ifdef __18F25K80
@@ -94,19 +110,15 @@
 #define EVENT_HASH_TABLE
 // These are chosen so we don't use too much memory 32*20 = 640 bytes.
 // Used to size the hash table used to lookup events in the events2actions table.
-#define EVENT_HASH_LENGTH  32
-#define EVENT_CHAIN_LENGTH    20
-#ifdef CANXIO
-#define MAX_HAPPENING       103
-#else
-#define MAX_HAPPENING       71
-#endif
+#define EVENT_HASH_LENGTH   32
+#define EVENT_CHAIN_LENGTH  20
 #define CONSUMED_EVENTS
-
 //
 // EVENT PRODUCER SERVICE
 #define PRODUCED_EVENTS
-#define HAPPENING_SIZE  1   // Happenings are 1 byte
+#define HAPPENING_SIZE      1   // Happenings are 1 byte
+#define HAPPENING_BASE      1   // start at 1
+#define MAX_HAPPENING       (7+NUM_IO*4)
 //
 // EVENT CONSUMER2Q SERVICE
 #define HANDLE_DATA_EVENTS
@@ -126,23 +138,55 @@
 // 2 bytes for the module's node number
 #define NN_ADDRESS  0x3FC 
 #define NN_NVM_TYPE EEPROM_NVM_TYPE
+// 1 byte for the version number
+#define VERSION_ADDRESS    0x3FA
+#define VERSION_NVM_TYPE   EEPROM_NVM_TYPE
 // 1 byte for the mode
 #define MODE_ADDRESS    0x3FB
 #define MODE_NVM_TYPE   EEPROM_NVM_TYPE
 // 1 byte for the mode flags
-#define MODE_FLAGS_ADDRESS    0x3FA
+#define MODE_FLAGS_ADDRESS    0x3F9
 #define MODE_FLAGS_NVM_TYPE   EEPROM_NVM_TYPE
 // Parameters
 #define PARAM_MANU              MANU_MERG
+#ifdef CANBIP
+#define PARAM_MODULE_ID         MTYP_CANBIP
+#define PARAM_MAJOR_VERSION     3
+#define PARAM_MINOR_VERSION     'e'
+#define PARAM_BUILD_VERSION     3
+// Module name - must be 7 characters
+#define NAME    "BIP    "
+#else
+#ifdef CANXIO
+#define PARAM_MODULE_ID         MTYP_CANXIO
+#define PARAM_MAJOR_VERSION     3
+#define PARAM_MINOR_VERSION     'e'
+#define PARAM_BUILD_VERSION     3
+// Module name - must be 7 characters
+#define NAME    "XIO    "
+#else
+#ifdef CANCDU
+#define PARAM_MODULE_ID         MTYP_CANCDU
+#define PARAM_MAJOR_VERSION     1
+#define PARAM_MINOR_VERSION     'a'
+#define PARAM_BUILD_VERSION     1
+// Module name - must be 7 characters
+#define NAME    "CDU    "
+#else
 #define PARAM_MODULE_ID         MTYP_CANMIO
 #define PARAM_MAJOR_VERSION     3
 #define PARAM_MINOR_VERSION     'e'
 #define PARAM_BUILD_VERSION     3
+// Module name - must be 7 characters
+#define NAME    "MIO    "
+#endif
+#endif
+#endif
+
 #define PARAM_NUM_NV            NV_NUM
 #define PARAM_NUM_EVENTS        NUM_EVENTS
 #define PARAM_NUM_EV_EVENT      20
-// Module name - must be 7 characters
-#define NAME    "MIO    "
+
 // LEDs and PB                                 // GREEN is 0 YELLOW is 1
 #if defined(_18F66K80_FAMILY_)
 #define APP_setPortDirections(){ANCON0=ANCON1=0; TRISBbits.TRISB6=TRISBbits.TRISB7=0,TRISAbits.TRISA2=1;}

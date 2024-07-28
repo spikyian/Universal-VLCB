@@ -72,10 +72,8 @@ extern "C" {
      */
  
 #include "event_teach.h"
-    
+#include "event_producer.h"    
 
-
-    
     
 /* CONSUMED actions */
 #define ACTION_SIMULTANEOUS                 0x80    // default is SEQUENTIAL
@@ -104,7 +102,7 @@ extern "C" {
 #define NUM_ACTIONS                (BASE_ACTION_IO + ACTIONS_PER_IO * NUM_IO)   
     
 /* PRODUCED actions */    
-#define HAPPENING_BASE                1
+
     // Global produced actions next
 #define HAPPENING_SOD                 1
     // produced actions per io
@@ -166,6 +164,14 @@ extern "C" {
 #define ACTION_IO_MULTI_TO2(i)     (ACTION_IO_BASE(i)+ACTION_IO_2)
 #define ACTION_IO_MULTI_TO3(i)     (ACTION_IO_BASE(i)+ACTION_IO_3)
 #define ACTION_IO_MULTI_TO4(i)     (ACTION_IO_BASE(i)+ACTION_IO_4)
+    
+#ifdef CANCDU
+#define ACTION_IO_CDU_EV(i)     (ACTION_IO_BASE(i)+ACTION_IO_1)
+#define ACTION_IO_CDU_ON(i)     (ACTION_IO_BASE(i)+ACTION_IO_2)
+#define ACTION_IO_CDU_OFF(i)    (ACTION_IO_BASE(i)+ACTION_IO_3)
+    // (ACTION_IO_BASE(i)+ACTION_IO_4) not used
+#define ACTION_IO_CDU_NOT_EV(i) (ACTION_IO_BASE(i)+ACTION_IO_5)
+#endif
     
 #define ACTION(a)                  (((a)-BASE_ACTION_IO)%ACTIONS_PER_IO)
 #define ACTION_IO(a)               (((a)-BASE_ACTION_IO)/ACTIONS_PER_IO)

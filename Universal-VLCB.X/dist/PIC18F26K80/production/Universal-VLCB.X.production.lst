@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Tue May 28 19:07:16 2024
+                                                                                               Wed May 29 15:45:39 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F26K80
@@ -7211,15 +7211,15 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7190                           ;../../VLCBlib_PIC/vlcb.c: 1291:     initRomOps();
   7191   00B6E8  EC23  F061         	call	_initRomOps	;wreg free
   7192                           
-  7193                           ;../../VLCBlib_PIC/vlcb.c: 1293:     if (readNVM(FLASH_NVM_TYPE, 0xFF80) != 1) {
-  7194   00B6EC  0E80               	movlw	128
+  7193                           ;../../VLCBlib_PIC/vlcb.c: 1293:     if (readNVM(EEPROM_NVM_TYPE, 0x3FA) != 1) {
+  7194   00B6EC  0EFA               	movlw	250
   7195   00B6EE  0100               	movlb	0	; () banked
   7196   00B6F0  6F91               	movwf	readNVM@index& (0+255),b
-  7197   00B6F2  0EFF               	movlw	255
+  7197   00B6F2  0E03               	movlw	3
   7198   00B6F4  6F92               	movwf	(readNVM@index+1)& (0+255),b
   7199   00B6F6  0E00               	movlw	0
   7200   00B6F8  6F93               	movwf	(readNVM@index+2)& (0+255),b
-  7201   00B6FA  0E01               	movlw	1
+  7201   00B6FA  0E00               	movlw	0
   7202   00B6FC  EC48  F058         	call	_readNVM
   7203   00B700  0100               	movlb	0	; () banked
   7204   00B702  0591               	decf	?_readNVM& (0+255),w,b
@@ -8918,8 +8918,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   8839   007E24                     l23140:
   8840                           
   8841                           ; BSR set to: 0
-  8842                           ;../../VLCBlib_PIC/mns.c: 308:     temp = readNVM(EEPROM_NVM_TYPE, 0x3FA);
-  8843   007E24  0EFA               	movlw	250
+  8842                           ;../../VLCBlib_PIC/mns.c: 308:     temp = readNVM(EEPROM_NVM_TYPE, 0x3F9);
+  8843   007E24  0EF9               	movlw	249
   8844   007E26  6F91               	movwf	readNVM@index& (0+255),b
   8845   007E28  0E03               	movlw	3
   8846   007E2A  6F92               	movwf	(readNVM@index+1)& (0+255),b
@@ -21535,8 +21535,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  20843   00439A  D00E               	goto	l23522
  20844                           
  20845                           ; BSR set to: 1
- 20846                           ;../../VLCBlib_PIC/mns.c: 642:         writeNVM(EEPROM_NVM_TYPE, 0x3FA, mode_flags);
- 20847   00439C  0EFA               	movlw	250
+ 20846                           ;../../VLCBlib_PIC/mns.c: 642:         writeNVM(EEPROM_NVM_TYPE, 0x3F9, mode_flags);
+ 20847   00439C  0EF9               	movlw	249
  20848   00439E  0100               	movlb	0	; () banked
  20849   0043A0  6FA4               	movwf	writeNVM@index& (0+255),b
  20850   0043A2  0E03               	movlw	3
@@ -36958,17 +36958,17 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  35681   00855C  D79F               	goto	l21612
  35682                           
  35683                           ; BSR set to: 1
- 35684                           ;../../VLCBlib_PIC/vlcb.c: 865:     writeNVM(FLASH_NVM_TYPE, 0xFF80, 1);
- 35685   00855E  0E80               	movlw	128
+ 35684                           ;../../VLCBlib_PIC/vlcb.c: 865:     writeNVM(EEPROM_NVM_TYPE, 0x3FA, 1);
+ 35685   00855E  0EFA               	movlw	250
  35686   008560  0100               	movlb	0	; () banked
  35687   008562  6FA4               	movwf	writeNVM@index& (0+255),b
- 35688   008564  0EFF               	movlw	255
+ 35688   008564  0E03               	movlw	3
  35689   008566  6FA5               	movwf	(writeNVM@index+1)& (0+255),b
  35690   008568  0E00               	movlw	0
  35691   00856A  6FA6               	movwf	(writeNVM@index+2)& (0+255),b
  35692   00856C  0E01               	movlw	1
  35693   00856E  6FA7               	movwf	writeNVM@value& (0+255),b
- 35694   008570  0E01               	movlw	1
+ 35694   008570  0E00               	movlw	0
  35695   008572  EC00  F05B         	call	_writeNVM
  35696                           
  35697                           ;../../VLCBlib_PIC/vlcb.c: 867:     APP_factoryReset();
@@ -37224,8 +37224,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  35930   00AA4E  6F76               	movwf	_mode_flags& (0+255),b
  35931   00AA50  C176  F046         	movff	_mode_flags,_last_mode_flags
  35932                           
- 35933                           ;../../VLCBlib_PIC/mns.c: 276:     writeNVM(EEPROM_NVM_TYPE, 0x3FA, mode_flags);
- 35934   00AA54  0EFA               	movlw	250
+ 35933                           ;../../VLCBlib_PIC/mns.c: 276:     writeNVM(EEPROM_NVM_TYPE, 0x3F9, mode_flags);
+ 35934   00AA54  0EF9               	movlw	249
  35935   00AA56  0100               	movlb	0	; () banked
  35936   00AA58  6FA4               	movwf	writeNVM@index& (0+255),b
  35937   00AA5A  0E03               	movlw	3
@@ -52199,7 +52199,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Tue May 28 19:07:16 2024
+Symbol Table                                                                                   Wed May 29 15:45:39 2024
 
                    nerdCallback@nodeNumber 01D3                        findEvent@tableIndex 01C4  
                 __end_of_pollTimedResponse A886                     ?_handleSelfEnumeration 0097  
