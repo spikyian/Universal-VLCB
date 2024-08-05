@@ -248,6 +248,9 @@ void setup(void) {
     INTCON2bits.RBPU = 0;
     // RB bits 0,1,4,5 need pullups
     WPUB = (uint8_t)getNV(NV_PULLUPS);
+#ifdef CANXIO
+    PADCFG1 = (uint8_t)getNV(NV_LOW_CHANNELS_PULLUPS) ? 0xC0 : 0;
+#endif
 #endif
 #if defined(_18FXXQ83_FAMILY_)
     // enable pullups on all channels

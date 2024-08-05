@@ -804,7 +804,7 @@ SERVICE_ID_EVENTACK 9
 SERVICE_ID_BOOT 10
 SERVICE_ID_STREAMING 17
 ]
-"135
+"142
 [e E22432 VlcbManufacturer `uc
 MANU_DEV 13
 MANU_MERG 165
@@ -956,7 +956,7 @@ CPUM_MICROCHIP 1
 CPUM_ATMEL 2
 CPUM_ARM 3
 ]
-"188
+"202
 [e E22821 VlcbModeParams `uc
 MODE_UNINITIALISED 255
 MODE_SETUP 0
@@ -969,7 +969,7 @@ MODE_HEARTBEAT_ON 12
 MODE_HEARTBEAT_OFF 13
 MODE_BOOT 14
 ]
-"193
+"207
 [e E22905 . `uc
 EEPROM_NVM_TYPE 0
 FLASH_NVM_TYPE 1
@@ -3028,7 +3028,7 @@ TRUE 1
 EEPROM_NVM_TYPE 0
 FLASH_NVM_TYPE 1
 ]
-"180 C:\Users\ianwh\github/VLCBlib_PIC/boot.c
+"194 C:\Users\ianwh\github/VLCBlib_PIC/boot.c
 [v _bootProcessMessage bootProcessMessage `(E22966  1 s 1 bootProcessMessage ]
 "205 C:\Users\ianwh\github/VLCBlib_PIC/can18_can_2.c
 [v _canFactoryReset canFactoryReset `(v  1 s 1 canFactoryReset ]
@@ -3503,7 +3503,7 @@ FLASH_NVM_TYPE 1
 [u S201 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S198 1 asBytes 2 0 ]
 [s S206 Service 20 `uc 1 serviceNo 1 0 `uc 1 version 1 1 `*.38(v 1 factoryReset 3 2 `*.38(v 1 powerUp 3 5 `*.38(E22916 1 processMessage 3 8 `*.38(v 1 poll 3 11 `*.38(uc 1 getESDdata 3 14 `*.38(*.39S201 1 getDiagnostic 3 17 ]
 [v _bootService bootService `CS206  1 e 20 0 ]
-"135
+"142
 [v _paramBlock paramBlock `C[32]uc  1 e 32 @2080 ]
 "110 C:\Users\ianwh\github/VLCBlib_PIC/can18_can_2.c
 [v _canDiagnostics canDiagnostics `[16]S201  1 s 32 canDiagnostics ]
@@ -4784,12 +4784,12 @@ FLASH_NVM_TYPE 1
 [v canProcessMessage@m m `*.39S188  1 p 2 89 ]
 "429
 } 0
-"180 C:\Users\ianwh\github/VLCBlib_PIC/boot.c
+"194 C:\Users\ianwh\github/VLCBlib_PIC/boot.c
 [v _bootProcessMessage bootProcessMessage `(E22966  1 s 1 bootProcessMessage ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E22515 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
 [v bootProcessMessage@m m `*.39S188  1 p 2 89 ]
-"199
+"213
 } 0
 "137 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [v _consumer2QProcessMessage consumer2QProcessMessage `(E22966  1 s 1 consumer2QProcessMessage ]

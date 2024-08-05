@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Thu Jul 25 20:23:10 2024
+                                                                                               Tue Jul 30 17:25:26 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F27Q83
@@ -5070,7 +5070,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5056   000825  7F                 	db	127
   5057   000826  03                 	db	3
   5058   000827  0B                 	db	11
-  5059   000828  0F                 	db	15
+  5059   000828  17                 	db	23
   5060   000829  01                 	db	1
   5061   00082A  00                 	db	0
   5062   00082B  08                 	db	8
@@ -5092,7 +5092,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5078   00083B  08                 	db	8
   5079   00083C  00                 	db	0
   5080   00083D  00                 	db	0
-  5081   00083E  4A                 	db	74
+  5081   00083E  52                 	db	82
   5082   00083F  03                 	db	3
   5083   000840                     __end_of_paramBlock:
   5084                           	callstack 0
@@ -14735,7 +14735,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  14175                           
  14176 ;; *************** function _bootProcessMessage *****************
  14177 ;; Defined at:
- 14178 ;;		line 180 in file "../../VLCBlib_PIC/boot.c"
+ 14178 ;;		line 194 in file "../../VLCBlib_PIC/boot.c"
  14179 ;; Parameters:    Size  Location     Type
  14180 ;;  m               2   89[BANK5 ] PTR struct Message
  14181 ;;		 -> poll@m(9), 
@@ -14785,7 +14785,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  14210   01B262                     _bootProcessMessage:
  14211                           	callstack 117
  14212   01B262                     
- 14213                           ;../../VLCBlib_PIC/boot.c: 182:     if (m->bytes[0] != nn.bytes.hi) return NOT_PROCESSED
+ 14213                           ;../../VLCBlib_PIC/boot.c: 196:     if (m->bytes[0] != nn.bytes.hi) return NOT_PROCESSED
       +                          ;
  14214   01B262  0105               	movlb	5	; () banked
  14215   01B264  EE20 F002          	lfsr	2,2
@@ -14809,7 +14809,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  14233   01B288                     l22451:
  14234                           
  14235                           ; BSR set to: 5
- 14236                           ;../../VLCBlib_PIC/boot.c: 183:     if (m->bytes[1] != nn.bytes.lo) return NOT_PROCESSED
+ 14236                           ;../../VLCBlib_PIC/boot.c: 197:     if (m->bytes[1] != nn.bytes.lo) return NOT_PROCESSED
       +                          ;
  14237   01B288  EE20 F003          	lfsr	2,3
  14238   01B28C  51B9               	movf	bootProcessMessage@m& (0+255),w,b
@@ -14828,7 +14828,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  14251   01B2AA                     l22457:
  14252                           
  14253                           ; BSR set to: 5
- 14254                           ;../../VLCBlib_PIC/boot.c: 188:             if (m->bytes[2] != MODE_BOOT) return NOT_PRO
+ 14254                           ;../../VLCBlib_PIC/boot.c: 202:             if (m->bytes[2] != MODE_BOOT) return NOT_PRO
       +                          CESSED;
  14255   01B2AA  EE20 F004          	lfsr	2,4
  14256   01B2AE  51B9               	movf	bootProcessMessage@m& (0+255),w,b
@@ -14847,7 +14847,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  14269   01B2CC                     l22463:
  14270                           
  14271                           ; BSR set to: 5
- 14272                           ;../../VLCBlib_PIC/boot.c: 193:             writeNVM(EEPROM_NVM_TYPE, 0x3FF, 0xFF);
+ 14272                           ;../../VLCBlib_PIC/boot.c: 207:             writeNVM(EEPROM_NVM_TYPE, 0x3FF, 0xFF);
  14273   01B2CC  0EFF               	movlw	255
  14274   01B2CE  6F60               	movwf	writeNVM@index& (0+255),b
  14275   01B2D0  0E03               	movlw	3
@@ -14860,7 +14860,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  14282   01B2DE  ECDC  F0E7         	call	_writeNVM
  14283   01B2E2  00FF               	reset		;# 
  14284   01B2E4                     
- 14285                           ;../../VLCBlib_PIC/boot.c: 195:             return PROCESSED;
+ 14285                           ;../../VLCBlib_PIC/boot.c: 209:             return PROCESSED;
  14286   01B2E4  0E01               	movlw	1
  14287   01B2E6  EF90  F0D9         	goto	l1473
  14288   01B2EA                     l22475:
@@ -56939,7 +56939,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Thu Jul 25 20:23:10 2024
+Symbol Table                                                                                   Tue Jul 30 17:25:26 2024
 
                    nerdCallback@nodeNumber 057F                        findEvent@tableIndex 0578  
                 __end_of_pollTimedResponse B19E                     ?_handleSelfEnumeration 0501  
