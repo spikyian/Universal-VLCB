@@ -369,6 +369,18 @@ static uint8_t consumer2QEsdData(uint8_t index) {
 #endif
 
 /**
+ * Check if this is a consumed event. Check is there is an Action.
+ * 
+ * @param eventIndex
+ * @return true if this is a consumed event 
+ */
+uint8_t isConsumedEvent(uint8_t eventIndex) {
+    uint8_t ev;
+    ev = (uint8_t)getEv(eventIndex, HAPPENING_SIZE); // skip over the Happening EVs to the first Action
+    return (ev != NO_ACTION);
+}
+
+/**
  * Put the action onto the list of actions to be processed.
  *
  * @param a the action to be processed

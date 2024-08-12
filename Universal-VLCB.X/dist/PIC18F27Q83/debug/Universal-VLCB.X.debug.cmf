@@ -122,7 +122,7 @@ cstackBANK7 BANK7 1 7CC 7CC 23 1 1
 bssBANK5 BANK5 1 5C9 5C9 35 1 1
 bssBANK6 BANK6 1 600 600 F9 1 1
 bssBANK7 BANK7 1 700 700 CC 1 1
-bssBANK8 BANK8 1 800 800 CF 1 1
+bssBANK8 BANK8 1 800 800 D0 1 1
 bssBANK9 BANK9 1 900 900 80 1 1
 idataBANK6 CODE 0 1DEA4 1DEA4 2 1 1
 eeprom_data EEDATA 0 380000 380000 400 1 1
@@ -238,7 +238,7 @@ bssCOMRAM COMRAM 1 530 530 18 1 1
 mediumconst MEDIUMCONST 0 FDA0 FDA0 260 1 2
 ivt0x900 CODE 0 900 900 102 1 2
 config CONFIG 4 300000 300000 23 1 1
-$C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+$C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 init CODE 0 A02 A02 4 1 2
 reset_vec CODE 0 800 800 6 1 2
 config CONFIG 4 300000 300000 23 1 1
@@ -251,14 +251,14 @@ config CONFIG 4 300000 300000 23 1 1
 RAM 5FE-5FF 1
 RAM 6FB-6FF 1
 RAM 7EF-7FF 1
-RAM 8CF-8FF 1
+RAM 8D0-8FF 1
 RAM C00-36FF 1
 SFR 0-4FF 1
 SFR 3700-3FFF 1
 BANK5 5FE-5FF 1
 BANK6 6FB-6FF 1
 BANK7 7EF-7FF 1
-BANK8 8CF-8FF 1
+BANK8 8D0-8FF 1
 CONST 806-81F 1
 CONST 840-847 1
 CONST 850-8FF 1
@@ -328,7 +328,7 @@ BIGRAM 548-55F 1
 BIGRAM 5FE-5FF 1
 BIGRAM 6FB-6FF 1
 BIGRAM 7EF-7FF 1
-BIGRAM 8CF-8FF 1
+BIGRAM 8D0-8FF 1
 BIGRAM C00-36FF 1
 BIGSFR 0-4FF 1
 BIGSFR 3700-3FFF 1
@@ -520,9 +520,9 @@ $dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 1DBDA text188 CODE >697:C:\Users\ianwh\github\Universal-VLCB/servo.c
 1DBEC text188 CODE >699:C:\Users\ianwh\github\Universal-VLCB/servo.c
 1DBEE text188 CODE >700:C:\Users\ianwh\github\Universal-VLCB/servo.c
-1DDD2 text187 CODE >399:C:\Users\ianwh\github\Universal-VLCB/main.c
-1DDD2 text187 CODE >401:C:\Users\ianwh\github\Universal-VLCB/main.c
-1DDEA text187 CODE >405:C:\Users\ianwh\github\Universal-VLCB/main.c
+1DDD2 text187 CODE >402:C:\Users\ianwh\github\Universal-VLCB/main.c
+1DDD2 text187 CODE >404:C:\Users\ianwh\github\Universal-VLCB/main.c
+1DDEA text187 CODE >408:C:\Users\ianwh\github\Universal-VLCB/main.c
 1C69E text186 CODE >316:C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
 1C69E text186 CODE >320:C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
 1C6B2 text186 CODE >323:C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
@@ -600,60 +600,60 @@ $dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 1D00A text182 CODE >533:C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
 1D012 text182 CODE >533:C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
 1D01C text182 CODE >534:C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
-13150 text181 CODE >555:C:\Users\ianwh\github\Universal-VLCB/main.c
-13154 text181 CODE >559:C:\Users\ianwh\github\Universal-VLCB/main.c
-1316A text181 CODE >562:C:\Users\ianwh\github\Universal-VLCB/main.c
-1317C text181 CODE >563:C:\Users\ianwh\github\Universal-VLCB/main.c
-13180 text181 CODE >565:C:\Users\ianwh\github\Universal-VLCB/main.c
-1319A text181 CODE >566:C:\Users\ianwh\github\Universal-VLCB/main.c
-131C8 text181 CODE >567:C:\Users\ianwh\github\Universal-VLCB/main.c
-131CC text181 CODE >568:C:\Users\ianwh\github\Universal-VLCB/main.c
-13204 text181 CODE >569:C:\Users\ianwh\github\Universal-VLCB/main.c
-1320E text181 CODE >571:C:\Users\ianwh\github\Universal-VLCB/main.c
-13238 text181 CODE >580:C:\Users\ianwh\github\Universal-VLCB/main.c
-13256 text181 CODE >581:C:\Users\ianwh\github\Universal-VLCB/main.c
-1325A text181 CODE >591:C:\Users\ianwh\github\Universal-VLCB/main.c
-1325E text181 CODE >591:C:\Users\ianwh\github\Universal-VLCB/main.c
-13266 text181 CODE >591:C:\Users\ianwh\github\Universal-VLCB/main.c
-1326E text181 CODE >591:C:\Users\ianwh\github\Universal-VLCB/main.c
-13278 text181 CODE >595:C:\Users\ianwh\github\Universal-VLCB/main.c
-132AC text181 CODE >596:C:\Users\ianwh\github\Universal-VLCB/main.c
-132EA text181 CODE >597:C:\Users\ianwh\github\Universal-VLCB/main.c
-132EE text181 CODE >598:C:\Users\ianwh\github\Universal-VLCB/main.c
-13332 text181 CODE >602:C:\Users\ianwh\github\Universal-VLCB/main.c
-13366 text181 CODE >603:C:\Users\ianwh\github\Universal-VLCB/main.c
-133A4 text181 CODE >604:C:\Users\ianwh\github\Universal-VLCB/main.c
-133A8 text181 CODE >605:C:\Users\ianwh\github\Universal-VLCB/main.c
-133EC text181 CODE >609:C:\Users\ianwh\github\Universal-VLCB/main.c
-13420 text181 CODE >610:C:\Users\ianwh\github\Universal-VLCB/main.c
-1345E text181 CODE >611:C:\Users\ianwh\github\Universal-VLCB/main.c
-13462 text181 CODE >612:C:\Users\ianwh\github\Universal-VLCB/main.c
-134A6 text181 CODE >632:C:\Users\ianwh\github\Universal-VLCB/main.c
-134CC text181 CODE >632:C:\Users\ianwh\github\Universal-VLCB/main.c
-134D4 text181 CODE >632:C:\Users\ianwh\github\Universal-VLCB/main.c
-134DC text181 CODE >632:C:\Users\ianwh\github\Universal-VLCB/main.c
-134E6 text181 CODE >652:C:\Users\ianwh\github\Universal-VLCB/main.c
-1350E text181 CODE >656:C:\Users\ianwh\github\Universal-VLCB/main.c
-1354E text181 CODE >657:C:\Users\ianwh\github\Universal-VLCB/main.c
-13552 text181 CODE >659:C:\Users\ianwh\github\Universal-VLCB/main.c
-13592 text181 CODE >660:C:\Users\ianwh\github\Universal-VLCB/main.c
-13596 text181 CODE >662:C:\Users\ianwh\github\Universal-VLCB/main.c
-135D6 text181 CODE >663:C:\Users\ianwh\github\Universal-VLCB/main.c
-135DA text181 CODE >672:C:\Users\ianwh\github\Universal-VLCB/main.c
-135FE text181 CODE >672:C:\Users\ianwh\github\Universal-VLCB/main.c
-13606 text181 CODE >672:C:\Users\ianwh\github\Universal-VLCB/main.c
-1360E text181 CODE >672:C:\Users\ianwh\github\Universal-VLCB/main.c
-13618 text181 CODE >677:C:\Users\ianwh\github\Universal-VLCB/main.c
-1365A text181 CODE >678:C:\Users\ianwh\github\Universal-VLCB/main.c
-1365E text181 CODE >680:C:\Users\ianwh\github\Universal-VLCB/main.c
-136A0 text181 CODE >681:C:\Users\ianwh\github\Universal-VLCB/main.c
-136A4 text181 CODE >683:C:\Users\ianwh\github\Universal-VLCB/main.c
-136E6 text181 CODE >684:C:\Users\ianwh\github\Universal-VLCB/main.c
-136EA text181 CODE >693:C:\Users\ianwh\github\Universal-VLCB/main.c
-1370E text181 CODE >693:C:\Users\ianwh\github\Universal-VLCB/main.c
-13716 text181 CODE >693:C:\Users\ianwh\github\Universal-VLCB/main.c
-1371E text181 CODE >693:C:\Users\ianwh\github\Universal-VLCB/main.c
-13728 text181 CODE >697:C:\Users\ianwh\github\Universal-VLCB/main.c
+13150 text181 CODE >558:C:\Users\ianwh\github\Universal-VLCB/main.c
+13154 text181 CODE >562:C:\Users\ianwh\github\Universal-VLCB/main.c
+1316A text181 CODE >565:C:\Users\ianwh\github\Universal-VLCB/main.c
+1317C text181 CODE >566:C:\Users\ianwh\github\Universal-VLCB/main.c
+13180 text181 CODE >568:C:\Users\ianwh\github\Universal-VLCB/main.c
+1319A text181 CODE >569:C:\Users\ianwh\github\Universal-VLCB/main.c
+131C8 text181 CODE >570:C:\Users\ianwh\github\Universal-VLCB/main.c
+131CC text181 CODE >571:C:\Users\ianwh\github\Universal-VLCB/main.c
+13204 text181 CODE >572:C:\Users\ianwh\github\Universal-VLCB/main.c
+1320E text181 CODE >574:C:\Users\ianwh\github\Universal-VLCB/main.c
+13238 text181 CODE >583:C:\Users\ianwh\github\Universal-VLCB/main.c
+13256 text181 CODE >584:C:\Users\ianwh\github\Universal-VLCB/main.c
+1325A text181 CODE >594:C:\Users\ianwh\github\Universal-VLCB/main.c
+1325E text181 CODE >594:C:\Users\ianwh\github\Universal-VLCB/main.c
+13266 text181 CODE >594:C:\Users\ianwh\github\Universal-VLCB/main.c
+1326E text181 CODE >594:C:\Users\ianwh\github\Universal-VLCB/main.c
+13278 text181 CODE >598:C:\Users\ianwh\github\Universal-VLCB/main.c
+132AC text181 CODE >599:C:\Users\ianwh\github\Universal-VLCB/main.c
+132EA text181 CODE >600:C:\Users\ianwh\github\Universal-VLCB/main.c
+132EE text181 CODE >601:C:\Users\ianwh\github\Universal-VLCB/main.c
+13332 text181 CODE >605:C:\Users\ianwh\github\Universal-VLCB/main.c
+13366 text181 CODE >606:C:\Users\ianwh\github\Universal-VLCB/main.c
+133A4 text181 CODE >607:C:\Users\ianwh\github\Universal-VLCB/main.c
+133A8 text181 CODE >608:C:\Users\ianwh\github\Universal-VLCB/main.c
+133EC text181 CODE >612:C:\Users\ianwh\github\Universal-VLCB/main.c
+13420 text181 CODE >613:C:\Users\ianwh\github\Universal-VLCB/main.c
+1345E text181 CODE >614:C:\Users\ianwh\github\Universal-VLCB/main.c
+13462 text181 CODE >615:C:\Users\ianwh\github\Universal-VLCB/main.c
+134A6 text181 CODE >635:C:\Users\ianwh\github\Universal-VLCB/main.c
+134CC text181 CODE >635:C:\Users\ianwh\github\Universal-VLCB/main.c
+134D4 text181 CODE >635:C:\Users\ianwh\github\Universal-VLCB/main.c
+134DC text181 CODE >635:C:\Users\ianwh\github\Universal-VLCB/main.c
+134E6 text181 CODE >655:C:\Users\ianwh\github\Universal-VLCB/main.c
+1350E text181 CODE >659:C:\Users\ianwh\github\Universal-VLCB/main.c
+1354E text181 CODE >660:C:\Users\ianwh\github\Universal-VLCB/main.c
+13552 text181 CODE >662:C:\Users\ianwh\github\Universal-VLCB/main.c
+13592 text181 CODE >663:C:\Users\ianwh\github\Universal-VLCB/main.c
+13596 text181 CODE >665:C:\Users\ianwh\github\Universal-VLCB/main.c
+135D6 text181 CODE >666:C:\Users\ianwh\github\Universal-VLCB/main.c
+135DA text181 CODE >675:C:\Users\ianwh\github\Universal-VLCB/main.c
+135FE text181 CODE >675:C:\Users\ianwh\github\Universal-VLCB/main.c
+13606 text181 CODE >675:C:\Users\ianwh\github\Universal-VLCB/main.c
+1360E text181 CODE >675:C:\Users\ianwh\github\Universal-VLCB/main.c
+13618 text181 CODE >680:C:\Users\ianwh\github\Universal-VLCB/main.c
+1365A text181 CODE >681:C:\Users\ianwh\github\Universal-VLCB/main.c
+1365E text181 CODE >683:C:\Users\ianwh\github\Universal-VLCB/main.c
+136A0 text181 CODE >684:C:\Users\ianwh\github\Universal-VLCB/main.c
+136A4 text181 CODE >686:C:\Users\ianwh\github\Universal-VLCB/main.c
+136E6 text181 CODE >687:C:\Users\ianwh\github\Universal-VLCB/main.c
+136EA text181 CODE >696:C:\Users\ianwh\github\Universal-VLCB/main.c
+1370E text181 CODE >696:C:\Users\ianwh\github\Universal-VLCB/main.c
+13716 text181 CODE >696:C:\Users\ianwh\github\Universal-VLCB/main.c
+1371E text181 CODE >696:C:\Users\ianwh\github\Universal-VLCB/main.c
+13728 text181 CODE >700:C:\Users\ianwh\github\Universal-VLCB/main.c
 1C7A4 text180 CODE >1240:C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 1C7A6 text180 CODE >1244:C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 1C7DA text180 CODE >1245:C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
@@ -921,17 +921,17 @@ $dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 1DCDC text161 CODE >79:C:\Users\ianwh\github\Universal-VLCB/analogue.c
 1DCEC text161 CODE >80:C:\Users\ianwh\github\Universal-VLCB/analogue.c
 1DCFC text161 CODE >81:C:\Users\ianwh\github\Universal-VLCB/analogue.c
-1B986 text160 CODE >524:C:\Users\ianwh\github\Universal-VLCB/main.c
-1B98A text160 CODE >527:C:\Users\ianwh\github\Universal-VLCB/main.c
-1B996 text160 CODE >528:C:\Users\ianwh\github\Universal-VLCB/main.c
-1B9A0 text160 CODE >531:C:\Users\ianwh\github\Universal-VLCB/main.c
-1B9AC text160 CODE >534:C:\Users\ianwh\github\Universal-VLCB/main.c
-1B9B4 text160 CODE >536:C:\Users\ianwh\github\Universal-VLCB/main.c
-1B9EC text160 CODE >537:C:\Users\ianwh\github\Universal-VLCB/main.c
-1B9FC text160 CODE >541:C:\Users\ianwh\github\Universal-VLCB/main.c
-1BA06 text160 CODE >543:C:\Users\ianwh\github\Universal-VLCB/main.c
-1BA2C text160 CODE >544:C:\Users\ianwh\github\Universal-VLCB/main.c
-1BA32 text160 CODE >547:C:\Users\ianwh\github\Universal-VLCB/main.c
+1B986 text160 CODE >527:C:\Users\ianwh\github\Universal-VLCB/main.c
+1B98A text160 CODE >530:C:\Users\ianwh\github\Universal-VLCB/main.c
+1B996 text160 CODE >531:C:\Users\ianwh\github\Universal-VLCB/main.c
+1B9A0 text160 CODE >534:C:\Users\ianwh\github\Universal-VLCB/main.c
+1B9AC text160 CODE >537:C:\Users\ianwh\github\Universal-VLCB/main.c
+1B9B4 text160 CODE >539:C:\Users\ianwh\github\Universal-VLCB/main.c
+1B9EC text160 CODE >540:C:\Users\ianwh\github\Universal-VLCB/main.c
+1B9FC text160 CODE >544:C:\Users\ianwh\github\Universal-VLCB/main.c
+1BA06 text160 CODE >546:C:\Users\ianwh\github\Universal-VLCB/main.c
+1BA2C text160 CODE >547:C:\Users\ianwh\github\Universal-VLCB/main.c
+1BA32 text160 CODE >550:C:\Users\ianwh\github\Universal-VLCB/main.c
 1D93C text159 CODE >214:C:\Users\ianwh\github\Universal-VLCB/main.c
 1D93C text159 CODE >217:C:\Users\ianwh\github\Universal-VLCB/main.c
 1D940 text159 CODE >219:C:\Users\ianwh\github\Universal-VLCB/main.c
@@ -2075,29 +2075,29 @@ $dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 1A5B0 text96 CODE >196:C:\Users\ianwh\github\Universal-VLCB/servo.c
 1A5E6 text96 CODE >197:C:\Users\ianwh\github\Universal-VLCB/servo.c
 1A60A text96 CODE >199:C:\Users\ianwh\github\Universal-VLCB/servo.c
-17F50 text95 CODE >350:C:\Users\ianwh\github\Universal-VLCB/main.c
-17F50 text95 CODE >352:C:\Users\ianwh\github\Universal-VLCB/main.c
-17FF0 text95 CODE >353:C:\Users\ianwh\github\Universal-VLCB/main.c
-17FF4 text95 CODE >354:C:\Users\ianwh\github\Universal-VLCB/main.c
-17FFE text95 CODE >358:C:\Users\ianwh\github\Universal-VLCB/main.c
-18044 text95 CODE >359:C:\Users\ianwh\github\Universal-VLCB/main.c
-18048 text95 CODE >360:C:\Users\ianwh\github\Universal-VLCB/main.c
-1805C text95 CODE >363:C:\Users\ianwh\github\Universal-VLCB/main.c
-1806C text95 CODE >364:C:\Users\ianwh\github\Universal-VLCB/main.c
-180B4 text95 CODE >365:C:\Users\ianwh\github\Universal-VLCB/main.c
-180B8 text95 CODE >366:C:\Users\ianwh\github\Universal-VLCB/main.c
-180CC text95 CODE >368:C:\Users\ianwh\github\Universal-VLCB/main.c
-18114 text95 CODE >369:C:\Users\ianwh\github\Universal-VLCB/main.c
-18118 text95 CODE >370:C:\Users\ianwh\github\Universal-VLCB/main.c
-1811C text95 CODE >371:C:\Users\ianwh\github\Universal-VLCB/main.c
-18130 text95 CODE >382:C:\Users\ianwh\github\Universal-VLCB/main.c
-18134 text95 CODE >385:C:\Users\ianwh\github\Universal-VLCB/main.c
-1DEA0 text94 CODE >417:C:\Users\ianwh\github\Universal-VLCB/main.c
-1DEA0 text94 CODE >418:C:\Users\ianwh\github\Universal-VLCB/main.c
-1DEA2 text94 CODE >419:C:\Users\ianwh\github\Universal-VLCB/main.c
-1DE9C text93 CODE >410:C:\Users\ianwh\github\Universal-VLCB/main.c
-1DE9C text93 CODE >411:C:\Users\ianwh\github\Universal-VLCB/main.c
-1DE9E text93 CODE >412:C:\Users\ianwh\github\Universal-VLCB/main.c
+17F50 text95 CODE >353:C:\Users\ianwh\github\Universal-VLCB/main.c
+17F50 text95 CODE >355:C:\Users\ianwh\github\Universal-VLCB/main.c
+17FF0 text95 CODE >356:C:\Users\ianwh\github\Universal-VLCB/main.c
+17FF4 text95 CODE >357:C:\Users\ianwh\github\Universal-VLCB/main.c
+17FFE text95 CODE >361:C:\Users\ianwh\github\Universal-VLCB/main.c
+18044 text95 CODE >362:C:\Users\ianwh\github\Universal-VLCB/main.c
+18048 text95 CODE >363:C:\Users\ianwh\github\Universal-VLCB/main.c
+1805C text95 CODE >366:C:\Users\ianwh\github\Universal-VLCB/main.c
+1806C text95 CODE >367:C:\Users\ianwh\github\Universal-VLCB/main.c
+180B4 text95 CODE >368:C:\Users\ianwh\github\Universal-VLCB/main.c
+180B8 text95 CODE >369:C:\Users\ianwh\github\Universal-VLCB/main.c
+180CC text95 CODE >371:C:\Users\ianwh\github\Universal-VLCB/main.c
+18114 text95 CODE >372:C:\Users\ianwh\github\Universal-VLCB/main.c
+18118 text95 CODE >373:C:\Users\ianwh\github\Universal-VLCB/main.c
+1811C text95 CODE >374:C:\Users\ianwh\github\Universal-VLCB/main.c
+18130 text95 CODE >385:C:\Users\ianwh\github\Universal-VLCB/main.c
+18134 text95 CODE >388:C:\Users\ianwh\github\Universal-VLCB/main.c
+1DEA0 text94 CODE >420:C:\Users\ianwh\github\Universal-VLCB/main.c
+1DEA0 text94 CODE >421:C:\Users\ianwh\github\Universal-VLCB/main.c
+1DEA2 text94 CODE >422:C:\Users\ianwh\github\Universal-VLCB/main.c
+1DE9C text93 CODE >413:C:\Users\ianwh\github\Universal-VLCB/main.c
+1DE9C text93 CODE >414:C:\Users\ianwh\github\Universal-VLCB/main.c
+1DE9E text93 CODE >415:C:\Users\ianwh\github\Universal-VLCB/main.c
 1DAB6 text92 CODE >1179:C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 1DABA text92 CODE >1180:C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 1DAE2 text92 CODE >1181:C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
@@ -2621,58 +2621,58 @@ $dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 1A22E text52 CODE >1169:C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 1A234 text52 CODE >1170:C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 1A236 text52 CODE >1171:C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
-1461E text51 CODE >424:C:\Users\ianwh\github\Universal-VLCB/main.c
-14620 text51 CODE >429:C:\Users\ianwh\github\Universal-VLCB/main.c
-1463C text51 CODE >430:C:\Users\ianwh\github\Universal-VLCB/main.c
-1464C text51 CODE >431:C:\Users\ianwh\github\Universal-VLCB/main.c
-14652 text51 CODE >433:C:\Users\ianwh\github\Universal-VLCB/main.c
-1465A text51 CODE >434:C:\Users\ianwh\github\Universal-VLCB/main.c
-1466A text51 CODE >435:C:\Users\ianwh\github\Universal-VLCB/main.c
-14670 text51 CODE >437:C:\Users\ianwh\github\Universal-VLCB/main.c
-14674 text51 CODE >442:C:\Users\ianwh\github\Universal-VLCB/main.c
-14698 text51 CODE >445:C:\Users\ianwh\github\Universal-VLCB/main.c
-146A8 text51 CODE >446:C:\Users\ianwh\github\Universal-VLCB/main.c
-146CC text51 CODE >449:C:\Users\ianwh\github\Universal-VLCB/main.c
-146D0 text51 CODE >449:C:\Users\ianwh\github\Universal-VLCB/main.c
-146D8 text51 CODE >449:C:\Users\ianwh\github\Universal-VLCB/main.c
-146E2 text51 CODE >457:C:\Users\ianwh\github\Universal-VLCB/main.c
-14720 text51 CODE >458:C:\Users\ianwh\github\Universal-VLCB/main.c
-14724 text51 CODE >458:C:\Users\ianwh\github\Universal-VLCB/main.c
-1472E text51 CODE >464:C:\Users\ianwh\github\Universal-VLCB/main.c
-14760 text51 CODE >466:C:\Users\ianwh\github\Universal-VLCB/main.c
-14792 text51 CODE >469:C:\Users\ianwh\github\Universal-VLCB/main.c
-1481C text51 CODE >471:C:\Users\ianwh\github\Universal-VLCB/main.c
-14820 text51 CODE >471:C:\Users\ianwh\github\Universal-VLCB/main.c
-14828 text51 CODE >471:C:\Users\ianwh\github\Universal-VLCB/main.c
-14830 text51 CODE >471:C:\Users\ianwh\github\Universal-VLCB/main.c
-1483A text51 CODE >477:C:\Users\ianwh\github\Universal-VLCB/main.c
-1486A text51 CODE >478:C:\Users\ianwh\github\Universal-VLCB/main.c
-1486E text51 CODE >478:C:\Users\ianwh\github\Universal-VLCB/main.c
-14878 text51 CODE >485:C:\Users\ianwh\github\Universal-VLCB/main.c
-148B8 text51 CODE >487:C:\Users\ianwh\github\Universal-VLCB/main.c
-148F8 text51 CODE >490:C:\Users\ianwh\github\Universal-VLCB/main.c
-14920 text51 CODE >491:C:\Users\ianwh\github\Universal-VLCB/main.c
-14960 text51 CODE >495:C:\Users\ianwh\github\Universal-VLCB/main.c
-14988 text51 CODE >496:C:\Users\ianwh\github\Universal-VLCB/main.c
-149C8 text51 CODE >499:C:\Users\ianwh\github\Universal-VLCB/main.c
-149CC text51 CODE >499:C:\Users\ianwh\github\Universal-VLCB/main.c
-149D4 text51 CODE >499:C:\Users\ianwh\github\Universal-VLCB/main.c
-149DC text51 CODE >499:C:\Users\ianwh\github\Universal-VLCB/main.c
-149E4 text51 CODE >499:C:\Users\ianwh\github\Universal-VLCB/main.c
-149EE text51 CODE >508:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A16 text51 CODE >510:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A3E text51 CODE >511:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A42 text51 CODE >511:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A4A text51 CODE >511:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A54 text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A64 text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A6C text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A74 text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A7C text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A84 text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A8C text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A94 text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
-14A9E text51 CODE >516:C:\Users\ianwh\github\Universal-VLCB/main.c
+1461E text51 CODE >427:C:\Users\ianwh\github\Universal-VLCB/main.c
+14620 text51 CODE >432:C:\Users\ianwh\github\Universal-VLCB/main.c
+1463C text51 CODE >433:C:\Users\ianwh\github\Universal-VLCB/main.c
+1464C text51 CODE >434:C:\Users\ianwh\github\Universal-VLCB/main.c
+14652 text51 CODE >436:C:\Users\ianwh\github\Universal-VLCB/main.c
+1465A text51 CODE >437:C:\Users\ianwh\github\Universal-VLCB/main.c
+1466A text51 CODE >438:C:\Users\ianwh\github\Universal-VLCB/main.c
+14670 text51 CODE >440:C:\Users\ianwh\github\Universal-VLCB/main.c
+14674 text51 CODE >445:C:\Users\ianwh\github\Universal-VLCB/main.c
+14698 text51 CODE >448:C:\Users\ianwh\github\Universal-VLCB/main.c
+146A8 text51 CODE >449:C:\Users\ianwh\github\Universal-VLCB/main.c
+146CC text51 CODE >452:C:\Users\ianwh\github\Universal-VLCB/main.c
+146D0 text51 CODE >452:C:\Users\ianwh\github\Universal-VLCB/main.c
+146D8 text51 CODE >452:C:\Users\ianwh\github\Universal-VLCB/main.c
+146E2 text51 CODE >460:C:\Users\ianwh\github\Universal-VLCB/main.c
+14720 text51 CODE >461:C:\Users\ianwh\github\Universal-VLCB/main.c
+14724 text51 CODE >461:C:\Users\ianwh\github\Universal-VLCB/main.c
+1472E text51 CODE >467:C:\Users\ianwh\github\Universal-VLCB/main.c
+14760 text51 CODE >469:C:\Users\ianwh\github\Universal-VLCB/main.c
+14792 text51 CODE >472:C:\Users\ianwh\github\Universal-VLCB/main.c
+1481C text51 CODE >474:C:\Users\ianwh\github\Universal-VLCB/main.c
+14820 text51 CODE >474:C:\Users\ianwh\github\Universal-VLCB/main.c
+14828 text51 CODE >474:C:\Users\ianwh\github\Universal-VLCB/main.c
+14830 text51 CODE >474:C:\Users\ianwh\github\Universal-VLCB/main.c
+1483A text51 CODE >480:C:\Users\ianwh\github\Universal-VLCB/main.c
+1486A text51 CODE >481:C:\Users\ianwh\github\Universal-VLCB/main.c
+1486E text51 CODE >481:C:\Users\ianwh\github\Universal-VLCB/main.c
+14878 text51 CODE >488:C:\Users\ianwh\github\Universal-VLCB/main.c
+148B8 text51 CODE >490:C:\Users\ianwh\github\Universal-VLCB/main.c
+148F8 text51 CODE >493:C:\Users\ianwh\github\Universal-VLCB/main.c
+14920 text51 CODE >494:C:\Users\ianwh\github\Universal-VLCB/main.c
+14960 text51 CODE >498:C:\Users\ianwh\github\Universal-VLCB/main.c
+14988 text51 CODE >499:C:\Users\ianwh\github\Universal-VLCB/main.c
+149C8 text51 CODE >502:C:\Users\ianwh\github\Universal-VLCB/main.c
+149CC text51 CODE >502:C:\Users\ianwh\github\Universal-VLCB/main.c
+149D4 text51 CODE >502:C:\Users\ianwh\github\Universal-VLCB/main.c
+149DC text51 CODE >502:C:\Users\ianwh\github\Universal-VLCB/main.c
+149E4 text51 CODE >502:C:\Users\ianwh\github\Universal-VLCB/main.c
+149EE text51 CODE >511:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A16 text51 CODE >513:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A3E text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A42 text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A4A text51 CODE >514:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A54 text51 CODE >517:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A64 text51 CODE >517:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A6C text51 CODE >517:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A74 text51 CODE >517:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A7C text51 CODE >517:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A84 text51 CODE >517:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A8C text51 CODE >517:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A94 text51 CODE >517:C:\Users\ianwh\github\Universal-VLCB/main.c
+14A9E text51 CODE >519:C:\Users\ianwh\github\Universal-VLCB/main.c
 19178 text50 CODE >403:C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 19178 text50 CODE >415:C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 19190 text50 CODE >416:C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
@@ -3608,47 +3608,47 @@ $dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 1DE42 text2 CODE >95:C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 152CA text1 CODE >236:C:\Users\ianwh\github\Universal-VLCB/main.c
 152CA text1 CODE >241:C:\Users\ianwh\github\Universal-VLCB/main.c
-152D4 text1 CODE >254:C:\Users\ianwh\github\Universal-VLCB/main.c
-152D6 text1 CODE >255:C:\Users\ianwh\github\Universal-VLCB/main.c
-152EE text1 CODE >256:C:\Users\ianwh\github\Universal-VLCB/main.c
-152FE text1 CODE >257:C:\Users\ianwh\github\Universal-VLCB/main.c
-1530A text1 CODE >259:C:\Users\ianwh\github\Universal-VLCB/main.c
-1531C text1 CODE >260:C:\Users\ianwh\github\Universal-VLCB/main.c
-15328 text1 CODE >262:C:\Users\ianwh\github\Universal-VLCB/main.c
-1533A text1 CODE >263:C:\Users\ianwh\github\Universal-VLCB/main.c
-1534A text1 CODE >267:C:\Users\ianwh\github\Universal-VLCB/main.c
-15392 text1 CODE >268:C:\Users\ianwh\github\Universal-VLCB/main.c
-153D6 text1 CODE >270:C:\Users\ianwh\github\Universal-VLCB/main.c
-1541C text1 CODE >273:C:\Users\ianwh\github\Universal-VLCB/main.c
-15464 text1 CODE >274:C:\Users\ianwh\github\Universal-VLCB/main.c
-154A8 text1 CODE >276:C:\Users\ianwh\github\Universal-VLCB/main.c
-154EE text1 CODE >279:C:\Users\ianwh\github\Universal-VLCB/main.c
-15536 text1 CODE >280:C:\Users\ianwh\github\Universal-VLCB/main.c
-1557A text1 CODE >282:C:\Users\ianwh\github\Universal-VLCB/main.c
-155C0 text1 CODE >298:C:\Users\ianwh\github\Universal-VLCB/main.c
-155E4 text1 CODE >298:C:\Users\ianwh\github\Universal-VLCB/main.c
-155EC text1 CODE >298:C:\Users\ianwh\github\Universal-VLCB/main.c
-155F4 text1 CODE >298:C:\Users\ianwh\github\Universal-VLCB/main.c
-155FE text1 CODE >299:C:\Users\ianwh\github\Universal-VLCB/main.c
-15604 text1 CODE >301:C:\Users\ianwh\github\Universal-VLCB/main.c
-15610 text1 CODE >302:C:\Users\ianwh\github\Universal-VLCB/main.c
-15614 text1 CODE >305:C:\Users\ianwh\github\Universal-VLCB/main.c
-15618 text1 CODE >313:C:\Users\ianwh\github\Universal-VLCB/main.c
-1561E text1 CODE >314:C:\Users\ianwh\github\Universal-VLCB/main.c
-15622 text1 CODE >315:C:\Users\ianwh\github\Universal-VLCB/main.c
-15626 text1 CODE >323:C:\Users\ianwh\github\Universal-VLCB/main.c
-1562A text1 CODE >325:C:\Users\ianwh\github\Universal-VLCB/main.c
-1562E text1 CODE >328:C:\Users\ianwh\github\Universal-VLCB/main.c
-15646 text1 CODE >329:C:\Users\ianwh\github\Universal-VLCB/main.c
-1564C text1 CODE >330:C:\Users\ianwh\github\Universal-VLCB/main.c
-15652 text1 CODE >331:C:\Users\ianwh\github\Universal-VLCB/main.c
-15656 text1 CODE >337:C:\Users\ianwh\github\Universal-VLCB/main.c
-15658 text1 CODE >339:C:\Users\ianwh\github\Universal-VLCB/main.c
-1566C text1 CODE >340:C:\Users\ianwh\github\Universal-VLCB/main.c
-1567C text1 CODE >341:C:\Users\ianwh\github\Universal-VLCB/main.c
-1568C text1 CODE >342:C:\Users\ianwh\github\Universal-VLCB/main.c
-1569C text1 CODE >347:C:\Users\ianwh\github\Universal-VLCB/main.c
-156A0 text1 CODE >348:C:\Users\ianwh\github\Universal-VLCB/main.c
+152D4 text1 CODE >257:C:\Users\ianwh\github\Universal-VLCB/main.c
+152D6 text1 CODE >258:C:\Users\ianwh\github\Universal-VLCB/main.c
+152EE text1 CODE >259:C:\Users\ianwh\github\Universal-VLCB/main.c
+152FE text1 CODE >260:C:\Users\ianwh\github\Universal-VLCB/main.c
+1530A text1 CODE >262:C:\Users\ianwh\github\Universal-VLCB/main.c
+1531C text1 CODE >263:C:\Users\ianwh\github\Universal-VLCB/main.c
+15328 text1 CODE >265:C:\Users\ianwh\github\Universal-VLCB/main.c
+1533A text1 CODE >266:C:\Users\ianwh\github\Universal-VLCB/main.c
+1534A text1 CODE >270:C:\Users\ianwh\github\Universal-VLCB/main.c
+15392 text1 CODE >271:C:\Users\ianwh\github\Universal-VLCB/main.c
+153D6 text1 CODE >273:C:\Users\ianwh\github\Universal-VLCB/main.c
+1541C text1 CODE >276:C:\Users\ianwh\github\Universal-VLCB/main.c
+15464 text1 CODE >277:C:\Users\ianwh\github\Universal-VLCB/main.c
+154A8 text1 CODE >279:C:\Users\ianwh\github\Universal-VLCB/main.c
+154EE text1 CODE >282:C:\Users\ianwh\github\Universal-VLCB/main.c
+15536 text1 CODE >283:C:\Users\ianwh\github\Universal-VLCB/main.c
+1557A text1 CODE >285:C:\Users\ianwh\github\Universal-VLCB/main.c
+155C0 text1 CODE >301:C:\Users\ianwh\github\Universal-VLCB/main.c
+155E4 text1 CODE >301:C:\Users\ianwh\github\Universal-VLCB/main.c
+155EC text1 CODE >301:C:\Users\ianwh\github\Universal-VLCB/main.c
+155F4 text1 CODE >301:C:\Users\ianwh\github\Universal-VLCB/main.c
+155FE text1 CODE >302:C:\Users\ianwh\github\Universal-VLCB/main.c
+15604 text1 CODE >304:C:\Users\ianwh\github\Universal-VLCB/main.c
+15610 text1 CODE >305:C:\Users\ianwh\github\Universal-VLCB/main.c
+15614 text1 CODE >308:C:\Users\ianwh\github\Universal-VLCB/main.c
+15618 text1 CODE >316:C:\Users\ianwh\github\Universal-VLCB/main.c
+1561E text1 CODE >317:C:\Users\ianwh\github\Universal-VLCB/main.c
+15622 text1 CODE >318:C:\Users\ianwh\github\Universal-VLCB/main.c
+15626 text1 CODE >326:C:\Users\ianwh\github\Universal-VLCB/main.c
+1562A text1 CODE >328:C:\Users\ianwh\github\Universal-VLCB/main.c
+1562E text1 CODE >331:C:\Users\ianwh\github\Universal-VLCB/main.c
+15646 text1 CODE >332:C:\Users\ianwh\github\Universal-VLCB/main.c
+1564C text1 CODE >333:C:\Users\ianwh\github\Universal-VLCB/main.c
+15652 text1 CODE >334:C:\Users\ianwh\github\Universal-VLCB/main.c
+15656 text1 CODE >340:C:\Users\ianwh\github\Universal-VLCB/main.c
+15658 text1 CODE >342:C:\Users\ianwh\github\Universal-VLCB/main.c
+1566C text1 CODE >343:C:\Users\ianwh\github\Universal-VLCB/main.c
+1567C text1 CODE >344:C:\Users\ianwh\github\Universal-VLCB/main.c
+1568C text1 CODE >345:C:\Users\ianwh\github\Universal-VLCB/main.c
+1569C text1 CODE >350:C:\Users\ianwh\github\Universal-VLCB/main.c
+156A0 text1 CODE >351:C:\Users\ianwh\github\Universal-VLCB/main.c
 1CAF4 text0 CODE >1247:C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 1CAF4 text0 CODE >1257:C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 1CAFE text0 CODE >1258:C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
@@ -3670,74 +3670,74 @@ $dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 1CB56 text0 CODE >1309:C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 1CB58 text0 CODE >1313:C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 1CB5C text0 CODE >1314:C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
-1C484 cinit CODE >64669:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C484 cinit CODE >64671:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C484 cinit CODE >64674:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C484 cinit CODE >64917:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C486 cinit CODE >64918:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C488 cinit CODE >64919:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C48A cinit CODE >64920:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C48C cinit CODE >64921:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C48E cinit CODE >64922:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C490 cinit CODE >64923:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C492 cinit CODE >64924:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C496 cinit CODE >64925:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C498 cinit CODE >64926:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C49C cinit CODE >64930:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4A0 cinit CODE >64931:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4A4 cinit CODE >64932:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4A4 cinit CODE >64933:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4A6 cinit CODE >64934:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4A8 cinit CODE >64935:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4AA cinit CODE >64936:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4AC cinit CODE >64937:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4AE cinit CODE >64938:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4B0 cinit CODE >64941:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4B4 cinit CODE >64942:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4B6 cinit CODE >64943:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4B6 cinit CODE >64944:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4B8 cinit CODE >64945:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4BA cinit CODE >64946:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4BC cinit CODE >64949:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4C0 cinit CODE >64950:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4C2 cinit CODE >64951:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4C2 cinit CODE >64952:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4C4 cinit CODE >64953:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4C6 cinit CODE >64954:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4C8 cinit CODE >64957:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4CC cinit CODE >64958:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4CE cinit CODE >64959:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4CE cinit CODE >64960:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4D0 cinit CODE >64961:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4D2 cinit CODE >64962:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4D4 cinit CODE >64965:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4D8 cinit CODE >64966:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4DA cinit CODE >64967:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4DA cinit CODE >64968:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4DC cinit CODE >64969:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4DE cinit CODE >64970:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4E0 cinit CODE >64973:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4E4 cinit CODE >64974:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4E6 cinit CODE >64975:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4E6 cinit CODE >64976:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4E8 cinit CODE >64977:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4EA cinit CODE >64978:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4EC cinit CODE >64981:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4F0 cinit CODE >64982:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4F2 cinit CODE >64983:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4F2 cinit CODE >64984:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4F4 cinit CODE >64985:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4F6 cinit CODE >64986:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4F8 cinit CODE >64994:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4FA cinit CODE >64995:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4FC cinit CODE >64996:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C4FE cinit CODE >64997:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C500 cinit CODE >64998:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C502 cinit CODE >64999:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C504 cinit CODE >65000:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C506 cinit CODE >65006:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C506 cinit CODE >65008:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
-1C508 cinit CODE >65009:C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_1.s
+1C484 cinit CODE >64669:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C484 cinit CODE >64671:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C484 cinit CODE >64674:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C484 cinit CODE >64917:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C486 cinit CODE >64918:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C488 cinit CODE >64919:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C48A cinit CODE >64920:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C48C cinit CODE >64921:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C48E cinit CODE >64922:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C490 cinit CODE >64923:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C492 cinit CODE >64924:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C496 cinit CODE >64925:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C498 cinit CODE >64926:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C49C cinit CODE >64930:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4A0 cinit CODE >64931:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4A4 cinit CODE >64932:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4A4 cinit CODE >64933:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4A6 cinit CODE >64934:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4A8 cinit CODE >64935:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4AA cinit CODE >64936:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4AC cinit CODE >64937:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4AE cinit CODE >64938:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4B0 cinit CODE >64941:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4B4 cinit CODE >64942:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4B6 cinit CODE >64943:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4B6 cinit CODE >64944:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4B8 cinit CODE >64945:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4BA cinit CODE >64946:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4BC cinit CODE >64949:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4C0 cinit CODE >64950:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4C2 cinit CODE >64951:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4C2 cinit CODE >64952:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4C4 cinit CODE >64953:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4C6 cinit CODE >64954:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4C8 cinit CODE >64957:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4CC cinit CODE >64958:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4CE cinit CODE >64959:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4CE cinit CODE >64960:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4D0 cinit CODE >64961:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4D2 cinit CODE >64962:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4D4 cinit CODE >64965:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4D8 cinit CODE >64966:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4DA cinit CODE >64967:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4DA cinit CODE >64968:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4DC cinit CODE >64969:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4DE cinit CODE >64970:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4E0 cinit CODE >64973:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4E4 cinit CODE >64974:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4E6 cinit CODE >64975:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4E6 cinit CODE >64976:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4E8 cinit CODE >64977:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4EA cinit CODE >64978:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4EC cinit CODE >64981:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4F0 cinit CODE >64982:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4F2 cinit CODE >64983:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4F2 cinit CODE >64984:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4F4 cinit CODE >64985:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4F6 cinit CODE >64986:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4F8 cinit CODE >64994:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4FA cinit CODE >64995:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4FC cinit CODE >64996:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C4FE cinit CODE >64997:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C500 cinit CODE >64998:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C502 cinit CODE >64999:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C504 cinit CODE >65000:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C506 cinit CODE >65006:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C506 cinit CODE >65008:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
+1C508 cinit CODE >65009:C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -3805,7 +3805,7 @@ __end_of_findServiceIndex 1C2DC 0 CODE 0 text124 dist/PIC18F27Q83/debug\Universa
 _setTimedResponseDelay 1DE5E 0 CODE 0 text56 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_teachFactoryReset 1DE98 0 CODE 0 text153 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-__mediumconst FDA0 0 MEDIUMCONST 0 mediumconst C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+__mediumconst FDA0 0 MEDIUMCONST 0 mediumconst C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 _C1FIFOSTA2Hbits 16D 0 ABS 0 - dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _lastActionPollTime 6AC 0 BANK6 1 bssBANK6 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 setMultiState@action 51D 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -3849,15 +3849,15 @@ _TMR3 328 0 ABS 0 - dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _WPUA 401 0 ABS 0 - dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _WPUB 409 0 ABS 0 - dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _WPUC 411 0 ABS 0 - dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-___sp 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+___sp 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 _have 1C2DC 0 CODE 0 text137 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _loop 17F50 0 CODE 0 text95 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _main 1CAF4 0 CODE 0 text0 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _name 848 0 CODE 0 _name_text dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _poll 14ECE 0 CODE 0 text21 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 needsStarting@io 51D 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-___stack_hi 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-___stack_lo 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+___stack_hi 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+___stack_lo 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 __end_of_teachCheckLen 1C7A4 0 CODE 0 text30 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 reqevCallback@tableIndex 58B 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _mnsTRallDiagnosticsCallback 19B48 0 CODE 0 text48 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -3865,7 +3865,7 @@ canPowerUp@temp 525 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLC
 pop@q 519 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _getTwoAction 1DE66 0 CODE 0 text116 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-start A02 0 CODE 0 init C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+start A02 0 CODE 0 init C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 _eventTable 1F000 0 CODE 0 _eventTable_text dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _mnsGetDiagnostic 1D59C 0 CODE 0 text66 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_startMultiOutput 1BC30 0 CODE 0 text107 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -3937,11 +3937,11 @@ __LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _prepareSelfEnumResponse 1CBDC 0 CODE 0 text88 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _producerEsdData 1DBF0 0 CODE 0 text59 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _enumerationState 53D 0 COMRAM 1 bssCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-__accesstop 560 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-intlevel0 0 0 CODE 0 text C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-intlevel1 0 0 CODE 0 text C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-intlevel2 0 0 CODE 0 text C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-intlevel3 0 0 CODE 0 text C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+__accesstop 560 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+intlevel0 0 0 CODE 0 text C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+intlevel1 0 0 CODE 0 text C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+intlevel2 0 0 CODE 0 text C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+intlevel3 0 0 CODE 0 text C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 __ptext100 1DC44 0 CODE 0 text100 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __ptext101 16BA0 0 CODE 0 text101 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __ptext102 1415C 0 CODE 0 text102 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -4147,8 +4147,8 @@ _C1FIFOCON3U 176 0 ABS 0 - dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_eventTable 1FFF0 0 CODE 0 _eventTable_text dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 ___awdiv@dividend 523 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_nvGetESDdata 1DD20 0 CODE 0 text60 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 have@id 51B 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 sodTRCallback@send_on_ok 580 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _C1CONH 101 0 ABS 0 - dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -4159,7 +4159,7 @@ _timerExtension1 53B 0 COMRAM 1 bssCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.
 _timerExtension2 53A 0 COMRAM 1 bssCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _doneTwoAction 1DE8C 0 CODE 0 text120 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _leds_poll 15DF8 0 CODE 0 text145 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-_normalQueueBuf 847 0 BANK8 1 bssBANK8 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
+_normalQueueBuf 848 0 BANK8 1 bssBANK8 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _clearEvents 1D744 0 CODE 0 text166 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 nvProcessMessage@m 5B9 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _teachFactoryReset 1DE92 0 CODE 0 text153 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -4337,7 +4337,7 @@ doReval@enNum 571 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.
 doReval@evNum 56E 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 doReval@evVal 572 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 sendProducedEvent@happening 574 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-_rxBuffers 887 0 BANK8 1 bssBANK8 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
+_rxBuffers 888 0 BANK8 1 bssBANK8 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_APP_isSuitableTimeToWriteFlash 1DDEC 0 CODE 0 text187 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _pollTimedResponse 1B0DA 0 CODE 0 text43 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_doNerd 1DD9C 0 CODE 0 text36 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -4474,7 +4474,7 @@ _setupTimer3$1977 524 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-V
 teachGetESDdata@id 519 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 addEvent@e 5A2 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 addEvent@f 5A1 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-isa$xinst 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+isa$xinst 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 _readNVM 1CC50 0 CODE 0 text194 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _configIO$8410 56A 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 processOutputs@io 576 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -4588,7 +4588,7 @@ rebuildHashtable@hash 571 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __Hbigram 0 0 ABS 0 bigram dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 _lastInputScanTime 6B0 0 BANK6 1 bssBANK6 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 nvGetESDdata@id 519 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _setServoState 1AB3C 0 CODE 0 text112 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -5141,15 +5141,15 @@ _finaliseOutput 1DE44 0 CODE 0 text118 dist/PIC18F27Q83/debug\Universal-VLCB.X.d
 __end_of_setNewCanId 1D426 0 CODE 0 text87 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _saveNV 1D782 0 CODE 0 text163 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 __end_of_tickGet 1CA08 0 CODE 0 text146 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_bootProcessMessage 1B322 0 CODE 0 text27 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _mnsProcessMessage 1112A 0 CODE 0 text24 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_pbUpTimer 1B014 0 CODE 0 text143 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_startServos 1A60C 0 CODE 0 text96 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __Lfardata 0 0 FARRAM 0 fardata dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-isa$std 1 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+isa$std 1 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 setNV@index 5B8 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 nvPowerUp@i 52A 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _sodTRCallback 19178 0 CODE 0 text50 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -5163,8 +5163,8 @@ __end_of_canService FFF9 0 MEDIUMCONST 0 mediumconst dist/PIC18F27Q83/debug\Univ
 __end_of_loadFlashBlock 1D294 0 CODE 0 text184 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _flashCounter 533 0 COMRAM 1 bssCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 APP_addEvent@eventNumber 5A6 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-stackhi 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-stacklo 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+stackhi 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+stacklo 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 _initAnalogue 1DB40 0 CODE 0 text7 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 pbDownTimer@timeout 564 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _initRomOps 1DDB8 0 CODE 0 text140 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -5422,7 +5422,7 @@ __end_of_checkLen 1BE18 0 CODE 0 text91 dist/PIC18F27Q83/debug\Universal-VLCB.X.
 needsStarting@type 51A 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _bootService FFA9 0 MEDIUMCONST 0 mediumconst dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _processActions 16EC4 0 CODE 0 text104 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-__ramtop 3700 0 RAM 0 ramtop C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+__ramtop 3700 0 RAM 0 ramtop C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 __end_of_APP_postProcessMessage 1DEA4 0 CODE 0 text94 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_checkRemoveTableEntry 1C992 0 CODE 0 text171 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _APP_nvValueChanged$1344 5B0 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -5460,16 +5460,16 @@ _universalEventsInit 1DE30 0 CODE 0 text2 dist/PIC18F27Q83/debug\Universal-VLCB.
 pbUpTimer@timeout 564 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 doNenrd@index 56E 0 BANK5 1 cstackBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_setOutputState 1CE16 0 CODE 0 text111 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-___heap_hi 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-___heap_lo 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+___heap_hi 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+___heap_lo 0 0 ABS 0 - C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 __end_of_initTicker 1CE80 0 CODE 0 text18 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 getParameter@idx 51E 0 COMRAM 1 cstackCOMRAM dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 ivt0x900_base 900 0 CODE 0 ivt0x900 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_readInput 19938 0 CODE 0 text139 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __end_of_paramBlock 840 0 CODE 0 _paramBlock_text dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 ___param_bank 0 0 ABS 0 - dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAsqkg.\driver_tmp_9.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\ianwh\AppData\Local\Temp\xcAs10tk.\driver_tmp_9.o
 _ackPowerUp 1DB98 0 CODE 0 text12 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
 _timedResponseStep 5E5 0 BANK5 1 bssBANK5 dist/PIC18F27Q83/debug\Universal-VLCB.X.debug.o
@@ -5850,7 +5850,7 @@ cstackBANK5 1 560 560 9E 1
 reset_vec 0 800 800 6 1
 bssBANK6 1 600 600 FB 1
 bssBANK7 1 700 700 EF 1
-bssBANK8 1 800 800 CF 1
+bssBANK8 1 800 800 D0 1
 bssBANK9 1 900 900 80 1
 eeprom_data 0 380000 380000 400 1
 text199 0 1D428 1D428 4DE 1

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Sun Jul 28 17:01:55 2024
+                                                                                               Mon Aug 05 20:59:46 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F27Q83
@@ -5063,12 +5063,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5049   000820                     _paramBlock:
   5050                           	callstack 0
   5051   000820  A5                 	db	165
-  5052   000821  65                 	db	101
+  5052   000821  61                 	db	97
   5053   000822  20                 	db	32
   5054   000823  FF                 	db	255
   5055   000824  14                 	db	20
   5056   000825  7F                 	db	127
-  5057   000826  03                 	db	3
+  5057   000826  04                 	db	4
   5058   000827  0B                 	db	11
   5059   000828  17                 	db	23
   5060   000829  01                 	db	1
@@ -5081,7 +5081,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5067   000830  00                 	db	0
   5068   000831  00                 	db	0
   5069   000832  01                 	db	1
-  5070   000833  03                 	db	3
+  5070   000833  01                 	db	1
   5071   000834  00                 	db	0
   5072   000835  00                 	db	0
   5073   000836  00                 	db	0
@@ -5092,7 +5092,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5078   00083B  08                 	db	8
   5079   00083C  00                 	db	0
   5080   00083D  00                 	db	0
-  5081   00083E  52                 	db	82
+  5081   00083E  4D                 	db	77
   5082   00083F  03                 	db	3
   5083   000840                     __end_of_paramBlock:
   5084                           	callstack 0
@@ -5291,9 +5291,9 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5277   01C4B8  06E8               	decf	wreg,f,c
   5278   01C4BA  E1FD               	bnz	clear_1
   5279                           
-  5280                           ; Clear objects allocated to BANK8 (207 bytes)
+  5280                           ; Clear objects allocated to BANK8 (208 bytes)
   5281   01C4BC  EE02  F000         	lfsr	0,__pbssBANK8
-  5282   01C4C0  0ECF               	movlw	207
+  5282   01C4C0  0ED0               	movlw	208
   5283   01C4C2                     clear_2:
   5284   01C4C2  6AEE               	clrf	postinc0,c
   5285   01C4C4  06E8               	decf	wreg,f,c
@@ -5613,13 +5613,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5599                           	callstack 0
   5600   000800                     _happening2Event:
   5601                           	callstack 0
-  5602   000800                     	ds	71
-  5603   000847                     _normalQueueBuf:
+  5602   000800                     	ds	72
+  5603   000848                     _normalQueueBuf:
   5604                           	callstack 0
-  5605   000847                     	ds	64
-  5606   000887                     _rxBuffers:
+  5605   000848                     	ds	64
+  5606   000888                     _rxBuffers:
   5607                           	callstack 0
-  5608   000887                     	ds	72
+  5608   000888                     	ds	72
   5609                           
   5610                           	psect	bssBANK9
   5611   000900                     __pbssBANK9:
@@ -7367,11 +7367,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7321   0152D2  6FE2               	movwf	(_transport+1)& (0+255),b
   7322   0152D4                     
   7323                           ; BSR set to: 5
-  7324                           ;../main.c: 254:     pu = 0xFF;
+  7324                           ;../main.c: 257:     pu = 0xFF;
   7325   0152D4  6973               	setf	setup@pu& (0+255),b
   7326   0152D6                     
   7327                           ; BSR set to: 5
-  7328                           ;../main.c: 255:     for (io=0; io<16; io++) {
+  7328                           ;../main.c: 258:     for (io=0; io<16; io++) {
   7329   0152D6  0E00               	movlw	0
   7330   0152D8  6E46               	movwf	_io^(0+1280),c
   7331   0152DA                     l23911:
@@ -7385,7 +7385,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7339   0152EA  EF02  F0AB         	goto	l23959
   7340   0152EE                     l23915:
   7341                           
-  7342                           ;../main.c: 256:         if (io == 0) {
+  7342                           ;../main.c: 259:         if (io == 0) {
   7343   0152EE  5046               	movf	_io^(0+1280),w,c
   7344   0152F0  A4D8               	btfss	status,2,c
   7345   0152F2  EF7D  F0A9         	goto	u27541
@@ -7394,7 +7394,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7348   0152FA  EF85  F0A9         	goto	l23919
   7349   0152FE                     u27540:
   7350   0152FE                     
-  7351                           ;../main.c: 257:             pu = (uint8_t)getNV(6);
+  7351                           ;../main.c: 260:             pu = (uint8_t)getNV(6);
   7352   0152FE  0E06               	movlw	6
   7353   015300  EC4A  F0E9         	call	_getNV
   7354   015304  5019               	movf	?_getNV^(0+1280),w,c
@@ -7402,7 +7402,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7356   015308  6F73               	movwf	setup@pu& (0+255),b
   7357   01530A                     l23919:
   7358                           
-  7359                           ;../main.c: 259:         if (io == 8) {
+  7359                           ;../main.c: 262:         if (io == 8) {
   7360   01530A  0E08               	movlw	8
   7361   01530C  1846               	xorwf	_io^(0+1280),w,c
   7362   01530E  A4D8               	btfss	status,2,c
@@ -7412,7 +7412,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7366   015318  EF94  F0A9         	goto	l23923
   7367   01531C                     u27550:
   7368   01531C                     
-  7369                           ;../main.c: 260:             pu = (uint8_t)getNV(7);
+  7369                           ;../main.c: 263:             pu = (uint8_t)getNV(7);
   7370   01531C  0E07               	movlw	7
   7371   01531E  EC4A  F0E9         	call	_getNV
   7372   015322  5019               	movf	?_getNV^(0+1280),w,c
@@ -7420,7 +7420,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7374   015326  6F73               	movwf	setup@pu& (0+255),b
   7375   015328                     l23923:
   7376                           
-  7377                           ;../main.c: 262:         if (io == 16) {
+  7377                           ;../main.c: 265:         if (io == 16) {
   7378   015328  0E10               	movlw	16
   7379   01532A  1846               	xorwf	_io^(0+1280),w,c
   7380   01532C  A4D8               	btfss	status,2,c
@@ -7430,7 +7430,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7384   015336  EFE0  F0AA         	goto	l23953
   7385   01533A                     u27560:
   7386   01533A                     
-  7387                           ;../main.c: 263:             pu = (uint8_t)getNV(8);
+  7387                           ;../main.c: 266:             pu = (uint8_t)getNV(8);
   7388   01533A  0E08               	movlw	8
   7389   01533C  EC4A  F0E9         	call	_getNV
   7390   015340  5019               	movf	?_getNV^(0+1280),w,c
@@ -7439,7 +7439,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7393   015346  EFE0  F0AA         	goto	l23953
   7394   01534A                     l23927:
   7395                           
-  7396                           ;../main.c: 267:                 if (pu && (1 << io % 8))
+  7396                           ;../main.c: 270:                 if (pu && (1 << io % 8))
   7397   01534A  0105               	movlb	5	; () banked
   7398   01534C  5173               	movf	setup@pu& (0+255),w,b
   7399   01534E  B4D8               	btfsc	status,2,c
@@ -7477,7 +7477,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7431   015392                     u27590:
   7432   015392                     
   7433                           ; BSR set to: 5
-  7434                           ;../main.c: 268:                     WPUA |= 1<<(configs[io].no);
+  7434                           ;../main.c: 271:                     WPUA |= 1<<(configs[io].no);
   7435   015392  5046               	movf	_io^(0+1280),w,c
   7436   015394  0D04               	mullw	4
   7437   015396  0E02               	movlw	2
@@ -7515,7 +7515,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7469   0153D6                     l23933:
   7470                           
   7471                           ; BSR set to: 5
-  7472                           ;../main.c: 270:                     WPUA &= ~(1<<(configs[io].no));
+  7472                           ;../main.c: 273:                     WPUA &= ~(1<<(configs[io].no));
   7473   0153D6  5046               	movf	_io^(0+1280),w,c
   7474   0153D8  0D04               	mullw	4
   7475   0153DA  0E02               	movlw	2
@@ -7553,7 +7553,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7507   015418  EFFF  F0AA         	goto	l23955
   7508   01541C                     l23935:
   7509                           
-  7510                           ;../main.c: 273:                 if (pu && (1 << io % 8))
+  7510                           ;../main.c: 276:                 if (pu && (1 << io % 8))
   7511   01541C  0105               	movlb	5	; () banked
   7512   01541E  5173               	movf	setup@pu& (0+255),w,b
   7513   015420  B4D8               	btfsc	status,2,c
@@ -7591,7 +7591,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7545   015464                     u27640:
   7546   015464                     
   7547                           ; BSR set to: 5
-  7548                           ;../main.c: 274:                     WPUB |= 1<<(configs[io].no);
+  7548                           ;../main.c: 277:                     WPUB |= 1<<(configs[io].no);
   7549   015464  5046               	movf	_io^(0+1280),w,c
   7550   015466  0D04               	mullw	4
   7551   015468  0E02               	movlw	2
@@ -7629,7 +7629,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7583   0154A8                     l23941:
   7584                           
   7585                           ; BSR set to: 5
-  7586                           ;../main.c: 276:                     WPUB &= ~(1<<(configs[io].no));
+  7586                           ;../main.c: 279:                     WPUB &= ~(1<<(configs[io].no));
   7587   0154A8  5046               	movf	_io^(0+1280),w,c
   7588   0154AA  0D04               	mullw	4
   7589   0154AC  0E02               	movlw	2
@@ -7667,7 +7667,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7621   0154EA  EFFF  F0AA         	goto	l23955
   7622   0154EE                     l23943:
   7623                           
-  7624                           ;../main.c: 279:                 if (pu && (1 << io % 8))
+  7624                           ;../main.c: 282:                 if (pu && (1 << io % 8))
   7625   0154EE  0105               	movlb	5	; () banked
   7626   0154F0  5173               	movf	setup@pu& (0+255),w,b
   7627   0154F2  B4D8               	btfsc	status,2,c
@@ -7705,7 +7705,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7659   015536                     u27690:
   7660   015536                     
   7661                           ; BSR set to: 5
-  7662                           ;../main.c: 280:                     WPUC |= 1<<(configs[io].no);
+  7662                           ;../main.c: 283:                     WPUC |= 1<<(configs[io].no);
   7663   015536  5046               	movf	_io^(0+1280),w,c
   7664   015538  0D04               	mullw	4
   7665   01553A  0E02               	movlw	2
@@ -7743,7 +7743,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7697   01557A                     l23949:
   7698                           
   7699                           ; BSR set to: 5
-  7700                           ;../main.c: 282:                     WPUC &= ~(1<<(configs[io].no));
+  7700                           ;../main.c: 285:                     WPUC &= ~(1<<(configs[io].no));
   7701   01557A  5046               	movf	_io^(0+1280),w,c
   7702   01557C  0D04               	mullw	4
   7703   01557E  0E02               	movlw	2
@@ -7818,46 +7818,46 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7772   0155FA  EFFF  F0AA         	goto	l23955
   7773   0155FE                     l23955:
   7774                           
-  7775                           ;../main.c: 299:     }
+  7775                           ;../main.c: 302:     }
   7776   0155FE  2A46               	incf	_io^(0+1280),f,c
   7777   015600  EF6D  F0A9         	goto	l23911
   7778   015604                     l23959:
   7779                           
-  7780                           ;../main.c: 301:     setTimedResponseDelay((uint8_t)getNV(5));
+  7780                           ;../main.c: 304:     setTimedResponseDelay((uint8_t)getNV(5));
   7781   015604  0E05               	movlw	5
   7782   015606  EC4A  F0E9         	call	_getNV
   7783   01560A  5019               	movf	?_getNV^(0+1280),w,c
   7784   01560C  EC2F  F0EF         	call	_setTimedResponseDelay
   7785   015610                     
-  7786                           ;../main.c: 302:     universalEventsInit();
+  7786                           ;../main.c: 305:     universalEventsInit();
   7787   015610  EC18  F0EF         	call	_universalEventsInit	;wreg free
   7788   015614                     
-  7789                           ;../main.c: 305:     initAnalogue();
+  7789                           ;../main.c: 308:     initAnalogue();
   7790   015614  ECA0  F0ED         	call	_initAnalogue	;wreg free
   7791   015618                     
-  7792                           ;../main.c: 313:     ANSELA = 0x00;
+  7792                           ;../main.c: 316:     ANSELA = 0x00;
   7793   015618  0E00               	movlw	0
   7794   01561A  0104               	movlb	4	; () banked
   7795   01561C  6F00               	movwf	0,b	;volatile
   7796   01561E                     
   7797                           ; BSR set to: 4
-  7798                           ;../main.c: 314:     ANSELB = 0x00;
+  7798                           ;../main.c: 317:     ANSELB = 0x00;
   7799   01561E  0E00               	movlw	0
   7800   015620  6F08               	movwf	8,b	;volatile
   7801   015622                     
   7802                           ; BSR set to: 4
-  7803                           ;../main.c: 315:     ANSELC = 0x00;
+  7803                           ;../main.c: 318:     ANSELC = 0x00;
   7804   015622  0E00               	movlw	0
   7805   015624  6F10               	movwf	16,b	;volatile
   7806   015626                     
   7807                           ; BSR set to: 4
-  7808                           ;../main.c: 323:     initServos();
+  7808                           ;../main.c: 326:     initServos();
   7809   015626  EC56  F0C7         	call	_initServos	;wreg free
   7810   01562A                     
-  7811                           ;../main.c: 325:     initOutputs();
+  7811                           ;../main.c: 328:     initOutputs();
   7812   01562A  EC4F  F0EC         	call	_initOutputs	;wreg free
   7813   01562E                     
-  7814                           ;../main.c: 328:     for (io=0; io< 16; io++) {
+  7814                           ;../main.c: 331:     for (io=0; io< 16; io++) {
   7815   01562E  0E00               	movlw	0
   7816   015630  6E46               	movwf	_io^(0+1280),c
   7817   015632                     l23977:
@@ -7871,47 +7871,47 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   7825   015642  EF29  F0AB         	goto	l23987
   7826   015646                     l23981:
   7827                           
-  7828                           ;../main.c: 329:         configIO(io);
+  7828                           ;../main.c: 332:         configIO(io);
   7829   015646  5046               	movf	_io^(0+1280),w,c
   7830   015648  ECA8  F098         	call	_configIO
   7831   01564C                     
-  7832                           ;../main.c: 330:     }
+  7832                           ;../main.c: 333:     }
   7833   01564C  2A46               	incf	_io^(0+1280),f,c
   7834   01564E  EF19  F0AB         	goto	l23977
   7835   015652                     l23987:
   7836                           
-  7837                           ;../main.c: 331:     initInputScan();
+  7837                           ;../main.c: 334:     initInputScan();
   7838   015652  EC70  F0D6         	call	_initInputScan	;wreg free
   7839   015656                     
-  7840                           ;../main.c: 337:     (INTCON0bits.GIE = 1);
+  7840                           ;../main.c: 340:     (INTCON0bits.GIE = 1);
   7841   015656  8ED6               	bsf	214,7,c	;volatile
   7842   015658                     
-  7843                           ;../main.c: 339:     startTime.val = tickGet();
+  7843                           ;../main.c: 342:     startTime.val = tickGet();
   7844   015658  ECC9  F0E4         	call	_tickGet	;wreg free
   7845   01565C  C519  F6B8         	movff	?_tickGet,_startTime
   7846   015660  C51A  F6B9         	movff	?_tickGet+1,_startTime+1
   7847   015664  C51B  F6BA         	movff	?_tickGet+2,_startTime+2
   7848   015668  C51C  F6BB         	movff	?_tickGet+3,_startTime+3
   7849   01566C                     
-  7850                           ;../main.c: 340:     lastServoStartTime.val = startTime.val;
+  7850                           ;../main.c: 343:     lastServoStartTime.val = startTime.val;
   7851   01566C  C6B8  F6B4         	movff	_startTime,_lastServoStartTime
   7852   015670  C6B9  F6B5         	movff	_startTime+1,_lastServoStartTime+1
   7853   015674  C6BA  F6B6         	movff	_startTime+2,_lastServoStartTime+2
   7854   015678  C6BB  F6B7         	movff	_startTime+3,_lastServoStartTime+3
   7855   01567C                     
-  7856                           ;../main.c: 341:     lastInputScanTime.val = startTime.val;
+  7856                           ;../main.c: 344:     lastInputScanTime.val = startTime.val;
   7857   01567C  C6B8  F6B0         	movff	_startTime,_lastInputScanTime
   7858   015680  C6B9  F6B1         	movff	_startTime+1,_lastInputScanTime+1
   7859   015684  C6BA  F6B2         	movff	_startTime+2,_lastInputScanTime+2
   7860   015688  C6BB  F6B3         	movff	_startTime+3,_lastInputScanTime+3
   7861   01568C                     
-  7862                           ;../main.c: 342:     lastActionPollTime.val = startTime.val;
+  7862                           ;../main.c: 345:     lastActionPollTime.val = startTime.val;
   7863   01568C  C6B8  F6AC         	movff	_startTime,_lastActionPollTime
   7864   015690  C6B9  F6AD         	movff	_startTime+1,_lastActionPollTime+1
   7865   015694  C6BA  F6AE         	movff	_startTime+2,_lastActionPollTime+2
   7866   015698  C6BB  F6AF         	movff	_startTime+3,_lastActionPollTime+3
   7867   01569C                     
-  7868                           ;../main.c: 347:     started = FALSE;
+  7868                           ;../main.c: 350:     started = FALSE;
   7869   01569C  0E00               	movlw	0
   7870   01569E  6E47               	movwf	_started^(0+1280),c
   7871   0156A0  0012               	return		;funcret
@@ -9538,7 +9538,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   9301   018BC8                     
   9302                           ; BSR set to: 6
   9303                           ;../../VLCBlib_PIC/can18_can_2.c: 256:     rxQueue.messages = rxBuffers;
-  9304   018BC8  0E87               	movlw	low _rxBuffers
+  9304   018BC8  0E88               	movlw	low _rxBuffers
   9305   018BCA  6FF4               	movwf	_rxQueue& (0+255),b
   9306   018BCC  0E08               	movlw	high _rxBuffers
   9307   018BCE  6FF5               	movwf	(_rxQueue+1)& (0+255),b
@@ -12438,11 +12438,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  11966   0111EC                     l22879:
  11967                           
  11968                           ; BSR set to: 7
- 11969                           ;../../VLCBlib_PIC/mns.c: 383:                 sendMessage7(OPC_PARAMS, MANU_MERG, 'e',
+ 11969                           ;../../VLCBlib_PIC/mns.c: 383:                 sendMessage7(OPC_PARAMS, MANU_MERG, 'a',
  11970   0111EC  0EA5               	movlw	165
  11971   0111EE  0105               	movlb	5	; () banked
  11972   0111F0  6F68               	movwf	sendMessage7@data1& (0+255),b
- 11973   0111F2  0E65               	movlw	101
+ 11973   0111F2  0E61               	movlw	97
  11974   0111F4  6F69               	movwf	sendMessage7@data2& (0+255),b
  11975   0111F6  0E20               	movlw	32
  11976   0111F8  6F6A               	movwf	sendMessage7@data3& (0+255),b
@@ -12452,7 +12452,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  11980   011200  6F6C               	movwf	sendMessage7@data5& (0+255),b
  11981   011202  0E7F               	movlw	127
  11982   011204  6F6D               	movwf	sendMessage7@data6& (0+255),b
- 11983   011206  0E03               	movlw	3
+ 11983   011206  0E04               	movlw	4
  11984   011208  6F6E               	movwf	sendMessage7@data7& (0+255),b
  11985   01120A  0EEF               	movlw	239
  11986   01120C  EC72  F0ED         	call	_sendMessage7
@@ -20070,7 +20070,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  18978                           
  18979 ;; *************** function _APP_GetEventState *****************
  18980 ;; Defined at:
- 18981 ;;		line 424 in file "../main.c"
+ 18981 ;;		line 427 in file "../main.c"
  18982 ;; Parameters:    Size  Location     Type
  18983 ;;  h               1    wreg     unsigned char 
  18984 ;; Auto vars:     Size  Location     Type
@@ -20129,8 +20129,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19022                           ;APP_GetEventState@h stored from wreg
  19023   01461E  6E2D               	movwf	APP_GetEventState@h^(0+1280),c
  19024   014620                     
- 19025                           ;../main.c: 425:     uint8_t flags;;../main.c: 426:     uint8_t happeningIndex;;../main.
-      +                          c: 427:     Boolean disable_off;;../main.c: 429:     io = (((h)-8)/4);
+ 19025                           ;../main.c: 428:     uint8_t flags;;../main.c: 429:     uint8_t happeningIndex;;../main.
+      +                          c: 430:     Boolean disable_off;;../main.c: 432:     io = (((h)-8)/4);
  19026   014620  0EF8               	movlw	248
  19027   014622  242D               	addwf	APP_GetEventState@h^(0+1280),w,c
  19028   014624  6E23               	movwf	___awdiv@dividend^(0+1280),c
@@ -20145,7 +20145,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19037   014638  5023               	movf	?___awdiv^(0+1280),w,c
  19038   01463A  6E46               	movwf	_io^(0+1280),c
  19039   01463C                     
- 19040                           ;../main.c: 430:     if (io >= 16) {
+ 19040                           ;../main.c: 433:     if (io >= 16) {
  19041   01463C  0E0F               	movlw	15
  19042   01463E  6446               	cpfsgt	_io^(0+1280),c
  19043   014640  EF24  F0A3         	goto	u21311
@@ -20155,18 +20155,18 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19047   01464C                     u21310:
  19048   01464C                     l19679:
  19049                           
- 19050                           ;../main.c: 431:         return EVENT_UNKNOWN;
+ 19050                           ;../main.c: 434:         return EVENT_UNKNOWN;
  19051   01464C  0EFF               	movlw	255
  19052   01464E  EF4F  F0A5         	goto	l170
  19053   014652                     l19683:
  19054                           
- 19055                           ;../main.c: 433:     happeningIndex = (((h)-8)%4);
+ 19055                           ;../main.c: 436:     happeningIndex = (((h)-8)%4);
  19056   014652  502D               	movf	APP_GetEventState@h^(0+1280),w,c
  19057   014654  0FF8               	addlw	248
  19058   014656  0B03               	andlw	3
  19059   014658  6E2E               	movwf	APP_GetEventState@happeningIndex^(0+1280),c
  19060   01465A                     
- 19061                           ;../main.c: 434:     flags = (uint8_t)getNV((16 + 7*(io) + 1));
+ 19061                           ;../main.c: 437:     flags = (uint8_t)getNV((16 + 7*(io) + 1));
  19062   01465A  5046               	movf	_io^(0+1280),w,c
  19063   01465C  0D07               	mullw	7
  19064   01465E  50F3               	movf	243,w,c
@@ -20175,16 +20175,16 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19067   014666  5019               	movf	?_getNV^(0+1280),w,c
  19068   014668  6E2B               	movwf	APP_GetEventState@flags^(0+1280),c
  19069   01466A                     
- 19070                           ;../main.c: 435:     disable_off = flags & 0x08;
+ 19070                           ;../main.c: 438:     disable_off = flags & 0x08;
  19071   01466A  502B               	movf	APP_GetEventState@flags^(0+1280),w,c
  19072   01466C  0B08               	andlw	8
  19073   01466E  6E2C               	movwf	APP_GetEventState@disable_off^(0+1280),c
  19074                           
- 19075                           ;../main.c: 437:     switch((uint8_t)getNV((16 + 7*(io) + 0))) {
+ 19075                           ;../main.c: 440:     switch((uint8_t)getNV((16 + 7*(io) + 0))) {
  19076   014670  EF2A  F0A5         	goto	l19773
  19077   014674                     l19689:
  19078                           
- 19079                           ;../main.c: 442:                     return outputState[io]?EVENT_ON:EVENT_OFF;
+ 19079                           ;../main.c: 445:                     return outputState[io]?EVENT_ON:EVENT_OFF;
  19080   014674  0EB4               	movlw	low _outputState
  19081   014676  2446               	addwf	_io^(0+1280),w,c
  19082   014678  6ED9               	movwf	fsr2l,c
@@ -20204,7 +20204,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19096   014694  EF4F  F0A5         	goto	l170
  19097   014698                     l19693:
  19098                           
- 19099                           ;../main.c: 445:                     if (disable_off) {
+ 19099                           ;../main.c: 448:                     if (disable_off) {
  19100   014698  502C               	movf	APP_GetEventState@disable_off^(0+1280),w,c
  19101   01469A  B4D8               	btfsc	status,2,c
  19102   01469C  EF52  F0A3         	goto	u21341
@@ -20213,7 +20213,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19105   0146A4  EF26  F0A3         	goto	l19679
  19106   0146A8                     u21340:
  19107   0146A8                     
- 19108                           ;../main.c: 446:                         return (outputState[io]==0)?EVENT_ON:EVENT_OFF;
+ 19108                           ;../main.c: 449:                         return (outputState[io]==0)?EVENT_ON:EVENT_OFF;
  19109   0146A8  0EB4               	movlw	low _outputState
  19110   0146AA  2446               	addwf	_io^(0+1280),w,c
  19111   0146AC  6ED9               	movwf	fsr2l,c
@@ -20249,7 +20249,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19141   0146DE  EF26  F0A3         	goto	l19679
  19142   0146E2                     l19703:
  19143                           
- 19144                           ;../main.c: 457:                     return (readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t
+ 19144                           ;../main.c: 460:                     return (readNVM(EEPROM_NVM_TYPE, ((eeprom_address_t
       +                          )((0x3FF -8))-25)+io)!=2)?EVENT_ON:EVENT_OFF;
  19145   0146E2  5046               	movf	_io^(0+1280),w,c
  19146   0146E4  0105               	movlb	5	; () banked
@@ -20295,7 +20295,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19186   01472A  EF26  F0A3         	goto	l19679
  19187   01472E                     l19711:
  19188                           
- 19189                           ;../main.c: 464:                     return (currentPos[io] == (uint8_t)getNV((16 + 7*(i
+ 19189                           ;../main.c: 467:                     return (currentPos[io] == (uint8_t)getNV((16 + 7*(i
       +                          o) + 2)))?EVENT_ON:EVENT_OFF;
  19190   01472E  5046               	movf	_io^(0+1280),w,c
  19191   014730  0D07               	mullw	7
@@ -20322,7 +20322,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19212   01475C  EF4F  F0A5         	goto	l170
  19213   014760                     l19715:
  19214                           
- 19215                           ;../main.c: 466:                     return (currentPos[io] == (uint8_t)getNV((16 + 7*(i
+ 19215                           ;../main.c: 469:                     return (currentPos[io] == (uint8_t)getNV((16 + 7*(i
       +                          o) + 3)))?EVENT_ON:EVENT_OFF;
  19216   014760  5046               	movf	_io^(0+1280),w,c
  19217   014762  0D07               	mullw	7
@@ -20349,7 +20349,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19238   01478E  EF4F  F0A5         	goto	l170
  19239   014792                     l19719:
  19240                           
- 19241                           ;../main.c: 469:                     return (currentPos[io] >= ((uint8_t)getNV((16 + 7*(
+ 19241                           ;../main.c: 472:                     return (currentPos[io] >= ((uint8_t)getNV((16 + 7*(
       +                          io) + 3)))/2 +
  19242   014792  5046               	movf	_io^(0+1280),w,c
  19243   014794  0D07               	mullw	7
@@ -20434,7 +20434,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19322   014836  EF26  F0A3         	goto	l19679
  19323   01483A                     l19727:
  19324                           
- 19325                           ;../main.c: 477:                     return ((uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_
+ 19325                           ;../main.c: 480:                     return ((uint8_t)readNVM(EEPROM_NVM_TYPE, ((eeprom_
       +                          address_t)((0x3FF -8))-25)+io))?EVENT_ON:EVENT_OFF;
  19326   01483A  5046               	movf	_io^(0+1280),w,c
  19327   01483C  0105               	movlb	5	; () banked
@@ -20473,7 +20473,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19360   014874  EF26  F0A3         	goto	l19679
  19361   014878                     l19735:
  19362                           
- 19363                           ;../main.c: 485:                     return (currentPos[io] == getNV((16 + 7*(io) + 3)))
+ 19363                           ;../main.c: 488:                     return (currentPos[io] == getNV((16 + 7*(io) + 3)))
       +                          ?EVENT_ON:EVENT_OFF;
  19364   014878  5046               	movf	_io^(0+1280),w,c
  19365   01487A  0D07               	mullw	7
@@ -20507,7 +20507,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19393   0148B4  EF4F  F0A5         	goto	l170
  19394   0148B8                     l19739:
  19395                           
- 19396                           ;../main.c: 487:                     return (currentPos[io] == getNV((16 + 7*(io) + 4)))
+ 19396                           ;../main.c: 490:                     return (currentPos[io] == getNV((16 + 7*(io) + 4)))
       +                          ?EVENT_ON:EVENT_OFF;
  19397   0148B8  5046               	movf	_io^(0+1280),w,c
  19398   0148BA  0D07               	mullw	7
@@ -20541,7 +20541,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19426   0148F4  EF4F  F0A5         	goto	l170
  19427   0148F8                     l19743:
  19428                           
- 19429                           ;../main.c: 490:                     if (getNV((16 + 7*(io) + 2)) > 2) {
+ 19429                           ;../main.c: 493:                     if (getNV((16 + 7*(io) + 2)) > 2) {
  19430   0148F8  5046               	movf	_io^(0+1280),w,c
  19431   0148FA  0D07               	mullw	7
  19432   0148FC  50F3               	movf	243,w,c
@@ -20560,7 +20560,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19445   01491C  EF26  F0A3         	goto	l19679
  19446   014920                     u21510:
  19447   014920                     
- 19448                           ;../main.c: 491:                         return (currentPos[io] == getNV((16 + 7*(io) + 
+ 19448                           ;../main.c: 494:                         return (currentPos[io] == getNV((16 + 7*(io) + 
       +                          5)))?EVENT_ON:EVENT_OFF;
  19449   014920  5046               	movf	_io^(0+1280),w,c
  19450   014922  0D07               	mullw	7
@@ -20594,7 +20594,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19478   01495C  EF4F  F0A5         	goto	l170
  19479   014960                     l19749:
  19480                           
- 19481                           ;../main.c: 495:                     if (getNV((16 + 7*(io) + 2)) > 3) {
+ 19481                           ;../main.c: 498:                     if (getNV((16 + 7*(io) + 2)) > 3) {
  19482   014960  5046               	movf	_io^(0+1280),w,c
  19483   014962  0D07               	mullw	7
  19484   014964  50F3               	movf	243,w,c
@@ -20613,7 +20613,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19497   014984  EF26  F0A3         	goto	l19679
  19498   014988                     u21540:
  19499   014988                     
- 19500                           ;../main.c: 496:                         return (currentPos[io] == getNV((16 + 7*(io) + 
+ 19500                           ;../main.c: 499:                         return (currentPos[io] == getNV((16 + 7*(io) + 
       +                          6)))?EVENT_ON:EVENT_OFF;
  19501   014988  5046               	movf	_io^(0+1280),w,c
  19502   01498A  0D07               	mullw	7
@@ -20669,7 +20669,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19552   0149EA  EF26  F0A3         	goto	l19679
  19553   0149EE                     l19759:
  19554                           
- 19555                           ;../main.c: 508:                     return (analogueState[io].eventState == 1)?EVENT_ON
+ 19555                           ;../main.c: 511:                     return (analogueState[io].eventState == 1)?EVENT_ON
       +                          :EVENT_OFF;
  19556   0149EE  0E80               	movlw	low _analogueState
  19557   0149F0  2446               	addwf	_io^(0+1280),w,c
@@ -20692,7 +20692,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  19574   014A12  EF4F  F0A5         	goto	l170
  19575   014A16                     l19763:
  19576                           
- 19577                           ;../main.c: 510:                     return (analogueState[io].eventState == 2)?EVENT_ON
+ 19577                           ;../main.c: 513:                     return (analogueState[io].eventState == 2)?EVENT_ON
       +                          :EVENT_OFF;
  19578   014A16  0E80               	movlw	low _analogueState
  19579   014A18  2446               	addwf	_io^(0+1280),w,c
@@ -24812,8 +24812,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  23334   019020  EFBB  F0C8         	goto	l2152
  23335   019024                     l20343:
  23336                           
- 23337                           ;../../VLCBlib_PIC/mns.c: 821:         return 'e';
- 23338   019024  0E65               	movlw	101
+ 23337                           ;../../VLCBlib_PIC/mns.c: 821:         return 'a';
+ 23338   019024  0E61               	movlw	97
  23339   019026  EFBB  F0C8         	goto	l2152
  23340   01902A                     l20347:
  23341                           
@@ -24832,8 +24832,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  23354   019038  EFBB  F0C8         	goto	l2152
  23355   01903C                     l20363:
  23356                           
- 23357                           ;../../VLCBlib_PIC/mns.c: 831:         return 3;
- 23358   01903C  0E03               	movlw	3
+ 23357                           ;../../VLCBlib_PIC/mns.c: 831:         return 4;
+ 23358   01903C  0E04               	movlw	4
  23359   01903E  EFBB  F0C8         	goto	l2152
  23360   019042                     l20367:
  23361                           
@@ -25007,7 +25007,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  23529   019166  EF33  F0C8         	goto	l20377
  23530   01916A  0A07               	xorlw	7	; case 20
  23531   01916C  B4D8               	btfsc	status,2,c
- 23532   01916E  EF1E  F0C8         	goto	l20363
+ 23532   01916E  EF33  F0C8         	goto	l20377
  23533   019172  EF36  F0C8         	goto	l20381
  23534   019176                     l2152:
  23535   019176  0012               	return		;funcret
@@ -26235,7 +26235,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  24619   01C224                     l20639:
  24620                           
  24621                           ;../event_consumerDualActionQueue.c: 386:     normalQueueBuf[normalWriteIndex++] = a;
- 24622   01C224  0E47               	movlw	low _normalQueueBuf
+ 24622   01C224  0E48               	movlw	low _normalQueueBuf
  24623   01C226  2443               	addwf	_normalWriteIndex^(0+1280),w,c
  24624   01C228  6ED9               	movwf	fsr2l,c
  24625   01C22A  6ADA               	clrf	fsr2h,c
@@ -28060,7 +28060,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26248                           
  26249 ;; *************** function _APP_preProcessMessage *****************
  26250 ;; Defined at:
- 26251 ;;		line 410 in file "../main.c"
+ 26251 ;;		line 413 in file "../main.c"
  26252 ;; Parameters:    Size  Location     Type
  26253 ;;  m               2   24[COMRAM] PTR struct Message
  26254 ;;		 -> poll@m(9), 
@@ -28110,7 +28110,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26283   01DE9C                     _APP_preProcessMessage:
  26284                           	callstack 123
  26285   01DE9C                     
- 26286                           ;../main.c: 411:     return NOT_PROCESSED;
+ 26286                           ;../main.c: 414:     return NOT_PROCESSED;
  26287   01DE9C  0E00               	movlw	0
  26288   01DE9E  0012               	return		;funcret
  26289   01DEA0                     __end_of_APP_preProcessMessage:
@@ -28118,7 +28118,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26291                           
  26292 ;; *************** function _APP_postProcessMessage *****************
  26293 ;; Defined at:
- 26294 ;;		line 417 in file "../main.c"
+ 26294 ;;		line 420 in file "../main.c"
  26295 ;; Parameters:    Size  Location     Type
  26296 ;;  m               2   24[COMRAM] PTR struct Message
  26297 ;;		 -> poll@m(9), 
@@ -28168,7 +28168,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26326   01DEA0                     _APP_postProcessMessage:
  26327                           	callstack 123
  26328   01DEA0                     
- 26329                           ;../main.c: 418:     return NOT_PROCESSED;
+ 26329                           ;../main.c: 421:     return NOT_PROCESSED;
  26330   01DEA0  0E00               	movlw	0
  26331   01DEA2  0012               	return		;funcret
  26332   01DEA4                     __end_of_APP_postProcessMessage:
@@ -28176,7 +28176,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26334                           
  26335 ;; *************** function _loop *****************
  26336 ;; Defined at:
- 26337 ;;		line 350 in file "../main.c"
+ 26337 ;;		line 353 in file "../main.c"
  26338 ;; Parameters:    Size  Location     Type
  26339 ;;		None
  26340 ;; Auto vars:     Size  Location     Type
@@ -28234,7 +28234,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26376   017F50                     _loop:
  26377                           	callstack 114
  26378   017F50                     
- 26379                           ;../main.c: 352:     if (!started && ((tickGet() - startTime.val) > (getNV(1) * (62500/1
+ 26379                           ;../main.c: 355:     if (!started && ((tickGet() - startTime.val) > (getNV(1) * (62500/1
       +                          0)) + (62500*2))) {
  26380   017F50  5047               	movf	_started^(0+1280),w,c
  26381   017F52  A4D8               	btfss	status,2,c
@@ -28311,19 +28311,19 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26452   017FF0                     u27740:
  26453   017FF0                     
  26454                           ; BSR set to: 5
- 26455                           ;../main.c: 353:         started = TRUE;
+ 26455                           ;../main.c: 356:         started = TRUE;
  26456   017FF0  0E01               	movlw	1
  26457   017FF2  6E47               	movwf	_started^(0+1280),c
  26458   017FF4                     
  26459                           ; BSR set to: 5
- 26460                           ;../main.c: 354:         sendProducedEvent(1, EVENT_ON);
+ 26460                           ;../main.c: 357:         sendProducedEvent(1, EVENT_ON);
  26461   017FF4  0E01               	movlw	1
  26462   017FF6  6F6D               	movwf	sendProducedEvent@onOff& (0+255),b
  26463   017FF8  0E01               	movlw	1
  26464   017FFA  EC23  F0D0         	call	_sendProducedEvent
  26465   017FFE                     l24009:
  26466                           
- 26467                           ;../main.c: 358:     if ((tickGet() - lastServoStartTime.val) > 5*(62500/2000)) {
+ 26467                           ;../main.c: 361:     if ((tickGet() - lastServoStartTime.val) > 5*(62500/2000)) {
  26468   017FFE  ECC9  F0E4         	call	_tickGet	;wreg free
  26469   018002  0106               	movlb	6	; () banked
  26470   018004  51B4               	movf	_lastServoStartTime& (0+255),w,b
@@ -28359,10 +28359,10 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26500   018044                     u27750:
  26501   018044                     
  26502                           ; BSR set to: 5
- 26503                           ;../main.c: 359:         startServos();
+ 26503                           ;../main.c: 362:         startServos();
  26504   018044  EC8D  F0D2         	call	_startServos	;wreg free
  26505   018048                     
- 26506                           ;../main.c: 360:         lastServoStartTime.val = tickGet();
+ 26506                           ;../main.c: 363:         lastServoStartTime.val = tickGet();
  26507   018048  ECC9  F0E4         	call	_tickGet	;wreg free
  26508   01804C  C519  F6B4         	movff	?_tickGet,_lastServoStartTime
  26509   018050  C51A  F6B5         	movff	?_tickGet+1,_lastServoStartTime+1
@@ -28370,7 +28370,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26511   018058  C51C  F6B7         	movff	?_tickGet+3,_lastServoStartTime+3
  26512   01805C                     l24015:
  26513                           
- 26514                           ;../main.c: 363:     if (started) {
+ 26514                           ;../main.c: 366:     if (started) {
  26515   01805C  5047               	movf	_started^(0+1280),w,c
  26516   01805E  B4D8               	btfsc	status,2,c
  26517   018060  EF34  F0C0         	goto	u27761
@@ -28379,7 +28379,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26520   018068  EF9A  F0C0         	goto	l157
  26521   01806C                     u27760:
  26522   01806C                     
- 26523                           ;../main.c: 364:         if ((tickGet() - lastInputScanTime.val) > 5*(62500/1000)) {
+ 26523                           ;../main.c: 367:         if ((tickGet() - lastInputScanTime.val) > 5*(62500/1000)) {
  26524   01806C  ECC9  F0E4         	call	_tickGet	;wreg free
  26525   018070  0106               	movlb	6	; () banked
  26526   018072  51B0               	movf	_lastInputScanTime& (0+255),w,b
@@ -28416,10 +28416,10 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26557   0180B4                     u27770:
  26558   0180B4                     
  26559                           ; BSR set to: 5
- 26560                           ;../main.c: 365:             inputScan();
+ 26560                           ;../main.c: 368:             inputScan();
  26561   0180B4  EC75  F0B2         	call	_inputScan	;wreg free
  26562   0180B8                     
- 26563                           ;../main.c: 366:             lastInputScanTime.val = tickGet();
+ 26563                           ;../main.c: 369:             lastInputScanTime.val = tickGet();
  26564   0180B8  ECC9  F0E4         	call	_tickGet	;wreg free
  26565   0180BC  C519  F6B0         	movff	?_tickGet,_lastInputScanTime
  26566   0180C0  C51A  F6B1         	movff	?_tickGet+1,_lastInputScanTime+1
@@ -28427,7 +28427,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26568   0180C8  C51C  F6B3         	movff	?_tickGet+3,_lastInputScanTime+3
  26569   0180CC                     l24023:
  26570                           
- 26571                           ;../main.c: 368:         if ((tickGet() - lastActionPollTime.val) > 100*(62500/1000)) {
+ 26571                           ;../main.c: 371:         if ((tickGet() - lastActionPollTime.val) > 100*(62500/1000)) {
  26572   0180CC  ECC9  F0E4         	call	_tickGet	;wreg free
  26573   0180D0  0106               	movlb	6	; () banked
  26574   0180D2  51AC               	movf	_lastActionPollTime& (0+255),w,b
@@ -28464,13 +28464,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26605   018114                     u27780:
  26606   018114                     
  26607                           ; BSR set to: 5
- 26608                           ;../main.c: 369:             processActions();
+ 26608                           ;../main.c: 372:             processActions();
  26609   018114  EC62  F0B7         	call	_processActions	;wreg free
  26610                           
- 26611                           ;../main.c: 370:             processOutputs();
+ 26611                           ;../main.c: 373:             processOutputs();
  26612   018118  EC93  F0BC         	call	_processOutputs	;wreg free
  26613   01811C                     
- 26614                           ;../main.c: 371:             lastActionPollTime.val = tickGet();
+ 26614                           ;../main.c: 374:             lastActionPollTime.val = tickGet();
  26615   01811C  ECC9  F0E4         	call	_tickGet	;wreg free
  26616   018120  C519  F6AC         	movff	?_tickGet,_lastActionPollTime
  26617   018124  C51A  F6AD         	movff	?_tickGet+1,_lastActionPollTime+1
@@ -28478,7 +28478,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  26619   01812C  C51C  F6AF         	movff	?_tickGet+3,_lastActionPollTime+3
  26620   018130                     l24029:
  26621                           
- 26622                           ;../main.c: 382:         pollAnalogue();
+ 26622                           ;../main.c: 385:         pollAnalogue();
  26623   018130  EC95  F09B         	call	_pollAnalogue	;wreg free
  26624   018134                     l157:
  26625   018134  0012               	return		;funcret
@@ -36115,7 +36115,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  33826   01A7CE                     l12759:
  33827                           
  33828                           ;../event_consumerDualActionQueue.c: 457:         return normalQueueBuf[index];
- 33829   01A7CE  0E47               	movlw	low _normalQueueBuf
+ 33829   01A7CE  0E48               	movlw	low _normalQueueBuf
  33830   01A7D0  241A               	addwf	peekTwoActionQueue@index^(0+1280),w,c
  33831   01A7D2  6ED9               	movwf	fsr2l,c
  33832   01A7D4  6ADA               	clrf	fsr2h,c
@@ -37041,7 +37041,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  34619   01AF3E                     l13611:
  34620                           
  34621                           ;../event_consumerDualActionQueue.c: 487:         normalQueueBuf[index] = 0;
- 34622   01AF3E  0E47               	movlw	low _normalQueueBuf
+ 34622   01AF3E  0E48               	movlw	low _normalQueueBuf
  34623   01AF40  241A               	addwf	deleteTwoActionQueue@index^(0+1280),w,c
  34624   01AF42  6ED9               	movwf	fsr2l,c
  34625   01AF44  6ADA               	clrf	fsr2h,c
@@ -43824,7 +43824,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  40794                           
  40795 ;; *************** function _setType *****************
  40796 ;; Defined at:
- 40797 ;;		line 524 in file "../main.c"
+ 40797 ;;		line 527 in file "../main.c"
  40798 ;; Parameters:    Size  Location     Type
  40799 ;;  io              1    wreg     unsigned char 
  40800 ;;  type            1   72[BANK5 ] unsigned char 
@@ -43885,7 +43885,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  40840   01B986  0105               	movlb	5	; () banked
  40841   01B988  6FAA               	movwf	setType@io& (0+255),b
  40842   01B98A                     
- 40843                           ;../main.c: 525:     uint8_t index;;../main.c: 527:     index = (16 + 7*(io) + 0);
+ 40843                           ;../main.c: 528:     uint8_t index;;../main.c: 530:     index = (16 + 7*(io) + 0);
  40844   01B98A  0105               	movlb	5	; () banked
  40845   01B98C  51AA               	movf	setType@io& (0+255),w,b
  40846   01B98E  0D07               	mullw	7
@@ -43894,23 +43894,23 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  40849   01B994  6FA9               	movwf	setType@index& (0+255),b
  40850   01B996                     
  40851                           ; BSR set to: 5
- 40852                           ;../main.c: 528:     saveNV((uint8_t)index, type);
+ 40852                           ;../main.c: 531:     saveNV((uint8_t)index, type);
  40853   01B996  C5A8  F567         	movff	setType@type,saveNV@value
  40854   01B99A  51A9               	movf	setType@index& (0+255),w,b
  40855   01B99C  ECC1  F0EB         	call	_saveNV
  40856   01B9A0                     
- 40857                           ;../main.c: 531:     defaultNVs(io, type);
+ 40857                           ;../main.c: 534:     defaultNVs(io, type);
  40858   01B9A0  C5A8  F56B         	movff	setType@type,defaultNVs@type
  40859   01B9A4  0105               	movlb	5	; () banked
  40860   01B9A6  51AA               	movf	setType@io& (0+255),w,b
  40861   01B9A8  EC40  F0E8         	call	_defaultNVs
  40862   01B9AC                     
- 40863                           ;../main.c: 534:     configIO(io);
+ 40863                           ;../main.c: 537:     configIO(io);
  40864   01B9AC  0105               	movlb	5	; () banked
  40865   01B9AE  51AA               	movf	setType@io& (0+255),w,b
  40866   01B9B0  ECA8  F098         	call	_configIO
  40867   01B9B4                     
- 40868                           ;../main.c: 536:     if ((type == 2) || (type== 3) || (type == 4)) {
+ 40868                           ;../main.c: 539:     if ((type == 2) || (type== 3) || (type == 4)) {
  40869   01B9B4  0E02               	movlw	2
  40870   01B9B6  0105               	movlb	5	; () banked
  40871   01B9B8  19A8               	xorwf	setType@type& (0+255),w,b
@@ -43943,7 +43943,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  40898   01B9EC                     l19411:
  40899                           
  40900                           ; BSR set to: 5
- 40901                           ;../main.c: 537:         currentPos[io] = 128;
+ 40901                           ;../main.c: 540:         currentPos[io] = 128;
  40902   01B9EC  0EC9               	movlw	low _currentPos
  40903   01B9EE  25AA               	addwf	setType@io& (0+255),w,b
  40904   01B9F0  6ED9               	movwf	fsr2l,c
@@ -43955,12 +43955,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  40910   01B9FC                     l19413:
  40911                           
  40912                           ; BSR set to: 5
- 40913                           ;../main.c: 541:     defaultEvents(io, type);
+ 40913                           ;../main.c: 544:     defaultEvents(io, type);
  40914   01B9FC  C5A8  F5A4         	movff	setType@type,defaultEvents@type
  40915   01BA00  51AA               	movf	setType@io& (0+255),w,b
  40916   01BA02  EC8C  F0C1         	call	_defaultEvents
  40917   01BA06                     
- 40918                           ;../main.c: 543:     if ((type == 5) || (type == 6)) {
+ 40918                           ;../main.c: 546:     if ((type == 5) || (type == 6)) {
  40919   01BA06  0E05               	movlw	5
  40920   01BA08  0105               	movlb	5	; () banked
  40921   01BA0A  19A8               	xorwf	setType@type& (0+255),w,b
@@ -43983,7 +43983,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  40938   01BA2C                     l19419:
  40939                           
  40940                           ; BSR set to: 5
- 40941                           ;../main.c: 544:         initAnaloguePort(io);
+ 40941                           ;../main.c: 547:         initAnaloguePort(io);
  40942   01BA2C  51AA               	movf	setType@io& (0+255),w,b
  40943   01BA2E  EC6D  F0EE         	call	_initAnaloguePort
  40944   01BA32                     l216:
@@ -48313,7 +48313,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  44858                           
  44859 ;; *************** function _configIO *****************
  44860 ;; Defined at:
- 44861 ;;		line 555 in file "../main.c"
+ 44861 ;;		line 558 in file "../main.c"
  44862 ;; Parameters:    Size  Location     Type
  44863 ;;  i               1    wreg     unsigned char 
  44864 ;; Auto vars:     Size  Location     Type
@@ -48373,7 +48373,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  44903   013150  0105               	movlb	5	; () banked
  44904   013152  6F6F               	movwf	configIO@i& (0+255),b
  44905   013154                     
- 44906                           ;../main.c: 556:     uint8_t action;;../main.c: 557:     uint8_t type;;../main.c: 559:  
+ 44906                           ;../main.c: 559:     uint8_t action;;../main.c: 560:     uint8_t type;;../main.c: 562:  
       +                             if (i >= 16) return;
  44907   013154  0E0F               	movlw	15
  44908   013156  0105               	movlb	5	; () banked
@@ -48387,7 +48387,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  44916   01316A                     l19149:
  44917                           
  44918                           ; BSR set to: 5
- 44919                           ;../main.c: 562:     type = (uint8_t)getNV((16 + 7*(i) + 0));
+ 44919                           ;../main.c: 565:     type = (uint8_t)getNV((16 + 7*(i) + 0));
  44920   01316A  516F               	movf	configIO@i& (0+255),w,b
  44921   01316C  0D07               	mullw	7
  44922   01316E  50F3               	movf	243,w,c
@@ -48397,12 +48397,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  44926   013178  0105               	movlb	5	; () banked
  44927   01317A  6F6E               	movwf	configIO@type& (0+255),b
  44928                           
- 44929                           ;../main.c: 563:     switch (type) {
+ 44929                           ;../main.c: 566:     switch (type) {
  44930   01317C  EF2D  F099         	goto	l19173
  44931   013180                     l19151:
  44932                           
  44933                           ; BSR set to: 5
- 44934                           ;../main.c: 565:             if (getNV((16 + 7*(i) + 1)) & 0x04) {
+ 44934                           ;../main.c: 568:             if (getNV((16 + 7*(i) + 1)) & 0x04) {
  44935   013180  516F               	movf	configIO@i& (0+255),w,b
  44936   013182  0D07               	mullw	7
  44937   013184  50F3               	movf	243,w,c
@@ -48415,7 +48415,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  44944   013196  EFE6  F098         	goto	l19155
  44945   01319A                     u20570:
  44946   01319A                     
- 44947                           ;../main.c: 566:                 setDigitalOutput(i, (uint8_t)readNVM(EEPROM_NVM_TYPE, (
+ 44947                           ;../main.c: 569:                 setDigitalOutput(i, (uint8_t)readNVM(EEPROM_NVM_TYPE, (
       +                          eeprom_address_t)((eeprom_address_t)((0x3FF -8))-25)+i));
  44948   01319A  0105               	movlb	5	; () banked
  44949   01319C  516F               	movf	configIO@i& (0+255),w,b
@@ -48439,11 +48439,11 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  44967   0131C2  516F               	movf	configIO@i& (0+255),w,b
  44968   0131C4  EC64  F0DB         	call	_setDigitalOutput
  44969                           
- 44970                           ;../main.c: 567:             } else {
+ 44970                           ;../main.c: 570:             } else {
  44971   0131C8  EF53  F09A         	goto	l19207
  44972   0131CC                     l19155:
  44973                           
- 44974                           ;../main.c: 568:                 action = (getNV((16 + 7*(i) + 1)) & 0x20) ? 1 : 2;
+ 44974                           ;../main.c: 571:                 action = (getNV((16 + 7*(i) + 1)) & 0x20) ? 1 : 2;
  44975   0131CC  0105               	movlb	5	; () banked
  44976   0131CE  516F               	movf	configIO@i& (0+255),w,b
  44977   0131D0  0D07               	mullw	7
@@ -48474,12 +48474,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45002   013200  C56B  F56D         	movff	_configIO$617,configIO@action
  45003   013204                     
  45004                           ; BSR set to: 5
- 45005                           ;../main.c: 569:                 setDigitalOutput(i, action);
+ 45005                           ;../main.c: 572:                 setDigitalOutput(i, action);
  45006   013204  C56D  F525         	movff	configIO@action,setDigitalOutput@state
  45007   013208  516F               	movf	configIO@i& (0+255),w,b
  45008   01320A  EC64  F0DB         	call	_setDigitalOutput
  45009   01320E                     
- 45010                           ;../main.c: 571:                 writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(((eeprom_a
+ 45010                           ;../main.c: 574:                 writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(((eeprom_a
       +                          ddress_t)((0x3FF -8))-25)+i), action);
  45011   01320E  0105               	movlb	5	; () banked
  45012   013210  516F               	movf	configIO@i& (0+255),w,b
@@ -48502,7 +48502,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45029   013238                     l19167:
  45030                           
  45031                           ; BSR set to: 5
- 45032                           ;../main.c: 580:             setDigitalOutput(i, getNV((16 + 7*(i) + 1)) & 0x10);
+ 45032                           ;../main.c: 583:             setDigitalOutput(i, getNV((16 + 7*(i) + 1)) & 0x10);
  45033   013238  516F               	movf	configIO@i& (0+255),w,b
  45034   01323A  0D07               	mullw	7
  45035   01323C  50F3               	movf	243,w,c
@@ -48514,12 +48514,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45041   01324A  6F6A               	movwf	_configIO$8410& (0+255),b
  45042   01324C                     
  45043                           ; BSR set to: 5
- 45044                           ;../main.c: 580:             setDigitalOutput(i, getNV((16 + 7*(i) + 1)) & 0x10);
+ 45044                           ;../main.c: 583:             setDigitalOutput(i, getNV((16 + 7*(i) + 1)) & 0x10);
  45045   01324C  C56A  F525         	movff	_configIO$8410,setDigitalOutput@state
  45046   013250  516F               	movf	configIO@i& (0+255),w,b
  45047   013252  EC64  F0DB         	call	_setDigitalOutput
  45048                           
- 45049                           ;../main.c: 581:             break;
+ 45049                           ;../main.c: 584:             break;
  45050   013256  EF53  F09A         	goto	l19207
  45051   01325A                     l19173:
  45052                           
@@ -48545,7 +48545,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45072   013278                     l19175:
  45073                           
  45074                           ; BSR set to: 5
- 45075                           ;../main.c: 595:             if ((type == 0) || (type == 5) || (type == 6)) {
+ 45075                           ;../main.c: 598:             if ((type == 0) || (type == 5) || (type == 6)) {
  45076   013278  516E               	movf	configIO@type& (0+255),w,b
  45077   01327A  B4D8               	btfsc	status,2,c
  45078   01327C  EF42  F099         	goto	u20591
@@ -48576,7 +48576,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45103   0132AC                     l19181:
  45104                           
  45105                           ; BSR set to: 5
- 45106                           ;../main.c: 596:                 TRISA |= (1 << configs[i].no);
+ 45106                           ;../main.c: 599:                 TRISA |= (1 << configs[i].no);
  45107   0132AC  516F               	movf	configIO@i& (0+255),w,b
  45108   0132AE  0D04               	mullw	4
  45109   0132B0  0E02               	movlw	2
@@ -48610,12 +48610,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45137   0132E6  5168               	movf	(??_configIO+1)& (0+255),w,b
  45138   0132E8  12C6               	iorwf	198,f,c	;volatile
  45139                           
- 45140                           ;../main.c: 597:             } else {
+ 45140                           ;../main.c: 600:             } else {
  45141   0132EA  EF73  F09A         	goto	l19209
  45142   0132EE                     l19183:
  45143                           
  45144                           ; BSR set to: 5
- 45145                           ;../main.c: 598:                 TRISA &= ~(1 << configs[i].no);
+ 45145                           ;../main.c: 601:                 TRISA &= ~(1 << configs[i].no);
  45146   0132EE  516F               	movf	configIO@i& (0+255),w,b
  45147   0132F0  0D04               	mullw	4
  45148   0132F2  0E02               	movlw	2
@@ -48653,7 +48653,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45180   013332                     l19185:
  45181                           
  45182                           ; BSR set to: 5
- 45183                           ;../main.c: 602:             if ((type == 0) || (type == 5) || (type == 6)) {
+ 45183                           ;../main.c: 605:             if ((type == 0) || (type == 5) || (type == 6)) {
  45184   013332  516E               	movf	configIO@type& (0+255),w,b
  45185   013334  B4D8               	btfsc	status,2,c
  45186   013336  EF9F  F099         	goto	u20641
@@ -48684,7 +48684,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45211   013366                     l19191:
  45212                           
  45213                           ; BSR set to: 5
- 45214                           ;../main.c: 603:                 TRISB |= (1 << configs[i].no);
+ 45214                           ;../main.c: 606:                 TRISB |= (1 << configs[i].no);
  45215   013366  516F               	movf	configIO@i& (0+255),w,b
  45216   013368  0D04               	mullw	4
  45217   01336A  0E02               	movlw	2
@@ -48718,12 +48718,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45245   0133A0  5168               	movf	(??_configIO+1)& (0+255),w,b
  45246   0133A2  12C7               	iorwf	199,f,c	;volatile
  45247                           
- 45248                           ;../main.c: 604:             } else {
+ 45248                           ;../main.c: 607:             } else {
  45249   0133A4  EF73  F09A         	goto	l19209
  45250   0133A8                     l19193:
  45251                           
  45252                           ; BSR set to: 5
- 45253                           ;../main.c: 605:                 TRISB &= ~(1 << configs[i].no);
+ 45253                           ;../main.c: 608:                 TRISB &= ~(1 << configs[i].no);
  45254   0133A8  516F               	movf	configIO@i& (0+255),w,b
  45255   0133AA  0D04               	mullw	4
  45256   0133AC  0E02               	movlw	2
@@ -48761,7 +48761,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45288   0133EC                     l19195:
  45289                           
  45290                           ; BSR set to: 5
- 45291                           ;../main.c: 609:             if ((type == 0) || (type == 5) || (type == 6)) {
+ 45291                           ;../main.c: 612:             if ((type == 0) || (type == 5) || (type == 6)) {
  45292   0133EC  516E               	movf	configIO@type& (0+255),w,b
  45293   0133EE  B4D8               	btfsc	status,2,c
  45294   0133F0  EFFC  F099         	goto	u20691
@@ -48792,7 +48792,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45319   013420                     l19201:
  45320                           
  45321                           ; BSR set to: 5
- 45322                           ;../main.c: 610:                 TRISC |= (1 << configs[i].no);
+ 45322                           ;../main.c: 613:                 TRISC |= (1 << configs[i].no);
  45323   013420  516F               	movf	configIO@i& (0+255),w,b
  45324   013422  0D04               	mullw	4
  45325   013424  0E02               	movlw	2
@@ -48826,12 +48826,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45353   01345A  5168               	movf	(??_configIO+1)& (0+255),w,b
  45354   01345C  12C8               	iorwf	200,f,c	;volatile
  45355                           
- 45356                           ;../main.c: 611:             } else {
+ 45356                           ;../main.c: 614:             } else {
  45357   01345E  EF73  F09A         	goto	l19209
  45358   013462                     l19203:
  45359                           
  45360                           ; BSR set to: 5
- 45361                           ;../main.c: 612:                 TRISC &= ~(1 << configs[i].no);
+ 45361                           ;../main.c: 615:                 TRISC &= ~(1 << configs[i].no);
  45362   013462  516F               	movf	configIO@i& (0+255),w,b
  45363   013464  0D04               	mullw	4
  45364   013466  0E02               	movlw	2
@@ -48907,7 +48907,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45434   0134E6                     l19209:
  45435                           
  45436                           ; BSR set to: 5
- 45437                           ;../main.c: 652:     if ((type == 5) || (type == 6)) {
+ 45437                           ;../main.c: 655:     if ((type == 5) || (type == 6)) {
  45438   0134E6  0E05               	movlw	5
  45439   0134E8  196E               	xorwf	configIO@type& (0+255),w,b
  45440   0134EA  B4D8               	btfsc	status,2,c
@@ -48930,7 +48930,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45457   01350E                     l19213:
  45458                           
  45459                           ; BSR set to: 5
- 45460                           ;../main.c: 656:                 ANSELA |= (1 << configs[i].no);
+ 45460                           ;../main.c: 659:                 ANSELA |= (1 << configs[i].no);
  45461   01350E  516F               	movf	configIO@i& (0+255),w,b
  45462   013510  0D04               	mullw	4
  45463   013512  0E02               	movlw	2
@@ -48965,12 +48965,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45492   01354A  0104               	movlb	4	; () banked
  45493   01354C  1300               	iorwf	0,f,b	;volatile
  45494                           
- 45495                           ;../main.c: 657:                 break;
+ 45495                           ;../main.c: 660:                 break;
  45496   01354E  EF94  F09B         	goto	l220
  45497   013552                     l19215:
  45498                           
  45499                           ; BSR set to: 5
- 45500                           ;../main.c: 659:                 ANSELB |= (1 << configs[i].no);
+ 45500                           ;../main.c: 662:                 ANSELB |= (1 << configs[i].no);
  45501   013552  516F               	movf	configIO@i& (0+255),w,b
  45502   013554  0D04               	mullw	4
  45503   013556  0E02               	movlw	2
@@ -49005,12 +49005,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45532   01358E  0104               	movlb	4	; () banked
  45533   013590  1308               	iorwf	8,f,b	;volatile
  45534                           
- 45535                           ;../main.c: 660:                 break;
+ 45535                           ;../main.c: 663:                 break;
  45536   013592  EF94  F09B         	goto	l220
  45537   013596                     l19217:
  45538                           
  45539                           ; BSR set to: 5
- 45540                           ;../main.c: 662:                 ANSELC |= (1 << configs[i].no);
+ 45540                           ;../main.c: 665:                 ANSELC |= (1 << configs[i].no);
  45541   013596  516F               	movf	configIO@i& (0+255),w,b
  45542   013598  0D04               	mullw	4
  45543   01359A  0E02               	movlw	2
@@ -49045,7 +49045,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45572   0135D2  0104               	movlb	4	; () banked
  45573   0135D4  1310               	iorwf	16,f,b	;volatile
  45574                           
- 45575                           ;../main.c: 663:                 break;
+ 45575                           ;../main.c: 666:                 break;
  45576   0135D6  EF94  F09B         	goto	l220
  45577   0135DA                     l19221:
  45578                           
@@ -49089,7 +49089,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45616   013618                     l19223:
  45617                           
  45618                           ; BSR set to: 5
- 45619                           ;../main.c: 677:                 ANSELA &= ~(1 << configs[i].no);
+ 45619                           ;../main.c: 680:                 ANSELA &= ~(1 << configs[i].no);
  45620   013618  516F               	movf	configIO@i& (0+255),w,b
  45621   01361A  0D04               	mullw	4
  45622   01361C  0E02               	movlw	2
@@ -49125,12 +49125,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45652   013656  0104               	movlb	4	; () banked
  45653   013658  1700               	andwf	0,f,b	;volatile
  45654                           
- 45655                           ;../main.c: 678:                 break;
+ 45655                           ;../main.c: 681:                 break;
  45656   01365A  EF94  F09B         	goto	l220
  45657   01365E                     l19225:
  45658                           
  45659                           ; BSR set to: 5
- 45660                           ;../main.c: 680:                 ANSELB &= ~(1 << configs[i].no);
+ 45660                           ;../main.c: 683:                 ANSELB &= ~(1 << configs[i].no);
  45661   01365E  516F               	movf	configIO@i& (0+255),w,b
  45662   013660  0D04               	mullw	4
  45663   013662  0E02               	movlw	2
@@ -49166,12 +49166,12 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45693   01369C  0104               	movlb	4	; () banked
  45694   01369E  1708               	andwf	8,f,b	;volatile
  45695                           
- 45696                           ;../main.c: 681:                 break;
+ 45696                           ;../main.c: 684:                 break;
  45697   0136A0  EF94  F09B         	goto	l220
  45698   0136A4                     l19227:
  45699                           
  45700                           ; BSR set to: 5
- 45701                           ;../main.c: 683:                 ANSELC &= ~(1 << configs[i].no);
+ 45701                           ;../main.c: 686:                 ANSELC &= ~(1 << configs[i].no);
  45702   0136A4  516F               	movf	configIO@i& (0+255),w,b
  45703   0136A6  0D04               	mullw	4
  45704   0136A8  0E02               	movlw	2
@@ -49207,7 +49207,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  45734   0136E2  0104               	movlb	4	; () banked
  45735   0136E4  1710               	andwf	16,f,b	;volatile
  45736                           
- 45737                           ;../main.c: 684:                 break;
+ 45737                           ;../main.c: 687:                 break;
  45738   0136E6  EF94  F09B         	goto	l220
  45739   0136EA                     l19231:
  45740                           
@@ -50047,7 +50047,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  46492                           
  46493 ;; *************** function _APP_isSuitableTimeToWriteFlash *****************
  46494 ;; Defined at:
- 46495 ;;		line 399 in file "../main.c"
+ 46495 ;;		line 402 in file "../main.c"
  46496 ;; Parameters:    Size  Location     Type
  46497 ;;		None
  46498 ;; Auto vars:     Size  Location     Type
@@ -50097,7 +50097,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  46527   01DDD2                     _APP_isSuitableTimeToWriteFlash:
  46528                           	callstack 117
  46529   01DDD2                     
- 46530                           ;../main.c: 401:     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
+ 46530                           ;../main.c: 404:     return isNoServoPulses() ? GOOD_TIME : BAD_TIME;
  46531   01DDD2  ECE2  F0ED         	call	_isNoServoPulses	;wreg free
  46532   01DDD6  0900               	iorlw	0
  46533   01DDD8  A4D8               	btfss	status,2,c
@@ -53176,7 +53176,7 @@ Data Sizes:
     Strings     0
     Constant    606
     Data        2
-    BSS         1505
+    BSS         1506
     Persistent  0
     Stack       0
 
@@ -53186,7 +53186,7 @@ Auto Spaces:
     BANK5           160    105     158
     BANK6           256      0     251
     BANK7           256     35     239
-    BANK8           256      0     207
+    BANK8           256      0     208
     BANK9           256      0     128
     BANK10          256      0       0
     BANK11          256      0       0
@@ -56843,7 +56843,7 @@ BANK10             100      0       0      15        0.0%
 BITBANK9           100      0       0      12        0.0%
 BANK9              100      0      80      13       50.0%
 BITBANK8           100      0       0      10        0.0%
-BANK8              100      0      CF      11       80.9%
+BANK8              100      0      D0      11       81.2%
 BITBANK7           100      0       0       8        0.0%
 BANK7              100     23      EF       9       93.4%
 BITBANK6           100      0       0       6        0.0%
@@ -56933,13 +56933,13 @@ BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0     41E     153        0.0%
-DATA                 0      0     69E       3        0.0%
+ABS                  0      0     41F     153        0.0%
+DATA                 0      0     69F       3        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Sun Jul 28 17:01:55 2024
+Symbol Table                                                                                   Mon Aug 05 20:59:46 2024
 
                    nerdCallback@nodeNumber 057F                        findEvent@tableIndex 0578  
                 __end_of_pollTimedResponse B19E                     ?_handleSelfEnumeration 0501  
@@ -59631,7 +59631,7 @@ Symbol Table                                                                    
                deleteHappeningRange@number 058F                          _heartbeatSequence 05E7  
                       _teachProcessMessage 2930           sendProducedEvent@producedEventEN 0570  
          sendProducedEvent@producedEventNN 0572                          removeTableEntry@f 0579  
-                           bounceUp@midway 052C                             _normalQueueBuf 0847  
+                           bounceUp@midway 052C                             _normalQueueBuf 0848  
                        _peekTwoActionQueue A6F8                 consumer2QProcessMessage@ca 07D7  
                consumer2QProcessMessage@io 07D5                                 bounceUp@io 052D  
                               ?_initBounce 0501          sodTRCallback@disable_SOD_response 057F  
@@ -59833,7 +59833,7 @@ Symbol Table                                                                    
                                  _IPR0bits 0362                                   _PIE0bits 049E  
                                  _PIE3bits 04A1                       rebuildHashtable@hash 0571  
                          ?_mnsFactoryReset 0501                                   _PIE5bits 04A3  
-                                _rxBuffers 0887                         __p_eventTable_text F000  
+                                _rxBuffers 0888                         __p_eventTable_text F000  
                                 getHash@en 0568                                  getHash@nn 0566  
                            _flashFlushTime 0690                                   _IVTBASEH 045E  
                                  _IVTBASEL 045D                                   _IVTBASEU 045F  
