@@ -66,7 +66,7 @@ extern void checkRemoveTableEntry(uint8_t tableIndex);
 static void consumer2QPowerUp(void);
 static Processed consumer2QProcessMessage(Message * m);
 #ifdef VLCB_DIAG
-static DiagnosticVal consumer2QDiagnostics[NUM_CONSUMER_DIAGNOSTICS];
+static DiagnosticVal consumer2QDiagnostics[NUM_CONSUMER_DIAGNOSTICS+1];
 static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index);
 #endif
 static uint8_t consumer2QEsdData(uint8_t index);
@@ -107,6 +107,11 @@ Action expeditedQueueBuf[ACTION_EXPEDITED_QUEUE_SIZE];   // the actual cyclic bu
 static Boolean expedited;
 
 static void consumer2QPowerUp(void) {
+    for (normalReadIndex=1; normalReadIndex <= NUM_CONSUMER_DIAGNOSTICS; normalReadIndex++) {
+        consumer2QDiagnostics[normalReadIndex].asUint = 0;
+    }
+    consumer2QDiagnostics[CONSUMER_DIAG_COUNT].asUint = NUM_CONSUMER_DIAGNOSTICS;
+    
     normalReadIndex = 0;
     normalWriteIndex = 0;
     expeditedReadIndex = 0;
@@ -343,10 +348,10 @@ static Processed consumer2QProcessMessage(Message *m) {
  * @return a pointer to the diagnostic data or NULL if the data isn't available
  */
 static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index) {
-    if ((index<1) || (index>NUM_CONSUMER_DIAGNOSTICS)) {
+    if (index > NUM_CONSUMER_DIAGNOSTICS) {
         return NULL;
     }
-    return &(consumer2QDiagnostics[index-1]);
+    return &(consumer2QDiagnostics[index]);
 }
 #endif
 
