@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Thu Sep 12 20:06:35 2024
+                                                                                               Wed Sep 25 19:00:29 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F26K80
@@ -10829,10 +10829,10 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  10660                           
  10661                           ; BSR set to: 1
  10662                           ;../../VLCBlib_PIC/can18_ecan.c: 387:                 sendMessage5(OPC_GRSP, nn.bytes.hi
-      +                          , nn.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
+      +                          , nn.bytes.lo, OPC_CANID, SERVICE_ID_MNS, CMDERR_INV_CMD);
  10663   009AC2  C0C0  F1C2         	movff	_nn+1,sendMessage5@data1
  10664   009AC6  C0BF  F1C3         	movff	_nn,sendMessage5@data2
- 10665   009ACA  0E71               	movlw	113
+ 10665   009ACA  0E75               	movlw	117
  10666   009ACC  6FC4               	movwf	sendMessage5@data3& (0+255),b
  10667   009ACE  0E01               	movlw	1
  10668   009AD0  6FC5               	movwf	sendMessage5@data4& (0+255),b
@@ -11504,10 +11504,10 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  11299                           
  11300                           ; BSR set to: 2
  11301                           ;../../VLCBlib_PIC/mns.c: 365:                     sendMessage5(OPC_GRSP, nn.bytes.hi, n
-      +                          n.bytes.lo, OPC_NVRD, SERVICE_ID_MNS, CMDERR_INV_CMD);
+      +                          n.bytes.lo, OPC_SNN, SERVICE_ID_MNS, CMDERR_INV_CMD);
  11302   0016E6  C0C0  F1C2         	movff	_nn+1,sendMessage5@data1
  11303   0016EA  C0BF  F1C3         	movff	_nn,sendMessage5@data2
- 11304   0016EE  0E71               	movlw	113
+ 11304   0016EE  0E42               	movlw	66
  11305   0016F0  0101               	movlb	1	; () banked
  11306   0016F2  6FC4               	movwf	sendMessage5@data3& (0+255),b
  11307   0016F4  0E01               	movlw	1
@@ -16322,10 +16322,10 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  15898   00BE44  EC4B  F05F         	call	_sendMessage2
  15899                           
  15900                           ;../../VLCBlib_PIC/event_teach_large.c: 668:     sendMessage5(OPC_GRSP, nn.bytes.hi, nn.
-      +                          bytes.lo, OPC_REQEV, SERVICE_ID_OLD_TEACH, GRSP_OK);
+      +                          bytes.lo, OPC_NNCLR, SERVICE_ID_OLD_TEACH, GRSP_OK);
  15901   00BE48  C0C0  F1C2         	movff	_nn+1,sendMessage5@data1
  15902   00BE4C  C0BF  F1C3         	movff	_nn,sendMessage5@data2
- 15903   00BE50  0EB2               	movlw	178
+ 15903   00BE50  0E55               	movlw	85
  15904   00BE52  0101               	movlb	1	; () banked
  15905   00BE54  6FC4               	movwf	sendMessage5@data3& (0+255),b
  15906   00BE56  0E04               	movlw	4
@@ -16666,10 +16666,10 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  16210   00AA48  EC4B  F05F         	call	_sendMessage2
  16211                           
  16212                           ;../../VLCBlib_PIC/event_teach_large.c: 771:     sendMessage5(OPC_GRSP, nn.bytes.hi, nn.
-      +                          bytes.lo, OPC_REQEV, SERVICE_ID_OLD_TEACH, GRSP_OK);
+      +                          bytes.lo, OPC_EVULN, SERVICE_ID_OLD_TEACH, GRSP_OK);
  16213   00AA4C  C0C0  F1C2         	movff	_nn+1,sendMessage5@data1
  16214   00AA50  C0BF  F1C3         	movff	_nn,sendMessage5@data2
- 16215   00AA54  0EB2               	movlw	178
+ 16215   00AA54  0E95               	movlw	149
  16216   00AA56  0101               	movlb	1	; () banked
  16217   00AA58  6FC4               	movwf	sendMessage5@data3& (0+255),b
  16218   00AA5A  0E04               	movlw	4
@@ -16904,10 +16904,10 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  16427   0091CC  EC4B  F05F         	call	_sendMessage2
  16428                           
  16429                           ;../../VLCBlib_PIC/event_teach_large.c: 708:     sendMessage5(OPC_GRSP, nn.bytes.hi, nn.
-      +                          bytes.lo, OPC_REQEV, SERVICE_ID_OLD_TEACH, GRSP_OK);
+      +                          bytes.lo, OPC_EVLRN, SERVICE_ID_OLD_TEACH, GRSP_OK);
  16430   0091D0  C0C0  F1C2         	movff	_nn+1,sendMessage5@data1
  16431   0091D4  C0BF  F1C3         	movff	_nn,sendMessage5@data2
- 16432   0091D8  0EB2               	movlw	178
+ 16432   0091D8  0ED2               	movlw	210
  16433   0091DA  0101               	movlb	1	; () banked
  16434   0091DC  6FC4               	movwf	sendMessage5@data3& (0+255),b
  16435   0091DE  0E04               	movlw	4
@@ -53168,7 +53168,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Thu Sep 12 20:06:35 2024
+Symbol Table                                                                                   Wed Sep 25 19:00:29 2024
 
                    nerdCallback@nodeNumber 01D6                        findEvent@tableIndex 01C6  
                 __end_of_pollTimedResponse A974                     ?_handleSelfEnumeration 0097  
