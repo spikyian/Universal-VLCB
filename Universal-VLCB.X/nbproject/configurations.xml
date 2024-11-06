@@ -124,18 +124,18 @@
         <loading>
           <makeArtifact PL="../../../MPLABworkspace/CBUS_PIC_Bootloader.X"
                         CT="1"
-                        CN="PIC18F27Q83"
+                        CN="PIC18F27Q83_canmio"
                         AC="false"
                         BL="true"
                         WD="../../../MPLABworkspace/CBUS_PIC_Bootloader.X"
-                        BC="${MAKE}  -f Makefile CONF=PIC18F27Q83"
-                        DBC="${MAKE}  -f Makefile CONF=PIC18F27Q83 TYPE_IMAGE=DEBUG_RUN"
-                        CC="rm -rf &quot;build/PIC18F27Q83&quot; &quot;dist/PIC18F27Q83&quot;"
-                        OP="dist/PIC18F27Q83/production/CBUS_PIC_Bootloader.X.production.hex"
-                        DOP="dist/PIC18F27Q83/debug/CBUS_PIC_Bootloader.X.debug.elf"
-                        FL="dist/PIC18F27Q83/production/CBUS_PIC_Bootloader.X.production.hex"
-                        PD="dist/PIC18F27Q83/production/CBUS_PIC_Bootloader.X.production.elf"
-                        DD="dist/PIC18F27Q83/debug/CBUS_PIC_Bootloader.X.debug.elf">
+                        BC="${MAKE}  -f Makefile CONF=PIC18F27Q83_canmio"
+                        DBC="${MAKE}  -f Makefile CONF=PIC18F27Q83_canmio TYPE_IMAGE=DEBUG_RUN"
+                        CC="rm -rf &quot;build/PIC18F27Q83_canmio&quot; &quot;dist/PIC18F27Q83_canmio&quot;"
+                        OP="dist/PIC18F27Q83_canmio/production/CBUS_PIC_Bootloader.X.production.hex"
+                        DOP="dist/PIC18F27Q83_canmio/debug/CBUS_PIC_Bootloader.X.debug.elf"
+                        FL="dist/PIC18F27Q83_canmio/production/CBUS_PIC_Bootloader.X.production.hex"
+                        PD="dist/PIC18F27Q83_canmio/production/CBUS_PIC_Bootloader.X.production.elf"
+                        DD="dist/PIC18F27Q83_canmio/debug/CBUS_PIC_Bootloader.X.debug.elf">
           </makeArtifact>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
           <parseOnProdLoad>false</parseOnProdLoad>
@@ -170,7 +170,7 @@
         <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
-        <property key="define-macros" value=""/>
+        <property key="define-macros" value="HARDWARE=HW_CANMIO"/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
                   value="..\;..\..\VLCB-defs;..\..\VLCBlib_PIC"/>
@@ -283,6 +283,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1ffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/ianwh/github/Universal-VLCB/Universal-VLCB.X/debug/PIC18F27Q83/Universal-VLCB_ptg"/>
         <property key="programmerToGoImageName" value="Universal-VLCB_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -428,18 +430,18 @@
         <loading>
           <makeArtifact PL="../../../MPLABworkspace/CBUS_PIC_Bootloader.X"
                         CT="1"
-                        CN="PIC18F26K80"
-                        AC="true"
+                        CN="PIC18F26K80_canmio"
+                        AC="false"
                         BL="true"
                         WD="../../../MPLABworkspace/CBUS_PIC_Bootloader.X"
-                        BC="${MAKE}  -f Makefile CONF=PIC18F26K80"
-                        DBC="${MAKE}  -f Makefile CONF=PIC18F26K80 TYPE_IMAGE=DEBUG_RUN"
-                        CC="rm -rf &quot;build/PIC18F26K80&quot; &quot;dist/PIC18F26K80&quot;"
-                        OP="dist/PIC18F26K80/production/CBUS_PIC_Bootloader.X.production.hex"
-                        DOP="dist/PIC18F26K80/debug/CBUS_PIC_Bootloader.X.debug.elf"
-                        FL="dist/PIC18F26K80/production/CBUS_PIC_Bootloader.X.production.hex"
-                        PD="dist/PIC18F26K80/production/CBUS_PIC_Bootloader.X.production.elf"
-                        DD="dist/PIC18F26K80/debug/CBUS_PIC_Bootloader.X.debug.elf">
+                        BC="${MAKE}  -f Makefile CONF=PIC18F26K80_canmio"
+                        DBC="${MAKE}  -f Makefile CONF=PIC18F26K80_canmio TYPE_IMAGE=DEBUG_RUN"
+                        CC="rm -rf &quot;build/PIC18F26K80_canmio&quot; &quot;dist/PIC18F26K80_canmio&quot;"
+                        OP="dist/PIC18F26K80_canmio/production/CBUS_PIC_Bootloader.X.production.hex"
+                        DOP="dist/PIC18F26K80_canmio/debug/CBUS_PIC_Bootloader.X.debug.elf"
+                        FL="dist/PIC18F26K80_canmio/production/CBUS_PIC_Bootloader.X.production.hex"
+                        PD="dist/PIC18F26K80_canmio/production/CBUS_PIC_Bootloader.X.production.elf"
+                        DD="dist/PIC18F26K80_canmio/debug/CBUS_PIC_Bootloader.X.debug.elf">
           </makeArtifact>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
           <parseOnProdLoad>false</parseOnProdLoad>
@@ -484,7 +486,7 @@
         <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
-        <property key="define-macros" value=""/>
+        <property key="define-macros" value="HARDWARE=HW_CANMIO"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
                   value="..\;..\..\VLCB-defs;..\..\VLCBlib_PIC"/>
@@ -598,6 +600,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/ianwh/github/Universal-VLCB/Universal-VLCB.X/debug/PIC18F26K80/Universal-VLCB_ptg"/>
         <property key="programmerToGoImageName" value="Universal-VLCB_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -724,7 +728,7 @@
         <targetDevice>PIC18F27Q83</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PK5Tool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.46</languageToolchainVersion>
         <platform>3</platform>
@@ -744,18 +748,18 @@
         <loading>
           <makeArtifact PL="../../../MPLABworkspace/CBUS_PIC_Bootloader.X"
                         CT="1"
-                        CN="PIC18F27Q83"
+                        CN="PIC18F27Q83_canmio"
                         AC="false"
                         BL="true"
                         WD="../../../MPLABworkspace/CBUS_PIC_Bootloader.X"
-                        BC="${MAKE}  -f Makefile CONF=PIC18F27Q83"
-                        DBC="${MAKE}  -f Makefile CONF=PIC18F27Q83 TYPE_IMAGE=DEBUG_RUN"
-                        CC="rm -rf &quot;build/PIC18F27Q83&quot; &quot;dist/PIC18F27Q83&quot;"
-                        OP="dist/PIC18F27Q83/production/CBUS_PIC_Bootloader.X.production.hex"
-                        DOP="dist/PIC18F27Q83/debug/CBUS_PIC_Bootloader.X.debug.elf"
-                        FL="dist/PIC18F27Q83/production/CBUS_PIC_Bootloader.X.production.hex"
-                        PD="dist/PIC18F27Q83/production/CBUS_PIC_Bootloader.X.production.elf"
-                        DD="dist/PIC18F27Q83/debug/CBUS_PIC_Bootloader.X.debug.elf">
+                        BC="${MAKE}  -f Makefile CONF=PIC18F27Q83_canmio"
+                        DBC="${MAKE}  -f Makefile CONF=PIC18F27Q83_canmio TYPE_IMAGE=DEBUG_RUN"
+                        CC="rm -rf &quot;build/PIC18F27Q83_canmio&quot; &quot;dist/PIC18F27Q83_canmio&quot;"
+                        OP="dist/PIC18F27Q83_canmio/production/CBUS_PIC_Bootloader.X.production.hex"
+                        DOP="dist/PIC18F27Q83_canmio/debug/CBUS_PIC_Bootloader.X.debug.elf"
+                        FL="dist/PIC18F27Q83_canmio/production/CBUS_PIC_Bootloader.X.production.hex"
+                        PD="dist/PIC18F27Q83_canmio/production/CBUS_PIC_Bootloader.X.production.elf"
+                        DD="dist/PIC18F27Q83_canmio/debug/CBUS_PIC_Bootloader.X.debug.elf">
           </makeArtifact>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
           <parseOnProdLoad>false</parseOnProdLoad>
@@ -790,7 +794,7 @@
         <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
-        <property key="define-macros" value="CANCDU"/>
+        <property key="define-macros" value="CANCDU;HARDWARE=HW_CANMIO"/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
                   value="..\;..\..\VLCB-defs;..\..\VLCBlib_PIC"/>
