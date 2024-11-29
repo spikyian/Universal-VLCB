@@ -153,7 +153,7 @@
 #define PARAM_MODULE_ID         MTYP_CANBIP
 #define PARAM_MAJOR_VERSION     4
 #define PARAM_MINOR_VERSION     'a'
-#define PARAM_BUILD_VERSION     5
+#define PARAM_BUILD_VERSION     7
 // Module name - must be 7 characters
 #define NAME    "BIP    "
 #else
@@ -161,7 +161,7 @@
 #define PARAM_MODULE_ID         MTYP_CANXIO
 #define PARAM_MAJOR_VERSION     4
 #define PARAM_MINOR_VERSION     'a'
-#define PARAM_BUILD_VERSION     5
+#define PARAM_BUILD_VERSION     7
 // Module name - must be 7 characters
 #define NAME    "XIO    "
 #else
@@ -169,14 +169,14 @@
 #define PARAM_MODULE_ID         MTYP_CANCDU
 #define PARAM_MAJOR_VERSION     4
 #define PARAM_MINOR_VERSION     'a'
-#define PARAM_BUILD_VERSION     5
+#define PARAM_BUILD_VERSION     7
 // Module name - must be 7 characters
 #define NAME    "CDU    "
 #else
 #define PARAM_MODULE_ID         MTYP_CANMIO
 #define PARAM_MAJOR_VERSION     4
 #define PARAM_MINOR_VERSION     'a'
-#define PARAM_BUILD_VERSION     5
+#define PARAM_BUILD_VERSION     7
 // Module name - must be 7 characters
 #define NAME    "MIO    "
 #endif

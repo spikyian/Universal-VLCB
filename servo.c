@@ -318,7 +318,7 @@ void pollServos(void) {
                             } else {
                                 pollCount[io]--;
                                 if (pollCount[io] == 0) {
-                                    currentPos[io]++;
+                                    if (currentPos[io] < 255) currentPos[io]++;
                                     pollCount[io] = pollsPerStepSpeed[io];
                                 }
                             }
@@ -347,7 +347,7 @@ void pollServos(void) {
                             } else {
                                 pollCount[io]--;
                                 if (pollCount[io] == 0) {
-                                    currentPos[io]--;
+                                    if (currentPos[io] > 0) currentPos[io]--;
                                     pollCount[io] = pollsPerStepSpeed[io];
                                 }
                             }
@@ -519,7 +519,8 @@ void pollServos(void) {
                 break;
             case SS_OFF:
                 // output off
-                //setOutputPin(io, 1);
+                // For better noise immunity set output high unless the output is inverted.
+                setOutputPin(io, !(getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED));
                 // no need to do anything since if output is OFF we don't start the timer in startServos
                 break;
         }

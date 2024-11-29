@@ -174,7 +174,6 @@ _setNV 1C1E4 0 CODE 0
 _timedResponseServiceIndex 5EE 0 BANK5 1
 setServoPosition@io 52C 0 COMRAM 1
 __end_of_checkRemoveTableEntry 1CB64 0 CODE 0
-_initServos$8451 564 0 BANK5 1
 initAnaloguePort@io 519 0 COMRAM 1
 pollAnalogue@hhysteresis 57D 0 BANK5 1
 _mnsTRrqnpnCallback 1D962 0 CODE 0
@@ -449,6 +448,7 @@ __ptext203 1D6BE 0 CODE 0
 __end_of_bounceUp 16FE0 0 CODE 0
 getEv@f 52D 0 COMRAM 1
 numEv@f 561 0 BANK5 1
+_initServos$8457 563 0 BANK5 1
 initTicker@divider 51B 0 COMRAM 1
 __ptext113 1CF7C 0 CODE 0
 __ptext132 16606 0 CODE 0
@@ -873,7 +873,6 @@ _getNextWriteMessage 1A1FC 0 CODE 0
 __end_of_canSendMessage 14ECE 0 CODE 0
 findEvent@eventNumber 56E 0 BANK5 1
 __end_of_paramBlock 840 0 CODE 0
-_isEvent$6237 519 0 COMRAM 1
 __end_of_canPoll B04 0 CODE 0
 _TRISAbits 4C6 0 ABS 0
 sendInvertedProducedEvent@state_to_send 581 0 BANK5 1
@@ -929,6 +928,7 @@ isEvent@opc 51A 0 COMRAM 1
 pollServos@midway 584 0 BANK5 1
 IVTBASEL 45D 0 ABS 0
 __end_of_deleteHappeningRange 19F0E 0 CODE 0
+_configIO$8455 56A 0 BANK5 1
 _canService FFE4 0 MEDIUMCONST 0
 __HbssBIGRAM 0 0 ABS 0
 __LbssBIGRAM 0 0 ABS 0
@@ -1177,7 +1177,6 @@ _mode_state 537 0 COMRAM 1
 sodTRCallback@event_inverted 58C 0 BANK5 1
 _nvCache 900 0 BANK9 1
 getParameterFlags@flags 51D 0 COMRAM 1
-_configIO$8450 56A 0 BANK5 1
 getEN@lo 52D 0 COMRAM 1
 processActions@simultaneous 58E 0 BANK5 1
 getNN@lo 562 0 BANK5 1
@@ -1214,6 +1213,7 @@ _getHash 1DFCE 0 CODE 0
 _doNenrd 1C97A 0 CODE 0
 __H_eventTable_text 1FFF0 0 CODE 0
 __end_of_getEv 189BA 0 CODE 0
+_initServos$8456 564 0 BANK5 1
 __L_eventTable_text 1F000 0 CODE 0
 __end_of___lldiv 1BED0 0 CODE 0
 _isConsumedEvent 1DD9E 0 CODE 0
@@ -1900,7 +1900,6 @@ APP_nvValueChanged@io 5B3 0 BANK5 1
 ackEventProcessMessage@eventEN 5BD 0 BANK5 1
 reqevCallback@eventNumber 58E 0 BANK5 1
 doNenrd@eventNumber 576 0 BANK5 1
-_initServos$8452 563 0 BANK5 1
 APP_GetEventState@h 52D 0 COMRAM 1
 memcpy@s1 51B 0 COMRAM 1
 pollAnalogue@lhysteresis 57F 0 BANK5 1
@@ -2090,6 +2089,7 @@ _C1FLTCON0L 180 0 ABS 0
 __end_of_pbDownTimer 1B18C 0 CODE 0
 setOutputState@type 520 0 COMRAM 1
 sendInvertedProducedEvent@happening 57E 0 BANK5 1
+_isEvent$6242 519 0 COMRAM 1
 __end_of_doNnevn 1CDAE 0 CODE 0
 _flashCounter 530 0 COMRAM 1
 defaultNVs@type 56B 0 BANK5 1
@@ -2131,7 +2131,7 @@ text209 1DF1C 1DFFF CODE 1DF1C 0
 dist/PIC18F27Q83/production\Universal-VLCB.X.production.o
 ../../VLCBlib_PIC/boot.c
 103 3803FF 0 EEDATA 0
-C:\Users\ianwh\AppData\Local\Temp\xcAs2bh0.\driver_tmp_1.s
+C:\Users\ianwh\AppData\Local\Temp\xcAsip4.\driver_tmp_1.s
 64706 1C5DC 0 CODE 0
 64708 1C5DC 0 CODE 0
 64711 1C5DC 0 CODE 0
@@ -2481,23 +2481,24 @@ C:\Users\ianwh\AppData\Local\Temp\xcAs2bh0.\driver_tmp_1.s
 362 18B46 0 CODE 0
 363 18B48 0 CODE 0
 ../../VLCBlib_PIC/boot.c
-195 1A6BE 0 CODE 0
-201 1A6BE 0 CODE 0
-202 1A6C2 0 CODE 0
-205 1A6C6 0 CODE 0
-206 1A6D2 0 CODE 0
-207 1A6D6 0 CODE 0
-208 1A6DA 0 CODE 0
-209 1A6F6 0 CODE 0
-210 1A71C 0 CODE 0
-211 1A720 0 CODE 0
-213 1A724 0 CODE 0
-214 1A736 0 CODE 0
-215 1A746 0 CODE 0
-216 1A762 0 CODE 0
-218 1A782 0 CODE 0
-219 1A782 0 CODE 0
-220 1A7A6 0 CODE 0
+197 1A6BE 0 CODE 0
+203 1A6BE 0 CODE 0
+204 1A6C2 0 CODE 0
+207 1A6C6 0 CODE 0
+208 1A6D2 0 CODE 0
+209 1A6D2 0 CODE 0
+210 1A6D6 0 CODE 0
+211 1A6F2 0 CODE 0
+212 1A718 0 CODE 0
+213 1A71C 0 CODE 0
+215 1A720 0 CODE 0
+217 1A724 0 CODE 0
+218 1A736 0 CODE 0
+219 1A746 0 CODE 0
+220 1A762 0 CODE 0
+222 1A782 0 CODE 0
+223 1A782 0 CODE 0
+224 1A7A6 0 CODE 0
 ../event_consumerDualActionQueue.c
 109 1D4DA 0 CODE 0
 110 1D4DA 0 CODE 0
@@ -2845,18 +2846,18 @@ C:\Users\ianwh\AppData\Local\Temp\xcAs2bh0.\driver_tmp_1.s
 431 1AA38 0 CODE 0
 433 1AA42 0 CODE 0
 ../../VLCBlib_PIC/boot.c
-227 1B314 0 CODE 0
-229 1B314 0 CODE 0
-230 1B33A 0 CODE 0
-235 1B35C 0 CODE 0
-240 1B37E 0 CODE 0
-241 1B394 0 CODE 0
-242 1B396 0 CODE 0
-245 1B39C 0 CODE 0
-245 1B3B2 0 CODE 0
-245 1B3C0 0 CODE 0
-245 1B3C8 0 CODE 0
-246 1B3D2 0 CODE 0
+231 1B314 0 CODE 0
+233 1B314 0 CODE 0
+234 1B33A 0 CODE 0
+239 1B35C 0 CODE 0
+244 1B37E 0 CODE 0
+245 1B394 0 CODE 0
+246 1B396 0 CODE 0
+249 1B39C 0 CODE 0
+249 1B3B2 0 CODE 0
+249 1B3C0 0 CODE 0
+249 1B3C8 0 CODE 0
+250 1B3D2 0 CODE 0
 ../event_consumerDualActionQueue.c
 142 13C8C 0 CODE 0
 153 13C8C 0 CODE 0
@@ -3504,17 +3505,17 @@ C:\Users\ianwh\AppData\Local\Temp\xcAs2bh0.\driver_tmp_1.s
 472 1DFC2 0 CODE 0
 473 1DFCC 0 CODE 0
 ../../VLCBlib_PIC/boot.c
-250 1DB3E 0 CODE 0
-251 1DB40 0 CODE 0
-252 1DB44 0 CODE 0
-254 1DB44 0 CODE 0
-255 1DB4A 0 CODE 0
-257 1DB4A 0 CODE 0
-259 1DB50 0 CODE 0
-260 1DB56 0 CODE 0
-260 1DB5A 0 CODE 0
-260 1DB62 0 CODE 0
-261 1DB6C 0 CODE 0
+257 1DB3E 0 CODE 0
+258 1DB40 0 CODE 0
+259 1DB44 0 CODE 0
+261 1DB44 0 CODE 0
+262 1DB4A 0 CODE 0
+264 1DB4A 0 CODE 0
+266 1DB50 0 CODE 0
+267 1DB56 0 CODE 0
+267 1DB5A 0 CODE 0
+267 1DB62 0 CODE 0
+268 1DB6C 0 CODE 0
 ../event_consumerDualActionQueue.c
 364 1DEA4 0 CODE 0
 365 1DEA6 0 CODE 0
