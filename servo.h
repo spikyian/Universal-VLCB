@@ -50,7 +50,7 @@ extern uint8_t targetPos[NUM_IO];
 extern uint8_t stepsPerPollSpeed[NUM_IO];
 extern int speed[NUM_IO];
 
-extern void startServos(void);
+extern uint8_t startServos(void);
 extern void initServos(void);
 extern void pollServos(void);
 #if defined(_18F66K80_FAMILY_)

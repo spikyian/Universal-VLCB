@@ -359,8 +359,9 @@ void loop(void) {
 
 #ifdef SERVO
     if (tickTimeSince(lastServoStartTime) > 5*HALF_MILLI_SECOND) {
-        startServos();  // call every 2.5ms
-        lastServoStartTime.val = tickGet();
+        if (startServos()) {  // call every 2.5ms
+            lastServoStartTime.val = tickGet();
+        }
     }
 #endif
     if (started) {

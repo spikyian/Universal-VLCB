@@ -119,6 +119,7 @@ TickValue  ticksWhenStopped[NUM_IO];
 #pragma udata
 
 static uint8_t servoInBlock;
+static uint8_t servoActive[2];  // one for each block of servos
 
 void initServos(void) {
     uint8_t io;
@@ -173,16 +174,20 @@ void initServos(void) {
     PIE5bits.TMR3IE = 1;        // enable interrupts
 #endif
     servoInBlock = io -1;
+    servoActive[0] = 0;
+    servoActive[1] = 0;
 }
 /**
  * This gets called every approx 2.5ms to start the next set of servo pulses.
  * Checks that the servo isn't OFF
+ * @return whether we were able to start the servo
  * @param io
  */
-void startServos(void) {
+uint8_t startServos(void) {
     uint8_t type;
     // increment block before calling setup so that block is left as the current block whilst the
     // timers expire
+    if (servoActive[0] || servoActive[1]) return 0;
     servoInBlock++;
     if (servoInBlock >= SERVOS_IN_BLOCK) {
         servoInBlock = 0;
@@ -196,6 +201,7 @@ void startServos(void) {
     if ((type == TYPE_SERVO) || (type == TYPE_BOUNCE) || (type == TYPE_MULTI)) {
         if (servoState[servoInBlock+SERVOS_IN_BLOCK] != SS_OFF) setupTimer3(servoInBlock+SERVOS_IN_BLOCK);
     }
+    return 1;
 }
 
 /**
@@ -211,6 +217,7 @@ void setupTimer1(uint8_t io) {
     TMR1L = ticks & 0xFF;
 
     // turn on output
+    servoActive[0] = 1;
     setOutputPin(io, !(getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED));
     T1CONbits.TMR1ON = 1;       // enable Timer1
 }
@@ -222,6 +229,7 @@ void setupTimer3(uint8_t io) {
     TMR3L = ticks & 0xFF;     // set the duration. Negative to count up to 0x0000 when it generates overflow interrupt
 
     // turn on output
+    servoActive[1] = 1;
     setOutputPin(io, !(getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED));
     T3CONbits.TMR3ON = 1;       // enable Timer3
 }
@@ -254,7 +262,8 @@ void __interrupt(irq(TMR1), base(IVT_BASE)) TMR1_ISR(void)
         /* there was a timer overflow */
         PIR3bits.TMR1IF = 0;
         T1CONbits.TMR1ON = 0;       // disable Timer1
-        setOutputPin(servoInBlock, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock)) & FLAG_OUTPUT_ACTION_INVERTED);  
+        setOutputPin(servoInBlock, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock)) & FLAG_OUTPUT_ACTION_INVERTED);
+        servoActive[0] = 0;
     }
     return;
 }
@@ -267,6 +276,7 @@ void __interrupt(irq(TMR3), base(IVT_BASE)) TMR3_ISR(void)
         PIR5bits.TMR3IF = 0;
         T3CONbits.TMR3ON = 0;       // disable Timer1
         setOutputPin(servoInBlock+SERVOS_IN_BLOCK, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock+SERVOS_IN_BLOCK)) & FLAG_OUTPUT_ACTION_INVERTED);  
+        servoActive[1] = 0;
     }
     return;
 }
@@ -309,7 +319,7 @@ void pollServos(void) {
                             }
                             
                             if (stepsPerPollSpeed[io]) {
-                                if (currentPos[io] + stepsPerPollSpeed[io] < currentPos[io]) {
+                                if ((uint8_t)(currentPos[io] + stepsPerPollSpeed[io]) < currentPos[io]) {
                                     // will wrap over
                                     currentPos[io] =255;
                                 } else {
@@ -338,7 +348,7 @@ void pollServos(void) {
                             }
                             
                             if (stepsPerPollSpeed[io]) {
-                                if (currentPos[io] - stepsPerPollSpeed[io] > currentPos[io]) {
+                                if (stepsPerPollSpeed[io] >= currentPos[io]) {
                                     // would under wrap
                                     currentPos[io] = 0;
                                 } else {
