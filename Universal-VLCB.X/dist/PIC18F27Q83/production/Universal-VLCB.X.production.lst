@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Sun Dec 15 14:14:31 2024
+                                                                                               Sat Jan 25 19:57:18 2025
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F27Q83
@@ -5104,7 +5104,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5090   000830  00                 	db	0
   5091   000831  00                 	db	0
   5092   000832  01                 	db	1
-  5093   000833  09                 	db	9
+  5093   000833  0B                 	db	11
   5094   000834  00                 	db	0
   5095   000835  00                 	db	0
   5096   000836  00                 	db	0
@@ -5115,7 +5115,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5101   00083B  08                 	db	8
   5102   00083C  00                 	db	0
   5103   00083D  00                 	db	0
-  5104   00083E  55                 	db	85
+  5104   00083E  57                 	db	87
   5105   00083F  03                 	db	3
   5106   000840                     __end_of_paramBlock:
   5107                           	callstack 0
@@ -25228,8 +25228,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  23712   01914E  EF03  F0C9         	goto	l2216
  23713   019152                     l20757:
  23714                           
- 23715                           ;../../VLCBlib_PIC/mns.c: 865:         return 9;
- 23716   019152  0E09               	movlw	9
+ 23715                           ;../../VLCBlib_PIC/mns.c: 865:         return 11;
+ 23716   019152  0E0B               	movlw	11
  23717   019154  EF03  F0C9         	goto	l2216
  23718   019158                     l20767:
  23719   019158  501E               	movf	getParameter@idx^(0+1280),w,c
@@ -41755,10 +41755,10 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  38932   000BFC  0E00               	movlw	0
  38933   000BFE  6E34               	movwf	_flashFlags^(0+1280),c
  38934                           
- 38935                           ;../../VLCBlib_PIC/nvm.c: 158:     flashBlock = 0x0700;
+ 38935                           ;../../VLCBlib_PIC/nvm.c: 158:     flashBlock = 0x0800;
  38936   000C00  0E00               	movlw	0
  38937   000C02  6E45               	movwf	_flashBlock^(0+1280),c
- 38938   000C04  0E07               	movlw	7
+ 38938   000C04  0E08               	movlw	8
  38939   000C06  6E46               	movwf	(_flashBlock+1)^(0+1280),c
  38940   000C08  0E00               	movlw	0
  38941   000C0A  6E47               	movwf	(_flashBlock+2)^(0+1280),c
@@ -58119,7 +58119,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Sun Dec 15 14:14:31 2024
+Symbol Table                                                                                   Sat Jan 25 19:57:18 2025
 
                    nerdCallback@nodeNumber 0584                        findEvent@tableIndex 0578  
                 __end_of_pollTimedResponse B47E                     ?_handleSelfEnumeration 0501  

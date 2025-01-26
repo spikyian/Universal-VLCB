@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Sun Dec 15 13:51:22 2024
+                                                                                               Sat Jan 25 20:05:33 2025
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F26K80
@@ -5095,7 +5095,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5081   000830  00                 	db	0
   5082   000831  00                 	db	0
   5083   000832  01                 	db	1
-  5084   000833  09                 	db	9
+  5084   000833  0B                 	db	11
   5085   000834  00                 	db	0
   5086   000835  00                 	db	0
   5087   000836  00                 	db	0
@@ -5106,7 +5106,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   5092   00083B  08                 	db	8
   5093   00083C  00                 	db	0
   5094   00083D  00                 	db	0
-  5095   00083E  4D                 	db	77
+  5095   00083E  4F                 	db	79
   5096   00083F  03                 	db	3
   5097   000840                     __end_of_paramBlock:
   5098                           	callstack 0
@@ -22051,8 +22051,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  21327   008876                     l21132:
  21328                           
  21329                           ; BSR set to: 0
- 21330                           ;../../VLCBlib_PIC/mns.c: 865:         return 9;
- 21331   008876  0E09               	movlw	9
+ 21330                           ;../../VLCBlib_PIC/mns.c: 865:         return 11;
+ 21331   008876  0E0B               	movlw	11
  21332   008878  0012               	return	
  21333   00887A                     l21142:
  21334   00887A  0100               	movlb	0	; () banked
@@ -36621,8 +36621,8 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
  35325   00C7CC  0100               	movlb	0	; () banked
  35326   00C7CE  6FBA               	movwf	_flashFlags& (0+255),b
  35327                           
- 35328                           ;../../VLCBlib_PIC/nvm.c: 158:     flashBlock = 0x0700;
- 35329   00C7D0  0E07               	movlw	7
+ 35328                           ;../../VLCBlib_PIC/nvm.c: 158:     flashBlock = 0x0800;
+ 35329   00C7D0  0E08               	movlw	8
  35330   00C7D2  6FD2               	movwf	(_flashBlock+1)& (0+255),b
  35331   00C7D4  0E00               	movlw	0
  35332   00C7D6  6FD1               	movwf	_flashBlock& (0+255),b
@@ -53906,7 +53906,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Sun Dec 15 13:51:22 2024
+Symbol Table                                                                                   Sat Jan 25 20:05:33 2025
 
                    nerdCallback@nodeNumber 01DA                        findEvent@tableIndex 01CA  
                 __end_of_pollTimedResponse AC8A                     ?_handleSelfEnumeration 0097  
