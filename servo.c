@@ -514,24 +514,30 @@ void pollServos(void) {
                 }
                 break;
         }
-        switch (servoState[io]) {
-            case SS_STARTING:
-            case SS_MOVING:
-                break;
-            case SS_STOPPED:
-                // if we have been stopped for more than 1 sec then change to OFF
-                // If FLAG_CUTOFF isn't set then we never reach OFF
-                if (getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_CUTOFF) {
-                    if (tickTimeSince(ticksWhenStopped[io]) > ONE_SECOND) {
-                        servoState[io] = SS_OFF;
-                    }
+        switch (getNV(NV_IO_TYPE(io))) {
+            case TYPE_SERVO:
+            case TYPE_BOUNCE:
+            case TYPE_MULTI:
+                switch (servoState[io]) {
+                    case SS_STARTING:
+                    case SS_MOVING:
+                        break;
+                    case SS_STOPPED:
+                        // if we have been stopped for more than 1 sec then change to OFF
+                        // If FLAG_CUTOFF isn't set then we never reach OFF
+                        if (getNV(NV_IO_FLAGS(io)) & FLAG_SERVO_CUTOFF) {
+                            if (tickTimeSince(ticksWhenStopped[io]) > ONE_SECOND) {
+                                servoState[io] = SS_OFF;
+                            }
+                        }
+                        break;
+                    case SS_OFF:
+                        // output off
+                        // For better noise immunity set output high unless the output is inverted.
+                        setOutputPin(io, !(getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED));
+                        // no need to do anything since if output is OFF we don't start the timer in startServos
+                        break;
                 }
-                break;
-            case SS_OFF:
-                // output off
-                // For better noise immunity set output high unless the output is inverted.
-                setOutputPin(io, !(getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED));
-                // no need to do anything since if output is OFF we don't start the timer in startServos
                 break;
         }
     }
