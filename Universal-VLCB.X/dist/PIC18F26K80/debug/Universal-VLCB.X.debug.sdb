@@ -455,7 +455,7 @@ FLASH_NVM_TYPE 1
 FALSE 0
 TRUE 1
 ]
-"309
+"311
 [e E12736 . `uc
 EVENT_UNKNOWN 255
 EVENT_OFF 0
@@ -3294,25 +3294,25 @@ FLASH_NVM_TYPE 1
 [v _setupTimer3 setupTimer3 `(v  1 e 1 0 ]
 "243
 [v _timer1DoneInterruptHandler timer1DoneInterruptHandler `(v  1 e 1 0 ]
-"248
+"249
 [v _timer3DoneInterruptHandler timer3DoneInterruptHandler `(v  1 e 1 0 ]
-"294
+"296
 [v _pollServos pollServos `(v  1 e 1 0 ]
-"549
+"557
 [v _startServoOutput startServoOutput `(v  1 e 1 0 ]
-"577
+"585
 [v _startBounceOutput startBounceOutput `(v  1 e 1 0 ]
-"595
+"603
 [v _startMultiOutput startMultiOutput `(v  1 e 1 0 ]
-"617
+"625
 [v _setServoState setServoState `(v  1 e 1 0 ]
-"644
+"652
 [v _setBounceState setBounceState `(v  1 e 1 0 ]
-"668
+"676
 [v _setMultiState setMultiState `(v  1 e 1 0 ]
-"694
+"702
 [v _setServoPosition setServoPosition `(v  1 e 1 0 ]
-"705
+"713
 [v _isNoServoPulses isNoServoPulses `(E12716  1 e 1 0 ]
 "93 C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 [v _universalEventsInit universalEventsInit `(v  1 e 1 0 ]
@@ -4857,14 +4857,14 @@ FLASH_NVM_TYPE 1
 [v setTimedResponseDelay@delay delay `uc  1 a 1 45 ]
 "903
 } 0
-"694 C:\Users\ianwh\github\Universal-VLCB/servo.c
+"702 C:\Users\ianwh\github\Universal-VLCB/servo.c
 [v _setServoPosition setServoPosition `(v  1 e 1 0 ]
 {
 [v setServoPosition@io io `uc  1 a 1 wreg ]
 [v setServoPosition@io io `uc  1 a 1 wreg ]
 [v setServoPosition@pos pos `uc  1 p 1 63 ]
 [v setServoPosition@io io `uc  1 a 1 64 ]
-"697
+"705
 } 0
 "299 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
 [v _APP_nvValidate APP_nvValidate `(E12929  1 e 1 0 ]
@@ -5297,18 +5297,18 @@ FLASH_NVM_TYPE 1
 [v setupTimer1@io io `uc  1 a 1 60 ]
 "223
 } 0
-"294
+"296
 [v _pollServos pollServos `(v  1 e 1 0 ]
 {
-"297
+"299
 [v pollServos@io io `uc  1 a 1 29 ]
-"295
+"297
 [v pollServos@midway midway `uc  1 a 1 28 ]
-"296
-[v pollServos@beforeMidway beforeMidway `E12716  1 a 1 27 ]
 "298
+[v pollServos@beforeMidway beforeMidway `E12716  1 a 1 27 ]
+"300
 [v pollServos@target target `uc  1 a 1 26 ]
-"538
+"546
 } 0
 "89 C:\Users\ianwh\github\Universal-VLCB/bounce.c
 [v _initBounce initBounce `(v  1 e 1 0 ]
@@ -5385,24 +5385,24 @@ FLASH_NVM_TYPE 1
 [v startOutput@io io `uc  1 a 1 36 ]
 "101
 } 0
-"549 C:\Users\ianwh\github\Universal-VLCB/servo.c
+"557 C:\Users\ianwh\github\Universal-VLCB/servo.c
 [v _startServoOutput startServoOutput `(v  1 e 1 0 ]
 {
 [v startServoOutput@io io `uc  1 a 1 wreg ]
 [v startServoOutput@io io `uc  1 a 1 wreg ]
 [v startServoOutput@action action `uc  1 p 1 49 ]
 [v startServoOutput@io io `uc  1 a 1 51 ]
-"567
+"575
 } 0
-"595
+"603
 [v _startMultiOutput startMultiOutput `(v  1 e 1 0 ]
 {
 [v startMultiOutput@io io `uc  1 a 1 wreg ]
 [v startMultiOutput@io io `uc  1 a 1 wreg ]
 [v startMultiOutput@action action `uc  1 p 1 49 ]
-"597
+"605
 [v startMultiOutput@io io `uc  1 a 1 51 ]
-"607
+"615
 } 0
 "107 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
 [v _startDigitalOutput startDigitalOutput `(v  1 e 1 0 ]
@@ -5434,14 +5434,14 @@ FLASH_NVM_TYPE 1
 [v sendInvertedProducedEvent@happening happening `uc  1 a 1 22 ]
 "369
 } 0
-"577 C:\Users\ianwh\github\Universal-VLCB/servo.c
+"585 C:\Users\ianwh\github\Universal-VLCB/servo.c
 [v _startBounceOutput startBounceOutput `(v  1 e 1 0 ]
 {
 [v startBounceOutput@io io `uc  1 a 1 wreg ]
 [v startBounceOutput@io io `uc  1 a 1 wreg ]
 [v startBounceOutput@action action `uc  1 p 1 45 ]
 [v startBounceOutput@io io `uc  1 a 1 46 ]
-"588
+"596
 } 0
 "110 C:\Users\ianwh\github\Universal-VLCB/outputs.c
 [v _setOutputState setOutputState `(v  1 e 1 0 ]
@@ -5453,32 +5453,32 @@ FLASH_NVM_TYPE 1
 [v setOutputState@io io `uc  1 a 1 53 ]
 "139
 } 0
-"617 C:\Users\ianwh\github\Universal-VLCB/servo.c
+"625 C:\Users\ianwh\github\Universal-VLCB/servo.c
 [v _setServoState setServoState `(v  1 e 1 0 ]
 {
 [v setServoState@io io `uc  1 a 1 wreg ]
 [v setServoState@io io `uc  1 a 1 wreg ]
 [v setServoState@action action `uc  1 p 1 49 ]
 [v setServoState@io io `uc  1 a 1 50 ]
-"634
+"642
 } 0
-"668
+"676
 [v _setMultiState setMultiState `(v  1 e 1 0 ]
 {
 [v setMultiState@io io `uc  1 a 1 wreg ]
 [v setMultiState@io io `uc  1 a 1 wreg ]
 [v setMultiState@action action `uc  1 p 1 49 ]
 [v setMultiState@io io `uc  1 a 1 50 ]
-"687
+"695
 } 0
-"644
+"652
 [v _setBounceState setBounceState `(v  1 e 1 0 ]
 {
 [v setBounceState@io io `uc  1 a 1 wreg ]
 [v setBounceState@io io `uc  1 a 1 wreg ]
 [v setBounceState@action action `uc  1 p 1 49 ]
 [v setBounceState@io io `uc  1 a 1 50 ]
-"661
+"669
 } 0
 "182 C:\Users\ianwh\github\Universal-VLCB/outputs.c
 [v _needsStarting needsStarting `(E12767  1 e 1 0 ]
@@ -6262,10 +6262,10 @@ FLASH_NVM_TYPE 1
 {
 "409
 } 0
-"705 C:\Users\ianwh\github\Universal-VLCB/servo.c
+"713 C:\Users\ianwh\github\Universal-VLCB/servo.c
 [v _isNoServoPulses isNoServoPulses `(E12716  1 e 1 0 ]
 {
-"711
+"719
 } 0
 "216 C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
 [v _EEPROM_Write EEPROM_Write `(uc  1 e 1 0 ]
@@ -6569,15 +6569,15 @@ FLASH_NVM_TYPE 1
 {
 "724
 } 0
-"248 C:\Users\ianwh\github\Universal-VLCB/servo.c
+"249 C:\Users\ianwh\github\Universal-VLCB/servo.c
 [v _timer3DoneInterruptHandler timer3DoneInterruptHandler `(v  1 e 1 0 ]
 {
-"251
+"253
 } 0
 "243
 [v _timer1DoneInterruptHandler timer1DoneInterruptHandler `(v  1 e 1 0 ]
 {
-"246
+"247
 } 0
 "256 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
 [v i2_setOutputPin setOutputPin `(v  1 e 1 0 ]

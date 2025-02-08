@@ -242,12 +242,14 @@ void setupTimer3(uint8_t io) {
  */
 void timer1DoneInterruptHandler(void) {
     T1CONbits.TMR1ON = 0;       // disable Timer1
-    setOutputPin(servoInBlock, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock)) & FLAG_OUTPUT_ACTION_INVERTED);    
+    setOutputPin(servoInBlock, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock)) & FLAG_OUTPUT_ACTION_INVERTED);
+    servoActive[0] = 0;
 }
 
 void timer3DoneInterruptHandler(void) {
     T3CONbits.TMR3ON = 0;       // disable Timer3
-    setOutputPin(servoInBlock+SERVOS_IN_BLOCK, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock+SERVOS_IN_BLOCK)) & FLAG_OUTPUT_ACTION_INVERTED);    
+    setOutputPin(servoInBlock+SERVOS_IN_BLOCK, (uint8_t)getNV(NV_IO_FLAGS(servoInBlock+SERVOS_IN_BLOCK)) & FLAG_OUTPUT_ACTION_INVERTED);
+    servoActive[1] = 0;
 }
 #endif
 #if defined(_18FXXQ83_FAMILY_)
