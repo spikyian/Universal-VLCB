@@ -151,9 +151,9 @@ void inputScan(void) {
                     } else {
                         // check if produced event is inverted
                         if (getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED) {
-                            sendProducedEvent(HAPPENING_IO_INPUT(io), !outputState[io]);
+                            sendProducedEvent(HAPPENING_IO_INPUT(io), outputState[io]?EVENT_OFF:EVENT_ON);
                         } else {
-                            sendProducedEvent(HAPPENING_IO_INPUT(io), outputState[io]);
+                            sendProducedEvent(HAPPENING_IO_INPUT(io), outputState[io]?EVENT_ON:EVENT_OFF);
                         }
                     }
                 } else {

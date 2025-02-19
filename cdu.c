@@ -188,7 +188,7 @@ void processCduPulses(void) {
                     // check if OFF events are enabled
                     if ( ! (getNV(NV_IO_FLAGS(io)) & FLAG_DISABLE_OFF)) {
                         // check if produced event is inverted
-                        sendProducedEvent(HAPPENING_IO_INPUT(io), getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED); 
+                        sendProducedEvent(HAPPENING_IO_INPUT(io), (getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED)?EVENT_ON:EVENT_OFF); 
                     }
                     LATAbits.LATA3 = 1;     // re-enable the charger
                     // Now start the recharge timer

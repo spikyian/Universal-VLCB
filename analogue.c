@@ -122,14 +122,14 @@ void pollAnalogue(void) {
                     if ((analogueState[portInProgress].eventState != ANALOGUE_EVENT_UPPER) && (adc >= hthreshold)) {
                         //High on
                         if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
-                            sendProducedEvent(HAPPENING_IO_MAGNETH(portInProgress), !(getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED));
+                            sendProducedEvent(HAPPENING_IO_MAGNETH(portInProgress), (getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED)?EVENT_OFF:EVENT_ON);
                         }
                         analogueState[portInProgress].eventState = ANALOGUE_EVENT_UPPER;
                     } else if ((analogueState[portInProgress].eventState == ANALOGUE_EVENT_UPPER) && (adc <= hhysteresis)) {
                         //High Off
                         if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
                             if (!(getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_DISABLE_OFF)) {
-                                sendProducedEvent(HAPPENING_IO_MAGNETH(portInProgress), getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED);
+                                sendProducedEvent(HAPPENING_IO_MAGNETH(portInProgress), (getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED)?EVENT_ON:EVENT_OFF);
                             }
                         }
                         analogueState[portInProgress].eventState = ANALOGUE_EVENT_OFF;
@@ -145,14 +145,14 @@ void pollAnalogue(void) {
                 if ((analogueState[portInProgress].eventState != ANALOGUE_EVENT_LOWER) && (adc <= lthreshold)) {
                     // Low on 
                     if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
-                        sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), !(getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED));
+                        sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), (getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED)?EVENT_OFF:EVENT_ON);
                     }
                     analogueState[portInProgress].eventState = ANALOGUE_EVENT_LOWER;
                 } else if ((analogueState[portInProgress].eventState == ANALOGUE_EVENT_LOWER) && (adc >= lhysteresis)) {
                     //Low Off
                     if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
                         if (!(getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_DISABLE_OFF)) {
-                            sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED);
+                            sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), (getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED)?EVENT_ON:EVENT_OFF);
                         }
                     }
                     analogueState[portInProgress].eventState = ANALOGUE_EVENT_OFF;
