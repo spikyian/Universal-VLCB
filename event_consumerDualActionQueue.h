@@ -41,6 +41,7 @@
 #define _EVENT_CONSUMER_H_
 
 #include "module.h"
+#include "mns.h"
 
 /**
  * @file
@@ -78,9 +79,10 @@
 
 extern const Service eventConsumerService;
 
-#define NUM_CONSUMER_DIAGNOSTICS    1   ///< Number of diagnostics
+#define NUM_CONSUMER_DIAGNOSTICS    2   ///< Number of diagnostics
 #define CONSUMER_DIAG_COUNT         0   ///< Number of diagnostics
 #define CONSUMER_DIAG_NUMCONSUMED   1   ///< Number of events consumed
+#define CONSUMER_DIAG_NUMACKED      2   ///< Number of events acknowledged
 
 #if ACTION_SIZE == 1
 #define Action uint8_t

@@ -3,7 +3,8 @@
 
 // comment out for CBUS
 #define VLCB
-
+// Enable FCU compatibility
+#define FCU_COMPAT
 
 #include "statusLeds.h"
 
@@ -12,7 +13,7 @@
 //
 // The data version stored at NV#0
 #define APP_NVM_VERSION 1
-#define NUM_SERVICES 9
+#define NUM_SERVICES 8
 
 // The hardware
 #define CANMIO
@@ -153,31 +154,31 @@
 #ifdef CANBIP
 #define PARAM_MODULE_ID         MTYP_CANBIP
 #define PARAM_MAJOR_VERSION     4
-#define PARAM_MINOR_VERSION     'a'
-#define PARAM_BUILD_VERSION     15
+#define PARAM_MINOR_VERSION     'b'
+#define PARAM_BUILD_VERSION     1
 // Module name - must be 7 characters
 #define NAME    "BIP    "
 #else
 #ifdef CANXIO
 #define PARAM_MODULE_ID         MTYP_CANXIO
 #define PARAM_MAJOR_VERSION     4
-#define PARAM_MINOR_VERSION     'a'
-#define PARAM_BUILD_VERSION     15
+#define PARAM_MINOR_VERSION     'b'
+#define PARAM_BUILD_VERSION     1
 // Module name - must be 7 characters
 #define NAME    "XIO    "
 #else
 #ifdef CANCDU
 #define PARAM_MODULE_ID         MTYP_CANCDU
 #define PARAM_MAJOR_VERSION     4
-#define PARAM_MINOR_VERSION     'a'
-#define PARAM_BUILD_VERSION     15
+#define PARAM_MINOR_VERSION     'b'
+#define PARAM_BUILD_VERSION     1
 // Module name - must be 7 characters
 #define NAME    "CDU    "
 #else
 #define PARAM_MODULE_ID         MTYP_CANMIO
 #define PARAM_MAJOR_VERSION     4
-#define PARAM_MINOR_VERSION     'a'
-#define PARAM_BUILD_VERSION     15
+#define PARAM_MINOR_VERSION     'b'
+#define PARAM_BUILD_VERSION     1
 // Module name - must be 7 characters
 #define NAME    "MIO    "
 #endif

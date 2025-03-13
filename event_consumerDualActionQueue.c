@@ -70,6 +70,8 @@ static DiagnosticVal consumer2QDiagnostics[NUM_CONSUMER_DIAGNOSTICS+1];
 static DiagnosticVal * consumer2QGetDiagnostic(uint8_t index);
 #endif
 static uint8_t consumer2QEsdData(uint8_t index);
+static Processed consumerEventCheckLen(Message * m, uint8_t needed);
+uint8_t isConsumedEvent(uint8_t eventIndex);
         
 /**
  * The service descriptor for the eventConsumer service. The application must include this
@@ -79,7 +81,7 @@ static uint8_t consumer2QEsdData(uint8_t index);
  */
 const Service eventConsumer2QService = {
     SERVICE_ID_CONSUMER,// id
-    1,                  // version
+    2,                  // version
     NULL,               // factoryReset
     consumer2QPowerUp,               // powerUp
     consumer2QProcessMessage,               // processMessage
@@ -150,6 +152,24 @@ static Processed consumer2QProcessMessage(Message *m) {
     uint8_t io;
     uint16_t enn;
     
+#ifdef VLCB_MODE
+    if (m->opc == OPC_MODE) {      // 76 MODE - NN, mode
+        if (consumerEventCheckLen(m, 4) == PROCESSED) return PROCESSED;
+        if ((m->bytes[0] == nn.bytes.hi) && (m->bytes[1] == nn.bytes.lo)) {
+            if (m->bytes[2] == MODE_EVENT_ACK_ON) {
+                // Do enter Learn mode
+                mode_flags |= FLAG_MODE_EVENTACK;
+                return PROCESSED;
+            } else if (m->bytes[2] == MODE_EVENT_ACK_OFF) {
+                // Do exit Learn mode
+                mode_flags &= ~FLAG_MODE_EVENTACK;
+                return PROCESSED;
+            }
+        } 
+        return NOT_PROCESSED;   // mode probably processed by other services
+    }
+#endif
+    
     if (m->len < 5) return NOT_PROCESSED;
     
     enn = ((uint16_t)m->bytes[0])*256+m->bytes[1];
@@ -205,6 +225,17 @@ static Processed consumer2QProcessMessage(Message *m) {
         return PROCESSED; // error getting EVs. Can't report the error so just return
     }
 #endif
+    
+    // we have the event in the event table
+    // check that we have a consumed Action
+    if ((mode_flags & FLAG_MODE_EVENTACK) && (isConsumedEvent(tableIndex))) {
+        // sent the ack
+        sendMessage7(OPC_ENACK, nn.bytes.hi, nn.bytes.lo, m->opc, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
+#ifdef VLCB_DIAG
+        consumer2QDiagnostics[CONSUMER_DIAG_NUMACKED].asInt++;
+#endif
+    }
+    
     opc=m->opc;
     // check the OPC if this is an ON or OFF event
     if ( ! (opc&EVENT_ON_MASK)) {
@@ -381,8 +412,15 @@ static uint8_t consumer2QEsdData(uint8_t index) {
  */
 uint8_t isConsumedEvent(uint8_t eventIndex) {
     uint8_t ev;
-    ev = (uint8_t)getEv(eventIndex, HAPPENING_SIZE); // skip over the Happening EVs to the first Action
-    return (ev != NO_ACTION);
+    uint8_t i;
+    
+    for (i=HAPPENING_SIZE; i<EVperEVT; i++) {
+        ev = (uint8_t)getEv(eventIndex, i); // skip over the Happening EVs to the first Action
+        if (ev != NO_ACTION) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 /**
@@ -551,4 +589,14 @@ void deleteActionRange(Action action, uint8_t number) {
 #ifdef EVENT_HASH_TABLE
     rebuildHashtable();                
 #endif
+}
+
+/**
+ * Check the message length is sufficient for the opcode.
+ * @param m the message
+ * @param needed the number of bytes needed
+ * @return PROCESSED if the message is invalid and should not be processed further
+ */
+static Processed consumerEventCheckLen(Message * m, uint8_t needed) {
+    return checkLen(m, needed, SERVICE_ID_CONSUMER);
 }

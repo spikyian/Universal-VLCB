@@ -200,8 +200,7 @@ const Service * const services[] = {
     &eventTeachService,
     &eventConsumer2QService,
     &eventProducerService,
-    &eventCoeService,
-    &eventAckService
+    &eventCoeService
 };
 
 extern uint8_t outputState[NUM_IO];
