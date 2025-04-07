@@ -1304,13 +1304,13 @@ MTYP_EMPTY 254
 MTYP_CANUSB 253
 MTYP_CANDEV 252
 ]
-"466
+"473
 [e E12936 . `uc
 TIMED_RESPONSE_RESULT_FINISHED 0
 TIMED_RESPONSE_RESULT_RETRY 1
 TIMED_RESPONSE_RESULT_NEXT 2
 ]
-"489
+"496
 [e E12575 VlcbGrspCodes `uc
 GRSP_OK 0
 GRSP_UNKNOWN_NVM_TYPE 254
@@ -1319,12 +1319,12 @@ GRSP_INVALID_SERVICE 252
 GRSP_INVALID_COMMAND_PARAMETER 251
 GRSP_INVALID_MODE 250
 ]
-"602
+"610
 [e E12898 ServicePresent `uc
 NOT_PRESENT 0
 PRESENT 1
 ]
-"811
+"819
 [e E12228 StatusDisplay `uc
 STATUS_OFF 0
 STATUS_UNINITIALISED 1
@@ -1340,7 +1340,7 @@ STATUS_RECEIVE_ERROR 10
 STATUS_MEMORY_FAULT 11
 STATUS_FATAL_ERROR 12
 ]
-"850
+"858
 [e E12672 VlcbMicrochipProcessors `uc
 P18F2480 1
 P18F4480 2
@@ -1376,20 +1376,20 @@ P32MX775F256 36
 P32MX775F512 37
 P32MX795F512 38
 ]
-"853
+"861
 [e E12661 VlcbBusTypes `uc
 PB_CAN 1
 PB_ETH 2
 PB_MIWI 3
 PB_USB 4
 ]
-"875
+"883
 [e E12667 VlcbProcessorManufacturers `uc
 CPUM_MICROCHIP 1
 CPUM_ATMEL 2
 CPUM_ARM 3
 ]
-"880
+"888
 [e E12612 VlcbParams `uc
 PAR_NUM 0
 PAR_MANU 1
@@ -2880,31 +2880,31 @@ FLASH_NVM_TYPE 1
 [v _mnsPowerUp mnsPowerUp `(v  1 s 1 mnsPowerUp ]
 "358
 [v _mnsProcessMessage mnsProcessMessage `(E12800  1 s 1 mnsProcessMessage ]
-"599
+"607
 [v _getParameterFlags getParameterFlags `(uc  1 s 1 getParameterFlags ]
-"629
+"637
 [v _updateModuleErrorStatus updateModuleErrorStatus `(v  1 e 1 0 ]
 [v i1_updateModuleErrorStatus updateModuleErrorStatus `(v  1 e 1 0 ]
 [v i2_updateModuleErrorStatus updateModuleErrorStatus `(v  1 e 1 0 ]
-"640
+"648
 [v _mnsPoll mnsPoll `(v  1 s 1 mnsPoll ]
-"776
+"784
 [v _mnsLowIsr mnsLowIsr `(v  1 s 1 mnsLowIsr ]
 "147 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 "150
 [s S200 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"797 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"805 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [u S203 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S200 1 asBytes 2 0 ]
 [v _mnsGetDiagnostic mnsGetDiagnostic `(*.39S203  1 s 2 mnsGetDiagnostic ]
-"808
+"816
 [v _setLEDsByMode setLEDsByMode `(v  1 e 1 0 ]
-"828
+"836
 [v _getParameter getParameter `(uc  1 s 1 getParameter ]
-"891
+"899
 [v _mnsTRserviceDiscoveryCallback mnsTRserviceDiscoveryCallback `(E12936  1 e 1 0 ]
-"910
+"918
 [v _mnsTRallDiagnosticsCallback mnsTRallDiagnosticsCallback `(E12936  1 e 1 0 ]
-"933
+"941
 [v _mnsTRrqnpnCallback mnsTRrqnpnCallback `(E12936  1 e 1 0 ]
 "126 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _nvFactoryReset nvFactoryReset `(v  1 s 1 nvFactoryReset ]
@@ -4272,7 +4272,7 @@ FLASH_NVM_TYPE 1
 [v _mnsProcessMessage mnsProcessMessage `(E12800  1 s 1 mnsProcessMessage ]
 {
 [s S200 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"501
+"508
 [u S203 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S200 1 asBytes 2 0 ]
 [v mnsProcessMessage@d d `*.39S203  1 a 2 32 ]
 "362
@@ -4282,7 +4282,7 @@ FLASH_NVM_TYPE 1
 [s S188 Message 9 `uc 1 len 1 0 `E12341 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
 "358
 [v mnsProcessMessage@m m `*.39S188  1 p 2 63 ]
-"593
+"601
 } 0
 "231 C:\Users\ianwh\github/VLCBlib_PIC/boot.c
 [v _bootProcessMessage bootProcessMessage `(E12800  1 s 1 bootProcessMessage ]
@@ -4526,29 +4526,29 @@ FLASH_NVM_TYPE 1
 [v nvTRnvrdCallback@step step `uc  1 p 1 26 ]
 "383
 } 0
-"891 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"899 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v _mnsTRserviceDiscoveryCallback mnsTRserviceDiscoveryCallback `(E12936  1 e 1 0 ]
 {
 [v mnsTRserviceDiscoveryCallback@step step `uc  1 p 1 26 ]
-"899
+"907
 } 0
-"910
+"918
 [v _mnsTRallDiagnosticsCallback mnsTRallDiagnosticsCallback `(E12936  1 e 1 0 ]
 {
 [s S200 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"915
+"923
 [u S203 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S200 1 asBytes 2 0 ]
 [v mnsTRallDiagnosticsCallback@d d `*.39S203  1 a 2 31 ]
-"910
+"918
 [v mnsTRallDiagnosticsCallback@serviceIndex serviceIndex `uc  1 p 1 25 ]
 [v mnsTRallDiagnosticsCallback@step step `uc  1 p 1 26 ]
-"923
+"931
 } 0
-"933
+"941
 [v _mnsTRrqnpnCallback mnsTRrqnpnCallback `(E12936  1 e 1 0 ]
 {
 [v mnsTRrqnpnCallback@step step `uc  1 p 1 26 ]
-"939
+"947
 } 0
 "403 C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 [v _sodTRCallback sodTRCallback `(E13023  1 e 1 0 ]
@@ -4761,14 +4761,14 @@ FLASH_NVM_TYPE 1
 "147 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 "150
 [s S200 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"797 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"805 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [u S203 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S200 1 asBytes 2 0 ]
 [v _mnsGetDiagnostic mnsGetDiagnostic `(*.39S203  1 s 2 mnsGetDiagnostic ]
 {
 [v mnsGetDiagnostic@index index `uc  1 a 1 wreg ]
 [v mnsGetDiagnostic@index index `uc  1 a 1 wreg ]
 [v mnsGetDiagnostic@index index `uc  1 a 1 56 ]
-"802
+"810
 } 0
 "147 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 "150
@@ -4819,30 +4819,30 @@ FLASH_NVM_TYPE 1
 [v sendMessage3@opc opc `E12391  1 a 1 73 ]
 "1158
 } 0
-"828 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"836 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v _getParameter getParameter `(uc  1 s 1 getParameter ]
 {
 [v getParameter@idx idx `uc  1 a 1 wreg ]
 [v getParameter@idx idx `uc  1 a 1 wreg ]
 [v getParameter@idx idx `uc  1 a 1 50 ]
-"881
+"889
 } 0
-"599
+"607
 [v _getParameterFlags getParameterFlags `(uc  1 s 1 getParameterFlags ]
 {
-"600
+"608
 [v getParameterFlags@flags flags `uc  1 a 1 49 ]
-"622
+"630
 } 0
-"640
+"648
 [v _mnsPoll mnsPoll `(v  1 s 1 mnsPoll ]
 {
-"769
+"777
 } 0
-"808
+"816
 [v _setLEDsByMode setLEDsByMode `(v  1 e 1 0 ]
 {
-"821
+"829
 } 0
 "1145 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _sendMessage2 sendMessage2 `(v  1 e 1 0 ]
@@ -6047,10 +6047,10 @@ FLASH_NVM_TYPE 1
 [v EEPROM_Write@value value `uc  1 p 1 49 ]
 "286
 } 0
-"629 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"637 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v _updateModuleErrorStatus updateModuleErrorStatus `(v  1 e 1 0 ]
 {
-"633
+"641
 } 0
 "226 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
 [v _setDigitalOutput setDigitalOutput `(v  1 e 1 0 ]
@@ -6129,10 +6129,10 @@ FLASH_NVM_TYPE 1
 {
 "414
 } 0
-"776 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"784 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v _mnsLowIsr mnsLowIsr `(v  1 s 1 mnsLowIsr ]
 {
-"788
+"796
 } 0
 "766 C:\Users\ianwh\github/VLCBlib_PIC/can18_ecan.c
 [v _checkCANTimeout checkCANTimeout `(v  1 s 1 checkCANTimeout ]
@@ -6198,10 +6198,10 @@ FLASH_NVM_TYPE 1
 [v canFillRxFifo@m m `*.39S188  1 a 2 12 ]
 "897
 } 0
-"629 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"637 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v i1_updateModuleErrorStatus updateModuleErrorStatus `(v  1 e 1 0 ]
 {
-"633
+"641
 } 0
 "110 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 [s S188 Message 9 `uc 1 len 1 0 `E12341 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
@@ -6309,10 +6309,10 @@ FLASH_NVM_TYPE 1
 [v i2canFillRxFifo@m m `*.39S188  1 a 2 12 ]
 "897
 } 0
-"629 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
+"637 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v i2_updateModuleErrorStatus updateModuleErrorStatus `(v  1 e 1 0 ]
 {
-"633
+"641
 } 0
 "110 C:\Users\ianwh\github/VLCBlib_PIC\vlcb.h
 [s S188 Message 9 `uc 1 len 1 0 `E12341 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
