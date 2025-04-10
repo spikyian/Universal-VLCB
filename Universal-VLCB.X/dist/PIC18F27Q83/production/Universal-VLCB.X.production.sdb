@@ -3002,23 +3002,23 @@ FLASH_NVM_TYPE 1
 [v _writeEv writeEv `(uc  1 e 1 0 ]
 "1133
 [v _getEv getEv `(s  1 e 2 0 ]
-"1168
+"1171
 [v _numEv numEv `(uc  1 e 1 0 ]
-"1198
+"1201
 [v _getEVs getEVs `(uc  1 e 1 0 ]
-"1234
+"1237
 [v _getNN getNN `(us  1 e 2 0 ]
-"1255
+"1258
 [v _getEN getEN `(us  1 e 2 0 ]
-"1277
+"1280
 [v _evtIdxToTableIndex evtIdxToTableIndex `(uc  1 s 1 evtIdxToTableIndex ]
-"1287
+"1290
 [v _tableIndexToEvtIdx tableIndexToEvtIdx `(uc  1 s 1 tableIndexToEvtIdx ]
-"1297
+"1300
 [v _validStart validStart `(E23307  1 e 1 0 ]
-"1328
+"1331
 [v _getHash getHash `(uc  1 e 1 0 ]
-"1342
+"1345
 [v _rebuildHashtable rebuildHashtable `(v  1 e 1 0 ]
 "110 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.h
 [s S188 Message 9 `uc 1 len 1 0 `E22878 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
@@ -3159,7 +3159,7 @@ FLASH_NVM_TYPE 1
 [v _sendMessage sendMessage `(v  1 e 1 0 ]
 "1261
 [v _main main `(v  1 e 1 0 ]
-"1350
+"1364
 [v _DEFAULT_ISR DEFAULT_ISR `IIH(v  1 e 1 0 ]
 "54 C:\Users\ianwh\github\Universal-VLCB/analogue.c
 [v _initAnalogue initAnalogue `(v  1 e 1 0 ]
@@ -3403,7 +3403,7 @@ FLASH_NVM_TYPE 1
 [v _happening2Event happening2Event `[72]uc  1 e 72 0 ]
 "344
 [v _timedResponseOpcode timedResponseOpcode `uc  1 s 1 timedResponseOpcode ]
-"1191
+"1194
 [v _evs evs `[20]uc  1 e 20 0 ]
 "134 C:\Users\ianwh\github/VLCBlib_PIC/mns.c
 [v _mnsDiagnostics mnsDiagnostics `[7]S201  1 e 14 0 ]
@@ -3445,12 +3445,12 @@ FLASH_NVM_TYPE 1
 [v _nvService nvService `CS206  1 e 20 0 ]
 "107
 [v _nvCache nvCache `[128]uc  1 s 128 nvCache ]
-[s S6291 . 1 `uc 1 writeNeeded 1 0 :1:0 
+[s S6305 . 1 `uc 1 writeNeeded 1 0 :1:0 
 `uc 1 eraseNeeded 1 0 :1:1 
 ]
 "137 C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
-[u S6294 . 1 `uc 1 asByte 1 0 `S6291 1 . 1 0 ]
-[v _flashFlags flashFlags `S6294  1 s 1 flashFlags ]
+[u S6308 . 1 `uc 1 asByte 1 0 `S6305 1 . 1 0 ]
+[v _flashFlags flashFlags `S6308  1 s 1 flashFlags ]
 "146
 [v _flashBlock flashBlock `um  1 s 3 flashBlock ]
 "60 C:\Users\ianwh\github/VLCBlib_PIC/statusLeds2.c
@@ -3600,15 +3600,15 @@ FLASH_NVM_TYPE 1
 "441
 [u S1682 . 1 `S1673 1 . 1 0 ]
 [v _PIE3bits PIE3bits `VES1682  1 e 1 @1185 ]
-[s S6314 . 1 `uc 1 GO 1 0 :1:0 
+[s S6328 . 1 `uc 1 GO 1 0 :1:0 
 ]
 "540
-[s S6316 . 1 `uc 1 NOT_DONE 1 0 :1:0 
+[s S6330 . 1 `uc 1 NOT_DONE 1 0 :1:0 
 ]
-[s S6318 . 1 `uc 1 nDONE 1 0 :1:0 
+[s S6332 . 1 `uc 1 nDONE 1 0 :1:0 
 ]
-[u S6320 . 1 `S6314 1 . 1 0 `S6316 1 . 1 0 `S6318 1 . 1 0 ]
-[v _NVMCON0bits NVMCON0bits `VES6320  1 e 1 @64 ]
+[u S6334 . 1 `S6328 1 . 1 0 `S6330 1 . 1 0 `S6332 1 . 1 0 ]
+[v _NVMCON0bits NVMCON0bits `VES6334  1 e 1 @64 ]
 [s S1884 . 1 `uc 1 SPI2RXIE 1 0 :1:0 
 `uc 1 SPI2TXIE 1 0 :1:1 
 `uc 1 SPI2IE 1 0 :1:2 
@@ -3621,15 +3621,15 @@ FLASH_NVM_TYPE 1
 "565
 [u S1893 . 1 `S1884 1 . 1 0 ]
 [v _PIE5bits PIE5bits `VES1893  1 e 1 @1187 ]
-[s S6298 . 1 `uc 1 CMD 1 0 :3:0 
+[s S6312 . 1 `uc 1 CMD 1 0 :3:0 
 `uc 1 . 1 0 :4:3 
 `uc 1 WRERR 1 0 :1:7 
 ]
 "575
-[s S6302 . 1 `uc 1 NVMCMD 1 0 :3:0 
+[s S6316 . 1 `uc 1 NVMCMD 1 0 :3:0 
 ]
-[u S6304 . 1 `S6298 1 . 1 0 `S6302 1 . 1 0 ]
-[v _NVMCON1bits NVMCON1bits `VES6304  1 e 1 @65 ]
+[u S6318 . 1 `S6312 1 . 1 0 `S6316 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES6318  1 e 1 @65 ]
 "595
 [v _NVMLOCK NVMLOCK `VEuc  1 e 1 @66 ]
 "616
@@ -4370,13 +4370,13 @@ FLASH_NVM_TYPE 1
 [v _WPUC WPUC `VEuc  1 e 1 @1041 ]
 "63152
 [v _IVTLOCK IVTLOCK `VEuc  1 e 1 @1113 ]
-[s S5892 . 1 `uc 1 IVTLOCKED 1 0 :1:0 
+[s S5904 . 1 `uc 1 IVTLOCKED 1 0 :1:0 
 ]
 "63162
-[u S5894 . 1 `S5892 1 . 1 0 ]
+[u S5906 . 1 `S5904 1 . 1 0 ]
 "63162
 "63162
-[v _IVTLOCKbits IVTLOCKbits `VES5894  1 e 1 @1113 ]
+[v _IVTLOCKbits IVTLOCKbits `VES5906  1 e 1 @1113 ]
 "63358
 [v _IVTBASEL IVTBASEL `VEuc  1 e 1 @1117 ]
 "63420
@@ -4418,7 +4418,12 @@ FLASH_NVM_TYPE 1
 "1261 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _main main `(v  1 e 1 0 ]
 {
-"1330
+"1263
+[v main@t2 t2 `uc  1 a 1 110 ]
+[v main@t1 t1 `uc  1 a 1 109 ]
+"1262
+[v main@i i `uc  1 a 1 108 ]
+"1344
 } 0
 "235 C:\Users\ianwh\github\Universal-VLCB/main.c
 [v _setup setup `(v  1 e 1 0 ]
@@ -4728,15 +4733,15 @@ FLASH_NVM_TYPE 1
 "575
 [v _doNnevn doNnevn `(v  1 s 1 doNnevn ]
 {
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "580
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v doNnevn@f f `S6765  1 a 1 21 ]
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v doNnevn@f f `S6779  1 a 1 21 ]
 "578
 [v doNnevn@i i `uc  1 a 1 23 ]
 "577
@@ -4768,13 +4773,13 @@ FLASH_NVM_TYPE 1
 [v doNenrd@index index `uc  1 p 1 19 ]
 "643
 } 0
-"1277
+"1280
 [v _evtIdxToTableIndex evtIdxToTableIndex `(uc  1 s 1 evtIdxToTableIndex ]
 {
 [v evtIdxToTableIndex@evtIdx evtIdx `uc  1 p 1 wreg ]
 [v evtIdxToTableIndex@evtIdx evtIdx `uc  1 p 1 wreg ]
 [v evtIdxToTableIndex@evtIdx evtIdx `uc  1 p 1 24 ]
-"1279
+"1282
 } 0
 "767
 [v _doEvuln doEvuln `(v  1 s 1 doEvuln ]
@@ -4936,34 +4941,34 @@ FLASH_NVM_TYPE 1
 [v APP_GetEventState@h h `uc  1 p 1 45 ]
 "519
 } 0
-"1168 C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
+"1171 C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 [v _numEv numEv `(uc  1 e 1 0 ]
 {
 [v numEv@tableIndex tableIndex `uc  1 p 1 wreg ]
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
-"1169
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v numEv@f f `S6765  1 a 1 1 ]
-"1170
+"1172
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v numEv@f f `S6779  1 a 1 1 ]
+"1173
 [v numEv@num num `uc  1 a 1 0 ]
-"1168
+"1171
 [v numEv@tableIndex tableIndex `uc  1 p 1 wreg ]
-"1170
+"1173
 [v numEv@tableIndex tableIndex `uc  1 p 1 2 ]
-"1186
+"1189
 } 0
-"1287
+"1290
 [v _tableIndexToEvtIdx tableIndexToEvtIdx `(uc  1 s 1 tableIndexToEvtIdx ]
 {
 [v tableIndexToEvtIdx@tableIndex tableIndex `uc  1 p 1 wreg ]
 [v tableIndexToEvtIdx@tableIndex tableIndex `uc  1 p 1 wreg ]
 [v tableIndexToEvtIdx@tableIndex tableIndex `uc  1 p 1 24 ]
-"1289
+"1292
 } 0
 "218 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _setNV setNV `(uc  1 e 1 0 ]
@@ -6111,15 +6116,15 @@ FLASH_NVM_TYPE 1
 {
 "972
 [v addEvent@e e `uc  1 a 1 66 ]
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "969
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v addEvent@f f `S6765  1 a 1 65 ]
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v addEvent@f f `S6779  1 a 1 65 ]
 "953
 [v addEvent@tableIndex tableIndex `uc  1 a 1 67 ]
 "954
@@ -6138,26 +6143,26 @@ FLASH_NVM_TYPE 1
 [v writeEv@tableIndex tableIndex `uc  1 p 1 wreg ]
 "1086
 [v writeEv@e e `uc  1 a 1 43 ]
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "1083
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v writeEv@nextF nextF `S6765  1 a 1 42 ]
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v writeEv@nextF nextF `S6779  1 a 1 42 ]
 "1060
 [v writeEv@nextIdx nextIdx `uc  1 a 1 46 ]
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "1054
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v writeEv@f f `S6765  1 a 1 44 ]
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v writeEv@f f `S6779  1 a 1 44 ]
 "1055
 [v writeEv@startIndex startIndex `uc  1 a 1 41 ]
 "1053
@@ -6184,97 +6189,97 @@ FLASH_NVM_TYPE 1
 [v _removeTableEntry removeTableEntry `(uc  1 s 1 removeTableEntry ]
 {
 [v removeTableEntry@tableIndex tableIndex `uc  1 p 1 wreg ]
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "887
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v removeTableEntry@f f `S6765  1 a 1 25 ]
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v removeTableEntry@f f `S6779  1 a 1 25 ]
 "886
 [v removeTableEntry@tableIndex tableIndex `uc  1 p 1 wreg ]
 "892
 [v removeTableEntry@tableIndex tableIndex `uc  1 p 1 26 ]
 "914
 } 0
-"1342
+"1345
 [v _rebuildHashtable rebuildHashtable `(v  1 e 1 0 ]
 {
-"1364
+"1367
 [v rebuildHashtable@ev ev `s  1 a 2 15 ]
-"1346
+"1349
 [v rebuildHashtable@tableIndex tableIndex `uc  1 a 1 20 ]
-"1345
+"1348
 [v rebuildHashtable@chainIdx chainIdx `uc  1 a 1 19 ]
-"1350
+"1353
 [v rebuildHashtable@happening happening `uc  1 a 1 18 ]
-"1344
+"1347
 [v rebuildHashtable@hash hash `uc  1 a 1 17 ]
-"1398
+"1401
 } 0
 "1133
 [v _getEv getEv `(s  1 e 2 0 ]
 {
 [v getEv@tableIndex tableIndex `uc  1 p 1 wreg ]
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
 "1134
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v getEv@f f `S6765  1 a 1 44 ]
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v getEv@f f `S6779  1 a 1 44 ]
 "1133
 [v getEv@tableIndex tableIndex `uc  1 p 1 wreg ]
 [v getEv@evNum evNum `uc  1 p 1 42 ]
 "1135
 [v getEv@tableIndex tableIndex `uc  1 p 1 45 ]
-"1160
+"1163
 } 0
-"1198
+"1201
 [v _getEVs getEVs `(uc  1 e 1 0 ]
 {
 [v getEVs@tableIndex tableIndex `uc  1 p 1 wreg ]
-"1207
+"1210
 [v getEVs@evIdx evIdx `uc  1 a 1 43 ]
-"1200
+"1203
 [v getEVs@evNum evNum `uc  1 a 1 45 ]
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
-"1199
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v getEVs@f f `S6765  1 a 1 42 ]
-"1198
-[v getEVs@tableIndex tableIndex `uc  1 p 1 wreg ]
 "1202
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v getEVs@f f `S6779  1 a 1 42 ]
+"1201
+[v getEVs@tableIndex tableIndex `uc  1 p 1 wreg ]
+"1205
 [v getEVs@tableIndex tableIndex `uc  1 p 1 44 ]
-"1225
+"1228
 } 0
-"1297
+"1300
 [v _validStart validStart `(E23307  1 e 1 0 ]
 {
 [v validStart@tableIndex tableIndex `uc  1 p 1 wreg ]
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
-"1298
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v validStart@f f `S6765  1 a 1 41 ]
-"1297
+"1301
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v validStart@f f `S6779  1 a 1 41 ]
+"1300
 [v validStart@tableIndex tableIndex `uc  1 p 1 wreg ]
-"1302
+"1305
 [v validStart@tableIndex tableIndex `uc  1 p 1 40 ]
-"1308
+"1311
 } 0
 "1013
 [v _findEvent findEvent `(uc  1 e 1 0 ]
@@ -6293,52 +6298,52 @@ FLASH_NVM_TYPE 1
 [v findEvent@eventNumber eventNumber `us  1 p 2 14 ]
 "1043
 } 0
-"1234
+"1237
 [v _getNN getNN `(us  1 e 2 0 ]
 {
 [v getNN@tableIndex tableIndex `uc  1 p 1 wreg ]
-"1236
+"1239
 [v getNN@lo lo `us  1 a 2 2 ]
-"1235
+"1238
 [v getNN@hi hi `us  1 a 2 0 ]
-[s S6759 . 1 `uc 1 eVsUsed 1 0 :4:0 
+[s S6773 . 1 `uc 1 eVsUsed 1 0 :4:0 
 `uc 1 continued 1 0 :1:4 
 `uc 1 continuation 1 0 :1:5 
 `uc 1 forceOwnNN 1 0 :1:6 
 `uc 1 freeEntry 1 0 :1:7 
 ]
+"1240
+[u S6779 . 1 `S6773 1 . 1 0 `uc 1 asByte 1 0 ]
+[v getNN@f f `S6779  1 a 1 4 ]
 "1237
-[u S6765 . 1 `S6759 1 . 1 0 `uc 1 asByte 1 0 ]
-[v getNN@f f `S6765  1 a 1 4 ]
-"1234
 [v getNN@tableIndex tableIndex `uc  1 p 1 wreg ]
-"1239
+"1242
 [v getNN@tableIndex tableIndex `uc  1 p 1 5 ]
-"1246
+"1249
 } 0
-"1328
+"1331
 [v _getHash getHash `(uc  1 e 1 0 ]
 {
-"1329
+"1332
 [v getHash@hash hash `uc  1 a 1 11 ]
-"1328
+"1331
 [v getHash@nn nn `us  1 p 2 6 ]
 [v getHash@en en `us  1 p 2 8 ]
-"1336
+"1339
 } 0
-"1255
+"1258
 [v _getEN getEN `(us  1 e 2 0 ]
 {
 [v getEN@tableIndex tableIndex `uc  1 p 1 wreg ]
-"1257
+"1260
 [v getEN@lo lo `us  1 a 2 44 ]
-"1256
-[v getEN@hi hi `us  1 a 2 42 ]
-"1255
-[v getEN@tableIndex tableIndex `uc  1 p 1 wreg ]
 "1259
-[v getEN@tableIndex tableIndex `uc  1 p 1 46 ]
+[v getEN@hi hi `us  1 a 2 42 ]
+"1258
+[v getEN@tableIndex tableIndex `uc  1 p 1 wreg ]
 "1262
+[v getEN@tableIndex tableIndex `uc  1 p 1 46 ]
+"1265
 } 0
 "558 C:\Users\ianwh\github\Universal-VLCB/main.c
 [v _configIO configIO `(v  1 e 1 0 ]
@@ -6519,8 +6524,8 @@ FLASH_NVM_TYPE 1
 {
 "214
 } 0
-"1350 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
+"1364 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _DEFAULT_ISR DEFAULT_ISR `IIH(v  1 e 1 0 ]
 {
-"1353
+"1367
 } 0
