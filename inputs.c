@@ -75,7 +75,7 @@ static uint8_t io;
  */
 void initInputScan(void) {
     for (io=0; io<NUM_IO; io++) {
-        uint8_t input = readInput(io);
+        uint8_t input = (uint8_t)readInput(io);
         inputState[io] = input;
         if (!(getNV(NV_IO_FLAGS(io)) & FLAG_TRIGGER_INVERTED)) {
             input = !input;
@@ -101,7 +101,7 @@ void initInputScan(void) {
 void inputScan(void) {
     for (io=0; io< NUM_IO; io++) {
         if (getNV(NV_IO_TYPE(io)) == TYPE_INPUT) {
-            uint8_t input = readInput(io);
+            uint8_t input = (uint8_t)readInput(io);
             if (input != inputState[io]) {
                 Boolean change = FALSE;
                 // check if we have reached the debounce count
