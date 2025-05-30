@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Mon May 26 14:03:02 2025
+                                                                                               Fri May 30 19:27:03 2025
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F26K80
@@ -9917,7 +9917,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   9634   002FAE  D033               	goto	l23421
   9635                           
   9636                           ;../event_consumerDualActionQueue.c: 233:         sendMessage7(OPC_ENACK, nn.bytes.hi, n
-      +                          n.bytes.lo, m->opc, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
+      +                          n.bytes.lo, (uint8_t)(m->opc), m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
   9637   002FB0  C15F  F1BD         	movff	_nn+1,sendMessage7@data1
   9638   002FB4  C15E  F1BE         	movff	_nn,sendMessage7@data2
   9639   002FB8  0101               	movlb	1	; () banked
@@ -9965,7 +9965,7 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
   9681   003014  2BAC               	incf	(_consumer2QDiagnostics+5)& (0+255),f,b
   9682   003016                     l23421:
   9683                           
-  9684                           ;../event_consumerDualActionQueue.c: 239:     opc=m->opc;
+  9684                           ;../event_consumerDualActionQueue.c: 239:     opc=(uint8_t)(m->opc);
   9685   003016  0101               	movlb	1	; () banked
   9686   003018  EE20 F001          	lfsr	2,1
   9687   00301C  51F4               	movf	consumer2QProcessMessage@m& (0+255),w,b
@@ -49462,7 +49462,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Mon May 26 14:03:02 2025
+Symbol Table                                                                                   Fri May 30 19:27:03 2025
 
                    nerdCallback@nodeNumber 01D0                        findEvent@tableIndex 01C1  
                 __end_of_pollTimedResponse A9FA                     ?_handleSelfEnumeration 0097  

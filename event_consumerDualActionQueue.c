@@ -230,13 +230,13 @@ static Processed consumer2QProcessMessage(Message *m) {
     // check that we have a consumed Action
     if ((mode_flags & FLAG_MODE_EVENTACK) && (isConsumedEvent(tableIndex))) {
         // sent the ack
-        sendMessage7(OPC_ENACK, nn.bytes.hi, nn.bytes.lo, m->opc, m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
+        sendMessage7(OPC_ENACK, nn.bytes.hi, nn.bytes.lo, (uint8_t)(m->opc), m->bytes[0], m->bytes[1], m->bytes[2], m->bytes[3]);
 #ifdef VLCB_DIAG
         consumer2QDiagnostics[CONSUMER_DIAG_NUMACKED].asInt++;
 #endif
     }
     
-    opc=m->opc;
+    opc=(uint8_t)(m->opc);
     // check the OPC if this is an ON or OFF event
     if ( ! (opc&EVENT_ON_MASK)) {
         // ON events work up through the EVs
