@@ -77,7 +77,7 @@ extern "C" {
 #define NV_MID_CHANNELS_PULLUPS         7
 #define NV_TOP_CHANNELS_PULLUPS         8
 #define NV_CDU_CHARGE_TIME              9
-#define NV_SPARE7                       10
+#define NV_MODULE_FLAGS                 10
 #define NV_SPARE8                       11
 #define NV_SPARE9                       12
 #define NV_SPARE10                      13
@@ -168,7 +168,10 @@ extern "C" {
 #define TYPE_CDU                    7
 #define TYPE_RAILCOM                8
 
-// the flags
+// the module flags
+#define MODULE_FLAG_DEFAULT_EVENTS      0x01
+    
+// the channel flags
 #define	FLAG_TRIGGER_INVERTED           0x01	// Whether the sense of this input or output inverted
 #define FLAG_DISABLE_OFF                0x08    // Whether off events are generated
 #define FLAG_RESULT_EVENT_INVERTED      0x40    // whether the generated event is inverted

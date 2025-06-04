@@ -121,6 +121,8 @@ void defaultEvents(uint8_t io, uint8_t type) {
 #ifdef CANCDU
     }
 #endif
+    // Check if default events should be created.
+    if (MODULE_FLAG_DEFAULT_EVENTS & getNV(NV_MODULE_FLAGS)) return;
     // add the module's default events for this io
     switch(type) {
         
