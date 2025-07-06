@@ -538,8 +538,16 @@ void setType(uint8_t io, uint8_t type) {
 #ifdef SERVO
     if ((type == TYPE_SERVO) || (type== TYPE_BOUNCE) || (type == TYPE_MULTI)) {
         currentPos[io] = 128;
+        writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(EE_OP_STATE+io), ACTION_IO_3); // force to OFF position
     }
 #endif
+    if ((type == TYPE_OUTPUT) 
+#ifdef CANCDU
+                              || (type == TYPE_CDU)
+#endif
+                                                   ) {
+        writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(EE_OP_STATE+io), ACTION_IO_3); // force off
+    }
     // set up the default events. 
     defaultEvents(io, type);
 #ifdef ANALOGUE
