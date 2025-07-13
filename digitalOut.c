@@ -107,6 +107,7 @@ void initOutputs(void) {
 void startDigitalOutput(uint8_t io, uint8_t state) {
     Boolean pinState;
     Boolean actionState;
+    uint8_t nvPulseDuration;
     // State ACTION_IO_1 is Change. This is not used here and state will have been changed to on or off
     // State ACTION_IO_2 is ON
     // State ACTION_IO_3 is OFF
@@ -130,17 +131,22 @@ void startDigitalOutput(uint8_t io, uint8_t state) {
     if (getNV(NV_IO_FLAGS(io)) & FLAG_TRIGGER_INVERTED) {
         actionState = !actionState;
     }
-    
+#ifdef LEDSW
+    if ((uint8_t)getNV(NV_IO_TYPE(io)) == TYPE_LEDSW) {
+        nvPulseDuration = 0;
+    } else 
+#endif
+        nvPulseDuration = (uint8_t)getNV(NV_IO_OUTPUT_PULSE_DURATION(io));
     // ignore OFF on pulse outputs
-    if (( ! actionState) && getNV(NV_IO_OUTPUT_PULSE_DURATION(io))) {
+    if (( ! actionState) && nvPulseDuration) {
         pulseDelays[io] = COMPLETED;
         return;
     }
     
     // Save state in EEPROM
     // Was this a ON and we have a pulse duration defined and this is the start of the pulse?
-    if ((actionState) && getNV(NV_IO_OUTPUT_PULSE_DURATION(io)) && (pulseDelays[io] == NEEDS_STARTING)) {
-        pulseDelays[io] = (uint8_t)getNV(NV_IO_OUTPUT_PULSE_DURATION(io));
+    if ((actionState) && nvPulseDuration && (pulseDelays[io] == NEEDS_STARTING)) {
+        pulseDelays[io] = nvPulseDuration;
         // save the current state of output as OFF so 
         // we don't power up with pulse active 
         writeNVM(EEPROM_NVM_TYPE, EE_OP_STATE+io, ACTION_IO_3);	// save the current state of output

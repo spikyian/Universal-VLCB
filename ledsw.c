@@ -18,31 +18,15 @@
     No additional restrictions : You may not apply legal terms or technological measures that
                                   legally restrict others from doing anything the license permits.
    ** For commercial use, please contact the original copyright holder(s) to agree licensing terms
+**************************************************************************************************************
 */ 
 /* 
- * File:   inputs.h
+ * File:   ledsw.c
  * Author: Ian
+ * 
+ * Handle the LEDSW channel type which is capable of supporting an LED and a 
+ * switch concurrently.
  *
- * Created on 27 April 2017, 20:13
+ * Created on 6 July 2025, 18:49
  */
-
-#ifndef INPUTS_H
-#define	INPUTS_H
-
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-    /**
-     * Scans the input IO.
-     */
-    extern void initInputScan(void);
-    extern void inputScan(void);
-
-
-#ifdef	__cplusplus
-}
-#endif
-
-#endif	/* INPUTS_H */
 

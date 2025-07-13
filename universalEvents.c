@@ -141,6 +141,14 @@ void defaultEvents(uint8_t io, uint8_t type) {
             // Produce ACON/ASON and ACOF/ASOF events with en as port number
             addEvent(nn.word, en, 0, HAPPENING_IO_INPUT(io), TRUE);
             break;
+#ifdef LEDSW
+        case TYPE_LEDSW:
+            // Consume ACON/ASON and ACOF/ASOF events with en as port number
+            addEvent(nn.word, en, 1, ACTION_IO_OUTPUT_EV(io), TRUE);
+            // Produce ACON/ASON and ACOF/ASOF events with 100+en as port number
+            addEvent(nn.word, 100+en, 0, HAPPENING_IO_INPUT(io), TRUE);
+            break;
+#endif
 #ifdef SERVO
         case TYPE_SERVO:
             // Produce ACON/ASON and ACOF/ASOF events with en as port number
@@ -435,6 +443,9 @@ TimedResponseResult sodTRCallback(uint8_t type, uint8_t serviceIndex, uint8_t st
         case TYPE_ANALOGUE_IN:
         case TYPE_MAGNET:
 #endif
+#ifdef LEDSW
+        case TYPE_LEDSW:
+#endif
             if (disable_SOD_response) {
                 return TIMED_RESPONSE_RESULT_NEXT;
             }
@@ -503,6 +514,9 @@ void doSOD(void) {
                 }
                 break;
 #endif
+#endif
+#ifdef LEDSW
+            case TYPE_LEDSW:
 #endif
 #ifdef ANALOGUE
             case TYPE_ANALOGUE_IN:

@@ -1,6 +1,4 @@
-
 /*
- Routines for CBUS FLiM operations - part of CBUS libraries for PIC 18F
   This work is licensed under the:
       Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
    To view a copy of this license, visit:
@@ -20,10 +18,6 @@
     No additional restrictions : You may not apply legal terms or technological measures that
                                   legally restrict others from doing anything the license permits.
    ** For commercial use, please contact the original copyright holder(s) to agree licensing terms
-**************************************************************************************************************
-	The FLiM routines have no code or definitions that are specific to any
-	module, so they can be used to provide FLiM facilities for any module 
-	using these libraries.
 	
 */ 
 /* 
@@ -63,7 +57,7 @@ extern "C" {
      *          uint8_t action :7;
      *          uint8_t sequential :1;
      *      }
-     * } ACtION_T;
+     * } ACTION_T;
      * but C spec doesn't define what size this would be. Therefore I just use
      * byte (uint8_t).
      * 
@@ -142,6 +136,8 @@ extern "C" {
  
 #define HAPPENING(a)                  (((a)-BASE_HAPPENING_IO)%HAPPENINGS_PER_IO)
 #define HAPPENING_IO(a)               (((a)-BASE_HAPPENING_IO)/HAPPENINGS_PER_IO)
+    
+#define HAPPENING_IO_LEDSW(i)         (HAPPENING_IO_BASE(i)+HAPPENING_IO_1)
     
 /* CONSUMED actions*/
 #define ACTION_IO_OUTPUT_EV(i)     (ACTION_IO_BASE(i)+ACTION_IO_1)

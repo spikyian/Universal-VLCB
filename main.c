@@ -177,6 +177,8 @@ void factoryReset(void);
 void setType(uint8_t i, uint8_t type);
 void factoryResetEE(void);
 void factoryResetFlash(void);
+void configAnalogue(uint8_t i, uint8_t ana);
+void configDirection(uint8_t i, uint8_t dir);
 
 
 static TickValue   startTime;
@@ -184,6 +186,9 @@ static uint8_t        started;
 TickValue   lastServoStartTime;
 static TickValue   lastInputScanTime;
 static TickValue   lastActionPollTime;
+#ifdef ANALOGUE
+static TickValue   lastAnaloguePollTime;
+#endif
 #ifdef CANCDU
 static TickValue   lastCduPollTime;
 #endif
@@ -342,6 +347,9 @@ void setup(void) {
     lastServoStartTime.val = startTime.val;
     lastInputScanTime.val = startTime.val;
     lastActionPollTime.val = startTime.val;
+#ifdef ANALOGUE
+    lastAnaloguePollTime.val = startTime.val;
+#endif
 #ifdef CANCDU
     lastCduPollTime.val = startTime.val;
 #endif
@@ -382,7 +390,10 @@ void loop(void) {
 #endif
         
 #ifdef ANALOGUE
-        pollAnalogue();
+        if (tickTimeSince(lastAnaloguePollTime) > ONE_MILI_SECOND) {
+            pollAnalogue();
+            lastAnaloguePollTime.val = tickGet();
+        }     
 #endif
     }
 }
@@ -503,6 +514,9 @@ EventState APP_GetEventState(Happening h) {
             break;
 #endif
 #endif
+#ifdef LEDSW
+        case TYPE_LEDSW:
+#endif
 #ifdef ANALOGUE
         case TYPE_ANALOGUE_IN:
         case TYPE_MAGNET:
@@ -541,9 +555,14 @@ void setType(uint8_t io, uint8_t type) {
         writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(EE_OP_STATE+io), ACTION_IO_3); // force to OFF position
     }
 #endif
+    // Note that when CANCDU is not defined this generates a warning about 
+    // extraneous parentheses. This is safe to ignore.
     if ((type == TYPE_OUTPUT) 
 #ifdef CANCDU
                               || (type == TYPE_CDU)
+#endif
+#ifdef LEDSW
+                              || (type == TYPE_LEDSW)
 #endif
                                                    ) {
         writeNVM(EEPROM_NVM_TYPE, (eeprom_address_t)(EE_OP_STATE+io), ACTION_IO_3); // force off
@@ -601,66 +620,69 @@ void configIO(uint8_t i) {
 #endif
     }
     // Now actually set it
+    configDirection(i, (type == TYPE_INPUT) || (type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET));
+    configAnalogue(i, (type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET));
+}
+
+void configDirection(uint8_t i, uint8_t dir) {
     switch (configs[i].port) {
-        case 'A':
-            if ((type == TYPE_INPUT) || (type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)) {
-                TRISA |= (1 << configs[i].no);  // input
-            } else {
-                TRISA &= ~(1 << configs[i].no); // output
-            }
-            break;
-        case 'B':
-            if ((type == TYPE_INPUT) || (type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)) {
-                TRISB |= (1 << configs[i].no);  // input
-            } else {
-                TRISB &= ~(1 << configs[i].no); // output
-            }
-            break;
-        case 'C':
-            if ((type == TYPE_INPUT) || (type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)) {
-                TRISC |= (1 << configs[i].no);  // input
-            } else {
-                TRISC &= ~(1 << configs[i].no); // output
-            }
-            break; 
+    case 'A':
+        if (dir) {
+            TRISA |= (1 << configs[i].no);  // input
+        } else {
+            TRISA &= ~(1 << configs[i].no); // output
+        }
+        break;
+    case 'B':
+        if (dir) {
+            TRISB |= (1 << configs[i].no);  // input
+        } else {
+            TRISB &= ~(1 << configs[i].no); // output
+        }
+        break;
+    case 'C':
+        if (dir) {
+            TRISC |= (1 << configs[i].no);  // input
+        } else {
+            TRISC &= ~(1 << configs[i].no); // output
+        }
+        break; 
 #ifdef CANXIO        
-        case 'D':
-            if ((type == TYPE_INPUT) || (type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)) {
-                TRISD |= (1 << configs[i].no);  // input
-            } else {
-                TRISD &= ~(1 << configs[i].no); // output
-            }
-            break;  
-            
-        case 'E':
-            if ((type == TYPE_INPUT) || (type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)) {
-                TRISE |= (1 << configs[i].no);  // input
-            } else {
-                TRISE &= ~(1 << configs[i].no); // output
-            }
-            break;             
+    case 'D':
+        if (dir) {
+            TRISD |= (1 << configs[i].no);  // input
+        } else {
+            TRISD &= ~(1 << configs[i].no); // output
+        }
+        break;  
+
+    case 'E':
+        if (dir) {
+            TRISE |= (1 << configs[i].no);  // input
+        } else {
+            TRISE &= ~(1 << configs[i].no); // output
+        }
+        break;             
 #endif
     }
-#ifdef ANALOGUE
+}
+
+/**
+ * Set a port to be 
+ * @param i
+ * @param ana
+ */
+void configAnalogue(uint8_t i, uint8_t ana){
+    if (ana) {
 #if defined(_18F66K80_FAMILY_)
-    if ((type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)) {
         // set analogue
         if (configs[i].an < 8) {
             ANCON0 |= (1 << configs[i].an);
         } else if (configs[i].an < 16) {
             ANCON1 |= (1 << (configs[i].an - 8));
         }
-    } else {
-        // set digital
-        if (configs[i].an < 8) {
-            ANCON0 &= ~(1 << configs[i].an);
-        } else if (configs[i].an < 16) {
-            ANCON1 &= ~(1 << (configs[i].an - 8));
-        }
-    }
 #endif
 #if defined(_18FXXQ83_FAMILY_)
-    if ((type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)) {
         // set analogue
         switch (configs[i].port) {
             case 'A':
@@ -681,7 +703,17 @@ void configIO(uint8_t i) {
                 break;
 #endif
         }
+#endif
     } else {
+#if defined(_18F66K80_FAMILY_)
+        // set digital
+        if (configs[i].an < 8) {
+            ANCON0 &= ~(1 << configs[i].an);
+        } else if (configs[i].an < 16) {
+            ANCON1 &= ~(1 << (configs[i].an - 8));
+        }
+#endif
+#if defined(_18FXXQ83_FAMILY_)
         // set digital
         switch (configs[i].port) {
             case 'A':
@@ -702,11 +734,9 @@ void configIO(uint8_t i) {
                 break;
 #endif
         }
+#endif
     }
-#endif
-#endif
 }
-
 
 
 #if defined(_18F66K80_FAMILY_)

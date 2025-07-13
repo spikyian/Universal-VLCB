@@ -75,6 +75,9 @@ void startOutput(uint8_t io, uint8_t act, uint8_t type) {
             // this should never happen
             return;
         case TYPE_OUTPUT:
+#ifdef LEDSW
+        case TYPE_LEDSW:
+#endif
             startDigitalOutput(io, act);
             return;
 #ifdef BOUNCE
@@ -117,6 +120,9 @@ void setOutputState(uint8_t io, uint8_t act, uint8_t type) {
         case TYPE_OUTPUT:
 #ifdef CANCDU
         case TYPE_CDU:
+#endif
+#ifdef LEDSW
+        case TYPE_LEDSW:
 #endif
             return;
 #ifdef BOUNCE
@@ -184,6 +190,10 @@ Boolean needsStarting(uint8_t io, uint8_t act, uint8_t type) {
         case TYPE_INPUT:
             // this should never happen
             return FALSE;
+#ifdef LEDSW
+        case TYPE_LEDSW:
+            return TRUE;
+#endif
         case TYPE_OUTPUT:
 #ifdef CANCDU
         case TYPE_CDU:      // we reuse a lot of the output code
@@ -220,10 +230,16 @@ Boolean completed(uint8_t io, Action action, uint8_t type) {
     switch(type) {
         case TYPE_INPUT:
             // this should never happen
+            // fall through
+#ifdef LEDSW
+        case TYPE_LEDSW:
+#endif
             return TRUE;
         case TYPE_OUTPUT:
             // wait for a pulse to complete. 
             return pulseDelays[io] == COMPLETED;
+
+            
 #ifdef SERVO
         case TYPE_SERVO:
 #ifdef BOUNCE

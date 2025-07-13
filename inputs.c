@@ -1,6 +1,4 @@
-
 /*
- Routines for CBUS FLiM operations - part of CBUS libraries for PIC 18F
   This work is licensed under the:
       Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
    To view a copy of this license, visit:
@@ -21,10 +19,6 @@
                                   legally restrict others from doing anything the license permits.
    ** For commercial use, please contact the original copyright holder(s) to agree licensing terms
 **************************************************************************************************************
-	The FLiM routines have no code or definitions that are specific to any
-	module, so they can be used to provide FLiM facilities for any module 
-	using these libraries.
-	
 */ 
 /* 
  * File:   inputs.c
@@ -99,8 +93,12 @@ void initInputScan(void) {
  *   
  */
 void inputScan(void) {
+    uint8_t type;
+    uint8_t flags;
+    
     for (io=0; io< NUM_IO; io++) {
-        if (getNV(NV_IO_TYPE(io)) == TYPE_INPUT) {
+        type = (uint8_t)getNV(NV_IO_TYPE(io));
+        if (type == TYPE_INPUT) {
             uint8_t input = (uint8_t)readInput(io);
             if (input != inputState[io]) {
                 Boolean change = FALSE;
@@ -112,15 +110,16 @@ void inputScan(void) {
                     change = TRUE;
                 }
                 if (change) {
+                    flags = (uint8_t)getNV(NV_IO_FLAGS(io));
                     // input been steady long enough to be treated as a real change
                     delayCount[io] = 0;
                     inputState[io] = input;
                     // check if input pin is inverted
-                    if (!(getNV(NV_IO_FLAGS(io)) & FLAG_TRIGGER_INVERTED)) {
+                    if (!(flags & FLAG_TRIGGER_INVERTED)) {
                         input = !input;
                     }
                     // Check if toggle
-                    if (getNV(NV_IO_FLAGS(io)) & FLAG_INPUT_TOGGLE) {
+                    if (flags & FLAG_INPUT_TOGGLE) {
                         if (input) {
                             outputState[io] = ! outputState[io];
                         } else {
@@ -132,17 +131,17 @@ void inputScan(void) {
                     }
                     
                     // check if OFF events are enabled
-                    if (getNV(NV_IO_FLAGS(io)) & FLAG_DISABLE_OFF) {
+                    if (flags & FLAG_DISABLE_OFF) {
                         if (outputState[io]) {
                             // only ON
                             // check if produced event is inverted
-                            if (getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED) {
+                            if (flags & FLAG_RESULT_EVENT_INVERTED) {
                                 sendProducedEvent(HAPPENING_IO_INPUT(io), EVENT_OFF);
                             } else {
                                 sendProducedEvent(HAPPENING_IO_INPUT(io), EVENT_ON);
                             }
                         } else {
-                            if (getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED) {
+                            if (flags & FLAG_RESULT_EVENT_INVERTED) {
                                 sendProducedEvent(HAPPENING_IO_INPUT_TWO_ON(io), EVENT_OFF);
                             } else {
                                 sendProducedEvent(HAPPENING_IO_INPUT_TWO_ON(io), EVENT_ON);
@@ -150,7 +149,7 @@ void inputScan(void) {
                         }
                     } else {
                         // check if produced event is inverted
-                        if (getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED) {
+                        if (flags & FLAG_RESULT_EVENT_INVERTED) {
                             sendProducedEvent(HAPPENING_IO_INPUT(io), outputState[io]?EVENT_OFF:EVENT_ON);
                         } else {
                             sendProducedEvent(HAPPENING_IO_INPUT(io), outputState[io]?EVENT_ON:EVENT_OFF);
@@ -187,6 +186,6 @@ Boolean readInput(uint8_t io) {
                 return PORTE & (1<<configs[io].no);                
 #endif                
             }
-        }
+    }
     return FALSE;
 }

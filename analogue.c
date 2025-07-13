@@ -50,6 +50,9 @@ AnalogueStates  analogueState[NUM_IO];
 unsigned char setupIo;
 unsigned char setupState;
 static unsigned char haveRequestedAdc;    // indicates if the software has requested an ADC so that when ADCON0.GO is clear then a result is available
+extern void configAnalogue(uint8_t i, uint8_t ana);
+extern void configDirection(uint8_t i, uint8_t dir); 
+
 
 void initAnalogue(void) {
 #if defined(_18F66K80_FAMILY_)
@@ -88,6 +91,7 @@ void pollAnalogue(void) {
     short hthreshold;
     short lhysteresis;
     short hhysteresis;
+    uint8_t type;
     
     if (ADCON0bits.GO) {
         // awaiting ADC to complete
@@ -96,7 +100,19 @@ void pollAnalogue(void) {
 
 
     // are we currently doing a conversion on a valid IO?
-    if ((getNV(NV_IO_TYPE(portInProgress)) == TYPE_ANALOGUE_IN) || (getNV(NV_IO_TYPE(portInProgress)) == TYPE_MAGNET)) {
+    type = (uint8_t)getNV(NV_IO_TYPE(portInProgress));
+#ifdef LEDSW
+    if (type == TYPE_LEDSW) {
+        // turn on the digital output port
+        configDirection(portInProgress, 0);
+        configAnalogue(portInProgress, 0);
+    }
+#endif
+    if ((type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)
+#ifdef LEDSW
+            || (type == TYPE_LEDSW)
+#endif
+            ) {
         // has conversion finished?
         if (haveRequestedAdc) {
             // get the 12 bit result
@@ -107,7 +123,7 @@ void pollAnalogue(void) {
              * Adc readings are 12 bit 0 to 0x0FFF
              */
             if ((setupState == SETUP_NONE) || (portInProgress != setupIo)) {
-                if (getNV(NV_IO_TYPE(portInProgress)) == TYPE_MAGNET) {
+                if (type == TYPE_MAGNET) {
                     // TYPE MAGNET
                     // calculate thresholds
                     lthreshold = getNV(NV_IO_MAGNET_OFFSETH(portInProgress));
@@ -135,11 +151,21 @@ void pollAnalogue(void) {
                         analogueState[portInProgress].eventState = ANALOGUE_EVENT_OFF;
                     }
                 } else {
-                    // TYPE_ANALOGUE
-                    // calculate threshold
+                    // TYPE_ANALOGUE or TYPE_LEDSW
                     adc = adc >> 4; // convert to 8 bit
-                    lthreshold = getNV(NV_IO_ANALOGUE_THRES(portInProgress));
-                    lhysteresis = lthreshold - getNV(NV_IO_ANALOGUE_HYST(portInProgress));
+                    if (type == TYPE_ANALOGUE_IN) {
+                        // TYPE_ANALOGUE
+                        // calculate threshold
+                        lthreshold = getNV(NV_IO_ANALOGUE_THRES(portInProgress));
+                        lhysteresis = lthreshold - getNV(NV_IO_ANALOGUE_HYST(portInProgress));
+                    }
+#ifdef LEDSW
+                    else {
+                        // TYPE_LEDSW
+                        lthreshold = getNV(NV_IO_LEDSW_THRESHOLD(portInProgress));
+                        lhysteresis = lthreshold - 10;
+                    }
+#endif
                 }
                 // This is common between analogue and magnet despite the names
                 if ((analogueState[portInProgress].eventState != ANALOGUE_EVENT_LOWER) && (adc <= lthreshold)) {
@@ -176,7 +202,19 @@ void pollAnalogue(void) {
         portInProgress = 0;
     }
     // If necessary start a conversion
-    if ((getNV(NV_IO_TYPE(portInProgress)) == TYPE_ANALOGUE_IN) || (getNV(NV_IO_TYPE(portInProgress)) == TYPE_MAGNET)) {
+    type = (uint8_t)getNV(NV_IO_TYPE(portInProgress));
+#ifdef LEDSW
+    if (type == TYPE_LEDSW) {
+        // turn off the digital port
+        configDirection(portInProgress, 1);
+        configAnalogue(portInProgress, 1);
+    }
+#endif
+    if ((type == TYPE_ANALOGUE_IN) || (type == TYPE_MAGNET)
+#ifdef LEDSW
+            || (type == TYPE_LEDSW)
+#endif
+            ) {
         // start a conversion
 #if defined(_18F66K80_FAMILY_)
         ADCON0bits.CHS = configs[portInProgress].an;

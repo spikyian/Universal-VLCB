@@ -1,6 +1,4 @@
-
 /*
- Routines for CBUS FLiM operations - part of CBUS libraries for PIC 18F
   This work is licensed under the:
       Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
    To view a copy of this license, visit:
@@ -20,10 +18,6 @@
     No additional restrictions : You may not apply legal terms or technological measures that
                                   legally restrict others from doing anything the license permits.
    ** For commercial use, please contact the original copyright holder(s) to agree licensing terms
-**************************************************************************************************************
-	The FLiM routines have no code or definitions that are specific to any
-	module, so they can be used to provide FLiM facilities for any module 
-	using these libraries.
 	
 */ 
 /*
@@ -65,6 +59,7 @@ static const uint8_t channelDefaultNVs[11][NVS_PER_IO] = {
     {6,6,0,123,32,7,255},     // MAGNET
     {7,6,5,0,0,0,0},          // CDU
     {8,0,0,0,0,0,0},          // RAILCOM
+    {9,6,40,0,0,0,0},         // LEDSW
 };
 
 /**
@@ -309,7 +304,9 @@ NvValidation APP_nvValidate(uint8_t index, uint8_t value)  {
 #ifdef ANALOGUE
             case TYPE_ANALOGUE_IN:
             case TYPE_MAGNET:
+#if defined(_18F66K80_FAMILY_)
                 if (configs[io].an == 0xFF) return INVALID;
+#endif
                 break;
 #endif
 #ifdef MULTI
@@ -326,6 +323,9 @@ NvValidation APP_nvValidate(uint8_t index, uint8_t value)  {
 #endif
             case TYPE_OUTPUT:
             case TYPE_INPUT:
+#ifdef LEDSW
+            case TYPE_LEDSW:
+#endif
                 break;
             default:
                 return INVALID;

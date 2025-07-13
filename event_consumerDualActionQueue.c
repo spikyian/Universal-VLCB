@@ -266,6 +266,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                                     setExpeditedActions();
                                 }
                                 // fall through
+#ifdef LEDSW
+                            case TYPE_LEDSW:
+#endif
                             case TYPE_SERVO:
                             case TYPE_BOUNCE:
                                 if (ca == ACTION_IO_1) {
@@ -337,6 +340,9 @@ static Processed consumer2QProcessMessage(Message *m) {
                                     // action 4 (Flash) must be converted to 3(OFF)
                                     action--;
                                 }
+#ifdef LEDSW
+                            case TYPE_LEDSW:
+#endif
                                 // fall through
                             case TYPE_SERVO:
                             case TYPE_BOUNCE:

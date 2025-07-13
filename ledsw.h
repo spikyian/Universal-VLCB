@@ -20,29 +20,25 @@
    ** For commercial use, please contact the original copyright holder(s) to agree licensing terms
 */ 
 /* 
- * File:   inputs.h
+ * File:   ledsw.h
  * Author: Ian
  *
- * Created on 27 April 2017, 20:13
+ * Created on 6 July 2025, 18:49
  */
 
-#ifndef INPUTS_H
-#define	INPUTS_H
+#ifndef LEDSW_H
+#define	LEDSW_H
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
-    /**
-     * Scans the input IO.
-     */
-    extern void initInputScan(void);
-    extern void inputScan(void);
+
 
 
 #ifdef	__cplusplus
 }
 #endif
 
-#endif	/* INPUTS_H */
+#endif	/* LEDSW_H */
 

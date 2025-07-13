@@ -1,6 +1,5 @@
 
 /*
- Routines for CBUS FLiM operations - part of CBUS libraries for PIC 18F
   This work is licensed under the:
       Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
    To view a copy of this license, visit:
@@ -20,11 +19,7 @@
     No additional restrictions : You may not apply legal terms or technological measures that
                                   legally restrict others from doing anything the license permits.
    ** For commercial use, please contact the original copyright holder(s) to agree licensing terms
-**************************************************************************************************************
-	The FLiM routines have no code or definitions that are specific to any
-	module, so they can be used to provide FLiM facilities for any module 
-	using these libraries.
-	
+
 */ 
 /* 
  * File:   nodeVarables.h
@@ -134,24 +129,29 @@ extern "C" {
 #define NV_IO_MULTI_POS3(i)             (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MULTI_POS3_OFFSET)
 #define NV_IO_MULTI_POS4(i)             (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MULTI_POS4_OFFSET)
  
-#define NV_IO_ANALOGUE_THRESHOLD        3
-#define NV_IO_ANALOGUE_HYSTERESIS       4
-#define NV_IO_ANALOGUE_THRES(i)         (NV_IO_START + NVS_PER_IO*(i) + NV_IO_ANALOGUE_THRESHOLD)
-#define NV_IO_ANALOGUE_HYST(i)          (NV_IO_START + NVS_PER_IO*(i) + NV_IO_ANALOGUE_HYSTERESIS)
+#define NV_IO_ANALOGUE_THRESHOLD_OFFSET        3
+#define NV_IO_ANALOGUE_HYSTERESIS_OFFSET       4
+#define NV_IO_ANALOGUE_THRES(i)         (NV_IO_START + NVS_PER_IO*(i) + NV_IO_ANALOGUE_THRESHOLD_OFFSET)
+#define NV_IO_ANALOGUE_HYST(i)          (NV_IO_START + NVS_PER_IO*(i) + NV_IO_ANALOGUE_HYSTERESIS_OFFSET)
  
-#define NV_IO_MAGNET_DOSETUP          2
-#define NV_IO_MAGNET_THRESHOLD        3
-#define NV_IO_MAGNET_HYSTERESIS       4
-#define NV_IO_MAGNET_OFFSET_H         5
-#define NV_IO_MAGNET_OFFSET_L         6
-#define NV_IO_MAGNET_SETUP(i)         (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_DOSETUP)
-#define NV_IO_MAGNET_THRES(i)         (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_THRESHOLD)
-#define NV_IO_MAGNET_HYST(i)          (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_HYSTERESIS)
-#define NV_IO_MAGNET_OFFSETH(i)       (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_OFFSET_H)
-#define NV_IO_MAGNET_OFFSETL(i)       (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_OFFSET_L)
+#define NV_IO_MAGNET_DOSETUP_OFFSET          2
+#define NV_IO_MAGNET_THRESHOLD_OFFSET        3
+#define NV_IO_MAGNET_HYSTERESIS_OFFSET       4
+#define NV_IO_MAGNET_OFFSET_H_OFFSET         5
+#define NV_IO_MAGNET_OFFSET_L_OFFSET         6
+#define NV_IO_MAGNET_SETUP(i)         (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_DOSETUP_OFFSET)
+#define NV_IO_MAGNET_THRES(i)         (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_THRESHOLD_OFFSET)
+#define NV_IO_MAGNET_HYST(i)          (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_HYSTERESIS_OFFSET)
+#define NV_IO_MAGNET_OFFSETH(i)       (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_OFFSET_H_OFFSET)
+#define NV_IO_MAGNET_OFFSETL(i)       (NV_IO_START + NVS_PER_IO*(i) + NV_IO_MAGNET_OFFSET_L_OFFSET)
     
-#define NV_IO_CDU_PLSE_TIME           2
-#define NV_IO_CDU_PULSE_TIME(i)       (NV_IO_START + NVS_PER_IO*(i) + NV_IO_CDU_PLSE_TIME)
+#define NV_IO_CDU_PLSE_TIME_OFFSET           2
+#define NV_IO_CDU_PULSE_TIME(i)       (NV_IO_START + NVS_PER_IO*(i) + NV_IO_CDU_PLSE_TIME_OFFSET)
+    
+#define NV_IO_LEDSW_THRESHOLD_OFFSET         2
+#define NV_IO_LEDSW_FLASH_PERIOD_OFFSET      3
+#define NV_IO_LEDSW_THRESHOLD(i)      (NV_IO_START + NVS_PER_IO*(i) + NV_IO_LEDSW_THRESHOLD_OFFSET)
+#define NV_IO_LEDSW_FLASH_PERIOD(i)   (NV_IO_START + NVS_PER_IO*(i) + NV_IO_LEDSW_FLASH_PERIOD_OFFSET)
     
 #define IS_NV_TYPE(i)                   (((i-NV_IO_START) % NVS_PER_IO) == 0)
 #define IO_NV(i)                        ((uint8_t)((i-NV_IO_START)/NVS_PER_IO))
@@ -167,6 +167,7 @@ extern "C" {
 #define TYPE_MAGNET                 6
 #define TYPE_CDU                    7
 #define TYPE_RAILCOM                8
+#define TYPE_LEDSW                  9
 
 // the module flags
 #define MODULE_FLAG_DEFAULT_EVENTS      0x01
