@@ -53,6 +53,10 @@ static unsigned char haveRequestedAdc;    // indicates if the software has reque
 extern void configAnalogue(uint8_t i, uint8_t ana);
 extern void configDirection(uint8_t i, uint8_t dir); 
 
+#ifdef LEDSW
+extern uint8_t outputState[NUM_IO];
+#endif
+
 
 void initAnalogue(void) {
 #if defined(_18F66K80_FAMILY_)
@@ -92,6 +96,7 @@ void pollAnalogue(void) {
     short lhysteresis;
     short hhysteresis;
     uint8_t type;
+    uint8_t flags;
     
     if (ADCON0bits.GO) {
         // awaiting ADC to complete
@@ -115,6 +120,7 @@ void pollAnalogue(void) {
             ) {
         // has conversion finished?
         if (haveRequestedAdc) {
+            flags = (uint8_t)getNV(NV_IO_FLAGS(portInProgress));
             // get the 12 bit result
             adc = ADRESH;
             adc = adc << 8;
@@ -138,14 +144,14 @@ void pollAnalogue(void) {
                     if ((analogueState[portInProgress].eventState != ANALOGUE_EVENT_UPPER) && (adc >= hthreshold)) {
                         //High on
                         if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
-                            sendProducedEvent(HAPPENING_IO_MAGNETH(portInProgress), (getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED)?EVENT_OFF:EVENT_ON);
+                            sendProducedEvent(HAPPENING_IO_MAGNETH(portInProgress), (flags & FLAG_RESULT_EVENT_INVERTED)?EVENT_OFF:EVENT_ON);
                         }
                         analogueState[portInProgress].eventState = ANALOGUE_EVENT_UPPER;
                     } else if ((analogueState[portInProgress].eventState == ANALOGUE_EVENT_UPPER) && (adc <= hhysteresis)) {
                         //High Off
                         if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
-                            if (!(getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_DISABLE_OFF)) {
-                                sendProducedEvent(HAPPENING_IO_MAGNETH(portInProgress), (getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED)?EVENT_ON:EVENT_OFF);
+                            if (!(flags & FLAG_DISABLE_OFF)) {
+                                sendProducedEvent(HAPPENING_IO_MAGNETH(portInProgress), (flags & FLAG_RESULT_EVENT_INVERTED)?EVENT_ON:EVENT_OFF);
                             }
                         }
                         analogueState[portInProgress].eventState = ANALOGUE_EVENT_OFF;
@@ -168,21 +174,49 @@ void pollAnalogue(void) {
 #endif
                 }
                 // This is common between analogue and magnet despite the names
-                if ((analogueState[portInProgress].eventState != ANALOGUE_EVENT_LOWER) && (adc <= lthreshold)) {
-                    // Low on 
-                    if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
-                        sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), (getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED)?EVENT_OFF:EVENT_ON);
+#ifdef LEDSW
+                if (flags & FLAG_INPUT_TOGGLE) {
+                    // Handle the toggle operation. We'll use the outputState to maintain the
+                    // toggle state. No need to use EVENT_INVERTED.
+                    if ((analogueState[portInProgress].eventState != ANALOGUE_EVENT_LOWER) && (adc <= lthreshold)) {
+                        // Low on 
+                        if ((flags & FLAG_TRIGGER_INVERTED) == 0) {
+                            if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
+                                outputState[portInProgress] = ! outputState[portInProgress];
+                                sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), outputState[portInProgress]);
+                            }
+                        } // else ignore the on
+                        analogueState[portInProgress].eventState = ANALOGUE_EVENT_LOWER;
+                    } else if ((analogueState[portInProgress].eventState == ANALOGUE_EVENT_LOWER) && (adc >= lhysteresis)) {
+                        //Low Off
+                        if (flags & FLAG_TRIGGER_INVERTED) {
+                            if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
+                                outputState[portInProgress] = ! outputState[portInProgress];
+                                sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), outputState[portInProgress]);
+                            }
+                        } // else ignore the off
+                        analogueState[portInProgress].eventState = ANALOGUE_EVENT_OFF;
                     }
-                    analogueState[portInProgress].eventState = ANALOGUE_EVENT_LOWER;
-                } else if ((analogueState[portInProgress].eventState == ANALOGUE_EVENT_LOWER) && (adc >= lhysteresis)) {
-                    //Low Off
-                    if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
-                        if (!(getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_DISABLE_OFF)) {
-                            sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), (getNV(NV_IO_FLAGS(portInProgress) ) & FLAG_RESULT_EVENT_INVERTED)?EVENT_ON:EVENT_OFF);
+                } else {
+#endif
+                    if ((analogueState[portInProgress].eventState != ANALOGUE_EVENT_LOWER) && (adc <= lthreshold)) {
+                        // Low on 
+                        if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
+                            sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), (flags & FLAG_RESULT_EVENT_INVERTED)?EVENT_OFF:EVENT_ON);
                         }
+                        analogueState[portInProgress].eventState = ANALOGUE_EVENT_LOWER;
+                    } else if ((analogueState[portInProgress].eventState == ANALOGUE_EVENT_LOWER) && (adc >= lhysteresis)) {
+                        //Low Off
+                        if (analogueState[portInProgress].portState == ANALOGUE_PORT_READY) {
+                            if (!(flags & FLAG_DISABLE_OFF)) {
+                                sendProducedEvent(HAPPENING_IO_MAGNETL(portInProgress), (flags & FLAG_RESULT_EVENT_INVERTED)?EVENT_ON:EVENT_OFF);
+                            }
+                        }
+                        analogueState[portInProgress].eventState = ANALOGUE_EVENT_OFF;
                     }
-                    analogueState[portInProgress].eventState = ANALOGUE_EVENT_OFF;
+#ifdef LEDSW
                 }
+#endif
             } else {
                 // we are setting up this channel
                 sendMessage7(OPC_ARSON3, nn.bytes.hi, nn.bytes.lo, 0, portInProgress + 1, portInProgress + 1, adc&0xff, adc>>8);
