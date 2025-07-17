@@ -336,13 +336,14 @@ static Processed consumer2QProcessMessage(Message *m) {
                                 if (getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_EXPEDITED) {
                                     setExpeditedActions();
                                 }
+                                // fall through
+#ifdef LEDSW
+                            case TYPE_LEDSW:
+#endif
                                 if (ca == ACTION_IO_4) {
                                     // action 4 (Flash) must be converted to 3(OFF)
                                     action--;
                                 }
-#ifdef LEDSW
-                            case TYPE_LEDSW:
-#endif
                                 // fall through
                             case TYPE_SERVO:
                             case TYPE_BOUNCE:

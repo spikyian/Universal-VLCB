@@ -184,7 +184,11 @@ void startDigitalOutput(uint8_t io, uint8_t state) {
 void processOutputs(void) {
     uint8_t io;
     for (io=0; io<NUM_IO; io++) {
-        if (getNV(NV_IO_TYPE(io)) == TYPE_OUTPUT) {
+        if ((getNV(NV_IO_TYPE(io)) == TYPE_OUTPUT) 
+#ifdef LEDSW
+                || (getNV(NV_IO_TYPE(io)) == TYPE_LEDSW)
+#endif
+                ) {
             // Handle the FLASH toggle
             if (flashDelays[io] == 1) {
                 setOutputPin(io, getNV(NV_IO_FLAGS(io)) & FLAG_OUTPUT_ACTION_INVERTED);
@@ -200,6 +204,8 @@ void processOutputs(void) {
             } else if (flashDelays[io] < -1) {
                 flashDelays[io]++;
             }
+        }
+        if (getNV(NV_IO_TYPE(io)) == TYPE_OUTPUT) {
             // Handle PULSEd outputs
             if (pulseDelays[io] != NEEDS_STARTING) {
                 pulseDelays[io]--;

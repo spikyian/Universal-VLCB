@@ -399,7 +399,7 @@ MODE_BOOT 14
 MODE_FCUCOMPAT_ON 16
 MODE_FCUCOMPAT_OFF 17
 ]
-"404
+"405
 [e E23266 VlcbConsumerEvUsage `uc
 CONSUMER_EV_NOT_SPECIFIED 0
 CONSUMER_EV_ACTIONS 1
@@ -3177,9 +3177,9 @@ FLASH_NVM_TYPE 1
 [v _startDigitalOutput startDigitalOutput `(v  1 e 1 0 ]
 "184
 [v _processOutputs processOutputs `(v  1 e 1 0 ]
-"232
+"238
 [v _setDigitalOutput setDigitalOutput `(v  1 e 1 0 ]
-"262
+"268
 [v _setOutputPin setOutputPin `(v  1 e 1 0 ]
 [v i2_setOutputPin setOutputPin `(v  1 e 1 0 ]
 "111 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
@@ -3189,32 +3189,32 @@ FLASH_NVM_TYPE 1
 "147 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.h
 "150
 [s S198 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"387 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
+"388 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [u S201 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S198 1 asBytes 2 0 ]
 [v _consumer2QGetDiagnostic consumer2QGetDiagnostic `(*.39S201  1 s 3 consumer2QGetDiagnostic ]
-"401
+"402
 [v _consumer2QEsdData consumer2QEsdData `(uc  1 s 1 consumer2QEsdData ]
-"419
+"420
 [v _isConsumedEvent isConsumedEvent `(uc  1 e 1 0 ]
-"437
+"438
 [v _pushTwoAction pushTwoAction `(E23308  1 e 1 0 ]
-"458
+"459
 [v _getTwoAction getTwoAction `(uc  1 e 1 0 ]
-"467
+"468
 [v _popTwoAction popTwoAction `(uc  1 e 1 0 ]
-"488
+"489
 [v _doneTwoAction doneTwoAction `(v  1 e 1 0 ]
-"497
+"498
 [v _peekTwoActionQueue peekTwoActionQueue `(uc  1 e 1 0 ]
-"527
+"528
 [v _deleteTwoActionQueue deleteTwoActionQueue `(v  1 e 1 0 ]
-"556
+"557
 [v _setExpeditedActions setExpeditedActions `(v  1 e 1 0 ]
-"563
+"564
 [v _setNormalActions setNormalActions `(v  1 e 1 0 ]
-"573
+"574
 [v _deleteActionRange deleteActionRange `(v  1 e 1 0 ]
-"606
+"607
 [v _consumerEventCheckLen consumerEventCheckLen `(E23341  1 s 1 consumerEventCheckLen ]
 "70 C:\Users\ianwh\github\Universal-VLCB/inputs.c
 [v _initInputScan initInputScan `(v  1 e 1 0 ]
@@ -4687,7 +4687,7 @@ FLASH_NVM_TYPE 1
 [s S188 Message 9 `uc 1 len 1 0 `E22879 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
 "144
 [v consumer2QProcessMessage@m m `*.39S188  1 p 2 92 ]
-"379
+"380
 } 0
 "382 C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 [v _teachProcessMessage teachProcessMessage `(E23341  1 s 1 teachProcessMessage ]
@@ -5070,13 +5070,13 @@ FLASH_NVM_TYPE 1
 [v bootEsdData@id id `uc  1 p 1 24 ]
 "263
 } 0
-"401 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
+"402 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [v _consumer2QEsdData consumer2QEsdData `(uc  1 s 1 consumer2QEsdData ]
 {
 [v consumer2QEsdData@index index `uc  1 p 1 wreg ]
 [v consumer2QEsdData@index index `uc  1 p 1 wreg ]
 [v consumer2QEsdData@index index `uc  1 p 1 24 ]
-"410
+"411
 } 0
 "529 C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 [v _teachGetESDdata teachGetESDdata `(uc  1 s 1 teachGetESDdata ]
@@ -5138,14 +5138,14 @@ FLASH_NVM_TYPE 1
 "147 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.h
 "150
 [s S198 . 2 `uc 1 lo 1 0 `uc 1 hi 1 1 ]
-"387 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
+"388 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [u S201 DiagnosticVal 2 `us 1 asUint 2 0 `s 1 asInt 2 0 `S198 1 asBytes 2 0 ]
 [v _consumer2QGetDiagnostic consumer2QGetDiagnostic `(*.39S201  1 s 3 consumer2QGetDiagnostic ]
 {
 [v consumer2QGetDiagnostic@index index `uc  1 p 1 wreg ]
 [v consumer2QGetDiagnostic@index index `uc  1 p 1 wreg ]
 [v consumer2QGetDiagnostic@index index `uc  1 p 1 33 ]
-"392
+"393
 } 0
 "147 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.h
 "150
@@ -5229,45 +5229,45 @@ FLASH_NVM_TYPE 1
 [v sendMessage2@opc opc `E22929  1 p 1 46 ]
 "1159
 } 0
-"563 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
+"564 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [v _setNormalActions setNormalActions `(v  1 e 1 0 ]
 {
-"565
+"566
 } 0
-"556
+"557
 [v _setExpeditedActions setExpeditedActions `(v  1 e 1 0 ]
 {
-"558
+"559
 } 0
-"437
+"438
 [v _pushTwoAction pushTwoAction `(E23308  1 e 1 0 ]
 {
 [v pushTwoAction@a a `uc  1 p 1 wreg ]
 [v pushTwoAction@a a `uc  1 p 1 wreg ]
 [v pushTwoAction@a a `uc  1 p 1 24 ]
-"450
+"451
 } 0
-"419
+"420
 [v _isConsumedEvent isConsumedEvent `(uc  1 e 1 0 ]
 {
 [v isConsumedEvent@eventIndex eventIndex `uc  1 p 1 wreg ]
-"421
+"422
 [v isConsumedEvent@i i `uc  1 a 1 12 ]
-"420
+"421
 [v isConsumedEvent@ev ev `uc  1 a 1 11 ]
-"419
+"420
 [v isConsumedEvent@eventIndex eventIndex `uc  1 p 1 wreg ]
-"423
+"424
 [v isConsumedEvent@eventIndex eventIndex `uc  1 p 1 10 ]
-"430
+"431
 } 0
-"606
+"607
 [v _consumerEventCheckLen consumerEventCheckLen `(E23341  1 s 1 consumerEventCheckLen ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E22879 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
 [v consumerEventCheckLen@m m `*.39S188  1 p 2 24 ]
 [v consumerEventCheckLen@needed needed `uc  1 p 1 26 ]
-"608
+"609
 } 0
 "1108 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _checkLen checkLen `(E23341  1 e 1 0 ]
@@ -5467,7 +5467,7 @@ FLASH_NVM_TYPE 1
 {
 "185
 [v processOutputs@io io `uc  1 a 1 27 ]
-"224
+"230
 } 0
 "243 C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 [v _processActions processActions `(v  1 e 1 0 ]
@@ -5609,22 +5609,22 @@ FLASH_NVM_TYPE 1
 [v needsStarting@io io `uc  1 p 1 28 ]
 "223
 } 0
-"458 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
+"459 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [v _getTwoAction getTwoAction `(uc  1 e 1 0 ]
 {
-"460
+"461
 } 0
-"497
+"498
 [v _peekTwoActionQueue peekTwoActionQueue `(uc  1 e 1 0 ]
 {
 [v peekTwoActionQueue@index index `uc  1 p 1 wreg ]
-"498
-[v peekTwoActionQueue@qty qty `uc  1 a 1 24 ]
-"497
-[v peekTwoActionQueue@index index `uc  1 p 1 wreg ]
 "499
+[v peekTwoActionQueue@qty qty `uc  1 a 1 24 ]
+"498
+[v peekTwoActionQueue@index index `uc  1 p 1 wreg ]
+"500
 [v peekTwoActionQueue@index index `uc  1 p 1 25 ]
-"521
+"522
 } 0
 "269 C:\Users\ianwh\github\Universal-VLCB/outputs.c
 [v _finaliseOutput finaliseOutput `(v  1 e 1 0 ]
@@ -5638,15 +5638,15 @@ FLASH_NVM_TYPE 1
 [v doWait@duration duration `us  1 p 2 40 ]
 "360
 } 0
-"488 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
+"489 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [v _doneTwoAction doneTwoAction `(v  1 e 1 0 ]
 {
-"490
+"491
 } 0
-"467
+"468
 [v _popTwoAction popTwoAction `(uc  1 e 1 0 ]
 {
-"483
+"484
 } 0
 "397 C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 [v _doSOD doSOD `(v  1 e 1 0 ]
@@ -5675,17 +5675,17 @@ FLASH_NVM_TYPE 1
 [v findServiceIndex@serviceType serviceType `uc  1 p 1 26 ]
 "841
 } 0
-"527 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
+"528 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [v _deleteTwoActionQueue deleteTwoActionQueue `(v  1 e 1 0 ]
 {
 [v deleteTwoActionQueue@index index `uc  1 p 1 wreg ]
-"528
-[v deleteTwoActionQueue@qty qty `uc  1 a 1 24 ]
-"527
-[v deleteTwoActionQueue@index index `uc  1 p 1 wreg ]
 "529
+[v deleteTwoActionQueue@qty qty `uc  1 a 1 24 ]
+"528
+[v deleteTwoActionQueue@index index `uc  1 p 1 wreg ]
+"530
 [v deleteTwoActionQueue@index index `uc  1 p 1 25 ]
-"551
+"552
 } 0
 "229 C:\Users\ianwh\github\Universal-VLCB/outputs.c
 [v _completed completed `(E23309  1 e 1 0 ]
@@ -6120,22 +6120,22 @@ FLASH_NVM_TYPE 1
 [v deleteHappeningRange@happening happening `uc  1 p 1 53 ]
 "305
 } 0
-"573 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
+"574 C:\Users\ianwh\github\Universal-VLCB/event_consumerDualActionQueue.c
 [v _deleteActionRange deleteActionRange `(v  1 e 1 0 ]
 {
 [v deleteActionRange@action action `uc  1 p 1 wreg ]
-"578
+"579
 [v deleteActionRange@e e `uc  1 a 1 55 ]
-"577
+"578
 [v deleteActionRange@updated updated `E23308  1 a 1 53 ]
-"574
+"575
 [v deleteActionRange@tableIndex tableIndex `uc  1 a 1 56 ]
-"573
+"574
 [v deleteActionRange@action action `uc  1 p 1 wreg ]
 [v deleteActionRange@number number `uc  1 p 1 47 ]
-"575
+"576
 [v deleteActionRange@action action `uc  1 p 1 54 ]
-"598
+"599
 } 0
 "952 C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 [v _addEvent addEvent `(uc  1 e 1 0 ]
@@ -6453,26 +6453,26 @@ FLASH_NVM_TYPE 1
 [v EEPROM_WriteNoVerify@value value `uc  1 p 1 27 ]
 "306
 } 0
-"232 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
+"238 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
 [v _setDigitalOutput setDigitalOutput `(v  1 e 1 0 ]
 {
 [v setDigitalOutput@io io `uc  1 p 1 wreg ]
-"233
+"239
 [v setDigitalOutput@pinState pinState `E23308  1 a 1 37 ]
-"232
+"238
 [v setDigitalOutput@io io `uc  1 p 1 wreg ]
 [v setDigitalOutput@state state `uc  1 p 1 36 ]
 [v setDigitalOutput@io io `uc  1 p 1 38 ]
-"255
+"261
 } 0
-"262
+"268
 [v _setOutputPin setOutputPin `(v  1 e 1 0 ]
 {
 [v setOutputPin@io io `uc  1 p 1 wreg ]
 [v setOutputPin@io io `uc  1 p 1 wreg ]
 [v setOutputPin@state state `E23308  1 p 1 28 ]
 [v setOutputPin@io io `uc  1 p 1 31 ]
-"312
+"318
 } 0
 "182 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _getNV getNV `(s  1 e 2 0 ]
@@ -6536,14 +6536,14 @@ FLASH_NVM_TYPE 1
 {
 "271
 } 0
-"262 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
+"268 C:\Users\ianwh\github\Universal-VLCB/digitalOut.c
 [v i2_setOutputPin setOutputPin `(v  1 e 1 0 ]
 {
 [v i2setOutputPin@io io `uc  1 p 1 wreg ]
 [v i2setOutputPin@io io `uc  1 p 1 wreg ]
 [v i2setOutputPin@state state `E23308  1 p 1 16 ]
 [v i2setOutputPin@io io `uc  1 p 1 19 ]
-"312
+"318
 } 0
 "182 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v i2_getNV getNV `(s  1 e 2 0 ]
