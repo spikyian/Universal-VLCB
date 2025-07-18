@@ -161,20 +161,21 @@ void startDigitalOutput(uint8_t io, uint8_t state) {
     }
     setOutputPin(io, pinState);
     
-    
-    // Send events
-    // check if OFF events are enabled
-    if (getNV(NV_IO_FLAGS(io)) & FLAG_DISABLE_OFF) {
-        if (actionState) {
-            // only ON
+    if (getNV(NV_IO_TYPE(io)) == TYPE_OUTPUT) {
+        // Send events
+        // check if OFF events are enabled
+        if (getNV(NV_IO_FLAGS(io)) & FLAG_DISABLE_OFF) {
+            if (actionState) {
+                // only ON
+                // check if produced event is inverted
+                sendInvertedProducedEvent(HAPPENING_IO_INPUT(io), actionState?EVENT_ON:EVENT_OFF, 
+                        getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED, TRUE, TRUE);
+            }
+        } else {
             // check if produced event is inverted
             sendInvertedProducedEvent(HAPPENING_IO_INPUT(io), actionState?EVENT_ON:EVENT_OFF, 
                     getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED, TRUE, TRUE);
         }
-    } else {
-        // check if produced event is inverted
-        sendInvertedProducedEvent(HAPPENING_IO_INPUT(io), actionState?EVENT_ON:EVENT_OFF, 
-                getNV(NV_IO_FLAGS(io)) & FLAG_RESULT_EVENT_INVERTED, TRUE, TRUE);
     }
 }
 

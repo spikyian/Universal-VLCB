@@ -169,7 +169,7 @@ void pollAnalogue(void) {
                     else {
                         // TYPE_LEDSW
                         lthreshold = getNV(NV_IO_LEDSW_THRESHOLD(portInProgress));
-                        lhysteresis = lthreshold - 6;
+                        lhysteresis = lthreshold - 8;
                     }
 #endif
                 }

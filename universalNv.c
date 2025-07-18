@@ -59,7 +59,7 @@ static const uint8_t channelDefaultNVs[11][NVS_PER_IO] = {
     {6,6,0,123,32,7,255},     // MAGNET
     {7,6,5,0,0,0,0},          // CDU
     {8,0,0,0,0,0,0},          // RAILCOM
-    {9,6,46,0,0,0,0},         // LEDSW
+    {9,6,70,5,0,0,0},         // LEDSW
 };
 
 /**
