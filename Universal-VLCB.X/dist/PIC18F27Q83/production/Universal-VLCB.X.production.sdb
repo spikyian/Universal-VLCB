@@ -162,23 +162,23 @@ SEND_OK 1
 NOT_RECEIVED 0
 RECEIVED 1
 ]
-"357
+"360
 [e E23258 Boolean `uc
 FALSE 0
 TRUE 1
 ]
-"364
+"367
 [e E23278 . `uc
 EVENT_UNKNOWN 255
 EVENT_OFF 0
 EVENT_ON 1
 ]
-"413
+"416
 [e E23231 ValidTime `uc
 BAD_TIME 0
 GOOD_TIME 1
 ]
-"471
+"474
 [e E23227 . `uc
 EEPROM_NVM_TYPE 0
 FLASH_NVM_TYPE 1
@@ -436,7 +436,7 @@ SERVICE_ID_EVENTACK 9
 SERVICE_ID_BOOT 10
 SERVICE_ID_STREAMING 17
 ]
-"294 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
+"295 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
 [e E23469 NvValidation `uc
 INVALID 0
 VALID 1
@@ -3228,23 +3228,23 @@ FLASH_NVM_TYPE 1
 [v _APP_testMode APP_testMode `(v  1 e 1 0 ]
 "240
 [v _setup setup `(v  1 e 1 0 ]
-"360
+"363
 [v _loop loop `(v  1 e 1 0 ]
-"413
+"416
 [v _APP_isSuitableTimeToWriteFlash APP_isSuitableTimeToWriteFlash `(E23231  1 e 1 0 ]
-"424
+"427
 [v _APP_preProcessMessage APP_preProcessMessage `(E23291  1 e 1 0 ]
-"431
+"434
 [v _APP_postProcessMessage APP_postProcessMessage `(E23291  1 e 1 0 ]
-"438
+"441
 [v _APP_GetEventState APP_GetEventState `(E23278  1 e 1 0 ]
-"541
+"544
 [v _setType setType `(v  1 e 1 0 ]
-"585
+"588
 [v _configIO configIO `(v  1 e 1 0 ]
-"627
+"630
 [v _configDirection configDirection `(v  1 e 1 0 ]
-"675
+"678
 [v _configAnalogue configAnalogue `(v  1 e 1 0 ]
 "72 C:\Users\ianwh\github\Universal-VLCB/outputs.c
 [v _startOutput startOutput `(v  1 e 1 0 ]
@@ -3312,9 +3312,9 @@ FLASH_NVM_TYPE 1
 [v _APP_nvDefault APP_nvDefault `(uc  1 e 1 0 ]
 "99
 [v _APP_nvValueChanged APP_nvValueChanged `(v  1 e 1 0 ]
-"294
+"295
 [v _APP_nvValidate APP_nvValidate `(E23469  1 e 1 0 ]
-"342
+"343
 [v _defaultNVs defaultNVs `(v  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -3488,11 +3488,11 @@ FLASH_NVM_TYPE 1
 [v _flashFlushTime flashFlushTime `S37  1 s 4 flashFlushTime ]
 "47 C:\Users\ianwh\github\Universal-VLCB/analogue.c
 [v _portInProgress portInProgress `uc  1 s 1 portInProgress ]
-[s S461 . 1 `uc 1 eventState 1 0 :2:0 
+[s S467 . 1 `uc 1 eventState 1 0 :2:0 
 `uc 1 portState 1 0 :1:2 
 ]
 "48
-[v _analogueState analogueState `[16]S461  1 e 16 0 ]
+[v _analogueState analogueState `[16]S467  1 e 16 0 ]
 "50
 [v _setupIo setupIo `uc  1 e 1 0 ]
 "51
@@ -3760,7 +3760,7 @@ FLASH_NVM_TYPE 1
 [v _PORTB PORTB `VEuc  1 e 1 @1231 ]
 "2717
 [v _PORTC PORTC `VEuc  1 e 1 @1232 ]
-[s S380 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[s S386 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -3769,11 +3769,11 @@ FLASH_NVM_TYPE 1
 `uc 1 GIE 1 0 :1:7 
 ]
 "2820
-[s S388 . 1 `uc 1 . 1 0 :7:0 
+[s S394 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S391 . 1 `S380 1 . 1 0 `S388 1 . 1 0 ]
-[v _INTCON0bits INTCON0bits `VES391  1 e 1 @1238 ]
+[u S397 . 1 `S386 1 . 1 0 `S394 1 . 1 0 ]
+[v _INTCON0bits INTCON0bits `VES397  1 e 1 @1238 ]
 "3736
 [v _TABLAT TABLAT `VEuc  1 e 1 @1269 ]
 "3765
@@ -4444,7 +4444,7 @@ FLASH_NVM_TYPE 1
 {
 "242
 [v setup@pu pu `uc  1 a 1 11 ]
-"358
+"361
 } 0
 "93 C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 [v _universalEventsInit universalEventsInit `(v  1 e 1 0 ]
@@ -4939,21 +4939,21 @@ FLASH_NVM_TYPE 1
 [v sodTRCallback@step step `uc  1 p 1 35 ]
 "470
 } 0
-"438 C:\Users\ianwh\github\Universal-VLCB/main.c
+"441 C:\Users\ianwh\github\Universal-VLCB/main.c
 [v _APP_GetEventState APP_GetEventState `(E23278  1 e 1 0 ]
 {
 [v APP_GetEventState@h h `uc  1 p 1 wreg ]
-"440
-[v APP_GetEventState@happeningIndex happeningIndex `uc  1 a 1 46 ]
-"441
-[v APP_GetEventState@disable_off disable_off `E23258  1 a 1 44 ]
-"439
-[v APP_GetEventState@flags flags `uc  1 a 1 43 ]
-"438
-[v APP_GetEventState@h h `uc  1 p 1 wreg ]
 "443
+[v APP_GetEventState@happeningIndex happeningIndex `uc  1 a 1 46 ]
+"444
+[v APP_GetEventState@disable_off disable_off `E23258  1 a 1 44 ]
+"442
+[v APP_GetEventState@flags flags `uc  1 a 1 43 ]
+"441
+[v APP_GetEventState@h h `uc  1 p 1 wreg ]
+"446
 [v APP_GetEventState@h h `uc  1 p 1 45 ]
-"533
+"536
 } 0
 "1171 C:\Users\ianwh\github/VLCBlib_PIC/event_teach_large.c
 [v _numEv numEv `(uc  1 e 1 0 ]
@@ -5009,7 +5009,7 @@ FLASH_NVM_TYPE 1
 [v APP_nvValueChanged@oldValue oldValue `uc  1 p 1 79 ]
 "103
 [v APP_nvValueChanged@index index `uc  1 p 1 85 ]
-"287
+"288
 } 0
 "911 C:\Users\ianwh\github/VLCBlib_PIC/vlcb.c
 [v _setTimedResponseDelay setTimedResponseDelay `(v  1 e 1 0 ]
@@ -5028,15 +5028,15 @@ FLASH_NVM_TYPE 1
 [v setServoPosition@io io `uc  1 p 1 37 ]
 "705
 } 0
-"294 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
+"295 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
 [v _APP_nvValidate APP_nvValidate `(E23469  1 e 1 0 ]
 {
 [v APP_nvValidate@index index `uc  1 p 1 wreg ]
 [v APP_nvValidate@index index `uc  1 p 1 wreg ]
 [v APP_nvValidate@value value `uc  1 p 1 36 ]
-"296
+"297
 [v APP_nvValidate@index index `uc  1 p 1 37 ]
-"335
+"336
 } 0
 "194 C:\Users\ianwh\github/VLCBlib_PIC/event_producer_happening.c
 [v _producerEsdData producerEsdData `(uc  1 s 1 producerEsdData ]
@@ -5366,24 +5366,24 @@ FLASH_NVM_TYPE 1
 [v prepareSelfEnumResponse@txFifoObj txFifoObj `*.39uc  1 a 2 24 ]
 "402
 } 0
-"424 C:\Users\ianwh\github\Universal-VLCB/main.c
+"427 C:\Users\ianwh\github\Universal-VLCB/main.c
 [v _APP_preProcessMessage APP_preProcessMessage `(E23291  1 e 1 0 ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E22879 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
 [v APP_preProcessMessage@m m `*.39S188  1 p 2 24 ]
-"426
+"429
 } 0
-"431
+"434
 [v _APP_postProcessMessage APP_postProcessMessage `(E23291  1 e 1 0 ]
 {
 [s S188 Message 9 `uc 1 len 1 0 `E22879 1 opc 1 1 `[7]uc 1 bytes 7 2 ]
 [v APP_postProcessMessage@m m `*.39S188  1 p 2 24 ]
-"433
+"436
 } 0
-"360
+"363
 [v _loop loop `(v  1 e 1 0 ]
 {
-"399
+"402
 } 0
 "186 C:\Users\ianwh\github\Universal-VLCB/servo.c
 [v _startServos startServos `(uc  1 e 1 0 ]
@@ -6032,18 +6032,18 @@ FLASH_NVM_TYPE 1
 [v APP_factoryReset@io io `uc  1 a 1 78 ]
 "227
 } 0
-"541
+"544
 [v _setType setType `(v  1 e 1 0 ]
 {
 [v setType@io io `uc  1 p 1 wreg ]
-"542
+"545
 [v setType@index index `uc  1 a 1 76 ]
-"541
+"544
 [v setType@io io `uc  1 p 1 wreg ]
 [v setType@type type `uc  1 p 1 72 ]
-"544
+"547
 [v setType@io io `uc  1 p 1 77 ]
-"577
+"580
 } 0
 "85 C:\Users\ianwh\github\Universal-VLCB/analogue.c
 [v _initAnaloguePort initAnaloguePort `(v  1 e 1 0 ]
@@ -6053,18 +6053,18 @@ FLASH_NVM_TYPE 1
 [v initAnaloguePort@io io `uc  1 p 1 24 ]
 "88
 } 0
-"342 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
+"343 C:\Users\ianwh\github\Universal-VLCB/universalNv.c
 [v _defaultNVs defaultNVs `(v  1 e 1 0 ]
 {
 [v defaultNVs@io io `uc  1 p 1 wreg ]
-"343
+"344
 [v defaultNVs@i i `uc  1 a 1 5 ]
-"342
+"343
 [v defaultNVs@io io `uc  1 p 1 wreg ]
 [v defaultNVs@type type `uc  1 p 1 1 ]
-"345
+"346
 [v defaultNVs@io io `uc  1 p 1 4 ]
-"349
+"350
 } 0
 "199 C:\Users\ianwh\github/VLCBlib_PIC/nv.c
 [v _saveNV saveNV `(v  1 e 1 0 ]
@@ -6371,19 +6371,19 @@ FLASH_NVM_TYPE 1
 [v getEN@tableIndex tableIndex `uc  1 p 1 46 ]
 "1265
 } 0
-"585 C:\Users\ianwh\github\Universal-VLCB/main.c
+"588 C:\Users\ianwh\github\Universal-VLCB/main.c
 [v _configIO configIO `(v  1 e 1 0 ]
 {
 [v configIO@i i `uc  1 p 1 wreg ]
-"587
+"590
 [v configIO@type type `uc  1 a 1 6 ]
-"586
-[v configIO@action action `uc  1 a 1 5 ]
-"585
-[v configIO@i i `uc  1 p 1 wreg ]
 "589
+[v configIO@action action `uc  1 a 1 5 ]
+"588
+[v configIO@i i `uc  1 p 1 wreg ]
+"592
 [v configIO@i i `uc  1 p 1 7 ]
-"625
+"628
 } 0
 "553 C:\Users\ianwh\github/VLCBlib_PIC/nvm.c
 [v _writeNVM writeNVM `(uc  1 e 1 0 ]
@@ -6421,10 +6421,10 @@ FLASH_NVM_TYPE 1
 [v eraseFlashBlock@interruptEnabled interruptEnabled `uc  1 a 1 27 ]
 "388
 } 0
-"413 C:\Users\ianwh\github\Universal-VLCB/main.c
+"416 C:\Users\ianwh\github\Universal-VLCB/main.c
 [v _APP_isSuitableTimeToWriteFlash APP_isSuitableTimeToWriteFlash `(E23231  1 e 1 0 ]
 {
-"419
+"422
 } 0
 "713 C:\Users\ianwh\github\Universal-VLCB/servo.c
 [v _isNoServoPulses isNoServoPulses `(E23258  1 e 1 0 ]
@@ -6503,23 +6503,23 @@ FLASH_NVM_TYPE 1
 [v EEPROM_Read@index index `um  1 p 3 24 ]
 "210
 } 0
-"627 C:\Users\ianwh\github\Universal-VLCB/main.c
+"630 C:\Users\ianwh\github\Universal-VLCB/main.c
 [v _configDirection configDirection `(v  1 e 1 0 ]
 {
 [v configDirection@i i `uc  1 p 1 wreg ]
 [v configDirection@i i `uc  1 p 1 wreg ]
 [v configDirection@dir dir `uc  1 p 1 24 ]
 [v configDirection@i i `uc  1 p 1 27 ]
-"668
+"671
 } 0
-"675
+"678
 [v _configAnalogue configAnalogue `(v  1 e 1 0 ]
 {
 [v configAnalogue@i i `uc  1 p 1 wreg ]
 [v configAnalogue@i i `uc  1 p 1 wreg ]
 [v configAnalogue@ana ana `uc  1 p 1 24 ]
 [v configAnalogue@i i `uc  1 p 1 27 ]
-"739
+"742
 } 0
 "100 C:\Users\ianwh\github\Universal-VLCB/universalEvents.c
 [v _factoryResetGlobalEvents factoryResetGlobalEvents `(v  1 e 1 0 ]

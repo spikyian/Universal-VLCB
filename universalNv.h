@@ -254,7 +254,12 @@ typedef struct {
         NvIo io[NUM_IO];                 // config for each IO
 } ModuleNvDefs;
 
-extern void defaultNVs(uint8_t i, uint8_t type);     
+extern void defaultNVs(uint8_t i, uint8_t type); 
+
+
+#define RESPONSE_DELAY_DEFAULT  10
+#define RESPONSE_DELAY_MAX   100
+
 
 // Default type is INPUT for all on CANMIO, 
 // on the CANBIP it is OUTPUT for the main board and INPUT for the expansion (daughterboard) connections)

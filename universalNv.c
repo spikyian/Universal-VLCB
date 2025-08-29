@@ -78,7 +78,7 @@ uint8_t APP_nvDefault(uint8_t index) {
             case NV_PULLUPS:
                 return 0x33;
             case NV_RESPONSE_DELAY:
-                return 2;
+                return RESPONSE_DELAY_DEFAULT;
             case NV_LOW_CHANNELS_PULLUPS:
             case NV_MID_CHANNELS_PULLUPS:
             case NV_TOP_CHANNELS_PULLUPS:
@@ -109,6 +109,7 @@ void APP_nvValueChanged(uint8_t index, uint8_t value, uint8_t oldValue) {
         }
     }
     if (index == NV_RESPONSE_DELAY) {
+        if (value > RESPONSE_DELAY_MAX) value = RESPONSE_DELAY_MAX;
         setTimedResponseDelay(value);
     }
     // Now check if the pullups must be modified

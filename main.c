@@ -305,6 +305,9 @@ void setup(void) {
         }
     }
 #endif
+    if (getNV(NV_RESPONSE_DELAY) == 0xFF) {
+        saveNV(NV_RESPONSE_DELAY, RESPONSE_DELAY_DEFAULT);
+    }
     setTimedResponseDelay((uint8_t)getNV(NV_RESPONSE_DELAY));
     universalEventsInit();
 
