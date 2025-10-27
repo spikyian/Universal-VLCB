@@ -298,7 +298,9 @@ NvValidation APP_nvValidate(uint8_t index, uint8_t value)  {
         io = IO_NV(index);
 #ifdef CANCDU
         if (io < NUM_IO_MAIN) {
-            return INVALID;
+            if (value != TYPE_CDU) {
+                return INVALID;
+            }
         }
 #endif
         switch (value) {
