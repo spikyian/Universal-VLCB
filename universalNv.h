@@ -153,7 +153,7 @@ extern "C" {
 #define NV_IO_LEDSW_THRESHOLD(i)      (NV_IO_START + NVS_PER_IO*(i) + NV_IO_LEDSW_THRESHOLD_OFFSET)
 #define NV_IO_LEDSW_FLASH_PERIOD(i)   (NV_IO_START + NVS_PER_IO*(i) + NV_IO_LEDSW_FLASH_PERIOD_OFFSET)
     
-#define IS_NV_TYPE(i)                   (((i-NV_IO_START) % NVS_PER_IO) == 0)
+#define IS_NV_TYPE(i)                   ((i>=NV_IO_START) && (((i-NV_IO_START) % NVS_PER_IO) == 0))
 #define IO_NV(i)                        ((uint8_t)((i-NV_IO_START)/NVS_PER_IO))
 #define NV_NV(i)                        ((uint8_t)((i-NV_IO_START) % NVS_PER_IO))
   

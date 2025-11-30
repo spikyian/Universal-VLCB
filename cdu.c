@@ -82,6 +82,7 @@ extern void doneTwoAction(void);
  * is also used for state i.e. a value of 1 is used for COMPLETED and a value of 0 
  * no current pulse (needs starting).
  */
+static uint8_t rechargeTimer;
 
 /**
  * Since we share the arrays used by digitalOutput the initialisation is done
@@ -192,14 +193,20 @@ void processCduPulses(void) {
                     }
                     LATAbits.LATA3 = 1;     // re-enable the charger
                     // Now start the recharge timer
-                    flashDelays[io] = (int8_t)(getNV(NV_CDU_CHARGE_TIME)+1)/10 +1;
+                    flashDelays[io] = 2;    // not complete
+                    rechargeTimer = (uint8_t)(getNV(NV_CDU_CHARGE_TIME) + COMPLETED);
                 }
             }
             // handle the recharge timer.
             // Once this reaches COMPLETED the Action will be marked as done
             // by processActions()
             if (flashDelays[io] > COMPLETED) {
-                flashDelays[io]--;
+                if (rechargeTimer > COMPLETED) {
+                    rechargeTimer--;
+                } 
+                if (rechargeTimer == COMPLETED) {
+                    flashDelays[io] = COMPLETED;
+                }
             }
         }
     }

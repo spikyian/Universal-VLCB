@@ -136,7 +136,10 @@ void startDigitalOutput(uint8_t io, uint8_t state) {
         nvPulseDuration = 0;
     } else 
 #endif
-        nvPulseDuration = (uint8_t)getNV(NV_IO_OUTPUT_PULSE_DURATION(io));
+    nvPulseDuration = (uint8_t)getNV(NV_IO_OUTPUT_PULSE_DURATION(io));
+#ifdef CDU
+    nvPulseDuration += COMPLETED;   // A time setting of 0 is no pulse
+#endif
     // ignore OFF on pulse outputs
     if (( ! actionState) && nvPulseDuration) {
         pulseDelays[io] = COMPLETED;
