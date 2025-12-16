@@ -94,6 +94,7 @@
 
 #include "devincs.h"
 #include <stddef.h>
+#include <pic18f27q83.h>
 #include "module.h"
 #include "config.h"
 #include "statusLeds.h"
@@ -257,6 +258,10 @@ void setup(void) {
 #endif
 #endif
 #if defined(_18FXXQ83_FAMILY_)
+    // Disable PortA4
+    TRISAbits.TRISA4 = 0;
+    LATAbits.LATA4 = 0;
+    
     // enable pullups on all channels
     pu = 0xFF;
     for (io=0; io<NUM_IO; io++) {
