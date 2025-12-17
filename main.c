@@ -94,7 +94,6 @@
 
 #include "devincs.h"
 #include <stddef.h>
-#include <pic18f27q83.h>
 #include "module.h"
 #include "config.h"
 #include "statusLeds.h"
